@@ -8,24 +8,33 @@ import {
 
 const AllComponents = () => (
   <div>
-    <Button>Click me</Button>
-    <Button color='teal'>Click me</Button>
+    <h1>Buttons</h1>
+    <h2>Colors</h2>
+    <Button>default</Button>
+    <Button color='gray'>gray</Button>
+    <Button color='teal'>teal</Button>
+    <Button color='white'>white</Button>
+    <Button color='red'>red</Button>
+    <Button color='purple'>purple</Button>
+    <Button color='green'>green</Button>
+    <Button color='slate'>slate</Button>
+    <Button color='black'>black</Button>
+    <Button color='yellow'>yellow</Button>
+    <Button color='transparent'>transparent</Button>
+    <Button color='twitter'>twitter</Button>
+    <Button color='facebook'>facebook</Button>
+    <Button color='tumblr'>tumblr</Button>
+    <Button color='paypal'>paypal</Button>
+    <Button color='roku'>roku</Button>
+    <h2>Sizes</h2>
+    <Button>default</Button>
+    <Button size='small'>small</Button>
+    <Button size='medium'>medium</Button>
+    <Button size='large'>large</Button>
+    <Button size='half'>half</Button>
+    <Button size='fill'>fill</Button>
   </div>
 );
 
 const mountNode = document.getElementById('app');
 ReactDOM.render(<AllComponents />, mountNode);
-
-// const renderer = testUtils.createRenderer();
-
-// test('VHX Quartz Components', (it) => {
-//   test('Button', () => {
-//     it('renders', (expect) => {
-//       renderer.render(<Button>Foo</Button>);
-//       const output = renderer.getRenderOutput();
-//       expect(output.type).to.equal('button');
-//       expect(output.props.children).to.equal('Foo');
-//     });
-//   });
-// })();
-

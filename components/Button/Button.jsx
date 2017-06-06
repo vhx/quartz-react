@@ -1,35 +1,34 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
-import css from './button.css';
 
 function getClassName({ className, color, size, typeface }) {
-  return classNames(css.btn, className, {
+  return classNames('btn', className, {
     // core colors
-    [css['btn-gray']]: color === 'gray',
-    [css['btn-teal']]: color === 'teal',
-    [css['btn-white']]: color === 'white',
-    [css['btn-red']]: color === 'red',
+    'btn-gray': color === 'gray',
+    'btn-teal': color === 'teal',
+    'btn-white': color === 'white',
+    'btn-red': color === 'red',
     // alternate colors
-    [css['btn-purple']]: color === 'purple',
-    [css['btn-green']]: color === 'green',
-    [css['btn-slate']]: color === 'slate',
-    [css['btn-black']]: color === 'black',
-    [css['btn-yellow']]: color === 'yellow',
-    [css['btn-transparent']]: color === 'transparent',
-    [css['btn-twitter']]: color === 'twitter',
-    [css['btn-facebook']]: color === 'facebook',
-    [css['btn-tumblr']]: color === 'tumblr',
-    [css['btn-paypal']]: color === 'paypal',
-    [css['btn-roku']]: color === 'roku',
+    'btn-purple': color === 'purple',
+    'btn-green': color === 'green',
+    'btn-slate': color === 'slate',
+    'btn-black': color === 'black',
+    'btn-yellow': color === 'yellow',
+    'btn-transparent': color === 'transparent',
+    'btn-twitter': color === 'twitter',
+    'btn-facebook': color === 'facebook',
+    'btn-tumblr': color === 'tumblr',
+    'btn-paypal': color === 'paypal',
+    'btn-roku': color === 'roku',
     // sizes
-    [css['btn--small']]: size === 'small',
-    [css['btn--medium']]: size === 'medium',
-    [css['btn--large']]: size === 'large',
-    [css['btn--half']]: size === 'half',
-    [css['btn--fill']]: size === 'fill',
+    'btn--small': size === 'small',
+    'btn--medium': size === 'medium',
+    'btn--large': size === 'large',
+    'btn--half': size === 'half',
+    'btn--fill': size === 'fill',
     // TODO: processing state, btn-dropdowns, (own component), btn-groups (own component), btn with icon
-    [css['btn--brandon']]: typeface === 'brandon',
+    'btn--brandon': typeface === 'brandon',
   });
 }
 
