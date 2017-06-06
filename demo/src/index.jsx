@@ -9,6 +9,7 @@ import {
 const AllComponents = () => (
   <div>
     <h1>Buttons</h1>
+
     <h2>Colors</h2>
     <Button>default</Button>
     <Button color='gray'>gray</Button>
@@ -26,6 +27,7 @@ const AllComponents = () => (
     <Button color='tumblr'>tumblr</Button>
     <Button color='paypal'>paypal</Button>
     <Button color='roku'>roku</Button>
+
     <h2>Sizes</h2>
     <Button>default</Button>
     <Button size='small'>small</Button>
@@ -33,6 +35,11 @@ const AllComponents = () => (
     <Button size='large'>large</Button>
     <Button size='half'>half</Button>
     <Button size='fill'>fill</Button>
+
+    <h2>Typefaces</h2>
+    <Button>default</Button>
+    <Button typeface='brandon'>brandon</Button>
+
   </div>
 );
 
