@@ -17,7 +17,7 @@ export default {
     replace({ 'process.env.NODE_ENV': env }),
     resolve(),
     commonjs(),
-    buble(),
+    buble({ objectAssign: 'Object.assign' }),
     filesize(),
   ],
 };

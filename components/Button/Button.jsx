@@ -32,16 +32,16 @@ function getClassName({ className, color, size, typeface }) {
   });
 }
 
-const Button = ({ children, onClick, className, color, size, typeface }) => {
+const Button = ({ children, onClick, className, color, size, typeface, attrs }) => {
   const cl = getClassName({ className, color, size, typeface });
   return (
-    <button className={cl} onClick={onClick}>{children}</button>
+    <button className={cl} onClick={onClick} {...attrs}>{children}</button>
   );
 };
 
 
 Button.propTypes = {
-  // attrs: PropTypes.object, // eslint-disable-line react/forbid-prop-types
+  attrs: PropTypes.object, // eslint-disable-line react/forbid-prop-types
   children: PropTypes.string.isRequired,
   className: PropTypes.string,
   color: PropTypes.oneOf([ 'gray', 'teal', 'white', 'red', 'purple', 'green', 'slate', 'black', 'yellow', 'transparent', 'twitter', 'facebook', 'tumblr', 'paypal', 'roku' ]),
@@ -51,7 +51,7 @@ Button.propTypes = {
 };
 
 Button.defaultProps = {
-  // attrs: {},
+  attrs: {},
   className: '',
   color: 'gray',
   onClick: null,
