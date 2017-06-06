@@ -1,0 +1,9 @@
+# node_modules is populated automatically during `npm install`
+node_modules/
+
+# OS X generates .DS_Store files from time to time. Ignore them.
+.DS_Store
+
+# The bundle is generated with npm run demo
+demo/bundle.js
+

@@ -1,0 +1,1 @@
+{"version":3,"sources":["button.css"],"names":[],"mappings":"AAAA,sCAAsC;;AAEtC;EACE,oBAAoB;EACpB,eAAe;CAChB","file":"quartz.css","sourcesContent":["@import \"../../styles/_variables.css\";\n\n.btn {\n  background: $gray-2;\n  color: $gray-7;\n}\n"]}
