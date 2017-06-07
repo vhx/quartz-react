@@ -5,4 +5,4 @@ node_modules/
 .DS_Store
 
 # The bundle is generated with npm run demo
-demo/public/js/**
+demo/public/js/*

@@ -1,56 +1,19 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import PropTypes from 'prop-types';
 
 import {
-  // Avatar,
+  Block,
+  Section,
+  Subtitle,
+} from './demo-ui.jsx';
+
+import {
   Button,
   Text,
 } from '../../index.js';
 
-const Section = ({ children, title }) => (
-  <div className='padding-large border-bottom'>
-    <div className='padding-bottom-medium'>
-      <Text h3>{title}</Text>
-    </div>
-    <div>{children}</div>
-  </div>
-);
+import CheckboxDemo from './demo-checkbox.jsx';
 
-Section.propTypes = {
-  children: PropTypes.node.isRequired,
-  title: PropTypes.string.isRequired,
-};
-
-const Block = ({ children, dark, inline }) => {
-  const className = [
-    'padding-small',
-    dark ? 'bg-gray-7' : '',
-    inline ? 'inline' : '',
-  ].join(' ');
-  return (
-    <div className={className}>{children}</div>
-  );
-};
-
-Block.propTypes = {
-  children: PropTypes.node.isRequired,
-  dark: PropTypes.bool,
-  inline: PropTypes.bool,
-};
-
-Block.defaultProps = {
-  dark: false,
-  inline: false,
-};
-
-const Subtitle = ({ children }) => (
-  <Block><Text h5>{children}</Text></Block>
-);
-
-Subtitle.propTypes = {
-  children: PropTypes.node.isRequired,
-};
 
 const AllComponents = () => (
   <div>
@@ -96,6 +59,14 @@ const AllComponents = () => (
         <Button>default</Button>
         <Button typeface='brandon'>brandon</Button>
       </Block>
+    </Section>
+    <Section title='Checkboxes'>
+      <CheckboxDemo name='checkbox-demo1' size='small' label='Small' />
+      <CheckboxDemo name='checkbox-demo2' size='medium' label='Medium' />
+      <CheckboxDemo name='checkbox-demo3' size='large' label='Large' />
+      <CheckboxDemo name='checkbox-demo4' size='small' type='toggle' />
+      <CheckboxDemo name='checkbox-demo5' size='medium' type='toggle' />
+      <CheckboxDemo name='checkbox-demo6' size='large' type='toggle' />
     </Section>
     <Section title='Text'>
       <Subtitle>Headings</Subtitle>

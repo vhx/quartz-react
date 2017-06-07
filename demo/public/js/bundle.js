@@ -1,7 +1,7 @@
 (function (React,ReactDOM) {
 'use strict';
 
-React = 'default' in React ? React['default'] : React;
+var React__default = 'default' in React ? React['default'] : React;
 ReactDOM = 'default' in ReactDOM ? ReactDOM['default'] : ReactDOM;
 
 function createCommonjsModule(fn, module) {
@@ -859,7 +859,7 @@ function getClassName(ref) {
 var Button$1 = function (props) {
   var cl = getClassName(props);
   return (
-    React.createElement( 'button', Object.assign({}, { className: cl, onClick: props.onClick }, props.attrs), props.children)
+    React__default.createElement( 'button', Object.assign({}, { className: cl, onClick: props.onClick }, props.attrs), props.children)
   );
 };
 
@@ -887,7 +887,73 @@ Button$1.defaultProps = {
 
 /* eslint-disable react/no-unused-prop-types */
 
-function getClassName$1(props) {
+var getClassName$1 = function (ref) {
+  var type = ref.type;
+  var size = ref.size;
+
+  return index$1('checkbox', size, { alt: type === 'toggle' });
+};
+
+
+var StandardCheckbox = function () { return (
+  React__default.createElement( 'span', { className: 'checkbox--icon' },
+    React__default.createElement( 'span', { className: 'checkbox--animate' })
+  )
+); };
+
+
+var ToggleCheckbox = function () { return (
+  React__default.createElement( 'span', null,
+    React__default.createElement( 'span', { className: 'checkbox--icon' }),
+    React__default.createElement( 'span', { className: 'checkbox--circle' },
+      React__default.createElement( 'i', { className: 'circle-top' }, React__default.createElement( 'span', null )),
+      React__default.createElement( 'i', { className: 'circle-bottom' }, React__default.createElement( 'span', null ))
+    )
+  )
+); };
+
+
+// NOTE: .form does not affect styles in any way, but is required for proper checkbox
+// styling since quartz/components.css nests .checkbox under .form. This limitation can
+// probably very easily be removed by changing https://github.com/vhx/quartz/blob/master/quartz-js/components/checkbox/styles/checkbox.scss
+// to have .checkbox not be required to be a descendent of .form
+var Checkbox$1 = function (props) { return (
+  React__default.createElement( 'div', { className: 'form' },
+    React__default.createElement( 'fieldset', { className: getClassName$1(props) },
+      React__default.createElement( 'input', { type: 'checkbox', checked: props.checked, name: props.name, value: props.value, onChange: props.onChange, id: props.name }),
+      React__default.createElement( 'label', { htmlFor: props.name },
+        React__default.createElement( 'span', { className: 'checkbox--contain' },
+          props.type === 'toggle' ? React__default.createElement( ToggleCheckbox, null ) : React__default.createElement( StandardCheckbox, null ),
+          React__default.createElement( 'span', { className: 'checkbox--label' }, props.label)
+        )
+      )
+    )
+  )
+); };
+
+
+Checkbox$1.propTypes = {
+  checked: index.bool,
+  label: index.string,
+  name: index.string.isRequired,
+  onChange: index.func,
+  size: index.oneOf([ 'small', 'medium', 'large' ]),
+  type: index.oneOf([ 'standard', 'toggle' ]),
+  value: index.string,
+};
+
+Checkbox$1.defaultProps = {
+  checked: false,
+  label: '',
+  onChange: null,
+  size: 'medium',
+  type: 'standard',
+  value: '',
+};
+
+/* eslint-disable react/no-unused-prop-types */
+
+function getClassName$2(props) {
   return index$1({
     block: Boolean(props.block),
     'head-1': Boolean(props.h1),
@@ -903,7 +969,7 @@ function getClassName$1(props) {
 }
 
 var Text$1 = function (props) { return (
-  React.createElement( 'span', { className: getClassName$1(props) }, props.children)
+  React__default.createElement( 'span', { className: getClassName$2(props) }, props.children)
 ); };
 
 Text$1.propTypes = {
@@ -928,6 +994,7 @@ Text$1.defaultProps = {
 };
 
 var Button = Button$1;
+var Checkbox = Checkbox$1;
 var Text = Text$1;
 
 var Section = function (ref) {
@@ -935,11 +1002,11 @@ var Section = function (ref) {
   var title = ref.title;
 
   return (
-  React.createElement( 'div', { className: 'padding-large border-bottom' },
-    React.createElement( 'div', { className: 'padding-bottom-medium' },
-      React.createElement( Text, { h3: true }, title)
+  React__default.createElement( 'div', { className: 'padding-large border-bottom' },
+    React__default.createElement( 'div', { className: 'padding-bottom-medium' },
+      React__default.createElement( Text, { h3: true }, title)
     ),
-    React.createElement( 'div', null, children )
+    React__default.createElement( 'div', null, children )
   )
 );
 };
@@ -959,7 +1026,7 @@ var Block = function (ref) {
     dark ? 'bg-gray-7' : '',
     inline ? 'inline' : '' ].join(' ');
   return (
-    React.createElement( 'div', { className: className }, children)
+    React__default.createElement( 'div', { className: className }, children)
   );
 };
 
@@ -978,7 +1045,7 @@ var Subtitle = function (ref) {
   var children = ref.children;
 
   return (
-  React.createElement( Block, null, React.createElement( Text, { h5: true }, children) )
+  React__default.createElement( Block, null, React__default.createElement( Text, { h5: true }, children) )
 );
 };
 
@@ -986,69 +1053,102 @@ Subtitle.propTypes = {
   children: index.node.isRequired,
 };
 
+var CheckboxDemo = (function (Component$$1) {
+  function CheckboxDemo() {
+    Component$$1.call(this);
+    this.state = { checked: true };
+    this.toggle = this.toggle.bind(this);
+  }
+
+  if ( Component$$1 ) CheckboxDemo.__proto__ = Component$$1;
+  CheckboxDemo.prototype = Object.create( Component$$1 && Component$$1.prototype );
+  CheckboxDemo.prototype.constructor = CheckboxDemo;
+
+  CheckboxDemo.prototype.toggle = function toggle () {
+    this.setState({ checked: !this.state.checked });
+  };
+
+  CheckboxDemo.prototype.render = function render () {
+    return React__default.createElement( Checkbox, Object.assign({}, this.props, { checked: this.state.checked, onChange: this.toggle }));
+  };
+
+  return CheckboxDemo;
+}(React.Component));
+
+CheckboxDemo.propTypes = Checkbox.propTypes;
+CheckboxDemo.defaultProps = Checkbox.defaultProps;
+
 var AllComponents = function () { return (
-  React.createElement( 'div', null,
-    React.createElement( Section, { title: 'Buttons' },
-      React.createElement( Subtitle, null, "Colors" ),
-      React.createElement( Block, { inline: true },
-        React.createElement( Button, null, "default" ),
-        React.createElement( Button, { color: 'gray' }, "gray"),
-        React.createElement( Button, { color: 'teal' }, "teal"),
-        React.createElement( Button, { color: 'white' }, "white"),
-        React.createElement( Button, { color: 'red' }, "red"),
-        React.createElement( Button, { color: 'purple' }, "purple"),
-        React.createElement( Button, { color: 'green' }, "green"),
-        React.createElement( Button, { color: 'slate' }, "slate"),
-        React.createElement( Button, { color: 'black' }, "black"),
-        React.createElement( Button, { color: 'yellow' }, "yellow")
+  React__default.createElement( 'div', null,
+    React__default.createElement( Section, { title: 'Buttons' },
+      React__default.createElement( Subtitle, null, "Colors" ),
+      React__default.createElement( Block, { inline: true },
+        React__default.createElement( Button, null, "default" ),
+        React__default.createElement( Button, { color: 'gray' }, "gray"),
+        React__default.createElement( Button, { color: 'teal' }, "teal"),
+        React__default.createElement( Button, { color: 'white' }, "white"),
+        React__default.createElement( Button, { color: 'red' }, "red"),
+        React__default.createElement( Button, { color: 'purple' }, "purple"),
+        React__default.createElement( Button, { color: 'green' }, "green"),
+        React__default.createElement( Button, { color: 'slate' }, "slate"),
+        React__default.createElement( Button, { color: 'black' }, "black"),
+        React__default.createElement( Button, { color: 'yellow' }, "yellow")
       ),
-      React.createElement( Block, { dark: true, inline: true },
-        React.createElement( Button, { color: 'transparent' }, "transparent")
+      React__default.createElement( Block, { dark: true, inline: true },
+        React__default.createElement( Button, { color: 'transparent' }, "transparent")
       ),
-      React.createElement( Block, null,
-        React.createElement( Button, { color: 'twitter' }, "twitter"),
-        React.createElement( Button, { color: 'facebook' }, "facebook"),
-        React.createElement( Button, { color: 'tumblr' }, "tumblr"),
-        React.createElement( Button, { color: 'paypal' }, "paypal"),
-        React.createElement( Button, { color: 'roku' }, "roku")
+      React__default.createElement( Block, null,
+        React__default.createElement( Button, { color: 'twitter' }, "twitter"),
+        React__default.createElement( Button, { color: 'facebook' }, "facebook"),
+        React__default.createElement( Button, { color: 'tumblr' }, "tumblr"),
+        React__default.createElement( Button, { color: 'paypal' }, "paypal"),
+        React__default.createElement( Button, { color: 'roku' }, "roku")
       ),
-      React.createElement( Subtitle, null, "Processing State" ),
-      React.createElement( Block, null,
-        React.createElement( Button, { processing: true }, "processing")
+      React__default.createElement( Subtitle, null, "Processing State" ),
+      React__default.createElement( Block, null,
+        React__default.createElement( Button, { processing: true }, "processing")
       ),
-      React.createElement( Subtitle, null, "Sizes" ),
-      React.createElement( Block, null,
-        React.createElement( Button, null, "default" ),
-        React.createElement( Button, { size: 'small' }, "small"),
-        React.createElement( Button, { size: 'medium' }, "medium"),
-        React.createElement( Button, { size: 'large' }, "large"),
-        React.createElement( Button, { size: 'half' }, "half"),
-        React.createElement( Button, { size: 'fill' }, "fill")
+      React__default.createElement( Subtitle, null, "Sizes" ),
+      React__default.createElement( Block, null,
+        React__default.createElement( Button, null, "default" ),
+        React__default.createElement( Button, { size: 'small' }, "small"),
+        React__default.createElement( Button, { size: 'medium' }, "medium"),
+        React__default.createElement( Button, { size: 'large' }, "large"),
+        React__default.createElement( Button, { size: 'half' }, "half"),
+        React__default.createElement( Button, { size: 'fill' }, "fill")
       ),
-      React.createElement( Subtitle, null, "Typefaces" ),
-      React.createElement( Block, null,
-        React.createElement( Button, null, "default" ),
-        React.createElement( Button, { typeface: 'brandon' }, "brandon")
+      React__default.createElement( Subtitle, null, "Typefaces" ),
+      React__default.createElement( Block, null,
+        React__default.createElement( Button, null, "default" ),
+        React__default.createElement( Button, { typeface: 'brandon' }, "brandon")
       )
     ),
-    React.createElement( Section, { title: 'Text' },
-      React.createElement( Subtitle, null, "Headings" ),
-      React.createElement( Block, null, React.createElement( Text, { h1: true }, "h1") ),
-      React.createElement( Block, null, React.createElement( Text, { h2: true }, "h2") ),
-      React.createElement( Block, null, React.createElement( Text, { h3: true }, "h3") ),
-      React.createElement( Block, null, React.createElement( Text, { h4: true }, "h4") ),
-      React.createElement( Block, null, React.createElement( Text, { h5: true }, "h5") ),
-      React.createElement( Subtitle, null, "Colors" ),
-      React.createElement( Block, null, React.createElement( Text, null, "Default" ) ),
-      React.createElement( Block, null, React.createElement( Text, { color: 'navy' }, "navy") ),
-      React.createElement( Block, null, React.createElement( Text, { color: 'teal' }, "teal") ),
-      React.createElement( Block, null, React.createElement( Text, { color: 'gray' }, "gray") ),
-      React.createElement( Block, { dark: true, inline: true }, React.createElement( Text, { color: 'white' }, "white"))
+    React__default.createElement( Section, { title: 'Checkboxes' },
+      React__default.createElement( CheckboxDemo, { name: 'checkbox-demo1', size: 'small', label: 'Small' }),
+      React__default.createElement( CheckboxDemo, { name: 'checkbox-demo2', size: 'medium', label: 'Medium' }),
+      React__default.createElement( CheckboxDemo, { name: 'checkbox-demo3', size: 'large', label: 'Large' }),
+      React__default.createElement( CheckboxDemo, { name: 'checkbox-demo4', size: 'small', type: 'toggle' }),
+      React__default.createElement( CheckboxDemo, { name: 'checkbox-demo5', size: 'medium', type: 'toggle' }),
+      React__default.createElement( CheckboxDemo, { name: 'checkbox-demo6', size: 'large', type: 'toggle' })
+    ),
+    React__default.createElement( Section, { title: 'Text' },
+      React__default.createElement( Subtitle, null, "Headings" ),
+      React__default.createElement( Block, null, React__default.createElement( Text, { h1: true }, "h1") ),
+      React__default.createElement( Block, null, React__default.createElement( Text, { h2: true }, "h2") ),
+      React__default.createElement( Block, null, React__default.createElement( Text, { h3: true }, "h3") ),
+      React__default.createElement( Block, null, React__default.createElement( Text, { h4: true }, "h4") ),
+      React__default.createElement( Block, null, React__default.createElement( Text, { h5: true }, "h5") ),
+      React__default.createElement( Subtitle, null, "Colors" ),
+      React__default.createElement( Block, null, React__default.createElement( Text, null, "Default" ) ),
+      React__default.createElement( Block, null, React__default.createElement( Text, { color: 'navy' }, "navy") ),
+      React__default.createElement( Block, null, React__default.createElement( Text, { color: 'teal' }, "teal") ),
+      React__default.createElement( Block, null, React__default.createElement( Text, { color: 'gray' }, "gray") ),
+      React__default.createElement( Block, { dark: true, inline: true }, React__default.createElement( Text, { color: 'white' }, "white"))
     )
   )
 ); };
 
 var mountNode = document.getElementById('app');
-ReactDOM.render(React.createElement( AllComponents, null ), mountNode);
+ReactDOM.render(React__default.createElement( AllComponents, null ), mountNode);
 
 }(React,ReactDOM));
