@@ -6,8 +6,8 @@
   "scripts": {
     "build": "rollup -c build/rollup.config.js",
     "dev": "rollup -c build/rollup.config.js --watch",
-    "start": "browser-sync start --server --serveStatic \"demo/public\" --files \"demo/public/js/bundle.js\" --no-open",
-    "test": "NODE_ENV=test npm-run-all --parallel dev start"
+    "serve": "browser-sync start --server --serveStatic \"demo/public\" --files \"demo/public/js/bundle.js\" --no-open",
+    "start": "npm-run-all --parallel dev serve"
   },
   "repository": {
     "type": "git",

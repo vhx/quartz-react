@@ -1,8 +1,10 @@
+/* eslint-disable react/no-unused-prop-types */
+
 import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 
-function getClassName({ className, color, size, typeface }) {
+function getClassName({ className, color, size, typeface, processing }) {
   return classNames('btn', className, {
     // core colors
     'btn-gray': color === 'gray',
@@ -27,15 +29,16 @@ function getClassName({ className, color, size, typeface }) {
     'btn--large': size === 'large',
     'btn--half': size === 'half',
     'btn--fill': size === 'fill',
-    // TODO: processing state, btn-dropdowns, (own component), btn-groups (own component), btn with icon
+    // TODO: btn-dropdowns, (own component), btn-groups (own component), btn with icon
     'btn--brandon': typeface === 'brandon',
+    'is-processing': processing === true,
   });
 }
 
-const Button = ({ children, onClick, className, color, size, typeface, attrs }) => {
-  const cl = getClassName({ className, color, size, typeface });
+const Button = (props) => {
+  const cl = getClassName(props);
   return (
-    <button className={cl} onClick={onClick} {...attrs}>{children}</button>
+    <button className={cl} onClick={props.onClick} {...props.attrs}>{props.children}</button>
   );
 };
 
@@ -45,6 +48,7 @@ Button.propTypes = {
   children: PropTypes.string.isRequired,
   className: PropTypes.string,
   color: PropTypes.oneOf([ 'gray', 'teal', 'white', 'red', 'purple', 'green', 'slate', 'black', 'yellow', 'transparent', 'twitter', 'facebook', 'tumblr', 'paypal', 'roku' ]),
+  processing: PropTypes.bool,
   onClick: PropTypes.func,
   size: PropTypes.oneOf([ 'small', 'medium', 'large', 'half', 'fill' ]),
   typeface: PropTypes.oneOf([ 'brandon', '' ]),
@@ -55,6 +59,7 @@ Button.defaultProps = {
   className: '',
   color: 'gray',
   onClick: null,
+  processing: false,
   size: 'small',
   typeface: '',
 };

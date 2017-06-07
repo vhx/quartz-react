@@ -46,7 +46,7 @@ var emptyFunction_1 = emptyFunction;
 
 var validateFormat = function validateFormat(format) {};
 
-{
+if (undefined !== 'production') {
   validateFormat = function validateFormat(format) {
     if (format === undefined) {
       throw new Error('invariant requires an error message argument');
@@ -79,7 +79,7 @@ var invariant_1 = invariant;
 
 var warning = emptyFunction_1;
 
-{
+if (undefined !== 'production') {
   (function () {
     var printWarning = function printWarning(format) {
       var arguments$1 = arguments;
@@ -140,7 +140,7 @@ var ReactPropTypesSecret = 'SECRET_DO_NOT_PASS_THIS_OR_YOU_WILL_BE_FIRED';
 
 var ReactPropTypesSecret_1 = ReactPropTypesSecret;
 
-{
+if (undefined !== 'production') {
   var invariant$1 = invariant_1;
   var warning$1 = warning_1;
   var ReactPropTypesSecret$1 = ReactPropTypesSecret_1;
@@ -159,7 +159,7 @@ var ReactPropTypesSecret_1 = ReactPropTypesSecret;
  * @private
  */
 function checkPropTypes(typeSpecs, values, location, componentName, getStack) {
-  {
+  if (undefined !== 'production') {
     for (var typeSpecName in typeSpecs) {
       if (typeSpecs.hasOwnProperty(typeSpecName)) {
         var error;
@@ -321,7 +321,7 @@ var factoryWithTypeCheckers = function(isValidElement, throwOnDirectAccess) {
   PropTypeError.prototype = Error.prototype;
 
   function createChainableTypeChecker(validate) {
-    {
+    if (undefined !== 'production') {
       var manualPropTypeCallCache = {};
       var manualPropTypeWarningCount = 0;
     }
@@ -338,7 +338,7 @@ var factoryWithTypeCheckers = function(isValidElement, throwOnDirectAccess) {
             'Use `PropTypes.checkPropTypes()` to call them. ' +
             'Read more at http://fb.me/use-check-prop-types'
           );
-        } else if ("test" !== 'production' && typeof console !== 'undefined') {
+        } else if (undefined !== 'production' && typeof console !== 'undefined') {
           // Old behavior for people using React.PropTypes
           var cacheKey = componentName + ':' + propName;
           if (
@@ -448,7 +448,7 @@ var factoryWithTypeCheckers = function(isValidElement, throwOnDirectAccess) {
 
   function createEnumTypeChecker(expectedValues) {
     if (!Array.isArray(expectedValues)) {
-      warning_1(false, 'Invalid argument supplied to oneOf, expected an instance of array.');
+      undefined !== 'production' ? warning_1(false, 'Invalid argument supplied to oneOf, expected an instance of array.') : void 0;
       return emptyFunction_1.thatReturnsNull;
     }
 
@@ -491,7 +491,7 @@ var factoryWithTypeCheckers = function(isValidElement, throwOnDirectAccess) {
 
   function createUnionTypeChecker(arrayOfTypeCheckers) {
     if (!Array.isArray(arrayOfTypeCheckers)) {
-      warning_1(false, 'Invalid argument supplied to oneOfType, expected an instance of array.');
+      undefined !== 'production' ? warning_1(false, 'Invalid argument supplied to oneOfType, expected an instance of array.') : void 0;
       return emptyFunction_1.thatReturnsNull;
     }
 
@@ -686,6 +686,51 @@ var factoryWithTypeCheckers = function(isValidElement, throwOnDirectAccess) {
   return ReactPropTypes;
 };
 
+var factoryWithThrowingShims = function() {
+  function shim(props, propName, componentName, location, propFullName, secret) {
+    if (secret === ReactPropTypesSecret_1) {
+      // It is still safe when called from React.
+      return;
+    }
+    invariant_1(
+      false,
+      'Calling PropTypes validators directly is not supported by the `prop-types` package. ' +
+      'Use PropTypes.checkPropTypes() to call them. ' +
+      'Read more at http://fb.me/use-check-prop-types'
+    );
+  }
+  shim.isRequired = shim;
+  function getShim() {
+    return shim;
+  }
+  // Important!
+  // Keep this list in sync with production version in `./factoryWithTypeCheckers.js`.
+  var ReactPropTypes = {
+    array: shim,
+    bool: shim,
+    func: shim,
+    number: shim,
+    object: shim,
+    string: shim,
+    symbol: shim,
+
+    any: shim,
+    arrayOf: getShim,
+    element: shim,
+    instanceOf: getShim,
+    node: shim,
+    objectOf: getShim,
+    oneOf: getShim,
+    oneOfType: getShim,
+    shape: getShim
+  };
+
+  ReactPropTypes.checkPropTypes = emptyFunction_1;
+  ReactPropTypes.PropTypes = ReactPropTypes;
+
+  return ReactPropTypes;
+};
+
 var index = createCommonjsModule(function (module) {
 /**
  * Copyright 2013-present, Facebook, Inc.
@@ -696,7 +741,7 @@ var index = createCommonjsModule(function (module) {
  * of patent rights can be found in the PATENTS file in the same directory.
  */
 
-{
+if (undefined !== 'production') {
   var REACT_ELEMENT_TYPE = (typeof Symbol === 'function' &&
     Symbol.for &&
     Symbol.for('react.element')) ||
@@ -712,6 +757,10 @@ var index = createCommonjsModule(function (module) {
   // http://fb.me/prop-types-in-prod
   var throwOnDirectAccess = true;
   module.exports = factoryWithTypeCheckers(isValidElement, throwOnDirectAccess);
+} else {
+  // By explicitly using `prop-types` you are opting into new production behavior.
+  // http://fb.me/prop-types-in-prod
+  module.exports = factoryWithThrowingShims();
 }
 });
 
@@ -768,11 +817,14 @@ var index$1 = createCommonjsModule(function (module) {
 }());
 });
 
+/* eslint-disable react/no-unused-prop-types */
+
 function getClassName(ref) {
   var className = ref.className;
   var color = ref.color;
   var size = ref.size;
   var typeface = ref.typeface;
+  var processing = ref.processing;
 
   return index$1('btn', className, {
     // core colors
@@ -798,74 +850,201 @@ function getClassName(ref) {
     'btn--large': size === 'large',
     'btn--half': size === 'half',
     'btn--fill': size === 'fill',
-    // TODO: processing state, btn-dropdowns, (own component), btn-groups (own component), btn with icon
+    // TODO: btn-dropdowns, (own component), btn-groups (own component), btn with icon
     'btn--brandon': typeface === 'brandon',
+    'is-processing': processing === true,
   });
 }
 
-var Button$1 = function (ref) {
-  var children = ref.children;
-  var onClick = ref.onClick;
-  var className = ref.className;
-  var color = ref.color;
-  var size = ref.size;
-  var typeface = ref.typeface;
-
-  var cl = getClassName({ className: className, color: color, size: size, typeface: typeface });
+var Button$1 = function (props) {
+  var cl = getClassName(props);
   return (
-    React.createElement( 'button', { className: cl, onClick: onClick }, children)
+    React.createElement( 'button', Object.assign({}, { className: cl, onClick: props.onClick }, props.attrs), props.children)
   );
 };
 
 
 Button$1.propTypes = {
-  // attrs: PropTypes.object, // eslint-disable-line react/forbid-prop-types
+  attrs: index.object, // eslint-disable-line react/forbid-prop-types
   children: index.string.isRequired,
   className: index.string,
   color: index.oneOf([ 'gray', 'teal', 'white', 'red', 'purple', 'green', 'slate', 'black', 'yellow', 'transparent', 'twitter', 'facebook', 'tumblr', 'paypal', 'roku' ]),
+  processing: index.bool,
   onClick: index.func,
   size: index.oneOf([ 'small', 'medium', 'large', 'half', 'fill' ]),
   typeface: index.oneOf([ 'brandon', '' ]),
 };
 
 Button$1.defaultProps = {
-  // attrs: {},
+  attrs: {},
   className: '',
   color: 'gray',
   onClick: null,
+  processing: false,
   size: 'small',
   typeface: '',
 };
 
+/* eslint-disable react/no-unused-prop-types */
+
+function getClassName$1(props) {
+  return index$1({
+    block: Boolean(props.block),
+    'head-1': Boolean(props.h1),
+    'head-2': Boolean(props.h2),
+    'head-3': Boolean(props.h3),
+    'head-4': Boolean(props.h4),
+    'head-5': Boolean(props.h5),
+    'text--navy': props.color === 'navy',
+    'text--gray': props.color === 'gray',
+    'text--teal': props.color === 'teal',
+    'text--white': props.color === 'white',
+  });
+}
+
+var Text$1 = function (props) { return (
+  React.createElement( 'span', { className: getClassName$1(props) }, props.children)
+); };
+
+Text$1.propTypes = {
+  block: index.bool,
+  children: index.node.isRequired,
+  h1: index.bool,
+  h2: index.bool,
+  h3: index.bool,
+  h4: index.bool,
+  h5: index.bool,
+  color: index.oneOf([ 'navy', 'gray', 'teal', 'white' ]),
+};
+
+Text$1.defaultProps = {
+  block: false,
+  h1: false,
+  h2: false,
+  h3: false,
+  h4: false,
+  h5: false,
+  color: 'navy',
+};
+
 var Button = Button$1;
+var Text = Text$1;
+
+var Section = function (ref) {
+  var children = ref.children;
+  var title = ref.title;
+
+  return (
+  React.createElement( 'div', { className: 'padding-large border-bottom' },
+    React.createElement( 'div', { className: 'padding-bottom-medium' },
+      React.createElement( Text, { h3: true }, title)
+    ),
+    React.createElement( 'div', null, children )
+  )
+);
+};
+
+Section.propTypes = {
+  children: index.node.isRequired,
+  title: index.string.isRequired,
+};
+
+var Block = function (ref) {
+  var children = ref.children;
+  var dark = ref.dark;
+  var inline = ref.inline;
+
+  var className = [
+    'padding-small',
+    dark ? 'bg-gray-7' : '',
+    inline ? 'inline' : '' ].join(' ');
+  return (
+    React.createElement( 'div', { className: className }, children)
+  );
+};
+
+Block.propTypes = {
+  children: index.node.isRequired,
+  dark: index.bool,
+  inline: index.bool,
+};
+
+Block.defaultProps = {
+  dark: false,
+  inline: false,
+};
+
+var Subtitle = function (ref) {
+  var children = ref.children;
+
+  return (
+  React.createElement( Block, null, React.createElement( Text, { h5: true }, children) )
+);
+};
+
+Subtitle.propTypes = {
+  children: index.node.isRequired,
+};
 
 var AllComponents = function () { return (
   React.createElement( 'div', null,
-    React.createElement( 'h1', null, "Buttons" ),
-    React.createElement( 'h2', null, "Colors" ),
-    React.createElement( Button, null, "default" ),
-    React.createElement( Button, { color: 'gray' }, "gray"),
-    React.createElement( Button, { color: 'teal' }, "teal"),
-    React.createElement( Button, { color: 'white' }, "white"),
-    React.createElement( Button, { color: 'red' }, "red"),
-    React.createElement( Button, { color: 'purple' }, "purple"),
-    React.createElement( Button, { color: 'green' }, "green"),
-    React.createElement( Button, { color: 'slate' }, "slate"),
-    React.createElement( Button, { color: 'black' }, "black"),
-    React.createElement( Button, { color: 'yellow' }, "yellow"),
-    React.createElement( Button, { color: 'transparent' }, "transparent"),
-    React.createElement( Button, { color: 'twitter' }, "twitter"),
-    React.createElement( Button, { color: 'facebook' }, "facebook"),
-    React.createElement( Button, { color: 'tumblr' }, "tumblr"),
-    React.createElement( Button, { color: 'paypal' }, "paypal"),
-    React.createElement( Button, { color: 'roku' }, "roku"),
-    React.createElement( 'h2', null, "Sizes" ),
-    React.createElement( Button, null, "default" ),
-    React.createElement( Button, { size: 'small' }, "small"),
-    React.createElement( Button, { size: 'medium' }, "medium"),
-    React.createElement( Button, { size: 'large' }, "large"),
-    React.createElement( Button, { size: 'half' }, "half"),
-    React.createElement( Button, { size: 'fill' }, "fill")
+    React.createElement( Section, { title: 'Buttons' },
+      React.createElement( Subtitle, null, "Colors" ),
+      React.createElement( Block, { inline: true },
+        React.createElement( Button, null, "default" ),
+        React.createElement( Button, { color: 'gray' }, "gray"),
+        React.createElement( Button, { color: 'teal' }, "teal"),
+        React.createElement( Button, { color: 'white' }, "white"),
+        React.createElement( Button, { color: 'red' }, "red"),
+        React.createElement( Button, { color: 'purple' }, "purple"),
+        React.createElement( Button, { color: 'green' }, "green"),
+        React.createElement( Button, { color: 'slate' }, "slate"),
+        React.createElement( Button, { color: 'black' }, "black"),
+        React.createElement( Button, { color: 'yellow' }, "yellow")
+      ),
+      React.createElement( Block, { dark: true, inline: true },
+        React.createElement( Button, { color: 'transparent' }, "transparent")
+      ),
+      React.createElement( Block, null,
+        React.createElement( Button, { color: 'twitter' }, "twitter"),
+        React.createElement( Button, { color: 'facebook' }, "facebook"),
+        React.createElement( Button, { color: 'tumblr' }, "tumblr"),
+        React.createElement( Button, { color: 'paypal' }, "paypal"),
+        React.createElement( Button, { color: 'roku' }, "roku")
+      ),
+      React.createElement( Subtitle, null, "Processing State" ),
+      React.createElement( Block, null,
+        React.createElement( Button, { processing: true }, "processing")
+      ),
+      React.createElement( Subtitle, null, "Sizes" ),
+      React.createElement( Block, null,
+        React.createElement( Button, null, "default" ),
+        React.createElement( Button, { size: 'small' }, "small"),
+        React.createElement( Button, { size: 'medium' }, "medium"),
+        React.createElement( Button, { size: 'large' }, "large"),
+        React.createElement( Button, { size: 'half' }, "half"),
+        React.createElement( Button, { size: 'fill' }, "fill")
+      ),
+      React.createElement( Subtitle, null, "Typefaces" ),
+      React.createElement( Block, null,
+        React.createElement( Button, null, "default" ),
+        React.createElement( Button, { typeface: 'brandon' }, "brandon")
+      )
+    ),
+    React.createElement( Section, { title: 'Text' },
+      React.createElement( Subtitle, null, "Headings" ),
+      React.createElement( Block, null, React.createElement( Text, { h1: true }, "h1") ),
+      React.createElement( Block, null, React.createElement( Text, { h2: true }, "h2") ),
+      React.createElement( Block, null, React.createElement( Text, { h3: true }, "h3") ),
+      React.createElement( Block, null, React.createElement( Text, { h4: true }, "h4") ),
+      React.createElement( Block, null, React.createElement( Text, { h5: true }, "h5") ),
+      React.createElement( Subtitle, null, "Colors" ),
+      React.createElement( Block, null, React.createElement( Text, null, "Default" ) ),
+      React.createElement( Block, null, React.createElement( Text, { color: 'navy' }, "navy") ),
+      React.createElement( Block, null, React.createElement( Text, { color: 'teal' }, "teal") ),
+      React.createElement( Block, null, React.createElement( Text, { color: 'gray' }, "gray") ),
+      React.createElement( Block, { dark: true, inline: true }, React.createElement( Text, { color: 'white' }, "white"))
+    )
   )
 ); };
 
