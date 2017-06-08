@@ -14,15 +14,12 @@ function getClassName({ color, stacked }) {
 const RadioGroup = ({ color, items, onChange, selectedIndex, stacked }) => (
   <div className='form'>
     <ul className={getClassName({ color, stacked })}>
-      { items.map((item, i) => <Radio onChange={onChange} index={i} key={item.uniqueId} checked={selectedIndex === i} {...item} />) }
+      { items.map((item, i) => <Radio onChange={onChange} index={i} key={i} checked={selectedIndex === i} {...item} />) }
     </ul>
   </div>
 );
 
-const radioItemPropType = PropTypes.shape({
-  label: PropTypes.string.isRequired,
-  uniqueId: PropTypes.string.isRequired,
-});
+const radioItemPropType = PropTypes.shape({ label: PropTypes.string.isRequired });
 
 RadioGroup.propTypes = {
   color: PropTypes.oneOf([ 'teal', 'gray' ]),

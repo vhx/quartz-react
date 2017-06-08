@@ -71,13 +71,13 @@ const AllComponents = () => (
     </Section>
     <Section title='Radios'>
       <Subtitle>Default</Subtitle>
-      <RadioDemo items={[{ uniqueId: 'r1', label: 'Option 1' }, { uniqueId: 'r2', label: 'Option 2' }]} />
+      <RadioDemo items={[{ label: 'Option 1' }, { label: 'Option 2' }]} />
       <Subtitle>Default gray</Subtitle>
-      <RadioDemo color='gray' items={[{ uniqueId: 'r3', label: 'Option 1' }, { uniqueId: 'r4', label: 'Option 2' }]} />
+      <RadioDemo color='gray' items={[{ label: 'Option 1' }, { label: 'Option 2' }]} />
       <Subtitle>Stacked</Subtitle>
-      <RadioDemo stacked items={[{ uniqueId: 'r5', label: 'Option 1' }, { uniqueId: 'r6', label: 'Option 2' }]} />
+      <RadioDemo stacked items={[{ label: 'Option 1' }, { label: 'Option 2' }]} />
       <Subtitle>Stacked gray</Subtitle>
-      <RadioDemo stacked color='gray' items={[{ uniqueId: 'r7', label: 'Option 1' }, { uniqueId: 'r8', label: 'Option 2' }]} />
+      <RadioDemo stacked color='gray' items={[{ label: 'Option 1' }, { label: 'Option 2' }]} />
     </Section>
     <Section title='Text'>
       <Subtitle>Headings</Subtitle>
