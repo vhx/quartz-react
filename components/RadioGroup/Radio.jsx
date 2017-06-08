@@ -1,12 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-
-const RadioIcon = () => (
-  <span className='radio--icon'>
-    <i className='circle-top'><span /></i>
-    <i className='circle-bottom'><span /></i>
-  </span>
-);
+import RadioIcon from './RadioIcon.jsx';
 
 const Radio = ({ checked, index, label, onChange }) => (
   <li>

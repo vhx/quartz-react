@@ -1,20 +1,28 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
-import Radio from '../Radio';
+import Radio from './Radio.jsx';
+import RadioButton from './RadioButton.jsx';
 
-function getClassName({ color, stacked }) {
+function getClassName({ buttons, color, stacked }) {
   return classNames({
     'radio-teal': color === 'teal',
     'radio-gray': color === 'gray',
+    'radio--buttons': buttons,
     'radio--stacked': stacked,
   });
 }
 
-const RadioGroup = ({ color, items, onChange, selectedIndex, stacked }) => (
+function getRadioComponent({ buttons, onChange, selectedIndex }) {
+  return buttons ?
+    (item, i) => <RadioButton onChange={onChange} index={i} key={i} checked={selectedIndex === i} {...item} /> :
+    (item, i) => <Radio onChange={onChange} index={i} key={i} checked={selectedIndex === i} {...item} />;
+}
+
+const RadioGroup = ({ buttons, color, items, onChange, selectedIndex, stacked }) => (
   <div className='form'>
-    <ul className={getClassName({ color, stacked })}>
-      { items.map((item, i) => <Radio onChange={onChange} index={i} key={i} checked={selectedIndex === i} {...item} />) }
+    <ul className={getClassName({ buttons, color, stacked })}>
+      { items.map(getRadioComponent({ buttons, onChange, selectedIndex })) }
     </ul>
   </div>
 );
@@ -22,6 +30,7 @@ const RadioGroup = ({ color, items, onChange, selectedIndex, stacked }) => (
 const radioItemPropType = PropTypes.shape({ label: PropTypes.string.isRequired });
 
 RadioGroup.propTypes = {
+  buttons: PropTypes.bool,
   color: PropTypes.oneOf([ 'teal', 'gray' ]),
   items: PropTypes.arrayOf(radioItemPropType).isRequired,
   onChange: PropTypes.func,
@@ -30,6 +39,7 @@ RadioGroup.propTypes = {
 };
 
 RadioGroup.defaultProps = {
+  buttons: false,
   color: 'teal',
   onChange: () => {},
   selectedIndex: -1,
