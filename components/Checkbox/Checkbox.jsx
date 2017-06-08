@@ -33,8 +33,8 @@ const ToggleCheckbox = () => (
 const Checkbox = props => (
   <div className='form'>
     <fieldset className={getClassName(props)}>
-      <input type='checkbox' checked={props.checked} name={props.name} value={props.value} onChange={props.onChange} id={props.name} />
-      <label htmlFor={props.name}>
+      <input type='checkbox' checked={props.checked} name={props.uniqueId} value={props.value} onChange={props.onChange} id={props.uniqueId} />
+      <label htmlFor={props.uniqueId}>
         <span className='checkbox--contain'>
           { props.type === 'toggle' ? <ToggleCheckbox /> : <StandardCheckbox /> }
           <span className='checkbox--label'>{props.label}</span>
@@ -48,7 +48,7 @@ const Checkbox = props => (
 Checkbox.propTypes = {
   checked: PropTypes.bool,
   label: PropTypes.string,
-  name: PropTypes.string.isRequired,
+  uniqueId: PropTypes.string.isRequired,
   onChange: PropTypes.func,
   size: PropTypes.oneOf([ 'small', 'medium', 'large' ]),
   type: PropTypes.oneOf([ 'standard', 'toggle' ]),

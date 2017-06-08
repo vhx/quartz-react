@@ -13,6 +13,7 @@ import {
 } from '../../index.js';
 
 import CheckboxDemo from './demo-checkbox.jsx';
+import RadioDemo from './demo-radio.jsx';
 
 
 const AllComponents = () => (
@@ -61,12 +62,22 @@ const AllComponents = () => (
       </Block>
     </Section>
     <Section title='Checkboxes'>
-      <CheckboxDemo name='checkbox-demo1' size='small' label='Small' />
-      <CheckboxDemo name='checkbox-demo2' size='medium' label='Medium' />
-      <CheckboxDemo name='checkbox-demo3' size='large' label='Large' />
-      <CheckboxDemo name='checkbox-demo4' size='small' type='toggle' />
-      <CheckboxDemo name='checkbox-demo5' size='medium' type='toggle' />
-      <CheckboxDemo name='checkbox-demo6' size='large' type='toggle' />
+      <CheckboxDemo uniqueId='checkbox-demo1' size='small' label='Small' />
+      <CheckboxDemo uniqueId='checkbox-demo2' size='medium' label='Medium' />
+      <CheckboxDemo uniqueId='checkbox-demo3' size='large' label='Large' />
+      <CheckboxDemo uniqueId='checkbox-demo4' size='small' type='toggle' />
+      <CheckboxDemo uniqueId='checkbox-demo5' size='medium' type='toggle' />
+      <CheckboxDemo uniqueId='checkbox-demo6' size='large' type='toggle' />
+    </Section>
+    <Section title='Radios'>
+      <Subtitle>Default</Subtitle>
+      <RadioDemo items={[{ uniqueId: 'r1', label: 'Option 1' }, { uniqueId: 'r2', label: 'Option 2' }]} />
+      <Subtitle>Default gray</Subtitle>
+      <RadioDemo color='gray' items={[{ uniqueId: 'r3', label: 'Option 1' }, { uniqueId: 'r4', label: 'Option 2' }]} />
+      <Subtitle>Stacked</Subtitle>
+      <RadioDemo stacked items={[{ uniqueId: 'r5', label: 'Option 1' }, { uniqueId: 'r6', label: 'Option 2' }]} />
+      <Subtitle>Stacked gray</Subtitle>
+      <RadioDemo stacked color='gray' items={[{ uniqueId: 'r7', label: 'Option 1' }, { uniqueId: 'r8', label: 'Option 2' }]} />
     </Section>
     <Section title='Text'>
       <Subtitle>Headings</Subtitle>
