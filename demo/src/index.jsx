@@ -71,17 +71,17 @@ const AllComponents = () => (
     </Section>
     <Section title='Radios'>
       <Subtitle>Default</Subtitle>
-      <RadioDemo items={[{ label: 'Option 1' }, { label: 'Option 2' }]} />
+      <RadioDemo items={[{ label: 'Option 1', uniqueId: 'opt1' }, { label: 'Option 2', uniqueId: 'opt2' }]} />
       <Subtitle>Default gray</Subtitle>
-      <RadioDemo color='gray' items={[{ label: 'Option 1' }, { label: 'Option 2' }]} />
+      <RadioDemo color='gray' items={[{ label: 'Option 1', uniqueId: 'opt1' }, { label: 'Option 2', uniqueId: 'opt2' }]} />
       <Subtitle>Stacked</Subtitle>
-      <RadioDemo stacked items={[{ label: 'Option 1' }, { label: 'Option 2' }]} />
+      <RadioDemo stacked items={[{ label: 'Option 1', uniqueId: 'opt1' }, { label: 'Option 2', uniqueId: 'opt2' }]} />
       <Subtitle>Stacked gray</Subtitle>
-      <RadioDemo stacked color='gray' items={[{ label: 'Option 1' }, { label: 'Option 2' }]} />
+      <RadioDemo stacked color='gray' items={[{ label: 'Option 1', uniqueId: 'opt1' }, { label: 'Option 2', uniqueId: 'opt2' }]} />
       <Subtitle>Radio buttons</Subtitle>
-      <RadioDemo buttons items={[{ label: 'Option 1' }, { label: 'Option 2' }]} />
+      <RadioDemo buttons items={[{ label: 'Option 1', uniqueId: 'opt1' }, { label: 'Option 2', uniqueId: 'opt2' }]} />
       <Subtitle>Radio buttons with descriptions</Subtitle>
-      <RadioDemo buttons items={[{ label: 'Option 1', description: 'Description 1 goes here' }, { label: 'Option 2', description: 'Description 2 goes here' }]} />
+      <RadioDemo buttons items={[{ label: 'Option 1', description: 'Description 1 goes here', uniqueId: 'opt1' }, { label: 'Option 2', description: 'Description 2 goes here', uniqueId: 'opt2' }]} />
     </Section>
     <Section title='Text'>
       <Subtitle>Headings</Subtitle>

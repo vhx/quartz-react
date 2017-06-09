@@ -54,9 +54,9 @@ const RadioButton = ({ checked, description, index, label, onCheck }) => (
 
 RadioButton.propTypes = {
   checked: PropTypes.bool.isRequired,
+  description: PropTypes.string,
   index: PropTypes.number.isRequired,
   label: PropTypes.string.isRequired,
-  description: PropTypes.string,
   onCheck: PropTypes.func.isRequired,
 };
 
