@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import iconNames from '../../components/Icon/icon-list.js';
 
 import {
   Block,
@@ -9,6 +10,7 @@ import {
 
 import {
   Button,
+  Icon,
   Text,
 } from '../../index.js';
 
@@ -45,6 +47,9 @@ const AllComponents = () => (
       <Subtitle>Processing State</Subtitle>
       <Block>
         <Button processing>processing</Button>
+        <Button color='teal' processing>processing</Button>
+        <Button color='white' processing>processing</Button>
+        <Button color='red' processing>processing</Button>
       </Block>
       <Subtitle>Sizes</Subtitle>
       <Block>
@@ -60,6 +65,13 @@ const AllComponents = () => (
         <Button>default</Button>
         <Button typeface='brandon'>brandon</Button>
       </Block>
+      <Subtitle>Icons</Subtitle>
+      <Block>
+        { /* NOTE: icon--right can only be used if accompanying text is nested? */ }
+        <Button><Icon name='product' left button />Icon left</Button>
+        <Button><Icon name='product' right button>Icon right</Icon></Button>
+        <Button><Icon name='product' left button /><Icon name='product' right button>Icon both</Icon></Button>
+      </Block>
     </Section>
     <Section title='Checkboxes'>
       <CheckboxDemo uniqueId='checkbox-demo1' size='small' label='Small' />
@@ -68,6 +80,39 @@ const AllComponents = () => (
       <CheckboxDemo uniqueId='checkbox-demo4' size='small' type='toggle' />
       <CheckboxDemo uniqueId='checkbox-demo5' size='medium' type='toggle' />
       <CheckboxDemo uniqueId='checkbox-demo6' size='large' type='toggle' />
+    </Section>
+    <Section title='Icons'>
+      <Subtitle>Sizes</Subtitle>
+      <Icon name='product' size='xsmall' />
+      <Icon name='product' size='small' />
+      <Icon name='product' size='medium' />
+      <Icon name='product' size='large' />
+      <Icon name='product' size='xlarge' />
+      <Icon name='product' size='xxlarge' />
+      <Subtitle>Circles</Subtitle>
+      <Icon circle name='product' size='xsmall' />
+      <Icon circle name='product' size='small' />
+      <Icon circle name='product' size='medium' />
+      <Icon circle name='product' size='large' />
+      <Icon circle name='product' size='xlarge' />
+      <Icon circle name='product' size='xxlarge' />
+      <Subtitle>Colors</Subtitle>
+      <Icon name='product' size='medium' />
+      <Icon name='product' size='medium' color='navy' />
+      <Icon name='product' size='medium' color='teal' />
+      <Icon name='product' size='medium' color='gray' />
+      <Block inline dark><Icon name='product' size='medium' color='white' /></Block>
+      <Subtitle>All icons</Subtitle>
+      <ul className='small-block-grid-6 text-center'>
+        {
+          iconNames.map(icon => (
+            <li key={icon}>
+              <Block><Text color='gray' className='padding-bottom-small'>{icon}</Text></Block>
+              <Icon name={icon} size='small' />
+            </li>
+          ))
+        }
+      </ul>
     </Section>
     <Section title='Radios'>
       <Subtitle>Default</Subtitle>
