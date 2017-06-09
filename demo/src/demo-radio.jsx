@@ -9,7 +9,7 @@ class StatefulRadio extends Component {
     this.setIndex = this.setIndex.bind(this);
   }
 
-  setIndex(selectedIndex) {
+  setIndex(event, selectedIndex) {
     this.setState({ selectedIndex });
   }
 
@@ -17,7 +17,7 @@ class StatefulRadio extends Component {
     return (
       <RadioGroup
         selectedIndex={this.state.selectedIndex}
-        onChange={this.setIndex}
+        onCheck={this.setIndex}
         {...this.props}
       />
     );
