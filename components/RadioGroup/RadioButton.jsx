@@ -2,13 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import RadioIcon from './RadioIcon.jsx';
-
-const If = ({ condition, children }) => (condition ? <div>{children}</div> : <div />);
-
-If.propTypes = {
-  condition: PropTypes.bool.isRequired,
-  children: PropTypes.node.isRequired,
-};
+import If from '../util/If.jsx';
 
 function getDescriptionClassName(checked) {
   return classNames({
@@ -39,14 +33,14 @@ function getStyle(description) {
   return { marginTop: description ? '0px' : '8px' };
 }
 
-const RadioButton = ({ checked, description, index, label, onChange }) => (
+const RadioButton = ({ checked, description, index, label, onCheck }) => (
   <li>
     <input
       type='radio'
       checked={checked}
-      onChange={() => onChange(index)}
+      onChange={event => onCheck(event, index)}
     />
-    <label className={getClassName(checked)} onClick={() => onChange(index)}>
+    <label className={getClassName(checked)} onClick={event => onCheck(event, index)}>
       <RadioIcon />
       <span className='radio--label text-left padding-left-small' style={getStyle(description)}>
         <strong className={getTitleClassName(checked)}>{label}</strong>
@@ -63,7 +57,7 @@ RadioButton.propTypes = {
   index: PropTypes.number.isRequired,
   label: PropTypes.string.isRequired,
   description: PropTypes.string,
-  onChange: PropTypes.func.isRequired,
+  onCheck: PropTypes.func.isRequired,
 };
 
 RadioButton.defaultProps = {

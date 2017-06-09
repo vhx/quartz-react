@@ -2,14 +2,14 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import RadioIcon from './RadioIcon.jsx';
 
-const Radio = ({ checked, index, label, onChange }) => (
+const Radio = ({ checked, index, label, onCheck }) => (
   <li>
     <input
       type='radio'
       checked={checked}
-      onChange={() => onChange(index)}
+      onChange={event => onCheck(event, index)}
     />
-    <label onClick={() => onChange(index)}>
+    <label onClick={event => onCheck(event, index)}>
       <RadioIcon />
       <span className='radio--label text-left'>{label}</span>
     </label>
@@ -20,7 +20,7 @@ Radio.propTypes = {
   checked: PropTypes.bool.isRequired,
   index: PropTypes.number.isRequired,
   label: PropTypes.string.isRequired,
-  onChange: PropTypes.func.isRequired,
+  onCheck: PropTypes.func.isRequired,
 };
 
 export default Radio;
