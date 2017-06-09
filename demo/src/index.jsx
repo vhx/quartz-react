@@ -11,6 +11,7 @@ import {
 import {
   Button,
   Icon,
+  Tag,
   Text,
 } from '../../index.js';
 
@@ -127,6 +128,10 @@ const AllComponents = () => (
       <RadioDemo buttons items={[{ label: 'Option 1', uniqueId: 'opt1' }, { label: 'Option 2', uniqueId: 'opt2' }]} />
       <Subtitle>Radio buttons with descriptions</Subtitle>
       <RadioDemo buttons items={[{ label: 'Option 1', description: 'Description 1 goes here', uniqueId: 'opt1' }, { label: 'Option 2', description: 'Description 2 goes here', uniqueId: 'opt2' }]} />
+    </Section>
+    <Section title='Tags'>
+      <Block><Tag label='Tag with hover state' onClick={() => alert('Success')} onRemove={() => alert('Removed')} /></Block>
+      <Block><Tag label='Truncated tag' maxLength={12} onClick={() => alert('Success')} onRemove={() => alert('Removed')} /></Block>
     </Section>
     <Section title='Text'>
       <Subtitle>Headings</Subtitle>
