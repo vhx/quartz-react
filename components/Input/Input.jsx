@@ -42,6 +42,7 @@ const Input = props => (
 );
 
 Input.propTypes = {
+  autofocus: PropTypes.bool,
   className: PropTypes.string,
   disabled: PropTypes.bool,
   error: PropTypes.bool,
@@ -63,6 +64,7 @@ Input.propTypes = {
 };
 
 Input.defaultProps = {
+  autofocus: false,
   className: '',
   disabled: false,
   error: false,
