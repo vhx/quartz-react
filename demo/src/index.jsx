@@ -74,12 +74,12 @@ const AllComponents = () => (
       </Block>
     </Section>
     <Section title='Checkboxes'>
-      <CheckboxDemo uniqueId='checkbox-demo1' size='small' label='Small' />
-      <CheckboxDemo uniqueId='checkbox-demo2' size='medium' label='Medium' />
-      <CheckboxDemo uniqueId='checkbox-demo3' size='large' label='Large' />
-      <CheckboxDemo uniqueId='checkbox-demo4' size='small' type='toggle' />
-      <CheckboxDemo uniqueId='checkbox-demo5' size='medium' type='toggle' />
-      <CheckboxDemo uniqueId='checkbox-demo6' size='large' type='toggle' />
+      <CheckboxDemo size='small' label='Small' />
+      <CheckboxDemo size='medium' label='Medium' />
+      <CheckboxDemo size='large' label='Large' />
+      <CheckboxDemo size='small' type='toggle' />
+      <CheckboxDemo size='medium' type='toggle' />
+      <CheckboxDemo size='large' type='toggle' />
     </Section>
     <Section title='Icons'>
       <Subtitle>Sizes</Subtitle>
