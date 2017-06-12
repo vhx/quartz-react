@@ -16,7 +16,7 @@ import {
 
 import CheckboxDemo from './demo-checkbox.jsx';
 import RadioDemo from './demo-radio.jsx';
-
+import InputDemo from './demo-input.jsx';
 
 const AllComponents = () => (
   <div>
@@ -113,6 +113,33 @@ const AllComponents = () => (
           ))
         }
       </ul>
+    </Section>
+    <Section title='Inputs'>
+      <Subtitle>Default input</Subtitle>
+      <InputDemo />
+      <Subtitle>disabled input</Subtitle>
+      <InputDemo disabled />
+      <Subtitle>Error input</Subtitle>
+      <InputDemo error />
+      <Subtitle>Input with placeholder</Subtitle>
+      <InputDemo placeholder='With placeholder' />
+      <Subtitle>Error input with placeholder</Subtitle>
+      <InputDemo error placeholder='With placeholder' />
+      <Subtitle>Password input</Subtitle>
+      <InputDemo type='password' />
+      <Subtitle>Password input with error</Subtitle>
+      <InputDemo type='password' error />
+      <Subtitle>Search input</Subtitle>
+      <InputDemo placeholder='Search' search />
+      <Subtitle>Labeled inputs</Subtitle>
+      { /* by making <Input> a child of <label> we remove the need to create a unique ID */ }
+      <label>
+        <p>Username</p>
+        <InputDemo />
+      </label>
+      { /* the standard usage of <label> will still work if you do not mind making an ID: */ }
+      <label htmlFor='password1'>Password</label>
+      <InputDemo type='password' id='password1' />
     </Section>
     <Section title='Radios'>
       <Subtitle>Default</Subtitle>
