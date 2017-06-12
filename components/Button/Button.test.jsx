@@ -2,7 +2,7 @@ import jsdom from 'mocha-jsdom';
 import React from 'react';
 import { mount } from 'enzyme';
 import { expect } from 'chai';
-import Button from './button';
+import Button from './Button.jsx';
 
 describe('Button', () => {
   jsdom();
