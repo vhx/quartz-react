@@ -22,8 +22,8 @@ describe('Button', () => {
   });
 
   it('Accepts arbitrary HTML attributes', () => {
-    const wrapper = mount(<Button height={20} id='123'>foo</Button>);
-    expect(wrapper.props().height).to.equal(20);
-    expect(wrapper.props().id).to.equal('123');
+    const wrapper = mount(<Button attrs={{ height: 20, id: '123' }}>foo</Button>);
+    expect(wrapper.find('button').node.getAttribute('height')).to.equal('20'); // html attrs are coerced to strings
+    expect(wrapper.find('button').node.getAttribute('id')).to.equal('123');
   });
 });
