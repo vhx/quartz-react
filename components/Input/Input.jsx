@@ -3,6 +3,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
+import { excludeProps } from '../util';
 
 function getClass({ className, error, search, small }) {
   return classNames(className, {
@@ -13,15 +14,6 @@ function getClass({ className, error, search, small }) {
     'icon-search-navy': search,
     'icon--xsmall': search,
   });
-}
-
-function excludeProps(excludeList, props) {
-  return Object.keys(props)
-    .filter(propName => excludeList.indexOf(propName) === -1)
-    .reduce((finalProps, propName) => {
-      finalProps[propName] = props[propName]; // eslint-disable-line no-param-reassign
-      return finalProps;
-    }, {});
 }
 
 // NOTE: like in the Checkbox component, the `form` class does not
@@ -42,7 +34,7 @@ const Input = props => (
 );
 
 Input.propTypes = {
-  autofocus: PropTypes.bool,
+  autoFocus: PropTypes.bool,
   className: PropTypes.string,
   disabled: PropTypes.bool,
   error: PropTypes.bool,
@@ -64,7 +56,7 @@ Input.propTypes = {
 };
 
 Input.defaultProps = {
-  autofocus: false,
+  autoFocus: false,
   className: '',
   disabled: false,
   error: false,

@@ -3,6 +3,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
+import { excludeProps } from '../util';
 
 function getClassName({ className, color, size, typeface, processing }) {
   return classNames('btn', className, {
@@ -40,13 +41,12 @@ function getClassName({ className, color, size, typeface, processing }) {
 const Button = (props) => {
   const cl = getClassName(props);
   return (
-    <button className={cl} onClick={props.onClick} {...props.attrs}>{props.children}</button>
+    <button className={cl} {...excludeProps([ 'className', 'children', 'color', 'processing', 'size', 'typeface' ], props)}>{props.children}</button>
   );
 };
 
 
 Button.propTypes = {
-  attrs: PropTypes.object, // eslint-disable-line react/forbid-prop-types
   children: PropTypes.node.isRequired,
   className: PropTypes.string,
   color: PropTypes.oneOf([ 'gray', 'teal', 'white', 'red', 'purple', 'green', 'slate', 'black', 'yellow', 'transparent', 'twitter', 'facebook', 'tumblr', 'paypal', 'roku' ]),
@@ -57,7 +57,6 @@ Button.propTypes = {
 };
 
 Button.defaultProps = {
-  attrs: {},
   className: '',
   color: 'gray',
   onClick: null,
