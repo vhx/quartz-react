@@ -36,7 +36,7 @@
     "browser-sync": "^2.18.12",
     "chai": "^4.0.2",
     "enzyme": "^2.8.2",
-    "jsdom": "^11.0.0",
+    "jsdom": "7.0.2",
     "mocha": "^3.4.2",
     "mocha-jsdom": "^1.1.0",
     "npm-run-all": "^4.0.2",
