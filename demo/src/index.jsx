@@ -162,7 +162,10 @@ const AllComponents = () => (
       <Block><Tag label='Truncated tag' maxLength={12} onClick={() => alert('Success')} onRemove={() => alert('Removed')} /></Block>
     </Section>
     <Section title='Select'>
-      <Select />
+      <Select isOpen={false} options={[{ value: 1, label: 'foo', uniqueId: 'foo1' }]} />
+      <Select isOpen={false} dropdownPosition='above' options={[{ value: 1, label: 'foo', uniqueId: 'foo1' }]} />
+      <Select inline />
+      <Select Trigger={() => <p>Custom trigger</p>} />
     </Section>
     <Section title='Text'>
       <Subtitle>Headings</Subtitle>

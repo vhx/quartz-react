@@ -1,19 +1,10 @@
+/* eslint-disable react/no-unused-prop-types */
+
 import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import Trigger from './Trigger.jsx';
-
-const SelectDropdown = ({ isOpen }) => (
-  <div className={`c-select--dropdown bg-white border radius fill-width ${isOpen ? 'is-open' : ''}`}>
-    <ul className='c-select--options margin-left-reset loader-slate loader--transparent'>
-      <li className='padding-horz-large padding-top-small padding-bottom-medium text--gray text-center'> foo</li>
-    </ul>
-  </div>
-);
-
-SelectDropdown.propTypes = {
-  isOpen: PropTypes.bool.isRequired,
-};
+import SelectDropdown from './SelectDropdown.jsx';
 
 function getClass(props) {
   const { caretAlign, dropdownPosition, inline } = props;
@@ -25,18 +16,18 @@ function getClass(props) {
     // 'has-search': props.hasSearch,
     // 'has-trigger': props.hasTrigger,
     // 'has-media': props.hasMedia,
-    'caret--top-right':     dropdownPosition === 'above' && caretAlign === 'right',
-    'caret--top-left':      dropdownPosition === 'above' && caretAlign === 'left',
-    'caret--top-center':    dropdownPosition === 'above' && caretAlign === 'center',
-    'caret--bottom-right':  dropdownPosition === 'below' && caretAlign === 'right',
-    'caret--bottom-left':   dropdownPosition === 'below' && caretAlign === 'left',
-    'caret--bottom-center': dropdownPosition === 'below' && caretAlign === 'center',
+    'caret--top-right':     dropdownPosition === 'below' && caretAlign === 'right',
+    'caret--top-left':      dropdownPosition === 'below' && caretAlign === 'left',
+    'caret--top-center':    dropdownPosition === 'below' && caretAlign === 'center',
+    'caret--bottom-right':  dropdownPosition === 'above' && caretAlign === 'right',
+    'caret--bottom-left':   dropdownPosition === 'above' && caretAlign === 'left',
+    'caret--bottom-center': dropdownPosition === 'above' && caretAlign === 'center',
   });
 }
 
 const Select = props => (
   <div className={getClass(props)}>
-    <props.Trigger color={props.color} />
+    <props.Trigger {...props} />
     <SelectDropdown {...props} />
   </div>
 );
@@ -46,23 +37,33 @@ Select.propTypes = {
   color: PropTypes.oneOf([ 'gray', 'white', 'teal' ]),
   dropdownPosition: PropTypes.oneOf([ 'above', 'below' ]),
   isOpen: PropTypes.bool,
+  options: PropTypes.arrayOf(PropTypes.shape({
+    value: PropTypes.oneOfType([ PropTypes.string, PropTypes.number ]).isRequired,
+    label: PropTypes.string.isRequired,
+    description: PropTypes.string,
+  })).isRequired,
   // hasSearch: PropTypes.bool,
   // hasTrigger: PropTypes.bool,
   // hasMedia: PropTypes.bool,
   inline: PropTypes.bool,
-  Trigger: PropTypes.element,
+  placeholder: PropTypes.string,
+  Trigger: PropTypes.func, // allow developers to pass in a custom <Trigger> element
+  triggerLabel: PropTypes.string,
 };
 
 Select.defaultProps = {
   caretAlign: 'right',
   color: 'gray',
   dropdownPosition: 'below',
-  isOpen: true,
+  isOpen: false,
+  options: [],
   // hasSearch: false,
   // hasTrigger: false,
   // hasMedia: false,
   inline: false,
-  Trigger: Trigger,
+  Trigger,
+  triggerLabel: 'Select an option', // TODO: verify that this is a sensible default label
+  placeholder: '', // TODO: does this override triggerLabel if empty? is it initial value?
 };
 
 export default Select;

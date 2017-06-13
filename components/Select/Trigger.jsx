@@ -13,14 +13,14 @@ function getTriggerClass({ color }) {
   });
 }
 
-const Trigger = ({ color }) => (
-  <a className={getTriggerClass({ color })}>
-    asd
-  </a>
+const Trigger = ({ color, triggerLabel }) => (
+  <a className={getTriggerClass({ color })}>{triggerLabel}</a>
 );
 
 Trigger.propTypes = {
   color: PropTypes.oneOf([ 'gray', 'white', 'teal' ]).isRequired,
+  isOpen: PropTypes.bool.isRequired, // TODO: could remove this propType, but it would probably be useful to anyone specifying a custom <Trigger> element
+  triggerLabel: PropTypes.string.isRequired,
 };
 
 export default Trigger;
