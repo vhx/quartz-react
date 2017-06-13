@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import RadioIcon from './RadioIcon.jsx';
-import If from '../util/If.jsx';
+import { If } from '../util';
 
 function getDescriptionClassName(checked) {
   return classNames({

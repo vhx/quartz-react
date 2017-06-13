@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
+import { truncate } from '../util';
 
 function getClass(isHover) {
   return classNames({
@@ -32,9 +33,6 @@ function getLinkClass(isRemoveHover) {
   });
 }
 
-function truncate(str, maxLength) {
-  return str.length > maxLength ? str.slice(0, maxLength).concat('...') : str;
-}
 
 class Tag extends Component {
 
