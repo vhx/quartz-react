@@ -12,6 +12,7 @@ import {
   Button,
   Icon,
   Tag,
+  Select,
   Text,
 } from '../../index.js';
 
@@ -159,6 +160,9 @@ const AllComponents = () => (
     <Section title='Tags'>
       <Block><Tag label='Tag with hover state' onClick={() => alert('Success')} onRemove={() => alert('Removed')} /></Block>
       <Block><Tag label='Truncated tag' maxLength={12} onClick={() => alert('Success')} onRemove={() => alert('Removed')} /></Block>
+    </Section>
+    <Section title='Select'>
+      <Select />
     </Section>
     <Section title='Text'>
       <Subtitle>Headings</Subtitle>
