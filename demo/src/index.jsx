@@ -12,13 +12,20 @@ import {
   Button,
   Icon,
   Tag,
-  Select,
+  // Select,
   Text,
 } from '../../index.js';
 
 import CheckboxDemo from './demo-checkbox.jsx';
 import RadioDemo from './demo-radio.jsx';
 import InputDemo from './demo-input.jsx';
+import SelectDemo from './demo-select.jsx';
+
+const selectOpts = [
+  { value: '1', label: 'foo', uniqueId: 'option-id-1' },
+  { value: '2', label: 'bar', uniqueId: 'option-id-2' },
+  { value: '3', label: 'baz', uniqueId: 'option-id-3' },
+];
 
 const AllComponents = () => (
   <div>
@@ -162,10 +169,30 @@ const AllComponents = () => (
       <Block><Tag label='Truncated tag' maxLength={12} onClick={() => alert('Success')} onRemove={() => alert('Removed')} /></Block>
     </Section>
     <Section title='Select'>
-      <Select isOpen={false} options={[{ value: 1, label: 'foo', uniqueId: 'foo1' }]} />
-      <Select isOpen={false} dropdownPosition='above' options={[{ value: 1, label: 'foo', uniqueId: 'foo1' }]} />
-      <Select inline />
-      <Select Trigger={() => <p>Custom trigger</p>} />
+      <Subtitle>Default</Subtitle>
+      <SelectDemo options={selectOpts} />
+      <Subtitle>Inline</Subtitle>
+      <SelectDemo options={selectOpts} inline />
+      <Subtitle>Colors</Subtitle>
+      <SelectDemo options={selectOpts} color='gray' inline />
+      <SelectDemo options={selectOpts} color='white' inline />
+      <SelectDemo options={selectOpts} color='teal' inline />
+      <Subtitle>Dropdown positioned above</Subtitle>
+      <SelectDemo options={selectOpts} dropdownPosition='above' />
+      <Subtitle>Custom trigger label</Subtitle>
+      <SelectDemo options={selectOpts} triggerLabel='Custom label' inline />
+      <Subtitle>Caret alignment</Subtitle>
+      <SelectDemo options={selectOpts} triggerLabel='Above and left' dropdownPosition='above' caretAlign='left' inline />
+      <SelectDemo options={selectOpts} triggerLabel='Above and center' dropdownPosition='above' caretAlign='center' inline />
+      <SelectDemo options={selectOpts} triggerLabel='Above and right' dropdownPosition='above' caretAlign='right' inline />
+      <br />
+      <SelectDemo options={selectOpts} triggerLabel='Below and left' caretAlign='left' inline />
+      <SelectDemo options={selectOpts} triggerLabel='Below and center' caretAlign='center' inline />
+      <SelectDemo options={selectOpts} triggerLabel='Below and right' caretAlign='right' inline />
+      <Subtitle>Custom trigger element</Subtitle>
+      <SelectDemo options={selectOpts} inline Trigger={({ isOpen, onOpenToggle }) => <button onClick={() => onOpenToggle(!isOpen)}>Choose something ({isOpen ? 'close' : 'open'})</button>} />
+      <Subtitle>Multiselect</Subtitle>
+      <SelectDemo options={selectOpts} multiSelect />
     </Section>
     <Section title='Text'>
       <Subtitle>Headings</Subtitle>

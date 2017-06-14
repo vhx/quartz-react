@@ -2,8 +2,9 @@ import ButtonComponent from './components/Button';
 import CheckboxComponent from './components/Checkbox';
 import IconComponent from './components/Icon';
 import InputComponent from './components/Input';
+import MediaSelectComponent from './components/Select/media/Select.jsx';
 import RadioGroupComponent from './components/RadioGroup';
-import SelectComponent from './components/Select';
+import SelectComponent from './components/Select/standard/Select.jsx';
 import TagComponent from './components/Tag';
 import TextComponent from './components/Text';
 
@@ -11,6 +12,7 @@ export const Button = ButtonComponent;
 export const Checkbox = CheckboxComponent;
 export const Icon = IconComponent;
 export const Input = InputComponent;
+export const MediaSelect = MediaSelectComponent;
 export const RadioGroup = RadioGroupComponent;
 export const Select = SelectComponent;
 export const Tag = TagComponent;
