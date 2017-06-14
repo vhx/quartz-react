@@ -1,11 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const SelectDropdownOption = ({ label, onOptionToggle, value, uniqueId }) => (
+const SelectDropdownOption = ({ label, onOptionToggle, uniqueId }) => (
   <div>
-    Label: {label}
-    Value: {value}
-    Unique id: {uniqueId}
+    {label}
     <button onClick={() => onOptionToggle(uniqueId)}>
       Select
     </button>

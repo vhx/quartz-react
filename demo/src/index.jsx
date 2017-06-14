@@ -22,9 +22,9 @@ import InputDemo from './demo-input.jsx';
 import SelectDemo from './demo-select.jsx';
 
 const selectOpts = [
-  { value: '1', label: 'foo', uniqueId: 'option-id-1' },
-  { value: '2', label: 'bar', uniqueId: 'option-id-2' },
-  { value: '3', label: 'baz', uniqueId: 'option-id-3' },
+  { value: '1', label: 'Option #1', uniqueId: 'option-id-1' },
+  { value: '2', label: 'Option #2', uniqueId: 'option-id-2' },
+  { value: '3', label: 'Option #3', uniqueId: 'option-id-3' },
 ];
 
 const AllComponents = () => (
@@ -193,6 +193,8 @@ const AllComponents = () => (
       <SelectDemo options={selectOpts} inline Trigger={({ isOpen, onOpenToggle }) => <button onClick={() => onOpenToggle(!isOpen)}>Choose something ({isOpen ? 'close' : 'open'})</button>} />
       <Subtitle>Multiselect</Subtitle>
       <SelectDemo options={selectOpts} multiSelect />
+      <Subtitle>Select with search</Subtitle>
+      <SelectDemo options={selectOpts} search={() => {}} />
     </Section>
     <Section title='Text'>
       <Subtitle>Headings</Subtitle>
