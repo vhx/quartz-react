@@ -15,6 +15,16 @@ function manualOffsetV(shouldReposition, offset) {
   };
 }
 
+function generateLabel(selectedOptions, optionsList) {
+  const selectedKeys = Object.keys(selectedOptions).filter(key => Boolean(selectedOptions[key]));
+  if (selectedKeys.length === 0) { return ''; }
+  if (selectedKeys.length === 1) {
+    const selectedItemKey = selectedKeys[0];
+    const selectedItem = optionsList.filter(option => option.uniqueId === selectedItemKey)[0];
+    return selectedItem.label;
+  }
+  return 'Multiple items selected';
+}
 
 export default function SelectDropdownHOC({ Option }) {
   const SelectDropdown = ({ dropdownPosition, isOpen, multiSelect, onOpenToggle, onSelectionToggle, options, search, selectedOptions }) => {
@@ -23,6 +33,15 @@ export default function SelectDropdownHOC({ Option }) {
     const chooseOption = multiSelect ? util.multiSelect : (_options, id) => {
       onOpenToggle(false); // this hides the dropdown
       return util.select(selectedOptions, id);
+    };
+
+    const generateOption = (item) => {
+      const onToggle = (id) => {
+        const newSelection = chooseOption(selectedOptions, id);
+        const label = generateLabel(newSelection, options);
+        onSelectionToggle(newSelection, label);
+      };
+      return <Option key={item.uniqueId} onOptionToggle={onToggle} {...item} />;
     };
 
     return (
@@ -34,7 +53,7 @@ export default function SelectDropdownHOC({ Option }) {
           </If>
           <div>
             { /* we could use `value` instead of `uniqueId` as key if value is unique among the list (which I think it would be) */ }
-            { options.map(item => <Option key={item.uniqueId} onOptionToggle={id => onSelectionToggle(chooseOption(selectedOptions, id), id)} {...item} />) }
+            { options.map(generateOption) }
           </div>
         </ul>
       </div>

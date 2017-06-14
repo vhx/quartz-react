@@ -13,8 +13,8 @@ function getTriggerClass({ color }) {
   });
 }
 
-const Trigger = ({ color, onOpenToggle, isOpen, triggerLabel }) => (
-  <span className={getTriggerClass({ color })} onClick={() => onOpenToggle(!isOpen)}>{triggerLabel}</span>
+const Trigger = ({ color, isOpen, onOpenToggle, triggerLabel, triggerPlaceholder }) => (
+  <span className={getTriggerClass({ color })} onClick={() => onOpenToggle(!isOpen)}>{triggerLabel || triggerPlaceholder}</span>
 );
 
 Trigger.propTypes = {
@@ -22,6 +22,7 @@ Trigger.propTypes = {
   isOpen: PropTypes.bool.isRequired, // TODO: could remove this propType, but it would probably be useful to anyone specifying a custom <Trigger> element
   onOpenToggle: PropTypes.func.isRequired,
   triggerLabel: PropTypes.string.isRequired,
+  triggerPlaceholder: PropTypes.string.isRequired,
 };
 
 export default Trigger;

@@ -79,10 +79,10 @@ export default function SelectHOC({ DefaultTrigger, Dropdown, type }) {
       description: PropTypes.string,
     })).isRequired,
     selectedOptions: PropTypes.objectOf(PropTypes.bool).isRequired,
-    placeholder: PropTypes.string,
     search: PropTypes.func, // search(query, callback), callback is called on debounced input of the search or when enter is pressed
     Trigger: PropTypes.func, // allow passing in a custom Trigger as prop, so it's not necessary to import the HOC
     triggerLabel: PropTypes.string,
+    triggerPlaceholder: PropTypes.string,
   };
 
   Select.defaultProps = {
@@ -92,10 +92,10 @@ export default function SelectHOC({ DefaultTrigger, Dropdown, type }) {
     inline: false,
     isOpen: false,
     multiSelect: false,
-    placeholder: '', // TODO: does this override triggerLabel if empty? is it initial value?
     search: null,
     Trigger: null,
-    triggerLabel: 'Select an option', // TODO: verify that this is a sensible default label
+    triggerLabel: '',
+    triggerPlaceholder: 'Select an option', // TODO: verify that this is a sensible default label
   };
 
   return Select;

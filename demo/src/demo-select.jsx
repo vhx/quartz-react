@@ -8,6 +8,7 @@ class StatefulSelect extends Component {
     this.state = {
       isOpen: false,
       selectedOptions: {}, // if you do not want to initialize with all undefined options, but instead set every unchecked option to false, set selectedOptions to this: props.options.reduce((obj, option) => { obj[option.uniqueId] = false; return obj; }, {})
+      selectedLabel: '',
     };
     this.handleChange = this.handleChange.bind(this);
     this.setOpen = this.setOpen.bind(this);
@@ -17,9 +18,9 @@ class StatefulSelect extends Component {
     this.setState({ isOpen });
   }
 
-  handleChange(selectedOptions) {
-    console.log({ selectedOptions });
-    this.setState({ selectedOptions });
+  handleChange(selectedOptions, selectedLabel) {
+    console.log({ selectedOptions, selectedLabel });
+    this.setState({ selectedOptions, selectedLabel });
   }
 
   render() {
@@ -29,6 +30,7 @@ class StatefulSelect extends Component {
         selectedOptions={this.state.selectedOptions}
         onSelectionToggle={this.handleChange}
         onOpenToggle={this.setOpen}
+        triggerLabel={this.state.selectedLabel}
         {...this.props}
       />
     );

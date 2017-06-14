@@ -179,16 +179,16 @@ const AllComponents = () => (
       <SelectDemo options={selectOpts} color='teal' inline />
       <Subtitle>Dropdown positioned above</Subtitle>
       <SelectDemo options={selectOpts} dropdownPosition='above' />
-      <Subtitle>Custom trigger label</Subtitle>
-      <SelectDemo options={selectOpts} triggerLabel='Custom label' inline />
+      <Subtitle>Custom trigger label placeholder</Subtitle>
+      <SelectDemo options={selectOpts} triggerPlaceholder='Custom label' inline />
       <Subtitle>Caret alignment</Subtitle>
-      <SelectDemo options={selectOpts} triggerLabel='Above and left' dropdownPosition='above' caretAlign='left' inline />
-      <SelectDemo options={selectOpts} triggerLabel='Above and center' dropdownPosition='above' caretAlign='center' inline />
-      <SelectDemo options={selectOpts} triggerLabel='Above and right' dropdownPosition='above' caretAlign='right' inline />
+      <SelectDemo options={selectOpts} triggerPlaceholder='Above and left' dropdownPosition='above' caretAlign='left' inline />
+      <SelectDemo options={selectOpts} triggerPlaceholder='Above and center' dropdownPosition='above' caretAlign='center' inline />
+      <SelectDemo options={selectOpts} triggerPlaceholder='Above and right' dropdownPosition='above' caretAlign='right' inline />
       <br />
-      <SelectDemo options={selectOpts} triggerLabel='Below and left' caretAlign='left' inline />
-      <SelectDemo options={selectOpts} triggerLabel='Below and center' caretAlign='center' inline />
-      <SelectDemo options={selectOpts} triggerLabel='Below and right' caretAlign='right' inline />
+      <SelectDemo options={selectOpts} triggerPlaceholder='Below and left' caretAlign='left' inline />
+      <SelectDemo options={selectOpts} triggerPlaceholder='Below and center' caretAlign='center' inline />
+      <SelectDemo options={selectOpts} triggerPlaceholder='Below and right' caretAlign='right' inline />
       <Subtitle>Custom trigger element</Subtitle>
       <SelectDemo options={selectOpts} inline Trigger={({ isOpen, onOpenToggle }) => <button onClick={() => onOpenToggle(!isOpen)}>Choose something ({isOpen ? 'close' : 'open'})</button>} />
       <Subtitle>Multiselect</Subtitle>
