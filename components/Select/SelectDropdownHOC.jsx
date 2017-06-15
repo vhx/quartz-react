@@ -39,6 +39,11 @@ export default function SelectDropdownHOC({ Option }) {
       const onToggle = (id) => {
         const newSelection = chooseOption(selectedOptions, id);
         const label = generateLabel(newSelection, options);
+        const noItemsWereSelected = label === '';
+        if (noItemsWereSelected && !multiSelect) {
+          onOpenToggle(false);
+          return;
+        }
         onSelectionToggle(newSelection, label);
       };
       return <Option key={item.uniqueId} onOptionToggle={onToggle} {...item} />;
@@ -52,7 +57,6 @@ export default function SelectDropdownHOC({ Option }) {
             <li className='padding-horz-large padding-top-small padding-bottom-medium text--gray text-center' />
           </If>
           <div>
-            { /* we could use `value` instead of `uniqueId` as key if value is unique among the list (which I think it would be) */ }
             { options.map(generateOption) }
           </div>
         </ul>
