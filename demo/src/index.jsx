@@ -159,6 +159,7 @@ const AllComponents = () => (
     <Section title='Tags'>
       <Block><Tag label='Tag with hover state' onClick={() => alert('Success')} onRemove={() => alert('Removed')} /></Block>
       <Block><Tag label='Truncated tag' maxLength={12} onClick={() => alert('Success')} onRemove={() => alert('Removed')} /></Block>
+      <Block><Tag label='Tag (processing)' isProcessing /></Block>
     </Section>
     <Section title='Text'>
       <Subtitle>Headings</Subtitle>
