@@ -22,9 +22,15 @@ import InputDemo from './demo-input.jsx';
 import SelectDemo from './demo-select.jsx';
 
 const selectOpts = [
-  { value: '1', label: 'Option #1', uniqueId: 'option-id-1' },
-  { value: '2', label: 'Option #2', uniqueId: 'option-id-2' },
-  { value: '3', label: 'Option #3', uniqueId: 'option-id-3' },
+  { label: 'Option #1', uniqueId: 'option-id-1' },
+  { label: 'Option #2', uniqueId: 'option-id-2' },
+  { label: 'Option #3', uniqueId: 'option-id-3' },
+];
+
+const selectOptsWithDescription = [
+  { description: 'Hello World', label: 'Option #1', uniqueId: 'option-id-1' },
+  { description: 'Hello Quartz', label: 'Option #2', uniqueId: 'option-id-2' },
+  { description: 'Hello everyone', label: 'Option #3', uniqueId: 'option-id-3' },
 ];
 
 const AllComponents = () => (
@@ -195,6 +201,12 @@ const AllComponents = () => (
       <SelectDemo options={selectOpts} multiSelect />
       <Subtitle>Select with search</Subtitle>
       <SelectDemo options={selectOpts} search={() => {}} />
+      <Subtitle>Multiselect with search</Subtitle>
+      <SelectDemo options={selectOpts} multiSelect search={() => {}} />
+      <Subtitle>Select with options still loading</Subtitle>
+      <SelectDemo options={selectOpts} isLoading />
+      <Subtitle>Select with option descriptions</Subtitle>
+      <SelectDemo options={selectOptsWithDescription} />
     </Section>
     <Section title='Text'>
       <Subtitle>Headings</Subtitle>

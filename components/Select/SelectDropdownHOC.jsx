@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import Input from '../Input';
 import * as util from '../util';
 
 const If = util.If;
@@ -27,7 +28,7 @@ function generateLabel(selectedOptions, optionsList) {
 }
 
 export default function SelectDropdownHOC({ Option }) {
-  const SelectDropdown = ({ dropdownPosition, isOpen, multiSelect, onOpenToggle, onSelectionToggle, options, search, selectedOptions }) => {
+  const SelectDropdown = ({ dropdownPosition, isLoading, multiSelect, onOpenToggle, onSelectionToggle, options, search, selectedOptions }) => {
     // If the `multiSelect` prop is available, toggle by way of `util.multiSelect`. No need to hide the dropdown.
     // If it is not, toggle by way of `util.select` and hide the dropdown
     const chooseOption = multiSelect ? util.multiSelect : (_options, id) => {
@@ -44,15 +45,19 @@ export default function SelectDropdownHOC({ Option }) {
           onOpenToggle(false);
           return;
         }
-        onSelectionToggle(newSelection, label);
+        onSelectionToggle(newSelection, label, item);
       };
-      return <Option key={item.uniqueId} onOptionToggle={onToggle} {...item} />;
+      return <Option key={item.uniqueId} onOptionToggle={onToggle} isSelected={Boolean(selectedOptions[item.uniqueId])} {...item} />;
     };
 
     return (
-      <div className={`c-select--dropdown bg-white border radius fill-width ${isOpen ? 'is-open' : ''}`} ref={manualOffsetV(dropdownPosition === 'above', VERTICAL_OFFSET)}>
-        <If condition={Boolean(search)}>[  SEARCH GOES HERE  ]</If>
-        <ul className='c-select--options margin-left-reset loader-slate loader--transparent'>
+      <div className='c-select--dropdown bg-white border radius fill-width is-open' ref={manualOffsetV(dropdownPosition === 'above', VERTICAL_OFFSET)}>
+        <If condition={Boolean(search)}>
+          <div className='c-select--input-container padding-medium absolute bg-white fill-width radius'>
+            <Input placeholder='Search' autoFocus search />
+          </div>
+        </If>
+        <ul className={`c-select--options margin-left-reset loader-slate loader--transparent ${isLoading ? 'is-loading' : ''}`}>
           <If condition={options.length === 0}>
             <li className='padding-horz-large padding-top-small padding-bottom-medium text--gray text-center' />
           </If>
@@ -66,7 +71,8 @@ export default function SelectDropdownHOC({ Option }) {
 
   SelectDropdown.propTypes = {
     dropdownPosition: PropTypes.oneOf([ 'above', 'below' ]).isRequired,
-    isOpen: PropTypes.bool.isRequired,
+    isLoading: PropTypes.bool, // NOTE: it is currently possible to select an option while loading. Should we allow that?
+    // isOpen: PropTypes.bool.isRequired,
     multiSelect: PropTypes.bool.isRequired,
     multiselect: util.typoPropType({ correct: 'multiSelect' }), // eslint-disable-line react/require-default-props, react/no-unused-prop-types
     onOpenToggle: PropTypes.func.isRequired,
@@ -75,13 +81,13 @@ export default function SelectDropdownHOC({ Option }) {
       description: PropTypes.string,
       label: PropTypes.string.isRequired,
       uniqueId: PropTypes.string.isRequired,
-      value: PropTypes.string.isRequired,
     })).isRequired,
     selectedOptions: PropTypes.objectOf(PropTypes.bool).isRequired,
     search: PropTypes.func,
   };
 
   SelectDropdown.defaultProps = {
+    isLoading: false,
     search: null,
   };
 

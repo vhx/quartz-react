@@ -18,8 +18,8 @@ class StatefulSelect extends Component {
     this.setState({ isOpen });
   }
 
-  handleChange(selectedOptions, selectedLabel) {
-    console.log({ selectedOptions, selectedLabel });
+  handleChange(selectedOptions, selectedLabel, itemToggled) {
+    console.log({ selectedOptions, selectedLabel, itemToggled });
     this.setState({ selectedOptions, selectedLabel });
   }
 

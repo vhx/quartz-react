@@ -1,10 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const MediaSelectDropdownOption = ({ description, label, onOptionToggle, value, uniqueId }) => (
+const MediaSelectDropdownOption = ({ description, label, onOptionToggle, uniqueId }) => (
   <div>
     Label: {label}
-    Value: {value}
     Unique id: {uniqueId}
     Description: {description}
     <button onClick={() => onOptionToggle(uniqueId)}>
@@ -16,7 +15,6 @@ const MediaSelectDropdownOption = ({ description, label, onOptionToggle, value, 
 MediaSelectDropdownOption.propTypes = {
   description: PropTypes.string,
   label: PropTypes.string.isRequired,
-  value: PropTypes.string.isRequired,
   onOptionToggle: PropTypes.func.isRequired,
   uniqueId: PropTypes.string.isRequired,
 };

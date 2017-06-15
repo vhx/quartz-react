@@ -3,6 +3,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
+import { If } from '../util';
 
 function getClass(props, type) {
   const { caretAlign, dropdownPosition, inline, search } = props;
@@ -57,7 +58,9 @@ export default function SelectHOC({ DefaultTrigger, Dropdown, type }) {
       return (
         <div className={getClass(this.props, type)} ref={((el) => { this.element = el; })}>
           <Trigger {...this.props} />
-          <Dropdown {...this.props} />
+          <If condition={this.props.isOpen}>
+            <Dropdown {...this.props} />
+          </If>
         </div>
       );
     }
@@ -73,7 +76,7 @@ export default function SelectHOC({ DefaultTrigger, Dropdown, type }) {
     onOpenToggle: PropTypes.func.isRequired,
     onSelectionToggle: PropTypes.func.isRequired,
     options: PropTypes.arrayOf(PropTypes.shape({
-      value: PropTypes.oneOfType([ PropTypes.string, PropTypes.number ]).isRequired,
+      // NOTE: any additional keys are also allowed, so you can store as much data in the `option` as you would like
       label: PropTypes.string.isRequired,
       uniqueId: PropTypes.string.isRequired,
       description: PropTypes.string,
