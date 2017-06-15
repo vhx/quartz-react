@@ -16,6 +16,11 @@ function manualOffsetV(shouldReposition, offset) {
   };
 }
 
+/*
+Given selectedOptions like: { foo: true, bar: false, baz: false }
+and given an optionsList like: [{ uniqueId: 'foo', label: 'Item 1'}, { uniqueId: 'bar', label: 'Item 2' }, { uniqueId: 'baz', label: 'Item 3'}]
+=> 'Item 1' // returns the label of the selected option
+*/
 function generateLabel(selectedOptions, optionsList) {
   const selectedKeys = Object.keys(selectedOptions).filter(key => Boolean(selectedOptions[key]));
   if (selectedKeys.length === 0) { return ''; }
