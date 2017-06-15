@@ -7,8 +7,8 @@ import { If } from '../../util';
 // (This fixes wrapping issues in `inline` select dropdowns)
 const listStyle = { whiteSpace: 'nowrap' };
 
-const SelectDropdownOption = ({ description, isSelected, label, onOptionToggle, uniqueId }) => (
-  <li className={`c-select--option padding-horz-medium ${isSelected ? 'is-selected' : ''}`} onClick={() => onOptionToggle(uniqueId)} style={listStyle}>
+const SelectDropdownOption = ({ description, isLoading, isSelected, label, onOptionToggle, uniqueId }) => (
+  <li className={`c-select--option padding-horz-medium ${isSelected ? 'is-selected' : ''}`} onClick={() => !isLoading && onOptionToggle(uniqueId)} style={listStyle}>
     <If condition={isSelected}>
       <Icon name='check' color='navy' size='xsmall' className='right margin-top-xsmall margin-left-small' />
     </If>
@@ -19,6 +19,7 @@ const SelectDropdownOption = ({ description, isSelected, label, onOptionToggle, 
 
 SelectDropdownOption.propTypes = {
   description: PropTypes.string,
+  isLoading: PropTypes.bool.isRequired,
   isSelected: PropTypes.bool.isRequired,
   label: PropTypes.string.isRequired,
   onOptionToggle: PropTypes.func.isRequired,

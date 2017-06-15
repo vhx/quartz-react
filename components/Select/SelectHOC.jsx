@@ -13,7 +13,7 @@ function getClass(props, type) {
     relative: true,
     'c-select--container': true,
     'has-search': Boolean(search),
-    // 'has-trigger': props.hasTrigger,
+    // 'has-trigger': Boolean(props.Trigger), // has-trigger does what custom offset could do more generally. Will implement this if not doing custom offset.
     'has-media': type === 'media',
     'caret--top-right':     dropdownPosition === 'below' && caretAlign === 'right',
     'caret--top-left':      dropdownPosition === 'below' && caretAlign === 'left',
@@ -24,9 +24,6 @@ function getClass(props, type) {
   });
 }
 
-// TODO: use uniqueIds in object set to bools instead of index
-// to trigger selections. this makes multiselect possible
-// without having to reimplement logic
 export default function SelectHOC({ DefaultTrigger, Dropdown, type }) {
   class Select extends Component {
 
@@ -47,7 +44,6 @@ export default function SelectHOC({ DefaultTrigger, Dropdown, type }) {
     // If user clicks anywhere but the <Select>, then close it.
     handleGlobalClick(event) {
       if (!this.element) { return; }
-      // TODO: check browser support for `.contains`
       if (event.target !== this.element && !this.element.contains(event.target)) {
         this.props.onOpenToggle(false);
       }
@@ -82,7 +78,7 @@ export default function SelectHOC({ DefaultTrigger, Dropdown, type }) {
       description: PropTypes.string,
     })).isRequired,
     selectedOptions: PropTypes.objectOf(PropTypes.bool).isRequired,
-    search: PropTypes.func, // search(query, callback), callback is called on debounced input of the search or when enter is pressed
+    search: PropTypes.func, // search(query) called onInput currently. Can debounce if made stateful, or leave that to parent.
     Trigger: PropTypes.func, // allow passing in a custom Trigger as prop, so it's not necessary to import the HOC
     triggerLabel: PropTypes.string,
     triggerPlaceholder: PropTypes.string,

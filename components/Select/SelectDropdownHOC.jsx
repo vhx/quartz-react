@@ -52,7 +52,7 @@ export default function SelectDropdownHOC({ Option }) {
         }
         onSelectionToggle(newSelection, label, item);
       };
-      return <Option key={item.uniqueId} onOptionToggle={onToggle} isSelected={Boolean(selectedOptions[item.uniqueId])} {...item} />;
+      return <Option key={item.uniqueId} onOptionToggle={onToggle} isLoading={isLoading} isSelected={Boolean(selectedOptions[item.uniqueId])} {...item} />;
     };
 
     return (
@@ -76,7 +76,7 @@ export default function SelectDropdownHOC({ Option }) {
 
   SelectDropdown.propTypes = {
     dropdownPosition: PropTypes.oneOf([ 'above', 'below' ]).isRequired,
-    isLoading: PropTypes.bool, // NOTE: it is currently possible to select an option while loading. Should we allow that?
+    isLoading: PropTypes.bool,
     multiSelect: PropTypes.bool.isRequired,
     multiselect: util.typoPropType({ correct: 'multiSelect' }), // eslint-disable-line react/require-default-props, react/no-unused-prop-types
     onOpenToggle: PropTypes.func.isRequired,
