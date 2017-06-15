@@ -28,7 +28,7 @@ function generateLabel(selectedOptions, optionsList) {
 }
 
 export default function SelectDropdownHOC({ Option }) {
-  const SelectDropdown = ({ dropdownPosition, isLoading, multiSelect, onOpenToggle, onSelectionToggle, options, search, selectedOptions }) => {
+  const SelectDropdown = ({ dropdownPosition, isLoading, multiSelect, onOpenToggle, onSelectionToggle, options, search, searchValue, selectedOptions }) => {
     // If the `multiSelect` prop is available, toggle by way of `util.multiSelect`. No need to hide the dropdown.
     // If it is not, toggle by way of `util.select` and hide the dropdown
     const chooseOption = multiSelect ? util.multiSelect : (_options, id) => {
@@ -54,7 +54,7 @@ export default function SelectDropdownHOC({ Option }) {
       <div className='c-select--dropdown bg-white border radius fill-width is-open' ref={manualOffsetV(dropdownPosition === 'above', VERTICAL_OFFSET)}>
         <If condition={Boolean(search)}>
           <div className='c-select--input-container padding-medium absolute bg-white fill-width radius'>
-            <Input placeholder='Search' autoFocus search />
+            <Input placeholder='Search' onInput={event => search(event.target.value)} value={searchValue} autoFocus search />
           </div>
         </If>
         <ul className={`c-select--options margin-left-reset loader-slate loader--transparent ${isLoading ? 'is-loading' : ''}`}>
@@ -72,7 +72,6 @@ export default function SelectDropdownHOC({ Option }) {
   SelectDropdown.propTypes = {
     dropdownPosition: PropTypes.oneOf([ 'above', 'below' ]).isRequired,
     isLoading: PropTypes.bool, // NOTE: it is currently possible to select an option while loading. Should we allow that?
-    // isOpen: PropTypes.bool.isRequired,
     multiSelect: PropTypes.bool.isRequired,
     multiselect: util.typoPropType({ correct: 'multiSelect' }), // eslint-disable-line react/require-default-props, react/no-unused-prop-types
     onOpenToggle: PropTypes.func.isRequired,
@@ -84,11 +83,13 @@ export default function SelectDropdownHOC({ Option }) {
     })).isRequired,
     selectedOptions: PropTypes.objectOf(PropTypes.bool).isRequired,
     search: PropTypes.func,
+    searchValue: PropTypes.string,
   };
 
   SelectDropdown.defaultProps = {
     isLoading: false,
     search: null,
+    searchValue: '',
   };
 
   return SelectDropdown;

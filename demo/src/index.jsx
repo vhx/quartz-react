@@ -206,6 +206,7 @@ const AllComponents = () => (
       <Subtitle>Select with options still loading</Subtitle>
       <SelectDemo options={selectOpts} isLoading />
       <Subtitle>Select with option descriptions</Subtitle>
+      { /* NOTE: this does not work with `inline` */ }
       <SelectDemo options={selectOptsWithDescription} />
     </Section>
     <Section title='Text'>
