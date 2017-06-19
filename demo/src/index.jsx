@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import iconNames from '../../components/Icon/icon-list.js';
 
@@ -13,7 +13,7 @@ import {
   Icon,
   // MediaSelect,
   Tag,
-  // Select,
+  Select,
   Text,
 } from '../../index.js';
 
@@ -40,6 +40,41 @@ const mediaSelectOpts = Array(20).fill(true).map((_, i) => ({
   label: `Option #${i + 1}`,
   uniqueId: `option-id-${i}`,
 }));
+
+class MinimalStatefulSelectDemo extends Component {
+  constructor() {
+    super();
+    this.state = {
+      isOpen: false,
+      selectedOptions: {}, // if you do not want to initialize with all undefined options, but instead set every unchecked option to false, set selectedOptions to this: props.options.reduce((obj, option) => { obj[option.uniqueId] = false; return obj; }, {})
+      selectedLabel: '',
+    };
+    this.setOpen = this.setOpen.bind(this);
+    this.handleChange = this.handleChange.bind(this);
+  }
+
+  setOpen(isOpen) {
+    this.setState({ isOpen });
+  }
+
+  handleChange(selectedOptions, selectedLabel /*, itemToggled, itemWillBeChecked */) {
+    this.setState({ selectedOptions, selectedLabel });
+  }
+
+  render() {
+    return (
+      <Select
+        {...this.props}
+        isOpen={this.state.isOpen}
+        selectedOptions={this.state.selectedOptions}
+        onSelectionToggle={this.handleChange}
+        onOpenToggle={this.setOpen}
+        triggerLabel={this.state.selectedLabel}
+      />
+    );
+  }
+}
+
 
 const CustomTrigger = ({ isOpen, onOpenToggle }) => <button onClick={() => onOpenToggle(!isOpen)}>Choose something ({isOpen ? 'close' : 'open'})</button>;
 
@@ -168,17 +203,17 @@ const AllComponents = () => (
     </Section>
     <Section title='Radios'>
       <Subtitle>Default</Subtitle>
-      <RadioDemo items={[{ label: 'Option 1', uniqueId: 'opt1' }, { label: 'Option 2', uniqueId: 'opt2' }]} />
+      <RadioDemo items={selectOpts} />
       <Subtitle>Default gray</Subtitle>
-      <RadioDemo color='gray' items={[{ label: 'Option 1', uniqueId: 'opt1' }, { label: 'Option 2', uniqueId: 'opt2' }]} />
+      <RadioDemo color='gray' items={selectOpts} />
       <Subtitle>Stacked</Subtitle>
-      <RadioDemo stacked items={[{ label: 'Option 1', uniqueId: 'opt1' }, { label: 'Option 2', uniqueId: 'opt2' }]} />
+      <RadioDemo stacked items={selectOpts} />
       <Subtitle>Stacked gray</Subtitle>
-      <RadioDemo stacked color='gray' items={[{ label: 'Option 1', uniqueId: 'opt1' }, { label: 'Option 2', uniqueId: 'opt2' }]} />
+      <RadioDemo stacked color='gray' items={selectOpts} />
       <Subtitle>Radio buttons</Subtitle>
-      <RadioDemo buttons items={[{ label: 'Option 1', uniqueId: 'opt1' }, { label: 'Option 2', uniqueId: 'opt2' }]} />
+      <RadioDemo buttons items={selectOpts} />
       <Subtitle>Radio buttons with descriptions</Subtitle>
-      <RadioDemo buttons items={[{ label: 'Option 1', description: 'Description 1 goes here', uniqueId: 'opt1' }, { label: 'Option 2', description: 'Description 2 goes here', uniqueId: 'opt2' }]} />
+      <RadioDemo buttons items={selectOptsWithDescription} />
     </Section>
     <Section title='Tags'>
       <Block><Tag label='Tag with hover state' onClick={() => alert('Success')} onRemove={() => alert('Removed')} /></Block>
@@ -187,6 +222,8 @@ const AllComponents = () => (
     <Section title='Select'>
       <Subtitle>Default</Subtitle>
       <SelectDemo options={selectOpts} />
+      <Subtitle>Minimal demo (copy this stateful component as a starting point)</Subtitle>
+      <MinimalStatefulSelectDemo options={selectOpts} />
       <Subtitle>Inline</Subtitle>
       <SelectDemo options={selectOpts} inline />
       <Subtitle>Colors</Subtitle>
@@ -220,6 +257,8 @@ const AllComponents = () => (
       <SelectDemo options={selectOptsWithDescription} />
       <Subtitle>Media select</Subtitle>
       <SelectDemo type='media' options={mediaSelectOpts} />
+      <Subtitle>Media select with search</Subtitle>
+      <SelectDemo type='media' options={mediaSelectOpts} search={() => {}} />
       <Subtitle>Media multiselect with search</Subtitle>
       <SelectDemo type='media' multiSelect options={mediaSelectOpts} search={() => {}} />
       <Subtitle>Media multiselect with processing state</Subtitle>

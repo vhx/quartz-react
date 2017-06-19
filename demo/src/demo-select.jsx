@@ -2,6 +2,12 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { MediaSelect, Select } from '../../index.js';
 
+function removeFromArray(array, item) {
+  const index = array.indexOf(item);
+  if (index !== -1) { array.splice(index, 1); }
+  return array;
+}
+
 class StatefulSelect extends Component {
 
   constructor(props) {
@@ -24,24 +30,21 @@ class StatefulSelect extends Component {
     this.setState({ isOpen });
   }
 
-  handleChange(selectedOptions, selectedLabel, itemToggled, itemWillBeChecked) {
-    console.log({ selectedOptions, selectedLabel, itemToggled, itemWillBeChecked });
+  handleChange(selectedOptions, selectedLabel, item, itemWillBeChecked) {
+    console.log({ selectedOptions, selectedLabel, item, itemWillBeChecked });
 
-    const removeItemFromProcessing = () => {
-      const index = this.state.processingOptions.indexOf(itemToggled.uniqueId);
-      const processingOptions = this.state.processingOptions;
-      if (index !== -1) {
-        processingOptions.splice(index, 1);
-      }
-      return processingOptions;
-    };
-
+    // pretendToProcessOptions is just a prop for the demo so that
+    // this component can know to simulate `processing` state.
+    // in real usage, that prop would not exist.
     if (this.props.pretendToProcessOptions) {
-      const processingOptions = this.state.processingOptions.concat(itemToggled.uniqueId);
-      this.setState({ processingOptions });
+      const { processingOptions } = this.state;
+      this.setState({ processingOptions: processingOptions.concat(item.uniqueId) });
       setTimeout(() => {
-        const processingOptionsAfter = removeItemFromProcessing();
-        this.setState({ selectedOptions, selectedLabel, processingOptions: processingOptionsAfter });
+        this.setState({
+          selectedOptions,
+          selectedLabel,
+          processingOptions: removeFromArray(processingOptions, item.uniqueId),
+        });
       }, 500);
     } else {
       this.setState({ selectedOptions, selectedLabel });
