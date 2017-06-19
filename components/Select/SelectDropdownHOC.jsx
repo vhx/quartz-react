@@ -50,7 +50,7 @@ export default function SelectDropdownHOC({ Option }) {
           onOpenToggle(false);
           return;
         }
-        onSelectionToggle(newSelection, label, item);
+        onSelectionToggle(newSelection, label, item, newSelection[item.uniqueId]);
       };
       return <Option key={item.uniqueId} maxLabelLength={maxLabelLength} multiSelect={multiSelect} onOptionToggle={onToggle} isLoading={isLoading} isSelected={Boolean(selectedOptions[item.uniqueId])} {...item} />;
     };

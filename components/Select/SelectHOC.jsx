@@ -3,6 +3,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
+import DefaultTrigger from './Trigger.jsx';
 import { If } from '../util';
 
 function getClass(props, type) {
@@ -24,7 +25,7 @@ function getClass(props, type) {
   });
 }
 
-export default function SelectHOC({ DefaultTrigger, Dropdown, type }) {
+export default function SelectHOC({ Dropdown, type }) {
   class Select extends Component {
 
     constructor(props) {
