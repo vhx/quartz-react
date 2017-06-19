@@ -41,6 +41,8 @@ const mediaSelectOpts = Array(20).fill(true).map((_, i) => ({
   uniqueId: `option-id-${i}`,
 }));
 
+const CustomTrigger = ({ isOpen, onOpenToggle }) => <button onClick={() => onOpenToggle(!isOpen)}>Choose something ({isOpen ? 'close' : 'open'})</button>;
+
 const AllComponents = () => (
   <div>
     <Section title='Buttons'>
@@ -204,7 +206,7 @@ const AllComponents = () => (
       <SelectDemo options={selectOpts} triggerPlaceholder='Below and center' caretAlign='center' inline />
       <SelectDemo options={selectOpts} triggerPlaceholder='Below and right' caretAlign='right' inline />
       <Subtitle>Custom trigger element</Subtitle>
-      <SelectDemo options={selectOpts} inline Trigger={({ isOpen, onOpenToggle }) => <button onClick={() => onOpenToggle(!isOpen)}>Choose something ({isOpen ? 'close' : 'open'})</button>} />
+      <SelectDemo options={selectOpts} inline Trigger={CustomTrigger} />
       <Subtitle>Multiselect</Subtitle>
       <SelectDemo options={selectOpts} multiSelect />
       <Subtitle>Select with search</Subtitle>
