@@ -79,6 +79,7 @@ export default function SelectHOC({ Dropdown, type }) {
       uniqueId: PropTypes.string.isRequired,
       description: PropTypes.string,
     })).isRequired,
+    processingOptions: PropTypes.arrayOf(PropTypes.string),
     selectedOptions: PropTypes.objectOf(PropTypes.bool).isRequired,
     search: PropTypes.func, // search(query) called onInput currently. Can debounce if made stateful, or leave that to parent.
     Trigger: PropTypes.func, // allow passing in a custom Trigger as prop, so it's not necessary to import the HOC
@@ -94,6 +95,7 @@ export default function SelectHOC({ Dropdown, type }) {
     isOpen: false,
     maxLabelLength: Infinity,
     multiSelect: false,
+    processingOptions: [],
     search: null,
     Trigger: null,
     triggerLabel: '',

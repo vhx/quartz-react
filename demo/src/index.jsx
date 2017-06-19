@@ -34,11 +34,12 @@ const selectOptsWithDescription = [
   { description: 'Hello everyone', label: 'Option #3', uniqueId: 'option-id-3' },
 ];
 
-const mediaSelectOpts = [
-  { imageUrl: 'http://lorempizza.com/70/40/1', description: 'Hello World', label: 'Option #1', uniqueId: 'option-id-1' },
-  { imageUrl: 'http://lorempizza.com/70/40/2', description: 'Hello Quartz', label: 'Option #2', uniqueId: 'option-id-2' },
-  { imageUrl: 'http://lorempizza.com/70/40/3', description: 'Hello everyone', label: 'Option #3', uniqueId: 'option-id-3' },
-];
+const mediaSelectOpts = Array(20).fill(true).map((_, i) => ({
+  imageUrl: `http://lorempizza.com/70/40/${i}`,
+  description: 'Hello World',
+  label: `Option #${i + 1}`,
+  uniqueId: `option-id-${i}`,
+}));
 
 const AllComponents = () => (
   <div>
@@ -220,7 +221,7 @@ const AllComponents = () => (
       <Subtitle>Media multiselect with search</Subtitle>
       <SelectDemo type='media' multiSelect options={mediaSelectOpts} search={() => {}} />
       <Subtitle>Media multiselect with processing state</Subtitle>
-      <SelectDemo type='media' multiSelect options={mediaSelectOpts} />
+      <SelectDemo type='media' multiSelect options={mediaSelectOpts} pretendToProcessOptions />
     </Section>
     <Section title='Text'>
       <Subtitle>Headings</Subtitle>

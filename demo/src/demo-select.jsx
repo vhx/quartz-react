@@ -13,6 +13,7 @@ class StatefulSelect extends Component {
       selectedLabel: '',
       filteredOptions: props.options,
       searchValue: '',
+      processingOptions: [],
     };
     this.handleChange = this.handleChange.bind(this);
     this.setOpen = this.setOpen.bind(this);
@@ -23,9 +24,28 @@ class StatefulSelect extends Component {
     this.setState({ isOpen });
   }
 
-  handleChange(selectedOptions, selectedLabel, itemToggled) {
-    console.log({ selectedOptions, selectedLabel, itemToggled });
-    this.setState({ selectedOptions, selectedLabel });
+  handleChange(selectedOptions, selectedLabel, itemToggled, itemWillBeChecked) {
+    console.log({ selectedOptions, selectedLabel, itemToggled, itemWillBeChecked });
+
+    const removeItemFromProcessing = () => {
+      const index = this.state.processingOptions.indexOf(itemToggled.uniqueId);
+      const processingOptions = this.state.processingOptions;
+      if (index !== -1) {
+        processingOptions.splice(index, 1);
+      }
+      return processingOptions;
+    };
+
+    if (this.props.pretendToProcessOptions) {
+      const processingOptions = this.state.processingOptions.concat(itemToggled.uniqueId);
+      this.setState({ processingOptions });
+      setTimeout(() => {
+        const processingOptionsAfter = removeItemFromProcessing();
+        this.setState({ selectedOptions, selectedLabel, processingOptions: processingOptionsAfter });
+      }, 500);
+    } else {
+      this.setState({ selectedOptions, selectedLabel });
+    }
   }
 
   fakeSearch(query) {
@@ -47,6 +67,7 @@ class StatefulSelect extends Component {
         selectedOptions={this.state.selectedOptions}
         onSelectionToggle={this.handleChange}
         onOpenToggle={this.setOpen}
+        processingOptions={this.state.processingOptions}
         triggerLabel={this.state.selectedLabel}
         searchValue={this.state.searchValue}
         options={this.state.filteredOptions}
@@ -57,6 +78,7 @@ class StatefulSelect extends Component {
 }
 
 StatefulSelect.propTypes = {
+  pretendToProcessOptions: PropTypes.bool, // this is just for the demo
   options: PropTypes.arrayOf(PropTypes.shape({
     description: PropTypes.string,
     label: PropTypes.string.isRequired,
@@ -67,6 +89,7 @@ StatefulSelect.propTypes = {
 };
 
 StatefulSelect.defaultProps = {
+  pretendToProcessOptions: false,
   search: null,
   type: '',
 };

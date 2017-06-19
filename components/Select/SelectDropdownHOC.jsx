@@ -33,7 +33,7 @@ function generateLabel(selectedOptions, optionsList) {
 }
 
 export default function SelectDropdownHOC({ Option }) {
-  const SelectDropdown = ({ dropdownPosition, isLoading, maxLabelLength, multiSelect, onOpenToggle, onSelectionToggle, options, search, searchValue, selectedOptions }) => {
+  const SelectDropdown = ({ dropdownPosition, isLoading, maxLabelLength, multiSelect, onOpenToggle, onSelectionToggle, options, processingOptions, search, searchValue, selectedOptions }) => {
     // If the `multiSelect` prop is available, toggle by way of `util.multiSelect`. No need to hide the dropdown.
     // If it is not, toggle by way of `util.select` and hide the dropdown
     const chooseOption = multiSelect ? util.multiSelect : (_options, id) => {
@@ -52,7 +52,18 @@ export default function SelectDropdownHOC({ Option }) {
         }
         onSelectionToggle(newSelection, label, item, newSelection[item.uniqueId]);
       };
-      return <Option key={item.uniqueId} maxLabelLength={maxLabelLength} multiSelect={multiSelect} onOptionToggle={onToggle} isLoading={isLoading} isSelected={Boolean(selectedOptions[item.uniqueId])} {...item} />;
+      return (
+        <Option
+          key={item.uniqueId}
+          isProcessingItem={processingOptions.indexOf(item.uniqueId) !== -1}
+          maxLabelLength={maxLabelLength}
+          multiSelect={multiSelect}
+          onOptionToggle={onToggle}
+          isLoading={isLoading}
+          isSelected={Boolean(selectedOptions[item.uniqueId])}
+          {...item}
+        />
+      );
     };
 
     return (
@@ -87,6 +98,7 @@ export default function SelectDropdownHOC({ Option }) {
       label: PropTypes.string.isRequired,
       uniqueId: PropTypes.string.isRequired,
     })).isRequired,
+    processingOptions: PropTypes.arrayOf(PropTypes.string).isRequired,
     selectedOptions: PropTypes.objectOf(PropTypes.bool).isRequired,
     search: PropTypes.func,
     searchValue: PropTypes.string,
