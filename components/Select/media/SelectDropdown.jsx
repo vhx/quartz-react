@@ -1,6 +1,6 @@
-// import SelectDropdownHOC from '../SelectDropdownHOC.jsx';
-// import SelectDropdownOption from './SelectDropdownOption.jsx';
+import SelectDropdownHOC from '../SelectDropdownHOC.jsx';
+import SelectDropdownOption from './SelectDropdownOption.jsx';
 
-// const SelectDropdown = SelectDropdownHOC({ Option: SelectDropdownOption });
+const MediaSelectDropdown = SelectDropdownHOC({ Option: SelectDropdownOption });
 
-// export default SelectDropdown;
+export default MediaSelectDropdown;

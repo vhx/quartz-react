@@ -11,6 +11,7 @@ import {
 import {
   Button,
   Icon,
+  MediaSelect,
   Tag,
   // Select,
   Text,
@@ -31,6 +32,12 @@ const selectOptsWithDescription = [
   { description: 'Hello World', label: 'Option #1', uniqueId: 'option-id-1' },
   { description: 'Hello Quartz', label: 'Option #2', uniqueId: 'option-id-2' },
   { description: 'Hello everyone', label: 'Option #3', uniqueId: 'option-id-3' },
+];
+
+const mediaSelectOpts = [
+  { imageUrl: 'http://lorempizza.com/70/40/1', description: 'Hello World', label: 'Option #1', uniqueId: 'option-id-1' },
+  { imageUrl: 'http://lorempizza.com/70/40/2', description: 'Hello Quartz', label: 'Option #2', uniqueId: 'option-id-2' },
+  { imageUrl: 'http://lorempizza.com/70/40/3', description: 'Hello everyone', label: 'Option #3', uniqueId: 'option-id-3' },
 ];
 
 const AllComponents = () => (
@@ -208,6 +215,12 @@ const AllComponents = () => (
       <Subtitle>Select with option descriptions</Subtitle>
       { /* NOTE: this does not work with `inline` */ }
       <SelectDemo options={selectOptsWithDescription} />
+      <Subtitle>Media select</Subtitle>
+      <SelectDemo type='media' options={mediaSelectOpts} />
+      <Subtitle>Media multiselect with search</Subtitle>
+      <SelectDemo type='media' multiSelect options={mediaSelectOpts} search={() => {}} />
+      <Subtitle>Media multiselect with processing state</Subtitle>
+      <SelectDemo type='media' multiSelect options={mediaSelectOpts} />
     </Section>
     <Section title='Text'>
       <Subtitle>Headings</Subtitle>

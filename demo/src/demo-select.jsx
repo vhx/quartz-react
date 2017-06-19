@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { Select } from '../../index.js';
+import { MediaSelect, Select } from '../../index.js';
 
 class StatefulSelect extends Component {
 
@@ -38,8 +38,9 @@ class StatefulSelect extends Component {
   }
 
   render() {
+    const SelectComponent = this.props.type === 'media' ? MediaSelect : Select;
     return (
-      <Select
+      <SelectComponent
         isLoading={this.state.isLoading}
         {...this.props}
         isOpen={this.state.isOpen}
@@ -62,10 +63,12 @@ StatefulSelect.propTypes = {
     uniqueId: PropTypes.string.isRequired,
   })).isRequired,
   search: PropTypes.func,
+  type: PropTypes.oneOf([ '', 'media' ]),
 };
 
 StatefulSelect.defaultProps = {
   search: null,
+  type: '',
 };
 
 export default StatefulSelect;

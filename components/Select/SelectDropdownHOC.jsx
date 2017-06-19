@@ -33,7 +33,7 @@ function generateLabel(selectedOptions, optionsList) {
 }
 
 export default function SelectDropdownHOC({ Option }) {
-  const SelectDropdown = ({ dropdownPosition, isLoading, multiSelect, onOpenToggle, onSelectionToggle, options, search, searchValue, selectedOptions }) => {
+  const SelectDropdown = ({ dropdownPosition, isLoading, maxLabelLength, multiSelect, onOpenToggle, onSelectionToggle, options, search, searchValue, selectedOptions }) => {
     // If the `multiSelect` prop is available, toggle by way of `util.multiSelect`. No need to hide the dropdown.
     // If it is not, toggle by way of `util.select` and hide the dropdown
     const chooseOption = multiSelect ? util.multiSelect : (_options, id) => {
@@ -52,7 +52,7 @@ export default function SelectDropdownHOC({ Option }) {
         }
         onSelectionToggle(newSelection, label, item);
       };
-      return <Option key={item.uniqueId} onOptionToggle={onToggle} isLoading={isLoading} isSelected={Boolean(selectedOptions[item.uniqueId])} {...item} />;
+      return <Option key={item.uniqueId} maxLabelLength={maxLabelLength} multiSelect={multiSelect} onOptionToggle={onToggle} isLoading={isLoading} isSelected={Boolean(selectedOptions[item.uniqueId])} {...item} />;
     };
 
     return (
@@ -77,6 +77,7 @@ export default function SelectDropdownHOC({ Option }) {
   SelectDropdown.propTypes = {
     dropdownPosition: PropTypes.oneOf([ 'above', 'below' ]).isRequired,
     isLoading: PropTypes.bool,
+    maxLabelLength: PropTypes.number.isRequired, // only currently used in MediaSelect, but there's no reason not to allow it in standard Select as well
     multiSelect: PropTypes.bool.isRequired,
     multiselect: util.typoPropType({ correct: 'multiSelect' }), // eslint-disable-line react/require-default-props, react/no-unused-prop-types
     onOpenToggle: PropTypes.func.isRequired,
