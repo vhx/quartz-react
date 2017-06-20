@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import ReactDOM from 'react-dom';
 import iconNames from '../../components/Icon/icon-list.js';
 
@@ -13,7 +13,7 @@ import {
   Icon,
   // MediaSelect,
   Tag,
-  Select,
+  // Select,
   Text,
 } from '../../index.js';
 
@@ -21,6 +21,10 @@ import CheckboxDemo from './demo-checkbox.jsx';
 import RadioDemo from './demo-radio.jsx';
 import InputDemo from './demo-input.jsx';
 import SelectDemo from './demo-select.jsx';
+import MediaSelect from './demo-media-select.jsx';
+import MediaSelectProcessing from './demo-media-select-processing.jsx';
+import SelectMinimal from './demo-select-minimal.jsx';
+import SelectSearchable from './demo-select-search.jsx';
 
 const selectOpts = [
   { label: 'Option #1', uniqueId: 'option-id-1' },
@@ -40,40 +44,6 @@ const mediaSelectOpts = Array(20).fill(true).map((_, i) => ({
   label: `Option #${i + 1}`,
   uniqueId: `option-id-${i}`,
 }));
-
-class MinimalStatefulSelectDemo extends Component {
-  constructor() {
-    super();
-    this.state = {
-      isOpen: false,
-      selectedOptions: {}, // if you do not want to initialize with all undefined options, but instead set every unchecked option to false, set selectedOptions to this: props.options.reduce((obj, option) => { obj[option.uniqueId] = false; return obj; }, {})
-      selectedLabel: '',
-    };
-    this.setOpen = this.setOpen.bind(this);
-    this.handleChange = this.handleChange.bind(this);
-  }
-
-  setOpen(isOpen) {
-    this.setState({ isOpen });
-  }
-
-  handleChange(selectedOptions, selectedLabel /*, itemToggled, itemWillBeChecked */) {
-    this.setState({ selectedOptions, selectedLabel });
-  }
-
-  render() {
-    return (
-      <Select
-        {...this.props}
-        isOpen={this.state.isOpen}
-        selectedOptions={this.state.selectedOptions}
-        onSelectionToggle={this.handleChange}
-        onOpenToggle={this.setOpen}
-        triggerLabel={this.state.selectedLabel}
-      />
-    );
-  }
-}
 
 
 const CustomTrigger = ({ isOpen, onOpenToggle }) => <button onClick={() => onOpenToggle(!isOpen)}>Choose something ({isOpen ? 'close' : 'open'})</button>;
@@ -223,7 +193,7 @@ const AllComponents = () => (
       <Subtitle>Default</Subtitle>
       <SelectDemo options={selectOpts} />
       <Subtitle>Minimal demo (copy this stateful component as a starting point)</Subtitle>
-      <MinimalStatefulSelectDemo options={selectOpts} />
+      <SelectMinimal options={selectOpts} />
       <Subtitle>Inline</Subtitle>
       <SelectDemo options={selectOpts} inline />
       <Subtitle>Colors</Subtitle>
@@ -247,22 +217,18 @@ const AllComponents = () => (
       <Subtitle>Multiselect</Subtitle>
       <SelectDemo options={selectOpts} multiSelect />
       <Subtitle>Select with search</Subtitle>
-      <SelectDemo options={selectOpts} search={() => {}} />
+      <SelectSearchable options={selectOpts} />
       <Subtitle>Multiselect with search</Subtitle>
-      <SelectDemo options={selectOpts} multiSelect search={() => {}} />
+      <SelectSearchable options={selectOpts} multiSelect />
       <Subtitle>Select with options still loading</Subtitle>
       <SelectDemo options={selectOpts} isLoading />
       <Subtitle>Select with option descriptions</Subtitle>
       { /* NOTE: this does not work with `inline` */ }
       <SelectDemo options={selectOptsWithDescription} />
       <Subtitle>Media select</Subtitle>
-      <SelectDemo type='media' options={mediaSelectOpts} />
-      <Subtitle>Media select with search</Subtitle>
-      <SelectDemo type='media' options={mediaSelectOpts} search={() => {}} />
-      <Subtitle>Media multiselect with search</Subtitle>
-      <SelectDemo type='media' multiSelect options={mediaSelectOpts} search={() => {}} />
-      <Subtitle>Media multiselect with processing state</Subtitle>
-      <SelectDemo type='media' multiSelect options={mediaSelectOpts} pretendToProcessOptions />
+      <MediaSelect options={mediaSelectOpts} />
+      <Subtitle>Media multiselect with search and processing state</Subtitle>
+      <MediaSelectProcessing multiSelect options={mediaSelectOpts} />
     </Section>
     <Section title='Text'>
       <Subtitle>Headings</Subtitle>
