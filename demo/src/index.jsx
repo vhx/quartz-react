@@ -10,6 +10,7 @@ import {
 
 import {
   Button,
+  Carousel,
   Icon,
   Tag,
   Text,
@@ -73,6 +74,19 @@ const AllComponents = () => (
         <Button><Icon name='product' right button>Icon right</Icon></Button>
         <Button><Icon name='product' left button /><Icon name='product' right button>Icon both</Icon></Button>
       </Block>
+    </Section>
+    <Section title='Carousel'>
+      <Subtitle>Carousel</Subtitle>
+      <Carousel>
+        <span>Slide 1</span>
+        <span>Slide 2</span>
+        <span>Slide 3</span>
+        <span>Slide 4</span>
+      </Carousel>
+      <Subtitle>Single item carousel</Subtitle>
+      <Carousel>
+        <span>Slide 1</span>
+      </Carousel>
     </Section>
     <Section title='Checkboxes'>
       <CheckboxDemo uniqueId='checkbox-demo1' size='small' label='Small' />
