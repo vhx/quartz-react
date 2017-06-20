@@ -221,7 +221,19 @@ describe('Select', () => {
       expect(document.activeElement).to.equal(search.node);
     });
 
-    it('Can be searched'); // TODO: use this: search.simulate('input', { target: { value: 'foo' } });
+    // Note: filtering depends on the user's own implementation of the passed in `search()` prop
+    it('Can be searched', () => {
+      const wrapper = mount(<StatefulMediaSelect options={opts} isOpen multiSelect />);
+      const search = wrapper.find('input');
+      expect(search.node.value).to.equal('');
+      expect(wrapper.find('.c-media-item--container').length).to.equal(3); // expect all items to be shown before search
+      search.simulate('input', { target: { value: '2' } });
+      expect(search.node.value).to.equal('2');
+      expect(wrapper.find('.c-media-item--container').length).to.equal(1); // now only show matching item
+      expect(wrapper.find('.c-media-item--container p.text--navy').text()).to.equal('Option #2');
+      search.simulate('input', { target: { value: '' } }); // reset the search
+      expect(wrapper.find('.c-media-item--container').length).to.equal(3); // now expect all items to be shown again
+    });
 
     it('Toggles processing state', (done) => {
       const wrapper = mount(<StatefulMediaSelect options={opts} isOpen multiSelect />);

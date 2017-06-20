@@ -44,7 +44,7 @@ export default class MediaSelectProcesssing extends Component {
   // NOTE: debouncing is up to the user of the component!
   search(query) {
     const filteredOptions = this.props.options.filter(opt => opt.label.toLowerCase().indexOf(query.toLowerCase()) !== -1);
-    this.setState({ filteredOptions, isLoading: false });
+    this.setState({ filteredOptions, isLoading: false, searchValue: query });
   }
 
   render() {
