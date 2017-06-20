@@ -4,6 +4,8 @@ import { shallow, mount } from 'enzyme';
 import { expect } from 'chai';
 import RadioGroup from './RadioGroup.jsx';
 
+// NOTE: A stateful component is used here to test state changes when the RadioGroup is changed.
+// For example: `expect(wrapper.state().selectedIndex).to.equal(2);`
 class StatefulRadio extends Component {
 
   constructor() {

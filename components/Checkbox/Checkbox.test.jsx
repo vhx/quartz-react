@@ -4,6 +4,7 @@ import { mount } from 'enzyme';
 import { expect } from 'chai';
 import Checkbox from './Checkbox.jsx';
 
+// NOTE: A stateful component is used here to test state changes when the checkbox is toggled.
 class StatefulCheckbox extends Component {
   constructor() {
     super();
