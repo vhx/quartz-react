@@ -2,10 +2,10 @@ import React, { Component } from 'react';
 import { Select } from '../../index.js';
 
 export default class SelectMinimal extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
-      isOpen: false,
+      isOpen: props.isOpen || false,
       selectedOptions: {},
       selectedLabel: '',
     };

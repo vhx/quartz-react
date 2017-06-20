@@ -5,9 +5,12 @@ export default class MediaSelectMinimal extends Component {
   constructor() {
     super();
     this.state = {
+      isLoading: false,
       isOpen: false,
-      selectedOptions: {},
+      selectedOptions: {}, // if you do not want to initialize with all undefined options, but instead set every unchecked option to false, set selectedOptions to this: props.options.reduce((obj, option) => { obj[option.uniqueId] = false; return obj; }, {})
       selectedLabel: '',
+      searchValue: '',
+      processingOptions: [],
     };
     this.setOpen = this.setOpen.bind(this);
     this.handleChange = this.handleChange.bind(this);
@@ -17,7 +20,7 @@ export default class MediaSelectMinimal extends Component {
     this.setState({ isOpen });
   }
 
-  handleChange(selectedOptions, selectedLabel /* , itemToggled, itemWillBeChecked */) {
+  handleChange(selectedOptions, selectedLabel /* , item, itemWillBeChecked */) {
     this.setState({ selectedOptions, selectedLabel });
   }
 

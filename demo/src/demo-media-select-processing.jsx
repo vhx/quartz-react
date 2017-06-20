@@ -13,7 +13,7 @@ export default class MediaSelectProcesssing extends Component {
     super(props);
     this.state = {
       isLoading: false,
-      isOpen: false,
+      isOpen: props.isOpen || false,
       selectedOptions: {}, // if you do not want to initialize with all undefined options, but instead set every unchecked option to false, set selectedOptions to this: props.options.reduce((obj, option) => { obj[option.uniqueId] = false; return obj; }, {})
       selectedLabel: '',
       filteredOptions: props.options,
@@ -38,16 +38,13 @@ export default class MediaSelectProcesssing extends Component {
         selectedLabel,
         processingOptions: removeFromArray(processingOptions, item.uniqueId),
       });
-    }, 500);
+    }, 250);
   }
 
+  // NOTE: debouncing is up to the user of the component!
   search(query) {
-    // NOTE: this means debouncing is up to the user of the component!
-    this.setState({ searchValue: query, isLoading: true });
-    setTimeout(() => {
-      const filteredOptions = this.props.options.filter(opt => opt.label.toLowerCase().indexOf(query.toLowerCase()) !== -1);
-      this.setState({ filteredOptions, isLoading: false });
-    }, 500);
+    const filteredOptions = this.props.options.filter(opt => opt.label.toLowerCase().indexOf(query.toLowerCase()) !== -1);
+    this.setState({ filteredOptions, isLoading: false });
   }
 
   render() {
