@@ -5,6 +5,105 @@
   <link rel="stylesheet" href="http://quartz.vhx.tv/quartz.css">
   <link rel="stylesheet" href="http://quartz.vhx.tv/quartz-icons.css">
   <link rel="stylesheet" href="http://quartz.vhx.tv/components.css">
+  <style>
+  /* TODO: put all of this in an actual stylesheet */
+
+  /* TODO: remove this. it's just to demo how we will implement constraints. */
+  .layout-container {
+    margin: 0 auto;
+    width: 100%;
+  }
+
+  @media (min-width: 1200px) {
+    .layout-container {
+      width: 1100px;
+    }
+  }
+
+  .carousel {
+    background: #000;
+    color: #fff;
+    /*height: 300px;*/
+    position: relative;
+    overflow: hidden;
+  }
+
+  .carousel-arrow {
+    background: rgba(200, 0, 50, 0.7);
+    border: 0;
+    border-radius: 0;
+    height: 100%;
+    outline: 0;
+    padding: 24px;
+    position: absolute; /* fixed? */
+    z-index: 1;
+  }
+
+  .carousel-arrow--left {
+    left: 0;
+  }
+
+  .carousel-arrow--right {
+    right: 0;
+  }
+
+  .slide {
+    background: lightslategray;
+    height: 100%;
+    position: absolute;
+    width: 100%;
+  }
+
+  /* DEBUG */
+  .slide:first-child {
+    background: orange;
+  }
+
+  .slide:last-child {
+    background: red;
+  }
+
+  .slide.active {
+    z-index: 1;
+  }
+
+  .slide-gradient {
+    background: linear-gradient(to right, rgba(0, 0, 0, 1) 0%,rgba(0, 0, 0, 0) 100%);
+    height: 100%;
+    width: 40%; /* this will probably be set using js, could be a px value */
+  }
+
+  .coins {
+    background: rgba(0, 150, 0, 0.7);
+    bottom: 0;
+    height: 40px;
+    line-height: 0; /* ensures each coin stays at the top of this container */
+    position: absolute;
+    text-align: center;
+    width: 100%;
+    z-index: 1;
+  }
+
+  .coin {
+    background: #fff;
+    border: 0;
+    borderRadius: 4px; /* 50% of height */
+    /*display: inline-block;*/
+    /*font-size: 0;*/
+    height: 8px;
+    margin: 0 4px;
+    opacity: 0.5;
+    outline: 0;
+    padding: 0;
+    transition: opacity .2s ease;
+    width: 8px;
+  }
+
+  .coin.active {
+    opacity: 1;
+  }
+
+  </style>
   <script>
     (function() {
     var config = { kitId: 'mee1sll', scriptTimeout: 3000 };

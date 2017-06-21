@@ -87,6 +87,15 @@ const AllComponents = () => (
       <Carousel>
         <span>Slide 1</span>
       </Carousel>
+      <Subtitle>Carousel within layout container</Subtitle>
+      <div className='layout-container'>
+        <Carousel>
+          <span>Slide 1</span>
+          <span>Slide 2</span>
+          <span>Slide 3</span>
+          <span>Slide 4</span>
+        </Carousel>
+      </div>
     </Section>
     <Section title='Checkboxes'>
       <CheckboxDemo uniqueId='checkbox-demo1' size='small' label='Small' />
