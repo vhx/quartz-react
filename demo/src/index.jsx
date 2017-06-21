@@ -24,7 +24,7 @@ import InputDemo from './demo-input.jsx';
 const Slide1Component = ({ isActive, isReady, wasActive }) => <Slide title='Title 1' isActive={isActive} isReady={isReady} wasActive={wasActive} description='Desc 1' backgroundUrl='http://lorempizza.com/1280/720/1' />;
 const Slide2Component = ({ isActive, isReady, wasActive }) => <Slide title='Title 2' isActive={isActive} isReady={isReady} wasActive={wasActive} description='Desc 2' backgroundUrl='http://lorempizza.com/1280/720/2' />;
 const Slide3Component = ({ isActive, isReady, wasActive }) => <Slide title='Title 3' isActive={isActive} isReady={isReady} wasActive={wasActive} description='Desc 3' backgroundUrl='http://lorempizza.com/1280/720/3' />;
-const Slide4Component = ({ isActive, isReady, wasActive }) => <Slide title='Title 4' isActive={isActive} isReady={isReady} wasActive={wasActive} description='Desc 4' backgroundUrl='http://lorempizza.com/1920/720/4' isWide />;
+const Slide4Component = ({ isActive, isReady, wasActive }) => <Slide title='Title 4' isActive={isActive} isReady={isReady} wasActive={wasActive} description='Desc 4' backgroundUrl='http://lorempizza.com/1280/720/4' />;
 const Slide5Component = ({ isActive, isReady, wasActive }) => <Slide title='Title 5' isActive={isActive} isReady={isReady} wasActive={wasActive} description='Desc 5' backgroundUrl='http://lorempizza.com/1280/720/5' />;
 
 const AllComponents = () => (
