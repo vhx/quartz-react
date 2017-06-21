@@ -25,6 +25,7 @@
   /* ------------------------------------ CAROUSEL ------------------------------------ */
 
   .carousel {
+    background: black;
     color: #fff;
     /*height: 300px;*/
     position: relative;
@@ -100,23 +101,20 @@
   /* ------------------------------------ SLIDES ------------------------------------ */
 
   .slide {
-    background: black;
     height: 100%;
+    opacity: 0;
     position: absolute;
     width: 100%;
   }
 
-/*  .slide.isPrior {
-    opacity: 1;
-  }
-*/
-
-  @keyframes slideExit {
+  @keyframes slideContentsEnter {
     from {
-      opacity: 1;
+      opacity: 0;
+      transform: translateX(100px);
     }
     to {
-      opacity: 0;
+      opacity: 1;
+      transform: none;
     }
   }
 
@@ -143,23 +141,18 @@
   @keyframes slideBodyEnter {
     0% {
       opacity: 0;
-      transform: translateX(30px);
     }
-
     25% {
       opacity: 0;
-      transform: translateX(30px);
     }
     100% {
       opacity: 1;
-      transform: none;
     }
   }
 
   @keyframes slideTitleEnter {
     from {
       opacity: 0;
-      transform: translateX(30px);
     }
     to {
       opacity: 1;
@@ -168,27 +161,51 @@
   }
 
   .slide.isActive {
+    opacity: 1;
     z-index: 1;
   }
 
   .slide.wasActive {
-    animation: slideExit 1s ease forward;
-    z-index: 1;
+    opacity: 1;
+    z-index: 0;
+  }
+
+  .slide-contents {
+    background: black;
+    height: 100%;
+    width: 420px;
+  }
+
+  .slide-contents::before {
+    background: linear-gradient(to right, rgba(0, 0, 0, 1) 100px, rgba(0, 0, 0, 0) 300px);
+    content: "";
+    display: block;
+    height: 100%;
+    left: 420px;
+    position: absolute;
+    width: 100%;
+  }
+
+  .isWide .slide-contents {
+    background: transparent;
+  }
+
+  .isWide .slide-contents::before {
+    left: 0;
   }
 
   .slide-background {
-    background: red;
     height: 100%;
-    opacity: 1;
+    /*opacity: 1;*/
     position: absolute;
     right: 0;
+    /*transition: opacity .5s ease;*/
     /*width: 100%;*/
     z-index: -1;
   }
 
   .slide-background::before {
-    background: linear-gradient(to right, rgba(0, 0, 0, 1) 0px, rgba(0, 0, 0, 0) 40%),
-      linear-gradient(to left, rgba(0, 0, 0, 1) 0px, rgba(0, 0, 0, 0) 40%),
+    background: linear-gradient(to left, rgba(0, 0, 0, 1) 0px, rgba(0, 0, 0, 0) 40%),
       radial-gradient(ellipse at center, rgba(0, 0, 0, 0) 0%,rgba(0, 0, 0, 0) 60%,rgba(0, 0, 0, 0.75) 100%);
     content: "";
     display: block;
@@ -198,17 +215,28 @@
     z-index: 1;
   }
 
-  .slide-background img {
+/*  .slide-background img {
     height: 100%;
     width: auto;
   }
 
-/*  .slide-gradient {
+*//*  .slide-gradient {
   }
 */
   .slide-body {
     box-sizing: border-box;
+    opacity: 0;
     padding: 0 50px;
+    transition: opacity .5s ease;
+  }
+
+  .slide-title {
+    opacity: 1;
+    transition: opacity .5s ease;
+  }
+
+  .isActive .slide-contents {
+    animation: none;
   }
 
   .isActive .slide-background {
@@ -219,8 +247,12 @@
     animation: slideGradientEnter 1s ease;
   }
 */
+  .isReady.isActive .slide-contents {
+    animation: slideContentsEnter 1.5s ease;
+  }
+
   .isActive .slide-body {
-    animation: slideBodyEnter 1.5s ease;
+    animation: slideBodyEnter 1s ease .5s forwards;
   }
 
   .isActive .slide-title {
@@ -229,6 +261,18 @@
 
   .isReady.isActive .slide-background {
     animation: slideBackgroundEnter 1.5s ease;
+  }
+
+  .wasActive .slide-body {
+    opacity: 0;
+  }
+
+  .wasActive .slide-title {
+    opacity: 0;
+  }
+
+  .wasActive .slide-background {
+    /*opacity: 0;*/
   }
 
   </style>
