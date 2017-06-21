@@ -96,8 +96,8 @@ const AllComponents = () => (
             <Button>Trailer</Button>
           </div>
           <span>Slide 2</span>
-          <RadioDemo items={[{ label: 'Option 1', uniqueId: 'opt1' }, { label: 'Option 2', uniqueId: 'opt2' }]} />
-          <RadioDemo buttons items={[{ label: 'Option 1', uniqueId: 'opt1' }, { label: 'Option 2', uniqueId: 'opt2' }]} />
+          <div>Slide 3<br /><Icon circle name='product' size='medium' /></div>
+          <div>Slide 4<RadioDemo buttons items={[{ label: 'Option 1', uniqueId: 'opt1' }, { label: 'Option 2', uniqueId: 'opt2' }]} /></div>
         </Carousel>
       </div>
     </Section>
