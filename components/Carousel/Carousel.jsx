@@ -1,24 +1,32 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import classNames from 'classnames';
 import { If } from '../util';
 import Icon from '../Icon';
-// import classNames from 'classnames';
 
 
 // --------------------------------------------------------------------------
 // ------------------------------------- slide.jsx
 // --------------------------------------------------------------------------
-const Slide = ({ active, children }) => (
-  <div className={`slide ${active ? 'active' : ''}`}>
+function getClass({ isActive, isPrior }) {
+  return classNames({
+    slide: true,
+    isActive,
+    isPrior,
+  });
+}
+
+const Slide = ({ isActive, isPrior, children }) => (
+  <div className={getClass({ isActive, isPrior })}>
     <div className='slide-gradient' />
-    <div>SLIDE CONTAINER</div>
-    <div>{children}</div>
+    <div className='slide-body'>{children}</div>
   </div>
 );
 
 Slide.propTypes = {
-  active: PropTypes.bool.isRequired,
   children: PropTypes.node.isRequired,
+  isActive: PropTypes.bool.isRequired,
+  isPrior: PropTypes.bool.isRequired,
 };
 
 // --------------------------------------------------------------------------
@@ -33,21 +41,21 @@ function prev(length, count) {
   return (count - 1) < 0 ? (length - 1) : (count - 1);
 }
 
-const StatelessCarousel = ({ children, height, currentSlide, onSlideChange }) => {
+const StatelessCarousel = ({ children, height, currentSlide, priorSlide, onSlideChange }) => {
   const hasMoreThanOneSlide = Array.isArray(children);
   const slideCount = hasMoreThanOneSlide ? children.length : 1;
-  const gotoPrev = () => onSlideChange(prev(slideCount, currentSlide));
-  const gotoNext = () => onSlideChange(next(slideCount, currentSlide));
+  const gotoPrev = () => onSlideChange(prev(slideCount, currentSlide), currentSlide);
+  const gotoNext = () => onSlideChange(next(slideCount, currentSlide), currentSlide);
   return (
     <div className='carousel' style={{ height: `${height}px` }}>
       <div>
-        { React.Children.map(children, (slide, i) => <Slide active={currentSlide === i}>{slide}</Slide>) }
+        { React.Children.map(children, (slide, i) => <Slide isActive={currentSlide === i} isPrior={priorSlide === i}>{slide}</Slide>) }
       </div>
       <If condition={hasMoreThanOneSlide}>
         <button className='carousel-arrow carousel-arrow--left' onClick={gotoPrev}><Icon name='angle-left' color='white' size='small' /></button>
         <button className='carousel-arrow carousel-arrow--right' onClick={gotoNext}><Icon name='angle-right' color='white' size='small' /></button>
         <div className='coins'>
-          { React.Children.map(children, (slide, i) => <button onClick={() => onSlideChange(i)} disabled={currentSlide === i} className={currentSlide === i ? 'coin active' : 'coin'} />) }
+          { React.Children.map(children, (slide, i) => <button onClick={() => onSlideChange(i, currentSlide)} disabled={currentSlide === i} className={currentSlide === i ? 'coin active' : 'coin'} />) }
         </div>
       </If>
     </div>
@@ -57,8 +65,9 @@ const StatelessCarousel = ({ children, height, currentSlide, onSlideChange }) =>
 StatelessCarousel.propTypes = {
   children: PropTypes.node.isRequired,
   currentSlide: PropTypes.number.isRequired,
-  height: PropTypes.number.isRequired,
+  height: PropTypes.number.isRequired, // currently passing in height dynamically, but this could also be done in css if it will never change
   onSlideChange: PropTypes.func.isRequired,
+  priorSlide: PropTypes.number.isRequired,
 };
 
 // --------------------------------------------------------------------------
@@ -69,15 +78,16 @@ class Carousel extends Component {
     super();
     this.state = {
       currentSlide: 0,
+      priorSlide: 0,
     };
     this.setSlide = this.setSlide.bind(this);
   }
-  setSlide(currentSlide) {
-    this.setState({ currentSlide });
+  setSlide(currentSlide, priorSlide) {
+    this.setState({ currentSlide, priorSlide });
   }
   render() {
     return (
-      <StatelessCarousel currentSlide={this.state.currentSlide} onSlideChange={this.setSlide} height={400}>
+      <StatelessCarousel currentSlide={this.state.currentSlide} priorSlide={this.state.priorSlide} onSlideChange={this.setSlide} height={400}>
         {this.props.children}
       </StatelessCarousel>
     );

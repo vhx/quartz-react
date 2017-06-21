@@ -29,7 +29,8 @@
   }
 
   .carousel-arrow {
-    background: rgba(200, 0, 50, 0.7);
+    background: transparent;
+    /*background: rgba(200, 0, 50, 0.7);*/
     border: 0;
     border-radius: 0;
     height: 100%;
@@ -40,17 +41,21 @@
   }
 
   .carousel-arrow--left {
+    padding-right: 0;
     left: 0;
   }
 
   .carousel-arrow--right {
+    padding-left: 0;
     right: 0;
   }
 
   .slide {
     background: lightslategray;
     height: 100%;
+    opacity: 0;
     position: absolute;
+    transition: opacity 1s ease;
     width: 100%;
   }
 
@@ -63,18 +68,38 @@
     background: red;
   }
 
-  .slide.active {
+  .slide.isMovingForward {
+    
+  }
+
+  .slide.isMovingBack {
+
+  }
+
+  .slide.isPrior {
+    opacity: 1;
+  }
+
+  .slide.isActive {
+    opacity: 1;
     z-index: 1;
   }
 
   .slide-gradient {
-    background: linear-gradient(to right, rgba(0, 0, 0, 1) 0%,rgba(0, 0, 0, 0) 100%);
+    /*background: linear-gradient(to right, rgba(0, 0, 0, 1) 40px, rgba(0, 0, 0, 0) 100%);*/
     height: 100%;
+    position: absolute;
     width: 40%; /* this will probably be set using js, could be a px value */
+    z-index: -1;
+  }
+
+  .slide-body {
+    box-sizing: border-box;
+    padding: 0 50px;
   }
 
   .coins {
-    background: rgba(0, 150, 0, 0.7);
+    /*background: rgba(0, 150, 0, 0.7);*/
     bottom: 0;
     height: 40px;
     line-height: 0; /* ensures each coin stays at the top of this container */

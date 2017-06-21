@@ -90,10 +90,14 @@ const AllComponents = () => (
       <Subtitle>Carousel within layout container</Subtitle>
       <div className='layout-container'>
         <Carousel>
-          <span>Slide 1</span>
+          <div>
+            <div>Slide 1</div>
+            <Button>Watch now</Button>
+            <Button>Trailer</Button>
+          </div>
           <span>Slide 2</span>
-          <span>Slide 3</span>
-          <span>Slide 4</span>
+          <RadioDemo items={[{ label: 'Option 1', uniqueId: 'opt1' }, { label: 'Option 2', uniqueId: 'opt2' }]} />
+          <RadioDemo buttons items={[{ label: 'Option 1', uniqueId: 'opt1' }, { label: 'Option 2', uniqueId: 'opt2' }]} />
         </Carousel>
       </div>
     </Section>
