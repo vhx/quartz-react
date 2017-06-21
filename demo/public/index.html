@@ -8,20 +8,23 @@
   <style>
   /* TODO: put all of this in an actual stylesheet */
 
+  /* ------------------------------------ LAYOUT ------------------------------------ */
   /* TODO: remove this. it's just to demo how we will implement constraints. */
   .layout-container {
     margin: 0 auto;
     width: 100%;
   }
 
-  @media (min-width: 1200px) {
+  @media (min-width: 1700px) {
     .layout-container {
-      width: 1100px;
+      width: 1700px;
     }
   }
 
+
+  /* ------------------------------------ CAROUSEL ------------------------------------ */
+
   .carousel {
-    background: green;
     color: #fff;
     /*height: 300px;*/
     position: relative;
@@ -54,54 +57,6 @@
   .carousel-arrow--right {
     padding-left: 0;
     right: 0;
-  }
-
-  .slide {
-    background: lightslategray;
-    height: 100%;
-    opacity: 0;
-    position: absolute;
-    transition: opacity 1s ease;
-    width: 100%;
-  }
-
-  /* DEBUG */
-  .slide:first-child {
-    background: orange;
-  }
-
-  .slide:last-child {
-    background: red;
-  }
-
-  .slide.isMovingForward {
-    
-  }
-
-  .slide.isMovingBack {
-
-  }
-
-/*  .slide.isPrior {
-    opacity: 1;
-  }
-*/
-  .slide.isActive {
-    opacity: 1;
-    z-index: 1;
-  }
-
-  .slide-gradient {
-    background: linear-gradient(to right, rgba(0, 0, 0, 1) 40px, rgba(0, 0, 0, 0) 100%);
-    height: 100%;
-    position: absolute;
-    width: 40%; /* this will probably be set using js, could be a px value */
-    z-index: -1;
-  }
-
-  .slide-body {
-    box-sizing: border-box;
-    padding: 0 50px;
   }
 
   .coins {
@@ -139,6 +94,141 @@
 
   .coin.active {
     opacity: 1;
+  }
+
+
+  /* ------------------------------------ SLIDES ------------------------------------ */
+
+  .slide {
+    background: black;
+    height: 100%;
+    position: absolute;
+    width: 100%;
+  }
+
+/*  .slide.isPrior {
+    opacity: 1;
+  }
+*/
+
+  @keyframes slideExit {
+    from {
+      opacity: 1;
+    }
+    to {
+      opacity: 0;
+    }
+  }
+
+  @keyframes slideBackgroundEnter {
+    from {
+      opacity: 0;
+      transform: translateX(100px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  @keyframes slideGradientEnter {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
+  @keyframes slideBodyEnter {
+    0% {
+      opacity: 0;
+      transform: translateX(30px);
+    }
+
+    25% {
+      opacity: 0;
+      transform: translateX(30px);
+    }
+    100% {
+      opacity: 1;
+      transform: none;
+    }
+  }
+
+  @keyframes slideTitleEnter {
+    from {
+      opacity: 0;
+      transform: translateX(30px);
+    }
+    to {
+      opacity: 1;
+      transform: none;
+    }
+  }
+
+  .slide.isActive {
+    z-index: 1;
+  }
+
+  .slide.wasActive {
+    animation: slideExit 1s ease forward;
+    z-index: 1;
+  }
+
+  .slide-background {
+    background: red;
+    height: 100%;
+    opacity: 1;
+    position: absolute;
+    right: 0;
+    /*width: 100%;*/
+    z-index: -1;
+  }
+
+  .slide-background::before {
+    background: linear-gradient(to right, rgba(0, 0, 0, 1) 0px, rgba(0, 0, 0, 0) 40%),
+      linear-gradient(to left, rgba(0, 0, 0, 1) 0px, rgba(0, 0, 0, 0) 40%),
+      radial-gradient(ellipse at center, rgba(0, 0, 0, 0) 0%,rgba(0, 0, 0, 0) 60%,rgba(0, 0, 0, 0.75) 100%);
+    content: "";
+    display: block;
+    height: 100%;
+    position: absolute;
+    width: 100%; /* this will probably be set using js, could be a px value */
+    z-index: 1;
+  }
+
+  .slide-background img {
+    height: 100%;
+    width: auto;
+  }
+
+/*  .slide-gradient {
+  }
+*/
+  .slide-body {
+    box-sizing: border-box;
+    padding: 0 50px;
+  }
+
+  .isActive .slide-background {
+    animation: none;
+  }
+
+/*  .isActive .slide-gradient {
+    animation: slideGradientEnter 1s ease;
+  }
+*/
+  .isActive .slide-body {
+    animation: slideBodyEnter 1.5s ease;
+  }
+
+  .isActive .slide-title {
+    animation: slideTitleEnter 1s ease;
+  }
+
+  .isReady.isActive .slide-background {
+    animation: slideBackgroundEnter 1.5s ease;
   }
 
   </style>

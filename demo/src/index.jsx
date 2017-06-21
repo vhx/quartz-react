@@ -12,6 +12,7 @@ import {
   Button,
   Carousel,
   Icon,
+  Slide,
   Tag,
   Text,
 } from '../../index.js';
@@ -19,6 +20,10 @@ import {
 import CheckboxDemo from './demo-checkbox.jsx';
 import RadioDemo from './demo-radio.jsx';
 import InputDemo from './demo-input.jsx';
+
+const Slide1Component = ({ isActive, isReady }) => <Slide title='Title 1' isActive={isActive} isReady={isReady} description='Desc 1' backgroundUrl='http://lorempizza.com/1280/720/1' />;
+const Slide2Component = ({ isActive, isReady }) => <Slide title='Title 2' isActive={isActive} isReady={isReady} description='Desc 2' backgroundUrl='http://lorempizza.com/1280/720/2' />;
+const Slide3Component = ({ isActive, isReady }) => <Slide title='Title 3' isActive={isActive} isReady={isReady} description='Desc 3' backgroundUrl='http://lorempizza.com/1280/720/3' />;
 
 const AllComponents = () => (
   <div>
@@ -77,29 +82,11 @@ const AllComponents = () => (
     </Section>
     <Section title='Carousel'>
       <Subtitle>Carousel</Subtitle>
-      <Carousel>
-        <span>Slide 1</span>
-        <span>Slide 2</span>
-        <span>Slide 3</span>
-        <span>Slide 4</span>
-      </Carousel>
-      <Subtitle>Single item carousel</Subtitle>
-      <Carousel>
-        <span>Slide 1</span>
-      </Carousel>
-      <Subtitle>Carousel within layout container</Subtitle>
       <div className='layout-container'>
-        <Carousel>
-          <div>
-            <div>Slide 1</div>
-            <Button>Watch now</Button>
-            <Button>Trailer</Button>
-          </div>
-          <span>Slide 2</span>
-          <div>Slide 3<br /><Icon circle name='product' size='medium' /></div>
-          <div>Slide 4<RadioDemo buttons items={[{ label: 'Option 1', uniqueId: 'opt1' }, { label: 'Option 2', uniqueId: 'opt2' }]} /></div>
-        </Carousel>
+        <Carousel slides={[ Slide1Component, Slide2Component, Slide3Component ]} />
       </div>
+      <Subtitle>Carousel with one slide</Subtitle>
+      <Carousel slides={[ Slide1Component ]} />
     </Section>
     <Section title='Checkboxes'>
       <CheckboxDemo uniqueId='checkbox-demo1' size='small' label='Small' />
