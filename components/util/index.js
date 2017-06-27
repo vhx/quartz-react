@@ -1,11 +1,9 @@
-import IfComponent from './If.jsx';
-
 
 /*
 <If condition={false}><MyComponent /></If> // MyComponent will not render
 <If condition={true}><MyComponent /></If> // MyComponent will render
 */
-export const If = IfComponent;
+export { default as If } from './If.jsx';
 
 
 /*

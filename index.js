@@ -8,5 +8,6 @@ export { default as Checkbox } from './components/Checkbox';
 export { default as Icon } from './components/Icon';
 export { default as Input } from './components/Input';
 export { default as RadioGroup } from './components/RadioGroup';
+export { default as Slide } from './components/Slide';
 export { default as Tag } from './components/Tag';
 export { default as Text } from './components/Text';

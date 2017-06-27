@@ -1,8 +1,6 @@
-import React, { Component } from 'react';
+import React from 'react';
 import ReactDOM from 'react-dom';
-import PropTypes from 'prop-types';
 import iconNames from '../../components/Icon/icon-list.js';
-import { If, getAspectRatioHeight } from '../../components/util';
 
 import {
   Block,
@@ -14,7 +12,7 @@ import {
   Button,
   Carousel,
   Icon,
-  // Slide,
+  Slide,
   Tag,
   Text,
 } from '../../index.js';
@@ -22,87 +20,6 @@ import {
 import CheckboxDemo from './demo-checkbox.jsx';
 import RadioDemo from './demo-radio.jsx';
 import InputDemo from './demo-input.jsx';
-
-/*
-<div className={isWide ? 'slide-bg slide-bg--wide' : 'slide-bg'}>
-  <If condition={isWide}>
-    <img className='slide-bg-img' src={img} alt={title} />
-  </If>
-  <If condition={!isWide}>
-    <div className='layout-container'>
-      <img className='slide-bg-img' src={img} alt={title} />
-    </div>
-  </If>
-</div>
-*/
-
-class Slide extends Component {
-  constructor() {
-    super();
-    this.getImgHeight = this.getImgHeight.bind(this);
-  }
-
-  getImgHeight() {
-    const { isMobile, height, width } = this.props.dynamicProps;
-    if (isMobile) { return getAspectRatioHeight('16:9', width); }
-    return height;
-  }
-
-  render() {
-    const { animationDuration, enter, enterDirection, exitDirection, isMobile, height, width, zIndex } = this.props.dynamicProps;
-    const { title, subtitle, description, img, mobileImg } = this.props;
-    return (
-      <div className={`slide ${exitDirection} ${enter ? `ENTER_${enterDirection}` : ''}`} style={{ zIndex, animationDuration: `${animationDuration}ms` }}>
-        <div className='slide-bg'>
-          <div className='slide-layout-container'>
-            <img className='slide-bg-img' src={isMobile ? mobileImg : img} alt={title} style={{ height: `${this.getImgHeight()}px` }} />
-          </div>
-        </div>
-        <div className='slide-layout-container'>
-          <div className={isMobile ? 'slide-content slide-content--mobile' : 'slide-content'}>
-            <div className='slide-title'>{title}</div>
-            <div className='slide-subtitle'>{subtitle}</div>
-            <div className='slide-description'>{description}</div>
-            <div className='slide-buttons'>
-              <button className='slide-button'>
-                <Icon name='play' color='white' size='xxsmall' />
-                <span className='slide-button-text'>Watch now</span>
-              </button>
-              <button className='slide-button slide-button--alt'>
-                <Icon name='play' color='white' size='xxsmall' />
-                <span className='slide-button-text'>Trailer</span>
-              </button>
-            </div>
-          </div>
-        </div>
-      </div>
-    );
-  }
-}
-
-Slide.propTypes = {
-  dynamicProps: PropTypes.shape({
-    animationDuration: PropTypes.number.isRequired,
-    enter: PropTypes.bool.isRequired,
-    enterDirection: PropTypes.oneOf([ 'TO_LEFT', 'TO_RIGHT' ]).isRequired,
-    exitDirection: PropTypes.oneOf([ '', 'TO_LEFT', 'TO_RIGHT' ]).isRequired,
-    isMobile: PropTypes.bool.isRequired,
-    height: PropTypes.number.isRequired,
-    width: PropTypes.number.isRequired,
-    zIndex: PropTypes.string.isRequired,
-  }).isRequired,
-  description: PropTypes.string.isRequired,
-  img: PropTypes.string.isRequired,
-  mobileImg: PropTypes.string.isRequired,
-  isWide: PropTypes.bool,
-  title: PropTypes.string.isRequired,
-  subtitle: PropTypes.string,
-};
-
-Slide.defaultProps = {
-  subtitle: '',
-  isWide: false,
-};
 
 
 const lorem = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua';
@@ -226,23 +143,12 @@ const AllComponents = () => (
       </Block>
     </Section>
     <Section title='Carousel'>
-      <Subtitle>Multiple slides with max height without layout container</Subtitle>
-      <Carousel slides={[ Slide1, Slide2, Slide3, Slide4 ]} maxHeight={640} />
-
-      { /*
-
-      <Subtitle>Single slide with layout container</Subtitle>
-      <div className='layout-container'>
-        <Carousel slides={[ Slide1 ]} />
-      </div>
-      <Subtitle>Multiple slides with layout container</Subtitle>
-      <div className='layout-container'>
-        <Carousel slides={[ Slide1, Slide2, Slide3 ]} />
-      </div>
-      <Subtitle>Multiple slides without max height and without layout container</Subtitle>
-      <Carousel slides={[ Slide1, Slide2, Slide3 ]} maxHeight={Infinity} />
-
-      */ }
+      <Subtitle>Single slide</Subtitle>
+      <Carousel slides={[ Slide1, Slide2, Slide3, Slide4 ]} />
+      <Subtitle>Multiple slides</Subtitle>
+      <Carousel slides={[ Slide1, Slide2, Slide3, Slide4 ]} />
+      <Subtitle>Custom aspect ratio</Subtitle>
+      <Carousel slides={[ Slide1, Slide2, Slide3, Slide4 ]} aspectRatio='16:9' />
     </Section>
     <Section title='Checkboxes'>
       <CheckboxDemo uniqueId='checkbox-demo1' size='small' label='Small' />

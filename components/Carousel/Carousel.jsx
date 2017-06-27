@@ -181,7 +181,7 @@ Carousel.propTypes = {
 Carousel.defaultProps = {
   animationDuration: 600, // ms
   aspectRatio: '16:6',
-  maxHeight: 500, // px
+  maxHeight: 640, // px
   minHeight: 368, //px
 };
 
