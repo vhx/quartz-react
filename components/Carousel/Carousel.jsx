@@ -91,13 +91,17 @@ class Carousel extends Component {
       isFresh: false,
     });
 
+
     setTimeout(() => {
       this.setState({
-        bgSlideIndex: i,
+        bgSlideIndex: calcNext(this.props.slides.length, i), // assume they'll be going forward, since that's more likely
         enterDirection: this.state.exitDirection,
         exitDirection: '',
-        topSlideIndex: this.state.bgSlideIndex,
+        topSlideIndex: this.state.bgSlideIndex, // === i
       });
+      setTimeout(() => {
+        console.log(this.state.bgSlideIndex, this.state.topSlideIndex);
+      }, 100);
     }, this.props.animationDuration);
   }
 
