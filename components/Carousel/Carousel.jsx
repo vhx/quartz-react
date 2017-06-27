@@ -91,7 +91,6 @@ class Carousel extends Component {
       isFresh: false,
     });
 
-
     setTimeout(() => {
       this.setState({
         bgSlideIndex: calcNext(this.props.slides.length, i), // assume they'll be going forward, since that's more likely
