@@ -51,10 +51,16 @@
 
 .slide-bg {
   background: #000;
-  position: absolute; // absolute optionally
+  position: absolute;
   height: 100%;
   // right: 0;
   width: 100%;
+}
+
+.slide-bg-container {
+  max-width: 1720px;
+  margin: auto;
+  overflow: hidden; /* this forces a block formatting context */
 }
 
 .slide-bg--wide {
@@ -78,16 +84,17 @@
 }
 
 .slide-bg--wide .slide-bg-img {
-
+  min-width: 100%;
 }
 
 /* contains slide-title and slide-description */
 .slide-content {
-  bottom: 10%;
+  // bottom: 10%;
   margin-left: 80px;
   position: absolute;
   width: 400px;
-  // top: 40%;
+  top: 50%;
+  transform: translate3d(0, -50%, 0);
 }
 
 @keyframes enterContent {
@@ -182,6 +189,7 @@
 
 .debug .slide-bg {
   background: rgba(0, 100, 200, .75);
+  outline: 2px solid green;
 }
 
 .debug .slide-content {

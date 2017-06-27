@@ -22,6 +22,7 @@ function containValue(max, min, value) {
   return Math.min(max, Math.max(min, value));
 }
 
+
 class Carousel extends Component {
   constructor(props) {
     super(props);
@@ -31,6 +32,7 @@ class Carousel extends Component {
       exitDirection: '',
       isFresh: true, // `isFresh` just means no slide change has been triggered yet. it's a hack used to allow a custom `enter` value on the first bgSlide. would like to find a better alternative to this...
       topSlideIndex: 0,
+      height: 0, // passed down to <Slide>
       width: 0, // passed down to <Slide>
     };
     this.el = null;
@@ -57,7 +59,7 @@ class Carousel extends Component {
       const aspectHeight = getAspectRatioHeight(this.props.aspectRatio, width);
       const height = containValue(maxHeight, minHeight, aspectHeight);
       this.el.style.height = `${height}px`;
-      this.setState({ width });
+      this.setState({ height, width });
     }
   }
 
@@ -104,7 +106,7 @@ class Carousel extends Component {
   }
 
   render() {
-    const { topSlideIndex, bgSlideIndex, enterDirection, exitDirection, isFresh, width } = this.state;
+    const { topSlideIndex, bgSlideIndex, enterDirection, exitDirection, isFresh, height, width } = this.state;
     const { animationDuration, slides } = this.props;
     const isAnimating = exitDirection !== '';
     return (
@@ -119,6 +121,7 @@ class Carousel extends Component {
                   enter={(bgSlideIndex === i || topSlideIndex === i) && !(isFresh && i === 1)}
                   enterDirection={enterDirection}
                   exitDirection={topSlideIndex === i ? exitDirection : ''}
+                  height={height}
                   width={width}
                   zIndex={topSlideIndex === i ? '1' : bgSlideIndex === i ? '0' : '-1'}
                 />

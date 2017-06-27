@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
-import iconNames from '../../components/Icon/icon-list.js';
 import PropTypes from 'prop-types';
+import iconNames from '../../components/Icon/icon-list.js';
 import { If, getAspectRatioHeight } from '../../components/util';
 
 import {
@@ -23,31 +23,49 @@ import CheckboxDemo from './demo-checkbox.jsx';
 import RadioDemo from './demo-radio.jsx';
 import InputDemo from './demo-input.jsx';
 
-class Slide extends Component {
-  componentDidMount() {
+/*
+<div className={isWide ? 'slide-bg slide-bg--wide' : 'slide-bg'}>
+  <If condition={isWide}>
+    <img className='slide-bg-img' src={img} alt={title} />
+  </If>
+  <If condition={!isWide}>
+    <div className='layout-container'>
+      <img className='slide-bg-img' src={img} alt={title} />
+    </div>
+  </If>
+</div>
+*/
 
+const px = n => `${n}px`;
+
+class Slide extends Component {
+  constructor() {
+    super();
+    this.getImgHeight = this.getImgHeight.bind(this);
+  }
+
+  getImgHeight() {
+    const { height, width } = this.props.dynamicProps;
+    const isMobile = height > getAspectRatioHeight('16:9', width);
+    if (isMobile) { return getAspectRatioHeight('16:9', width); }
+    return height;
   }
 
   render() {
-    const { animationDuration, enter, enterDirection, exitDirection, width, zIndex } = this.props.dynamicProps;
-    const { title, subtitle, img, isWide } = this.props;
+    const { animationDuration, enter, enterDirection, exitDirection, zIndex } = this.props.dynamicProps;
+    const { title, subtitle, description, img } = this.props;
     return (
       <div className={`slide ${exitDirection} ${enter ? `ENTER_${enterDirection}` : ''}`} style={{ zIndex, animationDuration: `${animationDuration}ms` }}>
-        <div className={isWide ? 'slide-bg slide-bg--wide' : 'slide-bg'}>
-          <If condition={isWide}>
-            <img className='slide-bg-img' src={img} alt={title} />
-          </If>
-          <If condition={!isWide}>
-            <div className='layout-container'>
-              <img className='slide-bg-img' src={img} alt={title} />
-            </div>
-          </If>
+        <div className='slide-bg'>
+          <div className='slide-bg-container'>
+            <img className='slide-bg-img' src={img} alt={title} style={{ height: px(this.getImgHeight()) }} />
+          </div>
         </div>
         <div className='layout-container'>
           <div className='slide-content'>
             <div className='slide-title'>{title}</div>
             <div className='slide-subtitle'>{subtitle}</div>
-            <div className='slide-description'>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua</div>
+            <div className='slide-description'>{description}</div>
             <div className='slide-buttons'>
               <Button>Watch now</Button>
               <Button>Trailer</Button>
@@ -65,9 +83,11 @@ Slide.propTypes = {
     enter: PropTypes.bool.isRequired,
     enterDirection: PropTypes.oneOf([ 'TO_LEFT', 'TO_RIGHT' ]).isRequired,
     exitDirection: PropTypes.oneOf([ '', 'TO_LEFT', 'TO_RIGHT' ]).isRequired,
+    height: PropTypes.number.isRequired,
     width: PropTypes.number.isRequired,
     zIndex: PropTypes.string.isRequired,
   }).isRequired,
+  description: PropTypes.string.isRequired,
   img: PropTypes.string.isRequired,
   isWide: PropTypes.bool,
   title: PropTypes.string.isRequired,
@@ -80,12 +100,15 @@ Slide.defaultProps = {
 };
 
 
+const lorem = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua';
+
 const Slide1 = {
   Slide: props => (
     <Slide
       dynamicProps={props}
       title='Slide 1 title'
       subtitle='3 Seasons'
+      description={lorem}
       img='/images/16-9-A.png'
       isWide={false}
     />
@@ -99,8 +122,10 @@ const Slide2 = {
       dynamicProps={props}
       title='Slide 2 title is a very long title with many words'
       subtitle='3 Seasons'
-      img='/images/16-6-A.png'
-      isWide={true}
+      description={lorem}
+      img='/images/16-9-B.png'
+      // img='/images/16-6-A.png'
+      isWide={false}
     />
   ),
   id: 's2',
@@ -112,7 +137,8 @@ const Slide3 = {
       dynamicProps={props}
       title='Slide 3 title'
       subtitle='3 Seasons'
-      img='/images/16-9-B.png'
+      description={lorem}
+      img='/images/16-9-A.png'
       isWide={false}
     />
   ),
@@ -126,8 +152,10 @@ const Slide4 = {
       dynamicProps={props}
       title='Slide 4 title'
       subtitle='3 Seasons'
-      img='/images/16-6-B.png'
-      isWide={true}
+      description={lorem}
+      img='/images/16-9-B.png'
+      // img='/images/16-6-B.png'
+      isWide={false}
     />
   ),
   id: 's4',
@@ -191,7 +219,7 @@ const AllComponents = () => (
     </Section>
     <Section title='Carousel'>
       <Subtitle>Multiple slides with max height without layout container</Subtitle>
-      <Carousel slides={[ Slide1, Slide2, Slide3, Slide4 ]} />
+      <Carousel slides={[ Slide1, Slide2, Slide3, Slide4 ]} maxHeight={640} />
 
       { /*
 
