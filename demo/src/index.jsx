@@ -144,7 +144,7 @@ const AllComponents = () => (
     </Section>
     <Section title='Carousel'>
       <Subtitle>Single slide</Subtitle>
-      <Carousel slides={[ Slide1, Slide2, Slide3, Slide4 ]} />
+      <Carousel slides={[ Slide1 ]} />
       <Subtitle>Multiple slides</Subtitle>
       <Carousel slides={[ Slide1, Slide2, Slide3, Slide4 ]} />
       <Subtitle>Custom aspect ratio</Subtitle>
