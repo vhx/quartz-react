@@ -1,8 +1,4 @@
 /* eslint-disable react/no-unused-prop-types */
-
-
-// title font size: 56, 40, 24 1
-
 import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
