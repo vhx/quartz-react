@@ -24,6 +24,10 @@
 }
 
 .carousel:hover .carousel-arrow {
+  opacity: 0.4;
+}
+
+.carousel .carousel-arrow:hover {
   opacity: 1;
 }
 

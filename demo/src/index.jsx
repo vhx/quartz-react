@@ -64,8 +64,14 @@ class Slide extends Component {
             <div className='slide-subtitle'>{subtitle}</div>
             <div className='slide-description'>{description}</div>
             <div className='slide-buttons'>
-              <Button>Watch now</Button>
-              <Button>Trailer</Button>
+              <button className='slide-button'>
+                <Icon name='play' color='white' size='xxsmall' />
+                <span className='slide-button-text'>Watch now</span>
+              </button>
+              <button className='slide-button slide-button--alt'>
+                <Icon name='play' color='white' size='xxsmall' />
+                <span className='slide-button-text'>Trailer</span>
+              </button>
             </div>
           </div>
         </div>
