@@ -57,7 +57,7 @@
   width: 100%;
 }
 
-.slide-bg-container {
+.slide-layout-container {
   max-width: 1720px;
   margin: auto;
   overflow: hidden; /* this forces a block formatting context */
@@ -87,14 +87,22 @@
   min-width: 100%;
 }
 
-/* contains slide-title and slide-description */
+/* vertically centered. contains slide-title and slide-description */
 .slide-content {
-  // bottom: 10%;
-  margin-left: 80px;
+  padding-left: 80px;
   position: absolute;
   width: 400px;
   top: 50%;
   transform: translate3d(0, -50%, 0);
+}
+
+.slide-content--mobile {
+  bottom: 40px;
+  padding-left: 40px;
+  padding-right: 40px;
+  top: auto;
+  transform: translate3d(0, 0, 0);
+  width: 100%;
 }
 
 @keyframes enterContent {
@@ -133,19 +141,33 @@
   text-shadow: 0 1px 10px #000;
 }
 
+.slide-content--mobile .slide-title {
+  font-size: 32px;
+}
+
 .slide-subtitle {
   font-size: 16px;
+  padding-top: 8px;
   text-shadow: 0 1px 10px #000;
 }
 
 .slide-description {
   font-size: 16px;
-  padding: 20px 0;
+  padding-top: 16px;
   text-shadow: 0 1px 10px #000;
 }
 
+.slide-content--mobile .slide-description {
+  display: none;
+}
+
 .slide-buttons {
-  // ???
+  padding-top: 8px;
+}
+
+.slide-buttons button {
+  margin-right: 8px;
+  margin-top: 8px;
 }
 
 .ENTER_TO_LEFT .slide-title {
@@ -181,6 +203,15 @@
 
 .ENTER_TO_RIGHT .slide-buttons {
   animation: enterContentRight .6s ease forwards 300ms;
+}
+
+
+.ENTER_TO_LEFT .slide-content--mobile .slide-buttons {
+  animation: enterContent .6s ease forwards 200ms;
+}
+
+.ENTER_TO_RIGHT .slide-content--mobile .slide-buttons {
+  animation: enterContentRight .6s ease forwards 200ms;
 }
 
 

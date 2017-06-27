@@ -32,8 +32,9 @@ class Carousel extends Component {
       exitDirection: '',
       isFresh: true, // `isFresh` just means no slide change has been triggered yet. it's a hack used to allow a custom `enter` value on the first bgSlide. would like to find a better alternative to this...
       topSlideIndex: 0,
-      height: 0, // passed down to <Slide>
-      width: 0, // passed down to <Slide>
+      isMobile: false, // passed down to <Slide>
+      height: 0, // passed down to <Slide> so it can reuse the h/w calculations
+      width: 0, // passed down to <Slide> so it can reuse the h/w calculations
     };
     this.el = null;
     this.setProportionalHeight = this.setProportionalHeight.bind(this);
@@ -54,12 +55,14 @@ class Carousel extends Component {
 
   setProportionalHeight() {
     if (this.el) {
+      const MOBILE_PADDING_BOTTOM = 64;
       const { maxHeight, minHeight } = this.props;
       const width = this.el.clientWidth;
       const aspectHeight = getAspectRatioHeight(this.props.aspectRatio, width);
       const height = containValue(maxHeight, minHeight, aspectHeight);
-      this.el.style.height = `${height}px`;
-      this.setState({ height, width });
+      const isMobile = height > getAspectRatioHeight('16:9', width);
+      this.setState({ height, isMobile, width });
+      this.el.style.height = `${height + (isMobile ? MOBILE_PADDING_BOTTOM : 0)}px`;
     }
   }
 
@@ -106,11 +109,11 @@ class Carousel extends Component {
   }
 
   render() {
-    const { topSlideIndex, bgSlideIndex, enterDirection, exitDirection, isFresh, height, width } = this.state;
+    const { topSlideIndex, bgSlideIndex, enterDirection, exitDirection, isFresh, isMobile, height, width } = this.state;
     const { animationDuration, slides } = this.props;
     const isAnimating = exitDirection !== '';
     return (
-      <div className='carousel' ref={(el) => { this.el = el; }}>
+      <div className={isMobile ? 'carousel carousel--mobile' : 'carousel' } ref={(el) => { this.el = el; }}>
         <div>
           <div>
             {
@@ -122,6 +125,7 @@ class Carousel extends Component {
                   enterDirection={enterDirection}
                   exitDirection={topSlideIndex === i ? exitDirection : ''}
                   height={height}
+                  isMobile={isMobile}
                   width={width}
                   zIndex={topSlideIndex === i ? '1' : bgSlideIndex === i ? '0' : '-1'}
                 />
@@ -131,8 +135,8 @@ class Carousel extends Component {
         </div>
         <If condition={slides.length > 1}>
           <div className='coins'>{ slides.map(this.generateCoin) }</div>
-          <button disabled={isAnimating} onClick={this.prev} className='carousel-arrow carousel-arrow--left'><Icon name='angle-left' color='white' size='small' /></button>
-          <button disabled={isAnimating} onClick={this.next} className='carousel-arrow carousel-arrow--right'><Icon name='angle-right' color='white' size='small' /></button>
+          <button disabled={isAnimating} onClick={this.prev} className='carousel-arrow carousel-arrow--left'><Icon name='angle-left' color='white' size={isMobile ? 'xsmall' : 'small' } /></button>
+          <button disabled={isAnimating} onClick={this.next} className='carousel-arrow carousel-arrow--right'><Icon name='angle-right' color='white' size={isMobile ? 'xsmall' : 'small' } /></button>
         </If>
       </div>
     );

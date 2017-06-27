@@ -18,6 +18,11 @@
   z-index: 100; /* this creates a hard limit of 100 slides. see also `.coins` */
 }
 
+.carousel--mobile .carousel-arrow {
+  opacity: 1;
+  padding: 12px;
+}
+
 .carousel:hover .carousel-arrow {
   opacity: 1;
 }
@@ -44,6 +49,11 @@
   z-index: 100; /* this creates a hard limit of 100 slides. see also `.carousel-arrow` */
 }
 
+.carousel--mobile .coins {
+  height: 24px;
+  opacity: 1;
+}
+
 .carousel:hover .coins {
   opacity: 1;
 }
@@ -64,6 +74,7 @@
 .coin.active {
   opacity: 1;
 }
+
 
 
 .debug .carousel {

@@ -36,8 +36,6 @@ import InputDemo from './demo-input.jsx';
 </div>
 */
 
-const px = n => `${n}px`;
-
 class Slide extends Component {
   constructor() {
     super();
@@ -45,24 +43,23 @@ class Slide extends Component {
   }
 
   getImgHeight() {
-    const { height, width } = this.props.dynamicProps;
-    const isMobile = height > getAspectRatioHeight('16:9', width);
+    const { isMobile, height, width } = this.props.dynamicProps;
     if (isMobile) { return getAspectRatioHeight('16:9', width); }
     return height;
   }
 
   render() {
-    const { animationDuration, enter, enterDirection, exitDirection, zIndex } = this.props.dynamicProps;
-    const { title, subtitle, description, img } = this.props;
+    const { animationDuration, enter, enterDirection, exitDirection, isMobile, height, width, zIndex } = this.props.dynamicProps;
+    const { title, subtitle, description, img, mobileImg } = this.props;
     return (
       <div className={`slide ${exitDirection} ${enter ? `ENTER_${enterDirection}` : ''}`} style={{ zIndex, animationDuration: `${animationDuration}ms` }}>
         <div className='slide-bg'>
-          <div className='slide-bg-container'>
-            <img className='slide-bg-img' src={img} alt={title} style={{ height: px(this.getImgHeight()) }} />
+          <div className='slide-layout-container'>
+            <img className='slide-bg-img' src={isMobile ? mobileImg : img} alt={title} style={{ height: `${this.getImgHeight()}px` }} />
           </div>
         </div>
-        <div className='layout-container'>
-          <div className='slide-content'>
+        <div className='slide-layout-container'>
+          <div className={isMobile ? 'slide-content slide-content--mobile' : 'slide-content'}>
             <div className='slide-title'>{title}</div>
             <div className='slide-subtitle'>{subtitle}</div>
             <div className='slide-description'>{description}</div>
@@ -83,12 +80,14 @@ Slide.propTypes = {
     enter: PropTypes.bool.isRequired,
     enterDirection: PropTypes.oneOf([ 'TO_LEFT', 'TO_RIGHT' ]).isRequired,
     exitDirection: PropTypes.oneOf([ '', 'TO_LEFT', 'TO_RIGHT' ]).isRequired,
+    isMobile: PropTypes.bool.isRequired,
     height: PropTypes.number.isRequired,
     width: PropTypes.number.isRequired,
     zIndex: PropTypes.string.isRequired,
   }).isRequired,
   description: PropTypes.string.isRequired,
   img: PropTypes.string.isRequired,
+  mobileImg: PropTypes.string.isRequired,
   isWide: PropTypes.bool,
   title: PropTypes.string.isRequired,
   subtitle: PropTypes.string,
@@ -110,6 +109,7 @@ const Slide1 = {
       subtitle='3 Seasons'
       description={lorem}
       img='/images/16-9-A.png'
+      mobileImg='/images/16-9-A-mob.png'
       isWide={false}
     />
   ),
@@ -124,7 +124,7 @@ const Slide2 = {
       subtitle='3 Seasons'
       description={lorem}
       img='/images/16-9-B.png'
-      // img='/images/16-6-A.png'
+      mobileImg='/images/16-9-B-mob.png'
       isWide={false}
     />
   ),
@@ -139,6 +139,7 @@ const Slide3 = {
       subtitle='3 Seasons'
       description={lorem}
       img='/images/16-9-A.png'
+      mobileImg='/images/16-9-A-mob.png'
       isWide={false}
     />
   ),
@@ -154,6 +155,7 @@ const Slide4 = {
       subtitle='3 Seasons'
       description={lorem}
       img='/images/16-9-B.png'
+      mobileImg='/images/16-9-B-mob.png'
       // img='/images/16-6-B.png'
       isWide={false}
     />
