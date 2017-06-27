@@ -1,6 +1,8 @@
-import React from 'react';
+import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import iconNames from '../../components/Icon/icon-list.js';
+import PropTypes from 'prop-types';
+import { If, getAspectRatioHeight } from '../../components/util';
 
 import {
   Block,
@@ -12,7 +14,7 @@ import {
   Button,
   Carousel,
   Icon,
-  Slide,
+  // Slide,
   Tag,
   Text,
 } from '../../index.js';
@@ -21,49 +23,114 @@ import CheckboxDemo from './demo-checkbox.jsx';
 import RadioDemo from './demo-radio.jsx';
 import InputDemo from './demo-input.jsx';
 
+class Slide extends Component {
+  componentDidMount() {
+
+  }
+
+  render() {
+    const { animationDuration, enter, enterDirection, exitDirection, width, zIndex } = this.props.dynamicProps;
+    const { title, subtitle, img, isWide } = this.props;
+    return (
+      <div className={`slide ${exitDirection} ${enter ? `ENTER_${enterDirection}` : ''}`} style={{ zIndex, animationDuration: `${animationDuration}ms` }}>
+        <div className={isWide ? 'slide-bg slide-bg--wide' : 'slide-bg'}>
+          <If condition={isWide}>
+            <img className='slide-bg-img' src={img} alt={title} />
+          </If>
+          <If condition={!isWide}>
+            <div className='layout-container'>
+              <img className='slide-bg-img' src={img} alt={title} />
+            </div>
+          </If>
+        </div>
+        <div className='layout-container'>
+          <div className='slide-content'>
+            <div className='slide-title'>{title}</div>
+            <div className='slide-subtitle'>{subtitle}</div>
+            <div className='slide-description'>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua</div>
+            <div className='slide-buttons'>
+              <Button>Watch now</Button>
+              <Button>Trailer</Button>
+            </div>
+          </div>
+        </div>
+      </div>
+    );
+  }
+}
+
+Slide.propTypes = {
+  dynamicProps: PropTypes.shape({
+    animationDuration: PropTypes.number.isRequired,
+    enter: PropTypes.bool.isRequired,
+    enterDirection: PropTypes.oneOf([ 'TO_LEFT', 'TO_RIGHT' ]).isRequired,
+    exitDirection: PropTypes.oneOf([ '', 'TO_LEFT', 'TO_RIGHT' ]).isRequired,
+    width: PropTypes.number.isRequired,
+    zIndex: PropTypes.string.isRequired,
+  }).isRequired,
+  img: PropTypes.string.isRequired,
+  isWide: PropTypes.bool,
+  title: PropTypes.string.isRequired,
+  subtitle: PropTypes.string,
+};
+
+Slide.defaultProps = {
+  subtitle: '',
+  isWide: false,
+};
+
+
 const Slide1 = {
   Slide: props => (
-    <Slide {...props} >
-      <div className='slide-bg'>
-        <img className='slide-bg-img' src='http://lorempizza.com/1600/600/1' alt='foo' />
-      </div>
-      <div className='slide-content'>
-        <div className='slide-title'>Slide 1 title</div>
-        <div className='slide-description'>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua</div>
-      </div>
-    </Slide>
+    <Slide
+      dynamicProps={props}
+      title='Slide 1 title'
+      subtitle='3 Seasons'
+      img='/images/16-9-A.png'
+      isWide={false}
+    />
   ),
   id: 's1',
 };
 
 const Slide2 = {
   Slide: props => (
-    <Slide {...props} >
-      <div className='slide-bg'>
-        <img className='slide-bg-img' src='http://lorempizza.com/1600/600/2' alt='foo' />
-      </div>
-      <div className='slide-content'>
-        <div className='slide-title'>Slide 2 title</div>
-        <div className='slide-description'>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua</div>
-      </div>
-    </Slide>
+    <Slide
+      dynamicProps={props}
+      title='Slide 2 title is a very long title with many words'
+      subtitle='3 Seasons'
+      img='/images/16-6-A.png'
+      isWide={true}
+    />
   ),
   id: 's2',
 };
 
 const Slide3 = {
   Slide: props => (
-    <Slide {...props} >
-      <div className='slide-bg'>
-        <img className='slide-bg-img' src='http://lorempizza.com/1600/600/3' alt='foo' />
-      </div>
-      <div className='slide-content'>
-        <div className='slide-title'>Slide 3 title</div>
-        <div className='slide-description'>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua</div>
-      </div>
-    </Slide>
+    <Slide
+      dynamicProps={props}
+      title='Slide 3 title'
+      subtitle='3 Seasons'
+      img='/images/16-9-B.png'
+      isWide={false}
+    />
   ),
   id: 's3',
+};
+
+
+const Slide4 = {
+  Slide: props => (
+    <Slide
+      dynamicProps={props}
+      title='Slide 4 title'
+      subtitle='3 Seasons'
+      img='/images/16-6-B.png'
+      isWide={true}
+    />
+  ),
+  id: 's4',
 };
 
 
@@ -123,6 +190,11 @@ const AllComponents = () => (
       </Block>
     </Section>
     <Section title='Carousel'>
+      <Subtitle>Multiple slides with max height without layout container</Subtitle>
+      <Carousel slides={[ Slide1, Slide2, Slide3, Slide4 ]} />
+
+      { /*
+
       <Subtitle>Single slide with layout container</Subtitle>
       <div className='layout-container'>
         <Carousel slides={[ Slide1 ]} />
@@ -131,10 +203,10 @@ const AllComponents = () => (
       <div className='layout-container'>
         <Carousel slides={[ Slide1, Slide2, Slide3 ]} />
       </div>
-      <Subtitle>Multiple slides with max height without layout container</Subtitle>
-      <Carousel slides={[ Slide1, Slide2, Slide3 ]} />
       <Subtitle>Multiple slides without max height and without layout container</Subtitle>
       <Carousel slides={[ Slide1, Slide2, Slide3 ]} maxHeight={Infinity} />
+
+      */ }
     </Section>
     <Section title='Checkboxes'>
       <CheckboxDemo uniqueId='checkbox-demo1' size='small' label='Small' />

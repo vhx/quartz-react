@@ -14,15 +14,22 @@
     }
 
     .layout-container {
+      /*height: 100%;*/
       margin: 0 auto;
+      /*position: relative;*/
       width: 100%;
     }
 
-    @media (min-width: 1400px) {
+    @media (min-width: 1800px) {
       .layout-container {
-        width: 1300px;
+        width: 1700px;
       }
     }
+
+    .debug .layout-container {
+      outline: 2px solid red;
+    }
+
   </style>
   <script>
     (function() {

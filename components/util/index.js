@@ -43,3 +43,11 @@ export function excludeProps(excludeList, props) {
       return finalProps;
     }, {});
 }
+
+// given `aspectRatio` of "16:9" and width 1280
+// => 720
+export function getAspectRatioHeight(aspectRatio, width) {
+  const [ w, h ] = aspectRatio.split(':').map(str => parseInt(str, 10));
+  const height = width / (w / h);
+  return Math.floor(height); // round down to prevent possible single pixel black line
+}

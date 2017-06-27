@@ -50,31 +50,44 @@
 
 
 .slide-bg {
-  // position: absolute;
+  background: #000;
+  position: absolute; // absolute optionally
   height: 100%;
+  // right: 0;
   width: 100%;
+}
+
+.slide-bg--wide {
+
 }
 
 .slide-bg-img {
   float: right;
   // height: 100%;
-  min-width: 100%;
-  max-width: none;
-  min-height: 100%;
+  // min-width: 100%;
+  // max-width: 100%;
+  // min-height: 100%;
+  // max-width: none;
   // display: block;
   // float: right;
   // height: 100%;
   pointer-events: none;
   // position: absolute;
-  // width: auto;
+  // right: 0;
+  // width: 100%;
+}
+
+.slide-bg--wide .slide-bg-img {
+
 }
 
 /* contains slide-title and slide-description */
 .slide-content {
-  bottom: 100px;
-  margin-left: 100px;
+  bottom: 10%;
+  margin-left: 80px;
   position: absolute;
   width: 400px;
+  // top: 40%;
 }
 
 @keyframes enterContent {
@@ -99,44 +112,81 @@
   }
 }
 
+.slide-title,
+.slide-buttons,
+.slide-description,
+.slide-subtitle {
+  opacity: 0;
+  transform: translate3d(0, 0, 0);
+}
+
 .slide-title {
   font-size: 40px;
-  opacity: 0;
+  line-height: 1;
   text-shadow: 0 1px 10px #000;
 }
 
-.ENTER_TO_LEFT .slide-title {
-  animation: enterContent .6s ease forwards .2s;
+.slide-subtitle {
+  font-size: 16px;
+  text-shadow: 0 1px 10px #000;
 }
-
-.ENTER_TO_RIGHT .slide-title {
-  animation: enterContentRight .6s ease forwards .2s;
-}
-// .enter-right .slide-title {
-//   animation: enterContentRight .6s ease forwards .2s;
-// }
 
 .slide-description {
   font-size: 16px;
-  opacity: 0;
   padding: 20px 0;
   text-shadow: 0 1px 10px #000;
 }
 
+.slide-buttons {
+  // ???
+}
+
+.ENTER_TO_LEFT .slide-title {
+  animation: enterContent .6s ease forwards;
+}
+
+.ENTER_TO_RIGHT .slide-title {
+  animation: enterContentRight .6s ease forwards;
+}
+
+
+.ENTER_TO_LEFT .slide-subtitle {
+  animation: enterContent .6s ease forwards 100ms;
+}
+
+.ENTER_TO_RIGHT .slide-subtitle {
+  animation: enterContentRight .6s ease forwards 100ms;
+}
+
+
 .ENTER_TO_LEFT .slide-description {
-  animation: enterContent .6s ease forwards .3s;
+  animation: enterContent .6s ease forwards 200ms;
 }
 
 .ENTER_TO_RIGHT .slide-description {
-  animation: enterContentRight .6s ease forwards .3s;
+  animation: enterContentRight .6s ease forwards 200ms;
+}
+
+
+.ENTER_TO_LEFT .slide-buttons {
+  animation: enterContent .6s ease forwards 300ms;
+}
+
+.ENTER_TO_RIGHT .slide-buttons {
+  animation: enterContentRight .6s ease forwards 300ms;
 }
 
 
 
 
 
+.debug .slide-bg {
+  background: rgba(0, 100, 200, .75);
+}
 
-
+.debug .slide-content {
+  background: rgba(200, 100, 0, .75);
+}
 
 // .enter-right .slide-description {
 //   animation: enterContentRight .6s ease forwards .3s;

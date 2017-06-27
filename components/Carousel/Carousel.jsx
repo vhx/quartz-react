@@ -1,16 +1,8 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import Icon from '../Icon';
-import { If } from '../util';
+import { If, getAspectRatioHeight } from '../util';
 
-
-// given `aspectRatio` of "16:9" and width 1280
-// => 720
-function getAspectRatioHeightFromWidth(aspectRatio, width) {
-  const [ w, h ] = aspectRatio.split(':').map(str => parseInt(str, 10));
-  const height = width / (w / h);
-  return Math.floor(height); // round down to prevent possible single pixel black line
-}
 
 // calcNext(3, 0) => 1
 // calcNext(3, 1) => 2
@@ -39,6 +31,7 @@ class Carousel extends Component {
       exitDirection: '',
       isFresh: true, // `isFresh` just means no slide change has been triggered yet. it's a hack used to allow a custom `enter` value on the first bgSlide. would like to find a better alternative to this...
       topSlideIndex: 0,
+      width: 0, // passed down to <Slide>
     };
     this.el = null;
     this.setProportionalHeight = this.setProportionalHeight.bind(this);
@@ -61,8 +54,10 @@ class Carousel extends Component {
     if (this.el) {
       const { maxHeight, minHeight } = this.props;
       const width = this.el.clientWidth;
-      const height = getAspectRatioHeightFromWidth(this.props.aspectRatio, width);
-      this.el.style.height = `${containValue(maxHeight, minHeight, height)}px`;
+      const aspectHeight = getAspectRatioHeight(this.props.aspectRatio, width);
+      const height = containValue(maxHeight, minHeight, aspectHeight);
+      this.el.style.height = `${height}px`;
+      this.setState({ width });
     }
   }
 
@@ -109,7 +104,7 @@ class Carousel extends Component {
   }
 
   render() {
-    const { topSlideIndex, bgSlideIndex, enterDirection, exitDirection, isFresh } = this.state;
+    const { topSlideIndex, bgSlideIndex, enterDirection, exitDirection, isFresh, width } = this.state;
     const { animationDuration, slides } = this.props;
     const isAnimating = exitDirection !== '';
     return (
@@ -124,6 +119,7 @@ class Carousel extends Component {
                   enter={(bgSlideIndex === i || topSlideIndex === i) && !(isFresh && i === 1)}
                   enterDirection={enterDirection}
                   exitDirection={topSlideIndex === i ? exitDirection : ''}
+                  width={width}
                   zIndex={topSlideIndex === i ? '1' : bgSlideIndex === i ? '0' : '-1'}
                 />
               ))
@@ -164,7 +160,7 @@ Carousel.propTypes = {
 Carousel.defaultProps = {
   animationDuration: 600, // ms
   aspectRatio: '16:6',
-  maxHeight: 640, // px
+  maxHeight: 500, // px
   minHeight: 368, //px
 };
 
