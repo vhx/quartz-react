@@ -76,10 +76,10 @@ class Carousel extends Component {
   keyboardNavigate(event) {
     const isAnimating = this.state.exitDirection !== '';
     if (isAnimating) { return; }
-    const keys = { LEFT: 37, RIGHT: 39 };
+    const [ LEFT, RIGHT ] = [ 37, 39 ];
     const key = event.keyCode || event.which;
-    if (key === keys.LEFT) { this.prev(); }
-    if (key === keys.RIGHT) { this.next(); }
+    if (key === LEFT) { this.prev(); }
+    if (key === RIGHT) { this.next(); }
   }
 
   goToSlide(i, overrideDirection = '') {
