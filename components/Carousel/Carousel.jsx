@@ -93,7 +93,7 @@ class Carousel extends Component {
 
     setTimeout(() => {
       this.setState({
-        bgSlideIndex: calcNext(this.props.slides.length, i), // assume they'll be going forward, since that's more likely
+        bgSlideIndex: i, // This is very odd. bgSlideIndex *should* be assumed to be the result of calcNext(). In some cases, that leads to wrong animations. But for some reason this works.
         enterDirection: this.state.exitDirection,
         exitDirection: '',
         topSlideIndex: this.state.bgSlideIndex, // === i

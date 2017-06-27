@@ -197,12 +197,13 @@
   font: 600 14px/20px 'Helvetica Neue', Helvetica, Arial, sans-serif;
   outline: 0;
   padding: 10px 16px;
-  transition: background .2s ease;
+  transition: all .2s ease;
 }
 
 .slide-button--alt {
   background: #fff;
   background: rgba(255, 255, 255, 0.2);
+  opacity: 0;
 }
 
 .slide-button--alt:hover {
@@ -211,6 +212,15 @@
 
 .slide-button-text {
   padding-left: 8px;
+}
+
+
+
+/* NOTE: This tightly couples the .slide to a .carousel ancestor. */
+/* If it were .slide:hover instead, opacity would still be 0 when hovering the `<` and `>` buttons */
+.carousel:hover .slide-button--alt,
+.slide-content--mobile .slide-button--alt {
+  opacity: 1;
 }
 
 .ENTER_TO_LEFT .slide-title {
