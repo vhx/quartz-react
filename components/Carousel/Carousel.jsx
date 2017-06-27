@@ -3,9 +3,6 @@ import PropTypes from 'prop-types';
 import Icon from '../Icon';
 import { If } from '../util';
 
-const MIN_HEIGHT = 368; // px
-const MAX_HEIGHT = 600; // px
-const ANIMATION_DURATION = 600; // ms
 
 // given `aspectRatio` of "16:9" and width 1280
 // => 720
@@ -29,9 +26,8 @@ function calcPrev(length, current) {
   return (current - 1) < 0 ? (length - 1) : (current - 1);
 }
 
-function containHeight(height) {
-  const atLeastMinHeight = Math.max(MIN_HEIGHT, height);
-  return Math.min(MAX_HEIGHT, atLeastMinHeight);
+function containValue(max, min, value) {
+  return Math.min(max, Math.max(min, value));
 }
 
 class Carousel extends Component {
@@ -63,9 +59,10 @@ class Carousel extends Component {
 
   setProportionalHeight() {
     if (this.el) {
+      const { maxHeight, minHeight } = this.props;
       const width = this.el.clientWidth;
       const height = getAspectRatioHeightFromWidth(this.props.aspectRatio, width);
-      this.el.style.height = `${containHeight(height)}px`;
+      this.el.style.height = `${containValue(maxHeight, minHeight, height)}px`;
     }
   }
 
@@ -85,7 +82,7 @@ class Carousel extends Component {
         exitDirection: '',
         topSlideIndex: this.state.bgSlideIndex,
       });
-    }, ANIMATION_DURATION);
+    }, this.props.animationDuration);
   }
 
   next() {
@@ -113,19 +110,17 @@ class Carousel extends Component {
 
   render() {
     const { topSlideIndex, bgSlideIndex, enterDirection, exitDirection, isFresh } = this.state;
-    const { slides } = this.props;
+    const { animationDuration, slides } = this.props;
     const isAnimating = exitDirection !== '';
     return (
       <div className='carousel' ref={(el) => { this.el = el; }}>
         <div>
           <div>
             {
-              // <TopSlide animationDuration={ANIMATION_DURATION} exitDirection={exitDirection} zIndex='1' />
-              // <BgSlide animationDuration={ANIMATION_DURATION} zIndex='0' />
               slides.map(({ Slide, id }, i) => (
                 <Slide
                   key={id}
-                  animationDuration={ANIMATION_DURATION}
+                  animationDuration={animationDuration}
                   enter={(bgSlideIndex === i || topSlideIndex === i) && !(isFresh && i === 1)}
                   enterDirection={enterDirection}
                   exitDirection={topSlideIndex === i ? exitDirection : ''}
@@ -156,7 +151,10 @@ function aspectRatioPropType(props) {
 }
 
 Carousel.propTypes = {
+  animationDuration: PropTypes.number,
   aspectRatio: aspectRatioPropType,
+  maxHeight: PropTypes.number,
+  minHeight: PropTypes.number,
   slides: PropTypes.arrayOf(PropTypes.shape({
     Slide: PropTypes.func.isRequired,
     id: PropTypes.string.isRequired,
@@ -164,7 +162,10 @@ Carousel.propTypes = {
 };
 
 Carousel.defaultProps = {
+  animationDuration: 600, // ms
   aspectRatio: '16:6',
+  maxHeight: 640, // px
+  minHeight: 368, //px
 };
 
 export default Carousel;

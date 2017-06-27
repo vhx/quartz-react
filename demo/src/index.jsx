@@ -123,14 +123,18 @@ const AllComponents = () => (
       </Block>
     </Section>
     <Section title='Carousel'>
-      <Subtitle>Single slide</Subtitle>
-      {/*<Carousel slides={[ Slide ]} aspectRatio='16:9' />*/}
+      <Subtitle>Single slide with layout container</Subtitle>
+      <div className='layout-container'>
+        <Carousel slides={[ Slide1 ]} />
+      </div>
       <Subtitle>Multiple slides with layout container</Subtitle>
       <div className='layout-container'>
         <Carousel slides={[ Slide1, Slide2, Slide3 ]} />
       </div>
-      <Subtitle>Multiple slides without layout container</Subtitle>
+      <Subtitle>Multiple slides with max height without layout container</Subtitle>
       <Carousel slides={[ Slide1, Slide2, Slide3 ]} />
+      <Subtitle>Multiple slides without max height and without layout container</Subtitle>
+      <Carousel slides={[ Slide1, Slide2, Slide3 ]} maxHeight={Infinity} />
     </Section>
     <Section title='Checkboxes'>
       <CheckboxDemo uniqueId='checkbox-demo1' size='small' label='Small' />

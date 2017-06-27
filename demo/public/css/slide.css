@@ -1,4 +1,4 @@
-NOTE: translate3d currently has better rendering performance than translateX */
+/* NOTE: translate3d currently has better rendering performance than translateX */
 /* Do not refactor the animations to use translateX */
 
 /* NOTE2: on occasion, Chrome/Chromium will miscalculate the z-index mid-animation, causing a single-frame flicker. should look into a solution to this. */
@@ -58,7 +58,7 @@ NOTE: translate3d currently has better rendering performance than translateX */
 .slide-bg-img {
   float: right;
   // height: 100%;
-  // min-width: 100%;
+  min-width: 100%;
   max-width: none;
   min-height: 100%;
   // display: block;
