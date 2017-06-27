@@ -99,9 +99,6 @@ class Carousel extends Component {
         exitDirection: '',
         topSlideIndex: this.state.bgSlideIndex, // === i
       });
-      setTimeout(() => {
-        console.log(this.state.bgSlideIndex, this.state.topSlideIndex);
-      }, 100);
     }, this.props.animationDuration);
   }
 
