@@ -38,6 +38,7 @@ class Carousel extends Component {
     };
     this.el = null;
     this.setProportionalHeight = this.setProportionalHeight.bind(this);
+    this.keyboardNavigate = this.keyboardNavigate.bind(this);
     this.generateCoin = this.generateCoin.bind(this);
     this.goToSlide = this.goToSlide.bind(this);
     this.next = this.next.bind(this);
@@ -47,10 +48,14 @@ class Carousel extends Component {
   componentDidMount() {
     this.setProportionalHeight();
     window.addEventListener('resize', this.setProportionalHeight);
+    // NOTE: if keyboard navigation ends up being an issue because of <input> elements on the page,
+    // maybe bind the event to `this.el` instead of `window`.
+    window.addEventListener('keyup', this.keyboardNavigate);
   }
 
   componentWillUnmount() {
     window.removeEventListener('resize', this.setProportionalHeight);
+    window.removeEventListener('keyup', this.keyboardNavigate);
   }
 
   setProportionalHeight() {
@@ -64,6 +69,15 @@ class Carousel extends Component {
       this.setState({ height, isMobile, width });
       this.el.style.height = `${height + (isMobile ? MOBILE_PADDING_BOTTOM : 0)}px`;
     }
+  }
+
+  keyboardNavigate(event) {
+    const isAnimating = this.state.exitDirection !== '';
+    if (isAnimating) { return; }
+    const keys = { LEFT: 37, RIGHT: 39 };
+    const key = event.keyCode || event.which;
+    if (key === keys.LEFT) { this.prev(); }
+    if (key === keys.RIGHT) { this.next(); }
   }
 
   goToSlide(i, overrideDirection = '') {
