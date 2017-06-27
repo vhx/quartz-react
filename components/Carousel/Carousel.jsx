@@ -19,7 +19,9 @@ function calcPrev(length, current) {
 }
 
 function containValue(max, min, value) {
-  return Math.min(max, Math.max(min, value));
+  if (value > max) { return max; }
+  if (value < min) { return min; }
+  return value;
 }
 
 
