@@ -1,0 +1,224 @@
+NOTE: translate3d currently has better rendering performance than translateX */
+/* Do not refactor the animations to use translateX */
+
+/* NOTE2: on occasion, Chrome/Chromium will miscalculate the z-index mid-animation, causing a single-frame flicker. should look into a solution to this. */
+
+
+.slide {
+  animation-timing-function: ease;
+  height: 100%;
+  opacity: 1;
+  position: absolute;
+  transform: translate3d(0, 0, 0);
+  width: 100%;
+  // width: calc(100% + 40px); // enable this to erase hard edge (NOTE: this will crop artwork) */
+}
+
+@keyframes slideLeft {
+  from {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+  to {
+    opacity: 0;
+    transform: translate3d(-40px, 0, 0);
+  }
+}
+
+
+@keyframes slideRight {
+  from {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+  to {
+    opacity: 0;
+    transform: translate3d(40px, 0, 0);
+  }
+}
+
+.slide.TO_LEFT {
+  animation-name: slideLeft;
+}
+
+.slide.TO_RIGHT {
+  animation-name: slideRight;
+}
+
+
+/* ---------- SPECIFIC TO SLIDE IMPLEMENTATION ----------- */
+
+
+.slide-bg {
+  // position: absolute;
+  height: 100%;
+  width: 100%;
+}
+
+.slide-bg-img {
+  float: right;
+  // height: 100%;
+  // min-width: 100%;
+  max-width: none;
+  min-height: 100%;
+  // display: block;
+  // float: right;
+  // height: 100%;
+  // position: absolute;
+  // width: auto;
+}
+
+/* contains slide-title and slide-description */
+.slide-content {
+  bottom: 100px;
+  margin-left: 100px;
+  position: absolute;
+  width: 400px;
+}
+
+@keyframes enterContent {
+  from {
+    opacity: 0;
+    transform: translate3d(40px, 0, 0);
+  }
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes enterContentRight {
+  from {
+    opacity: 0;
+    transform: translate3d(-40px, 0, 0);
+  }
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 9);
+  }
+}
+
+.slide-title {
+  font-size: 40px;
+  opacity: 0;
+  text-shadow: 0 1px 10px #000;
+}
+
+.ENTER_TO_LEFT .slide-title {
+  animation: enterContent .6s ease forwards .2s;
+}
+
+.ENTER_TO_RIGHT .slide-title {
+  animation: enterContentRight .6s ease forwards .2s;
+}
+// .enter-right .slide-title {
+//   animation: enterContentRight .6s ease forwards .2s;
+// }
+
+.slide-description {
+  font-size: 16px;
+  opacity: 0;
+  padding: 20px 0;
+  text-shadow: 0 1px 10px #000;
+}
+
+.ENTER_TO_LEFT .slide-description {
+  animation: enterContent .6s ease forwards .3s;
+}
+
+.ENTER_TO_RIGHT .slide-description {
+  animation: enterContentRight .6s ease forwards .3s;
+}
+
+
+
+
+
+
+
+
+// .enter-right .slide-description {
+//   animation: enterContentRight .6s ease forwards .3s;
+// }
+
+// .TO_RIGHT .slide-title,
+// .TO_LEFT .slide-title {
+//   animation: none;
+//   opacity: 0;
+// }
+
+// .slide-background {
+//   /* background: rgba(0, 100, 150, 0.5); */
+//   height: 100%;
+//   position: absolute;
+//   text-align: right;
+//   width: 100%;
+// }
+
+// .slide-background-img {
+//   max-height: 100%;
+// }
+
+
+// .slide-background-gradient--frame {
+//   background:
+//     /*linear-gradient(to bottom, rgba(0, 0, 0, 1) 0px, rgba(0, 0, 0, 0) 40px),*/
+//     linear-gradient(to top, rgba(0, 0, 0, 1) 0px, rgba(0, 0, 0, 0) 24px),
+//     linear-gradient(to left, rgba(0, 0, 0, 1) 0px, rgba(0, 0, 0, 0) 24px);
+//   height: 100%;
+//   position: relative;
+//   top: -100%;
+//   width: 100%;
+// }
+
+// .slide-background-gradient--left::before {
+//   background: linear-gradient(to right, rgba(0, 0, 0, 1) 0px, rgba(0, 0, 0, 0) 400px);
+//   content: "";
+//   position: absolute;
+//   height: 100%;
+//   width: 100%;
+// }
+
+
+// @media (max-width: 800px) {
+//   .slide-background-gradient--left::before {
+//     background: none;
+//   }
+
+//   .slide-background-gradient--frame {
+//     background:
+//       /*linear-gradient(to bottom, rgba(0, 0, 0, 1) 0px, rgba(0, 0, 0, 0) 40px),*/
+//       linear-gradient(to top, rgba(0, 0, 0, 1) 0px, rgba(0, 0, 0, 0) 64px)
+//   }
+// }
+
+// // @keyframes slideEnter {
+// //   from {
+// //     opacity: 0;
+// //   }
+// //   to {
+// //     opacity: 1;
+// //   }
+// // }
+
+// .slide.isActive {
+//   z-index: 1;
+// }
+
+// .slide.isExitingLeft {
+//   opacity: 0.4;
+//   // z-index: 2;
+// }
+
+// .slide.isExitingRight {
+//   opacity: 0.4;
+//   // z-index: 2;
+// }
+
+// /*.slide.isGoingNext {
+//   opacity: 0;
+// }
+
+// */
+// /* .isExitingLeft {} */
+// /* .isExitingRight {}

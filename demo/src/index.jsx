@@ -10,7 +10,9 @@ import {
 
 import {
   Button,
+  Carousel,
   Icon,
+  Slide,
   Tag,
   Text,
 } from '../../index.js';
@@ -18,6 +20,52 @@ import {
 import CheckboxDemo from './demo-checkbox.jsx';
 import RadioDemo from './demo-radio.jsx';
 import InputDemo from './demo-input.jsx';
+
+const Slide1 = {
+  Slide: props => (
+    <Slide {...props} >
+      <div className='slide-bg'>
+        <img className='slide-bg-img' src='http://lorempizza.com/1600/600/1' alt='foo' />
+      </div>
+      <div className='slide-content'>
+        <div className='slide-title'>Slide 1 title</div>
+        <div className='slide-description'>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua</div>
+      </div>
+    </Slide>
+  ),
+  id: 's1',
+};
+
+const Slide2 = {
+  Slide: props => (
+    <Slide {...props} >
+      <div className='slide-bg'>
+        <img className='slide-bg-img' src='http://lorempizza.com/1600/600/2' alt='foo' />
+      </div>
+      <div className='slide-content'>
+        <div className='slide-title'>Slide 2 title</div>
+        <div className='slide-description'>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua</div>
+      </div>
+    </Slide>
+  ),
+  id: 's2',
+};
+
+const Slide3 = {
+  Slide: props => (
+    <Slide {...props} >
+      <div className='slide-bg'>
+        <img className='slide-bg-img' src='http://lorempizza.com/1600/600/3' alt='foo' />
+      </div>
+      <div className='slide-content'>
+        <div className='slide-title'>Slide 3 title</div>
+        <div className='slide-description'>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua</div>
+      </div>
+    </Slide>
+  ),
+  id: 's3',
+};
+
 
 const AllComponents = () => (
   <div>
@@ -73,6 +121,16 @@ const AllComponents = () => (
         <Button><Icon name='product' right button>Icon right</Icon></Button>
         <Button><Icon name='product' left button /><Icon name='product' right button>Icon both</Icon></Button>
       </Block>
+    </Section>
+    <Section title='Carousel'>
+      <Subtitle>Single slide</Subtitle>
+      {/*<Carousel slides={[ Slide ]} aspectRatio='16:9' />*/}
+      <Subtitle>Multiple slides with layout container</Subtitle>
+      <div className='layout-container'>
+        <Carousel slides={[ Slide1, Slide2, Slide3 ]} />
+      </div>
+      <Subtitle>Multiple slides without layout container</Subtitle>
+      <Carousel slides={[ Slide1, Slide2, Slide3 ]} />
     </Section>
     <Section title='Checkboxes'>
       <CheckboxDemo uniqueId='checkbox-demo1' size='small' label='Small' />

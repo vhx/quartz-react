@@ -6,7 +6,7 @@
   "scripts": {
     "build": "rollup -c build/rollup.config.js",
     "dev": "rollup -c build/rollup.config.js --watch",
-    "serve": "browser-sync start --server --serveStatic \"demo/public\" --files \"demo/public/js/bundle.js\" --no-open",
+    "serve": "browser-sync start --server --serveStatic \"demo/public\" --files \"demo/public/**\" --no-open",
     "start": "npm-run-all --parallel dev serve",
     "test": "mocha components/**/*.test.jsx --compilers js:babel-register"
   },

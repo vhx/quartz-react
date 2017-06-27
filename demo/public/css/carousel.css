@@ -1,0 +1,79 @@
+.carousel {
+  background: #000;
+  color: #fff;
+  overflow: hidden;
+  position: relative;
+}
+
+.carousel-arrow {
+  background: transparent;
+  border: 0;
+  border-radius: 0;
+  height: 100%;
+  outline: 0;
+  opacity: 0;
+  padding: 24px;
+  position: absolute;
+  transition: opacity .3s ease;
+  z-index: 100; /* this creates a hard limit of 100 slides. see also `.coins` */
+}
+
+.carousel:hover .carousel-arrow {
+  opacity: 1;
+}
+
+.carousel-arrow--left {
+  padding-right: 0;
+  left: 0;
+}
+
+.carousel-arrow--right {
+  padding-left: /* 128px */ 0;
+  right: 0;
+}
+
+.coins {
+  bottom: 0;
+  height: 40px;
+  line-height: 0; /* ensures each coin stays at the top of this container */
+  opacity: 0;
+  position: absolute;
+  text-align: center;
+  transition: opacity .3s ease;
+  width: 100%;
+  z-index: 100; /* this creates a hard limit of 100 slides. see also `.carousel-arrow` */
+}
+
+.carousel:hover .coins {
+  opacity: 1;
+}
+
+.coin {
+  background: #fff;
+  border: 0;
+  borderRadius: 4px; /* 50% of height */
+  height: 8px;
+  margin: 0 4px;
+  opacity: 0.5;
+  outline: 0;
+  padding: 0;
+  transition: opacity .3s ease;
+  width: 8px;
+}
+
+.coin.active {
+  opacity: 1;
+}
+
+
+
+
+.debug .carousel-arrow {
+  background: rgba(200, 0, 50, 0.7);
+}
+
+.debug .coins {
+  background: rgba(0, 150, 0, 0.7);
+}
+
+
