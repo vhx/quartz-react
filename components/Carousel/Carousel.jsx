@@ -129,7 +129,7 @@ class Carousel extends Component {
     const { animationDuration, slides } = this.props;
     const isAnimating = exitDirection !== '';
     return (
-      <div className={isMobile ? 'carousel carousel--mobile' : 'carousel' } ref={(el) => { this.el = el; }}>
+      <div className={`carousel ${isMobile ? 'carousel--mobile' : ''}`} ref={(el) => { this.el = el; }}>
         <div>
           <div>
             {

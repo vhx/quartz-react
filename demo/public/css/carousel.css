@@ -15,7 +15,7 @@
   padding: 24px;
   position: absolute;
   transition: opacity .3s ease;
-  z-index: 100; /* this creates a hard limit of 100 slides. see also `.coins` */
+  z-index: 1;
 }
 
 .carousel--mobile .carousel-arrow {
@@ -50,7 +50,7 @@
   text-align: center;
   transition: opacity .3s ease;
   width: 100%;
-  z-index: 100; /* this creates a hard limit of 100 slides. see also `.carousel-arrow` */
+  z-index: 1;
 }
 
 .carousel--mobile .coins {
