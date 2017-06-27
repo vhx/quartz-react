@@ -64,6 +64,7 @@
   // display: block;
   // float: right;
   // height: 100%;
+  pointer-events: none;
   // position: absolute;
   // width: auto;
 }
