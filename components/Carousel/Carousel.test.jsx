@@ -89,4 +89,10 @@ describe('Carousel', () => {
     expect(wrapper.state('topSlideIndex')).to.equal(2);
   });
 
+  it('Does not display navigation ui for single slide', () => {
+    const wrapper = mount(<Carousel slides={slides.slice(0, 1)} />);
+    expect(wrapper.find('.coin').length).to.equal(0);
+    expect(wrapper.find('.carousel-arrow--left').length).to.equal(0);
+    expect(wrapper.find('.carousel-arrow--right').length).to.equal(0);
+  });
 });
