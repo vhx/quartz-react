@@ -75,7 +75,7 @@ class Carousel extends Component {
 
   keyboardNavigate(event) {
     const isAnimating = this.state.exitDirection !== '';
-    if (isAnimating) { return; }
+    if (isAnimating || this.props.slides.length <= 1) { return; }
     const [ LEFT, RIGHT ] = [ 37, 39 ];
     const key = event.keyCode || event.which;
     if (key === LEFT) { this.prev(); }
