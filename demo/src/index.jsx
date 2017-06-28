@@ -58,7 +58,8 @@ const Slide3 = {
   Slide: props => (
     <Slide
       dynamicProps={props}
-      title='Slide 3 title'
+      buttonClass='btn-teal'
+      title='Slide 3 has a custom button class'
       subtitle='3 Seasons'
       description={lorem}
       img='/images/16-9-A.png'

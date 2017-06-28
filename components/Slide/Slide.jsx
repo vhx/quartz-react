@@ -17,7 +17,7 @@ class Slide extends Component {
 
   render() {
     const { animationDuration, enter, enterDirection, exitDirection, isMobile, zIndex } = this.props.dynamicProps;
-    const { title, subtitle, description, img, mobileImg } = this.props;
+    const { buttonClass, title, subtitle, description, img, mobileImg } = this.props;
     return (
       <div className={`slide ${exitDirection} ${enter ? `ENTER_${enterDirection}` : ''}`} style={{ zIndex, animationDuration: `${animationDuration}ms` }}>
         <div className='slide-bg'>
@@ -31,7 +31,7 @@ class Slide extends Component {
             <div className='slide-subtitle'>{subtitle}</div>
             <div className='slide-description'>{description}</div>
             <div className='slide-buttons'>
-              <button className='slide-button'>
+              <button className={`slide-button ${buttonClass}`}>
                 <Icon name='play' color='white' size='xxsmall' />
                 <span className='slide-button-text'>Watch now</span>
               </button>
@@ -58,6 +58,7 @@ Slide.propTypes = {
     width: PropTypes.number.isRequired,
     zIndex: PropTypes.string.isRequired,
   }).isRequired,
+  buttonClass: PropTypes.string,
   description: PropTypes.string.isRequired,
   img: PropTypes.string.isRequired,
   mobileImg: PropTypes.string.isRequired,
@@ -67,8 +68,9 @@ Slide.propTypes = {
 };
 
 Slide.defaultProps = {
-  subtitle: '',
+  buttonClass: 'slide-button--default',
   isWide: false,
+  subtitle: '',
 };
 
 export default Slide;
