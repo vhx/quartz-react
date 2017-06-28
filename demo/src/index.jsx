@@ -34,6 +34,7 @@ const Slide1 = {
       img='/images/16-9-A.png'
       mobileImg='/images/16-9-A-mob.png'
       isWide={false}
+      trailer='123'
     />
   ),
   id: 's1',
@@ -49,6 +50,7 @@ const Slide2 = {
       img='/images/16-9-B.png'
       mobileImg='/images/16-9-B-mob.png'
       isWide={false}
+      trailer='123'
     />
   ),
   id: 's2',
@@ -65,6 +67,7 @@ const Slide3 = {
       img='/images/16-9-A.png'
       mobileImg='/images/16-9-A-mob.png'
       isWide={false}
+      trailer='123'
     />
   ),
   id: 's3',
@@ -75,7 +78,7 @@ const Slide4 = {
   Slide: props => (
     <Slide
       dynamicProps={props}
-      title='Slide 4 title'
+      title='Slide 4 has no trailer'
       subtitle='3 Seasons'
       description={lorem}
       img='/images/16-9-B.png'

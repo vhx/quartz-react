@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import Icon from '../Icon';
-import { getAspectRatioHeight } from '../util';
+import { If, getAspectRatioHeight } from '../util';
 
 class Slide extends Component {
   constructor() {
@@ -17,7 +17,7 @@ class Slide extends Component {
 
   render() {
     const { animationDuration, enter, enterDirection, exitDirection, isMobile, zIndex } = this.props.dynamicProps;
-    const { buttonClass, title, subtitle, description, img, mobileImg } = this.props;
+    const { buttonClass, title, subtitle, description, img, mobileImg, trailer } = this.props;
     return (
       <div className={`slide ${exitDirection} ${enter ? `ENTER_${enterDirection}` : ''}`} style={{ zIndex, animationDuration: `${animationDuration}ms` }}>
         <div className='slide-bg'>
@@ -35,10 +35,12 @@ class Slide extends Component {
                 <Icon name='play' color='white' size='xxsmall' />
                 <span className='slide-button-text'>Watch now</span>
               </button>
-              <button className='slide-button slide-button--alt'>
-                <Icon name='play' color='white' size='xxsmall' />
-                <span className='slide-button-text'>Trailer</span>
-              </button>
+              <If condition={Boolean(trailer)} inline>
+                <button className='slide-button slide-button--alt'>
+                  <Icon name='play' color='white' size='xxsmall' />
+                  <span className='slide-button-text'>Trailer</span>
+                </button>
+              </If>
             </div>
           </div>
         </div>
@@ -64,6 +66,7 @@ Slide.propTypes = {
   mobileImg: PropTypes.string.isRequired,
   isWide: PropTypes.bool,
   title: PropTypes.string.isRequired,
+  trailer: PropTypes.string, // probably a URL or id
   subtitle: PropTypes.string,
 };
 
@@ -71,6 +74,7 @@ Slide.defaultProps = {
   buttonClass: 'slide-button--default',
   isWide: false,
   subtitle: '',
+  trailer: null,
 };
 
 export default Slide;
