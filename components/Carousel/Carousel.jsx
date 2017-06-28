@@ -62,7 +62,7 @@ class Carousel extends Component {
 
   setProportionalHeight() {
     if (this.el) {
-      const MOBILE_PADDING_BOTTOM = 64;
+      const MOBILE_PADDING_BOTTOM = 0;
       const { maxHeight, minHeight } = this.props;
       const width = this.el.clientWidth;
       const aspectHeight = getAspectRatioHeight(this.props.aspectRatio, width);

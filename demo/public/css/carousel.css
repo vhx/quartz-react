@@ -22,14 +22,16 @@
   opacity: 0.4;
 }
 
+.carousel--mobile .carousel-arrow {
+  opacity: 0.4;
+  padding: 12px;
+}
+
+.carousel .carousel-arrow:focus,
 .carousel .carousel-arrow:hover {
   opacity: 1;
 }
 
-.carousel--mobile .carousel-arrow {
-  opacity: 1;
-  padding: 12px;
-}
 
 .carousel-arrow--left {
   padding-right: 0;
