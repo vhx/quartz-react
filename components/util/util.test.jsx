@@ -6,6 +6,7 @@ import {
   If,
   truncate,
   excludeProps,
+  getAspectRatioHeight,
 } from './index.js';
 
 describe('Utilities', () => {
@@ -51,6 +52,15 @@ describe('Utilities', () => {
       const output = excludeProps([ 'foo' ], source);
       expect(source).to.deep.equal({ foo: 123, bar: 456 });
       expect(output).to.deep.equal({ bar: 456 });
+    });
+  });
+
+  describe('getAspectRatioHeight', () => {
+    it('Returns height given aspect ratio and width', () => {
+      expect(getAspectRatioHeight('16:9', 1920)).to.equal(1080);
+      expect(getAspectRatioHeight('16:9', 1280)).to.equal(720);
+      expect(getAspectRatioHeight('16:7', 1280)).to.equal(560);
+      expect(getAspectRatioHeight('16:6', 1920)).to.equal(720);
     });
   });
 });

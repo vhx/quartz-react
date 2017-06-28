@@ -130,24 +130,22 @@ class Carousel extends Component {
     const isAnimating = exitDirection !== '';
     return (
       <div className={`carousel ${isMobile ? 'carousel--mobile' : ''}`} ref={(el) => { this.el = el; }}>
-        <div>
-          <div>
-            {
-              slides.map(({ Slide, id }, i) => (
-                <Slide
-                  key={id}
-                  animationDuration={animationDuration}
-                  enter={(bgSlideIndex === i || topSlideIndex === i) && !(isFresh && i === 1)}
-                  enterDirection={enterDirection}
-                  exitDirection={topSlideIndex === i ? exitDirection : ''}
-                  height={height}
-                  isMobile={isMobile}
-                  width={width}
-                  zIndex={topSlideIndex === i ? '1' : bgSlideIndex === i ? '0' : '-1'}
-                />
-              ))
-            }
-          </div>
+        <div className='carousel-slides'>
+          {
+            slides.map(({ Slide, id }, i) => (
+              <Slide
+                key={id}
+                animationDuration={animationDuration}
+                enter={(bgSlideIndex === i || topSlideIndex === i) && !(isFresh && i === 1)}
+                enterDirection={enterDirection}
+                exitDirection={topSlideIndex === i ? exitDirection : ''}
+                height={height}
+                isMobile={isMobile}
+                width={width}
+                zIndex={topSlideIndex === i ? '1' : bgSlideIndex === i ? '0' : '-1'}
+              />
+            ))
+          }
         </div>
         <If condition={slides.length > 1}>
           <div className='coins'>{ slides.map(this.generateCoin) }</div>
