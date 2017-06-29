@@ -10,8 +10,7 @@
   opacity: 1;
   position: absolute;
   transform: translate3d(0, 0, 0);
-  width: 100%;
-  // width: calc(100% + 40px); // enable this to erase hard edge (NOTE: this will crop artwork) */
+  width: 100%; /* width: calc(100% + 40px); // enable this to erase hard edge in 16:6 images (NOTE: this will crop artwork and require transform to center for left edge) */
 }
 
 @keyframes slideLeft {

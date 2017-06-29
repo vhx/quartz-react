@@ -147,14 +147,12 @@ const AllComponents = () => (
       </Block>
     </Section>
     <Section title='Carousel'>
-      {/*
       <Subtitle>Single slide</Subtitle>
       <Carousel slides={[ Slide1 ]} />
-      <Subtitle>Custom aspect ratio</Subtitle>
-      <Carousel slides={[ Slide1, Slide2, Slide3, Slide4 ]} aspectRatio='16:9' />
-      */}
       <Subtitle>Multiple slides</Subtitle>
       <Carousel slides={[ Slide1, Slide2, Slide3, Slide4 ]} />
+      <Subtitle>Custom aspect ratio</Subtitle>
+      <Carousel slides={[ Slide1, Slide2, Slide3, Slide4 ]} aspectRatio='16:9' />
     </Section>
     <Section title='Checkboxes'>
       <CheckboxDemo uniqueId='checkbox-demo1' size='small' label='Small' />
