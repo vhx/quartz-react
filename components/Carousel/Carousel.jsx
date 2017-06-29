@@ -30,10 +30,10 @@ class Carousel extends Component {
     super(props);
     this.state = {
       bgSlideIndex: 1,
+      topSlideIndex: 0,
       enterDirection: 'TO_LEFT',
       exitDirection: '',
       isFresh: true, // `isFresh` just means no slide change has been triggered yet. it's a hack used to allow a custom `enter` value on the first bgSlide. would like to find a better alternative to this...
-      topSlideIndex: 0,
       isAnimating: false,
       isMobile: false, // passed down to <Slide>
       height: 0, // passed down to <Slide> so it can reuse the h/w calculations

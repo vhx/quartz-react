@@ -31,9 +31,9 @@ const Slide1 = {
       title='Slide 1 title'
       subtitle='3 Seasons'
       description={lorem}
-      img='/images/16-9-A.png'
-      mobileImg='/images/16-9-A-mob.png'
-      isWide={false}
+      img='/images/16-6-A.png'
+      mobileImg='/images/16-6-A-mob.png'
+      isWide={true}
       trailer='123'
     />
   ),
@@ -147,12 +147,14 @@ const AllComponents = () => (
       </Block>
     </Section>
     <Section title='Carousel'>
+      {/*
       <Subtitle>Single slide</Subtitle>
       <Carousel slides={[ Slide1 ]} />
-      <Subtitle>Multiple slides</Subtitle>
-      <Carousel slides={[ Slide1, Slide2, Slide3, Slide4 ]} />
       <Subtitle>Custom aspect ratio</Subtitle>
       <Carousel slides={[ Slide1, Slide2, Slide3, Slide4 ]} aspectRatio='16:9' />
+      */}
+      <Subtitle>Multiple slides</Subtitle>
+      <Carousel slides={[ Slide1, Slide2, Slide3, Slide4 ]} />
     </Section>
     <Section title='Checkboxes'>
       <CheckboxDemo uniqueId='checkbox-demo1' size='small' label='Small' />

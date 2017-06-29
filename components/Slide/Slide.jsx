@@ -10,18 +10,24 @@ class Slide extends Component {
   }
 
   getImgHeight() {
+    const { isWide } = this.props;
     const { isMobile, height, width } = this.props.dynamicProps;
+    if (isWide) {
+      if (isMobile) { return getAspectRatioHeight('16:9', width); }
+      const isNarrow = getAspectRatioHeight('16:6', width) < height;
+      return isNarrow ? height : getAspectRatioHeight('16:6', width);
+    }
     if (isMobile) { return getAspectRatioHeight('16:9', width); }
     return height;
   }
 
   render() {
     const { animationDuration, enter, enterDirection, exitDirection, isMobile, zIndex } = this.props.dynamicProps;
-    const { buttonClass, title, subtitle, description, img, mobileImg, trailer } = this.props;
+    const { buttonClass, title, subtitle, description, img, mobileImg, trailer, isWide } = this.props;
     return (
       <div className={`slide ${exitDirection} ${enter ? `ENTER_${enterDirection}` : ''}`} style={{ zIndex, animationDuration: `${animationDuration}ms` }}>
-        <div className='slide-bg'>
-          <div className='slide-layout-container'>
+        <div className={isMobile ? 'slide-bg slide-bg--mobile' : 'slide-bg' }>
+          <div className={isWide ? 'slide-layout-wide' : 'slide-layout-container'}>
             <img className='slide-bg-img' src={isMobile ? mobileImg : img} alt={title} style={{ height: `${this.getImgHeight()}px` }} />
           </div>
         </div>
