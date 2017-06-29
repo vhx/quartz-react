@@ -32,19 +32,19 @@ describe('Carousel', () => {
   });
 
   it('Displays a coin for each slide', () => {
-    const wrapper = mount(<Carousel slides={slides} />);
+    const wrapper = shallow(<Carousel slides={slides} />);
     const coins = wrapper.find('.coin');
     expect(coins.length).to.equal(slides.length);
   });
 
   it('Defaults to first slide', () => {
-    const wrapper = mount(<Carousel slides={slides} />);
+    const wrapper = shallow(<Carousel slides={slides} />);
     expect(wrapper.state('topSlideIndex')).to.equal(0);
   });
 
   it('Navigates forward', async () => {
-    const ANIMATION_DURATION = 10;
-    const wrapper = mount(<Carousel slides={slides} animationDuration={ANIMATION_DURATION} />);
+    const ANIMATION_DURATION = 5;
+    const wrapper = shallow(<Carousel slides={slides} animationDuration={ANIMATION_DURATION} />);
     const nextArrow = wrapper.find('.carousel-arrow--right');
     expect(wrapper.state('topSlideIndex')).to.equal(0);
     nextArrow.simulate('click');
@@ -59,8 +59,8 @@ describe('Carousel', () => {
   });
 
   it('Navigates backward', async () => {
-    const ANIMATION_DURATION = 10;
-    const wrapper = mount(<Carousel slides={slides} animationDuration={ANIMATION_DURATION} />);
+    const ANIMATION_DURATION = 5;
+    const wrapper = shallow(<Carousel slides={slides} animationDuration={ANIMATION_DURATION} />);
     const prevArrow = wrapper.find('.carousel-arrow--left');
     expect(wrapper.state('topSlideIndex')).to.equal(0);
     prevArrow.simulate('click');
@@ -75,8 +75,8 @@ describe('Carousel', () => {
   });
 
   it('Navigates to specific slide', async () => {
-    const ANIMATION_DURATION = 10;
-    const wrapper = mount(<Carousel slides={slides} animationDuration={ANIMATION_DURATION} />);
+    const ANIMATION_DURATION = 5;
+    const wrapper = shallow(<Carousel slides={slides} animationDuration={ANIMATION_DURATION} />);
     expect(wrapper.state('topSlideIndex')).to.equal(0);
     wrapper.find('.coin').at(1).simulate('click');
     await wait(ANIMATION_DURATION);
