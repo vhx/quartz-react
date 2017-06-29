@@ -73,7 +73,6 @@ const Slide3 = {
   id: 's3',
 };
 
-
 const Slide4 = {
   Slide: props => (
     <Slide
@@ -83,11 +82,25 @@ const Slide4 = {
       description={lorem}
       img='/images/16-9-B.png'
       mobileImg='/images/16-9-B-mob.png'
-      // img='/images/16-6-B.png'
       isWide={false}
     />
   ),
   id: 's4',
+};
+
+const Slide5 = {
+  Slide: props => (
+    <Slide
+      dynamicProps={props}
+      title='Slide 5 has no trailer and is 16:6 with a very long title containing many words. 100 characters long'
+      subtitle='3 Seasons'
+      description={lorem}
+      img='/images/16-6-B.png'
+      mobileImg='/images/16-6-B-mob.png'
+      isWide={true}
+    />
+  ),
+  id: 's5',
 };
 
 
@@ -150,9 +163,9 @@ const AllComponents = () => (
       <Subtitle>Single slide</Subtitle>
       <Carousel slides={[ Slide1 ]} />
       <Subtitle>Multiple slides</Subtitle>
-      <Carousel slides={[ Slide1, Slide2, Slide3, Slide4 ]} />
+      <Carousel slides={[ Slide1, Slide2, Slide3, Slide4, Slide5 ]} />
       <Subtitle>Custom aspect ratio</Subtitle>
-      <Carousel slides={[ Slide1, Slide2, Slide3, Slide4 ]} aspectRatio='16:9' />
+      <Carousel slides={[ Slide1, Slide2, Slide3, Slide4, Slide5 ]} aspectRatio='16:9' />
     </Section>
     <Section title='Checkboxes'>
       <CheckboxDemo uniqueId='checkbox-demo1' size='small' label='Small' />

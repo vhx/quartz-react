@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import Icon from '../Icon';
-import { If, getAspectRatioHeight } from '../util';
+import { If, getAspectRatioHeight, truncate } from '../util';
+
+const MAX_TITLE_LENGTH = 50; // characters
 
 class Slide extends Component {
   constructor() {
@@ -33,7 +35,7 @@ class Slide extends Component {
         </div>
         <div className='slide-layout-container'>
           <div className={isMobile ? 'slide-content slide-content--mobile' : 'slide-content'}>
-            <div className='slide-title'>{title}</div>
+            <div className='slide-title'>{truncate(title, MAX_TITLE_LENGTH)}</div>
             <div className='slide-subtitle'>{subtitle}</div>
             <div className='slide-description'>{description}</div>
             <div className='slide-buttons'>
