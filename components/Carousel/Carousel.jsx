@@ -63,9 +63,9 @@ class Carousel extends Component {
   setProportionalHeight() {
     if (this.el) {
       const MOBILE_PADDING_BOTTOM = 0;
-      const { maxHeight, minHeight } = this.props;
+      const { aspectRatio, maxHeight, minHeight } = this.props;
       const width = this.el.clientWidth;
-      const aspectHeight = getAspectRatioHeight(this.props.aspectRatio, width);
+      const aspectHeight = getAspectRatioHeight(aspectRatio, width);
       const height = containValue(maxHeight, minHeight, aspectHeight);
       const isMobile = height > getAspectRatioHeight('16:9', width);
       this.setState({ height, isMobile, width });
@@ -74,8 +74,7 @@ class Carousel extends Component {
   }
 
   keyboardNavigate(event) {
-    const isAnimating = this.state.exitDirection !== '';
-    if (isAnimating || this.props.slides.length <= 1) { return; }
+    if (this.state.isAnimating || this.props.slides.length <= 1) { return; }
     const [ LEFT, RIGHT ] = [ 37, 39 ];
     const key = event.keyCode || event.which;
     if (key === LEFT) { this.prev(); }
@@ -88,6 +87,7 @@ class Carousel extends Component {
       bgSlideIndex: i,
       enterDirection: direction,
       exitDirection: direction,
+      isAnimating: true,
       isFresh: false,
     });
 
@@ -96,6 +96,7 @@ class Carousel extends Component {
         bgSlideIndex: i, // This is very odd. bgSlideIndex *should* be assumed to be the result of calcNext(). In some cases, that leads to wrong animations. But for some reason this works.
         enterDirection: this.state.exitDirection,
         exitDirection: '',
+        isAnimating: false,
         topSlideIndex: this.state.bgSlideIndex, // === i
       });
     }, this.props.animationDuration);
@@ -112,8 +113,8 @@ class Carousel extends Component {
   }
 
   generateCoin(Slide, i) {
-    const isAnimating = this.state.exitDirection !== '';
-    const isCurrent = isAnimating ? this.state.bgSlideIndex === i : this.state.topSlideIndex === i;
+    const { isAnimating, bgSlideIndex, topSlideIndex } = this.state;
+    const isCurrent = isAnimating ? bgSlideIndex === i : topSlideIndex === i;
     return (
       <button
         key={i}
@@ -125,9 +126,8 @@ class Carousel extends Component {
   }
 
   render() {
-    const { topSlideIndex, bgSlideIndex, enterDirection, exitDirection, isFresh, isMobile, height, width } = this.state;
+    const { topSlideIndex, bgSlideIndex, enterDirection, exitDirection, isAnimating, isFresh, isMobile, height, width } = this.state;
     const { animationDuration, slides } = this.props;
-    const isAnimating = exitDirection !== '';
     return (
       <div className={`carousel ${isMobile ? 'carousel--mobile' : ''}`} ref={(el) => { this.el = el; }}>
         <div className='carousel-slides'>
