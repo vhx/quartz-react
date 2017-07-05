@@ -1,10 +1,11 @@
-(function (global, factory) {
-	typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('react')) :
-	typeof define === 'function' && define.amd ? define(['exports', 'react'], factory) :
-	(factory((global.QuartzReact = global.QuartzReact || {}),global.React));
-}(this, (function (exports,React) { 'use strict';
+'use strict';
 
-var React__default = 'default' in React ? React['default'] : React;
+Object.defineProperty(exports, '__esModule', { value: true });
+
+function _interopDefault (ex) { return (ex && (typeof ex === 'object') && 'default' in ex) ? ex['default'] : ex; }
+
+var React = require('react');
+var React__default = _interopDefault(React);
 
 function createCommonjsModule(fn, module) {
 	return module = { exports: {} }, fn(module, module.exports), module.exports;
@@ -1812,7 +1813,3 @@ exports.RadioGroup = RadioGroup$1;
 exports.Slide = Slide$1;
 exports.Tag = Tag$1;
 exports.Text = Text$1;
-
-Object.defineProperty(exports, '__esModule', { value: true });
-
-})));
