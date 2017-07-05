@@ -81,6 +81,13 @@
   opacity: 1;
 }
 
+.coin:active,
+.coin:hover,
+.coin:focus,
+.coin:disabled,
+.coin[disabled] {
+  background: #fff;
+}
 
 
 .debug .carousel {

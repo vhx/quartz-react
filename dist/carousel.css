@@ -29,6 +29,7 @@
 
 .carousel .carousel-arrow:focus,
 .carousel .carousel-arrow:hover {
+  background: transparent;
   opacity: 1;
 }
 
@@ -75,6 +76,14 @@
   padding: 0;
   transition: opacity .3s ease;
   width: 8px;
+}
+
+.coin:active,
+.coin:hover,
+.coin:focus,
+.coin:disabled,
+.coin[disabled] {
+  background: #fff;
 }
 
 .coin.active {
