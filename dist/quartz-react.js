@@ -1,10 +1,7 @@
-(function (React,ReactDOM) {
+(function (exports,React) {
 'use strict';
 
 var React__default = 'default' in React ? React['default'] : React;
-ReactDOM = 'default' in ReactDOM ? ReactDOM['default'] : ReactDOM;
-
-var iconList = [ 'activity', 'add-member', 'alert', 'align', 'amex-card', 'android-workmark', 'android', 'angle-down', 'angle-left', 'angle-up', 'angle-right', 'api', 'apple', 'apps', 'arrow-down', 'arrow-left', 'arrow-right', 'arrow-up', 'audio', 'ban', 'bell', 'briefcase', 'calendar', 'camera', 'card', 'caret-down', 'caret-left', 'caret-right', 'caret-up', 'cassette-frown', 'cassette', 'chevron-down', 'check', 'chevron-left', 'chevron-right', 'chevron-up', 'chrome', 'clapboard', 'clock', 'code', 'cog', 'collection', 'comment', 'comments', 'currency', 'desktop', 'diners-card', 'csv', 'discover-card', 'doc', 'download-alt', 'download', 'dropbox', 'edit', 'ellipsis-vertical', 'ellipsis', 'envelope-sealed', 'envelope', 'external-link', 'eye', 'facebook', 'followers', 'gift', 'globe', 'grid', 'help', 'hi', 'home', 'instagram', 'invoice', 'ios', 'jcb-card', 'justify', 'key', 'link', 'list', 'lock', 'marker', 'mastercard-card', 'media', 'member', 'money-card', 'money-circle', 'money', 'paypal-card', 'pic', 'play-outline', 'play', 'plus-thin', 'plus', 'popular', 'power', 'printer', 'product', 'question', 'random', 'referral', 'refresh', 'revert', 'roku-wordmark', 'reply', 'roku', 'search', 'sliders', 'star-outline', 'star', 'tag', 'tags', 'todo', 'trash', 'transaction', 'tumblr', 'tv', 'tvos', 'twitter', 'upload-alt', 'upload', 'vhs', 'vhx', 'vimeovhx-dark', 'vimeovhx-light', 'visa-card', 'window', 'x', 'xmas-tree' ];
 
 function createCommonjsModule(fn, module) {
 	return module = { exports: {} }, fn(module, module.exports), module.exports;
@@ -860,6 +857,14 @@ function getAspectRatioHeight(aspectRatio, width) {
   return Math.floor(height); // round down to prevent possible single pixel black line
 }
 
+
+var utilities = Object.freeze({
+	truncate: truncate,
+	excludeProps: excludeProps,
+	getAspectRatioHeight: getAspectRatioHeight,
+	If: If
+});
+
 var index$1 = createCommonjsModule(function (module) {
 /*!
   Copyright (c) 2016 Jed Watson.
@@ -980,6 +985,8 @@ Button$1.defaultProps = {
   size: 'medium',
   typeface: '',
 };
+
+var iconList = [ 'activity', 'add-member', 'alert', 'align', 'amex-card', 'android-workmark', 'android', 'angle-down', 'angle-left', 'angle-up', 'angle-right', 'api', 'apple', 'apps', 'arrow-down', 'arrow-left', 'arrow-right', 'arrow-up', 'audio', 'ban', 'bell', 'briefcase', 'calendar', 'camera', 'card', 'caret-down', 'caret-left', 'caret-right', 'caret-up', 'cassette-frown', 'cassette', 'chevron-down', 'check', 'chevron-left', 'chevron-right', 'chevron-up', 'chrome', 'clapboard', 'clock', 'code', 'cog', 'collection', 'comment', 'comments', 'currency', 'desktop', 'diners-card', 'csv', 'discover-card', 'doc', 'download-alt', 'download', 'dropbox', 'edit', 'ellipsis-vertical', 'ellipsis', 'envelope-sealed', 'envelope', 'external-link', 'eye', 'facebook', 'followers', 'gift', 'globe', 'grid', 'help', 'hi', 'home', 'instagram', 'invoice', 'ios', 'jcb-card', 'justify', 'key', 'link', 'list', 'lock', 'marker', 'mastercard-card', 'media', 'member', 'money-card', 'money-circle', 'money', 'paypal-card', 'pic', 'play-outline', 'play', 'plus-thin', 'plus', 'popular', 'power', 'printer', 'product', 'question', 'random', 'referral', 'refresh', 'revert', 'roku-wordmark', 'reply', 'roku', 'search', 'sliders', 'star-outline', 'star', 'tag', 'tags', 'todo', 'trash', 'transaction', 'tumblr', 'tv', 'tvos', 'twitter', 'upload-alt', 'upload', 'vhs', 'vhx', 'vimeovhx-dark', 'vimeovhx-light', 'visa-card', 'window', 'x', 'xmas-tree' ];
 
 /* eslint-disable react/no-unused-prop-types */
 
@@ -1790,345 +1797,17 @@ Text$1.defaultProps = {
   color: 'navy',
 };
 
-var Section = function (ref) {
-  var children = ref.children;
-  var title = ref.title;
+var util = utilities;
 
-  return (
-  React__default.createElement( 'div', { className: 'padding-large border-bottom' },
-    React__default.createElement( 'div', { className: 'padding-bottom-medium' },
-      React__default.createElement( Text$1, { h3: true }, title)
-    ),
-    React__default.createElement( 'div', null, children )
-  )
-);
-};
+exports.util = util;
+exports.Button = Button$1;
+exports.Carousel = Carousel$1;
+exports.Checkbox = Checkbox$1;
+exports.Icon = Icon$1;
+exports.Input = Input$1;
+exports.RadioGroup = RadioGroup$1;
+exports.Slide = Slide$1;
+exports.Tag = Tag$1;
+exports.Text = Text$1;
 
-Section.propTypes = {
-  children: index.node.isRequired,
-  title: index.string.isRequired,
-};
-
-var Block = function (ref) {
-  var children = ref.children;
-  var dark = ref.dark;
-  var inline = ref.inline;
-
-  var className = [
-    'padding-small',
-    dark ? 'bg-gray-7' : '',
-    inline ? 'inline' : '' ].join(' ');
-  return (
-    React__default.createElement( 'div', { className: className }, children)
-  );
-};
-
-Block.propTypes = {
-  children: index.node.isRequired,
-  dark: index.bool,
-  inline: index.bool,
-};
-
-Block.defaultProps = {
-  dark: false,
-  inline: false,
-};
-
-var Subtitle = function (ref) {
-  var children = ref.children;
-
-  return (
-  React__default.createElement( Block, null, React__default.createElement( Text$1, { h5: true }, children) )
-);
-};
-
-Subtitle.propTypes = {
-  children: index.node.isRequired,
-};
-
-var CheckboxDemo = (function (Component$$1) {
-  function CheckboxDemo() {
-    Component$$1.call(this);
-    this.state = { checked: true };
-    this.toggle = this.toggle.bind(this);
-  }
-
-  if ( Component$$1 ) CheckboxDemo.__proto__ = Component$$1;
-  CheckboxDemo.prototype = Object.create( Component$$1 && Component$$1.prototype );
-  CheckboxDemo.prototype.constructor = CheckboxDemo;
-
-  CheckboxDemo.prototype.toggle = function toggle () {
-    this.setState({ checked: !this.state.checked });
-  };
-
-  CheckboxDemo.prototype.render = function render () {
-    return React__default.createElement( Checkbox$1, Object.assign({}, this.props, { checked: this.state.checked, onChange: this.toggle }));
-  };
-
-  return CheckboxDemo;
-}(React.Component));
-
-CheckboxDemo.propTypes = Checkbox$1.propTypes;
-CheckboxDemo.defaultProps = Checkbox$1.defaultProps;
-
-var StatefulRadio = (function (Component$$1) {
-  function StatefulRadio() {
-    Component$$1.call(this);
-    this.state = { selectedIndex: 0 };
-    this.setIndex = this.setIndex.bind(this);
-  }
-
-  if ( Component$$1 ) StatefulRadio.__proto__ = Component$$1;
-  StatefulRadio.prototype = Object.create( Component$$1 && Component$$1.prototype );
-  StatefulRadio.prototype.constructor = StatefulRadio;
-
-  StatefulRadio.prototype.setIndex = function setIndex (event, selectedIndex) {
-    this.setState({ selectedIndex: selectedIndex });
-  };
-
-  StatefulRadio.prototype.render = function render () {
-    return (
-      React__default.createElement( RadioGroup$1, Object.assign({},
-        { selectedIndex: this.state.selectedIndex, onCheck: this.setIndex }, this.props))
-    );
-  };
-
-  return StatefulRadio;
-}(React.Component));
-
-var StatefulInput = (function (Component$$1) {
-  function StatefulInput() {
-    Component$$1.call(this);
-    this.state = { value: '' };
-    this.setValue = this.setValue.bind(this);
-  }
-
-  if ( Component$$1 ) StatefulInput.__proto__ = Component$$1;
-  StatefulInput.prototype = Object.create( Component$$1 && Component$$1.prototype );
-  StatefulInput.prototype.constructor = StatefulInput;
-
-  StatefulInput.prototype.setValue = function setValue (event) {
-    this.setState({ value: event.target.value });
-  };
-
-  StatefulInput.prototype.render = function render () {
-    return (
-      React__default.createElement( Input$1, Object.assign({},
-        this.props, { onInput: this.setValue, value: this.state.value }))
-    );
-  };
-
-  return StatefulInput;
-}(React.Component));
-
-var lorem = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua';
-
-var Slide1 = {
-  Slide: function (props) { return (
-    React__default.createElement( Slide$1, {
-      dynamicProps: props, title: 'Slide 1 title', subtitle: '3 Seasons', description: lorem, img: '/images/16-6-A.png', mobileImg: '/images/16-6-A-mob.png', isWide: true, trailer: '123' })
-  ); },
-  id: 's1',
-};
-
-var Slide2 = {
-  Slide: function (props) { return (
-    React__default.createElement( Slide$1, {
-      dynamicProps: props, title: 'Slide 2 title is a very long title with many words', subtitle: '3 Seasons', description: lorem, img: '/images/16-9-B.png', mobileImg: '/images/16-9-B-mob.png', isWide: false, trailer: '123' })
-  ); },
-  id: 's2',
-};
-
-var Slide3 = {
-  Slide: function (props) { return (
-    React__default.createElement( Slide$1, {
-      dynamicProps: props, buttonClass: 'btn-teal', title: 'Slide 3 has a custom button class', subtitle: '3 Seasons', description: lorem, img: '/images/16-9-A.png', mobileImg: '/images/16-9-A-mob.png', isWide: false, trailer: '123' })
-  ); },
-  id: 's3',
-};
-
-var Slide4 = {
-  Slide: function (props) { return (
-    React__default.createElement( Slide$1, {
-      dynamicProps: props, title: 'Slide 4 has no trailer', subtitle: '3 Seasons', description: lorem, img: '/images/16-9-B.png', mobileImg: '/images/16-9-B-mob.png', isWide: false })
-  ); },
-  id: 's4',
-};
-
-var Slide5 = {
-  Slide: function (props) { return (
-    React__default.createElement( Slide$1, {
-      dynamicProps: props, title: 'Slide 5 has no trailer and is 16:6 with a very long title containing many words. 100 characters long', subtitle: '3 Seasons', description: lorem, img: '/images/16-6-B.png', mobileImg: '/images/16-6-B-mob.png', isWide: true })
-  ); },
-  id: 's5',
-};
-
-
-var AllComponents = function () { return (
-  React__default.createElement( 'div', null,
-    React__default.createElement( Section, { title: 'Buttons' },
-      React__default.createElement( Subtitle, null, "Colors" ),
-      React__default.createElement( Block, { inline: true },
-        React__default.createElement( Button$1, null, "default" ),
-        React__default.createElement( Button$1, { color: 'gray' }, "gray"),
-        React__default.createElement( Button$1, { color: 'teal' }, "teal"),
-        React__default.createElement( Button$1, { color: 'white' }, "white"),
-        React__default.createElement( Button$1, { color: 'red' }, "red"),
-        React__default.createElement( Button$1, { color: 'purple' }, "purple"),
-        React__default.createElement( Button$1, { color: 'green' }, "green"),
-        React__default.createElement( Button$1, { color: 'slate' }, "slate"),
-        React__default.createElement( Button$1, { color: 'black' }, "black"),
-        React__default.createElement( Button$1, { color: 'yellow' }, "yellow")
-      ),
-      React__default.createElement( Block, { dark: true, inline: true },
-        React__default.createElement( Button$1, { color: 'transparent' }, "transparent")
-      ),
-      React__default.createElement( Block, null,
-        React__default.createElement( Button$1, { color: 'twitter' }, "twitter"),
-        React__default.createElement( Button$1, { color: 'facebook' }, "facebook"),
-        React__default.createElement( Button$1, { color: 'tumblr' }, "tumblr"),
-        React__default.createElement( Button$1, { color: 'paypal' }, "paypal"),
-        React__default.createElement( Button$1, { color: 'roku' }, "roku")
-      ),
-      React__default.createElement( Subtitle, null, "Processing State" ),
-      React__default.createElement( Block, null,
-        React__default.createElement( Button$1, { processing: true }, "processing"),
-        React__default.createElement( Button$1, { color: 'teal', processing: true }, "processing"),
-        React__default.createElement( Button$1, { color: 'white', processing: true }, "processing"),
-        React__default.createElement( Button$1, { color: 'red', processing: true }, "processing")
-      ),
-      React__default.createElement( Subtitle, null, "Sizes" ),
-      React__default.createElement( Block, null,
-        React__default.createElement( Button$1, null, "default" ),
-        React__default.createElement( Button$1, { size: 'small' }, "small"),
-        React__default.createElement( Button$1, { size: 'medium' }, "medium"),
-        React__default.createElement( Button$1, { size: 'large' }, "large"),
-        React__default.createElement( Button$1, { size: 'half' }, "half"),
-        React__default.createElement( Button$1, { size: 'fill' }, "fill")
-      ),
-      React__default.createElement( Subtitle, null, "Typefaces" ),
-      React__default.createElement( Block, null,
-        React__default.createElement( Button$1, null, "default" ),
-        React__default.createElement( Button$1, { typeface: 'brandon' }, "brandon")
-      ),
-      React__default.createElement( Subtitle, null, "Icons" ),
-      React__default.createElement( Block, null
-         /* NOTE: icon--right can only be used if accompanying text is nested? */ ,
-        React__default.createElement( Button$1, null, React__default.createElement( Icon$1, { name: 'product', left: true, button: true }), "Icon left" ),
-        React__default.createElement( Button$1, null, React__default.createElement( Icon$1, { name: 'product', right: true, button: true }, "Icon right") ),
-        React__default.createElement( Button$1, null, React__default.createElement( Icon$1, { name: 'product', left: true, button: true }), React__default.createElement( Icon$1, { name: 'product', right: true, button: true }, "Icon both") )
-      )
-    ),
-    React__default.createElement( Section, { title: 'Carousel' },
-      React__default.createElement( Subtitle, null, "Single slide" ),
-      React__default.createElement( Carousel$1, { slides: [ Slide1 ] }),
-      React__default.createElement( Subtitle, null, "Multiple slides" ),
-      React__default.createElement( Carousel$1, { slides: [ Slide1, Slide2, Slide3, Slide4, Slide5 ] }),
-      React__default.createElement( Subtitle, null, "Custom aspect ratio" ),
-      React__default.createElement( Carousel$1, { slides: [ Slide1, Slide2, Slide3, Slide4, Slide5 ], aspectRatio: '16:9' })
-    ),
-    React__default.createElement( Section, { title: 'Checkboxes' },
-      React__default.createElement( CheckboxDemo, { uniqueId: 'checkbox-demo1', size: 'small', label: 'Small' }),
-      React__default.createElement( CheckboxDemo, { uniqueId: 'checkbox-demo2', size: 'medium', label: 'Medium' }),
-      React__default.createElement( CheckboxDemo, { uniqueId: 'checkbox-demo3', size: 'large', label: 'Large' }),
-      React__default.createElement( CheckboxDemo, { uniqueId: 'checkbox-demo4', size: 'small', type: 'toggle' }),
-      React__default.createElement( CheckboxDemo, { uniqueId: 'checkbox-demo5', size: 'medium', type: 'toggle' }),
-      React__default.createElement( CheckboxDemo, { uniqueId: 'checkbox-demo6', size: 'large', type: 'toggle' })
-    ),
-    React__default.createElement( Section, { title: 'Icons' },
-      React__default.createElement( Subtitle, null, "Sizes" ),
-      React__default.createElement( Icon$1, { name: 'product', size: 'xsmall' }),
-      React__default.createElement( Icon$1, { name: 'product', size: 'small' }),
-      React__default.createElement( Icon$1, { name: 'product', size: 'medium' }),
-      React__default.createElement( Icon$1, { name: 'product', size: 'large' }),
-      React__default.createElement( Icon$1, { name: 'product', size: 'xlarge' }),
-      React__default.createElement( Icon$1, { name: 'product', size: 'xxlarge' }),
-      React__default.createElement( Subtitle, null, "Circles" ),
-      React__default.createElement( Icon$1, { circle: true, name: 'product', size: 'xsmall' }),
-      React__default.createElement( Icon$1, { circle: true, name: 'product', size: 'small' }),
-      React__default.createElement( Icon$1, { circle: true, name: 'product', size: 'medium' }),
-      React__default.createElement( Icon$1, { circle: true, name: 'product', size: 'large' }),
-      React__default.createElement( Icon$1, { circle: true, name: 'product', size: 'xlarge' }),
-      React__default.createElement( Icon$1, { circle: true, name: 'product', size: 'xxlarge' }),
-      React__default.createElement( Subtitle, null, "Colors" ),
-      React__default.createElement( Icon$1, { name: 'product', size: 'medium' }),
-      React__default.createElement( Icon$1, { name: 'product', size: 'medium', color: 'navy' }),
-      React__default.createElement( Icon$1, { name: 'product', size: 'medium', color: 'teal' }),
-      React__default.createElement( Icon$1, { name: 'product', size: 'medium', color: 'gray' }),
-      React__default.createElement( Block, { inline: true, dark: true }, React__default.createElement( Icon$1, { name: 'product', size: 'medium', color: 'white' })),
-      React__default.createElement( Subtitle, null, "All icons" ),
-      React__default.createElement( 'ul', { className: 'small-block-grid-6 text-center' },
-        iconList.map(function (icon) { return (
-            React__default.createElement( 'li', { key: icon },
-              React__default.createElement( Block, null, React__default.createElement( Text$1, { color: 'gray', className: 'padding-bottom-small' }, icon) ),
-              React__default.createElement( Icon$1, { name: icon, size: 'small' })
-            )
-          ); })
-      )
-    ),
-    React__default.createElement( Section, { title: 'Inputs' },
-      React__default.createElement( Subtitle, null, "Default input" ),
-      React__default.createElement( StatefulInput, null ),
-      React__default.createElement( Subtitle, null, "disabled input" ),
-      React__default.createElement( StatefulInput, { disabled: true }),
-      React__default.createElement( Subtitle, null, "Error input" ),
-      React__default.createElement( StatefulInput, { error: true }),
-      React__default.createElement( Subtitle, null, "Input with placeholder" ),
-      React__default.createElement( StatefulInput, { placeholder: 'With placeholder' }),
-      React__default.createElement( Subtitle, null, "Error input with placeholder" ),
-      React__default.createElement( StatefulInput, { error: true, placeholder: 'With placeholder' }),
-      React__default.createElement( Subtitle, null, "Password input" ),
-      React__default.createElement( StatefulInput, { type: 'password' }),
-      React__default.createElement( Subtitle, null, "Password input with error" ),
-      React__default.createElement( StatefulInput, { type: 'password', error: true }),
-      React__default.createElement( Subtitle, null, "Search input" ),
-      React__default.createElement( StatefulInput, { placeholder: 'Search', search: true }),
-      React__default.createElement( Subtitle, null, "Labeled inputs" )
-       /* by making <Input> a child of <label> we remove the need to create a unique ID */ ,
-      React__default.createElement( 'label', null,
-        React__default.createElement( 'p', null, "Username" ),
-        React__default.createElement( StatefulInput, null )
-      )
-       /* the standard usage of <label> will still work if you do not mind making an ID: */ ,
-      React__default.createElement( 'label', { htmlFor: 'password1' }, "Password"),
-      React__default.createElement( StatefulInput, { type: 'password', id: 'password1' })
-    ),
-    React__default.createElement( Section, { title: 'Radios' },
-      React__default.createElement( Subtitle, null, "Default" ),
-      React__default.createElement( StatefulRadio, { items: [{ label: 'Option 1', uniqueId: 'opt1' }, { label: 'Option 2', uniqueId: 'opt2' }] }),
-      React__default.createElement( Subtitle, null, "Default gray" ),
-      React__default.createElement( StatefulRadio, { color: 'gray', items: [{ label: 'Option 1', uniqueId: 'opt1' }, { label: 'Option 2', uniqueId: 'opt2' }] }),
-      React__default.createElement( Subtitle, null, "Stacked" ),
-      React__default.createElement( StatefulRadio, { stacked: true, items: [{ label: 'Option 1', uniqueId: 'opt1' }, { label: 'Option 2', uniqueId: 'opt2' }] }),
-      React__default.createElement( Subtitle, null, "Stacked gray" ),
-      React__default.createElement( StatefulRadio, { stacked: true, color: 'gray', items: [{ label: 'Option 1', uniqueId: 'opt1' }, { label: 'Option 2', uniqueId: 'opt2' }] }),
-      React__default.createElement( Subtitle, null, "Radio buttons" ),
-      React__default.createElement( StatefulRadio, { buttons: true, items: [{ label: 'Option 1', uniqueId: 'opt1' }, { label: 'Option 2', uniqueId: 'opt2' }] }),
-      React__default.createElement( Subtitle, null, "Radio buttons with descriptions" ),
-      React__default.createElement( StatefulRadio, { buttons: true, items: [{ label: 'Option 1', description: 'Description 1 goes here', uniqueId: 'opt1' }, { label: 'Option 2', description: 'Description 2 goes here', uniqueId: 'opt2' }] })
-    ),
-    React__default.createElement( Section, { title: 'Tags' },
-      React__default.createElement( Block, null, React__default.createElement( Tag$1, { label: 'Tag with hover state', onClick: function () { return alert('Success'); }, onRemove: function () { return alert('Removed'); } }) ),
-      React__default.createElement( Block, null, React__default.createElement( Tag$1, { label: 'Truncated tag', maxLength: 12, onClick: function () { return alert('Success'); }, onRemove: function () { return alert('Removed'); } }) )
-    ),
-    React__default.createElement( Section, { title: 'Text' },
-      React__default.createElement( Subtitle, null, "Headings" ),
-      React__default.createElement( Block, null, React__default.createElement( Text$1, { h1: true }, "h1") ),
-      React__default.createElement( Block, null, React__default.createElement( Text$1, { h2: true }, "h2") ),
-      React__default.createElement( Block, null, React__default.createElement( Text$1, { h3: true }, "h3") ),
-      React__default.createElement( Block, null, React__default.createElement( Text$1, { h4: true }, "h4") ),
-      React__default.createElement( Block, null, React__default.createElement( Text$1, { h5: true }, "h5") ),
-      React__default.createElement( Subtitle, null, "Colors" ),
-      React__default.createElement( Block, null, React__default.createElement( Text$1, null, "Default" ) ),
-      React__default.createElement( Block, null, React__default.createElement( Text$1, { color: 'navy' }, "navy") ),
-      React__default.createElement( Block, null, React__default.createElement( Text$1, { color: 'teal' }, "teal") ),
-      React__default.createElement( Block, null, React__default.createElement( Text$1, { color: 'gray' }, "gray") ),
-      React__default.createElement( Block, { dark: true, inline: true }, React__default.createElement( Text$1, { color: 'white' }, "white"))
-    )
-  )
-); };
-
-var mountNode = document.getElementById('app');
-ReactDOM.render(React__default.createElement( AllComponents, null ), mountNode);
-
-}(React,ReactDOM));
+}((this.QuartzReact = this.QuartzReact || {}),React));
