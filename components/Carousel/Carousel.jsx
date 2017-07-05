@@ -149,9 +149,11 @@ class Carousel extends Component {
           }
         </div>
         <If condition={slides.length > 1}>
-          <div className='coins'>{ slides.map(this.generateCoin) }</div>
-          <button disabled={isAnimating} onClick={this.prev} className='carousel-arrow carousel-arrow--left'><Icon name='angle-left' color='white' size={isMobile ? 'xsmall' : 'small' } /></button>
-          <button disabled={isAnimating} onClick={this.next} className='carousel-arrow carousel-arrow--right'><Icon name='angle-right' color='white' size={isMobile ? 'xsmall' : 'small' } /></button>
+          <div className='carousel-layout-container' style={{ height: `${height}px` }}>
+            <div className='coins'>{ slides.map(this.generateCoin) }</div>
+            <button disabled={isAnimating} onClick={this.prev} className='carousel-arrow carousel-arrow--left'><Icon name='angle-left' color='white' size={isMobile ? 'xsmall' : 'small' } /></button>
+            <button disabled={isAnimating} onClick={this.next} className='carousel-arrow carousel-arrow--right'><Icon name='angle-right' color='white' size={isMobile ? 'xsmall' : 'small' } /></button>
+          </div>
         </If>
       </div>
     );

@@ -5,6 +5,12 @@
   position: relative;
 }
 
+.carousel-layout-container {
+  max-width: 1720px;
+  margin: auto;
+  position: relative;
+}
+
 .carousel-arrow {
   background: transparent;
   border: 0;
