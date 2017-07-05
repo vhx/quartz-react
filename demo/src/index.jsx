@@ -10,7 +10,9 @@ import {
 
 import {
   Button,
+  Carousel,
   Icon,
+  Slide,
   Tag,
   Text,
 } from '../../index.js';
@@ -18,6 +20,89 @@ import {
 import CheckboxDemo from './demo-checkbox.jsx';
 import RadioDemo from './demo-radio.jsx';
 import InputDemo from './demo-input.jsx';
+
+
+const lorem = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua';
+
+const Slide1 = {
+  Slide: props => (
+    <Slide
+      dynamicProps={props}
+      title='Slide 1 title'
+      subtitle='3 Seasons'
+      description={lorem}
+      img='/images/16-6-A.png'
+      mobileImg='/images/16-6-A-mob.png'
+      isWide={true}
+      trailer='123'
+    />
+  ),
+  id: 's1',
+};
+
+const Slide2 = {
+  Slide: props => (
+    <Slide
+      dynamicProps={props}
+      title='Slide 2 title is a very long title with many words'
+      subtitle='3 Seasons'
+      description={lorem}
+      img='/images/16-9-B.png'
+      mobileImg='/images/16-9-B-mob.png'
+      isWide={false}
+      trailer='123'
+    />
+  ),
+  id: 's2',
+};
+
+const Slide3 = {
+  Slide: props => (
+    <Slide
+      dynamicProps={props}
+      buttonClass='btn-teal'
+      title='Slide 3 has a custom button class'
+      subtitle='3 Seasons'
+      description={lorem}
+      img='/images/16-9-A.png'
+      mobileImg='/images/16-9-A-mob.png'
+      isWide={false}
+      trailer='123'
+    />
+  ),
+  id: 's3',
+};
+
+const Slide4 = {
+  Slide: props => (
+    <Slide
+      dynamicProps={props}
+      title='Slide 4 has no trailer'
+      subtitle='3 Seasons'
+      description={lorem}
+      img='/images/16-9-B.png'
+      mobileImg='/images/16-9-B-mob.png'
+      isWide={false}
+    />
+  ),
+  id: 's4',
+};
+
+const Slide5 = {
+  Slide: props => (
+    <Slide
+      dynamicProps={props}
+      title='Slide 5 has no trailer and is 16:6 with a very long title containing many words. 100 characters long'
+      subtitle='3 Seasons'
+      description={lorem}
+      img='/images/16-6-B.png'
+      mobileImg='/images/16-6-B-mob.png'
+      isWide={true}
+    />
+  ),
+  id: 's5',
+};
+
 
 const AllComponents = () => (
   <div>
@@ -73,6 +158,14 @@ const AllComponents = () => (
         <Button><Icon name='product' right button>Icon right</Icon></Button>
         <Button><Icon name='product' left button /><Icon name='product' right button>Icon both</Icon></Button>
       </Block>
+    </Section>
+    <Section title='Carousel'>
+      <Subtitle>Single slide</Subtitle>
+      <Carousel slides={[ Slide1 ]} />
+      <Subtitle>Multiple slides</Subtitle>
+      <Carousel slides={[ Slide1, Slide2, Slide3, Slide4, Slide5 ]} />
+      <Subtitle>Custom aspect ratio</Subtitle>
+      <Carousel slides={[ Slide1, Slide2, Slide3, Slide4, Slide5 ]} aspectRatio='16:9' />
     </Section>
     <Section title='Checkboxes'>
       <CheckboxDemo uniqueId='checkbox-demo1' size='small' label='Small' />

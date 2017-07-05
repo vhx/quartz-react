@@ -7,11 +7,12 @@ import filesize from 'rollup-plugin-filesize';
 const env = JSON.stringify(process.env.NODE_ENV);
 
 export default {
-  entry: 'index.js',
-  dest: 'dist/quartz-react.js',
-  format: 'cjs',
-  moduleName: 'QuartzReact',
+  entry: 'demo/src/index.jsx',
+  dest: 'demo/public/js/bundle.js',
+  format: 'iife',
+  moduleName: 'QuartzReactDemo',
   external: [ 'react', 'react-dom' ],
+  globals: { react: 'React', 'react-dom': 'ReactDOM' },
   plugins: [
     replace({ 'process.env.NODE_ENV': env }),
     resolve(),

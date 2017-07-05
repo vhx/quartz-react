@@ -1,11 +1,9 @@
-import IfComponent from './If.jsx';
-
 
 /*
 <If condition={false}><MyComponent /></If> // MyComponent will not render
 <If condition={true}><MyComponent /></If> // MyComponent will render
 */
-export const If = IfComponent;
+export { default as If } from './If.jsx';
 
 
 /*
@@ -42,4 +40,12 @@ export function excludeProps(excludeList, props) {
       finalProps[propName] = props[propName]; // eslint-disable-line no-param-reassign
       return finalProps;
     }, {});
+}
+
+// given `aspectRatio` of "16:9" and width 1280
+// => 720
+export function getAspectRatioHeight(aspectRatio, width) {
+  const [ w, h ] = aspectRatio.split(':').map(str => parseInt(str, 10));
+  const height = width / (w / h);
+  return Math.floor(height); // round down to prevent possible single pixel black line
 }

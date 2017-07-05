@@ -1,0 +1,259 @@
+/* NOTE: translate3d currently has better rendering performance than translateX */
+/* Do not refactor the animations to use translateX */
+
+/* NOTE2: on occasion, Chrome/Chromium will miscalculate the z-index mid-animation, causing a single-frame flicker. should look into a solution to this. */
+
+
+.slide {
+  animation-timing-function: ease;
+  height: 100%;
+  opacity: 1;
+  position: absolute;
+  transform: translate3d(0, 0, 0);
+  width: 100%; /* width: calc(100% + 40px); // enable this to erase hard edge in 16:6 images (NOTE: this will crop artwork and require transform to center for left edge) */
+}
+
+@keyframes slideLeft {
+  from {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+  to {
+    opacity: 0;
+    transform: translate3d(-40px, 0, 0);
+  }
+}
+
+
+@keyframes slideRight {
+  from {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+  to {
+    opacity: 0;
+    transform: translate3d(40px, 0, 0);
+  }
+}
+
+.slide.TO_LEFT {
+  animation-name: slideLeft;
+}
+
+.slide.TO_RIGHT {
+  animation-name: slideRight;
+}
+
+
+/* ---------- SPECIFIC TO SLIDE IMPLEMENTATION ----------- */
+
+
+.slide-bg {
+  background: #000;
+  position: absolute;
+  height: 100%;
+  /* right: 0; */
+  width: 100%;
+}
+
+.slide-layout-container {
+  max-width: 1720px;
+  margin: auto;
+  overflow: hidden; /* this forces a block formatting context */
+}
+
+.slide-bg-img {
+  float: right;
+  pointer-events: none;
+}
+
+.slide-layout-wide .slide-bg-img {
+  float: left;
+  max-width: none;
+}
+
+.slide-bg--mobile .slide-bg-img {
+  float: right;
+}
+
+/* vertically centered. contains slide-title and slide-description */
+.slide-content {
+  padding-left: 80px;
+  position: absolute;
+  width: 480px;
+  top: 50%;
+  transform: translate3d(0, -50%, 0);
+}
+
+.slide-content--mobile {
+  bottom: 40px;
+  padding-left: 40px;
+  padding-right: 40px;
+  top: auto;
+  transform: translate3d(0, 0, 0);
+  width: 100%;
+}
+
+@keyframes enterContent {
+  from {
+    opacity: 0;
+    transform: translate3d(40px, 0, 0);
+  }
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes enterContentRight {
+  from {
+    opacity: 0;
+    transform: translate3d(-40px, 0, 0);
+  }
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 9);
+  }
+}
+
+@keyframes enterDimContent {
+  from {
+    opacity: 0;
+    transform: translate3d(40px, 0, 0);
+  }
+  to {
+    opacity: 0.8;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes enterDimContentRight {
+  from {
+    opacity: 0;
+    transform: translate3d(-40px, 0, 0);
+  }
+  to {
+    opacity: 0.8;
+    transform: translate3d(0, 0, 9);
+  }
+}
+
+.slide-title,
+.slide-buttons,
+.slide-description,
+.slide-subtitle {
+  opacity: 0;
+  transform: translate3d(0, 0, 0);
+}
+
+.slide-title {
+  font: 500 40px/1 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  text-shadow: 0 1px 10px #000;
+}
+
+.slide-content--mobile .slide-title {
+  font-size: 32px;
+}
+
+.slide-subtitle {
+  font: 500 14px/20px 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  text-shadow: 0 1px 10px #000;
+}
+
+.slide-description {
+  font: 14px/20px 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  padding-top: 8px;
+  text-shadow: 0 1px 10px #000;
+}
+
+.slide-content--mobile .slide-description {
+  display: none;
+}
+
+.slide-buttons {
+  padding-top: 16px; /* is 24px when combined with button margin-top of 8px */
+}
+
+.slide-buttons button {
+  margin-right: 8px;
+  margin-top: 8px;
+}
+
+.slide-button {
+  transition: all .2s ease;
+}
+
+.slide-button--default,
+.slide-button--alt {
+  border: 0;
+  border-radius: 5px;
+  font: 600 14px/20px 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  outline: 0;
+  padding: 10px 16px;
+}
+
+.slide-button--alt {
+  background: rgba(255, 255, 255, 0.2);
+  opacity: 0;
+}
+
+.slide-button--alt:hover {
+  background: rgba(255, 255, 255, 0.25);
+}
+
+.slide-button-text {
+  padding-left: 8px;
+}
+
+
+
+/* NOTE: This tightly couples the .slide to a .carousel ancestor. */
+/* If it were .slide:hover instead, opacity would still be 0 when hovering the `<` and `>` buttons */
+.carousel:hover .slide-button--alt,
+.slide-content--mobile .slide-button--alt {
+  opacity: 1;
+}
+
+.ENTER_TO_LEFT .slide-title {
+  animation: enterContent .6s ease forwards;
+}
+
+.ENTER_TO_RIGHT .slide-title {
+  animation: enterContentRight .6s ease forwards;
+}
+
+
+.ENTER_TO_LEFT .slide-subtitle {
+  animation: enterDimContent .6s ease forwards 100ms;
+}
+
+.ENTER_TO_RIGHT .slide-subtitle {
+  animation: enterDimContentRight .6s ease forwards 100ms;
+}
+
+
+.ENTER_TO_LEFT .slide-description {
+  animation: enterDimContent .6s ease forwards 200ms;
+}
+
+.ENTER_TO_RIGHT .slide-description {
+  animation: enterDimContentRight .6s ease forwards 200ms;
+}
+
+
+.ENTER_TO_LEFT .slide-buttons {
+  animation: enterContent .6s ease forwards 300ms;
+}
+
+.ENTER_TO_RIGHT .slide-buttons {
+  animation: enterContentRight .6s ease forwards 300ms;
+}
+
+
+.ENTER_TO_LEFT .slide-content--mobile .slide-buttons {
+  animation: enterContent .6s ease forwards 200ms;
+}
+
+.ENTER_TO_RIGHT .slide-content--mobile .slide-buttons {
+  animation: enterContentRight .6s ease forwards 200ms;
+}

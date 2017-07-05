@@ -1,15 +1,13 @@
-import ButtonComponent from './components/Button';
-import CheckboxComponent from './components/Checkbox';
-import IconComponent from './components/Icon';
-import InputComponent from './components/Input';
-import RadioGroupComponent from './components/RadioGroup';
-import TagComponent from './components/Tag';
-import TextComponent from './components/Text';
+import * as utilities from './components/util';
 
-export const Button = ButtonComponent;
-export const Checkbox = CheckboxComponent;
-export const Icon = IconComponent;
-export const Input = InputComponent;
-export const RadioGroup = RadioGroupComponent;
-export const Tag = TagComponent;
-export const Text = TextComponent;
+export const util = utilities;
+
+export { default as Button } from './components/Button';
+export { default as Carousel } from './components/Carousel';
+export { default as Checkbox } from './components/Checkbox';
+export { default as Icon } from './components/Icon';
+export { default as Input } from './components/Input';
+export { default as RadioGroup } from './components/RadioGroup';
+export { default as Slide } from './components/Slide';
+export { default as Tag } from './components/Tag';
+export { default as Text } from './components/Text';
