@@ -18,6 +18,14 @@
   z-index: 1;
 }
 
+.carousel-arrow:active,
+.carousel-arrow:hover,
+.carousel-arrow:focus,
+.carousel-arrow:disabled,
+.carousel-arrow[disabled] {
+  background: transparent;
+}
+
 .carousel:hover .carousel-arrow {
   opacity: 0.4;
 }

@@ -18,6 +18,14 @@
   z-index: 1;
 }
 
+.carousel-arrow:active,
+.carousel-arrow:hover,
+.carousel-arrow:focus,
+.carousel-arrow:disabled,
+.carousel-arrow[disabled] {
+  background: transparent;
+}
+
 .carousel:hover .carousel-arrow {
   opacity: 0.4;
 }
@@ -29,7 +37,6 @@
 
 .carousel .carousel-arrow:focus,
 .carousel .carousel-arrow:hover {
-  background: transparent;
   opacity: 1;
 }
 
@@ -78,6 +85,10 @@
   width: 8px;
 }
 
+.coin.active {
+  opacity: 1;
+}
+
 .coin:active,
 .coin:hover,
 .coin:focus,
@@ -85,11 +96,6 @@
 .coin[disabled] {
   background: #fff;
 }
-
-.coin.active {
-  opacity: 1;
-}
-
 
 
 .debug .carousel {
