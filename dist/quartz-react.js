@@ -1,5 +1,8 @@
-(function (exports,React) {
-'use strict';
+(function (global, factory) {
+	typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('react')) :
+	typeof define === 'function' && define.amd ? define(['exports', 'react'], factory) :
+	(factory((global.QuartzReact = global.QuartzReact || {}),global.React));
+}(this, (function (exports,React) { 'use strict';
 
 var React__default = 'default' in React ? React['default'] : React;
 
@@ -1810,4 +1813,6 @@ exports.Slide = Slide$1;
 exports.Tag = Tag$1;
 exports.Text = Text$1;
 
-}((this.QuartzReact = this.QuartzReact || {}),React));
+Object.defineProperty(exports, '__esModule', { value: true });
+
+})));
