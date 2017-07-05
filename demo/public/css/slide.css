@@ -257,16 +257,3 @@
 .ENTER_TO_RIGHT .slide-content--mobile .slide-buttons {
   animation: enterContentRight .6s ease forwards 200ms;
 }
-
-
-
-
-
-.debug .slide-bg {
-  background: rgba(0, 100, 200, .75);
-  outline: 2px solid green;
-}
-
-.debug .slide-content {
-  background: rgba(200, 100, 0, .75);
-}

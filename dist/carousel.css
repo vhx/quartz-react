@@ -108,18 +108,3 @@
 .coin[disabled]:focus, {
   background: #fff;
 }
-
-
-.debug .carousel {
-  overflow: visible;
-}
-
-.debug .carousel-arrow {
-  background: rgba(200, 0, 50, 0.7);
-}
-
-.debug .coins {
-  background: rgba(0, 150, 0, 0.7);
-}
-
-
