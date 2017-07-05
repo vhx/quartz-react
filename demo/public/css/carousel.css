@@ -22,7 +22,10 @@
 .carousel-arrow:hover,
 .carousel-arrow:focus,
 .carousel-arrow:disabled,
-.carousel-arrow[disabled] {
+.carousel-arrow[disabled],
+.carousel-arrow[disabled]:active,
+.carousel-arrow[disabled]:hover,
+.carousel-arrow[disabled]:focus {
   background: transparent;
 }
 
@@ -93,7 +96,10 @@
 .coin:hover,
 .coin:focus,
 .coin:disabled,
-.coin[disabled] {
+.coin[disabled],
+.coin[disabled]:active,
+.coin[disabled]:hover,
+.coin[disabled]:focus, {
   background: #fff;
 }
 

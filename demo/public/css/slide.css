@@ -80,7 +80,7 @@
 .slide-content {
   padding-left: 80px;
   position: absolute;
-  width: 400px;
+  width: 480px;
   top: 50%;
   transform: translate3d(0, -50%, 0);
 }
