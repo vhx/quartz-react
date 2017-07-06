@@ -10,6 +10,7 @@ import {
 
 import {
   Button,
+  Header,
   Icon,
   Tag,
   Text,
@@ -108,6 +109,20 @@ const AllComponents = () => (
       <CheckboxDemo uniqueId='checkbox-demo4' size='small' type='toggle' />
       <CheckboxDemo uniqueId='checkbox-demo5' size='medium' type='toggle' />
       <CheckboxDemo uniqueId='checkbox-demo6' size='large' type='toggle' />
+    </Section>
+    <Section title='Headers'>
+      <Subtitle>Minimal header</Subtitle>
+      <Header title='Section title' icon='product' />
+      <Subtitle>Minimal header without border</Subtitle>
+      <Header title='Section title' icon='product' border={false} />
+      <Subtitle>Header with description</Subtitle>
+      <Header title='Billing' icon='invoice' Description='Review and update your account information' />
+      <Subtitle>Header with description component</Subtitle>
+      <Header title='Product' icon='product' Description={() => <a href='/'>This is a link</a>} />
+      <Subtitle>Header with description and button</Subtitle>
+      <Header title='Section title' icon='download' Description='Foo bar baz'>
+        <Button color='teal'>Bar</Button>
+      </Header>
     </Section>
     <Section title='Icons'>
       <Subtitle>Sizes</Subtitle>
