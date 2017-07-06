@@ -1,11 +1,10 @@
-import IfComponent from './If.jsx';
-
+/* eslint-disable no-param-reassign */
 
 /*
 <If condition={false}><MyComponent /></If> // MyComponent will not render
 <If condition={true}><MyComponent /></If> // MyComponent will render
 */
-export const If = IfComponent;
+export { default as If } from './If.jsx';
 
 
 /*
@@ -43,3 +42,56 @@ export function excludeProps(excludeList, props) {
       return finalProps;
     }, {});
 }
+
+
+/*
+multiSelect({ foo: true, bar: false }, 'foo');
+=> { foo: false, bar: false }
+
+multiSelect({ foo: true, bar: false, baz: false }, 'bar');
+=> { foo: true, bar: true, baz: false }
+
+(The source `options` object will not be modified.)
+*/
+export function multiSelect(options, id) {
+  return Object.assign({}, options, { [id]: !options[id] });
+}
+
+
+/*
+select({ foo: true, bar: false }, 'foo');
+=> { foo: false, bar: false }
+
+select({ foo: true, bar: false, baz: false }, 'bar');
+=> { foo: false, bar: true, baz: false }
+
+(The source `options` object will not be modified.)
+*/
+export function select(options, id) {
+  const newOptions = Object.keys(options).reduce((obj, key) => {
+    obj[key] = false;
+    obj[key] = key === id ? !options[key] : false; // either the option is the one that was just clicked to trigger this event, and we toggle it, or it's some other option and we set it to false
+    return obj;
+  }, {});
+  newOptions[id] = !options[id];
+  return newOptions;
+}
+
+
+/*
+If there is a common misspelling of a prop, you can help developers out by using this propType. Usage:
+
+MyComponent.propTypes = {
+  autoFocus: PropTypes.bool,
+  autofocus: typoPropType({ correct: 'autoFocus' })
+}
+*/
+export function typoPropType({ correct }) {
+  return function typoPropTypeCheck(props, propName, componentName) {
+    if (props[propName]) {
+      console.warn(`You passed the prop \`${propName}\`, which is not supported, to the component \`${componentName}\`. Did you mean to pass \`${correct}\` instead?`);
+      return false;
+    }
+  };
+}
+

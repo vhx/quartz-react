@@ -18,6 +18,33 @@ import {
 import CheckboxDemo from './demo-checkbox.jsx';
 import RadioDemo from './demo-radio.jsx';
 import InputDemo from './demo-input.jsx';
+import SelectDemo from './demo-select.jsx';
+import MediaSelect from './demo-media-select.jsx';
+import MediaSelectProcessing from './demo-media-select-processing.jsx';
+import SelectMinimal from './demo-select-minimal.jsx';
+import SelectSearchable from './demo-select-search.jsx';
+
+const selectOpts = [
+  { label: 'Option #1', uniqueId: 'option-id-1' },
+  { label: 'Option #2', uniqueId: 'option-id-2' },
+  { label: 'Option #3', uniqueId: 'option-id-3' },
+];
+
+const selectOptsWithDescription = [
+  { description: 'Hello World', label: 'Option #1', uniqueId: 'option-id-1' },
+  { description: 'Hello Quartz', label: 'Option #2', uniqueId: 'option-id-2' },
+  { description: 'Hello everyone', label: 'Option #3', uniqueId: 'option-id-3' },
+];
+
+const mediaSelectOpts = Array(20).fill(true).map((_, i) => ({
+  imageUrl: `http://lorempizza.com/70/40/${i}`,
+  description: 'Hello World',
+  label: `Option #${i + 1}`,
+  uniqueId: `option-id-${i}`,
+}));
+
+
+const CustomTrigger = ({ isOpen, onOpenToggle }) => <button onClick={() => onOpenToggle(!isOpen)}>Choose something ({isOpen ? 'close' : 'open'})</button>;
 
 const AllComponents = () => (
   <div>
@@ -144,22 +171,63 @@ const AllComponents = () => (
     </Section>
     <Section title='Radios'>
       <Subtitle>Default</Subtitle>
-      <RadioDemo items={[{ label: 'Option 1', uniqueId: 'opt1' }, { label: 'Option 2', uniqueId: 'opt2' }]} />
+      <RadioDemo items={selectOpts} />
       <Subtitle>Default gray</Subtitle>
-      <RadioDemo color='gray' items={[{ label: 'Option 1', uniqueId: 'opt1' }, { label: 'Option 2', uniqueId: 'opt2' }]} />
+      <RadioDemo color='gray' items={selectOpts} />
       <Subtitle>Stacked</Subtitle>
-      <RadioDemo stacked items={[{ label: 'Option 1', uniqueId: 'opt1' }, { label: 'Option 2', uniqueId: 'opt2' }]} />
+      <RadioDemo stacked items={selectOpts} />
       <Subtitle>Stacked gray</Subtitle>
-      <RadioDemo stacked color='gray' items={[{ label: 'Option 1', uniqueId: 'opt1' }, { label: 'Option 2', uniqueId: 'opt2' }]} />
+      <RadioDemo stacked color='gray' items={selectOpts} />
       <Subtitle>Radio buttons</Subtitle>
-      <RadioDemo buttons items={[{ label: 'Option 1', uniqueId: 'opt1' }, { label: 'Option 2', uniqueId: 'opt2' }]} />
+      <RadioDemo buttons items={selectOpts} />
       <Subtitle>Radio buttons with descriptions</Subtitle>
-      <RadioDemo buttons items={[{ label: 'Option 1', description: 'Description 1 goes here', uniqueId: 'opt1' }, { label: 'Option 2', description: 'Description 2 goes here', uniqueId: 'opt2' }]} />
+      <RadioDemo buttons items={selectOptsWithDescription} />
     </Section>
     <Section title='Tags'>
       <Block><Tag label='Tag with hover state' onClick={() => alert('Success')} onRemove={() => alert('Removed')} /></Block>
       <Block><Tag label='Truncated tag' maxLength={12} onClick={() => alert('Success')} onRemove={() => alert('Removed')} /></Block>
       <Block><Tag label='Tag (processing)' isProcessing /></Block>
+    </Section>
+    <Section title='Select'>
+      <Subtitle>Default</Subtitle>
+      <SelectDemo options={selectOpts} />
+      <Subtitle>Minimal demo (copy this stateful component as a starting point)</Subtitle>
+      <SelectMinimal options={selectOpts} />
+      <Subtitle>Inline</Subtitle>
+      <SelectDemo options={selectOpts} inline />
+      <Subtitle>Colors</Subtitle>
+      <SelectDemo options={selectOpts} color='gray' inline />
+      <SelectDemo options={selectOpts} color='white' inline />
+      <SelectDemo options={selectOpts} color='teal' inline />
+      <Subtitle>Dropdown positioned above</Subtitle>
+      <SelectDemo options={selectOpts} dropdownPosition='above' />
+      <Subtitle>Custom trigger label placeholder</Subtitle>
+      <SelectDemo options={selectOpts} triggerPlaceholder='Custom label' inline />
+      <Subtitle>Caret alignment</Subtitle>
+      <SelectDemo options={selectOpts} triggerPlaceholder='Above and left' dropdownPosition='above' caretAlign='left' inline />
+      <SelectDemo options={selectOpts} triggerPlaceholder='Above and center' dropdownPosition='above' caretAlign='center' inline />
+      <SelectDemo options={selectOpts} triggerPlaceholder='Above and right' dropdownPosition='above' caretAlign='right' inline />
+      <br />
+      <SelectDemo options={selectOpts} triggerPlaceholder='Below and left' caretAlign='left' inline />
+      <SelectDemo options={selectOpts} triggerPlaceholder='Below and center' caretAlign='center' inline />
+      <SelectDemo options={selectOpts} triggerPlaceholder='Below and right' caretAlign='right' inline />
+      <Subtitle>Custom trigger element</Subtitle>
+      <SelectDemo options={selectOpts} inline Trigger={CustomTrigger} />
+      <Subtitle>Multiselect</Subtitle>
+      <SelectDemo options={selectOpts} multiSelect />
+      <Subtitle>Select with search</Subtitle>
+      <SelectSearchable options={selectOpts} />
+      <Subtitle>Multiselect with search</Subtitle>
+      <SelectSearchable options={selectOpts} multiSelect />
+      <Subtitle>Select with options still loading</Subtitle>
+      <SelectDemo options={selectOpts} isLoading />
+      <Subtitle>Select with option descriptions</Subtitle>
+      { /* NOTE: this does not work with `inline` */ }
+      <SelectDemo options={selectOptsWithDescription} />
+      <Subtitle>Media select</Subtitle>
+      <MediaSelect options={mediaSelectOpts} />
+      <Subtitle>Media multiselect with search and processing state</Subtitle>
+      <MediaSelectProcessing multiSelect options={mediaSelectOpts} />
     </Section>
     <Section title='Text'>
       <Subtitle>Headings</Subtitle>
