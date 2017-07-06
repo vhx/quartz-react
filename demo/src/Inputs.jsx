@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { Input } from '../../index.js';
 import {
   Block,
@@ -46,7 +46,7 @@ const InputLabel = () => (
     <Input
       id='password123'
       type='password'
-      value='123456'
+      value='1234'
     />
   </div>
 );
@@ -56,8 +56,49 @@ const inputLabelCode = `
 <Input
   id='password123'
   type='password'
-  value='123456'
+  value='1234'
 />
+`;
+
+
+// Stateful demo
+// -----------------------------------------
+
+class StatefulInput extends Component {
+  constructor() {
+    super();
+    this.state = { value: '' };
+  }
+  render() {
+    const { props, state } = this;
+    const handleInput = event => this.setState({ value: event.target.value });
+    return <Input { ...props } value={state.value} onInput={handleInput} />;
+  }
+}
+
+const StatefulInputDemo = () => (
+  <div>
+    <Subtitle>Stateful Input Demo</Subtitle>
+    <Block><StatefulInput type='password' /></Block>
+  </div>
+);
+
+const statefulInputCode = `
+// An example stateful checkbox implementation
+class StatefulInput extends Component {
+  constructor() {
+    super();
+    this.state = { value: '' };
+  }
+  render() {
+    const { props, state } = this;
+    const handleInput = event => this.setState({ value: event.target.value });
+    return <Input { ...props } value={state.value} onInput={handleInput} />;
+  }
+}
+
+// Usage of the stateful component
+<StatefulInput type='password' />
 `;
 
 
@@ -90,6 +131,7 @@ const Inputs = () => (
     </DemoRow>
     <DemoRow code={inputDemoCode}><InputDemo /></DemoRow>
     <DemoRow code={inputLabelCode}><InputLabel /></DemoRow>
+    <DemoRow code={statefulInputCode}><StatefulInputDemo /></DemoRow>
   </div>
 );
 
