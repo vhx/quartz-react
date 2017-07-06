@@ -112,17 +112,17 @@ class StatefulInput extends Component {
 const Inputs = () => (
   <div>
     <DemoRow>
-      <Title>Inputs</Title>
+      <Title tag='Stateless'>Inputs</Title>
       <Details>
         Inputs are strictly presentational, so in order
         to enable interactivity you must place them within a stateful
         component that reacts to one or more of the following methods:
         <ul className='demo-list'>
           <li><code>onChange</code></li>
-          <li><code>onKeyUp</code></li>
+          <li><code>onInput</code></li>
           <li><code>onKeyDown</code></li>
           <li><code>onKeyPress</code></li>
-          <li><code>onInput</code></li>
+          <li><code>onKeyUp</code></li>
         </ul>
         Note that in any of these methods, <code>event.target</code>
         will be the native <code>input</code> element.

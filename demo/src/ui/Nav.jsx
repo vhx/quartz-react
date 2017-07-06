@@ -13,15 +13,7 @@ NavLink.propTypes = {
 };
 
 
-const sections = [
-  'Buttons',
-  'Checkboxes',
-  'Icons',
-  'Inputs',
-];
-
-
-const Nav = () => (
+const Nav = ({ sections }) => (
   <nav className='nav-primary'>
     <h1 className='head-4 head--teal text-left padding-top-medium'>
       <Icon name='vhx' color='navy' size='xlarge' className='margin-right-small'>VHX</Icon>
@@ -33,5 +25,9 @@ const Nav = () => (
     </ul>
   </nav>
 );
+
+Nav.propTypes = {
+  sections: PropTypes.arrayOf(PropTypes.string.isRequired).isRequired,
+};
 
 export default Nav;

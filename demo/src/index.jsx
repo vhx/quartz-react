@@ -153,9 +153,17 @@ const AllComponents = () => (
 );
 */
 
+
+const sections = [
+  'Buttons',
+  'Checkboxes',
+  'Icons',
+  'Inputs',
+];
+
 const AllComponents = () => (
   <div>
-    <Nav />
+    <Nav sections={sections} />
     <div className='stage'>
       <Buttons />
       <Checkboxes />
