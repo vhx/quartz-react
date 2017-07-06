@@ -19,7 +19,7 @@ const Trigger = ({ color, isOpen, onOpenToggle, triggerLabel, triggerPlaceholder
 
 Trigger.propTypes = {
   color: PropTypes.oneOf([ 'gray', 'white', 'teal' ]).isRequired,
-  isOpen: PropTypes.bool.isRequired, // TODO: could remove this propType, but it would probably be useful to anyone specifying a custom <Trigger> element
+  isOpen: PropTypes.bool.isRequired,
   onOpenToggle: PropTypes.func.isRequired,
   triggerLabel: PropTypes.string.isRequired,
   triggerPlaceholder: PropTypes.string.isRequired,

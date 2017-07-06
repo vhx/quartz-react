@@ -14,7 +14,6 @@ function getClass(props, type) {
     relative: true,
     'c-select--container': true,
     'has-search': Boolean(search),
-    // 'has-trigger': Boolean(props.Trigger), // has-trigger does what custom offset could do more generally. Will implement this if not doing custom offset.
     'has-media': type === 'media',
     'caret--top-right':     dropdownPosition === 'below' && caretAlign === 'right',
     'caret--top-left':      dropdownPosition === 'below' && caretAlign === 'left',
@@ -81,8 +80,8 @@ export default function SelectHOC({ Dropdown, type }) {
     })).isRequired,
     processingOptions: PropTypes.arrayOf(PropTypes.string),
     selectedOptions: PropTypes.objectOf(PropTypes.bool).isRequired,
-    search: PropTypes.func, // search(query) called onInput currently. Can debounce if made stateful, or leave that to parent.
-    Trigger: PropTypes.func, // allow passing in a custom Trigger as prop, so it's not necessary to import the HOC
+    search: PropTypes.func,
+    Trigger: PropTypes.func, // this allows passing in a custom Trigger as prop, so it's not necessary to import the HOC
     triggerLabel: PropTypes.string,
     triggerPlaceholder: PropTypes.string,
   };
@@ -99,7 +98,7 @@ export default function SelectHOC({ Dropdown, type }) {
     search: null,
     Trigger: null,
     triggerLabel: '',
-    triggerPlaceholder: 'Select an option', // TODO: verify that this is a sensible default label
+    triggerPlaceholder: 'Select an option',
   };
 
   return Select;
