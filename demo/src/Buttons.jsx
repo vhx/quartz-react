@@ -76,7 +76,6 @@ const buttonProcessingCode = `
 const ButtonSizes = () => (
   <div>
     <Subtitle>Sizes</Subtitle>
-    <Block><Button>default</Button></Block>
     <Block><Button size='small'>small</Button></Block>
     <Block><Button size='medium'>medium</Button></Block>
     <Block><Button size='large'>large</Button></Block>
@@ -86,11 +85,11 @@ const ButtonSizes = () => (
 );
 
 const buttonSizesCode = `
-<Button size='small'>Click me</Button>
-<Button size='medium'>Click me</Button>
-<Button size='large'>Click me</Button>
-<Button size='half'>Click me</Button>
-<Button size='fill'>Click me</Button>
+<Button size='small'>small</Button>
+<Button size='medium'>medium</Button>
+<Button size='large'>large</Button>
+<Button size='half'>half</Button>
+<Button size='fill'>fill</Button>
 `;
 
 
@@ -126,12 +125,12 @@ const ButtonIcons = () => (
 const buttonIconsCode = `
 <Button>
   <Icon name='product' left button />
-  Click me
+  Icon left
 </Button>
 
 <Button>
   <Icon name='product' right button />
-  Click me
+  Icon right
 </Button>
 
 <Button>

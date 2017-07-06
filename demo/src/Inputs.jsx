@@ -26,6 +26,7 @@ const InputDemo = () => (
 );
 
 const inputDemoCode = `
+
 <Input value='A normal input' />
 <Input value='' placeholder='An input with a placeholder' />
 <Input value='A disabled input' disabled />
@@ -84,7 +85,7 @@ const StatefulInputDemo = () => (
 );
 
 const statefulInputCode = `
-// An example stateful checkbox implementation
+// An example stateful input implementation
 class StatefulInput extends Component {
   constructor() {
     super();
@@ -97,7 +98,10 @@ class StatefulInput extends Component {
   }
 }
 
-// Usage of the stateful component
+// Usage of the stateful component:
+// (Notice that it can still receive
+// props because of { ...props } in
+// the implementation)
 <StatefulInput type='password' />
 `;
 
