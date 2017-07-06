@@ -11,9 +11,7 @@ import {
 import {
   Button,
   Icon,
-  // MediaSelect,
   Tag,
-  // Select,
   Text,
 } from '../../index.js';
 
