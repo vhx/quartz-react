@@ -133,7 +133,7 @@ const Checkboxes = () => (
         to enable interactivity you must place them within a stateful
         component that reacts to their <code>onChange</code> method.
         Note that in the <code>onChange</code> method, <code>event.target</code>
-        will be the native <code>checkbox</code> element.
+        will be the native <code>input[type=checkbox]</code> element.
       </Details>
       <Details>
         The required <code>uniqueId</code> prop will be used as the

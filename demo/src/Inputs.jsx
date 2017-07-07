@@ -72,7 +72,11 @@ class StatefulInput extends Component {
   }
   render() {
     const { props, state } = this;
-    const handleInput = event => this.setState({ value: event.target.value });
+    const handleInput = (event) => (
+      this.setState({
+        value: event.target.value,
+      })
+    );
     return <Input { ...props } value={state.value} onInput={handleInput} />;
   }
 }
@@ -93,7 +97,11 @@ class StatefulInput extends Component {
   }
   render() {
     const { props, state } = this;
-    const handleInput = event => this.setState({ value: event.target.value });
+    const handleInput = (event) => (
+      this.setState({
+        value: event.target.value
+      })
+    );
     return <Input { ...props } value={state.value} onInput={handleInput} />;
   }
 }

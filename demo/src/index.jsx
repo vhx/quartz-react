@@ -7,6 +7,7 @@ import Buttons from './Buttons.jsx';
 import Checkboxes from './Checkboxes.jsx';
 import Icons from './Icons.jsx';
 import Inputs from './Inputs.jsx';
+import Radios from './Radios.jsx';
 
 // import CheckboxDemo from './demo-checkbox.jsx';
 // import RadioDemo from './demo-radio.jsx';
@@ -47,45 +48,6 @@ const AllComponents = () => (
       <div className='row'>
         <div className='column small-8 padding-reset'>
           <div className='guide-bar'>
-            <Section title='Inputs'>
-              <Subtitle>Default input</Subtitle>
-              <InputDemo />
-              <Subtitle>disabled input</Subtitle>
-              <InputDemo disabled />
-              <Subtitle>Error input</Subtitle>
-              <InputDemo error />
-              <Subtitle>Input with placeholder</Subtitle>
-              <InputDemo placeholder='With placeholder' />
-              <Subtitle>Error input with placeholder</Subtitle>
-              <InputDemo error placeholder='With placeholder' />
-              <Subtitle>Password input</Subtitle>
-              <InputDemo type='password' />
-              <Subtitle>Password input with error</Subtitle>
-              <InputDemo type='password' error />
-              <Subtitle>Search input</Subtitle>
-              <InputDemo placeholder='Search' search />
-              <Subtitle>Labeled inputs</Subtitle>
-              <label>
-                <p>Username</p>
-                <InputDemo />
-              </label>
-              <label htmlFor='password1'>Password</label>
-              <InputDemo type='password' id='password1' />
-            </Section>
-            <Section title='Radios'>
-              <Subtitle>Default</Subtitle>
-              <RadioDemo items={selectOpts} />
-              <Subtitle>Default gray</Subtitle>
-              <RadioDemo color='gray' items={selectOpts} />
-              <Subtitle>Stacked</Subtitle>
-              <RadioDemo stacked items={selectOpts} />
-              <Subtitle>Stacked gray</Subtitle>
-              <RadioDemo stacked color='gray' items={selectOpts} />
-              <Subtitle>Radio buttons</Subtitle>
-              <RadioDemo buttons items={selectOpts} />
-              <Subtitle>Radio buttons with descriptions</Subtitle>
-              <RadioDemo buttons items={selectOptsWithDescription} />
-            </Section>
             <Section title='Tags'>
               <Block><Tag label='Tag with hover state' onClick={() => alert('Success')} onRemove={() => alert('Removed')} /></Block>
               <Block><Tag label='Truncated tag' maxLength={12} onClick={() => alert('Success')} onRemove={() => alert('Removed')} /></Block>
@@ -159,6 +121,7 @@ const sections = [
   'Checkboxes',
   'Icons',
   'Inputs',
+  'Radio Groups',
 ];
 
 const AllComponents = () => (
@@ -169,6 +132,7 @@ const AllComponents = () => (
       <Checkboxes />
       <Icons />
       <Inputs />
+      <Radios />
     </div>
   </div>
 );
