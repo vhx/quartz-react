@@ -4,6 +4,7 @@ export const util = utilities;
 
 export { default as Button } from './components/Button';
 export { default as Checkbox } from './components/Checkbox';
+export { default as Header } from './components/Header';
 export { default as Icon } from './components/Icon';
 export { default as Input } from './components/Input';
 export { default as MediaSelect } from './components/Select/media/Select.jsx';
