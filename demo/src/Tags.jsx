@@ -3,7 +3,6 @@ import { Tag } from '../../index.js';
 import {
   Block,
   DemoRow,
-  Details,
   Subtitle,
   Title,
 } from './ui';

@@ -9,15 +9,7 @@ import Icons from './Icons.jsx';
 import Inputs from './Inputs.jsx';
 import Radios from './Radios.jsx';
 import Tags from './Tags.jsx';
-
-// import CheckboxDemo from './demo-checkbox.jsx';
-// import RadioDemo from './demo-radio.jsx';
-// import InputDemo from './demo-input.jsx';
-// import SelectDemo from './demo-select.jsx';
-// import MediaSelect from './demo-media-select.jsx';
-// import MediaSelectProcessing from './demo-media-select-processing.jsx';
-// import SelectMinimal from './demo-select-minimal.jsx';
-// import SelectSearchable from './demo-select-search.jsx';
+import Text from './TextDemo.jsx';
 
 const selectOpts = [
   { label: 'Option #1', uniqueId: 'option-id-1' },
@@ -89,20 +81,6 @@ const AllComponents = () => (
               <Subtitle>Media multiselect with search and processing state</Subtitle>
               <MediaSelectProcessing multiSelect options={mediaSelectOpts} />
             </Section>
-            <Section title='Text'>
-              <Subtitle>Headings</Subtitle>
-              <Block><Text h1>h1</Text></Block>
-              <Block><Text h2>h2</Text></Block>
-              <Block><Text h3>h3</Text></Block>
-              <Block><Text h4>h4</Text></Block>
-              <Block><Text h5>h5</Text></Block>
-              <Subtitle>Colors</Subtitle>
-              <Block><Text>Default</Text></Block>
-              <Block><Text color='navy'>navy</Text></Block>
-              <Block><Text color='teal'>teal</Text></Block>
-              <Block><Text color='gray'>gray</Text></Block>
-              <Block dark inline><Text color='white'>white</Text></Block>
-            </Section>
           </div>
         </div>
       </div>
@@ -119,6 +97,7 @@ const sections = [
   'Inputs',
   'Radio Groups',
   'Tags',
+  'Text',
 ];
 
 const AllComponents = () => (
@@ -131,6 +110,7 @@ const AllComponents = () => (
       <Inputs />
       <Radios />
       <Tags />
+      <Text />
     </div>
   </div>
 );
