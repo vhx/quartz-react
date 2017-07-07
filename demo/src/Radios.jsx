@@ -135,8 +135,6 @@ class StatefulRadio extends Component {
   }
 }
 
-console.log(StatefulRadio.toString());
-
 const StatefulDemo = () => (
   <div>
     <Subtitle>Stateful RadioGroup Demo</Subtitle>
@@ -180,7 +178,7 @@ const Radios = () => (
     <DemoRow code={introCode}>
       <Title tag='Stateless'>Radio Groups</Title>
       <Details>
-        RadioGroups are strictly presentational, so in order
+        Radio groups are strictly presentational, so in order
         to enable interactivity you must place them within a stateful
         component that reacts to their <code>onCheck</code> method.
         Note that in the <code>onCheck</code> method, <code>event.target</code>
@@ -189,14 +187,15 @@ const Radios = () => (
         selected item in the <code>items</code> array.
       </Details>
       <Details>
-        The required <code>uniqueId</code> property within the <code>items</code>
-        array will be used as a <code>key</code>, so it need not be globally unique--
-        just unique among the items in the radio group.
+        The required <code>uniqueId</code> property in objects within the
+        <code>items</code> array will be used as a <code>key</code>, so it
+        does not need to be globally unique—just unique among the items in
+        the radio group.
       </Details>
       <Details>
         The objects in the <code>items</code> array can contain a
-        <code>description</code> key that will be displayed if the
-        radio group has the <code>buttons</code> prop enabled.
+        <code>description</code> property that will be displayed if
+        the radio group has the <code>buttons</code> prop enabled.
       </Details>
     </DemoRow>
     <DemoRow code={statelessRadioCode}><StatelessRadio /></DemoRow>

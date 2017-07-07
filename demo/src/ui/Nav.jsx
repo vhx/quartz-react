@@ -16,7 +16,7 @@ NavLink.propTypes = {
 const Nav = ({ sections }) => (
   <nav className='nav-primary'>
     <h1 className='head-4 head--teal text-left padding-top-medium'>
-      <Icon name='vhx' color='navy' size='xlarge' className='margin-right-small'>VHX</Icon>
+      <Icon name='vhx' size='xlarge' className='margin-right-small'>VHX</Icon>
       <span>Quartz</span>
     </h1>
     <h2 className='head-5 head--gray margin-top-large padding-bottom-medium'>Components</h2>

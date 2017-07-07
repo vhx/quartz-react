@@ -8,6 +8,7 @@ import Checkboxes from './Checkboxes.jsx';
 import Icons from './Icons.jsx';
 import Inputs from './Inputs.jsx';
 import Radios from './Radios.jsx';
+import Tags from './Tags.jsx';
 
 // import CheckboxDemo from './demo-checkbox.jsx';
 // import RadioDemo from './demo-radio.jsx';
@@ -48,11 +49,6 @@ const AllComponents = () => (
       <div className='row'>
         <div className='column small-8 padding-reset'>
           <div className='guide-bar'>
-            <Section title='Tags'>
-              <Block><Tag label='Tag with hover state' onClick={() => alert('Success')} onRemove={() => alert('Removed')} /></Block>
-              <Block><Tag label='Truncated tag' maxLength={12} onClick={() => alert('Success')} onRemove={() => alert('Removed')} /></Block>
-              <Block><Tag label='Tag (processing)' isProcessing /></Block>
-            </Section>
             <Section title='Select'>
               <Subtitle>Default</Subtitle>
               <SelectDemo options={selectOpts} />
@@ -122,6 +118,7 @@ const sections = [
   'Icons',
   'Inputs',
   'Radio Groups',
+  'Tags',
 ];
 
 const AllComponents = () => (
@@ -133,6 +130,7 @@ const AllComponents = () => (
       <Icons />
       <Inputs />
       <Radios />
+      <Tags />
     </div>
   </div>
 );
