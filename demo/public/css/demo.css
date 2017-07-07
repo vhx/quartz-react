@@ -36,6 +36,11 @@
   padding: 10px 20px;
 }
 
+.details pre.code {
+  margin: 10px 0;
+}
+
+.details .code,
 .details code {
   background: #f7f8f9;
   border-radius: 3px;

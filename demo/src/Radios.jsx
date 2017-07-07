@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import { RadioGroup } from '../../index.js';
 import {
   Block,
@@ -173,10 +174,10 @@ class StatefulRadio extends Component {
 // Main exported demo
 // -----------------------------------------
 
-const Radios = () => (
+const Radios = ({ title }) => (
   <div>
     <DemoRow code={introCode}>
-      <Title tag='Stateless'>Radio Groups</Title>
+      <Title tag='Stateless'>{title}</Title>
       <Details>
         Radio groups are strictly presentational, so in order
         to enable interactivity you must place them within a stateful
@@ -205,5 +206,9 @@ const Radios = () => (
     <DemoRow code={statefulDemoCode}><StatefulDemo /></DemoRow>
   </div>
 );
+
+Radios.propTypes = {
+  title: PropTypes.string.isRequired,
+};
 
 export default Radios;

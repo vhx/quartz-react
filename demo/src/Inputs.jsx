@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import { Input } from '../../index.js';
 import {
   Block,
@@ -117,10 +118,10 @@ class StatefulInput extends Component {
 // Main exported demo
 // -----------------------------------------
 
-const Inputs = () => (
+const Inputs = ({ title }) => (
   <div>
     <DemoRow>
-      <Title tag='Stateless'>Inputs</Title>
+      <Title tag='Stateless'>{title}</Title>
       <Details>
         Inputs are strictly presentational, so in order
         to enable interactivity you must place them within a stateful
@@ -146,5 +147,10 @@ const Inputs = () => (
     <DemoRow code={statefulInputCode}><StatefulInputDemo /></DemoRow>
   </div>
 );
+
+Inputs.propTypes = {
+  title: PropTypes.string.isRequired,
+};
+
 
 export default Inputs;

@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { Tag } from '../../index.js';
 import {
   Block,
@@ -61,13 +62,17 @@ const processingDemoCode = `
 // Main exported demo
 // -----------------------------------------
 
-const Tags = () => (
+const Tags = ({ title }) => (
   <div>
-    <DemoRow><Title>Tags</Title></DemoRow>
+    <DemoRow><Title>{title}</Title></DemoRow>
     <DemoRow code={tagsDemoCode}><TagsDemo /></DemoRow>
     <DemoRow code={truncatedDemoCode}><TruncatedDemo /></DemoRow>
     <DemoRow code={processingDemoCode}><ProcessingDemo /></DemoRow>
   </div>
 );
+
+Tags.propTypes = {
+  title: PropTypes.string.isRequired,
+};
 
 export default Tags;

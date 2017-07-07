@@ -1,10 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Icon } from '../../../index.js';
+import { slug } from '../util';
 
 const NavLink = ({ children }) => (
   <li>
-    <a href={`/#${children}`} className='text--gray block'>{children}</a>
+    <a href={`/#${slug(children)}`} className='text--gray block'>{children}</a>
   </li>
 );
 

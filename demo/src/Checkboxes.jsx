@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import { Checkbox } from '../../index.js';
 import {
   Block,
@@ -124,10 +125,10 @@ class StatefulCheckbox extends Component {
 // Main exported demo
 // -----------------------------------------
 
-const Checkboxes = () => (
+const Checkboxes = ({ title }) => (
   <div>
     <DemoRow>
-      <Title tag='Stateless'>Checkboxes</Title>
+      <Title tag='Stateless'>{title}</Title>
       <Details>
         Checkboxes are strictly presentational, so in order
         to enable interactivity you must place them within a stateful
@@ -147,5 +148,9 @@ const Checkboxes = () => (
     <DemoRow code={statefulCheckboxCode}><StatefulCheckboxDemo /></DemoRow>
   </div>
 );
+
+Checkboxes.propTypes = {
+  title: PropTypes.string.isRequired,
+};
 
 export default Checkboxes;

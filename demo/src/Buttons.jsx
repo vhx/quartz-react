@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { Button, Icon } from '../../index.js';
 import {
   Block,
@@ -143,9 +144,9 @@ const buttonIconsCode = `
 // Main exported demo
 // -----------------------------------------
 
-const Buttons = () => (
+const Buttons = ({ title }) => (
   <div>
-    <DemoRow><Title>Buttons</Title></DemoRow>
+    <DemoRow><Title>{title}</Title></DemoRow>
     <DemoRow code={buttonColorsCode}><ButtonColors /></DemoRow>
     <DemoRow code={buttonProcessingCode}><ButtonProcessing /></DemoRow>
     <DemoRow code={buttonSizesCode}><ButtonSizes /></DemoRow>
@@ -153,5 +154,10 @@ const Buttons = () => (
     <DemoRow code={buttonIconsCode}><ButtonIcons /></DemoRow>
   </div>
 );
+
+Buttons.propTypes = {
+  title: PropTypes.string.isRequired,
+};
+
 
 export default Buttons;

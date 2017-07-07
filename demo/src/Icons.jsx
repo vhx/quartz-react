@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { Icon, Text } from '../../index.js';
 import iconNames from '../../components/Icon/icon-list.js';
 import {
@@ -113,14 +114,18 @@ const iconColorsCode = `
 // Main exported demo
 // -----------------------------------------
 
-const Icons = () => (
+const Icons = ({ title }) => (
   <div>
-    <DemoRow><Title>Icons</Title></DemoRow>
+    <DemoRow><Title>{title}</Title></DemoRow>
     <DemoRow code={iconSizesCode}><IconSizes /></DemoRow>
     <DemoRow code={iconCirclesCode}><IconCircles /></DemoRow>
     <DemoRow code={iconColorsCode}><IconColors /></DemoRow>
     <DemoRow code={iconListCode}><IconList /></DemoRow>
   </div>
 );
+
+Icons.propTypes = {
+  title: PropTypes.string.isRequired,
+};
 
 export default Icons;

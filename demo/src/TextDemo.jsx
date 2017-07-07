@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { Text } from '../../index.js';
 import {
   Block,
@@ -57,12 +58,16 @@ const textColorsCode = `
 // Main exported demo
 // -----------------------------------------
 
-const TextDemo = () => (
+const TextDemo = ({ title }) => (
   <div>
-    <DemoRow><Title>Text</Title></DemoRow>
+    <DemoRow><Title>{title}</Title></DemoRow>
     <DemoRow code={textHeadingCode}><TextHeadings /></DemoRow>
     <DemoRow code={textColorsCode}><TextColors /></DemoRow>
   </div>
 );
+
+TextDemo.propTypes = {
+  title: PropTypes.string.isRequired,
+};
 
 export default TextDemo;
