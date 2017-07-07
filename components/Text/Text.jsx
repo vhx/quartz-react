@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 import classNames from 'classnames';
 
 function getClassName(props) {
-  return classNames({
+  return classNames(props.className, {
     block: Boolean(props.block),
     'head-1': Boolean(props.h1),
     'head-2': Boolean(props.h2),
@@ -26,22 +26,24 @@ const Text = props => (
 Text.propTypes = {
   block: PropTypes.bool,
   children: PropTypes.node.isRequired,
+  className: PropTypes.string,
+  color: PropTypes.oneOf([ 'navy', 'gray', 'teal', 'white' ]),
   h1: PropTypes.bool,
   h2: PropTypes.bool,
   h3: PropTypes.bool,
   h4: PropTypes.bool,
   h5: PropTypes.bool,
-  color: PropTypes.oneOf([ 'navy', 'gray', 'teal', 'white' ]),
 };
 
 Text.defaultProps = {
   block: false,
+  className: '',
+  color: 'navy',
   h1: false,
   h2: false,
   h3: false,
   h4: false,
   h5: false,
-  color: 'navy',
 };
 
 export default Text;
