@@ -8,6 +8,7 @@ import {
   excludeProps,
   select,
   multiSelect,
+  getAspectRatioHeight,
 } from './index.js';
 
 describe('Utilities', () => {
@@ -89,6 +90,15 @@ describe('Utilities', () => {
     });
     it('Works with undefined values', () => {
       expect(multiSelect({ foo: false }, 'bar')).to.deep.equal({ foo: false, bar: true });
+    });
+  });
+
+  describe('getAspectRatioHeight', () => {
+    it('Returns height given aspect ratio and width', () => {
+      expect(getAspectRatioHeight('16:9', 1920)).to.equal(1080);
+      expect(getAspectRatioHeight('16:9', 1280)).to.equal(720);
+      expect(getAspectRatioHeight('16:7', 1280)).to.equal(560);
+      expect(getAspectRatioHeight('16:6', 1920)).to.equal(720);
     });
   });
 });
