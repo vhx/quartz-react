@@ -45,13 +45,13 @@ index.js                        # Every component that is exported in quartz-rea
     - [YourComponent].jsx
     - [YourComponent].test.jsx
 3. In the root level `index.js`, create a named export for your component.
-4. In `demo/src/` create a file to demo your component (by convention, it should be `demo/src/[YourComponent].jsx`). It should export a react component that makes use of the demo UI components (see below).
+4. In `demo/src/demos/` create a file to demo your component (by convention, it should be `demo/src/demos/[YourComponent].jsx`). It should export a react component that makes use of the demo UI components (see below).
 5. In `demo/src/index.jsx` import the demo you exported from the file in step 4, and add it to the `sections` object. This will include it in the sidebar navigation as well as render it to the page.
 6. Create a pull request and merge into master when ready.
 
 
 ## Demo UI Components
 
-Component demo files (`demo/src/*.jsx`) should export a component containing `<DemoRow>`s. These accept an optional `code` prop that's a string of code to display on the right side of the page.
+Component demo files (`demo/src/demos/*.jsx`) should export a component containing `<DemoRow>`s. These accept an optional `code` prop that's a string of code to display on the right side of the page.
 
 Follow the example from the `Text` component's demo for the simplest example setup.
