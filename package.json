@@ -2,7 +2,7 @@
   "name": "quartz-react",
   "version": "0.0.1",
   "description": "React Components for VHX Quartz",
-  "main": "index.js",
+  "main": "dist/index.js",
   "scripts": {
     "build": "node build/build-css.js && rollup -c build/rollup.config.js",
     "dev": "rollup -c build/rollup.demo-config.js --watch",
