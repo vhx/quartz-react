@@ -1,6 +1,6 @@
 # React Components for VHX Quartz
 
-### Installation
+## Installation
 
 For now, clone the repo and run:
 
