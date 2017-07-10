@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import { Select } from '../../index.js';
+import PropTypes from 'prop-types';
+import Select from './Select.jsx';
 
 export default class SelectMinimal extends Component {
   constructor(props) {
@@ -34,3 +35,13 @@ export default class SelectMinimal extends Component {
     );
   }
 }
+
+
+SelectMinimal.propTypes = {
+  isOpen: PropTypes.bool,
+};
+
+SelectMinimal.defaultProps = {
+  isOpen: false,
+};
+

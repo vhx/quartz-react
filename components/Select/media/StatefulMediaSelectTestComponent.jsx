@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { MediaSelect } from '../../index.js';
+import MediaSelect from './Select.jsx';
 
 function removeFromArray(array, item) {
   const index = array.indexOf(item);
@@ -8,7 +8,7 @@ function removeFromArray(array, item) {
   return array;
 }
 
-export default class MediaSelectProcesssing extends Component {
+export default class StatefulMediaSelect extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -38,7 +38,7 @@ export default class MediaSelectProcesssing extends Component {
         selectedLabel,
         processingOptions: removeFromArray(processingOptions, item.uniqueId),
       });
-    }, 250);
+    }, 10);
   }
 
   // NOTE: debouncing is up to the user of the component!
@@ -66,6 +66,11 @@ export default class MediaSelectProcesssing extends Component {
   }
 }
 
-MediaSelectProcesssing.propTypes = {
+StatefulMediaSelect.propTypes = {
   options: PropTypes.array.isRequired,
+  isOpen: PropTypes.bool,
+};
+
+StatefulMediaSelect.defaultProps = {
+  isOpen: false,
 };

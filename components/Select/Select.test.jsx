@@ -6,8 +6,9 @@ import Select from './standard/Select.jsx';
 import MediaSelect from './media/Select.jsx';
 
 // NOTE: we use these stateful selects in order to make assertions about changing the state
-import StatefulSelect from '../../demo/src/demo-select-minimal.jsx';
-import StatefulMediaSelect from '../../demo/src/demo-media-select-processing.jsx';
+import StatefulSelect from './standard/StatefulSelect.jsx';
+import StatefulMediaSelect from './media/StatefulMediaSelectTestComponent.jsx';
+
 
 // `description` and `imageUrl` are optional.
 // `imageUrl` can only be used in <MediaSelect /> (it will be ignored if passed to a standard <Select />)
@@ -244,12 +245,12 @@ describe('Select', () => {
       expect(wrapper.state().processingOptions).to.deep.equal([ 'id3' ]);
       expect(option.find('.loader-white').exists()).to.equal(true);
 
-      // simulated processing timeout is 250ms
+      // simulated processing timeout is 10ms
       setTimeout(() => {
         expect(wrapper.state().processingOptions).to.deep.equal([]);
         expect(option.find('.loader-white').exists()).to.equal(false);
         done();
-      }, 251);
+      }, 11);
     });
   });
 });
