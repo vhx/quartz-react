@@ -136,6 +136,14 @@ function getAspectRatioHeight(aspectRatio, width) {
 }
 
 
+function immutableMerge() {
+  var args = [], len = arguments.length;
+  while ( len-- ) args[ len ] = arguments[ len ];
+
+  return Object.freeze(Object.assign.apply(Object, [ {} ].concat( args )));
+}
+
+
 var utilities = Object.freeze({
 	truncate: truncate,
 	excludeProps: excludeProps,
@@ -143,6 +151,7 @@ var utilities = Object.freeze({
 	select: select,
 	typoPropType: typoPropType,
 	getAspectRatioHeight: getAspectRatioHeight,
+	immutableMerge: immutableMerge,
 	If: If
 });
 
@@ -1191,21 +1200,22 @@ var Select = SelectHOC({
   type: 'standard', // NOTE: 'standard' isn't used anywhere, just specifying that it's not 'media'
 });
 
+var EmptyComponent = function () { return React__default.createElement( 'span', null ); };
+
 var sidebarModel = {
   state: Object.freeze({
     isOpen: false,
-    children: null,
+    children: EmptyComponent,
   }),
   listeners: [],
   close: function close() {
-    sidebarModel.state = Object.assign({}, sidebarModel.state, { isOpen: false });
+    sidebarModel.state = immutableMerge(sidebarModel.state, { isOpen: false });
     sidebarModel.notifyListeners();
   },
   open: function open(Children) {
-    sidebarModel.state = Object.assign({}, sidebarModel.state, {
-      isOpen: true,
-      children: React__default.createElement( Children, null ),
-    });
+    sidebarModel.state = Children ?
+      immutableMerge(sidebarModel.state, { isOpen: true, children: React__default.createElement( Children, null ) }) :
+      immutableMerge(sidebarModel.state, { isOpen: true });
     sidebarModel.notifyListeners();
   },
   toggle: function toggle(Children) {
@@ -1245,7 +1255,7 @@ var Sidebar$1 = (function (Component$$1) {
 
   Sidebar.prototype.componentWillMount = function componentWillMount () {
     if (sidebarIsInitialized) {
-      console.warn('Sidebar has already been instanciated. There should only be one sidebar component mounted at any given time.');
+      console.warn('Sidebar has already been instantiated. There should only be one sidebar component mounted at any given time.');
     }
     sidebarIsInitialized = true;
     sidebarModel.subscribe(this.update);
@@ -1283,6 +1293,7 @@ Sidebar$1.defaultProps = {
 Sidebar$1.close = sidebarModel.close;
 Sidebar$1.open = sidebarModel.open;
 Sidebar$1.toggle = sidebarModel.toggle;
+Sidebar$1.model = sidebarModel;
 
 var MAX_TITLE_LENGTH = 50; // characters
 
