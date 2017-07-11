@@ -30,6 +30,7 @@ const SidebarDemo = () => (
     <Block><Button onClick={() => Sidebar.toggle(OtherSidebarChildren)}>Toggle sidebar 2</Button></Block>
     <Hr />
     <Block><Button onClick={() => Sidebar.close()}>Close all sidebars</Button></Block>
+    <Block><Button onClick={() => Sidebar.open()}>Reopen last closed sidebar</Button></Block>
   </div>
 );
 
@@ -48,6 +49,10 @@ const Children = () => (
 
 <Button onClick={() => Sidebar.toggle(Children)}>
   Toggle sidebar
+</Button>
+
+<Button onClick={() => Sidebar.open()}>
+  Reopen last closed sidebar
 </Button>
 `;
 
@@ -76,6 +81,10 @@ Sidebar.toggle(ChildComponent);`
         The <code>&lt;Sidebar /&gt;</code> component accepts no props or children and should be initialized
         only <strong>once</strong> in the root component of your app. After this initialization,
         it will manage itself and respond only to updates through its method calls.
+      </Details>
+      <Details>
+        Calling any <code>Sidebar.open()</code> or <code>Sidebar.toggle()</code> without any arguments
+        will reopen or toggle the sidebar with the most recently used children.
       </Details>
     </DemoRow>
     <DemoRow code={sidebarCode}><SidebarDemo /></DemoRow>

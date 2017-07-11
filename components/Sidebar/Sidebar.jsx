@@ -2,10 +2,12 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { immutableMerge } from '../util';
 
+const EmptyComponent = () => <span />;
+
 const sidebarModel = {
   state: Object.freeze({
     isOpen: false,
-    children: null,
+    children: EmptyComponent,
   }),
   listeners: [],
   close() {
@@ -13,10 +15,9 @@ const sidebarModel = {
     sidebarModel.notifyListeners();
   },
   open(Children) {
-    sidebarModel.state = immutableMerge(sidebarModel.state, {
-      isOpen: true,
-      children: <Children />,
-    });
+    sidebarModel.state = Children ?
+      immutableMerge(sidebarModel.state, { isOpen: true, children: <Children /> }) :
+      immutableMerge(sidebarModel.state, { isOpen: true });
     sidebarModel.notifyListeners();
   },
   toggle(Children) {
