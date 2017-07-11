@@ -30,7 +30,8 @@ const SidebarDemo = () => (
     <Block><Button onClick={() => Sidebar.toggle(OtherSidebarChildren)}>Toggle sidebar 2</Button></Block>
     <Hr />
     <Block><Button onClick={() => Sidebar.close()}>Close all sidebars</Button></Block>
-    <Block><Button onClick={() => Sidebar.open()}>Reopen last closed sidebar</Button></Block>
+    <Block><Button onClick={() => Sidebar.open()}>Reopen most recent sidebar</Button></Block>
+    <Block><Button onClick={() => Sidebar.toggle()}>Toggle most recent sidebar</Button></Block>
   </div>
 );
 
@@ -52,7 +53,11 @@ const Children = () => (
 </Button>
 
 <Button onClick={() => Sidebar.open()}>
-  Reopen last closed sidebar
+  Reopen most recent sidebar
+</Button>
+
+<Button onClick={() => Sidebar.toggle()}>
+  Toggle most recent sidebar
 </Button>
 `;
 
