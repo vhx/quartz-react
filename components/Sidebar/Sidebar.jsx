@@ -51,7 +51,7 @@ class Sidebar extends Component {
 
   componentWillMount() {
     if (sidebarIsInitialized) {
-      console.warn('Sidebar has already been instanciated. There should only be one sidebar component mounted at any given time.');
+      console.warn('Sidebar has already been instantiated. There should only be one sidebar component mounted at any given time.');
     }
     sidebarIsInitialized = true;
     sidebarModel.subscribe(this.update);
