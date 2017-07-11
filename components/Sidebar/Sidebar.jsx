@@ -8,14 +8,14 @@ const sidebarModel = {
   }),
   listeners: [],
   close() {
-    sidebarModel.state = Object.assign({}, sidebarModel.state, { isOpen: false });
+    sidebarModel.state = Object.freeze(Object.assign({}, sidebarModel.state, { isOpen: false }));
     sidebarModel.notifyListeners();
   },
   open(Children) {
-    sidebarModel.state = Object.assign({}, sidebarModel.state, {
+    sidebarModel.state = Object.freeze(Object.assign({}, sidebarModel.state, {
       isOpen: true,
       children: <Children />,
-    });
+    }));
     sidebarModel.notifyListeners();
   },
   toggle(Children) {
@@ -87,5 +87,6 @@ Sidebar.defaultProps = {
 Sidebar.close = sidebarModel.close;
 Sidebar.open = sidebarModel.open;
 Sidebar.toggle = sidebarModel.toggle;
+Sidebar.model = sidebarModel;
 
 export default Sidebar;
