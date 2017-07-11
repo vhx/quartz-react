@@ -11,6 +11,7 @@ export { default as Input } from './components/Input';
 export { default as MediaSelect } from './components/Select/media/Select.jsx';
 export { default as RadioGroup } from './components/RadioGroup';
 export { default as Select } from './components/Select/standard/Select.jsx';
+export { default as Sidebar } from './components/Sidebar';
 export { default as Slide } from './components/Slide';
 export { default as Tag } from './components/Tag';
 export { default as Text } from './components/Text';

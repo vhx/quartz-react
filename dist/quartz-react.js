@@ -12,13 +12,19 @@ var classNames = _interopDefault(require('classnames'));
 var If = function (ref) {
   var condition = ref.condition;
   var children = ref.children;
+  var inline = ref.inline;
 
-  return (condition ? React__default.createElement( 'div', null, children ) : React__default.createElement( 'div', null ));
+  return (condition ? React__default.createElement( 'span', { className: inline ? '' : 'block' }, children) : React__default.createElement( 'span', null ));
 };
 
 If.propTypes = {
   condition: PropTypes.bool.isRequired,
   children: PropTypes.node.isRequired,
+  inline: PropTypes.bool,
+};
+
+If.defaultProps = {
+  inline: false,
 };
 
 /* eslint-disable no-param-reassign */
@@ -1185,6 +1191,99 @@ var Select = SelectHOC({
   type: 'standard', // NOTE: 'standard' isn't used anywhere, just specifying that it's not 'media'
 });
 
+var sidebarModel = {
+  state: Object.freeze({
+    isOpen: false,
+    children: null,
+  }),
+  listeners: [],
+  close: function close() {
+    sidebarModel.state = Object.assign({}, sidebarModel.state, { isOpen: false });
+    sidebarModel.notifyListeners();
+  },
+  open: function open(Children) {
+    sidebarModel.state = Object.assign({}, sidebarModel.state, {
+      isOpen: true,
+      children: React__default.createElement( Children, null ),
+    });
+    sidebarModel.notifyListeners();
+  },
+  toggle: function toggle(Children) {
+    if (sidebarModel.state.isOpen) {
+      sidebarModel.close();
+    } else {
+      sidebarModel.open(Children);
+    }
+  },
+  subscribe: function subscribe(fn) {
+    if (sidebarModel.listeners.indexOf(fn) === -1) {
+      sidebarModel.listeners.push(fn);
+    }
+  },
+  unsubscribe: function unsubscribe(fn) {
+    var index = sidebarModel.listeners.indexOf(fn);
+    if (index === -1) { return; }
+    sidebarModel.listeners.splice(index, 1);
+  },
+  notifyListeners: function notifyListeners() {
+    sidebarModel.listeners.forEach(function (fn) { return fn(sidebarModel.state); });
+  },
+};
+
+
+var sidebarIsInitialized = false;
+var Sidebar$1 = (function (Component$$1) {
+  function Sidebar() {
+    Component$$1.call(this);
+    this.state = sidebarModel.state;
+    this.update = this.update.bind(this);
+  }
+
+  if ( Component$$1 ) Sidebar.__proto__ = Component$$1;
+  Sidebar.prototype = Object.create( Component$$1 && Component$$1.prototype );
+  Sidebar.prototype.constructor = Sidebar;
+
+  Sidebar.prototype.componentWillMount = function componentWillMount () {
+    if (sidebarIsInitialized) {
+      console.warn('Sidebar has already been instanciated. There should only be one sidebar component mounted at any given time.');
+    }
+    sidebarIsInitialized = true;
+    sidebarModel.subscribe(this.update);
+  };
+
+  Sidebar.prototype.componentWillUnmount = function componentWillUnmount () {
+    sidebarIsInitialized = false;
+    sidebarModel.unsubscribe(this.update);
+  };
+
+  Sidebar.prototype.update = function update (state) {
+    this.setState(state);
+  };
+
+  Sidebar.prototype.render = function render () {
+    return (
+      React__default.createElement( 'div', { className: ("sidebar c-sidebar bg-white shadow--gray " + (this.state.isOpen ? 'sidebar--open' : '')) },
+        React__default.createElement( 'a', { className: 'c-sidebar--close icon-circle icon-x-navy icon--xsmall', onClick: function () { return sidebarModel.close(); } }),
+        React__default.createElement( 'div', null, this.state.children )
+      )
+    );
+  };
+
+  return Sidebar;
+}(React.Component));
+
+Sidebar$1.propTypes = {
+  isOpen: PropTypes.bool,
+};
+
+Sidebar$1.defaultProps = {
+  isOpen: false,
+};
+
+Sidebar$1.close = sidebarModel.close;
+Sidebar$1.open = sidebarModel.open;
+Sidebar$1.toggle = sidebarModel.toggle;
+
 var MAX_TITLE_LENGTH = 50; // characters
 
 var Slide$1 = (function (Component$$1) {
@@ -1395,7 +1494,7 @@ Tag$1.defaultProps = {
 /* eslint-disable react/no-unused-prop-types */
 
 function getClassName$5(props) {
-  return classNames({
+  return classNames(props.className, {
     block: Boolean(props.block),
     'head-1': Boolean(props.h1),
     'head-2': Boolean(props.h2),
@@ -1421,6 +1520,7 @@ Text$1.propTypes = {
   h3: PropTypes.bool,
   h4: PropTypes.bool,
   h5: PropTypes.bool,
+  className: PropTypes.string,
   color: PropTypes.oneOf([ 'navy', 'gray', 'teal', 'white' ]),
 };
 
@@ -1431,6 +1531,7 @@ Text$1.defaultProps = {
   h3: false,
   h4: false,
   h5: false,
+  className: '',
   color: 'navy',
 };
 
@@ -1446,6 +1547,7 @@ exports.Input = Input$1;
 exports.MediaSelect = MediaSelect;
 exports.RadioGroup = RadioGroup$1;
 exports.Select = Select;
+exports.Sidebar = Sidebar$1;
 exports.Slide = Slide$1;
 exports.Tag = Tag$1;
 exports.Text = Text$1;
