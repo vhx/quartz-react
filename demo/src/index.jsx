@@ -4,6 +4,7 @@ import ReactDOM from 'react-dom';
 import { Nav } from './ui';
 
 import Buttons from './sections/Buttons.jsx';
+import Carousels from './sections/Carousels.jsx';
 import Checkboxes from './sections/Checkboxes.jsx';
 import Icons from './sections/Icons.jsx';
 import Inputs from './sections/Inputs.jsx';
@@ -14,6 +15,7 @@ import Selects from './sections/Selects.jsx';
 
 const sections = {
   Buttons,
+  Carousels,
   Checkboxes,
   Icons,
   Inputs,
