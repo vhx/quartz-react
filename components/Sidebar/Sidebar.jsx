@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import { immutableMerge } from '../util';
 
 const sidebarModel = {
   state: Object.freeze({
@@ -8,14 +9,14 @@ const sidebarModel = {
   }),
   listeners: [],
   close() {
-    sidebarModel.state = Object.freeze(Object.assign({}, sidebarModel.state, { isOpen: false }));
+    sidebarModel.state = immutableMerge(sidebarModel.state, { isOpen: false });
     sidebarModel.notifyListeners();
   },
   open(Children) {
-    sidebarModel.state = Object.freeze(Object.assign({}, sidebarModel.state, {
+    sidebarModel.state = immutableMerge(sidebarModel.state, {
       isOpen: true,
       children: <Children />,
-    }));
+    });
     sidebarModel.notifyListeners();
   },
   toggle(Children) {

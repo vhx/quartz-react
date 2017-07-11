@@ -11,6 +11,7 @@ import {
 } from '../ui';
 
 const SidebarChildren = () => <div>Sidebar children go here</div>;
+
 const OtherSidebarChildren = () => (
   <div>
     <div>Here is some different content for the sidebar</div>

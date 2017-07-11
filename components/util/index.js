@@ -103,3 +103,8 @@ export function getAspectRatioHeight(aspectRatio, width) {
   const height = width / (w / h);
   return Math.floor(height); // round down to prevent possible single pixel black line
 }
+
+
+export function immutableMerge(...args) {
+  return Object.freeze(Object.assign({}, ...args));
+}
