@@ -529,11 +529,14 @@ const Selects = ({ title }) => (
     <DemoRow code={introCode}>
       <Title>{title}</Title>
       <Details>
-        Selects are strictly presentational, so in order
+        Selects are, by default, strictly presentational, so in order
         to enable interactivity you must place them within a stateful
         component that reacts to their <code>onOpenToggle</code> and
-        <code>onSelectionToggle</code> methods. Several stateful
-        examples are provided below.
+        <code>onSelectionToggle</code> methods. For convenience, you
+        can import the <code>StatefulSelect</code> instead which reduces
+        some of the boilerplate at the price of reduced flexibility.
+        Examples are provided below, both for implementing your own
+        stateful select and for using the default stateful select.
       </Details>
       <Details>
         The set of options passed to the select must be an array of objects
@@ -574,6 +577,13 @@ const Selects = ({ title }) => (
 }`
           }
         </pre>
+      </Details>
+      <Details>
+        In addition, the <code>MediaSelect</code> can accept an array of
+        ids corresponding to the options that are in a <code>processing</code>
+        state. Those options will have a spinner icon displayed in the dropdown.
+        An example of this is available in the section labeled <q>Stateful Media
+        Multi-Select with Search and Processing State</q>.
       </Details>
     </DemoRow>
     <DemoRow code={selectDemoCode}><SelectDemo /></DemoRow>
