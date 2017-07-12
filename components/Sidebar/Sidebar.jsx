@@ -1,94 +1,30 @@
-import React, { Component } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
-import { immutableMerge } from '../util';
-
-const EmptyComponent = () => <span />;
-
-const sidebarModel = {
-  state: Object.freeze({
-    isOpen: false,
-    children: EmptyComponent,
-  }),
-  listeners: [],
-  close() {
-    sidebarModel.state = immutableMerge(sidebarModel.state, { isOpen: false });
-    sidebarModel.notifyListeners();
-  },
-  open(Children) {
-    sidebarModel.state = Children ?
-      immutableMerge(sidebarModel.state, { isOpen: true, children: <Children /> }) :
-      immutableMerge(sidebarModel.state, { isOpen: true });
-    sidebarModel.notifyListeners();
-  },
-  toggle(Children) {
-    if (sidebarModel.state.isOpen) {
-      sidebarModel.close();
-    } else {
-      sidebarModel.open(Children);
-    }
-  },
-  subscribe(fn) {
-    if (sidebarModel.listeners.indexOf(fn) === -1) {
-      sidebarModel.listeners.push(fn);
-    }
-  },
-  unsubscribe(fn) {
-    const index = sidebarModel.listeners.indexOf(fn);
-    if (index === -1) { return; }
-    sidebarModel.listeners.splice(index, 1);
-  },
-  notifyListeners() {
-    sidebarModel.listeners.forEach(fn => fn(sidebarModel.state));
-  },
-};
+import { connect } from '../util/state-manager';
+import sidebarModel from './sidebar-model';
 
 
-let sidebarIsInitialized = false;
-class Sidebar extends Component {
-  constructor() {
-    super();
-    this.state = sidebarModel.state;
-    this.update = this.update.bind(this);
-  }
-
-  componentWillMount() {
-    if (sidebarIsInitialized) {
-      console.warn('Sidebar has already been instantiated. There should only be one sidebar component mounted at any given time.');
-    }
-    sidebarIsInitialized = true;
-    sidebarModel.subscribe(this.update);
-  }
-
-  componentWillUnmount() {
-    sidebarIsInitialized = false;
-    sidebarModel.unsubscribe(this.update);
-  }
-
-  update(state) {
-    this.setState(state);
-  }
-
-  render() {
-    return (
-      <div className={`sidebar c-sidebar bg-white shadow--gray ${this.state.isOpen ? 'sidebar--open' : ''}`}>
-        <a className='c-sidebar--close icon-circle icon-x-navy icon--xsmall' onClick={() => sidebarModel.close()} />
-        <div>{this.state.children}</div>
-      </div>
-    );
-  }
-}
+const Sidebar = ({ state, close }) => (
+  <div className={`sidebar c-sidebar bg-white shadow--gray ${state.isOpen ? 'sidebar--open' : ''}`}>
+    <a className='c-sidebar--close icon-circle icon-x-navy icon--xsmall' onClick={() => close()} />
+    <div><state.Contents /></div>
+  </div>
+);
 
 Sidebar.propTypes = {
-  isOpen: PropTypes.bool,
+  state: PropTypes.shape({
+    isOpen: PropTypes.bool.isRequired,
+    Contents: PropTypes.func.isRequired,
+  }).isRequired,
+  close: PropTypes.func.isRequired,
+  // all the other methods (open, toggle) are available as props too
 };
 
-Sidebar.defaultProps = {
-  isOpen: false,
-};
 
-Sidebar.close = sidebarModel.close;
-Sidebar.open = sidebarModel.open;
-Sidebar.toggle = sidebarModel.toggle;
-Sidebar.model = sidebarModel;
-
-export default Sidebar;
+// could also have done:
+// @connect(sidebarModel)
+// class Sidebar extends Component { ... }
+// or...
+// connect(sidebarModel)(Sidebar);
+// or...
+export default connect(sidebarModel, Sidebar);

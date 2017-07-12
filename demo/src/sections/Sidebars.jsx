@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Button, Sidebar } from '../../../index.js';
+import sidebarModel from '../../../components/Sidebar/sidebar-model';
 import {
   Block,
   DemoRow,
@@ -23,15 +24,15 @@ const SidebarDemo = () => (
   <div>
     <Subtitle>Sidebar Demo</Subtitle>
     <Sidebar />
-    <Block><Button onClick={() => Sidebar.open(SidebarChildren)}>Open sidebar 1</Button></Block>
-    <Block><Button onClick={() => Sidebar.toggle(SidebarChildren)}>Toggle sidebar 1</Button></Block>
+    <Block><Button onClick={() => sidebarModel.open(SidebarChildren)}>Open sidebar 1</Button></Block>
+    <Block><Button onClick={() => sidebarModel.toggle(SidebarChildren)}>Toggle sidebar 1</Button></Block>
     <Hr />
-    <Block><Button onClick={() => Sidebar.open(OtherSidebarChildren)}>Open sidebar 2</Button></Block>
-    <Block><Button onClick={() => Sidebar.toggle(OtherSidebarChildren)}>Toggle sidebar 2</Button></Block>
+    <Block><Button onClick={() => sidebarModel.open(OtherSidebarChildren)}>Open sidebar 2</Button></Block>
+    <Block><Button onClick={() => sidebarModel.toggle(OtherSidebarChildren)}>Toggle sidebar 2</Button></Block>
     <Hr />
-    <Block><Button onClick={() => Sidebar.close()}>Close all sidebars</Button></Block>
-    <Block><Button onClick={() => Sidebar.open()}>Reopen most recent sidebar</Button></Block>
-    <Block><Button onClick={() => Sidebar.toggle()}>Toggle most recent sidebar</Button></Block>
+    <Block><Button onClick={() => sidebarModel.close()}>Close all sidebars</Button></Block>
+    <Block><Button onClick={() => sidebarModel.open()}>Reopen most recent sidebar</Button></Block>
+    <Block><Button onClick={() => sidebarModel.toggle()}>Toggle most recent sidebar</Button></Block>
   </div>
 );
 
