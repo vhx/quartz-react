@@ -3,7 +3,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
-
+import { excludeProps } from '../util';
 
 const getClassName = ({ type, size }) => classNames('checkbox', size, { alt: type === 'toggle' });
 
@@ -33,7 +33,7 @@ const ToggleCheckbox = () => (
 const Checkbox = props => (
   <div className='form'>
     <fieldset className={getClassName(props)}>
-      <input type='checkbox' checked={props.checked} name={props.uniqueId} value={props.value} onChange={props.onChange} id={props.uniqueId} />
+      <input {...excludeProps([ 'label', 'uniqueId', 'size', 'type' ], props)} type='checkbox' name={props.uniqueId} id={props.uniqueId} />
       <label htmlFor={props.uniqueId}>
         <span className='checkbox--contain'>
           { props.type === 'toggle' ? <ToggleCheckbox /> : <StandardCheckbox /> }
