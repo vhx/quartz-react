@@ -8,7 +8,7 @@ export default class StatefulMediaSelect extends Component {
     this.state = {
       isOpen: props.isOpen || false,
       selectedOptions: {},
-      selectedLabel: '',
+      label: '',
     };
     this.setOpen = this.setOpen.bind(this);
     this.handleChange = this.handleChange.bind(this);
@@ -19,9 +19,9 @@ export default class StatefulMediaSelect extends Component {
     this.props.onOpenToggle(isOpen);
   }
 
-  handleChange(selectedOptions, selectedLabel, itemToggled, itemWillBeChecked) {
-    this.setState({ selectedOptions, selectedLabel });
-    this.props.onSelectionToggle(selectedOptions, selectedLabel, itemToggled, itemWillBeChecked);
+  handleChange(selectedOptions, label, itemToggled, itemWillBeChecked) {
+    this.setState({ selectedOptions, label });
+    this.props.onSelectionToggle(selectedOptions, label, itemToggled, itemWillBeChecked);
   }
 
   render() {
@@ -32,7 +32,7 @@ export default class StatefulMediaSelect extends Component {
         selectedOptions={this.state.selectedOptions}
         onSelectionToggle={this.handleChange}
         onOpenToggle={this.setOpen}
-        triggerLabel={this.state.selectedLabel}
+        triggerLabel={this.state.label}
       />
     );
   }

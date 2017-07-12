@@ -170,12 +170,12 @@ class SelectMinimal extends Component {
     this.state = {
       isOpen: false,
       selectedOptions: {},
-      selectedLabel: '',
+      label: '',
     };
     this.handleChange = this.handleChange.bind(this);
   }
-  handleChange(selectedOptions, selectedLabel /*, optionToggled, optionWillBeChecked */) {
-    this.setState({ selectedOptions, selectedLabel });
+  handleChange(selectedOptions, label /*, optionToggled, optionWillBeChecked */) {
+    this.setState({ selectedOptions, label });
   }
   render() {
     const setOpen = isOpen => this.setState({ isOpen });
@@ -186,7 +186,7 @@ class SelectMinimal extends Component {
         selectedOptions={this.state.selectedOptions}
         onSelectionToggle={this.handleChange}
         onOpenToggle={setOpen}
-        triggerLabel={this.state.selectedLabel}
+        triggerLabel={this.state.label}
       />
     );
   }
@@ -207,12 +207,12 @@ class SelectMinimal extends Component {
     this.state = {
       isOpen: false,
       selectedOptions: {},
-      selectedLabel: '',
+      label: '',
     };
     this.handleChange = this.handleChange.bind(this);
   }
-  handleChange(selectedOptions, selectedLabel /*, optionToggled, optionWillBeChecked */) {
-    this.setState({ selectedOptions, selectedLabel });
+  handleChange(selectedOptions, label /*, optionToggled, optionWillBeChecked */) {
+    this.setState({ selectedOptions, label });
   }
   render() {
     const setOpen = isOpen => this.setState({ isOpen });
@@ -223,7 +223,7 @@ class SelectMinimal extends Component {
         selectedOptions={this.state.selectedOptions}
         onSelectionToggle={this.handleChange}
         onOpenToggle={setOpen}
-        triggerLabel={this.state.selectedLabel}
+        triggerLabel={this.state.label}
       />
     );
   }
@@ -244,7 +244,7 @@ class MediaSelectDemo extends Component {
       isLoading: false,
       isOpen: false,
       selectedOptions: {},
-      selectedLabel: '',
+      label: '',
       filteredOptions: props.options,
       searchValue: '',
       processingOptions: [],
@@ -258,7 +258,7 @@ class MediaSelectDemo extends Component {
     this.setState({ isOpen });
   }
 
-  handleChange(selectedOptions, selectedLabel, option /* , optionWillBeChecked */) {
+  handleChange(selectedOptions, label, option /* , optionWillBeChecked */) {
     const { processingOptions } = this.state;
     this.setState({ processingOptions: processingOptions.concat(option.uniqueId) });
     // (setTimeout to simulate delay due to ajax request)
@@ -267,7 +267,7 @@ class MediaSelectDemo extends Component {
       if (optionIndex !== -1) { processingOptions.splice(optionIndex, 1); }
       this.setState({
         selectedOptions,
-        selectedLabel,
+        label,
         processingOptions,
       });
     }, 300);
@@ -292,7 +292,7 @@ class MediaSelectDemo extends Component {
         selectedOptions={this.state.selectedOptions}
         onSelectionToggle={this.handleChange}
         onOpenToggle={this.setOpen}
-        triggerLabel={this.state.selectedLabel}
+        triggerLabel={this.state.label}
         search={this.search}
         searchValue={this.state.searchValue}
         options={this.state.filteredOptions}
@@ -322,7 +322,7 @@ class StatefulMediaSelect extends Component {
       isLoading: false,
       isOpen: false,
       selectedOptions: {},
-      selectedLabel: '',
+      label: '',
       filteredOptions: props.options,
       searchValue: '',
       processingOptions: [],
@@ -336,7 +336,7 @@ class StatefulMediaSelect extends Component {
     this.setState({ isOpen });
   }
 
-  handleChange(selectedOptions, selectedLabel, option /* , optionWillBeChecked */) {
+  handleChange(selectedOptions, label, option /* , optionWillBeChecked */) {
     const { processingOptions } = this.state;
     this.setState({ processingOptions: processingOptions.concat(option.uniqueId) });
     // (setTimeout to simulate delay due to ajax request)
@@ -345,7 +345,7 @@ class StatefulMediaSelect extends Component {
       if (optionIndex !== -1) { processingOptions.splice(optionIndex, 1); }
       this.setState({
         selectedOptions,
-        selectedLabel,
+        label,
         processingOptions,
       });
     }, 300);
@@ -370,7 +370,7 @@ class StatefulMediaSelect extends Component {
         selectedOptions={this.state.selectedOptions}
         onSelectionToggle={this.handleChange}
         onOpenToggle={this.setOpen}
-        triggerLabel={this.state.selectedLabel}
+        triggerLabel={this.state.label}
         search={this.search}
         searchValue={this.state.searchValue}
         options={this.state.filteredOptions}
