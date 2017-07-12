@@ -9,6 +9,7 @@ import {
   select,
   multiSelect,
   getAspectRatioHeight,
+  immutableMerge,
 } from './index.js';
 
 describe('Utilities', () => {
@@ -99,6 +100,19 @@ describe('Utilities', () => {
       expect(getAspectRatioHeight('16:9', 1280)).to.equal(720);
       expect(getAspectRatioHeight('16:7', 1280)).to.equal(560);
       expect(getAspectRatioHeight('16:6', 1920)).to.equal(720);
+    });
+  });
+
+  describe('immutableMerge', () => {
+    it('Merges objects and freezes', () => {
+      const x = { foo: 123 };
+      const y = { foo: 456, bar: 567 };
+      const z = { baz: 789 };
+      const merged = immutableMerge(x, y, z);
+      expect(x).to.deep.equal({ foo: 123 });
+      expect(y).to.deep.equal({ foo: 456, bar: 567 });
+      expect(z).to.deep.equal({ baz: 789 });
+      expect(merged).to.deep.equal({ foo: 456, bar: 567, baz: 789 });
     });
   });
 });

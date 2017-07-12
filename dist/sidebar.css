@@ -1,0 +1,15 @@
+/*
+  Quartz-react version: 0.0.1
+  Current file hash: 9d4936db03182d07a846a1efb9e779bf
+*/
+
+.sidebar {
+  right: -470px;
+  transform: translate3d(0, 0, 0);
+  transition: transform 400ms ease;
+}
+
+.sidebar.sidebar--open {
+  transform: translate3d(-470px, 0, 0);
+  transition: transform 400ms ease;
+}

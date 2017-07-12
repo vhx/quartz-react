@@ -9,9 +9,10 @@ import Checkboxes from './sections/Checkboxes.jsx';
 import Icons from './sections/Icons.jsx';
 import Inputs from './sections/Inputs.jsx';
 import Radios from './sections/Radios.jsx';
+import Selects from './sections/Selects.jsx';
+import Sidebars from './sections/Sidebars.jsx';
 import Tags from './sections/Tags.jsx';
 import Text from './sections/TextDemo.jsx';
-import Selects from './sections/Selects.jsx';
 
 const sections = {
   Buttons,
@@ -21,6 +22,7 @@ const sections = {
   Inputs,
   'Radio Groups': Radios,
   Selects,
+  Sidebars,
   Tags,
   Text,
 };

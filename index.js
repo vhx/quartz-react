@@ -13,6 +13,7 @@ export { default as RadioGroup } from './components/RadioGroup';
 export { Select } from './components/Select';
 export { StatefulSelect } from './components/Select';
 export { StatefulMediaSelect } from './components/Select';
+export { default as Sidebar } from './components/Sidebar';
 export { default as Slide } from './components/Slide';
 export { default as Tag } from './components/Tag';
 export { default as Text } from './components/Text';
