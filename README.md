@@ -20,7 +20,9 @@ npm install
 ## Folder Hierarchy
 ```
 build/
-  rollup.config.js              # Configuration for the bundler
+  build-css.js                  # Copies css from demo/public/css to /dist and prepends version & hash
+  rollup.config.js              # Configuration for the bundler to output js to dist/
+  rollup.demo-config.js         # Same as above, but for the demo site (/demo/public/js)
 components/
   [Component]/                  # At minimum contains the following files, but can be extended as necessary
     index.js                    # This just exports your [Component].jsx
@@ -30,8 +32,8 @@ components/
 demo/
   public/                       # Assets to be used by the demo page
   src/
-    ui/                         # Components specific to the demo page, such as its sidebar navigation
-    sections/                   # Each section of the demo page comes from files in this directory
+    sections/                   # Sections of the demo page with code and examples
+    ui/                         # Components specific to the demo page that are not included in quartz-react
     index.jsx                   # The demo page itself (ie. what is seen on localhost:3000)
 index.js                        # Every component that is exported in quartz-react
 ```
