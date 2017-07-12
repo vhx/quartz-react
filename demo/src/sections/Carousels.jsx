@@ -131,7 +131,7 @@ const Slide1 = {
 const Carousels = ({ title }) => (
   <div>
     <DemoRow>
-      <Title tag='Stateful'>{title}</Title>
+      <Title>{title}</Title>
       <Details>
         Carousels are composed of two components. There is the base <code>Carousel</code>
         component which handles the navigation ui and aspect ratio sizing. Then there is

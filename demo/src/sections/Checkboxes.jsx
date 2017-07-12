@@ -128,7 +128,7 @@ class StatefulCheckbox extends Component {
 const Checkboxes = ({ title }) => (
   <div>
     <DemoRow>
-      <Title tag='Stateless'>{title}</Title>
+      <Title>{title}</Title>
       <Details>
         Checkboxes are strictly presentational, so in order
         to enable interactivity you must place them within a stateful

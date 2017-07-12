@@ -177,7 +177,7 @@ class StatefulRadio extends Component {
 const Radios = ({ title }) => (
   <div>
     <DemoRow code={introCode}>
-      <Title tag='Stateless'>{title}</Title>
+      <Title>{title}</Title>
       <Details>
         Radio groups are strictly presentational, so in order
         to enable interactivity you must place them within a stateful

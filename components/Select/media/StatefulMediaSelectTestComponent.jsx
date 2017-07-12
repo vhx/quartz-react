@@ -1,3 +1,5 @@
+/* IMPORTANT: This is only used in unit tests */
+
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import MediaSelect from './Select.jsx';
