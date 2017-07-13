@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Icon from '../../Icon';
 import { If, truncate } from '../../util';
 
 const imgStyle = url => ({
@@ -14,9 +13,9 @@ function getButton(isProcessing, isSelected) {
     return <div className='c-item-toggle loader-white loader--small' />;
   }
   if (isSelected) {
-    return <Icon size='xsmall' name='check' color='navy' className='block c-item-toggle border is-selected' button />;
+    return <div className='c-item-toggle icon-check-navy icon--xsmall border is-selected' />;
   }
-  return <Icon size='xsmall' name='plus-thin' color='white' className='block c-item-toggle border' button />;
+  return <div className='c-item-toggle icon-plus-thin-white icon--xsmall border' />;
 }
 
 const MediaSelectDropdownOption = ({ description, imageUrl, isLoading, isProcessingItem, isSelected, label, maxLabelLength, multiSelect, onOptionToggle, uniqueId }) => (
