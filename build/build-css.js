@@ -31,7 +31,7 @@ async function main() {
 
   const cssWritePromises = cssFiles.map((file, i) => writeFile(path.resolve(rootDir, 'dist', file), cssContentsWithComment[i]));
   await Promise.all(cssWritePromises);
-  console.log('CSS build success');
+  console.log('CSS build success'); // eslint-disable-line no-console
 }
 
 main();
