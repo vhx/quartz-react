@@ -7,8 +7,15 @@ import Header from './Header.jsx';
 describe('Header', () => {
   jsdom();
 
-  it('Renders', () => {
-    const wrapper = shallow(<Header title='t' icon='cog' />);
+  it('Renders without border', () => {
+    const wrapper = shallow(<Header title='t' icon='cog' border={false} />);
+    expect(wrapper.html()).to.not.include('border-bottom');
+    expect(wrapper.exists()).to.equal(true);
+  });
+
+  it('Renders with border', () => {
+    const wrapper = shallow(<Header title='t' icon='cog' border />);
+    expect(wrapper.html()).to.include('border-bottom');
     expect(wrapper.exists()).to.equal(true);
   });
 
