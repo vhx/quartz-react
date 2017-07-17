@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Button, Modal } from '../../../index.js';
-import modalModel from '../../../components/Modal/modalModel.js';
+import { Button, Modal, modalModel } from '../../../index.js';
 import {
   Block,
   DemoRow,

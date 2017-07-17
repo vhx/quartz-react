@@ -10,7 +10,7 @@ export { default as Icon } from './components/Icon';
 export { default as Input } from './components/Input';
 export { default as MediaSelect } from './components/Select/media/Select.jsx';
 export { default as Modal } from './components/Modal';
-export { default as modalModel } from './components/Modal/modalModel';
+export { default as modalModel } from './components/Modal/modalModel.jsx';
 export { default as RadioGroup } from './components/RadioGroup';
 export { default as Select } from './components/Select/standard/Select.jsx';
 export { default as Sidebar } from './components/Sidebar';
