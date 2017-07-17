@@ -42,4 +42,9 @@ describe('Checkbox', () => {
     wrapper.find('input').simulate('change');
     expect(wrapper.find('input').node.checked).to.equal(true);
   });
+
+  it('Accepts arbitrary HTML attributes', () => {
+    const wrapper = mount(<Checkbox uniqueId='checkbox4' dir='rtl' />);
+    expect(wrapper.find('input').node.getAttribute('dir')).to.equal('rtl');
+  });
 });
