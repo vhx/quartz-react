@@ -2,9 +2,11 @@
 /* eslint-disable jsx-a11y/no-static-element-interactions */
 
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import Icon from '../Icon';
 import { If } from '../util';
+import { connect } from '../util/model';
 import modalModel from './modalModel';
 
 
@@ -26,14 +28,11 @@ function handleEscapeKey(event) {
 class Modal extends Component {
   constructor() {
     super();
-    this.state = modalModel.state;
     this.el = null;
-    this.update = this.update.bind(this);
   }
 
   componentWillMount() {
     window.addEventListener('keyup', handleEscapeKey);
-    modalModel.subscribe(this.update);
   }
 
   componentDidMount() {
@@ -43,15 +42,10 @@ class Modal extends Component {
 
   componentWillUnmount() {
     window.removeEventListener('keyup', handleEscapeKey);
-    modalModel.unsubscribe(this.update);
-  }
-
-  update(state) {
-    this.setState(state);
   }
 
   render() {
-    const { actions, body, isOpen, size, title } = this.state;
+    const { actions, body, isOpen, size, title } = this.props;
     return (
       <div className={`c-modal ${isOpen ? 'is-open' : ''}`}>
         <div className={`c-modal-container ${actions.length !== 0 ? 'c-modal--has-actions' : ''} c-modal--${size}`} ref={(el) => { this.el = el; }}>
@@ -88,7 +82,22 @@ class Modal extends Component {
   }
 }
 
-Modal.close = modalModel.close;
-Modal.open = modalModel.open;
+Modal.propTypes = {
+  actions: PropTypes.arrayOf(PropTypes.shape({
+    color: PropTypes.string,
+    label: PropTypes.string.isRequired,
+    callback: PropTypes.func.isRequired,
+  })).isRequired,
+  body: PropTypes.node.isRequired,
+  isOpen: PropTypes.bool.isRequired,
+  size: PropTypes.string,
+  title: PropTypes.string,
+};
 
-export default Modal;
+Modal.defaultProps = {
+  size: 'medium',
+  title: '',
+};
+
+
+export default connect(modalModel, Modal);
