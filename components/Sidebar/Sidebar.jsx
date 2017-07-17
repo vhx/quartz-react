@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { connect } from '../util/model';
+import { connect } from '../util';
 import sidebarModel from './sidebarModel';
 
 const Sidebar = ({ isOpen, Contents, close }) => (
