@@ -7,6 +7,7 @@ import classNames from 'classnames';
 import Icon from '../Icon';
 import { If } from '../util';
 import { connect } from '../util/model';
+import { KEY_CODES } from '../util/constants';
 import modalModel from './modalModel';
 
 
@@ -19,8 +20,7 @@ function getActionClass({ actions, index }) {
 }
 
 function handleEscapeKey(event) {
-  const ESC_KEYCODE = 27;
-  if (event.keyCode === ESC_KEYCODE) {
+  if (event.keyCode === KEY_CODES.ESC) {
     modalModel.close();
   }
 }
