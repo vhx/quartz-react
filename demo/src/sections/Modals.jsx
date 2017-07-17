@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Button, Modal } from '../../../index.js';
-import modalModel from '../../../components/Modal/modalModel.js';
+import { Button, modalModel } from '../../../index.js';
 import {
   Block,
   DemoRow,
@@ -190,7 +189,6 @@ modalModel.close();`
     <DemoRow code={modalDemoCode}><Modals /></DemoRow>
     <DemoRow code={modalSizesCode}><ModalSizes /></DemoRow>
     <DemoRow code={modalActionsCode}><ModalActions /></DemoRow>
-    <Modal />
   </div>
 );
 

@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 
 import { Nav } from './ui';
+import { Sidebar, Modal } from '../../index.js';
 
 import Buttons from './sections/Buttons.jsx';
 import Carousels from './sections/Carousels.jsx';
@@ -42,6 +43,8 @@ const AllComponents = () => (
         }))
       }
     </div>
+    <Sidebar />
+    <Modal />
   </div>
 );
 

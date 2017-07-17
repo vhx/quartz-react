@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from '../util';
-import sidebarModel from './sidebarModel';
+import sidebarModel from './sidebarModel.jsx';
 
 const Sidebar = ({ isOpen, Contents, close }) => (
   <div className={`sidebar c-sidebar bg-white shadow--gray ${isOpen ? 'sidebar--open' : ''}`}>

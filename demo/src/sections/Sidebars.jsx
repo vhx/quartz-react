@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Button, Sidebar, sidebarModel } from '../../../index.js';
+import { Button, sidebarModel } from '../../../index.js';
 import {
   Block,
   DemoRow,
@@ -22,7 +22,6 @@ const OtherSidebarChildren = () => (
 const SidebarDemo = () => (
   <div>
     <Subtitle>Sidebar Demo</Subtitle>
-    <Sidebar />
     <Block><Button onClick={() => sidebarModel.open(SidebarChildren)}>Open sidebar 1</Button></Block>
     <Block><Button onClick={() => sidebarModel.toggle(SidebarChildren)}>Toggle sidebar 1</Button></Block>
     <Hr />

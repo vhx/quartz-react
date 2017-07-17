@@ -7,7 +7,7 @@ import classNames from 'classnames';
 import Icon from '../Icon';
 import { KEY_CODES } from '../util/constants';
 import { If, connect } from '../util';
-import modalModel from './modalModel';
+import modalModel from './modalModel.jsx';
 
 
 function getActionClass({ actions, index }) {
