@@ -5,8 +5,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import Icon from '../Icon';
-import { If } from '../util';
-import { connect } from '../util/model';
+import { If, connect } from '../util';
 import modalModel from './modalModel';
 
 

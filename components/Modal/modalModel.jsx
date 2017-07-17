@@ -1,5 +1,5 @@
 import React from 'react';
-import { Model } from '../util/model';
+import { Model } from '../util';
 
 const EmptyComponent = () => <div />;
 
