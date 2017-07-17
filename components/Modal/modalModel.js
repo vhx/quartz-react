@@ -13,7 +13,13 @@ const modalModel = Model({
   },
   methods: {
     close() {
-      return { isOpen: false };
+      return {
+        actions: [],
+        body: <EmptyComponent />,
+        isOpen: false,
+        size: 'medium',
+        title: '',
+      };
     },
     open({ actions, Children, size, title }) {
       return {
