@@ -50,7 +50,7 @@ export function connect(model, Component) {
         this.forceUpdate();
       }
       render() {
-        return <Component {...model.state} />;
+        return <Component {...model.state} {...model} />;
       }
     };
   }
