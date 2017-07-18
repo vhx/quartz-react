@@ -6,6 +6,7 @@
 */
 export { default as If } from './If.jsx';
 
+export { Model, connect } from './model.js';
 
 /*
 truncate('foo-bar-baz', 4);
