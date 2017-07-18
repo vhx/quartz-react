@@ -29,6 +29,11 @@ describe('Checkbox', () => {
     expect(wrapper.exists()).to.equal(true);
   });
 
+  it('Renders a toggle checkbox', () => {
+    const wrapper = mount(<Checkbox uniqueId='checkbox1' type='toggle' />);
+    expect(wrapper.exists()).to.equal(true);
+  });
+
   it('Defaults to unchecked', () => {
     const wrapper = mount(<Checkbox uniqueId='checkbox2' />);
     expect(wrapper.prop('checked')).to.equal(false);
