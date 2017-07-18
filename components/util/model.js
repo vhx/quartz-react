@@ -1,6 +1,8 @@
 import React from 'react';
 import { immutableMerge } from './index.js';
 
+const toStr = Object.prototype.toString;
+
 export function Model({ initialState, methods }) {
   const listeners = [];
   const notifyListeners = nextState => listeners.forEach(fn => fn(nextState));
@@ -14,7 +16,7 @@ export function Model({ initialState, methods }) {
   Object.keys(methods).forEach((method) => {
     model[method] = (...args) => {
       const updates = methods[method].apply(model, args);
-      if (updates && typeof updates === 'object') {
+      if (updates && toStr.call(updates) === '[object Object]') {
         model.state = immutableMerge(model.state, updates);
         notifyListeners(model.state);
       }
