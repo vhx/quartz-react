@@ -6,3 +6,7 @@ node_modules/
 
 # The bundle is generated with npm run demo
 demo/public/js/*
+
+# Code coverage reports are generated and do not need to be checked into git
+coverage/
+.nyc_output/

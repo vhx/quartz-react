@@ -9,7 +9,8 @@
     "lint": "eslint components/** demo/src/** build/** index.js",
     "serve": "browser-sync start --server --serveStatic \"demo/public\" --files \"demo/public/js/bundle.js\" --no-open",
     "start": "npm-run-all --parallel dev serve",
-    "test": "mocha components/**/*.test.jsx --compilers js:babel-register"
+    "test": "nyc --extension .jsx --reporter=html --reporter=text-summary mocha components/**/*.test.jsx --compilers js:babel-register",
+    "test:nocover": "mocha components/**/*.test.jsx --compilers js:babel-register"
   },
   "repository": {
     "type": "git",
@@ -42,6 +43,7 @@
     "mocha": "^3.4.2",
     "mocha-jsdom": "^1.1.0",
     "npm-run-all": "^4.0.2",
+    "nyc": "^11.0.3",
     "react-test-renderer": "^15.5.4",
     "rollup": "^0.42.0",
     "rollup-plugin-babel": "^2.7.1",
