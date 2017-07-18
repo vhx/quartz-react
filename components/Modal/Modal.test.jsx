@@ -8,18 +8,18 @@ import modalModel from './modalModel';
 describe('Modal', () => {
   jsdom();
 
+  // shared wrapper, since modal can only be instantiated once
+  const wrapper = shallow(<Modal />);
+
   afterEach(() => {
     modalModel.close();
   });
 
   it('Renders', () => {
-    const wrapper = shallow(<Modal />);
     expect(wrapper.exists()).to.equal(true);
-    wrapper.unmount();
   });
 
   it('Opens a modal', () => {
-    const wrapper = shallow(<Modal />);
     expect(wrapper.props().isOpen).to.equal(false);
     modalModel.open({
       actions: [],
@@ -29,11 +29,9 @@ describe('Modal', () => {
     expect(wrapper.html()).to.include('<div>Modal test</div>');
     expect(wrapper.html()).to.include('Testing 12345');
     expect(wrapper.props().isOpen).to.equal(true);
-    wrapper.unmount();
   });
 
   it('Closes an open modal', () => {
-    const wrapper = shallow(<Modal />);
     modalModel.open({
       actions: [],
       title: 'Testing 12345',
@@ -42,7 +40,6 @@ describe('Modal', () => {
     expect(wrapper.props().isOpen).to.equal(true);
     modalModel.close();
     expect(wrapper.props().isOpen).to.equal(false);
-    wrapper.unmount();
   });
 
   it('Renders a single action button in a modal', () => {
@@ -50,7 +47,6 @@ describe('Modal', () => {
       { label: 'Cancel', callback: () => {}, color: 'teal' },
     ];
 
-    const wrapper = shallow(<Modal />);
     const buttonClass = /btn btn--fill/gm;
     modalModel.open({
       actions: singleAction,
@@ -58,7 +54,6 @@ describe('Modal', () => {
     });
     expect(wrapper.html().match(buttonClass).length).to.equal(1);
     expect(wrapper.html()).to.include('<div class="btn btn--fill btn-teal">Cancel</div>');
-    wrapper.unmount();
   });
 
   it('Renders two action buttons in a modal', () => {
@@ -66,7 +61,6 @@ describe('Modal', () => {
       { label: 'Cancel', callback: () => {}, color: 'gray' },
       { label: 'Sign up', callback: () => {}, color: 'teal' },
     ];
-    const wrapper = shallow(<Modal />);
     const buttonClass = /btn btn--half/gm;
     modalModel.open({
       actions: doubleAction,
@@ -75,6 +69,5 @@ describe('Modal', () => {
     expect(wrapper.html().match(buttonClass).length).to.equal(2);
     expect(wrapper.html()).to.include('<div class="btn btn--half btn-gray">Cancel</div>');
     expect(wrapper.html()).to.include('<div class="btn btn--half btn-teal">Sign up</div>');
-    wrapper.unmount();
   });
 });

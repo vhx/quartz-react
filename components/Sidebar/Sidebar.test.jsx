@@ -8,22 +8,26 @@ import sidebarModel from './sidebarModel';
 describe('Sidebar', () => {
   jsdom();
 
+  // shared wrapper, since sidebar can only be instantiated once
+  const wrapper = shallow(<Sidebar />);
+
   afterEach(() => {
     sidebarModel.close();
   });
 
   it('Renders', () => {
-    const wrapper = shallow(<Sidebar />);
     expect(wrapper.exists()).to.equal(true);
   });
 
   it('Defaults to closed state', () => {
-    const wrapper = shallow(<Sidebar />);
     expect(wrapper.props().isOpen).to.equal(false);
   });
 
   it('Can be opened / closed / toggled', () => {
-    const wrapper = shallow(<Sidebar />);
+    expect(wrapper.props().isOpen).to.equal(false);
+  });
+
+  it('Can be opened / closed / toggled', () => {
     expect(wrapper.props().isOpen).to.equal(false);
 
     // open:

@@ -1,15 +1,17 @@
 /*
   Quartz-react version: 0.0.1
-  Current file hash: 9d4936db03182d07a846a1efb9e779bf
+  Current file hash: 84597099e5e0f8f7fecadfd205ab51f2
 */
 
 .sidebar {
-  right: -470px;
+  max-width: 100%;
+  right: -608px;
   transform: translate3d(0, 0, 0);
   transition: transform 400ms ease;
+  width: 600px;
 }
 
 .sidebar.sidebar--open {
-  transform: translate3d(-470px, 0, 0);
+  transform: translate3d(-608px, 0, 0);
   transition: transform 400ms ease;
 }

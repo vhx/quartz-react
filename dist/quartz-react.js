@@ -118,7 +118,7 @@ function typoPropType(ref) {
 
   return function typoPropTypeCheck(props, propName, componentName) {
     if (props[propName]) {
-      console.warn(("You passed the prop `" + propName + "`, which is not supported, to the component `" + componentName + "`. Did you mean to pass `" + correct + "` instead?"));
+      console.warn(("You passed the prop `" + propName + "`, which is not supported, to the component `" + componentName + "`. Did you mean to pass `" + correct + "` instead?")); // eslint-disable-line no-console
       return false;
     }
   };
@@ -792,9 +792,9 @@ function getButton(isProcessing, isSelected) {
     return React__default.createElement( 'div', { className: 'c-item-toggle loader-white loader--small' });
   }
   if (isSelected) {
-    return React__default.createElement( Icon$1, { size: 'xsmall', name: 'check', color: 'navy', className: 'block c-item-toggle border is-selected', button: true });
+    return React__default.createElement( 'div', { className: 'c-item-toggle icon-check-navy icon--xsmall border is-selected' });
   }
-  return React__default.createElement( Icon$1, { size: 'xsmall', name: 'plus-thin', color: 'white', className: 'block c-item-toggle border', button: true });
+  return React__default.createElement( 'div', { className: 'c-item-toggle icon-plus-thin-white icon--xsmall border' });
 }
 
 var MediaSelectDropdownOption = function (ref) {
