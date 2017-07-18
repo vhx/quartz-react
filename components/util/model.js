@@ -18,10 +18,6 @@ export function Model({ initialState, methods }) {
         model.state = immutableMerge(model.state, updates);
         notifyListeners(model.state);
       }
-      // could also check here to see if fn returns a promise and then wait
-      // until it resolves to merge and notifyListeners. that would make
-      // async methods really nice to work with.
-      // ...should this return  something? maybe return `updates`?
     };
   });
 
@@ -33,7 +29,6 @@ export function connect(model, Component) {
     return class ConnectedComponent extends React.PureComponent {
       constructor() {
         super();
-        this.currentState = model.state;
         this.update = this.update.bind(this);
       }
       componentWillMount() {
@@ -45,8 +40,7 @@ export function connect(model, Component) {
       shouldComponentUpdate() {
         return false;
       }
-      update(nextState) {
-        this.currentState = nextState;
+      update() {
         this.forceUpdate();
       }
       render() {
