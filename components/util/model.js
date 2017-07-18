@@ -9,6 +9,7 @@ export function Model({ initialState, methods }) {
     state: Object.freeze(initialState),
     subscribe: fn => listeners.push(fn),
     unsubscribe: fn => listeners.splice(listeners.indexOf(fn), 1),
+    __listeners: listeners,
   };
 
   Object.keys(methods).forEach((method) => {
