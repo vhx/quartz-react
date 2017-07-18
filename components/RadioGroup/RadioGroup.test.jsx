@@ -43,6 +43,11 @@ describe('RadioGroup', () => {
     expect(wrapper.exists()).to.equal(true);
   });
 
+  it('Renders as buttons', () => {
+    const wrapper = shallow(<RadioGroup items={radioItems} buttons />);
+    expect(wrapper.exists()).to.equal(true);
+  });
+
   it('Defaults to all unchecked', () => {
     const wrapper = mount(<RadioGroup items={radioItems} />);
     expect(wrapper.find('input').length).to.equal(3);
@@ -69,6 +74,21 @@ describe('RadioGroup', () => {
     expect(inputs.get(1).checked).to.equal(false);
     expect(inputs.get(2).checked).to.equal(false);
     inputs.last().simulate('change');
+    expect(wrapper.state().selectedIndex).to.equal(2);
+    expect(inputs.get(0).checked).to.equal(false);
+    expect(inputs.get(1).checked).to.equal(false);
+    expect(inputs.get(2).checked).to.equal(true);
+  });
+
+  it('Can be toggled by clicking the label', () => {
+    const wrapper = mount(<StatefulRadio items={radioItems} />);
+    const labels = wrapper.find('label');
+    const inputs = wrapper.find('input');
+    expect(wrapper.state().selectedIndex).to.equal(0);
+    expect(inputs.get(0).checked).to.equal(true);
+    expect(inputs.get(1).checked).to.equal(false);
+    expect(inputs.get(2).checked).to.equal(false);
+    labels.last().simulate('click');
     expect(wrapper.state().selectedIndex).to.equal(2);
     expect(inputs.get(0).checked).to.equal(false);
     expect(inputs.get(1).checked).to.equal(false);
