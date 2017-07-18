@@ -5,6 +5,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import Icon from '../Icon';
+import { KEY_CODES } from '../util/constants';
 import { If, connect } from '../util';
 import modalModel from './modalModel.jsx';
 
@@ -18,8 +19,7 @@ function getActionClass({ actions, index }) {
 }
 
 function handleEscapeKey(event) {
-  const ESC_KEYCODE = 27;
-  if (event.keyCode === ESC_KEYCODE) {
+  if (event.keyCode === KEY_CODES.ESC) {
     modalModel.close();
   }
 }
