@@ -115,18 +115,4 @@ describe('Utilities', () => {
       expect(merged).to.deep.equal({ foo: 456, bar: 567, baz: 789 });
     });
   });
-
-  describe('Model', () => {
-    it('sets initial state');
-    it('is immutable');
-    it('can be provided methods');
-    it('merges return value from methods into state');
-    it('can be subscribed to');
-    it('can be unsubscribed from');
-  });
-
-  describe('connect', () => {
-    it('connects a component to a model');
-    it('passes model state as props to the component');
-  });
 });
