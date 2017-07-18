@@ -3,9 +3,9 @@ import PropTypes from 'prop-types';
 import { connect } from '../util';
 import sidebarModel from './sidebarModel.jsx';
 
-const Sidebar = ({ isOpen, Contents, close }) => (
+const Sidebar = ({ isOpen, Contents }) => (
   <div className={`sidebar c-sidebar bg-white shadow--gray ${isOpen ? 'sidebar--open' : ''}`}>
-    <a className='c-sidebar--close icon-circle icon-x-navy icon--xsmall' onClick={() => close()} />
+    <a className='c-sidebar--close icon-circle icon-x-navy icon--xsmall' onClick={() => sidebarModel.close()} />
     <div><Contents /></div>
   </div>
 );
@@ -13,8 +13,6 @@ const Sidebar = ({ isOpen, Contents, close }) => (
 Sidebar.propTypes = {
   isOpen: PropTypes.bool.isRequired,
   Contents: PropTypes.func.isRequired,
-  close: PropTypes.func.isRequired,
-  // all the other methods (open, toggle) are available as props too
 };
 
 export default connect(sidebarModel, Sidebar);
