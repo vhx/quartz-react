@@ -5,7 +5,7 @@ node_modules/
 .DS_Store
 
 # The bundle is generated with npm run demo
-demo/public/js/*
+demo/public/js/bundle.js
 
 # Code coverage reports are generated and do not need to be checked into git
 coverage/
