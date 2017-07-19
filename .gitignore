@@ -10,3 +10,5 @@ demo/public/js/bundle.js
 # Code coverage reports are generated and do not need to be checked into git
 coverage/
 .nyc_output/
+
+npm-debug.log

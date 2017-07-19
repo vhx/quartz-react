@@ -2,6 +2,7 @@ import * as utilities from './components/util';
 
 export const util = utilities;
 
+export { default as Avatar } from './components/Avatar';
 export { default as Button } from './components/Button';
 export { default as Carousel } from './components/Carousel';
 export { default as Checkbox } from './components/Checkbox';
@@ -18,3 +19,4 @@ export { default as sidebarModel } from './components/Sidebar/sidebarModel.jsx';
 export { default as Slide } from './components/Slide';
 export { default as Tag } from './components/Tag';
 export { default as Text } from './components/Text';
+
