@@ -2,11 +2,26 @@
 
 ## Installation
 
-For now, clone the repo and run:
-
 ```bash
-npm install
+npm install @vhx/quartz-react
 ```
+
+
+## Usage
+
+First include `quartz.css` and the css files from `dist/` for any components you intend to use.
+
+```jsx
+import { Button, Tag, util } from '@vhx/quartz-react';
+
+const MyComponent = () => (
+  <div>
+    <Button>Hello</Button>
+  </div>
+);
+```
+
+For demos and code examples, run `npm start` and open up `localhost:3000` in your browser.
 
 
 ## NPM Scripts
