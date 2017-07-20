@@ -14,7 +14,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/sebastiansandqvist/quartz-react.git"
+    "url": "git+https://github.com/vhx/quartz-react.git"
   },
   "keywords": [
     "vhx",
@@ -28,7 +28,7 @@
   "bugs": {
     "url": "https://github.com/sebastiansandqvist/quartz-react/issues"
   },
-  "homepage": "https://github.com/sebastiansandqvist/quartz-react#readme",
+  "homepage": "https://github.com/vhx/quartz-react.git#readme",
   "devDependencies": {
     "@vhx/eslint-config-vhx": "0.0.1",
     "autoprefixer": "^7.1.1",
