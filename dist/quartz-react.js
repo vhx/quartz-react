@@ -27,6 +27,72 @@ If.defaultProps = {
   inline: false,
 };
 
+var toStr = Object.prototype.toString;
+
+function Model$$1(ref) {
+  var initialState = ref.initialState;
+  var methods = ref.methods;
+
+  var listeners = [];
+  var notifyListeners = function (nextState) { return listeners.forEach(function (fn) { return fn(nextState); }); };
+
+  var model = {
+    state: Object.freeze(initialState),
+    subscribe: function (fn) { return listeners.push(fn); },
+    unsubscribe: function (fn) { return listeners.splice(listeners.indexOf(fn), 1); },
+  };
+
+  Object.keys(methods).forEach(function (method) {
+    model[method] = function () {
+      var args = [], len = arguments.length;
+      while ( len-- ) args[ len ] = arguments[ len ];
+
+      var updates = methods[method].apply(model, args);
+      if (updates && toStr.call(updates) === '[object Object]') {
+        model.state = immutableMerge(model.state, updates);
+        notifyListeners(model.state);
+      }
+    };
+  });
+
+  return model;
+}
+
+function connect$$1(model, Component$$1) {
+  function connectComponent(Component$$1) { // eslint-disable-line no-shadow
+    return (function (superclass) {
+      function ConnectedComponent() {
+        superclass.call(this);
+        this.update = this.update.bind(this);
+      }
+
+      if ( superclass ) ConnectedComponent.__proto__ = superclass;
+      ConnectedComponent.prototype = Object.create( superclass && superclass.prototype );
+      ConnectedComponent.prototype.constructor = ConnectedComponent;
+      ConnectedComponent.prototype.componentWillMount = function componentWillMount () {
+        model.subscribe(this.update);
+      };
+      ConnectedComponent.prototype.componentWillUnmount = function componentWillUnmount () {
+        model.unsubscribe(this.update);
+      };
+      ConnectedComponent.prototype.shouldComponentUpdate = function shouldComponentUpdate () {
+        return false;
+      };
+      ConnectedComponent.prototype.update = function update () {
+        this.forceUpdate();
+      };
+      ConnectedComponent.prototype.render = function render () {
+        return React__default.createElement(Component$$1, model.state);
+      };
+
+      return ConnectedComponent;
+    }(React__default.PureComponent));
+  }
+
+  if (!Component$$1) { return connectComponent; } // this curries the function so you can also use it as a decorator
+  return connectComponent(Component$$1);
+}
+
 /* eslint-disable no-param-reassign */
 
 /*
@@ -152,8 +218,31 @@ var utilities = Object.freeze({
 	typoPropType: typoPropType,
 	getAspectRatioHeight: getAspectRatioHeight,
 	immutableMerge: immutableMerge,
-	If: If
+	If: If,
+	Model: Model$$1,
+	connect: connect$$1
 });
+
+/* eslint-disable react/no-unused-prop-types */
+
+var Avatar$1 = function (props) { return (
+  React__default.createElement( 'span', { className: ("avatar color-teal avatar--" + (props.size)) },
+    React__default.createElement( 'span', { className: "avatar-user user-avatar", style: {
+      'backgroundImage': ("url('" + (props.image) + "')")    
+    } })
+    
+  )
+); };
+
+Avatar$1.propTypes = {
+  size: PropTypes.oneOf(['xsmall', 'small', 'medium', 'large', 'xlarge', 'xxlarge']),
+  image: PropTypes.string
+};
+
+Avatar$1.defaultProps = {
+  size: 'medium',
+  image: ''
+};
 
 /* eslint-disable react/no-unused-prop-types */
 
@@ -278,6 +367,14 @@ Icon$1.defaultProps = {
   size: 'xsmall',
 };
 
+/* eslint-disable import/prefer-default-export */
+
+var KEY_CODES = Object.freeze({
+  ESC: 27,
+  LEFT: 37,
+  RIGHT: 39,
+});
+
 // calcNext(3, 0) => 1
 // calcNext(3, 1) => 2
 // calcNext(3, 2) => 0 // <- it wraps around to the first slide
@@ -357,12 +454,9 @@ var Carousel$1 = (function (Component$$1) {
 
   Carousel.prototype.keyboardNavigate = function keyboardNavigate (event) {
     if (this.state.isAnimating || this.props.slides.length <= 1) { return; }
-    var ref = [ 37, 39 ];
-    var LEFT = ref[0];
-    var RIGHT = ref[1];
     var key = event.keyCode || event.which;
-    if (key === LEFT) { this.prev(); }
-    if (key === RIGHT) { this.next(); }
+    if (key === KEY_CODES.LEFT) { this.prev(); }
+    if (key === KEY_CODES.RIGHT) { this.next(); }
   };
 
   Carousel.prototype.goToSlide = function goToSlide (i, overrideDirection) {
@@ -521,7 +615,7 @@ var ToggleCheckbox = function () { return (
 var Checkbox$1 = function (props) { return (
   React__default.createElement( 'div', { className: 'form' },
     React__default.createElement( 'fieldset', { className: getClassName$2(props) },
-      React__default.createElement( 'input', { type: 'checkbox', checked: props.checked, name: props.uniqueId, value: props.value, onChange: props.onChange, id: props.uniqueId }),
+      React__default.createElement( 'input', Object.assign({}, excludeProps([ 'label', 'uniqueId', 'size', 'type' ], props), { type: 'checkbox', name: props.uniqueId, id: props.uniqueId })),
       React__default.createElement( 'label', { htmlFor: props.uniqueId },
         React__default.createElement( 'span', { className: 'checkbox--contain' },
           props.type === 'toggle' ? React__default.createElement( ToggleCheckbox, null ) : React__default.createElement( StandardCheckbox, null ),
@@ -998,6 +1092,148 @@ var MediaSelect = SelectHOC({
   type: 'media',
 });
 
+var EmptyComponent = function () { return React__default.createElement( 'div', null ); };
+
+var modalModel = Model$$1({
+  initialState: {
+    actions: [],
+    body: React__default.createElement( EmptyComponent, null ),
+    isOpen: false,
+    size: 'medium',
+    title: '',
+  },
+  methods: {
+    close: function close() {
+      return {
+        actions: [],
+        body: React__default.createElement( EmptyComponent, null ),
+        isOpen: false,
+        size: 'medium',
+        title: '',
+      };
+    },
+    open: function open(ref) {
+      var actions = ref.actions;
+      var Children = ref.Children;
+      var size = ref.size;
+      var title = ref.title;
+
+      return {
+        actions: actions,
+        body: React__default.createElement( Children, null ),
+        isOpen: true,
+        size: size,
+        title: title,
+      };
+    },
+  },
+});
+
+/* eslint-disable react/no-unused-prop-types */
+/* eslint-disable jsx-a11y/no-static-element-interactions */
+
+function getActionClass(ref) {
+  var actions = ref.actions;
+  var index = ref.index;
+
+  return classNames({
+    btn: true,
+    'btn--half': actions.length > 1,
+    'btn--fill': actions.length <= 1,
+  }, ("btn-" + (actions[index].color || 'gray')));
+}
+
+function handleEscapeKey(event) {
+  if (event.keyCode === KEY_CODES.ESC) {
+    modalModel.close();
+  }
+}
+
+var Modal$1 = (function (Component$$1) {
+  function Modal() {
+    Component$$1.call(this);
+    this.el = null;
+  }
+
+  if ( Component$$1 ) Modal.__proto__ = Component$$1;
+  Modal.prototype = Object.create( Component$$1 && Component$$1.prototype );
+  Modal.prototype.constructor = Modal;
+
+  Modal.prototype.componentWillMount = function componentWillMount () {
+    window.addEventListener('keyup', handleEscapeKey);
+  };
+
+  Modal.prototype.componentDidMount = function componentDidMount () {
+    var margin = parseInt(this.el.outerHeight / 2, 10);
+    this.el.style.marginBottom = margin + "px";
+  };
+
+  Modal.prototype.componentWillUnmount = function componentWillUnmount () {
+    window.removeEventListener('keyup', handleEscapeKey);
+  };
+
+  Modal.prototype.render = function render () {
+    var this$1 = this;
+
+    var ref = this.props;
+    var actions = ref.actions;
+    var body = ref.body;
+    var isOpen = ref.isOpen;
+    var size = ref.size;
+    var title = ref.title;
+    return (
+      React__default.createElement( 'div', { className: ("c-modal " + (isOpen ? 'is-open' : '')) },
+        React__default.createElement( 'div', { className: ("c-modal-container " + (actions.length !== 0 ? 'c-modal--has-actions' : '') + " c-modal--" + size), ref: function (el) { this$1.el = el; } },
+          React__default.createElement( 'div', { className: 'c-modal--header padding-medium' },
+            React__default.createElement( 'span', null,
+              React__default.createElement( 'div', { className: 'h2 head-4 head secondary text-left' }, title)
+            )
+          ),
+          React__default.createElement( 'div', { className: 'c-modal--body padding-medium' }, body),
+          React__default.createElement( If, { condition: actions.length !== 0 },
+            React__default.createElement( 'div', { className: 'c-modal--actions' },
+              React__default.createElement( 'div', { className: 'padding-small text-center' },
+                actions.map(function (action, index) { return (
+                    React__default.createElement( 'div', {
+                      onClick: actions[index].callback, key: action.label, className: getActionClass({ actions: actions, index: index }) },
+                      actions[index].label
+                    )
+                  ); })
+              )
+            )
+          ),
+          React__default.createElement( 'div', { className: 'c-modal--close', onClick: modalModel.close },
+            React__default.createElement( Icon$1, { size: 'xsmall', color: 'white', name: 'x' })
+          )
+        ),
+        React__default.createElement( 'div', { className: 'c-modal-bg', onClick: modalModel.close })
+      )
+    );
+  };
+
+  return Modal;
+}(React.Component));
+
+Modal$1.propTypes = {
+  actions: PropTypes.arrayOf(PropTypes.shape({
+    color: PropTypes.string,
+    label: PropTypes.string.isRequired,
+    callback: PropTypes.func.isRequired,
+  })).isRequired,
+  body: PropTypes.node.isRequired,
+  isOpen: PropTypes.bool.isRequired,
+  size: PropTypes.string,
+  title: PropTypes.string,
+};
+
+Modal$1.defaultProps = {
+  size: 'medium',
+  title: '',
+};
+
+
+var Modal$2 = connect$$1(modalModel, Modal$1);
+
 var RadioIcon = function () { return (
   React__default.createElement( 'span', { className: 'radio--icon' },
     React__default.createElement( 'i', { className: 'circle-top' }, React__default.createElement( 'span', null )),
@@ -1200,53 +1436,38 @@ var Select = SelectHOC({
   type: 'standard', // NOTE: 'standard' isn't used anywhere, just specifying that it's not 'media'
 });
 
-var EmptyComponent = function () { return React__default.createElement( 'span', null ); };
+var EmptyComponent$1 = function () { return React__default.createElement( 'span', null ); };
 
-var sidebarModel = {
-  state: Object.freeze({
+// this would go in its own file, so it could imported and used anywhere
+var sidebarModel = Model$$1({
+  initialState: {
     isOpen: false,
-    children: EmptyComponent,
-  }),
-  listeners: [],
-  close: function close() {
-    sidebarModel.state = immutableMerge(sidebarModel.state, { isOpen: false });
-    sidebarModel.notifyListeners();
+    Contents: EmptyComponent$1,
   },
-  open: function open(Children) {
-    sidebarModel.state = Children ?
-      immutableMerge(sidebarModel.state, { isOpen: true, children: React__default.createElement( Children, null ) }) :
-      immutableMerge(sidebarModel.state, { isOpen: true });
-    sidebarModel.notifyListeners();
+  methods: {
+    close: function close() {
+      return { isOpen: false };
+    },
+    open: function open(Contents) {
+      return Contents ?
+        { isOpen: true, Contents: Contents } :
+        { isOpen: true };
+    },
+    toggle: function toggle(Contents) {
+      if (this.state.isOpen) {
+        this.close();
+      } else {
+        this.open(Contents);
+      }
+    },
   },
-  toggle: function toggle(Children) {
-    if (sidebarModel.state.isOpen) {
-      sidebarModel.close();
-    } else {
-      sidebarModel.open(Children);
-    }
-  },
-  subscribe: function subscribe(fn) {
-    if (sidebarModel.listeners.indexOf(fn) === -1) {
-      sidebarModel.listeners.push(fn);
-    }
-  },
-  unsubscribe: function unsubscribe(fn) {
-    var index = sidebarModel.listeners.indexOf(fn);
-    if (index === -1) { return; }
-    sidebarModel.listeners.splice(index, 1);
-  },
-  notifyListeners: function notifyListeners() {
-    sidebarModel.listeners.forEach(function (fn) { return fn(sidebarModel.state); });
-  },
-};
-
+});
 
 var sidebarIsInitialized = false;
+
 var Sidebar$1 = (function (Component$$1) {
-  function Sidebar() {
-    Component$$1.call(this);
-    this.state = sidebarModel.state;
-    this.update = this.update.bind(this);
+  function Sidebar () {
+    Component$$1.apply(this, arguments);
   }
 
   if ( Component$$1 ) Sidebar.__proto__ = Component$$1;
@@ -1255,26 +1476,21 @@ var Sidebar$1 = (function (Component$$1) {
 
   Sidebar.prototype.componentWillMount = function componentWillMount () {
     if (sidebarIsInitialized) {
-      console.warn('Sidebar has already been instantiated. There should only be one sidebar component mounted at any given time.');
+      throw Error('<Sidebar /> must be mounted only once');
     }
     sidebarIsInitialized = true;
-    sidebarModel.subscribe(this.update);
   };
-
   Sidebar.prototype.componentWillUnmount = function componentWillUnmount () {
     sidebarIsInitialized = false;
-    sidebarModel.unsubscribe(this.update);
   };
-
-  Sidebar.prototype.update = function update (state) {
-    this.setState(state);
-  };
-
   Sidebar.prototype.render = function render () {
+    var ref = this.props;
+    var isOpen = ref.isOpen;
+    var Contents = ref.Contents;
     return (
-      React__default.createElement( 'div', { className: ("sidebar c-sidebar bg-white shadow--gray " + (this.state.isOpen ? 'sidebar--open' : '')) },
+      React__default.createElement( 'div', { className: ("sidebar c-sidebar bg-white shadow--gray " + (isOpen ? 'sidebar--open' : '')) },
         React__default.createElement( 'a', { className: 'c-sidebar--close icon-circle icon-x-navy icon--xsmall', onClick: function () { return sidebarModel.close(); } }),
-        React__default.createElement( 'div', null, this.state.children )
+        React__default.createElement( 'div', null, React__default.createElement( Contents, null ) )
       )
     );
   };
@@ -1282,18 +1498,13 @@ var Sidebar$1 = (function (Component$$1) {
   return Sidebar;
 }(React.Component));
 
+
 Sidebar$1.propTypes = {
-  isOpen: PropTypes.bool,
+  isOpen: PropTypes.bool.isRequired,
+  Contents: PropTypes.func.isRequired,
 };
 
-Sidebar$1.defaultProps = {
-  isOpen: false,
-};
-
-Sidebar$1.close = sidebarModel.close;
-Sidebar$1.open = sidebarModel.open;
-Sidebar$1.toggle = sidebarModel.toggle;
-Sidebar$1.model = sidebarModel;
+var Sidebar$2 = connect$$1(sidebarModel, Sidebar$1);
 
 var MAX_TITLE_LENGTH = 50; // characters
 
@@ -1549,6 +1760,7 @@ Text$1.defaultProps = {
 var util = utilities;
 
 exports.util = util;
+exports.Avatar = Avatar$1;
 exports.Button = Button$1;
 exports.Carousel = Carousel$1;
 exports.Checkbox = Checkbox$1;
@@ -1556,9 +1768,12 @@ exports.Header = Header$1;
 exports.Icon = Icon$1;
 exports.Input = Input$1;
 exports.MediaSelect = MediaSelect;
+exports.Modal = Modal$2;
+exports.modalModel = modalModel;
 exports.RadioGroup = RadioGroup$1;
 exports.Select = Select;
-exports.Sidebar = Sidebar$1;
+exports.Sidebar = Sidebar$2;
+exports.sidebarModel = sidebarModel;
 exports.Slide = Slide$1;
 exports.Tag = Tag$1;
 exports.Text = Text$1;

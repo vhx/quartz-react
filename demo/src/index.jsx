@@ -4,6 +4,7 @@ import ReactDOM from 'react-dom';
 import { Nav } from './ui';
 import { Sidebar, Modal } from '../../index.js';
 
+import Avatars from './sections/Avatars.jsx';
 import Buttons from './sections/Buttons.jsx';
 import Carousels from './sections/Carousels.jsx';
 import Checkboxes from './sections/Checkboxes.jsx';
@@ -17,6 +18,7 @@ import Tags from './sections/Tags.jsx';
 import Text from './sections/TextDemo.jsx';
 
 const sections = {
+  Avatars,
   Buttons,
   Carousels,
   Checkboxes,

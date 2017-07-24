@@ -39,6 +39,10 @@
     "chai": "^4.0.2",
     "enzyme": "^2.8.2",
     "eslint": "^3.19.0",
+    "eslint-config-airbnb": "^15.0.2",
+    "eslint-plugin-import": "^2.7.0",
+    "eslint-plugin-jsx-a11y": "^6.0.2",
+    "eslint-plugin-react": "^7.1.0",
     "jsdom": "7.0.2",
     "mocha": "^3.4.2",
     "mocha-jsdom": "^1.1.0",
@@ -55,6 +59,7 @@
     "rollup-watch": "^3.2.2"
   },
   "dependencies": {
+    "bluebird": "^3.5.0",
     "classnames": "^2.2.5",
     "prop-types": "^15.5.10",
     "react": "^15.5.4",
