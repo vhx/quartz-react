@@ -59,6 +59,7 @@
     "rollup-watch": "^3.2.2"
   },
   "dependencies": {
+    "bluebird": "^3.5.0",
     "classnames": "^2.2.5",
     "prop-types": "^15.5.10",
     "react": "^15.5.4",

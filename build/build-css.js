@@ -1,7 +1,7 @@
 const fs = require('fs');
 const path = require('path');
 const crypto = require('crypto');
-const { promisify } = require('util');
+const { promisify } = require('bluebird');
 const version = require('../package.json').version;
 
 const readdir = promisify(fs.readdir);
