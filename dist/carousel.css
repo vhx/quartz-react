@@ -1,6 +1,6 @@
 /*
-  Quartz-react version: 0.0.1
-  Current file hash: 8132acd1934f424225855b6045b89081
+  Quartz-react version: 0.0.3
+  Current file hash: 064240763173612ae21da9cf52848651
 */
 
 .carousel {
@@ -90,6 +90,7 @@
   background: #fff;
   border: 0;
   borderRadius: 4px; /* 50% of height */
+  box-shadow: 0 1px 5px #000;
   height: 8px;
   margin: 0 4px;
   opacity: 0.5;
