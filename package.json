@@ -1,18 +1,20 @@
 {
-  "name": "quartz-react",
-  "version": "0.0.1",
+  "name": "@vhx/quartz-react",
+  "version": "0.0.3",
   "description": "React Components for VHX Quartz",
   "main": "dist/quartz-react.js",
   "scripts": {
     "build": "node build/build-css.js && rollup -c build/rollup.config.js",
     "dev": "rollup -c build/rollup.demo-config.js --watch",
+    "lint": "eslint components/** demo/src/** build/** index.js",
     "serve": "browser-sync start --server --serveStatic \"demo/public\" --files \"demo/public/js/bundle.js\" --no-open",
     "start": "npm-run-all --parallel dev serve",
-    "test": "mocha components/**/*.test.jsx --compilers js:babel-register"
+    "test": "nyc --extension .jsx --reporter=html --reporter=text-summary mocha components/**/*.test.jsx --compilers js:babel-register",
+    "test:nocover": "mocha components/**/*.test.jsx --compilers js:babel-register"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/sebastiansandqvist/quartz-react.git"
+    "url": "git+https://github.com/vhx/quartz-react.git"
   },
   "keywords": [
     "vhx",
@@ -26,7 +28,7 @@
   "bugs": {
     "url": "https://github.com/sebastiansandqvist/quartz-react/issues"
   },
-  "homepage": "https://github.com/sebastiansandqvist/quartz-react#readme",
+  "homepage": "https://github.com/vhx/quartz-react.git#readme",
   "devDependencies": {
     "@vhx/eslint-config-vhx": "0.0.1",
     "autoprefixer": "^7.1.1",
@@ -36,10 +38,16 @@
     "browser-sync": "^2.18.12",
     "chai": "^4.0.2",
     "enzyme": "^2.8.2",
+    "eslint": "^3.19.0",
+    "eslint-config-airbnb": "^15.0.2",
+    "eslint-plugin-import": "^2.7.0",
+    "eslint-plugin-jsx-a11y": "^6.0.2",
+    "eslint-plugin-react": "^7.1.0",
     "jsdom": "7.0.2",
     "mocha": "^3.4.2",
     "mocha-jsdom": "^1.1.0",
     "npm-run-all": "^4.0.2",
+    "nyc": "^11.0.3",
     "react-test-renderer": "^15.5.4",
     "rollup": "^0.42.0",
     "rollup-plugin-babel": "^2.7.1",
@@ -51,6 +59,7 @@
     "rollup-watch": "^3.2.2"
   },
   "dependencies": {
+    "bluebird": "^3.5.0",
     "classnames": "^2.2.5",
     "prop-types": "^15.5.10",
     "react": "^15.5.4",

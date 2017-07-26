@@ -35,12 +35,13 @@ const handler = (event) => alert('Hi!');
 const StatelessCheckboxSizes = () => (
   <div>
     <Subtitle>Sizes</Subtitle>
-    <Block><Checkbox uniqueId='c3' label='Foo' size='small' /></Block>
-    <Block><Checkbox uniqueId='c4' label='Bar' size='medium' /></Block>
-    <Block><Checkbox uniqueId='c5' label='Baz' size='large' /></Block>
-    <Block><Checkbox uniqueId='c6' label='Foo' size='small' checked /></Block>
-    <Block><Checkbox uniqueId='c7' label='Bar' size='medium' checked /></Block>
-    <Block><Checkbox uniqueId='c8' label='Baz' size='large' checked /></Block>
+    {/* readOnly prop only added to stop react warnings from polluting the console */}
+    <Block><Checkbox uniqueId='c3' label='Foo' size='small' readOnly /></Block>
+    <Block><Checkbox uniqueId='c4' label='Bar' size='medium' readOnly /></Block>
+    <Block><Checkbox uniqueId='c5' label='Baz' size='large' readOnly /></Block>
+    <Block><Checkbox uniqueId='c6' label='Foo' size='small' checked readOnly /></Block>
+    <Block><Checkbox uniqueId='c7' label='Bar' size='medium' checked readOnly /></Block>
+    <Block><Checkbox uniqueId='c8' label='Baz' size='large' checked readOnly /></Block>
   </div>
 );
 
@@ -60,8 +61,9 @@ const statelessCheckboxSizesCode = `
 const StatelessCheckboxToggles = () => (
   <div>
     <Subtitle>Toggles</Subtitle>
-    <Block><Checkbox uniqueId='c9' type='toggle' size='small' /></Block>
-    <Block><Checkbox uniqueId='c10' type='toggle' size='small' checked /></Block>
+    {/* readOnly prop only added to stop react warnings from polluting the console */}
+    <Block><Checkbox uniqueId='c9' type='toggle' size='small' readOnly /></Block>
+    <Block><Checkbox uniqueId='c10' type='toggle' size='small' checked readOnly /></Block>
   </div>
 );
 

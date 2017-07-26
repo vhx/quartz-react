@@ -2,17 +2,34 @@
 
 ## Installation
 
-For now, clone the repo and run:
-
 ```bash
-npm install
+npm install @vhx/quartz-react
 ```
+
+
+## Usage
+
+First include `quartz.css` and the css files from `dist/` for any components you intend to use.
+
+Then import the components:
+```jsx
+import { Button, Tag, util } from '@vhx/quartz-react';
+
+const MyComponent = () => (
+  <div>
+    <Button>Hello</Button>
+  </div>
+);
+```
+
+For demos and code examples, run `npm start` and open up `localhost:3000` in your browser.
 
 
 ## NPM Scripts
 
 - **`npm start`**: This is the main script you'll use while developing components for quartz-react. It starts a local server to display the demo ui with live reloading and runs the build process.
 - **`npm run build`**: Run this before any release. It transpiles the source code and puts the output in `dist/`.
+- **`npm run lint`**: This script ensures that the component code passes eslint. Run this before making a PR.
 - **`npm test`**: This script runs the tests for all the components and utilities in a jsdom environment.
 - **`npm run dev` and `npm run serve`**: Together, these two scripts form the start script. `dev` transpiles and watches the source code for changes and `serve` creates a local server to display the demos.
 

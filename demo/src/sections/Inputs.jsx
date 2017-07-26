@@ -16,13 +16,13 @@ import {
 const InputDemo = () => (
   <div>
     <Subtitle>Default input</Subtitle>
-    <Block><Input value='A normal input' /></Block>
-    <Block><Input value='' placeholder='An input with a placeholder' /></Block>
-    <Block><Input value='A disabled input' disabled /></Block>
-    <Block><Input value='An input with an error' error /></Block>
-    <Block><Input value='A small input' small /></Block>
-    <Block><Input value='A search input' search /></Block>
-    <Block><Input value='A password input' type='password' /></Block>
+    <Block><Input value='A normal input' readOnly /></Block>
+    <Block><Input value='' placeholder='An input with a placeholder' readOnly /></Block>
+    <Block><Input value='A disabled input' disabled readOnly /></Block>
+    <Block><Input value='An input with an error' error readOnly /></Block>
+    <Block><Input value='A small input' small readOnly /></Block>
+    <Block><Input value='A search input' search readOnly /></Block>
+    <Block><Input value='A password input' type='password' readOnly /></Block>
   </div>
 );
 
@@ -49,6 +49,7 @@ const InputLabel = () => (
       id='password123'
       type='password'
       value='1234'
+      readOnly
     />
   </div>
 );

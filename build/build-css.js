@@ -1,7 +1,7 @@
 const fs = require('fs');
 const path = require('path');
 const crypto = require('crypto');
-const { promisify } = require('util');
+const { promisify } = require('bluebird');
 const version = require('../package.json').version;
 
 const readdir = promisify(fs.readdir);
@@ -31,7 +31,7 @@ async function main() {
 
   const cssWritePromises = cssFiles.map((file, i) => writeFile(path.resolve(rootDir, 'dist', file), cssContentsWithComment[i]));
   await Promise.all(cssWritePromises);
-  console.log('CSS build success');
+  console.log('CSS build success'); // eslint-disable-line no-console
 }
 
 main();

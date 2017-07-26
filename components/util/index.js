@@ -6,6 +6,7 @@
 */
 export { default as If } from './If.jsx';
 
+export { Model, connect } from './model.js';
 
 /*
 truncate('foo-bar-baz', 4);
@@ -89,7 +90,7 @@ MyComponent.propTypes = {
 export function typoPropType({ correct }) {
   return function typoPropTypeCheck(props, propName, componentName) {
     if (props[propName]) {
-      console.warn(`You passed the prop \`${propName}\`, which is not supported, to the component \`${componentName}\`. Did you mean to pass \`${correct}\` instead?`);
+      console.warn(`You passed the prop \`${propName}\`, which is not supported, to the component \`${componentName}\`. Did you mean to pass \`${correct}\` instead?`); // eslint-disable-line no-console
       return false;
     }
   };

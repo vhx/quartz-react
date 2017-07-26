@@ -1,62 +1,80 @@
 import jsdom from 'mocha-jsdom';
 import React from 'react';
-import { shallow } from 'enzyme';
+import { mount, shallow } from 'enzyme';
 import { expect } from 'chai';
 import Sidebar from './Sidebar.jsx';
+import sidebarModel from './sidebarModel';
 
 describe('Sidebar', () => {
   jsdom();
 
-  afterEach(() => {
-    Sidebar.close();
-  });
+  describe('Component', () => {
+    afterEach(() => {
+      sidebarModel.close();
+    });
 
-  it('Renders', () => {
+    // shared wrapper, since sidebar can only be instantiated once
     const wrapper = shallow(<Sidebar />);
-    expect(wrapper.exists()).to.equal(true);
+
+    it('Renders', () => {
+      expect(wrapper.exists()).to.equal(true);
+    });
+
+    it('Defaults to closed state', () => {
+      expect(wrapper.props().isOpen).to.equal(false);
+    });
+
+    it('Can be opened / closed / toggled', () => {
+      expect(wrapper.props().isOpen).to.equal(false);
+
+      // open:
+      const Children = () => <div />;
+      sidebarModel.open(Children);
+      expect(wrapper.props().isOpen).to.equal(true);
+
+      // close:
+      sidebarModel.close();
+      expect(wrapper.props().isOpen).to.equal(false);
+
+      // toggle:
+      sidebarModel.toggle(Children);
+      expect(wrapper.props().isOpen).to.equal(true);
+      sidebarModel.toggle(Children);
+      expect(wrapper.props().isOpen).to.equal(false);
+      sidebarModel.toggle(Children);
+      expect(wrapper.props().isOpen).to.equal(true);
+      sidebarModel.toggle(Children);
+      expect(wrapper.props().isOpen).to.equal(false);
+    });
+
+    it('Can reopen last opened sidebar', () => {
+      const Children = () => <div>hi</div>;
+      sidebarModel.open(Children);
+      sidebarModel.close();
+      sidebarModel.open();
+      expect(wrapper.html()).to.include('<div>hi</div>');
+    });
   });
 
-  it('Defaults to closed state', () => {
-    const wrapper = shallow(<Sidebar />);
-    expect(wrapper.state().isOpen).to.equal(false);
-  });
+  describe('Model', () => {
+    afterEach(() => {
+      sidebarModel.close();
+    });
 
-  it('Can be opened / closed / toggled', () => {
-    const wrapper = shallow(<Sidebar />);
-    expect(wrapper.state().isOpen).to.equal(false);
-
-    // open:
-    const Children = () => <div />;
-    Sidebar.open(Children);
-    expect(wrapper.state().isOpen).to.equal(true);
-
-    // close:
-    Sidebar.close();
-    expect(wrapper.state().isOpen).to.equal(false);
-
-    // toggle:
-    Sidebar.toggle(Children);
-    expect(wrapper.state().isOpen).to.equal(true);
-    Sidebar.toggle(Children);
-    expect(wrapper.state().isOpen).to.equal(false);
-    Sidebar.toggle(Children);
-    expect(wrapper.state().isOpen).to.equal(true);
-  });
-
-  describe('Sidebar model', () => {
     it('Is possible to access current state', () => {
       const Children = () => <div />;
-      expect(Sidebar.model.state.isOpen).to.equal(false);
-      Sidebar.toggle(Children);
-      expect(Sidebar.model.state.isOpen).to.equal(true);
-      Sidebar.toggle(Children);
-      expect(Sidebar.model.state.isOpen).to.equal(false);
+      expect(sidebarModel.state.isOpen).to.equal(false);
+      sidebarModel.toggle(Children);
+      expect(sidebarModel.state.isOpen).to.equal(true);
+      sidebarModel.toggle(Children);
+      expect(sidebarModel.state.isOpen).to.equal(false);
+      sidebarModel.close();
     });
 
     it('Cannot directly manipulate state', () => {
-      expect(Sidebar.model.state.isOpen).to.equal(false);
+      expect(sidebarModel.state.isOpen).to.equal(false);
       expect(() => {
-        Sidebar.model.state.isOpen = true;
+        sidebarModel.state.isOpen = true;
       }).to.throw();
     });
 
@@ -67,12 +85,13 @@ describe('Sidebar', () => {
         expect(typeof state.isOpen).to.equal('boolean');
         callCount++;
       }
-      Sidebar.model.subscribe(onUpdate);
-      Sidebar.open(Children);
-      Sidebar.close();
-      Sidebar.toggle(Children);
+      sidebarModel.subscribe(onUpdate);
+      sidebarModel.open(Children);
+      sidebarModel.close();
+      sidebarModel.toggle(Children);
       expect(callCount).to.equal(3);
-      Sidebar.model.unsubscribe(onUpdate);
+      sidebarModel.unsubscribe(onUpdate);
+      sidebarModel.close();
     });
 
     it('Can unsubscribe from changes', () => {
@@ -82,19 +101,20 @@ describe('Sidebar', () => {
         expect(typeof state.isOpen).to.equal('boolean');
         callCount++;
       }
-      Sidebar.model.subscribe(onUpdate);
-      Sidebar.open(Children);
-      Sidebar.close();
-      Sidebar.toggle(Children);
+      sidebarModel.subscribe(onUpdate);
+      sidebarModel.open(Children);
+      sidebarModel.close();
+      sidebarModel.toggle(Children);
       expect(callCount).to.equal(3);
-      Sidebar.model.unsubscribe(onUpdate);
-      Sidebar.close();
-      Sidebar.close();
-      Sidebar.close();
-      Sidebar.close();
-      Sidebar.close();
-      Sidebar.close();
+      sidebarModel.unsubscribe(onUpdate);
+      sidebarModel.close();
+      sidebarModel.close();
+      sidebarModel.close();
+      sidebarModel.close();
+      sidebarModel.close();
+      sidebarModel.close();
       expect(callCount).to.equal(3);
+      sidebarModel.close();
     });
   });
 });

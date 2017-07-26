@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import Icon from '../Icon';
 import { If, getAspectRatioHeight } from '../util';
+import { KEY_CODES } from '../util/constants';
 
 
 // calcNext(3, 0) => 1
@@ -76,10 +77,9 @@ class Carousel extends Component {
 
   keyboardNavigate(event) {
     if (this.state.isAnimating || this.props.slides.length <= 1) { return; }
-    const [ LEFT, RIGHT ] = [ 37, 39 ];
     const key = event.keyCode || event.which;
-    if (key === LEFT) { this.prev(); }
-    if (key === RIGHT) { this.next(); }
+    if (key === KEY_CODES.LEFT) { this.prev(); }
+    if (key === KEY_CODES.RIGHT) { this.next(); }
   }
 
   goToSlide(i, overrideDirection = '') {

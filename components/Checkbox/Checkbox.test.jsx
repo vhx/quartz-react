@@ -29,6 +29,11 @@ describe('Checkbox', () => {
     expect(wrapper.exists()).to.equal(true);
   });
 
+  it('Renders a toggle checkbox', () => {
+    const wrapper = mount(<Checkbox uniqueId='checkbox1' type='toggle' />);
+    expect(wrapper.exists()).to.equal(true);
+  });
+
   it('Defaults to unchecked', () => {
     const wrapper = mount(<Checkbox uniqueId='checkbox2' />);
     expect(wrapper.prop('checked')).to.equal(false);
@@ -41,5 +46,10 @@ describe('Checkbox', () => {
     expect(wrapper.find('input').node.checked).to.equal(false);
     wrapper.find('input').simulate('change');
     expect(wrapper.find('input').node.checked).to.equal(true);
+  });
+
+  it('Accepts arbitrary HTML attributes', () => {
+    const wrapper = mount(<Checkbox uniqueId='checkbox4' dir='rtl' />);
+    expect(wrapper.find('input').node.getAttribute('dir')).to.equal('rtl');
   });
 });
