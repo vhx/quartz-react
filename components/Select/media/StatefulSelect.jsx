@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import Select from './Select.jsx';
+import MediaSelect from './Select.jsx';
 
-export default class StatefulSelect extends Component {
+export default class StatefulMediaSelect extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -26,7 +26,7 @@ export default class StatefulSelect extends Component {
 
   render() {
     return (
-      <Select
+      <MediaSelect
         {...this.props}
         isOpen={this.state.isOpen}
         selectedOptions={this.state.selectedOptions}
@@ -39,13 +39,13 @@ export default class StatefulSelect extends Component {
 }
 
 
-StatefulSelect.propTypes = {
+StatefulMediaSelect.propTypes = {
   isOpen: PropTypes.bool,
   onOpenToggle: PropTypes.func,
   onSelectionToggle: PropTypes.func,
 };
 
-StatefulSelect.defaultProps = {
+StatefulMediaSelect.defaultProps = {
   isOpen: false,
   onOpenToggle: () => {},
   onSelectionToggle: () => {},

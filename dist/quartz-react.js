@@ -759,339 +759,6 @@ Input$1.defaultProps = {
   type: 'text',
 };
 
-var If$2 = If;
-
-var VERTICAL_OFFSET = 10;
-
-
-function manualOffsetV(shouldReposition, offset) {
-  return function (el) {
-    if (el && shouldReposition) {
-      el.style.top = "-" + (el.offsetHeight + offset) + "px"; // eslint-disable-line no-param-reassign
-    }
-  };
-}
-
-/*
-Given selectedOptions like: { foo: true, bar: false, baz: false }
-and given an optionsList like: [{ uniqueId: 'foo', label: 'Item 1'}, { uniqueId: 'bar', label: 'Item 2' }, { uniqueId: 'baz', label: 'Item 3'}]
-=> 'Item 1' // returns the label of the selected option
-*/
-function generateLabel(selectedOptions, optionsList) {
-  var selectedKeys = Object.keys(selectedOptions).filter(function (key) { return Boolean(selectedOptions[key]); });
-  if (selectedKeys.length === 0) { return ''; }
-  if (selectedKeys.length === 1) {
-    var selectedItemKey = selectedKeys[0];
-    var selectedItem = optionsList.filter(function (option) { return option.uniqueId === selectedItemKey; })[0];
-    return selectedItem.label;
-  }
-  return 'Multiple items selected';
-}
-
-function SelectDropdownHOC(ref) {
-  var Option = ref.Option;
-
-  var SelectDropdown = function (ref) {
-    var dropdownPosition = ref.dropdownPosition;
-    var isLoading = ref.isLoading;
-    var maxLabelLength = ref.maxLabelLength;
-    var multiSelect$$1 = ref.multiSelect;
-    var onOpenToggle = ref.onOpenToggle;
-    var onSelectionToggle = ref.onSelectionToggle;
-    var options = ref.options;
-    var processingOptions = ref.processingOptions;
-    var search = ref.search;
-    var searchValue = ref.searchValue;
-    var selectedOptions = ref.selectedOptions;
-
-    // If the `multiSelect` prop is available, toggle by way of `util.multiSelect`. No need to hide the dropdown.
-    // If it is not, toggle by way of `util.select` and hide the dropdown
-    var chooseOption = multiSelect$$1 ? multiSelect : function (_options, id) {
-      onOpenToggle(false); // this hides the dropdown
-      return select(selectedOptions, id);
-    };
-
-    var generateOption = function (item) {
-      var onToggle = function (id) {
-        var newSelection = chooseOption(selectedOptions, id);
-        var label = generateLabel(newSelection, options);
-        var noItemsWereSelected = label === '';
-        if (noItemsWereSelected && !multiSelect$$1) {
-          onOpenToggle(false);
-          return;
-        }
-        onSelectionToggle(newSelection, label, item, newSelection[item.uniqueId]);
-      };
-      return (
-        React__default.createElement( Option, Object.assign({},
-          { key: item.uniqueId, isProcessingItem: processingOptions.indexOf(item.uniqueId) !== -1, maxLabelLength: maxLabelLength, multiSelect: multiSelect$$1, onOptionToggle: onToggle, isLoading: isLoading, isSelected: Boolean(selectedOptions[item.uniqueId]) }, item))
-      );
-    };
-
-    return (
-      React__default.createElement( 'div', { className: 'c-select--dropdown bg-white border radius fill-width is-open', ref: manualOffsetV(dropdownPosition === 'above', VERTICAL_OFFSET) },
-        React__default.createElement( If$2, { condition: Boolean(search) },
-          React__default.createElement( 'div', { className: 'c-select--input-container padding-medium absolute bg-white fill-width radius' },
-            React__default.createElement( Input$1, { placeholder: 'Search', onInput: function (event) { return search(event.target.value); }, value: searchValue, autoFocus: true, search: true })
-          )
-        ),
-        React__default.createElement( 'ul', { className: ("c-select--options margin-left-reset loader-slate loader--transparent " + (isLoading ? 'is-loading' : '')) },
-          React__default.createElement( If$2, { condition: options.length === 0 },
-            React__default.createElement( 'li', { className: 'padding-horz-large padding-top-small padding-bottom-medium text--gray text-center' })
-          ),
-          React__default.createElement( 'div', null,
-            options.map(generateOption)
-          )
-        )
-      )
-    );
-  };
-
-  SelectDropdown.propTypes = {
-    dropdownPosition: PropTypes.oneOf([ 'above', 'below' ]).isRequired,
-    isLoading: PropTypes.bool,
-    maxLabelLength: PropTypes.number.isRequired, // only currently used in MediaSelect, but there's no reason not to allow it in standard Select as well
-    multiSelect: PropTypes.bool.isRequired,
-    multiselect: typoPropType({ correct: 'multiSelect' }), // eslint-disable-line react/require-default-props, react/no-unused-prop-types
-    onOpenToggle: PropTypes.func.isRequired,
-    onSelectionToggle: PropTypes.func.isRequired,
-    options: PropTypes.arrayOf(PropTypes.shape({
-      description: PropTypes.string,
-      label: PropTypes.string.isRequired,
-      uniqueId: PropTypes.string.isRequired,
-    })).isRequired,
-    processingOptions: PropTypes.arrayOf(PropTypes.string).isRequired,
-    selectedOptions: PropTypes.objectOf(PropTypes.bool).isRequired,
-    search: PropTypes.func,
-    searchValue: PropTypes.string,
-  };
-
-  SelectDropdown.defaultProps = {
-    isLoading: false,
-    search: null,
-    searchValue: '',
-  };
-
-  return SelectDropdown;
-}
-
-var imgStyle = function (url) { return ({
-  backgroundImage: ("url(" + url + ")"),
-  height: '40px',
-  width: '70px',
-}); };
-
-function getButton(isProcessing, isSelected) {
-  if (isProcessing) {
-    return React__default.createElement( 'div', { className: 'c-item-toggle loader-white loader--small' });
-  }
-  if (isSelected) {
-    return React__default.createElement( 'div', { className: 'c-item-toggle icon-check-navy icon--xsmall border is-selected' });
-  }
-  return React__default.createElement( 'div', { className: 'c-item-toggle icon-plus-thin-white icon--xsmall border' });
-}
-
-var MediaSelectDropdownOption = function (ref) {
-  var description = ref.description;
-  var imageUrl = ref.imageUrl;
-  var isLoading = ref.isLoading;
-  var isProcessingItem = ref.isProcessingItem;
-  var isSelected = ref.isSelected;
-  var label = ref.label;
-  var maxLabelLength = ref.maxLabelLength;
-  var multiSelect$$1 = ref.multiSelect;
-  var onOptionToggle = ref.onOptionToggle;
-  var uniqueId = ref.uniqueId;
-
-  return (
-  React__default.createElement( 'li', { className: ("c-media-item--container padding-horz-medium padding-vert-small clearfix " + (isSelected ? 'is-selected' : '')), onClick: function () { return !isLoading && onOptionToggle(uniqueId); } },
-    React__default.createElement( 'div', { className: 'c-media-item--image-container left' },
-      React__default.createElement( 'div', { className: 'c-media-item--image radius margin-right-medium img', style: imgStyle(imageUrl) })
-    ),
-    React__default.createElement( 'div', { className: 'c-media-item--image-content clearfix left' },
-      React__default.createElement( 'p', { className: 'text--navy line-medium truncate block' }, truncate(label, maxLabelLength)),
-      React__default.createElement( 'p', { className: 'text--gray line-medium truncate block' }, description)
-    ),
-    React__default.createElement( If, { condition: multiSelect$$1 },
-      React__default.createElement( 'div', { className: 'c-media-item--action clearfix right' },
-        getButton(isProcessingItem, isSelected)
-      )
-    )
-  )
-);
-};
-
-MediaSelectDropdownOption.propTypes = {
-  description: PropTypes.string,
-  imageUrl: PropTypes.string.isRequired,
-  isLoading: PropTypes.bool.isRequired,
-  isProcessingItem: PropTypes.bool,
-  isSelected: PropTypes.bool.isRequired,
-  label: PropTypes.string.isRequired,
-  maxLabelLength: PropTypes.number.isRequired,
-  multiSelect: PropTypes.bool.isRequired,
-  onOptionToggle: PropTypes.func.isRequired,
-  uniqueId: PropTypes.string.isRequired,
-};
-
-MediaSelectDropdownOption.defaultProps = {
-  description: '',
-  isProcessingItem: false,
-};
-
-var MediaSelectDropdown = SelectDropdownHOC({ Option: MediaSelectDropdownOption });
-
-function getTriggerClass(ref) {
-  var color = ref.color;
-
-  return classNames({
-    truncate: true,
-    'btn--fill': true,
-    'btn-dropdown-gray':  color === 'gray',
-    'btn-dropdown-white': color === 'white',
-    'btn-dropdown-teal':  color === 'teal',
-    'c-select--trigger': true,
-  });
-}
-
-var Trigger = function (ref) {
-  var color = ref.color;
-  var isOpen = ref.isOpen;
-  var onOpenToggle = ref.onOpenToggle;
-  var triggerLabel = ref.triggerLabel;
-  var triggerPlaceholder = ref.triggerPlaceholder;
-
-  return (
-  React__default.createElement( 'span', { className: getTriggerClass({ color: color }), onClick: function () { return onOpenToggle(!isOpen); } }, triggerLabel || triggerPlaceholder)
-);
-};
-
-Trigger.propTypes = {
-  color: PropTypes.oneOf([ 'gray', 'white', 'teal' ]).isRequired,
-  isOpen: PropTypes.bool.isRequired,
-  onOpenToggle: PropTypes.func.isRequired,
-  triggerLabel: PropTypes.string.isRequired,
-  triggerPlaceholder: PropTypes.string.isRequired,
-};
-
-/* eslint-disable react/no-unused-prop-types */
-
-function getClass$1(props, type) {
-  var caretAlign = props.caretAlign;
-  var dropdownPosition = props.dropdownPosition;
-  var inline = props.inline;
-  var search = props.search;
-  return classNames({
-    inline: inline,
-    form: true,
-    relative: true,
-    'c-select--container': true,
-    'has-search': Boolean(search),
-    'has-media': type === 'media',
-    'caret--top-right':     dropdownPosition === 'below' && caretAlign === 'right',
-    'caret--top-left':      dropdownPosition === 'below' && caretAlign === 'left',
-    'caret--top-center':    dropdownPosition === 'below' && caretAlign === 'center',
-    'caret--bottom-right':  dropdownPosition === 'above' && caretAlign === 'right',
-    'caret--bottom-left':   dropdownPosition === 'above' && caretAlign === 'left',
-    'caret--bottom-center': dropdownPosition === 'above' && caretAlign === 'center',
-  });
-}
-
-function SelectHOC(ref) {
-  var Dropdown = ref.Dropdown;
-  var type = ref.type;
-
-  var Select = (function (Component$$1) {
-    function Select(props) {
-      Component$$1.call(this, props);
-      this.element = null;
-      this.handleGlobalClick = this.handleGlobalClick.bind(this);
-    }
-
-    if ( Component$$1 ) Select.__proto__ = Component$$1;
-    Select.prototype = Object.create( Component$$1 && Component$$1.prototype );
-    Select.prototype.constructor = Select;
-
-    Select.prototype.componentWillMount = function componentWillMount () {
-      document.addEventListener('click', this.handleGlobalClick);
-    };
-
-    Select.prototype.componentWillUnmount = function componentWillUnmount () {
-      document.removeEventListener('click', this.handleGlobalClick);
-    };
-
-    // If user clicks anywhere but the <Select>, then close it.
-    Select.prototype.handleGlobalClick = function handleGlobalClick (event) {
-      if (!this.element) { return; }
-      if (event.target !== this.element && !this.element.contains(event.target)) {
-        this.props.onOpenToggle(false);
-      }
-    };
-
-    Select.prototype.render = function render () {
-      var this$1 = this;
-
-      var Trigger$$1 = this.props.Trigger || Trigger;
-      return (
-        React__default.createElement( 'div', { className: getClass$1(this.props, type), ref: (function (el) { this$1.element = el; }) },
-          React__default.createElement( Trigger$$1, this.props),
-          React__default.createElement( If, { condition: this.props.isOpen },
-            React__default.createElement( Dropdown, this.props)
-          )
-        )
-      );
-    };
-
-    return Select;
-  }(React.Component));
-
-  Select.propTypes = {
-    caretAlign: PropTypes.oneOf([ 'left', 'center', 'right' ]),
-    color: PropTypes.oneOf([ 'gray', 'white', 'teal' ]),
-    dropdownPosition: PropTypes.oneOf([ 'above', 'below' ]),
-    inline: PropTypes.bool,
-    isOpen: PropTypes.bool,
-    maxLabelLength: PropTypes.number,
-    multiSelect: PropTypes.bool,
-    onOpenToggle: PropTypes.func.isRequired,
-    onSelectionToggle: PropTypes.func.isRequired,
-    options: PropTypes.arrayOf(PropTypes.shape({
-      // NOTE: any additional keys are also allowed, so you can store as much data in the `option` as you would like
-      label: PropTypes.string.isRequired,
-      uniqueId: PropTypes.string.isRequired,
-      description: PropTypes.string,
-    })).isRequired,
-    processingOptions: PropTypes.arrayOf(PropTypes.string),
-    selectedOptions: PropTypes.objectOf(PropTypes.bool).isRequired,
-    search: PropTypes.func,
-    Trigger: PropTypes.func, // this allows passing in a custom Trigger as prop, so it's not necessary to import the HOC
-    triggerLabel: PropTypes.string,
-    triggerPlaceholder: PropTypes.string,
-  };
-
-  Select.defaultProps = {
-    caretAlign: 'right',
-    color: 'gray',
-    dropdownPosition: 'below',
-    inline: false,
-    isOpen: false,
-    maxLabelLength: Infinity,
-    multiSelect: false,
-    processingOptions: [],
-    search: null,
-    Trigger: null,
-    triggerLabel: '',
-    triggerPlaceholder: 'Select an option',
-  };
-
-  return Select;
-}
-
-var MediaSelect = SelectHOC({
-  Dropdown: MediaSelectDropdown,
-  type: 'media',
-});
-
 var EmptyComponent = function () { return React__default.createElement( 'div', null ); };
 
 var modalModel = Model$$1({
@@ -1393,49 +1060,6 @@ RadioGroup$1.defaultProps = {
   stacked: false,
 };
 
-// TODO: this is a hack, we should have this in css if possible to make a PR to Quartz css
-// (This fixes wrapping issues in `inline` select dropdowns)
-var listStyle = { whiteSpace: 'nowrap' };
-
-var SelectDropdownOption$1 = function (ref) {
-  var description = ref.description;
-  var isLoading = ref.isLoading;
-  var isSelected = ref.isSelected;
-  var label = ref.label;
-  var onOptionToggle = ref.onOptionToggle;
-  var uniqueId = ref.uniqueId;
-
-  return (
-  React__default.createElement( 'li', { className: ("c-select--option padding-horz-medium " + (isSelected ? 'is-selected' : '')), onClick: function () { return !isLoading && onOptionToggle(uniqueId); }, style: listStyle },
-    React__default.createElement( If, { condition: isSelected },
-      React__default.createElement( Icon$1, { name: 'check', color: 'navy', size: 'xsmall', className: 'right margin-top-xsmall margin-left-small' })
-    ),
-    React__default.createElement( 'span', { className: 'c-select--item-label text--navy' }, label),
-    React__default.createElement( 'span', { className: 'right text--gray' }, description)
-  )
-);
-};
-
-SelectDropdownOption$1.propTypes = {
-  description: PropTypes.string,
-  isLoading: PropTypes.bool.isRequired,
-  isSelected: PropTypes.bool.isRequired,
-  label: PropTypes.string.isRequired,
-  onOptionToggle: PropTypes.func.isRequired,
-  uniqueId: PropTypes.string.isRequired,
-};
-
-SelectDropdownOption$1.defaultProps = {
-  description: '',
-};
-
-var SelectDropdown$1 = SelectDropdownHOC({ Option: SelectDropdownOption$1 });
-
-var Select = SelectHOC({
-  Dropdown: SelectDropdown$1,
-  type: 'standard', // NOTE: 'standard' isn't used anywhere, just specifying that it's not 'media'
-});
-
 var EmptyComponent$1 = function () { return React__default.createElement( 'span', null ); };
 
 // this would go in its own file, so it could imported and used anywhere
@@ -1612,7 +1236,7 @@ Slide$1.defaultProps = {
   trailer: null,
 };
 
-function getClass$2(isHover) {
+function getClass$1(isHover) {
   return classNames({
     inline: true,
     relative: true,
@@ -1684,7 +1308,7 @@ var Tag$1 = (function (Component$$1) {
     var setHover = ref$2.setHover;
     var setRemoveHover = ref$2.setRemoveHover;
     return (
-      React__default.createElement( 'span', { className: getClass$2(isHover), onMouseOver: setHover(true), onMouseOut: setHover(false) },
+      React__default.createElement( 'span', { className: getClass$1(isHover), onMouseOver: setHover(true), onMouseOut: setHover(false) },
         React__default.createElement( 'button', { className: getButtonClass(isHover, isProcessing), onClick: onClick },
           truncate(label, maxLength)
         ),
@@ -1757,6 +1381,478 @@ Text$1.defaultProps = {
   color: 'navy',
 };
 
+var If$2 = If;
+
+var VERTICAL_OFFSET = 10;
+
+
+function manualOffsetV(shouldReposition, offset) {
+  return function (el) {
+    if (el && shouldReposition) {
+      el.style.top = "-" + (el.offsetHeight + offset) + "px"; // eslint-disable-line no-param-reassign
+    }
+  };
+}
+
+/*
+Given selectedOptions like: { foo: true, bar: false, baz: false }
+and given an optionsList like: [{ uniqueId: 'foo', label: 'Item 1'}, { uniqueId: 'bar', label: 'Item 2' }, { uniqueId: 'baz', label: 'Item 3'}]
+=> 'Item 1' // returns the label of the selected option
+*/
+function generateLabel(selectedOptions, optionsList) {
+  var selectedKeys = Object.keys(selectedOptions).filter(function (key) { return Boolean(selectedOptions[key]); });
+  if (selectedKeys.length === 0) { return ''; }
+  if (selectedKeys.length === 1) {
+    var selectedItemKey = selectedKeys[0];
+    var selectedItem = optionsList.filter(function (option) { return option.uniqueId === selectedItemKey; })[0];
+    return selectedItem.label;
+  }
+  return 'Multiple items selected';
+}
+
+function SelectDropdownHOC(ref) {
+  var Option = ref.Option;
+
+  var SelectDropdown = function (ref) {
+    var dropdownPosition = ref.dropdownPosition;
+    var isLoading = ref.isLoading;
+    var maxLabelLength = ref.maxLabelLength;
+    var multiSelect$$1 = ref.multiSelect;
+    var onOpenToggle = ref.onOpenToggle;
+    var onSelectionToggle = ref.onSelectionToggle;
+    var options = ref.options;
+    var processingOptions = ref.processingOptions;
+    var search = ref.search;
+    var searchValue = ref.searchValue;
+    var selectedOptions = ref.selectedOptions;
+
+    // If the `multiSelect` prop is available, toggle by way of `util.multiSelect`. No need to hide the dropdown.
+    // If it is not, toggle by way of `util.select` and hide the dropdown
+    var chooseOption = multiSelect$$1 ? multiSelect : function (_options, id) {
+      onOpenToggle(false); // this hides the dropdown
+      return select(selectedOptions, id);
+    };
+
+    var generateOption = function (item) {
+      var onToggle = function (id) {
+        var newSelection = chooseOption(selectedOptions, id);
+        var label = generateLabel(newSelection, options);
+        var noItemsWereSelected = label === '';
+        if (noItemsWereSelected && !multiSelect$$1) {
+          onOpenToggle(false);
+          return;
+        }
+        onSelectionToggle(newSelection, label, item, newSelection[item.uniqueId]);
+      };
+      return (
+        React__default.createElement( Option, Object.assign({},
+          { key: item.uniqueId, isProcessingItem: processingOptions.indexOf(item.uniqueId) !== -1, maxLabelLength: maxLabelLength, multiSelect: multiSelect$$1, onOptionToggle: onToggle, isLoading: isLoading, isSelected: Boolean(selectedOptions[item.uniqueId]) }, item))
+      );
+    };
+
+    return (
+      React__default.createElement( 'div', { className: 'c-select--dropdown bg-white border radius fill-width is-open', ref: manualOffsetV(dropdownPosition === 'above', VERTICAL_OFFSET) },
+        React__default.createElement( If$2, { condition: Boolean(search) },
+          React__default.createElement( 'div', { className: 'c-select--input-container padding-medium absolute bg-white fill-width radius' },
+            React__default.createElement( Input$1, { placeholder: 'Search', onInput: function (event) { return search(event.target.value); }, value: searchValue, autoFocus: true, search: true })
+          )
+        ),
+        React__default.createElement( 'ul', { className: ("c-select--options margin-left-reset loader-slate loader--transparent " + (isLoading ? 'is-loading' : '')) },
+          React__default.createElement( If$2, { condition: options.length === 0 },
+            React__default.createElement( 'li', { className: 'padding-horz-large padding-top-small padding-bottom-medium text--gray text-center' })
+          ),
+          React__default.createElement( 'div', null,
+            options.map(generateOption)
+          )
+        )
+      )
+    );
+  };
+
+  SelectDropdown.propTypes = {
+    dropdownPosition: PropTypes.oneOf([ 'above', 'below' ]).isRequired,
+    isLoading: PropTypes.bool,
+    maxLabelLength: PropTypes.number.isRequired, // only currently used in MediaSelect, but there's no reason not to allow it in standard Select as well
+    multiSelect: PropTypes.bool.isRequired,
+    multiselect: typoPropType({ correct: 'multiSelect' }), // eslint-disable-line react/require-default-props, react/no-unused-prop-types
+    onOpenToggle: PropTypes.func.isRequired,
+    onSelectionToggle: PropTypes.func.isRequired,
+    options: PropTypes.arrayOf(PropTypes.shape({
+      description: PropTypes.string,
+      label: PropTypes.string.isRequired,
+      uniqueId: PropTypes.string.isRequired,
+    })).isRequired,
+    processingOptions: PropTypes.arrayOf(PropTypes.string).isRequired,
+    selectedOptions: PropTypes.objectOf(PropTypes.bool).isRequired,
+    search: PropTypes.func,
+    searchValue: PropTypes.string,
+  };
+
+  SelectDropdown.defaultProps = {
+    isLoading: false,
+    search: null,
+    searchValue: '',
+  };
+
+  return SelectDropdown;
+}
+
+// TODO: this is a hack, we should have this in css if possible to make a PR to Quartz css
+// (This fixes wrapping issues in `inline` select dropdowns)
+var listStyle = { whiteSpace: 'nowrap' };
+
+var SelectDropdownOption = function (ref) {
+  var description = ref.description;
+  var isLoading = ref.isLoading;
+  var isSelected = ref.isSelected;
+  var label = ref.label;
+  var onOptionToggle = ref.onOptionToggle;
+  var uniqueId = ref.uniqueId;
+
+  return (
+  React__default.createElement( 'li', { className: ("c-select--option padding-horz-medium " + (isSelected ? 'is-selected' : '')), onClick: function () { return !isLoading && onOptionToggle(uniqueId); }, style: listStyle },
+    React__default.createElement( If, { condition: isSelected },
+      React__default.createElement( Icon$1, { name: 'check', color: 'navy', size: 'xsmall', className: 'right margin-top-xsmall margin-left-small' })
+    ),
+    React__default.createElement( 'span', { className: 'c-select--item-label text--navy' }, label),
+    React__default.createElement( 'span', { className: 'right text--gray' }, description)
+  )
+);
+};
+
+SelectDropdownOption.propTypes = {
+  description: PropTypes.string,
+  isLoading: PropTypes.bool.isRequired,
+  isSelected: PropTypes.bool.isRequired,
+  label: PropTypes.string.isRequired,
+  onOptionToggle: PropTypes.func.isRequired,
+  uniqueId: PropTypes.string.isRequired,
+};
+
+SelectDropdownOption.defaultProps = {
+  description: '',
+};
+
+var SelectDropdown = SelectDropdownHOC({ Option: SelectDropdownOption });
+
+function getTriggerClass(ref) {
+  var color = ref.color;
+
+  return classNames({
+    truncate: true,
+    'btn--fill': true,
+    'btn-dropdown-gray':  color === 'gray',
+    'btn-dropdown-white': color === 'white',
+    'btn-dropdown-teal':  color === 'teal',
+    'c-select--trigger': true,
+  });
+}
+
+var Trigger = function (ref) {
+  var color = ref.color;
+  var isOpen = ref.isOpen;
+  var onOpenToggle = ref.onOpenToggle;
+  var triggerLabel = ref.triggerLabel;
+  var triggerPlaceholder = ref.triggerPlaceholder;
+
+  return (
+  React__default.createElement( 'span', { className: getTriggerClass({ color: color }), onClick: function () { return onOpenToggle(!isOpen); } }, triggerLabel || triggerPlaceholder)
+);
+};
+
+Trigger.propTypes = {
+  color: PropTypes.oneOf([ 'gray', 'white', 'teal' ]).isRequired,
+  isOpen: PropTypes.bool.isRequired,
+  onOpenToggle: PropTypes.func.isRequired,
+  triggerLabel: PropTypes.string.isRequired,
+  triggerPlaceholder: PropTypes.string.isRequired,
+};
+
+/* eslint-disable react/no-unused-prop-types */
+
+function getClass$2(props, type) {
+  var caretAlign = props.caretAlign;
+  var dropdownPosition = props.dropdownPosition;
+  var inline = props.inline;
+  var search = props.search;
+  return classNames({
+    inline: inline,
+    form: true,
+    relative: true,
+    'c-select--container': true,
+    'has-search': Boolean(search),
+    'has-media': type === 'media',
+    'caret--top-right':     dropdownPosition === 'below' && caretAlign === 'right',
+    'caret--top-left':      dropdownPosition === 'below' && caretAlign === 'left',
+    'caret--top-center':    dropdownPosition === 'below' && caretAlign === 'center',
+    'caret--bottom-right':  dropdownPosition === 'above' && caretAlign === 'right',
+    'caret--bottom-left':   dropdownPosition === 'above' && caretAlign === 'left',
+    'caret--bottom-center': dropdownPosition === 'above' && caretAlign === 'center',
+  });
+}
+
+function SelectHOC(ref) {
+  var Dropdown = ref.Dropdown;
+  var type = ref.type;
+
+  var Select = (function (Component$$1) {
+    function Select(props) {
+      Component$$1.call(this, props);
+      this.element = null;
+      this.handleGlobalClick = this.handleGlobalClick.bind(this);
+    }
+
+    if ( Component$$1 ) Select.__proto__ = Component$$1;
+    Select.prototype = Object.create( Component$$1 && Component$$1.prototype );
+    Select.prototype.constructor = Select;
+
+    Select.prototype.componentWillMount = function componentWillMount () {
+      document.addEventListener('click', this.handleGlobalClick);
+    };
+
+    Select.prototype.componentWillUnmount = function componentWillUnmount () {
+      document.removeEventListener('click', this.handleGlobalClick);
+    };
+
+    // If user clicks anywhere but the <Select>, then close it.
+    Select.prototype.handleGlobalClick = function handleGlobalClick (event) {
+      if (!this.element) { return; }
+      if (event.target !== this.element && !this.element.contains(event.target)) {
+        this.props.onOpenToggle(false);
+      }
+    };
+
+    Select.prototype.render = function render () {
+      var this$1 = this;
+
+      var Trigger$$1 = this.props.Trigger || Trigger;
+      return (
+        React__default.createElement( 'div', { className: getClass$2(this.props, type), ref: (function (el) { this$1.element = el; }) },
+          React__default.createElement( Trigger$$1, this.props),
+          React__default.createElement( If, { condition: this.props.isOpen },
+            React__default.createElement( Dropdown, this.props)
+          )
+        )
+      );
+    };
+
+    return Select;
+  }(React.Component));
+
+  Select.propTypes = {
+    caretAlign: PropTypes.oneOf([ 'left', 'center', 'right' ]),
+    color: PropTypes.oneOf([ 'gray', 'white', 'teal' ]),
+    dropdownPosition: PropTypes.oneOf([ 'above', 'below' ]),
+    inline: PropTypes.bool,
+    isOpen: PropTypes.bool,
+    maxLabelLength: PropTypes.number,
+    multiSelect: PropTypes.bool,
+    onOpenToggle: PropTypes.func.isRequired,
+    onSelectionToggle: PropTypes.func.isRequired,
+    options: PropTypes.arrayOf(PropTypes.shape({
+      // NOTE: any additional keys are also allowed, so you can store as much data in the `option` as you would like
+      label: PropTypes.string.isRequired,
+      uniqueId: PropTypes.string.isRequired,
+      description: PropTypes.string,
+    })).isRequired,
+    processingOptions: PropTypes.arrayOf(PropTypes.string),
+    selectedOptions: PropTypes.objectOf(PropTypes.bool).isRequired,
+    search: PropTypes.func,
+    Trigger: PropTypes.func, // this allows passing in a custom Trigger as prop, so it's not necessary to import the HOC
+    triggerLabel: PropTypes.string,
+    triggerPlaceholder: PropTypes.string,
+  };
+
+  Select.defaultProps = {
+    caretAlign: 'right',
+    color: 'gray',
+    dropdownPosition: 'below',
+    inline: false,
+    isOpen: false,
+    maxLabelLength: Infinity,
+    multiSelect: false,
+    processingOptions: [],
+    search: null,
+    Trigger: null,
+    triggerLabel: '',
+    triggerPlaceholder: 'Select an option',
+  };
+
+  return Select;
+}
+
+var Select = SelectHOC({
+  Dropdown: SelectDropdown,
+  type: 'standard', // NOTE: 'standard' isn't used anywhere, just specifying that it's not 'media'
+});
+
+var imgStyle = function (url) { return ({
+  backgroundImage: ("url(" + url + ")"),
+  height: '40px',
+  width: '70px',
+}); };
+
+function getButton(isProcessing, isSelected) {
+  if (isProcessing) {
+    return React__default.createElement( 'div', { className: 'c-item-toggle loader-white loader--small' });
+  }
+  if (isSelected) {
+    return React__default.createElement( 'div', { className: 'c-item-toggle icon-check-navy icon--xsmall border is-selected' });
+  }
+  return React__default.createElement( 'div', { className: 'c-item-toggle icon-plus-thin-white icon--xsmall border' });
+}
+
+var MediaSelectDropdownOption = function (ref) {
+  var description = ref.description;
+  var imageUrl = ref.imageUrl;
+  var isLoading = ref.isLoading;
+  var isProcessingItem = ref.isProcessingItem;
+  var isSelected = ref.isSelected;
+  var label = ref.label;
+  var maxLabelLength = ref.maxLabelLength;
+  var multiSelect$$1 = ref.multiSelect;
+  var onOptionToggle = ref.onOptionToggle;
+  var uniqueId = ref.uniqueId;
+
+  return (
+  React__default.createElement( 'li', { className: ("c-media-item--container padding-horz-medium padding-vert-small clearfix " + (isSelected ? 'is-selected' : '')), onClick: function () { return !isLoading && onOptionToggle(uniqueId); } },
+    React__default.createElement( 'div', { className: 'c-media-item--image-container left' },
+      React__default.createElement( 'div', { className: 'c-media-item--image radius margin-right-medium img', style: imgStyle(imageUrl) })
+    ),
+    React__default.createElement( 'div', { className: 'c-media-item--image-content clearfix left' },
+      React__default.createElement( 'p', { className: 'text--navy line-medium truncate block' }, truncate(label, maxLabelLength)),
+      React__default.createElement( 'p', { className: 'text--gray line-medium truncate block' }, description)
+    ),
+    React__default.createElement( If, { condition: multiSelect$$1 },
+      React__default.createElement( 'div', { className: 'c-media-item--action clearfix right' },
+        getButton(isProcessingItem, isSelected)
+      )
+    )
+  )
+);
+};
+
+MediaSelectDropdownOption.propTypes = {
+  description: PropTypes.string,
+  imageUrl: PropTypes.string.isRequired,
+  isLoading: PropTypes.bool.isRequired,
+  isProcessingItem: PropTypes.bool,
+  isSelected: PropTypes.bool.isRequired,
+  label: PropTypes.string.isRequired,
+  maxLabelLength: PropTypes.number.isRequired,
+  multiSelect: PropTypes.bool.isRequired,
+  onOptionToggle: PropTypes.func.isRequired,
+  uniqueId: PropTypes.string.isRequired,
+};
+
+MediaSelectDropdownOption.defaultProps = {
+  description: '',
+  isProcessingItem: false,
+};
+
+var MediaSelectDropdown = SelectDropdownHOC({ Option: MediaSelectDropdownOption });
+
+var MediaSelect = SelectHOC({
+  Dropdown: MediaSelectDropdown,
+  type: 'media',
+});
+
+var StatefulSelect = (function (Component$$1) {
+  function StatefulSelect(props) {
+    Component$$1.call(this, props);
+    this.state = {
+      isOpen: props.isOpen || false,
+      selectedOptions: {},
+      label: '',
+    };
+    this.setOpen = this.setOpen.bind(this);
+    this.handleChange = this.handleChange.bind(this);
+  }
+
+  if ( Component$$1 ) StatefulSelect.__proto__ = Component$$1;
+  StatefulSelect.prototype = Object.create( Component$$1 && Component$$1.prototype );
+  StatefulSelect.prototype.constructor = StatefulSelect;
+
+  StatefulSelect.prototype.setOpen = function setOpen (isOpen) {
+    this.setState({ isOpen: isOpen });
+    this.props.onOpenToggle(isOpen);
+  };
+
+  StatefulSelect.prototype.handleChange = function handleChange (selectedOptions, label, itemToggled, itemWillBeChecked) {
+    this.setState({ selectedOptions: selectedOptions, label: label });
+    this.props.onSelectionToggle(selectedOptions, label, itemToggled, itemWillBeChecked);
+  };
+
+  StatefulSelect.prototype.render = function render () {
+    return (
+      React__default.createElement( Select, Object.assign({},
+        this.props, { isOpen: this.state.isOpen, selectedOptions: this.state.selectedOptions, onSelectionToggle: this.handleChange, onOpenToggle: this.setOpen, triggerLabel: this.state.label }))
+    );
+  };
+
+  return StatefulSelect;
+}(React.Component));
+
+StatefulSelect.propTypes = {
+  isOpen: PropTypes.bool,
+  onOpenToggle: PropTypes.func,
+  onSelectionToggle: PropTypes.func,
+};
+
+StatefulSelect.defaultProps = {
+  isOpen: false,
+  onOpenToggle: function () {},
+  onSelectionToggle: function () {},
+};
+
+var StatefulMediaSelect = (function (Component$$1) {
+  function StatefulMediaSelect(props) {
+    Component$$1.call(this, props);
+    this.state = {
+      isOpen: props.isOpen || false,
+      selectedOptions: {},
+      label: '',
+    };
+    this.setOpen = this.setOpen.bind(this);
+    this.handleChange = this.handleChange.bind(this);
+  }
+
+  if ( Component$$1 ) StatefulMediaSelect.__proto__ = Component$$1;
+  StatefulMediaSelect.prototype = Object.create( Component$$1 && Component$$1.prototype );
+  StatefulMediaSelect.prototype.constructor = StatefulMediaSelect;
+
+  StatefulMediaSelect.prototype.setOpen = function setOpen (isOpen) {
+    this.setState({ isOpen: isOpen });
+    this.props.onOpenToggle(isOpen);
+  };
+
+  StatefulMediaSelect.prototype.handleChange = function handleChange (selectedOptions, label, itemToggled, itemWillBeChecked) {
+    this.setState({ selectedOptions: selectedOptions, label: label });
+    this.props.onSelectionToggle(selectedOptions, label, itemToggled, itemWillBeChecked);
+  };
+
+  StatefulMediaSelect.prototype.render = function render () {
+    return (
+      React__default.createElement( MediaSelect, Object.assign({},
+        this.props, { isOpen: this.state.isOpen, selectedOptions: this.state.selectedOptions, onSelectionToggle: this.handleChange, onOpenToggle: this.setOpen, triggerLabel: this.state.label }))
+    );
+  };
+
+  return StatefulMediaSelect;
+}(React.Component));
+
+StatefulMediaSelect.propTypes = {
+  isOpen: PropTypes.bool,
+  onOpenToggle: PropTypes.func,
+  onSelectionToggle: PropTypes.func,
+};
+
+StatefulMediaSelect.defaultProps = {
+  isOpen: false,
+  onOpenToggle: function () {},
+  onSelectionToggle: function () {},
+};
+
 var util = utilities;
 
 exports.util = util;
@@ -1767,13 +1863,15 @@ exports.Checkbox = Checkbox$1;
 exports.Header = Header$1;
 exports.Icon = Icon$1;
 exports.Input = Input$1;
-exports.MediaSelect = MediaSelect;
 exports.Modal = Modal$2;
 exports.modalModel = modalModel;
 exports.RadioGroup = RadioGroup$1;
-exports.Select = Select;
 exports.Sidebar = Sidebar$2;
 exports.sidebarModel = sidebarModel;
 exports.Slide = Slide$1;
 exports.Tag = Tag$1;
 exports.Text = Text$1;
+exports.Select = Select;
+exports.MediaSelect = MediaSelect;
+exports.StatefulSelect = StatefulSelect;
+exports.StatefulMediaSelect = StatefulMediaSelect;

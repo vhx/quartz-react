@@ -1,3 +1,5 @@
+/* IMPORTANT: This is only used in unit tests */
+
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import MediaSelect from './Select.jsx';
@@ -15,7 +17,7 @@ export default class StatefulMediaSelect extends Component {
       isLoading: false,
       isOpen: props.isOpen || false,
       selectedOptions: {}, // if you do not want to initialize with all undefined options, but instead set every unchecked option to false, set selectedOptions to this: props.options.reduce((obj, option) => { obj[option.uniqueId] = false; return obj; }, {})
-      selectedLabel: '',
+      label: '',
       filteredOptions: props.options,
       searchValue: '',
       processingOptions: [],
@@ -29,13 +31,13 @@ export default class StatefulMediaSelect extends Component {
     this.setState({ isOpen });
   }
 
-  handleChange(selectedOptions, selectedLabel, item /* , itemWillBeChecked */) {
+  handleChange(selectedOptions, label, item /* , itemWillBeChecked */) {
     const { processingOptions } = this.state;
     this.setState({ processingOptions: processingOptions.concat(item.uniqueId) });
     setTimeout(() => {
       this.setState({
         selectedOptions,
-        selectedLabel,
+        label,
         processingOptions: removeFromArray(processingOptions, item.uniqueId),
       });
     }, 10);
@@ -56,7 +58,7 @@ export default class StatefulMediaSelect extends Component {
         selectedOptions={this.state.selectedOptions}
         onSelectionToggle={this.handleChange}
         onOpenToggle={this.setOpen}
-        triggerLabel={this.state.selectedLabel}
+        triggerLabel={this.state.label}
         search={this.search}
         searchValue={this.state.searchValue}
         options={this.state.filteredOptions}

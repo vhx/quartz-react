@@ -122,7 +122,7 @@ class StatefulInput extends Component {
 const Inputs = ({ title }) => (
   <div>
     <DemoRow>
-      <Title tag='Stateless'>{title}</Title>
+      <Title>{title}</Title>
       <Details>
         Inputs are strictly presentational, so in order
         to enable interactivity you must place them within a stateful

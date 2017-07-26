@@ -1,14 +1,19 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { MediaSelect, Select } from '../../../index.js';
 import {
+  MediaSelect,
+  Select,
+  StatefulMediaSelect,
+  StatefulSelect,
+} from '../../../index.js';
+
+import {
+  Block,
   Details,
   DemoRow,
   Subtitle,
   Title,
 } from '../ui';
-
-// TODO: const CustomTrigger = ({ isOpen, onOpenToggle }) => <button onClick={() => onOpenToggle(!isOpen)}>Choose something ({isOpen ? 'close' : 'open'})</button>;
 
 // Intro
 // -----------------------------------------
@@ -165,12 +170,12 @@ class SelectMinimal extends Component {
     this.state = {
       isOpen: false,
       selectedOptions: {},
-      selectedLabel: '',
+      label: '',
     };
     this.handleChange = this.handleChange.bind(this);
   }
-  handleChange(selectedOptions, selectedLabel /*, optionToggled, optionWillBeChecked */) {
-    this.setState({ selectedOptions, selectedLabel });
+  handleChange(selectedOptions, label /*, optionToggled, optionWillBeChecked */) {
+    this.setState({ selectedOptions, label });
   }
   render() {
     const setOpen = isOpen => this.setState({ isOpen });
@@ -181,7 +186,7 @@ class SelectMinimal extends Component {
         selectedOptions={this.state.selectedOptions}
         onSelectionToggle={this.handleChange}
         onOpenToggle={setOpen}
-        triggerLabel={this.state.selectedLabel}
+        triggerLabel={this.state.label}
       />
     );
   }
@@ -202,12 +207,12 @@ class SelectMinimal extends Component {
     this.state = {
       isOpen: false,
       selectedOptions: {},
-      selectedLabel: '',
+      label: '',
     };
     this.handleChange = this.handleChange.bind(this);
   }
-  handleChange(selectedOptions, selectedLabel /*, optionToggled, optionWillBeChecked */) {
-    this.setState({ selectedOptions, selectedLabel });
+  handleChange(selectedOptions, label /*, optionToggled, optionWillBeChecked */) {
+    this.setState({ selectedOptions, label });
   }
   render() {
     const setOpen = isOpen => this.setState({ isOpen });
@@ -218,7 +223,7 @@ class SelectMinimal extends Component {
         selectedOptions={this.state.selectedOptions}
         onSelectionToggle={this.handleChange}
         onOpenToggle={setOpen}
-        triggerLabel={this.state.selectedLabel}
+        triggerLabel={this.state.label}
       />
     );
   }
@@ -239,7 +244,7 @@ class MediaSelectDemo extends Component {
       isLoading: false,
       isOpen: false,
       selectedOptions: {},
-      selectedLabel: '',
+      label: '',
       filteredOptions: props.options,
       searchValue: '',
       processingOptions: [],
@@ -253,7 +258,7 @@ class MediaSelectDemo extends Component {
     this.setState({ isOpen });
   }
 
-  handleChange(selectedOptions, selectedLabel, option /* , optionWillBeChecked */) {
+  handleChange(selectedOptions, label, option /* , optionWillBeChecked */) {
     const { processingOptions } = this.state;
     this.setState({ processingOptions: processingOptions.concat(option.uniqueId) });
     // (setTimeout to simulate delay due to ajax request)
@@ -262,7 +267,7 @@ class MediaSelectDemo extends Component {
       if (optionIndex !== -1) { processingOptions.splice(optionIndex, 1); }
       this.setState({
         selectedOptions,
-        selectedLabel,
+        label,
         processingOptions,
       });
     }, 300);
@@ -287,7 +292,7 @@ class MediaSelectDemo extends Component {
         selectedOptions={this.state.selectedOptions}
         onSelectionToggle={this.handleChange}
         onOpenToggle={this.setOpen}
-        triggerLabel={this.state.selectedLabel}
+        triggerLabel={this.state.label}
         search={this.search}
         searchValue={this.state.searchValue}
         options={this.state.filteredOptions}
@@ -306,7 +311,10 @@ const CompleteDemo = () => (
 );
 
 const completeDemoCode = `
-// An example stateful media select implementation
+// An example stateful media select implementation.
+// There's a lot of code here, but if you don't want
+// all of this flexibility skip ahead to the section
+// on default stateful select components.
 class StatefulMediaSelect extends Component {
   constructor(props) {
     super(props);
@@ -314,7 +322,7 @@ class StatefulMediaSelect extends Component {
       isLoading: false,
       isOpen: false,
       selectedOptions: {},
-      selectedLabel: '',
+      label: '',
       filteredOptions: props.options,
       searchValue: '',
       processingOptions: [],
@@ -328,7 +336,7 @@ class StatefulMediaSelect extends Component {
     this.setState({ isOpen });
   }
 
-  handleChange(selectedOptions, selectedLabel, option /* , optionWillBeChecked */) {
+  handleChange(selectedOptions, label, option /* , optionWillBeChecked */) {
     const { processingOptions } = this.state;
     this.setState({ processingOptions: processingOptions.concat(option.uniqueId) });
     // (setTimeout to simulate delay due to ajax request)
@@ -337,7 +345,7 @@ class StatefulMediaSelect extends Component {
       if (optionIndex !== -1) { processingOptions.splice(optionIndex, 1); }
       this.setState({
         selectedOptions,
-        selectedLabel,
+        label,
         processingOptions,
       });
     }, 300);
@@ -362,7 +370,7 @@ class StatefulMediaSelect extends Component {
         selectedOptions={this.state.selectedOptions}
         onSelectionToggle={this.handleChange}
         onOpenToggle={this.setOpen}
-        triggerLabel={this.state.selectedLabel}
+        triggerLabel={this.state.label}
         search={this.search}
         searchValue={this.state.searchValue}
         options={this.state.filteredOptions}
@@ -376,19 +384,159 @@ class StatefulMediaSelect extends Component {
 <StatefulMediaSelect options={options} multiSelect />
 `;
 
+const StatefulDemo = () => (
+  <div>
+    <Subtitle>Default Stateful Select</Subtitle>
+    <Details withDemo>
+      The <code>Select</code> component that is provided by default
+      is stateless and provides low-level control over the component.
+      This is great if you want to customize a lot of the functionality,
+      but in case you want a ready-to-go stateful component with minimal
+      boilerplate there is also one provided.
+    </Details>
+    <StatefulSelect options={options} />
+  </div>
+);
+
+const statefulDemoCode = `
+import { StatefulSelect } from '@vhx/quartz-react';
+
+<StatefulSelect options={options} />
+`;
+
+
+// Stateful colors demo
+// -----------------------------------------
+
+const StatefulColorsDemo = () => (
+  <div>
+    <Subtitle>Colors</Subtitle>
+    <StatefulSelect options={options} color='gray' />
+    <StatefulSelect options={options} color='white' />
+    <StatefulSelect options={options} color='teal' />
+  </div>
+);
+
+const statefulColorsDemoCode = `
+<StatefulSelect options={options} color='gray' />
+<StatefulSelect options={options} color='white' />
+<StatefulSelect options={options} color='teal' />
+`;
+
+
+// Stateful carets demo
+// -----------------------------------------
+
+const StatefulCaretsDemo = () => (
+  <div>
+    <Subtitle>Caret positions</Subtitle>
+    <Block><StatefulSelect options={options} triggerPlaceholder='Above and left' dropdownPosition='above' caretAlign='left' /></Block>
+    <Block><StatefulSelect options={options} triggerPlaceholder='Above and center' dropdownPosition='above' caretAlign='center' /></Block>
+    <Block><StatefulSelect options={options} triggerPlaceholder='Above and right' dropdownPosition='above' caretAlign='right' /></Block>
+    <Block><StatefulSelect options={options} triggerPlaceholder='Below and left' caretAlign='left' /></Block>
+    <Block><StatefulSelect options={options} triggerPlaceholder='Below and center' caretAlign='center' /></Block>
+    <Block><StatefulSelect options={options} triggerPlaceholder='Below and right' caretAlign='right' /></Block>
+  </div>
+);
+
+const statefulCaretsDemoCode = `
+<StatefulSelect options={options} triggerPlaceholder='Above and left' dropdownPosition='above' caretAlign='left' />
+<StatefulSelect options={options} triggerPlaceholder='Above and center' dropdownPosition='above' caretAlign='center' />
+<StatefulSelect options={options} triggerPlaceholder='Above and right' dropdownPosition='above' caretAlign='right' />
+<StatefulSelect options={options} triggerPlaceholder='Below and left' caretAlign='left' />
+<StatefulSelect options={options} triggerPlaceholder='Below and center' caretAlign='center' />
+<StatefulSelect options={options} triggerPlaceholder='Below and right' caretAlign='right' />
+`;
+
+
+// Multi-select demo
+// -----------------------------------------
+
+const StatefulMultiSelectDemo = () => (
+  <div>
+    <Subtitle>MultiSelect</Subtitle>
+    <Block><StatefulSelect options={options} multiSelect /></Block>
+  </div>
+);
+
+const statefulMultiSelectDemoCode = `
+<StatefulSelect options={options} multiSelect />
+`;
+
+
+// Custom trigger demo
+// -----------------------------------------
+const MyTrigger = ({ isOpen, onOpenToggle }) => (
+  <button onClick={() => onOpenToggle(!isOpen)}>
+    Choose something ({isOpen ? 'close' : 'open'})
+  </button>
+);
+
+MyTrigger.propTypes = {
+  isOpen: PropTypes.bool.isRequired,
+  onOpenToggle: PropTypes.func.isRequired,
+};
+
+const CustomTriggerDemo = () => (
+  <div>
+    <Subtitle>Custom Trigger</Subtitle>
+    <Details withDemo>
+      A custom trigger component can be passed to the <code>Select</code>.
+      It will be passed the <code>isOpen</code> and <code>onOpenToggle</code>
+      props from the parent <code>Select</code> component.
+    </Details>
+    <Block><StatefulSelect options={options} Trigger={MyTrigger} inline /></Block>
+  </div>
+);
+
+const customTriggerDemoCode = `
+const MyTrigger = ({ isOpen, onOpenToggle }) => (
+  <button onClick={() => onOpenToggle(!isOpen)}>
+    Choose something ({isOpen ? 'close' : 'open'})
+  </button>
+);
+
+<StatefulSelect options={options} Trigger={MyTrigger} inline />
+`;
+
+
+// Default Stateful Media Select Demo
+// -----------------------------------------
+
+const StatefulMediaSelectDemo = () => (
+  <div>
+    <Subtitle>Default Stateful Media Select</Subtitle>
+    <Details withDemo>
+      A stateful variant of the <code>MediaSelect</code> is available
+      for use as well, when full customization is not needed.
+    </Details>
+    <Block><StatefulMediaSelect options={options} multiSelect /></Block>
+  </div>
+);
+
+const statefulMediaSelectDemoCode = `
+import { StatefulMediaSelect } from '@vhx/quartz-react';
+
+<StatefulMediaSelect options={options} multiSelect />
+`;
+
+
 // Main exported demo
 // -----------------------------------------
 
 const Selects = ({ title }) => (
   <div>
     <DemoRow code={introCode}>
-      <Title tag='Stateless'>{title}</Title>
+      <Title>{title}</Title>
       <Details>
-        Selects are strictly presentational, so in order
+        Selects are, by default, strictly presentational, so in order
         to enable interactivity you must place them within a stateful
         component that reacts to their <code>onOpenToggle</code> and
-        <code>onSelectionToggle</code> methods. Several stateful
-        examples are provided below.
+        <code>onSelectionToggle</code> methods. For convenience, you
+        can import the <code>StatefulSelect</code> instead which reduces
+        some of the boilerplate at the price of reduced flexibility.
+        Examples are provided below, both for implementing your own
+        stateful select and for using the default stateful select.
       </Details>
       <Details>
         The set of options passed to the select must be an array of objects
@@ -430,11 +578,24 @@ const Selects = ({ title }) => (
           }
         </pre>
       </Details>
+      <Details>
+        In addition, the <code>MediaSelect</code> can accept an array of
+        ids corresponding to the options that are in a <code>processing</code>
+        state. Those options will have a spinner icon displayed in the dropdown.
+        An example of this is available in the section labeled <q>Stateful Media
+        Multi-Select with Search and Processing State</q>.
+      </Details>
     </DemoRow>
     <DemoRow code={selectDemoCode}><SelectDemo /></DemoRow>
     <DemoRow code={mediaDemoCode}><MediaDemo /></DemoRow>
     <DemoRow code={minimalDemoCode}><MinimalDemo /></DemoRow>
     <DemoRow code={completeDemoCode}><CompleteDemo /></DemoRow>
+    <DemoRow code={statefulDemoCode}><StatefulDemo /></DemoRow>
+    <DemoRow code={statefulColorsDemoCode}><StatefulColorsDemo /></DemoRow>
+    <DemoRow code={statefulCaretsDemoCode}><StatefulCaretsDemo /></DemoRow>
+    <DemoRow code={statefulMultiSelectDemoCode}><StatefulMultiSelectDemo /></DemoRow>
+    <DemoRow code={customTriggerDemoCode}><CustomTriggerDemo /></DemoRow>
+    <DemoRow code={statefulMediaSelectDemoCode}><StatefulMediaSelectDemo /></DemoRow>
   </div>
 );
 
@@ -443,46 +604,3 @@ Selects.propTypes = {
 };
 
 export default Selects;
-
-/*
-            <Section title='Select'>
-              <Subtitle>Default</Subtitle>
-              <SelectDemo options={selectOpts} />
-              <Subtitle>Minimal demo (copy this stateful component as a starting point)</Subtitle>
-              <SelectMinimal options={selectOpts} />
-              <Subtitle>Inline</Subtitle>
-              <SelectDemo options={selectOpts} inline />
-              <Subtitle>Colors</Subtitle>
-              <SelectDemo options={selectOpts} color='gray' inline />
-              <SelectDemo options={selectOpts} color='white' inline />
-              <SelectDemo options={selectOpts} color='teal' inline />
-              <Subtitle>Dropdown positioned above</Subtitle>
-              <SelectDemo options={selectOpts} dropdownPosition='above' />
-              <Subtitle>Custom trigger label placeholder</Subtitle>
-              <SelectDemo options={selectOpts} triggerPlaceholder='Custom label' inline />
-              <Subtitle>Caret alignment</Subtitle>
-              <SelectDemo options={selectOpts} triggerPlaceholder='Above and left' dropdownPosition='above' caretAlign='left' inline />
-              <SelectDemo options={selectOpts} triggerPlaceholder='Above and center' dropdownPosition='above' caretAlign='center' inline />
-              <SelectDemo options={selectOpts} triggerPlaceholder='Above and right' dropdownPosition='above' caretAlign='right' inline />
-              <br />
-              <SelectDemo options={selectOpts} triggerPlaceholder='Below and left' caretAlign='left' inline />
-              <SelectDemo options={selectOpts} triggerPlaceholder='Below and center' caretAlign='center' inline />
-              <SelectDemo options={selectOpts} triggerPlaceholder='Below and right' caretAlign='right' inline />
-              <Subtitle>Custom trigger element</Subtitle>
-              <SelectDemo options={selectOpts} inline Trigger={CustomTrigger} />
-              <Subtitle>Multiselect</Subtitle>
-              <SelectDemo options={selectOpts} multiSelect />
-              <Subtitle>Select with search</Subtitle>
-              <SelectSearchable options={selectOpts} />
-              <Subtitle>Multiselect with search</Subtitle>
-              <SelectSearchable options={selectOpts} multiSelect />
-              <Subtitle>Select with options still loading</Subtitle>
-              <SelectDemo options={selectOpts} isLoading />
-              <Subtitle>Select with option descriptions</Subtitle>
-              <SelectDemo options={selectOptsWithDescription} />
-              <Subtitle>Media select</Subtitle>
-              <MediaSelect options={mediaSelectOpts} />
-              <Subtitle>Media multiselect with search and processing state</Subtitle>
-              <MediaSelectProcessing multiSelect options={mediaSelectOpts} />
-            </Section>
-*/
