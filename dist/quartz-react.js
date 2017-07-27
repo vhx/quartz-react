@@ -1173,7 +1173,7 @@ var Slide$1 = (function (Component$$1) {
     var description = ref$1.description;
     var img = ref$1.img;
     var mobileImg = ref$1.mobileImg;
-    var trailer = ref$1.trailer;
+    var links = ref$1.links;
     var isWide = ref$1.isWide;
     return (
       React__default.createElement( 'div', { className: ("slide " + exitDirection + " " + (enter ? ("ENTER_" + enterDirection) : '')), style: { zIndex: zIndex, animationDuration: (animationDuration + "ms") } },
@@ -1188,12 +1188,12 @@ var Slide$1 = (function (Component$$1) {
             React__default.createElement( 'div', { className: 'slide-subtitle' }, subtitle),
             React__default.createElement( 'div', { className: 'slide-description' }, description),
             React__default.createElement( 'div', { className: 'slide-buttons' },
-              React__default.createElement( 'button', { className: ("slide-button " + buttonClass) },
+              React__default.createElement( 'a', { className: ("btn btn-teal slide-button " + buttonClass), href: links.item },
                 React__default.createElement( Icon$1, { name: 'play', color: 'white', size: 'xxsmall' }),
                 React__default.createElement( 'span', { className: 'slide-button-text' }, "Watch now")
               ),
-              React__default.createElement( If, { condition: Boolean(trailer), inline: true },
-                React__default.createElement( 'button', { className: 'slide-button slide-button--alt' },
+              React__default.createElement( If, { condition: Boolean(links.trailer), inline: true },
+                React__default.createElement( 'a', { className: 'btn btn-transparent slide-button slide-button--alt', href: links.trailer },
                   React__default.createElement( Icon$1, { name: 'play', color: 'white', size: 'xxsmall' }),
                   React__default.createElement( 'span', { className: 'slide-button-text' }, "Trailer")
                 )
@@ -1222,10 +1222,13 @@ Slide$1.propTypes = {
   buttonClass: PropTypes.string,
   description: PropTypes.string.isRequired,
   img: PropTypes.string.isRequired,
+  links: PropTypes.shape({
+    trailer: PropTypes.string,
+    item: PropTypes.string.isRequired,
+  }).isRequired,
   mobileImg: PropTypes.string.isRequired,
   isWide: PropTypes.bool,
   title: PropTypes.string.isRequired,
-  trailer: PropTypes.string, // probably a URL or id
   subtitle: PropTypes.string,
 };
 
@@ -1233,7 +1236,6 @@ Slide$1.defaultProps = {
   buttonClass: 'slide-button--default',
   isWide: false,
   subtitle: '',
-  trailer: null,
 };
 
 function getClass$1(isHover) {

@@ -24,7 +24,10 @@ const Slide1 = {
       img='/images/16-6-A.png'
       mobileImg='/images/16-6-A-mob.png'
       isWide={true}
-      trailer='123'
+      links={{
+        item: '#',
+        trailer: '#',
+      }}
     />
   ),
   id: 's1',
@@ -40,7 +43,10 @@ const Slide2 = {
       img='/images/16-9-B.png'
       mobileImg='/images/16-9-B-mob.png'
       isWide={false}
-      trailer='123'
+      links={{
+        item: '#',
+        trailer: '#',
+      }}
     />
   ),
   id: 's2',
@@ -57,7 +63,10 @@ const Slide3 = {
       img='/images/16-9-A.png'
       mobileImg='/images/16-9-A-mob.png'
       isWide={false}
-      trailer='123'
+      links={{
+        item: '#',
+        trailer: '#',
+      }}
     />
   ),
   id: 's3',
@@ -73,6 +82,7 @@ const Slide4 = {
       img='/images/16-9-B.png'
       mobileImg='/images/16-9-B-mob.png'
       isWide={false}
+      links={{ item: '#' }}
     />
   ),
   id: 's4',
@@ -88,6 +98,7 @@ const Slide5 = {
       img='/images/16-6-B.png'
       mobileImg='/images/16-6-B-mob.png'
       isWide={true}
+      links={{ item: '#' }}
     />
   ),
   id: 's5',
@@ -115,7 +126,10 @@ const Slide1 = {
       mobileImg='/images/16-6-A-mob.png'
       subtitle='3 Seasons'
       title='Slide 1 title'
-      trailer='123'
+      links={{
+        item: '/videos/123',
+        trailer: '/trailers/123',
+      }}
     />
   ),
   id: 's1',

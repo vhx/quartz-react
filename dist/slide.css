@@ -1,6 +1,6 @@
 /*
   Quartz-react version: 0.0.3
-  Current file hash: 3ea776fd3ad9615fe3050c37a41c0eb5
+  Current file hash: 23e145e1c6d946775b1f196d0c6ba97e
 */
 
 /* NOTE: translate3d currently has better rendering performance than translateX */
@@ -179,7 +179,7 @@
   padding-top: 16px; /* is 24px when combined with button margin-top of 8px */
 }
 
-.slide-buttons button {
+.slide-buttons .btn {
   margin-right: 8px;
   margin-top: 8px;
 }
