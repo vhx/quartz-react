@@ -1188,7 +1188,7 @@ var Slide$1 = (function (Component$$1) {
             React__default.createElement( 'div', { className: 'slide-subtitle' }, subtitle),
             React__default.createElement( 'div', { className: 'slide-description' }, description),
             React__default.createElement( 'div', { className: 'slide-buttons' },
-              React__default.createElement( 'a', { className: ("btn btn-gray site-primary-color slide-button " + buttonClass), href: links.item },
+              React__default.createElement( 'a', { className: ("btn btn-gray btn-site-primary slide-button " + buttonClass), href: links.item },
                 React__default.createElement( Icon$1, { name: 'play', color: 'white', size: 'xxsmall' }),
                 React__default.createElement( 'span', { className: 'slide-button-text' }, "Watch now")
               ),
