@@ -22,10 +22,10 @@ class DemoRow extends Component {
   render() {
     return (
       <div className='row'>
-        <div className='column small-8 padding-reset'>
+        <div className='column small-8 medium-9 large-10 padding-reset'>
           <div className='guide-bar' style={{ minHeight: `${this.state.codeHeight}px` }}>{this.props.children}</div>
         </div>
-        <div className='column small-8 padding-reset' ref={this.setHeightOnce}>
+        <div className='column small-8 medium-7 large-6 padding-reset' ref={this.setHeightOnce}>
           <div className='code-bar'>
             <pre className='padding-medium'>
               <code dangerouslySetInnerHTML={this.markupCode()} />
