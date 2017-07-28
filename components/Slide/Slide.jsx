@@ -25,7 +25,7 @@ class Slide extends Component {
 
   render() {
     const { animationDuration, enter, enterDirection, exitDirection, isMobile, zIndex } = this.props.dynamicProps;
-    const { buttonClass, title, subtitle, description, img, mobileImg, trailer, isWide } = this.props;
+    const { buttonClass, title, subtitle, description, img, mobileImg, links, isWide } = this.props;
     return (
       <div className={`slide ${exitDirection} ${enter ? `ENTER_${enterDirection}` : ''}`} style={{ zIndex, animationDuration: `${animationDuration}ms` }}>
         <div className={isMobile ? 'slide-bg slide-bg--mobile' : 'slide-bg' }>
@@ -39,15 +39,15 @@ class Slide extends Component {
             <div className='slide-subtitle'>{subtitle}</div>
             <div className='slide-description'>{description}</div>
             <div className='slide-buttons'>
-              <button className={`slide-button ${buttonClass}`}>
+              <a className={`btn btn-gray site-primary-color slide-button ${buttonClass}`} href={links.item}>
                 <Icon name='play' color='white' size='xxsmall' />
                 <span className='slide-button-text'>Watch now</span>
-              </button>
-              <If condition={Boolean(trailer)} inline>
-                <button className='slide-button slide-button--alt'>
+              </a>
+              <If condition={Boolean(links.trailer)} inline>
+                <a className='btn btn-transparent slide-button slide-button--alt' href={links.trailer}>
                   <Icon name='play' color='white' size='xxsmall' />
                   <span className='slide-button-text'>Trailer</span>
-                </button>
+                </a>
               </If>
             </div>
           </div>
@@ -71,10 +71,13 @@ Slide.propTypes = {
   buttonClass: PropTypes.string,
   description: PropTypes.string.isRequired,
   img: PropTypes.string.isRequired,
+  links: PropTypes.shape({
+    trailer: PropTypes.string,
+    item: PropTypes.string.isRequired,
+  }).isRequired,
   mobileImg: PropTypes.string.isRequired,
   isWide: PropTypes.bool,
   title: PropTypes.string.isRequired,
-  trailer: PropTypes.string, // probably a URL or id
   subtitle: PropTypes.string,
 };
 
@@ -82,7 +85,6 @@ Slide.defaultProps = {
   buttonClass: 'slide-button--default',
   isWide: false,
   subtitle: '',
-  trailer: null,
 };
 
 export default Slide;
