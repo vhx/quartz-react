@@ -111,7 +111,7 @@ const loadTestSlides = Array(50).fill(true).map((x, i) => ({
       title={`Slide ${i}`}
       subtitle='(Load test slide)'
       description={lorem}
-      img={`http://lorempizza.com/1600/900/${i}`}
+      img={`http://lorempizza.com/1600/600/${i}`}
       mobileImg={`http://lorempizza.com/1600/900/${i}`}
       isWide={true}
       links={{ item: '#' }}
