@@ -104,6 +104,21 @@ const Slide5 = {
   id: 's5',
 };
 
+const loadTestSlides = Array(50).fill(true).map((x, i) => ({
+  Slide: props => (
+    <Slide
+      dynamicProps={props}
+      title={`Slide ${i}`}
+      subtitle='(Load test slide)'
+      description={lorem}
+      img={`http://lorempizza.com/1600/600/${i}`}
+      mobileImg={`http://lorempizza.com/1600/900/${i}`}
+      isWide={true}
+      links={{ item: '#' }}
+    />
+  ),
+  id: `slide${i}`,
+}));
 
 const CarouselDemo = () => (
   <div>
@@ -112,6 +127,9 @@ const CarouselDemo = () => (
     <br />
     <Subtitle>Multi-Slide Carousel</Subtitle>
     <Carousel slides={[ Slide1, Slide2, Slide3, Slide4, Slide5 ]} />
+    <br />
+    <Subtitle>Carousel Performance Load Test (50 Slides)</Subtitle>
+    <Carousel slides={loadTestSlides} />
   </div>
 );
 

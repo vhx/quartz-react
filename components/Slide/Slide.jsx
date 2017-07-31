@@ -26,8 +26,9 @@ class Slide extends Component {
   render() {
     const { animationDuration, enter, enterDirection, exitDirection, isMobile, zIndex } = this.props.dynamicProps;
     const { buttonClass, title, subtitle, description, img, mobileImg, links, isWide } = this.props;
+    const visibility = zIndex === '-1' ? 'hidden' : 'visible';
     return (
-      <div className={`slide ${exitDirection} ${enter ? `ENTER_${enterDirection}` : ''}`} style={{ zIndex, animationDuration: `${animationDuration}ms` }}>
+      <div className={`slide ${exitDirection} ${enter ? `ENTER_${enterDirection}` : ''}`} style={{ animationDuration: `${animationDuration}ms`, visibility, zIndex }}>
         <div className={isMobile ? 'slide-bg slide-bg--mobile' : 'slide-bg' }>
           <div className={isWide ? 'slide-layout-wide' : 'slide-layout-container'}>
             <img className='slide-bg-img' src={isMobile ? mobileImg : img} alt={title} style={{ height: `${this.getImgHeight()}px` }} />
