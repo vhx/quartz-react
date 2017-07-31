@@ -1175,9 +1175,9 @@ var Slide$1 = (function (Component$$1) {
     var mobileImg = ref$1.mobileImg;
     var links = ref$1.links;
     var isWide = ref$1.isWide;
-    var visibility = zIndex === '-1' ? 'hidden' : 'visible';
+    var display = zIndex === '-1' ? 'none' : 'block';
     return (
-      React__default.createElement( 'div', { className: ("slide " + exitDirection + " " + (enter ? ("ENTER_" + enterDirection) : '')), style: { animationDuration: (animationDuration + "ms"), visibility: visibility, zIndex: zIndex } },
+      React__default.createElement( 'div', { className: ("slide " + exitDirection + " " + (enter ? ("ENTER_" + enterDirection) : '')), style: { animationDuration: (animationDuration + "ms"), display: display, zIndex: zIndex } },
         React__default.createElement( 'div', { className: isMobile ? 'slide-bg slide-bg--mobile' : 'slide-bg' },
           React__default.createElement( 'div', { className: isWide ? 'slide-layout-wide' : 'slide-layout-container' },
             React__default.createElement( 'img', { className: 'slide-bg-img', src: isMobile ? mobileImg : img, alt: title, style: { height: ((this.getImgHeight()) + "px") } })
