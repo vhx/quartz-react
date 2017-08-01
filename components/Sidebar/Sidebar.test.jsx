@@ -1,16 +1,15 @@
 import jsdom from 'mocha-jsdom';
 import React from 'react';
-import { mount, shallow } from 'enzyme';
+import { shallow } from 'enzyme';
 import { expect } from 'chai';
 import Sidebar from './Sidebar.jsx';
-import sidebarModel from './sidebarModel';
 
 describe('Sidebar', () => {
   jsdom();
 
   describe('Component', () => {
     afterEach(() => {
-      sidebarModel.close();
+      Sidebar.close();
     });
 
     // shared wrapper, since sidebar can only be instantiated once
@@ -29,52 +28,52 @@ describe('Sidebar', () => {
 
       // open:
       const Children = () => <div />;
-      sidebarModel.open(Children);
+      Sidebar.open(Children);
       expect(wrapper.props().isOpen).to.equal(true);
 
       // close:
-      sidebarModel.close();
+      Sidebar.close();
       expect(wrapper.props().isOpen).to.equal(false);
 
       // toggle:
-      sidebarModel.toggle(Children);
+      Sidebar.toggle(Children);
       expect(wrapper.props().isOpen).to.equal(true);
-      sidebarModel.toggle(Children);
+      Sidebar.toggle(Children);
       expect(wrapper.props().isOpen).to.equal(false);
-      sidebarModel.toggle(Children);
+      Sidebar.toggle(Children);
       expect(wrapper.props().isOpen).to.equal(true);
-      sidebarModel.toggle(Children);
+      Sidebar.toggle(Children);
       expect(wrapper.props().isOpen).to.equal(false);
     });
 
     it('Can reopen last opened sidebar', () => {
       const Children = () => <div>hi</div>;
-      sidebarModel.open(Children);
-      sidebarModel.close();
-      sidebarModel.open();
+      Sidebar.open(Children);
+      Sidebar.close();
+      Sidebar.open();
       expect(wrapper.html()).to.include('<div>hi</div>');
     });
   });
 
   describe('Model', () => {
     afterEach(() => {
-      sidebarModel.close();
+      Sidebar.close();
     });
 
     it('Is possible to access current state', () => {
       const Children = () => <div />;
-      expect(sidebarModel.state.isOpen).to.equal(false);
-      sidebarModel.toggle(Children);
-      expect(sidebarModel.state.isOpen).to.equal(true);
-      sidebarModel.toggle(Children);
-      expect(sidebarModel.state.isOpen).to.equal(false);
-      sidebarModel.close();
+      expect(Sidebar.state.isOpen).to.equal(false);
+      Sidebar.toggle(Children);
+      expect(Sidebar.state.isOpen).to.equal(true);
+      Sidebar.toggle(Children);
+      expect(Sidebar.state.isOpen).to.equal(false);
+      Sidebar.close();
     });
 
     it('Cannot directly manipulate state', () => {
-      expect(sidebarModel.state.isOpen).to.equal(false);
+      expect(Sidebar.state.isOpen).to.equal(false);
       expect(() => {
-        sidebarModel.state.isOpen = true;
+        Sidebar.state.isOpen = true;
       }).to.throw();
     });
 
@@ -85,13 +84,13 @@ describe('Sidebar', () => {
         expect(typeof state.isOpen).to.equal('boolean');
         callCount++;
       }
-      sidebarModel.subscribe(onUpdate);
-      sidebarModel.open(Children);
-      sidebarModel.close();
-      sidebarModel.toggle(Children);
+      Sidebar.subscribe(onUpdate);
+      Sidebar.open(Children);
+      Sidebar.close();
+      Sidebar.toggle(Children);
       expect(callCount).to.equal(3);
-      sidebarModel.unsubscribe(onUpdate);
-      sidebarModel.close();
+      Sidebar.unsubscribe(onUpdate);
+      Sidebar.close();
     });
 
     it('Can unsubscribe from changes', () => {
@@ -101,20 +100,20 @@ describe('Sidebar', () => {
         expect(typeof state.isOpen).to.equal('boolean');
         callCount++;
       }
-      sidebarModel.subscribe(onUpdate);
-      sidebarModel.open(Children);
-      sidebarModel.close();
-      sidebarModel.toggle(Children);
+      Sidebar.subscribe(onUpdate);
+      Sidebar.open(Children);
+      Sidebar.close();
+      Sidebar.toggle(Children);
       expect(callCount).to.equal(3);
-      sidebarModel.unsubscribe(onUpdate);
-      sidebarModel.close();
-      sidebarModel.close();
-      sidebarModel.close();
-      sidebarModel.close();
-      sidebarModel.close();
-      sidebarModel.close();
+      Sidebar.unsubscribe(onUpdate);
+      Sidebar.close();
+      Sidebar.close();
+      Sidebar.close();
+      Sidebar.close();
+      Sidebar.close();
+      Sidebar.close();
       expect(callCount).to.equal(3);
-      sidebarModel.close();
+      Sidebar.close();
     });
   });
 });

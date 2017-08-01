@@ -107,5 +107,4 @@ Modal.defaultProps = {
   title: '',
 };
 
-
 export default connect(modalModel, Modal);
