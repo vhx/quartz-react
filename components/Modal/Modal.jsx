@@ -24,6 +24,10 @@ function handleEscapeKey(event) {
   }
 }
 
+// Count number of mounted <Modal /> components
+// so that we can warn if more than 1 exist
+let modalsInitialized = 0;
+
 class Modal extends Component {
   constructor() {
     super();
@@ -31,6 +35,10 @@ class Modal extends Component {
   }
 
   componentWillMount() {
+    if (modalsInitialized !== 0) {
+      console.error('<Modal /> must be mounted only once');
+    }
+    modalsInitialized++;
     window.addEventListener('keyup', handleEscapeKey);
   }
 
@@ -40,6 +48,7 @@ class Modal extends Component {
   }
 
   componentWillUnmount() {
+    modalsInitialized--;
     window.removeEventListener('keyup', handleEscapeKey);
   }
 
