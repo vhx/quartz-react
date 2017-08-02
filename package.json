@@ -1,6 +1,6 @@
 {
   "name": "@vhx/quartz-react",
-  "version": "0.0.7",
+  "version": "0.0.8",
   "description": "React Components for VHX Quartz",
   "main": "dist/quartz-react.js",
   "scripts": {
