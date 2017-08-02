@@ -3,7 +3,6 @@ import React from 'react';
 import { shallow } from 'enzyme';
 import { expect } from 'chai';
 import Modal from './Modal.jsx';
-import modalModel from './modalModel';
 
 describe('Modal', () => {
   jsdom();
@@ -12,7 +11,7 @@ describe('Modal', () => {
   const wrapper = shallow(<Modal />);
 
   afterEach(() => {
-    modalModel.close();
+    Modal.close();
   });
 
   it('Renders', () => {
@@ -21,7 +20,7 @@ describe('Modal', () => {
 
   it('Opens a modal', () => {
     expect(wrapper.props().isOpen).to.equal(false);
-    modalModel.open({
+    Modal.open({
       actions: [],
       title: 'Testing 12345',
       Children: () => <div>Modal test</div>,
@@ -32,13 +31,13 @@ describe('Modal', () => {
   });
 
   it('Closes an open modal', () => {
-    modalModel.open({
+    Modal.open({
       actions: [],
       title: 'Testing 12345',
       Children: () => <div>Modal test</div>,
     });
     expect(wrapper.props().isOpen).to.equal(true);
-    modalModel.close();
+    Modal.close();
     expect(wrapper.props().isOpen).to.equal(false);
   });
 
@@ -48,7 +47,7 @@ describe('Modal', () => {
     ];
 
     const buttonClass = /btn btn--fill/gm;
-    modalModel.open({
+    Modal.open({
       actions: singleAction,
       Children: () => <div />,
     });
@@ -62,7 +61,7 @@ describe('Modal', () => {
       { label: 'Sign up', callback: () => {}, color: 'teal' },
     ];
     const buttonClass = /btn btn--half/gm;
-    modalModel.open({
+    Modal.open({
       actions: doubleAction,
       Children: () => <div />,
     });

@@ -50,7 +50,8 @@ export function connect(model, Component) {
       }
     };
   }
-
   if (!Component) return connectComponent; // this curries the function so you can also use it as a decorator
-  return connectComponent(Component);
+  const ComponentWithMethods = Object.assign(connectComponent(Component), model); // this makes all fields of the model available as statics on the component
+  model.subscribe((nextState) => { ComponentWithMethods.state = nextState; }); // this is required since `state` is immutable, so without it only the initial state would be a static property on the component
+  return ComponentWithMethods;
 }

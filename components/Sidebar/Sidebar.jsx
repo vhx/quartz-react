@@ -3,17 +3,17 @@ import PropTypes from 'prop-types';
 import { connect } from '../util';
 import sidebarModel from './sidebarModel.jsx';
 
-let sidebarIsInitialized = false;
+let sidebarsInitialized = 0;
 
 class Sidebar extends Component {
   componentWillMount() {
-    if (sidebarIsInitialized) {
+    if (sidebarsInitialized !== 0) {
       throw Error('<Sidebar /> must be mounted only once');
     }
-    sidebarIsInitialized = true;
+    sidebarsInitialized++;
   }
   componentWillUnmount() {
-    sidebarIsInitialized = false;
+    sidebarsInitialized--;
   }
   render() {
     const { isOpen, Contents } = this.props;
