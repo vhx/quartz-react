@@ -1,35 +1,17 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
+import Icon from '../Icon';
 import { truncate } from '../util';
 
-function getClass(isHover) {
-  return classNames({
-    inline: true,
-    relative: true,
-    'c-tag': true,
-    'is-hover': isHover,
-  });
-}
 
-function getButtonClass(isHover, isProcessing) {
+function getButtonClass(isProcessing, isHovering, isLeft) {
   return classNames({
-    'c-tag--button': true,
-    'btn-teal': isHover,
-    'is-hover': isHover,
-    'btn-gray': !isHover,
     'is-processing': isProcessing,
-  });
-}
-
-function getLinkClass(isRemoveHover) {
-  return classNames({
-    'c-tag--remove': true,
-    'icon--center': true,
-    'icon-x-white': true,
-    'icon--xxsmall': true,
-    'btn-red': isRemoveHover,
-    'btn-teal': !isRemoveHover,
+    'btn-teal': isHovering,
+    'btn-gray': !isHovering,
+    'tagLeft':isLeft,
+    'tagRight': !isLeft
   });
 }
 
@@ -38,37 +20,50 @@ class Tag extends Component {
 
   constructor() {
     super();
+
     this.state = {
-      isHover: false,
-      isRemoveHover: false,
-    };
-    this.setHover = this.setHover.bind(this);
-    this.setRemoveHover = this.setRemoveHover.bind(this);
+      isHovering:false,
+      isHoveringOverX:false
+    }
+
+    this.handleRemove = this.handleRemove.bind(this);
+    this.getXColor = this.getXColor.bind(this);
   }
 
-  setHover(value) {
-    return () => this.setState({ isHover: value });
+  handleRemove (event) {
+
+    console.log('click')
+    if(this.props.onRemove) {
+      this.props.onRemove();
+    }
   }
 
-  setRemoveHover(value) {
-    return () => this.setState({ isRemoveHover: value });
+  getXColor (isHovering, isHoveringOverX) {
+    if(isHoveringOverX) {
+      return null;
+    } else if(isHovering){
+      return 'white';
+    } else {
+      return 'gray';
+    }
   }
 
   render() {
     const { label, maxLength, isProcessing, onClick, onRemove } = this.props;
-    const { isHover, isRemoveHover } = this.state;
-    const { setHover, setRemoveHover } = this;
+
     return (
-      <span className={getClass(isHover)} onMouseOver={setHover(true)} onMouseOut={setHover(false)}>
-        <button className={getButtonClass(isHover, isProcessing)} onClick={onClick}>
+      <span onMouseOver={() => this.setState({isHovering:true})} onMouseOut={() => this.setState({isHovering:false})}>
+        <button onClick={onClick} className={getButtonClass(isProcessing, this.state.isHovering,true)}>
           { truncate(label, maxLength) }
         </button>
-        <a
-          className={getLinkClass(isRemoveHover)}
-          onClick={onRemove}
-          onMouseOver={setRemoveHover(true)}
-          onMouseOut={setRemoveHover(false)}
-        />
+        <button
+          onClick={this.handleRemove}
+          className={getButtonClass(false, this.state.isHovering,false)}
+          onMouseOver={() => this.setState({isHoveringOverX:true})}
+          onMouseOut={() => this.setState({isHoveringOverX:false})}>
+
+          <Icon name='x' color={this.getXColor(this.state.isHovering,this.state.isHoveringOverX)} size='xxsmall'></Icon>
+        </button>
       </span>
     );
   }

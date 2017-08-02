@@ -1,0 +1,13 @@
+.tagLeft {
+  border-right:none;
+  border-top-right-radius:0%;
+  border-bottom-right-radius: 0%;
+  padding-right:6%;
+}
+
+.tagRight {
+  border-left:none;
+  border-top-left-radius: 0%;
+  border-bottom-left-radius: 0%;
+  padding-left: 6%;
+}
