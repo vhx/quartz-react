@@ -88,9 +88,10 @@ function connect$$1(model, Component$$1) {
       return ConnectedComponent;
     }(React__default.PureComponent));
   }
-
   if (!Component$$1) { return connectComponent; } // this curries the function so you can also use it as a decorator
-  return connectComponent(Component$$1);
+  var ComponentWithMethods = Object.assign(connectComponent(Component$$1), model); // this makes all fields of the model available as statics on the component
+  model.subscribe(function (nextState) { ComponentWithMethods.state = nextState; }); // this is required since `state` is immutable, so without it only the initial state would be a static property on the component
+  return ComponentWithMethods;
 }
 
 /* eslint-disable no-param-reassign */
@@ -816,6 +817,10 @@ function handleEscapeKey(event) {
   }
 }
 
+// Count number of mounted <Modal /> components
+// so that we can warn if more than 1 exist
+var modalsInitialized = 0;
+
 var Modal$1 = (function (Component$$1) {
   function Modal() {
     Component$$1.call(this);
@@ -827,6 +832,10 @@ var Modal$1 = (function (Component$$1) {
   Modal.prototype.constructor = Modal;
 
   Modal.prototype.componentWillMount = function componentWillMount () {
+    if (modalsInitialized !== 0) {
+      console.error('<Modal /> must be mounted only once');
+    }
+    modalsInitialized++;
     window.addEventListener('keyup', handleEscapeKey);
   };
 
@@ -836,6 +845,7 @@ var Modal$1 = (function (Component$$1) {
   };
 
   Modal.prototype.componentWillUnmount = function componentWillUnmount () {
+    modalsInitialized--;
     window.removeEventListener('keyup', handleEscapeKey);
   };
 
@@ -897,7 +907,6 @@ Modal$1.defaultProps = {
   size: 'medium',
   title: '',
 };
-
 
 var Modal$2 = connect$$1(modalModel, Modal$1);
 
@@ -1087,7 +1096,7 @@ var sidebarModel = Model$$1({
   },
 });
 
-var sidebarIsInitialized = false;
+var sidebarsInitialized = 0;
 
 var Sidebar$1 = (function (Component$$1) {
   function Sidebar () {
@@ -1099,13 +1108,13 @@ var Sidebar$1 = (function (Component$$1) {
   Sidebar.prototype.constructor = Sidebar;
 
   Sidebar.prototype.componentWillMount = function componentWillMount () {
-    if (sidebarIsInitialized) {
+    if (sidebarsInitialized !== 0) {
       throw Error('<Sidebar /> must be mounted only once');
     }
-    sidebarIsInitialized = true;
+    sidebarsInitialized++;
   };
   Sidebar.prototype.componentWillUnmount = function componentWillUnmount () {
-    sidebarIsInitialized = false;
+    sidebarsInitialized--;
   };
   Sidebar.prototype.render = function render () {
     var ref = this.props;
@@ -1867,10 +1876,8 @@ exports.Header = Header$1;
 exports.Icon = Icon$1;
 exports.Input = Input$1;
 exports.Modal = Modal$2;
-exports.modalModel = modalModel;
 exports.RadioGroup = RadioGroup$1;
 exports.Sidebar = Sidebar$2;
-exports.sidebarModel = sidebarModel;
 exports.Slide = Slide$1;
 exports.Tag = Tag$1;
 exports.Text = Text$1;
