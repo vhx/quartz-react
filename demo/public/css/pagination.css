@@ -1,0 +1,14 @@
+.pagination-pointer {
+  cursor: pointer;
+  user-select: none;
+}
+
+.pagination-default {
+  cursor: default;
+  pointer-events: none;
+  user-select: none;
+}
+
+.pagination-invisible {
+  visibility: hidden;
+}

@@ -11,6 +11,7 @@ import Checkboxes from './sections/Checkboxes.jsx';
 import Icons from './sections/Icons.jsx';
 import Inputs from './sections/Inputs.jsx';
 import Modals from './sections/Modals.jsx';
+import Pagination from './sections/Pagination.jsx';
 import Radios from './sections/Radios.jsx';
 import Selects from './sections/Selects.jsx';
 import Sidebars from './sections/Sidebars.jsx';
@@ -25,6 +26,7 @@ const sections = {
   Icons,
   Inputs,
   Modals,
+  Pagination,
   'Radio Groups': Radios,
   Selects,
   Sidebars,
