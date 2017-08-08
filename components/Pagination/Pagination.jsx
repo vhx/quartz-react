@@ -20,7 +20,7 @@ class Pagination extends Component {
   link(i) {
     const { currentIndex, onChange } = this.props;
     return (
-      <span className={`text--bold padding-vert-xsmall padding-horz-small radius ${currentIndex === i ? 'bg-gray-5 text--white pagination-default' : 'pagination-pointer'}`} onClick={() => onChange(i)} key={`link-${i}`}>
+      <span className={`text--bold padding-vert-xsmall padding-horz-small radius ${currentIndex === i ? 'bg-gray-5 text--white pagination-default' : 'pagination-pointer pagination-link'}`} onClick={() => onChange(i)} key={`link-${i}`}>
         {i + 1}
       </span>
     );
@@ -31,7 +31,6 @@ class Pagination extends Component {
     const { link } = this;
     const truncateBefore = currentIndex > 3 && length > MAX_VISIBLE_LINKS;
     const truncateAfter = currentIndex < length - 4 && length > MAX_VISIBLE_LINKS;
-    console.log({ currentIndex, truncateBefore, truncateAfter });
     const links = [];
     if (truncateBefore) links.push(<Separator key='sep-0' />);
     if (truncateBefore && truncateAfter) {
@@ -59,15 +58,16 @@ class Pagination extends Component {
   }
 
   render() {
-    const { prevButton, nextButton, link } = this;
+    const { prevButton, nextButton, link, links } = this;
     const { currentIndex, onChange, length } = this.props;
+    // NOTE: we hide the text rather than removing the "Previous"/"Next" links altogether so that the layout doesn't re-center when those links disappear
     return (
       <nav className='text-center'>
-        <span className={`text--bold padding-small ${currentIndex === 0 ? 'pagination-default text--white pagination-invisible' : 'pagination-pointer text--teal'}`} onClick={() => onChange(currentIndex - 1) }>← Previous</span>
+        <span className={`text--bold padding-small ${currentIndex === 0 ? 'pagination-default pagination-invisible' : 'pagination-pointer text--teal'}`} onClick={() => onChange(currentIndex - 1) }>← Previous</span>
         { link(0) /* hard-code first pagination link */ }
-        { this.links() /* dynamically generate range between first and last link */ }
+        { links() /* dynamically generate range between first and last link */ }
         { link(length - 1)/* hard-code last pagination link */ }
-        <span className={`text--bold padding-small ${currentIndex === length - 1 ? 'pagination-default text--white pagination-invisible' : 'pagination-pointer text--teal' }`} onClick={() => onChange(currentIndex + 1)}>Next →</span>
+        <span className={`text--bold padding-small ${currentIndex === length - 1 ? 'pagination-default pagination-invisible' : 'pagination-pointer text--teal' }`} onClick={() => onChange(currentIndex + 1)}>Next →</span>
       </nav>
     );
   }

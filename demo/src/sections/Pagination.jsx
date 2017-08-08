@@ -4,6 +4,7 @@ import { Pagination } from '../../../index.js';
 import {
   Block,
   DemoRow,
+  Details,
   Subtitle,
   Title,
 } from '../ui';
@@ -40,7 +41,26 @@ const PaginatorDemo = () => (
 );
 
 const paginatorCode = `
-(test)
+// A stateful implementation:
+class StatefulPagination extends Component {
+  constructor() {
+    super();
+    this.state = { selectedIndex: 0 };
+    this.updateIndex = this.updateIndex.bind(this);
+  }
+
+  updateIndex(selectedIndex) {
+    this.setState({ selectedIndex });
+  }
+
+  render() {
+    const i = this.state.selectedIndex;
+    const length = this.props.length;
+    return (
+      <Pagination currentIndex={i} length={length} onChange={this.updateIndex} />
+    );
+  }
+}
 `;
 
 
@@ -49,8 +69,16 @@ const paginatorCode = `
 
 const Paginators = ({ title }) => (
   <div>
-    <DemoRow><Title>{title}</Title></DemoRow>
-    <DemoRow code={paginatorCode}><PaginatorDemo /></DemoRow>
+    <DemoRow>
+      <Title>{title}</Title>
+      <Details>
+        The <code>Pagination</code> component displays up to 7 page links and a
+        possible "Previous" or "Next" link when appropriate. It will also call
+        an <code>onChange</code> callback with the index of the new selected
+        link whenever one of the links (or "Previous"/"Next") is clicked.
+      </Details>
+    </DemoRow>
+   <DemoRow code={paginatorCode}><PaginatorDemo /></DemoRow>
   </div>
 );
 

@@ -12,3 +12,7 @@
 .pagination-invisible {
   visibility: hidden;
 }
+
+.pagination-link:hover {
+  background: #f0f2f4; /* gray-2 */
+}
