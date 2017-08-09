@@ -5,6 +5,7 @@
   "main": "dist/quartz-react.js",
   "scripts": {
     "build": "node build/build-css.js && rollup -c build/rollup.config.js",
+    "deploy": "firebase deploy",
     "dev": "rollup -c build/rollup.demo-config.js --watch",
     "lint": "eslint components/** demo/src/** build/** index.js",
     "preview": "firebase serve",
