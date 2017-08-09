@@ -30,10 +30,10 @@ class StatefulPagination extends Component {
 const PaginatorDemo = () => (
   <div>
     {
-      Array(9).fill(true).map((_, i) => (
+      [1, 2, 7, 8, 9].map((i) => (
         <div key={i}>
-          <Subtitle>Page count: {i + 1}</Subtitle>
-          <StatefulPagination length={i + 1} />
+          <Subtitle>Demo page count: {i}</Subtitle>
+          <StatefulPagination length={i} />
         </div>
       ))
     }

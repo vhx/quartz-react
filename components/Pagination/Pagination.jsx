@@ -60,6 +60,10 @@ class Pagination extends Component {
   render() {
     const { prevButton, nextButton, link, links } = this;
     const { currentIndex, onChange, length } = this.props;
+    
+    if (length === 0) return <nav />;
+    if (length === 1) return <nav className='text-center'>{link(0)}</nav>;
+
     // NOTE: we hide the text rather than removing the "Previous"/"Next" links altogether so that the layout doesn't re-center when those links disappear
     return (
       <nav className='text-center'>
