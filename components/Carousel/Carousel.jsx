@@ -25,6 +25,11 @@ function containValue(max, min, value) {
   return value;
 }
 
+function getZIndex(topSlideIndex, bgSlideIndex, currentIndex) {
+  if (currentIndex === topSlideIndex) return '1';
+  if (currentIndex === bgSlideIndex) return '0';
+  return '-1';
+}
 
 class Carousel extends Component {
   constructor(props) {
@@ -143,7 +148,7 @@ class Carousel extends Component {
                 height={height}
                 isMobile={isMobile}
                 width={width}
-                zIndex={topSlideIndex === i ? '1' : bgSlideIndex === i ? '0' : '-1'}
+                zIndex={getZIndex(topSlideIndex, bgSlideIndex, i)}
               />
             ))
           }
