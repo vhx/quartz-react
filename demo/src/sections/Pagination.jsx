@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Pagination } from '../../../index.js';
 import {
-  Block,
   DemoRow,
   Details,
   Subtitle,
@@ -27,10 +26,14 @@ class StatefulPagination extends Component {
   }
 }
 
+StatefulPagination.propTypes = {
+  length: PropTypes.number.isRequired,
+};
+
 const PaginatorDemo = () => (
   <div>
     {
-      [1, 2, 7, 8, 9].map((i) => (
+      [1, 2, 7, 8, 9].map(i => (
         <div key={i}>
           <Subtitle>Demo page count: {i}</Subtitle>
           <StatefulPagination length={i} />
@@ -78,7 +81,7 @@ const Paginators = ({ title }) => (
         link whenever one of the links (or "Previous"/"Next") is clicked.
       </Details>
     </DemoRow>
-   <DemoRow code={paginatorCode}><PaginatorDemo /></DemoRow>
+    <DemoRow code={paginatorCode}><PaginatorDemo /></DemoRow>
   </div>
 );
 

@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import classNames from 'classnames';
-import { If } from '../util';
 
 const MAX_VISIBLE_LINKS = 7;
 
@@ -37,20 +35,17 @@ class Pagination extends Component {
       links.push(link(currentIndex - 1));
       links.push(link(currentIndex));
       links.push(link(currentIndex + 1));
-    }
-    else if (truncateBefore) { 
+    } else if (truncateBefore) { 
       links.push(link(length - 5));
       links.push(link(length - 4));
       links.push(link(length - 3));
       links.push(link(length - 2));
-    }
-    else if (truncateAfter) {
+    } else if (truncateAfter) {
       links.push(link(1));
       links.push(link(2));
       links.push(link(3));
       links.push(link(4));
-    }
-    else if (length > 1) {
+    } else if (length > 1) {
       for (let i = 1; i < length - 1; i++) links.push(link(i));
     }
     if (truncateAfter) links.push(<Separator key={`sep-${currentIndex + 2}`} />);
@@ -58,9 +53,9 @@ class Pagination extends Component {
   }
 
   render() {
-    const { prevButton, nextButton, link, links } = this;
+    const { link, links } = this;
     const { currentIndex, onChange, length } = this.props;
-    
+
     if (length === 0) return <nav />;
     if (length === 1) return <nav className='text-center'>{link(0)}</nav>;
 
@@ -71,7 +66,7 @@ class Pagination extends Component {
         { link(0) /* hard-code first pagination link */ }
         { links() /* dynamically generate range between first and last link */ }
         { link(length - 1)/* hard-code last pagination link */ }
-        <span className={`pagination-link text--bold padding-small text--teal ${currentIndex === length - 1 ? 'invisible' : '' }`} onClick={() => onChange(currentIndex + 1)}>Next →</span>
+        <span className={`pagination-link text--bold padding-small text--teal ${currentIndex === length - 1 ? 'invisible' : ''}`} onClick={() => onChange(currentIndex + 1)}>Next →</span>
       </nav>
     );
   }
