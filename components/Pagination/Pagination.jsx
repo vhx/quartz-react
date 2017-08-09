@@ -35,7 +35,7 @@ class Pagination extends Component {
       links.push(link(currentIndex - 1));
       links.push(link(currentIndex));
       links.push(link(currentIndex + 1));
-    } else if (truncateBefore) { 
+    } else if (truncateBefore) {
       links.push(link(length - 5));
       links.push(link(length - 4));
       links.push(link(length - 3));
