@@ -6,10 +6,11 @@
   "scripts": {
     "build": "npm run css && rollup -c build/rollup.config.js",
     "css": "node build/build-css",
+    "css:watch": "npm run css -- --watch",
     "dev": "rollup -c build/rollup.demo-config.js --watch",
     "lint": "eslint components/** demo/src/** build/** index.js",
-    "serve": "browser-sync start --server --serveStatic \"demo/public\" --files \"demo/public/js/bundle.js\" --no-open",
-    "start": "npm-run-all --parallel dev serve",
+    "serve": "browser-sync start --server --serveStatic \"demo/public\" --files \"demo/public/**/**\"  --no-open",
+    "start": "npm-run-all --parallel dev serve css:watch",
     "test": "nyc --extension .jsx --reporter=html --reporter=text-summary mocha components/**/*.test.jsx --compilers js:babel-register",
     "test:nocover": "mocha components/**/*.test.jsx --compilers js:babel-register"
   },

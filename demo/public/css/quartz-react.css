@@ -2,5 +2,6 @@
   padding: 4px; }
 
 .btn {
-  color: #02b;
+  border-radius: 2px;
+  color: #029;
   outline: none; }

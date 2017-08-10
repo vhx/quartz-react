@@ -6,11 +6,11 @@ import PropTypes from 'prop-types';
 
 const Avatar = props => (
   <span className={`avatar color-teal avatar--${props.size}`}>
-    <span className="avatar-user user-avatar" 
+    <span className="avatar-user user-avatar"
     style={{
-      'backgroundImage': `url('${props.image}')`    
+      'backgroundImage': `url('${props.image}')`
     }} />
-    
+
   </span>
 );
 
