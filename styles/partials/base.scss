@@ -7,6 +7,19 @@
 @import 'base-partials/lists';
 @import 'base-partials/grid';
 @import 'base-partials/arrows';
+@import 'base-partials/backgrounds';
+@import 'base-partials/borders';
+@import 'base-partials/buttons';
+@import 'base-partials/charts';
+@import 'base-partials/dropdowns';
+@import 'base-partials/forms';
+@import 'base-partials/headers';
+@import 'base-partials/icons';
+@import 'base-partials/images';
+@import 'base-partials/loaders';
+@import 'base-partials/tables';
+@import 'base-partials/text';
+@import 'base-partials/tooltips';
 
 .padding-small {
   padding: $small;
