@@ -32,58 +32,35 @@
 /* links
 ......................................*/
 a {
-  transition: color 200ms ease;
-
-  &:link,
-  &:visited {
-    color: $teal-2;
-    text-decoration: none;
-  }
-  &:hover,
-  &:active {
-    color: $teal-3;
-    text-decoration: none;
-  }
-  &.is-disabled {
-    &:link, &:visited,
-    &:hover, &:active {
-      cursor: default;
-      opacity: .5;
-      color: $teal-2;
-    }
-  }
+ @include LinkType();
 }
 
-//todo: consider type mixins
+//todo, change text-1 to text--1, ect in files.
 /* sizes
 ......................................*/
-.text-1 {
-  font-size: 16px;
-  line-height: 24px;
-  color: $gray-6;
-}
-.text-2 {
-  font-size: 14px;
-  line-height: 22px;
-  color: $gray-6;
-}
-.text-3 {
-  font-size: 13px;
-  line-height: 18px;
-  color: $gray-6;
-}
-.text-4 {
-  font-size: 12px;
-  line-height: 16px;
-  color: $gray-6;
+.text {
+
+  &--1 {
+    @include TextOne();
+  }
+
+  &--2 {
+    @include TextTwo();
+  }
+
+  &--3 {
+    @include TextThree();
+  }
+
+  &--4 {
+    @include TextFour();
+  }
+
 }
 
-/* colors
+/* mods
 ......................................*/
 
-//ex: <p class="text--navy-bold">
-
-//todo: refactor out the strongs, em, etc. keeping for legacy code.
 .text {
 
   &--bold {
@@ -93,6 +70,15 @@ a {
   &--italic {
     @include ItalicType();
   }
+}
+
+/* colors
+......................................*/
+
+//ex: <p class="text--navy-bold">
+
+//todo: refactor out the strongs, em, etc. keeping for legacy code.
+.text {
 
   &--navy {
     color: $gray-7;
@@ -392,49 +378,19 @@ a {
 
 }
 
-a.text--navy {
-  &:link,
-  &:visited {
-    color: $gray-7;
-    text-decoration: none;
+//todo:  Change links to link--[color] from text--[color]
+
+.link {
+
+  &--navy {
+    @include LinkTypeColor();
   }
-  &:hover,
-  &:active {
-    color: $gray-5;
-    text-decoration: none;
-    &.is-hover-text--navy {
-      color: $gray-7;
-    }
-  }
-  &.is-disabled {
-  &:link, &:visited,
-  &:hover, &:active {
-      color: $gray-7;
-    }
+
+  &--gray {
+    @include LinkTypeColor('gray', $gray-5, $gray-5);
   }
 }
 
-a.text--gray {
-  &:link,
-  &:visited {
-    color: $gray-5;
-    text-decoration: none;
-  }
-  &:hover,
-  &:active {
-    color: $gray-7;
-    text-decoration: none;
-    &.is-hover-text--gray {
-      color: $gray-5;
-    }
-  }
-  &.is-disabled {
-    &:link, &:visited,
-    &:hover, &:active {
-      color: $gray-5;
-    }
-  }
-}
 
 a.text--gray-light {
   &:link,
