@@ -1,37 +1,33 @@
 const fs = require('fs');
-const path = require('path');
-const crypto = require('crypto');
-const { promisify } = require('bluebird');
-const version = require('../package.json').version;
+const chalk = require('chalk');
+const glob = require('globby');
+const sass = require('node-sass');
+const importer = require('node-sass-importer');
 
-const readdir = promisify(fs.readdir);
-const readFile = promisify(fs.readFile);
-const writeFile = promisify(fs.writeFile);
-
-const rootDir = path.resolve(__dirname, '..');
-const cssDir = path.resolve(rootDir, 'demo/public/css');
-
-async function main() {
-  const cssFiles = await readdir(cssDir);
-  const cssReadPromises = cssFiles.map(file => readFile(path.resolve(cssDir, file), 'utf8'));
-  const cssContents = await Promise.all(cssReadPromises);
-  const cssContentsWithComment = cssContents.map((css) => {
-    const hash = crypto.createHash('md5');
-    hash.setEncoding('hex');
-    hash.write(css);
-    hash.end();
-    const comment = `/*
-  Quartz-react version: ${version}
-  Current file hash: ${hash.read()}
-*/
-
-`;
-    return comment.concat(css);
-  });
-
-  const cssWritePromises = cssFiles.map((file, i) => writeFile(path.resolve(rootDir, 'dist', file), cssContentsWithComment[i]));
-  await Promise.all(cssWritePromises);
-  console.log('CSS build success'); // eslint-disable-line no-console
+// removeExtension('foo.bar.css')
+// => 'foo.bar'
+function removeExtension(fileName) {
+  const split = fileName.split('.');
+  split.pop();
+  return split.join('.');
 }
 
-main();
+const importerOptions = {
+  roots: [ 'styles', 'components' ],
+};
+
+glob([ 'components/**/*.scss', 'styles/core.scss', 'styles/quartz-react.scss' ]).then((paths) => {
+  paths.forEach((file) => {
+    const fileName = file.split('/').pop();
+    const cssFileName = `${removeExtension(fileName)}.css`;
+    sass.render({ file, importer, importerOptions }, (err, result) => {
+      if (err) {
+        console.log(chalk.yellow('\nFailed to compile: ', fileName, '\n'));
+        console.error(err);
+        return;
+      }
+      fs.writeFileSync(`demo/public/css/${cssFileName}`, result.css);
+      fs.writeFileSync(`dist/css/${cssFileName}`, result.css);
+    });
+  });
+});
