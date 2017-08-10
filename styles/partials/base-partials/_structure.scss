@@ -1,0 +1,17 @@
+/*.....................................
+  PAGE STRUCTURE
+  these styles affect anything relating to the entire document and/or page.
+......................................*/
+
+/* reset
+......................................*/
+
+body {
+	font-family: $font-helvetica;
+	font-size: 14px;
+	line-height: 22px;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+    color: $gray-6;
+    background-color: $white;
+}

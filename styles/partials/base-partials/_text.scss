@@ -5,18 +5,29 @@
   TEXT
 ......................................*/
 
-/* reset
-......................................*/
-body {
-  color: $gray-6;
-}
-body, ul, ol, dl, li, p, div, section, nav, table, h1, h2, h3, h4, h5, h6 {
-  font-family: $font-helvetica;
-  font-size: 14px;
-  line-height: 22px;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
+// See _structure.scss for solution to this.
+// ul,
+// ol,
+// dl,
+// li,
+// p,
+// div,
+// section,
+// nav,
+// table,
+// h1,
+// h2,
+// h3,
+// h4,
+// h5,
+// h6 {
+//   font-family: $font-helvetica;
+//   font-size: 14px;
+//   line-height: 22px;
+//   -webkit-font-smoothing: antialiased;
+//   -moz-osx-font-smoothing: grayscale;
+// }
+
 
 /* links
 ......................................*/
@@ -43,6 +54,7 @@ a {
   }
 }
 
+//todo: consider type mixins
 /* sizes
 ......................................*/
 .text-1 {
@@ -68,12 +80,318 @@ a {
 
 /* colors
 ......................................*/
-.text--navy {
-  color: $gray-7;
-  &.text--transparent {
+
+//ex: <p class="text--navy-bold">
+
+//todo: refactor out the strongs, em, etc. keeping for legacy code.
+.text {
+
+  &--bold {
+    @include BoldType();
+  }
+
+  &--italic {
+    @include ItalicType();
+  }
+
+  &--navy {
+    color: $gray-7;
+  }
+
+  &--navy-bold {
+    @include BoldType($gray-7);
+  }
+
+  &--navy-italic {
+    @include ItalicType($gray-7);
+  }
+
+  &--navy-transparent {
     color: transparentize($gray-7, .5);
   }
+
+  &--navy-transparent-bold {
+    @include BoldTypeTrans($gray-7, 0.5);
+  }
+
+  &--navy-transparent-italic {
+    @include ItalicTypeTrans($gray-7, 0.5);
+  }
+
+  &--gray {
+    color: $gray-5;
+  }
+
+  &--gray-bold {
+    @include BoldType($gray-5);
+  }
+
+  &--gray-italic {
+    @include ItalicType($gray-5);
+  }
+
+  &--gray-transparent {
+    @include ItalicTypeTrans($gray-5, 0.5);
+  }
+
+  &--gray-transparent-bold {
+    @include BoldTypeTrans($gray-5, 0.5);;
+  }
+
+  &--gray-transparent-italic {
+    @include ItalicTypeTrans($gray-5, 0.5);ß
+  }
+
+  &--gray-light {
+    color: $gray-2;
+  }
+
+  &--gray-light-italic {
+    @include ItalicType($gray-2);
+  }
+
+  &--gray-light-bold {
+    @include BoldType($gray-2);
+  }
+
+  &--gray-light-transparent {
+    color: transparentize($gray-2, .5);
+  }
+
+  &--gray-light-transparent-italic {
+    @include ItalicTypeTrans($gray-2, 0.5);
+  }
+
+  &--gray-light-transparent-bold {
+    @include BoldTypeTrans($gray-2, 0.5);
+  }
+
+  &--teal {
+    color: $teal-2;
+  }
+
+   &--teal-italic {
+    @include ItalicType($teal-2);
+  }
+
+  &--teal-bold {
+    @include BoldType($teal-2);
+  }
+
+  &--teal-transparent {
+    color: transparentize($teal-2, .5);
+  }
+
+  &--teal-transparent-italic {
+    @include ItalicTypeTrans($teal-2, 0.5);
+  }
+
+  &--teal-transparent-bold {
+    @include BoldTypeTrans($teal-2, 0.5);
+  }
+
+  &--white {
+    color: $white;
+  }
+
+  &--white-italic {
+    @include ItalicType($white);
+  }
+
+  &--white-bold {
+    @include BoldType($white);
+  }
+
+  &--white-transparent {
+    color: transparentize($white, .3);
+  }
+
+  &--white-transparent-italic {
+    @include ItalicTypeTrans($white, 0.3);
+  }
+
+  &--white-transparent-bold {
+    @include BoldTypeTrans($white, 0.3);
+  }
+
+  &--yellow {
+    color: $vhx-yellow;
+  }
+
+  &--yellow-italic {
+    @include ItalicType($vhx-yellow);
+  }
+
+  &--yellow-bold {
+    @include BoldType($vhx-yellow);
+  }
+
+  &--yellow-transparent {
+    color: transparentize($vhx-yellow, .3);
+  }
+
+  &--yellow-transparent-italic {
+    @include ItalicTypeTrans($vhx-yellow, 0.3);
+  }
+
+  &--yellow-transparent-bold {
+    @include BoldTypeTrans($vhx-yellow, 0.3);
+  }
+
+  &--green {
+    color: $vhx-green;
+  }
+
+  &--green-italic {
+    @include ItalicType($vhx-green);
+  }
+
+  &--green-bold {
+    @include BoldType($vhx-green);
+  }
+
+  &--green-transparent {
+    color: transparentize($vhx-green, .5);
+  }
+
+  &--green-transparent-italic {
+    @include ItalicTypeTrans($vhx-green, 0.5);
+  }
+
+  &--green-transparent-bold {
+    @include BoldTypeTrans($vhx-green, 0.5);
+  }
+
+  &--red {
+    color: $red;
+  }
+
+  &--red-italic {
+    @include ItalicType($red);
+  }
+
+  &--red-bold {
+    @include BoldType($red);
+  }
+
+  &--red-transparent {
+    color: transparentize($red, .5);
+  }
+
+  &--red-transparent-bold {
+    @include BoldTypeTrans($red, 0.5);
+  }
+
+  &--red-transparent-italic {
+    @include ItalicTypeTrans($red, 0.5);
+  }
+
+  &--orange {
+    color: $vhx-orange;
+  }
+
+  &--orange-italic {
+    @include ItalicType($vhx-orange);
+  }
+
+  &--orange--bold {
+    @include BoldType($vhx-orange);
+  }
+
+  &--orange-transparent {
+    color: transparentize($vhx-orange, .5);
+  }
+
+  &--orange-transparent-bold {
+    @include BoldTypeTrans($vhx-orange, 0.5);
+  }
+
+  &--orange-transparent-italic {
+    @include ItalicTypeTrans($vhx-orange, 0.5);
+  }
+
+  &--debian {
+    color: $vhx-debian;
+  }
+
+  &--debian-bold {
+    @include BoldType($vhx-debian);
+  }
+
+  &--debian-transparent {
+    color: transparentize($vhx-debian, .5);
+  }
+
+  &--debian-transparent-bold {
+    @include BoldTypeTrans($vhx-debian, 0.5);
+  }
+
+  &--debian-transparent-italic {
+    @include ItalicTypeTrans($vhx-debian, 0.5);
+  }
+
+  &--purple {
+    color: $vhx-purple;
+  }
+
+  &--purple-bold {
+    @include BoldType($vhx-purple);
+  }
+
+  &--purple-transparent {
+    color: transparentize($vhx-purple, .5);
+  }
+
+  &--purple-transparent-bold {
+    @include BoldTypeTrans($vhx-purple, 0.5);
+  }
+
+  &--purple-transparent-italic {
+    @include ItalicTypeTrans($vhx-purple, 0.5);
+  }
+
+  &--currant {
+    color: $vhx-currant;
+  }
+
+  &--currant-bold {
+    @include BoldType($vhx-currant);
+  }
+
+  &--currant-transparent {
+    color: transparentize($vhx-currant, .5);
+  }
+
+  &--currant-transparent-bold {
+    @include BoldTypeTrans($vhx-currant, 0.5);
+  }
+
+  &--currant-transparent-italic {
+    @include ItalicTypeTrans($vhx-currant, 0.5);
+  }
+
+  &--blue {
+    color: $vhx-blue;
+  }
+
+  &--blue-bold {
+    @include BoldType($vhx-blue);
+  }
+
+  &--blue-transparent {
+    color: transparentize($vhx-blue, .5);
+  }
+
+  &--blue-transparent-bold {
+    @include BoldTypeTrans($vhx-blue, 0.5);
+  }
+
+  &--blue-transparent-italic {
+    @include ItalicTypeTrans($vhx-blue, 0.5);
+  }
+
 }
+
 a.text--navy {
   &:link,
   &:visited {
@@ -96,12 +414,6 @@ a.text--navy {
   }
 }
 
-.text--gray {
-  color: $gray-5;
-  &.text--transparent {
-    color: transparentize($gray-5, .5);
-  }
-}
 a.text--gray {
   &:link,
   &:visited {
@@ -124,12 +436,6 @@ a.text--gray {
   }
 }
 
-.text--gray-light {
-  color: $gray-2;
-  &.text--transparent {
-    color: transparentize($gray-2, .5);
-  }
-}
 a.text--gray-light {
   &:link,
   &:visited {
@@ -152,12 +458,6 @@ a.text--gray-light {
   }
 }
 
-.text--teal {
-  color: $teal-2;
-  &.text--transparent {
-    color: transparentize($teal-2, .5);
-  }
-}
 a.text--teal {
   &:link,
   &:visited {
@@ -180,12 +480,6 @@ a.text--teal {
   }
 }
 
-.text--white {
-  color: $white;
-  &.text--transparent {
-    color: transparentize($white, .3);
-  }
-}
 a.text--white {
   &:link,
   &:visited {
@@ -205,13 +499,6 @@ a.text--white {
     &:hover, &:active {
       color: $white;
     }
-  }
-}
-
-.text--yellow {
-  color: $vhx-yellow;
-  &.text--transparent {
-    color: transparentize($vhx-yellow, .3);
   }
 }
 a.text--yellow {
@@ -235,12 +522,7 @@ a.text--yellow {
     }
   }
 }
-.text--green {
-  color: $vhx-green;
-  &.text--transparent {
-    color: transparentize($vhx-green, .5);
-  }
-}
+
 a.text--green {
   &:link,
   &:visited {
@@ -263,12 +545,6 @@ a.text--green {
   }
 }
 
-.text--red {
-  color: $red;
-  &.text--transparent {
-    color: transparentize($red, .5);
-  }
-}
 a.text--red {
   &:link,
   &:visited {
@@ -291,12 +567,7 @@ a.text--red {
   }
 }
 
-.text--orange {
-  color: $vhx-orange;
-  &.text--transparent {
-    color: transparentize($vhx-orange, .5);
-  }
-}
+
 a.text--orange {
   &:link,
   &:visited {
@@ -319,12 +590,7 @@ a.text--orange {
   }
 }
 
-.text--debian {
-  color: $vhx-debian;
-  &.text--transparent {
-    color: transparentize($vhx-debian, .5);
-  }
-}
+
 a.text--debian {
   &:link,
   &:visited {
@@ -347,12 +613,7 @@ a.text--debian {
   }
 }
 
-.text--purple {
-  color: $vhx-purple;
-  &.text--transparent {
-    color: transparentize($vhx-purple, .5);
-  }
-}
+
 
 a.text--purple {
   &:link,
@@ -376,12 +637,6 @@ a.text--purple {
   }
 }
 
-.text--currant {
-  color: $vhx-currant;
-  &.text--transparent {
-    color: transparentize($vhx-currant, .5);
-  }
-}
 a.text--currant {
   &:link,
   &:visited {
@@ -404,12 +659,7 @@ a.text--currant {
   }
 }
 
-.text--blue {
-  color: $vhx-blue;
-  &.text--transparent {
-    color: transparentize($vhx-blue, .5);
-  }
-}
+
 a.text--blue {
   &:link,
   &:visited {
@@ -434,12 +684,6 @@ a.text--blue {
 
 /* modifiers
 ......................................*/
-.text--bold {
-  font-weight: 600;
-  strong {
-    font-weight: 600;
-  }
-}
 .text--italic {
   font-style: italic;
   em {
