@@ -60,17 +60,6 @@ demo/
     sections/                   # Sections of the demo page with code and examples
     ui/                         # Components specific to the demo page that are not included in quartz-react
     index.jsx                   # The demo page itself (ie. what is seen on localhost:3000)
-coverage/                       # Generated code coverage reports for component tests
-  [Component]/
-    [Component].jsx.html
-    [Component].test.jsx.html
-    index.html
-  base.css                      # code coverage css
-  index.html
-  prettify.css
-  prettify.js
-  sort-arrow-sprite.png
-  sorter.js
 dist/
   css/
     [Component].css             # Component specific styles output. (core.css must be used in this scenario)
