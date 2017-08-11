@@ -59,7 +59,7 @@ class Pagination extends Component {
     if (length === 0) return <nav />;
     if (length === 1) return <nav className='text-center'>{link(0)}</nav>;
 
-    // NOTE: we hide the text rather than removing the "Previous"/"Next" links altogether so that the layout doesn't re-center when those links disappear
+    // NOTE: we toggle the visibility of the "Previous"/"Next" links rather than removing those links altogether so that the layout doesn't re-center when those links disappear
     return (
       <nav className='text-center'>
         <span className={`pagination-link text--bold padding-small text--teal ${currentIndex === 0 ? 'invisible' : ''}`} onClick={() => onChange(currentIndex - 1) }>← Previous</span>
