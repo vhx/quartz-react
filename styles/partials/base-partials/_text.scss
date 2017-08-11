@@ -170,7 +170,7 @@ a {
   }
 
   &--gray-transparent-italic {
-    @include ItalicTypeTrans($gray-5, 0.5);ß
+    @include ItalicTypeTrans($gray-5, 0.5);
   }
 
   &--gray-light {
