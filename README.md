@@ -45,13 +45,26 @@ components/
     index.js                    # This just exports your [Component].jsx
     [Component].jsx             # The main component file
     [Component].test.jsx        # Unit tests for the component
+    [Component].scss            # component-specific styles
   util/                         # Utility functions shared by components
+styles/
+  partials/
+    base.scss                   # Widely used styles throughout all components.
+    normalize.scss              # CSS reset/normalize
+  core.scss                     # Combines the component specific scss partials and exports to core.css
+  quartz-react.scss             # Combines the partials and every single component style, exports to quartz-react.css
+  variables.scss                # Variables used in any stylesheet, such as colors.
 demo/
   public/                       # Assets to be used by the demo page
   src/
     sections/                   # Sections of the demo page with code and examples
     ui/                         # Components specific to the demo page that are not included in quartz-react
     index.jsx                   # The demo page itself (ie. what is seen on localhost:3000)
+dist/
+  css/
+    [Component].css             # Component specific styles output. (core.css must be used in this scenario)
+    core.css                    # All the minimum necessary styles for any component to render.
+    quartz-react.css            # The kitchen sink of quartz-react style components available for use.
 index.js                        # Every component that is exported in quartz-react
 ```
 
@@ -75,3 +88,11 @@ index.js                        # Every component that is exported in quartz-rea
 Component demo files (`demo/src/sections/*.jsx`) should export a component containing `<DemoRow>`s. These accept an optional `code` prop that's a string of code to display on the right side of the page.
 
 Follow the example from the `Text` component's demo for the simplest example setup.
+
+## SCSS and CSS options
+
+There are a few ways to use components and styles with your project, by individual component or by importing all styles for all components.
+
+We recommend using all styles to begin with.  If so, you will only need to use quartz-react.css wherever you are linking to your stylesheets, which includes all of the core styles.
+
+If you would like to cherry pick styles and specific components, you will need to import the [Component].css in the components that you are building and core.css wherever you're importing all of your other stylesheets from into the head of your document.

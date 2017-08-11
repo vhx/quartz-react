@@ -1,5 +1,34 @@
+// used on all pages and components
 @import 'variables';
+@import 'mixins';
+@import 'base-partials/_type-treatments';
+@import 'base-partials/structure';
+
+
+// used on components specifically
+@import 'base-partials/utils';
+@import 'base-partials/spacing';
+@import 'base-partials/media';
+@import 'base-partials/lists';
+@import 'base-partials/grid';
+@import 'base-partials/arrows';
+@import 'base-partials/backgrounds';
+@import 'base-partials/borders';
+@import 'base-partials/buttons';
+@import 'base-partials/charts';
+@import 'base-partials/dropdowns';
+@import 'base-partials/forms';
+@import 'base-partials/headers';
+@import 'base-partials/icons';
+@import 'base-partials/images';
+@import 'base-partials/loaders';
+@import 'base-partials/tables';
+@import 'base-partials/text';
+@import 'base-partials/tooltips';
 
 .padding-small {
   padding: $small;
 }
+
+
+

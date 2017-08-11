@@ -1,0 +1,16 @@
+/*.....................................
+  PAGE STRUCTURE
+  these styles affect anything relating to the entire document and/or page.
+......................................*/
+
+/* reset
+......................................*/
+
+body {
+	@include BodyType();
+
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+  //added default background color to body
+  background-color: $white;
+}

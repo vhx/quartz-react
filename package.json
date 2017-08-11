@@ -67,6 +67,7 @@
   "dependencies": {
     "bluebird": "^3.5.0",
     "classnames": "^2.2.5",
+    "eslint-plugin-jsx-a11y": "^6.0.2",
     "prop-types": "^15.5.10",
     "react": "^15.5.4",
     "react-dom": "^15.5.4"
