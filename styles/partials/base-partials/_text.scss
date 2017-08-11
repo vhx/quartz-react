@@ -5,30 +5,6 @@
   TEXT
 ......................................*/
 
-// See _structure.scss for solution to this.
-// ul,
-// ol,
-// dl,
-// li,
-// p,
-// div,
-// section,
-// nav,
-// table,
-// h1,
-// h2,
-// h3,
-// h4,
-// h5,
-// h6 {
-//   font-family: $font-helvetica;
-//   font-size: 14px;
-//   line-height: 22px;
-//   -webkit-font-smoothing: antialiased;
-//   -moz-osx-font-smoothing: grayscale;
-// }
-
-
 /* links
 ......................................*/
 a {
@@ -61,6 +37,8 @@ a {
 /* mods
 ......................................*/
 
+//ex: <p class="text--bold">
+
 .text {
 
   &--bold {
@@ -69,6 +47,73 @@ a {
 
   &--italic {
     @include ItalicType();
+  }
+
+  &--transparent {
+    @include TypeTrans();
+  }
+
+  &--uppercase {
+    text-transform: uppercase;
+    &::placeholder {
+      text-transform: none;
+    }
+  }
+
+  &--lowercase {
+    text-transform: lowercase !important;
+  }
+
+  &--break {
+    word-break: break-all;
+  }
+}
+
+//todo: change line-[mod] to line--[mod]
+
+//ex: <p class="text--navy-bold line--small">
+
+.line {
+
+  &--small {
+    @include LineHeight();
+  }
+
+  &--medium {
+    @include LineHeight(18px);
+  }
+
+  &--large {
+    @include LineHeight(21px);
+  }
+}
+
+//todo, find .text-contain, flatten to .text-contain--[mod]
+
+//ex: <p class="text-contain--1">
+
+
+.text-contain {
+
+  &--1 {
+    @include TextOne();
+    p {
+      @include MarginBottom(24px);
+    }
+  }
+
+  &--2 {
+    @include TextTwo();
+    p {
+      @include MarginBottom(22px);
+    }
+  }
+
+  &--3 {
+    @include TextThree();
+    p {
+      @include MarginBottom();
+    }
   }
 }
 
@@ -93,7 +138,7 @@ a {
   }
 
   &--navy-transparent {
-    color: transparentize($gray-7, .5);
+    @include TypeTrans($gray-7, 0.5);
   }
 
   &--navy-transparent-bold {
@@ -117,11 +162,11 @@ a {
   }
 
   &--gray-transparent {
-    @include ItalicTypeTrans($gray-5, 0.5);
+    @include TypeTrans($gray-5, 0.5);
   }
 
   &--gray-transparent-bold {
-    @include BoldTypeTrans($gray-5, 0.5);;
+    @include BoldTypeTrans($gray-5, 0.5);
   }
 
   &--gray-transparent-italic {
@@ -141,8 +186,7 @@ a {
   }
 
   &--gray-light-transparent {
-    color: transparentize($gray-2, .5);
-  }
+     @include TypeTrans($gray-2, 0.5);  }
 
   &--gray-light-transparent-italic {
     @include ItalicTypeTrans($gray-2, 0.5);
@@ -165,7 +209,8 @@ a {
   }
 
   &--teal-transparent {
-    color: transparentize($teal-2, .5);
+    @include TypeTrans($teal-2, 0.5);
+
   }
 
   &--teal-transparent-italic {
@@ -189,7 +234,7 @@ a {
   }
 
   &--white-transparent {
-    color: transparentize($white, .3);
+    @include TypeTrans($white, 0.3);
   }
 
   &--white-transparent-italic {
@@ -213,8 +258,7 @@ a {
   }
 
   &--yellow-transparent {
-    color: transparentize($vhx-yellow, .3);
-  }
+    @include TypeTrans($vhx-yellow, 0.3);  }
 
   &--yellow-transparent-italic {
     @include ItalicTypeTrans($vhx-yellow, 0.3);
@@ -237,7 +281,7 @@ a {
   }
 
   &--green-transparent {
-    color: transparentize($vhx-green, .5);
+    @include TypeTrans($vhx-green, 0.5);
   }
 
   &--green-transparent-italic {
@@ -261,7 +305,7 @@ a {
   }
 
   &--red-transparent {
-    color: transparentize($red, .5);
+    @include TypeTrans($red, 0.5);
   }
 
   &--red-transparent-bold {
@@ -285,7 +329,7 @@ a {
   }
 
   &--orange-transparent {
-    color: transparentize($vhx-orange, .5);
+    @include TypeTrans($vhx-orange, 0.5);
   }
 
   &--orange-transparent-bold {
@@ -305,7 +349,7 @@ a {
   }
 
   &--debian-transparent {
-    color: transparentize($vhx-debian, .5);
+    @include TypeTrans($vhx-debian, 0.5);
   }
 
   &--debian-transparent-bold {
@@ -325,7 +369,7 @@ a {
   }
 
   &--purple-transparent {
-    color: transparentize($vhx-purple, .5);
+    @include TypeTrans($vhx-purple, 0.5);
   }
 
   &--purple-transparent-bold {
@@ -345,7 +389,7 @@ a {
   }
 
   &--currant-transparent {
-    color: transparentize($vhx-currant, .5);
+    @include TypeTrans($vhx-currant, 0.5);
   }
 
   &--currant-transparent-bold {
@@ -365,7 +409,7 @@ a {
   }
 
   &--blue-transparent {
-    color: transparentize($vhx-blue, .5);
+    @include TypeTrans($vhx-blue, 0.5);
   }
 
   &--blue-transparent-bold {
@@ -379,6 +423,7 @@ a {
 }
 
 //todo:  Change links to link--[color] from text--[color]
+// todo:  check if white and yellow OK with 0.5 opacity instead of 0.3
 
 .link {
 
@@ -389,303 +434,53 @@ a {
   &--gray {
     @include LinkTypeColor('gray', $gray-5, $gray-5);
   }
-}
 
+  &--gray-light {
+    @include LinkTypeColor('gray-light', $gray-4, $gray-2);
+  }
 
-a.text--gray-light {
-  &:link,
-  &:visited {
-    color: $gray-2;
-    text-decoration: none;
+  &--teal {
+    @include LinkTypeColor('teal', $teal-2, $teal-3);
   }
-  &:hover,
-  &:active {
-    color: $gray-4;
-    text-decoration: none;
-    &.is-hover-text--gray-light {
-      color: $gray-2;
-    }
-  }
-  &.is-disabled {
-    &:link, &:visited,
-    &:hover, &:active {
-      color: $gray-4;
-    }
-  }
-}
 
-a.text--teal {
-  &:link,
-  &:visited {
-    color: $teal-2;
-    text-decoration: none;
+  &--white {
+    @include LinkTypeColor('white', $white, $white);
   }
-  &:hover,
-  &:active {
-    color: $teal-3;
-    text-decoration: none;
-    &.is-hover-text--teal {
-      color: $gray-2;
-    }
-  }
-  &.is-disabled {
-    &:link, &:visited,
-    &:hover, &:active {
-      color: $teal-3;
-    }
-  }
-}
 
-a.text--white {
-  &:link,
-  &:visited {
-    color: $white;
-    text-decoration: none;
+  &--yellow {
+    @include LinkTypeColor('yellow', $vhx-yellow, $vhx-yellow);
   }
-  &:hover,
-  &:active {
-    color: transparentize($white, .3);
-    text-decoration: none;
-    &.is-hover-text--white {
-      color: $white;
-    }
-  }
-  &.is-disabled {
-    &:link, &:visited,
-    &:hover, &:active {
-      color: $white;
-    }
-  }
-}
-a.text--yellow {
-  &:link,
-  &:visited {
-    color: $vhx-yellow;
-    text-decoration: none;
-  }
-  &:hover,
-  &:active {
-    color: transparentize($vhx-yellow, .3);
-    text-decoration: none;
-    &.is-hover-text--yellow {
-      color: $vhx-yellow;
-    }
-  }
-  &.is-disabled {
-    &:link, &:visited,
-    &:hover, &:active {
-      color: $vhx-yellow;
-    }
-  }
-}
 
-a.text--green {
-  &:link,
-  &:visited {
-    color: $vhx-green;
-    text-decoration: none;
+  &--green {
+    @include LinkTypeColor('green', $vhx-green, $vhx-green);
   }
-  &:hover,
-  &:active {
-    color: $vhx-green;
-    text-decoration: none;
-    &.is-hover-text--green {
-      color: $vhx-green;
-    }
-  }
-  &.is-disabled {
-  &:link, &:visited,
-  &:hover, &:active {
-      color: $vhx-green;
-    }
-  }
-}
 
-a.text--red {
-  &:link,
-  &:visited {
-    color: $red;
-    text-decoration: none;
+  &--red {
+    @include LinkTypeColor('red', $red, $red);
   }
-  &:hover,
-  &:active {
-    color: $red;
-    text-decoration: none;
-    &.is-hover-text--red {
-      color: $red;
-    }
-  }
-  &.is-disabled {
-  &:link, &:visited,
-  &:hover, &:active {
-      color: $red;
-    }
-  }
-}
 
+  &--orange {
+    @include LinkTypeColor('orange', $vhx-orange, $vhx-orange);
+  }
 
-a.text--orange {
-  &:link,
-  &:visited {
-    color: $vhx-orange;
-    text-decoration: none;
+  &--debian {
+    @include LinkTypeColor('debian', $vhx-debian, $vhx-debian);
   }
-  &:hover,
-  &:active {
-    color: $vhx-orange;
-    text-decoration: none;
-    &.is-hover-text--orange {
-      color: $vhx-orange;
-    }
-  }
-  &.is-disabled {
-  &:link, &:visited,
-  &:hover, &:active {
-      color: $vhx-orange;
-    }
-  }
-}
 
+  &--purple {
+    @include LinkTypeColor('purple', $vhx-purple, $vhx-purple);
+  }
 
-a.text--debian {
-  &:link,
-  &:visited {
-    color: $vhx-debian;
-    text-decoration: none;
+  &--currant {
+    @include LinkTypeColor('currant', $vhx-currant, $vhx-currant);
   }
-  &:hover,
-  &:active {
-    color: $vhx-debian;
-    text-decoration: none;
-    &.is-hover-text--debian {
-      color: $vhx-debian;
-    }
-  }
-  &.is-disabled {
-  &:link, &:visited,
-  &:hover, &:active {
-      color: $vhx-debian;
-    }
+
+  &--blue {
+    @include LinkTypeColor('blue', $vhx-blue, $vhx-blue);
   }
 }
 
 
 
-a.text--purple {
-  &:link,
-  &:visited {
-    color: $vhx-purple;
-    text-decoration: none;
-  }
-  &:hover,
-  &:active {
-    color: $vhx-purple;
-    text-decoration: none;
-    &.is-hover-text--purple {
-      color: $vhx-purple;
-    }
-  }
-  &.is-disabled {
-  &:link, &:visited,
-  &:hover, &:active {
-      color: $vhx-purple;
-    }
-  }
-}
-
-a.text--currant {
-  &:link,
-  &:visited {
-    color: $vhx-currant;
-    text-decoration: none;
-  }
-  &:hover,
-  &:active {
-    color: $vhx-currant;
-    text-decoration: none;
-    &.is-hover-text--currant {
-      color: $vhx-currant;
-    }
-  }
-  &.is-disabled {
-  &:link, &:visited,
-  &:hover, &:active {
-      color: $vhx-currant;
-    }
-  }
-}
 
 
-a.text--blue {
-  &:link,
-  &:visited {
-    color: $vhx-blue;
-    text-decoration: none;
-  }
-  &:hover,
-  &:active {
-    color: $vhx-blue;
-    text-decoration: none;
-    &.is-hover-text--blue {
-      color: $vhx-blue;
-    }
-  }
-  &.is-disabled {
-  &:link, &:visited,
-  &:hover, &:active {
-      color: $vhx-blue;
-    }
-  }
-}
-
-/* modifiers
-......................................*/
-.text--italic {
-  font-style: italic;
-  em {
-    font-style: italic;
-  }
-}
-.text--transparent {
-  color: transparentize($gray-6, .5);
-}
-.text--uppercase {
-  text-transform: uppercase;
-  &::placeholder {
-    text-transform: none;
-  }
-}
-.text--lowercase {
-  text-transform: lowercase !important;
-}
-.text--break {
-  word-break: break-all;
-}
-
-.text-contain {
-  &.text-1 {
-    p {
-      margin-bottom: 24px;
-    }
-  }
-  &.text-2 {
-    p {
-      margin-bottom: 22px;
-    }
-  }
-  &.text-3 {
-    p {
-      margin-bottom: 18px;
-    }
-  }
-}
-
-.line-small {
-  line-height: 15px;
-}
-.line-medium {
-  line-height: 18px;
-}
-.line-large {
-  line-height: 21px;
-}

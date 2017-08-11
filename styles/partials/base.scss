@@ -1,6 +1,11 @@
+// used on all pages and components
 @import 'variables';
 @import 'mixins';
+@import 'base-partials/_type-treatments';
+@import 'base-partials/structure';
 
+
+// used on components specifically
 @import 'base-partials/utils';
 @import 'base-partials/spacing';
 @import 'base-partials/media';

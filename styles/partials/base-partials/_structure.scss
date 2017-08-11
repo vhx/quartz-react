@@ -7,11 +7,10 @@
 ......................................*/
 
 body {
-	font-family: $font-helvetica;
-	font-size: 14px;
-	line-height: 22px;
+	@include BodyType();
+
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
-    color: $gray-6;
-    background-color: $white;
+  //added default background color to body
+  background-color: $white;
 }

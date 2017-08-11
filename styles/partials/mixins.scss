@@ -404,3 +404,139 @@ $arrow-classes: 'bg-navy', 'bg-white', 'bg-gray-1', 'bg-gray-2', 'bg-red', 'bg-t
     box-shadow: inset 0px -4px 0px $border-color;
   }
 }
+
+/*------spacing ---------*/
+
+@mixin LineHeight($height: 15px) {
+  line-height: $height;
+}
+
+@mixin MarginBottom($height: 18px) {
+  margin-bottom: $height;
+}
+
+/*------type mixins ---------*/
+
+//all mixins have defaults if not specified
+
+@mixin BodyType($color: $gray-6) {
+  font-family: $font-helvetica;
+  font-size: 14px;
+  line-height: 22px;
+  color: $color;
+}
+
+@mixin TextOne($color: $gray-6) {
+  font-size: 16px;
+  line-height: 24px;
+  color: $color;
+}
+
+@mixin TextTwo($color: $gray-6) {
+  font-size: 14px;
+  line-height: 22px;
+  color: $color;
+}
+
+@mixin TextThree($color: $gray-6) {
+  font-size: 13px;
+  line-height: 18px;
+  color: $color;
+}
+
+@mixin TextFour($color: $gray-6) {
+  font-size: 12px;
+  line-height: 16px;
+  color: $color;
+}
+
+@mixin TypeTrans($color: $gray-6, $percent: 0.5) {
+  color: transparentize($color, $percent);
+}
+
+@mixin BoldType($color: $gray-6){
+  color: $color;
+  font-weight: 600;
+  strong {
+    font-weight: 600;
+  }
+}
+
+@mixin BoldTypeTrans($color: $gray-6, $percent: 0.5){
+  color: transparentize($color, $percent);
+  font-weight: 600;
+  strong {
+    font-weight: 600;
+  }
+}
+
+@mixin ItalicType($color: $gray-6){
+  color: $color;
+  font-style: italic;
+  em {
+    font-style: italic;
+  }
+}
+
+@mixin ItalicTypeTrans($color: $gray-6, $percent: 0.5){
+  color: transparentize($color, $percent);
+  font-style: italic;
+  em {
+    font-style: italic;
+  }
+}
+
+@mixin LinkType($color: $teal-2, $hov: $teal-3) {
+  transition: color 200ms ease;
+
+  &:link,
+  &:visited {
+    color: $color;
+    text-decoration: none;
+  }
+  &:hover,
+  &:active {
+    color: $hov;
+    text-decoration: none;
+  }
+  &.is-disabled {
+    &:link,
+    &:visited,
+    &:hover,
+    &:active {
+      cursor: default;
+      opacity: 0.5;
+      color: $color;
+    }
+  }
+}
+
+//refactor links with .is-hover-text--color
+@mixin LinkTypeColor($name: 'navy', $color: $gray-7, $hov: $gray-5) {
+  transition: color 200ms ease;
+
+  &:link,
+  &:visited {
+    color: $color;
+    text-decoration: none;
+  }
+  &:hover,
+  &:active {
+    color: $hov;
+    text-decoration: none;
+    &.is-hover-text--$name {
+      color: $color;
+    }
+  }
+  &.is-disabled {
+    &:link,
+    &:visited,
+    &:hover,
+    &:active {
+      cursor: default;
+      opacity: 0.5;
+      color: $color;
+    }
+  }
+}
+
