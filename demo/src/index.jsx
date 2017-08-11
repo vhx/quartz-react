@@ -8,6 +8,7 @@ import Avatars from './sections/Avatars.jsx';
 import Buttons from './sections/Buttons.jsx';
 import Carousels from './sections/Carousels.jsx';
 import Checkboxes from './sections/Checkboxes.jsx';
+import Headers from './sections/Headers.jsx';
 import Icons from './sections/Icons.jsx';
 import Inputs from './sections/Inputs.jsx';
 import Modals from './sections/Modals.jsx';
@@ -22,6 +23,7 @@ const sections = {
   Buttons,
   Carousels,
   Checkboxes,
+  Headers,
   Icons,
   Inputs,
   Modals,
