@@ -106,6 +106,8 @@ class Carousel extends Component {
         topSlideIndex: this.state.bgSlideIndex, // === i
       });
     }, this.props.animationDuration);
+
+    this.props.onSlideChange({ slideIndex: i, direction });
   }
 
   next() {
@@ -180,6 +182,7 @@ Carousel.propTypes = {
   aspectRatio: aspectRatioPropType,
   maxHeight: PropTypes.number,
   minHeight: PropTypes.number,
+  onSlideChange: PropTypes.func,
   slides: PropTypes.arrayOf(PropTypes.shape({
     Slide: PropTypes.func.isRequired,
     id: PropTypes.string.isRequired,
@@ -191,6 +194,7 @@ Carousel.defaultProps = {
   aspectRatio: '16:6',
   maxHeight: 640, // px
   minHeight: 368, //px
+  onSlideChange: () => {},
 };
 
 export default Carousel;
