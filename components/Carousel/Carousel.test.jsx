@@ -95,4 +95,24 @@ describe('Carousel', () => {
     expect(wrapper.find('.carousel-arrow--left').length).to.equal(0);
     expect(wrapper.find('.carousel-arrow--right').length).to.equal(0);
   });
+
+  it('Calls `onSlideChange` when the slide changes', async () => {
+    let count = 0;
+    const onSlideChange = () => count++;
+    const ANIMATION_DURATION = 5;
+    const wrapper = shallow(<Carousel slides={slides} animationDuration={ANIMATION_DURATION} onSlideChange={onSlideChange} />);
+    const prevArrow = wrapper.find('.carousel-arrow--left');
+    const nextArrow = wrapper.find('.carousel-arrow--right');
+    const coin = wrapper.find('.coin').at(1);
+    expect(count).to.equal(0);
+    prevArrow.simulate('click');
+    expect(count).to.equal(1);
+    await wait(ANIMATION_DURATION);
+    nextArrow.simulate('click');
+    expect(count).to.equal(2);
+    await wait(ANIMATION_DURATION);
+    coin.simulate('click');
+    expect(count).to.equal(3);
+    await wait(ANIMATION_DURATION);
+  });
 });

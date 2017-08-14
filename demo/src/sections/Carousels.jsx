@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Carousel, Slide } from '../../../index.js';
+import { Carousel, Icon, Slide, util } from '../../../index.js';
 import {
   DemoRow,
   Details,
@@ -12,23 +12,48 @@ import {
 // Carousel demo
 // -----------------------------------------
 
+const MAX_TITLE_LENGTH = 50; // characters
 const lorem = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua';
+
+const BrowsePageSlide = ({ title, subtitle, description, buttonClass, links }) => (
+  <div>
+    <div className='slide-title'>{util.truncate(title, MAX_TITLE_LENGTH)}</div>
+    <div className='slide-subtitle'>{subtitle}</div>
+    <div className='slide-description'>{description}</div>
+    <div className='slide-buttons'>
+      <a className={`btn btn-gray btn-site-primary slide-button ${buttonClass}`} href={links.item}>
+        <Icon name='play' color='white' size='xxsmall' />
+        <span className='slide-button-text'>Watch now</span>
+      </a>
+      <util.If condition={Boolean(links.trailer)} inline>
+        <a className='btn btn-transparent slide-button slide-button--alt' href={links.trailer}>
+          <Icon name='play' color='white' size='xxsmall' />
+          <span className='slide-button-text'>Trailer</span>
+        </a>
+      </util.If>
+    </div>
+  </div>
+);
 
 const Slide1 = {
   Slide: props => (
     <Slide
       dynamicProps={props}
-      title='Slide 1 title'
-      subtitle='3 Seasons'
-      description={lorem}
       img='/images/16-6-A.png'
       mobileImg='/images/16-6-A-mob.png'
       isWide={true}
-      links={{
-        item: '#',
-        trailer: '#',
-      }}
-    />
+    >
+      <BrowsePageSlide
+        title='Slide 1 title'
+        subtitle='3 Seasons'
+        description={lorem}
+        buttonClass=''
+        links={{
+          item: '#',
+          trailer: '#',
+        }}
+      />
+    </Slide>
   ),
   id: 's1',
 };
@@ -37,17 +62,21 @@ const Slide2 = {
   Slide: props => (
     <Slide
       dynamicProps={props}
-      title='Slide 2 title is a very long title with many words'
-      subtitle='3 Seasons'
-      description={lorem}
       img='/images/16-9-B.png'
       mobileImg='/images/16-9-B-mob.png'
-      isWide={false}
-      links={{
-        item: '#',
-        trailer: '#',
-      }}
-    />
+      isWide={true}
+    >
+      <BrowsePageSlide
+        title='Slide 2 title is a very long title with many words'
+        subtitle='3 Seasons'
+        description={lorem}
+        buttonClass=''
+        links={{
+          item: '#',
+          trailer: '#',
+        }}
+      />
+    </Slide>
   ),
   id: 's2',
 };
@@ -56,18 +85,21 @@ const Slide3 = {
   Slide: props => (
     <Slide
       dynamicProps={props}
-      buttonClass='btn-teal'
-      title='Slide 3 has a custom button class'
-      subtitle='3 Seasons'
-      description={lorem}
       img='/images/16-9-A.png'
       mobileImg='/images/16-9-A-mob.png'
       isWide={false}
-      links={{
-        item: '#',
-        trailer: '#',
-      }}
-    />
+    >
+      <BrowsePageSlide
+        title='Slide 3 has a custom button class'
+        subtitle='3 Seasons'
+        description={lorem}
+        buttonClass='btn-teal'
+        links={{
+          item: '#',
+          trailer: '#',
+        }}
+      />
+    </Slide>
   ),
   id: 's3',
 };
@@ -76,14 +108,20 @@ const Slide4 = {
   Slide: props => (
     <Slide
       dynamicProps={props}
-      title='Slide 4 has no trailer'
-      subtitle='3 Seasons'
-      description={lorem}
       img='/images/16-9-B.png'
       mobileImg='/images/16-9-B-mob.png'
       isWide={false}
-      links={{ item: '#' }}
-    />
+    >
+      <BrowsePageSlide
+        title='Slide 4'
+        subtitle='3 Seasons'
+        description={lorem}
+        links={{
+          item: '#',
+          trailer: '#',
+        }}
+      />
+    </Slide>
   ),
   id: 's4',
 };
@@ -92,14 +130,21 @@ const Slide5 = {
   Slide: props => (
     <Slide
       dynamicProps={props}
-      title='Slide 5 has no trailer and is 16:6 with a very long title containing many words. 100 characters long'
-      subtitle='3 Seasons'
-      description={lorem}
       img='/images/16-6-B.png'
       mobileImg='/images/16-6-B-mob.png'
       isWide={true}
-      links={{ item: '#' }}
-    />
+    >
+      <BrowsePageSlide
+        title='Slide 5 has no trailer and is 16:6 with a very long title containing many words. 100 characters long'
+        subtitle='3 Seasons'
+        description={lorem}
+        buttonClass='btn-teal'
+        links={{
+          item: '#',
+          trailer: '#',
+        }}
+      />
+    </Slide>
   ),
   id: 's5',
 };
@@ -108,14 +153,17 @@ const loadTestSlides = Array(50).fill(true).map((x, i) => ({
   Slide: props => (
     <Slide
       dynamicProps={props}
-      title={`Slide ${i}`}
-      subtitle='(Load test slide)'
-      description={lorem}
       img={`http://lorempizza.com/1600/600/${i}`}
       mobileImg={`http://lorempizza.com/1600/900/${i}`}
       isWide={true}
-      links={{ item: '#' }}
-    />
+    >
+      <BrowsePageSlide
+        title={`Slide ${i}`}
+        subtitle='(Load-test slide)'
+        description={lorem}
+        links={{ item: '#' }}
+      />
+    </Slide>
   ),
   id: `slide${i}`,
 }));
@@ -165,11 +213,11 @@ const Carousels = ({ title }) => (
     <DemoRow>
       <Title>{title}</Title>
       <Details>
-        Carousels are composed of two components. There is the base <code>Carousel</code>
+        Carousels are composed of three components. There is the base <code>Carousel</code>
         component which handles the navigation ui and aspect ratio sizing. Then there is
-        the <code>Slide</code> component which is a specific implementation of a slide that
-        could be passed to the carousel. The carousel passes many props to the slide component,
-        such as its height and animation duration.
+        the <code>Slide</code> which handles the background images animations between
+        slide changes. Finally, there are the children passed into the <code>Slide</code>
+        component, which can be any arbitrary components.
       </Details>
       <Details>
         The only required prop that a Carousel component requires is an array of objects of the
@@ -189,6 +237,19 @@ const Carousels = ({ title }) => (
         The <code>Carousel</code> component may also be passed an <code>aspectRatio</code>
         prop which is a string formatted like <code>16:9</code>. If not provided, the default
         is <code>16:6</code>.
+      </Details>
+      <Details>
+        The <code>Carousel</code> accepts an <code>onSlideChange</code> prop that is a function
+        which gets called whenever the slide changes. The function will be passed an object of
+        the following form:
+        <pre className='code'>
+          {
+  `{
+  direction: String,
+  slideIndex: Number,
+}`
+          }
+        </pre>
       </Details>
     </DemoRow>
     <DemoRow code={carouselCode}><CarouselDemo /></DemoRow>
