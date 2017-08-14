@@ -512,7 +512,7 @@ var Carousel$1 = (function (Component$$1) {
     var isCurrent = isAnimating ? bgSlideIndex === i : topSlideIndex === i;
     return (
       React__default.createElement( 'button', {
-        key: i, className: isCurrent ? 'coin active' : 'carousel_coin', disabled: isCurrent || isAnimating, onClick: function () { return this$1.goToSlide(i, '', 'carousel_coin'); } })
+        key: i, className: isCurrent ? 'coin active' : 'coin', disabled: isCurrent || isAnimating, onClick: function () { return this$1.goToSlide(i, '', 'carousel_coin'); } })
     );
   };
 
