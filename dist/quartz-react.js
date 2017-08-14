@@ -494,12 +494,12 @@ var Carousel$1 = (function (Component$$1) {
 
   Carousel.prototype.next = function next () {
     var nextSlide = calcNext(this.props.slides.length, this.state.topSlideIndex);
-    this.goToSlide(nextSlide, 'TO_LEFT', 'next');
+    this.goToSlide(nextSlide, 'TO_LEFT', 'carousel_next');
   };
 
   Carousel.prototype.prev = function prev () {
     var prevSlide = calcPrev(this.props.slides.length, this.state.topSlideIndex);
-    this.goToSlide(prevSlide, 'TO_RIGHT', 'prev');
+    this.goToSlide(prevSlide, 'TO_RIGHT', 'carousel_prev');
   };
 
   Carousel.prototype.generateCoin = function generateCoin (Slide, i) {
@@ -512,7 +512,7 @@ var Carousel$1 = (function (Component$$1) {
     var isCurrent = isAnimating ? bgSlideIndex === i : topSlideIndex === i;
     return (
       React__default.createElement( 'button', {
-        key: i, className: isCurrent ? 'coin active' : 'coin', disabled: isCurrent || isAnimating, onClick: function () { return this$1.goToSlide(i, '', 'coin'); } })
+        key: i, className: isCurrent ? 'coin active' : 'carousel_coin', disabled: isCurrent || isAnimating, onClick: function () { return this$1.goToSlide(i, '', 'carousel_coin'); } })
     );
   };
 
