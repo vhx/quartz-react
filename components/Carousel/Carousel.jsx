@@ -87,7 +87,7 @@ class Carousel extends Component {
     if (key === KEY_CODES.RIGHT) { this.next(); }
   }
 
-  goToSlide(i, overrideDirection = '') {
+  goToSlide(i, overrideDirection = '', eventType) {
     const direction = i > this.state.topSlideIndex ? (overrideDirection || 'TO_LEFT') : (overrideDirection || 'TO_RIGHT');
     this.setState({
       bgSlideIndex: i,
@@ -107,17 +107,17 @@ class Carousel extends Component {
       });
     }, this.props.animationDuration);
 
-    this.props.onSlideChange({ slideIndex: i, direction });
+    this.props.onSlideChange({ slideIndex: i, eventType });
   }
 
   next() {
     const nextSlide = calcNext(this.props.slides.length, this.state.topSlideIndex);
-    this.goToSlide(nextSlide, 'TO_LEFT');
+    this.goToSlide(nextSlide, 'TO_LEFT', 'next');
   }
 
   prev() {
     const prevSlide = calcPrev(this.props.slides.length, this.state.topSlideIndex);
-    this.goToSlide(prevSlide, 'TO_RIGHT');
+    this.goToSlide(prevSlide, 'TO_RIGHT', 'prev');
   }
 
   generateCoin(Slide, i) {
@@ -128,7 +128,7 @@ class Carousel extends Component {
         key={i}
         className={isCurrent ? 'coin active' : 'coin'}
         disabled={isCurrent || isAnimating}
-        onClick={() => this.goToSlide(i) }
+        onClick={() => this.goToSlide(i, '', 'coin') }
       />
     );
   }
