@@ -126,7 +126,7 @@ class Carousel extends Component {
     return (
       <button
         key={i}
-        className={isCurrent ? 'coin active' : 'carousel_coin'}
+        className={isCurrent ? 'coin active' : 'coin'}
         disabled={isCurrent || isAnimating}
         onClick={() => this.goToSlide(i, '', 'carousel_coin') }
       />
