@@ -36,7 +36,7 @@ class Modal extends Component {
 
   componentWillMount() {
     if (modalsInitialized !== 0) {
-      console.error('<Modal /> must be mounted only once');
+      console.error('<Modal /> must be mounted only once'); // eslint-disable-line no-console
     }
     modalsInitialized++;
     window.addEventListener('keyup', handleEscapeKey);

@@ -1,3 +1,5 @@
+/* eslint-disable jsx-a11y/no-static-element-interactions */
+
 import jsdom from 'mocha-jsdom';
 import React from 'react';
 import { mount, shallow } from 'enzyme';
