@@ -238,6 +238,19 @@ const Carousels = ({ title }) => (
         prop which is a string formatted like <code>16:9</code>. If not provided, the default
         is <code>16:6</code>.
       </Details>
+      <Details>
+        The <code>Carousel</code> accepts an <code>onSlideChange</code> prop that is a function
+        which gets called whenever the slide changes. The function will be passed an object of
+        the following form:
+        <pre className='code'>
+          {
+  `{
+  direction: String,
+  slideIndex: Number,
+}`
+          }
+        </pre>
+      </Details>
     </DemoRow>
     <DemoRow code={carouselCode}><CarouselDemo /></DemoRow>
   </div>
