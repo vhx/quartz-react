@@ -228,21 +228,22 @@ var utilities = Object.freeze({
 
 var Avatar$1 = function (props) { return (
   React__default.createElement( 'span', { className: ("avatar color-teal avatar--" + (props.size)) },
-    React__default.createElement( 'span', { className: "avatar-user user-avatar", style: {
-      'backgroundImage': ("url('" + (props.image) + "')")    
-    } })
-    
+    React__default.createElement( 'span', {
+      className: 'avatar-user user-avatar', style: {
+        backgroundImage: ("url('" + (props.image) + "')"),
+      } })
+
   )
 ); };
 
 Avatar$1.propTypes = {
-  size: PropTypes.oneOf(['xsmall', 'small', 'medium', 'large', 'xlarge', 'xxlarge']),
-  image: PropTypes.string
+  size: PropTypes.oneOf([ 'xsmall', 'small', 'medium', 'large', 'xlarge', 'xxlarge' ]),
+  image: PropTypes.string,
 };
 
 Avatar$1.defaultProps = {
   size: 'medium',
-  image: ''
+  image: '',
 };
 
 /* eslint-disable react/no-unused-prop-types */
@@ -396,6 +397,11 @@ function containValue(max, min, value) {
   return value;
 }
 
+function getZIndex(topSlideIndex, bgSlideIndex, currentIndex) {
+  if (currentIndex === topSlideIndex) { return '1'; }
+  if (currentIndex === bgSlideIndex) { return '0'; }
+  return '-1';
+}
 
 var Carousel$1 = (function (Component$$1) {
   function Carousel(props) {
@@ -482,6 +488,8 @@ var Carousel$1 = (function (Component$$1) {
         topSlideIndex: this$1.state.bgSlideIndex, // === i
       });
     }, this.props.animationDuration);
+
+    this.props.onSlideChange({ slideIndex: i, direction: direction });
   };
 
   Carousel.prototype.next = function next () {
@@ -533,7 +541,7 @@ var Carousel$1 = (function (Component$$1) {
 
               return (
               React__default.createElement( Slide, {
-                key: id, animationDuration: animationDuration, enter: (bgSlideIndex === i || topSlideIndex === i) && !(isFresh && i === 1), enterDirection: enterDirection, exitDirection: topSlideIndex === i ? exitDirection : '', height: height, isMobile: isMobile, width: width, zIndex: topSlideIndex === i ? '1' : bgSlideIndex === i ? '0' : '-1' })
+                key: id, animationDuration: animationDuration, enter: (bgSlideIndex === i || topSlideIndex === i) && !(isFresh && i === 1), enterDirection: enterDirection, exitDirection: topSlideIndex === i ? exitDirection : '', height: height, isMobile: isMobile, width: width, zIndex: getZIndex(topSlideIndex, bgSlideIndex, i) })
             );
     })
         ),
@@ -568,6 +576,7 @@ Carousel$1.propTypes = {
   aspectRatio: aspectRatioPropType,
   maxHeight: PropTypes.number,
   minHeight: PropTypes.number,
+  onSlideChange: PropTypes.func,
   slides: PropTypes.arrayOf(PropTypes.shape({
     Slide: PropTypes.func.isRequired,
     id: PropTypes.string.isRequired,
@@ -578,7 +587,8 @@ Carousel$1.defaultProps = {
   animationDuration: 600, // ms
   aspectRatio: '16:6',
   maxHeight: 640, // px
-  minHeight: 368, //px
+  minHeight: 368, // px
+  onSlideChange: function () {},
 };
 
 /* eslint-disable react/no-unused-prop-types */
@@ -833,7 +843,7 @@ var Modal$1 = (function (Component$$1) {
 
   Modal.prototype.componentWillMount = function componentWillMount () {
     if (modalsInitialized !== 0) {
-      console.error('<Modal /> must be mounted only once');
+      console.error('<Modal /> must be mounted only once'); // eslint-disable-line no-console
     }
     modalsInitialized++;
     window.addEventListener('keyup', handleEscapeKey);
@@ -1122,7 +1132,7 @@ var Sidebar$1 = (function (Component$$1) {
     var Contents = ref.Contents;
     return (
       React__default.createElement( 'div', { className: ("sidebar c-sidebar bg-white shadow--gray " + (isOpen ? 'sidebar--open' : '')) },
-        React__default.createElement( 'a', { className: 'c-sidebar--close icon-circle icon-x-navy icon--xsmall', onClick: function () { return sidebarModel.close(); } }),
+        React__default.createElement( 'span', { className: 'c-sidebar--close icon-circle icon-x-navy icon--xsmall', style: { cursor: 'pointer' }, onClick: function () { return sidebarModel.close(); } }),
         React__default.createElement( 'div', null, React__default.createElement( Contents, null ) )
       )
     );
@@ -1138,8 +1148,6 @@ Sidebar$1.propTypes = {
 };
 
 var Sidebar$2 = connect$$1(sidebarModel, Sidebar$1);
-
-var MAX_TITLE_LENGTH = 50; // characters
 
 var Slide$1 = (function (Component$$1) {
   function Slide() {
@@ -1176,39 +1184,21 @@ var Slide$1 = (function (Component$$1) {
     var isMobile = ref.isMobile;
     var zIndex = ref.zIndex;
     var ref$1 = this.props;
-    var buttonClass = ref$1.buttonClass;
-    var title = ref$1.title;
-    var subtitle = ref$1.subtitle;
-    var description = ref$1.description;
+    var children = ref$1.children;
     var img = ref$1.img;
     var mobileImg = ref$1.mobileImg;
-    var links = ref$1.links;
     var isWide = ref$1.isWide;
     var display = zIndex === '-1' ? 'none' : 'block';
     return (
       React__default.createElement( 'div', { className: ("slide " + exitDirection + " " + (enter ? ("ENTER_" + enterDirection) : '')), style: { animationDuration: (animationDuration + "ms"), display: display, zIndex: zIndex } },
         React__default.createElement( 'div', { className: isMobile ? 'slide-bg slide-bg--mobile' : 'slide-bg' },
           React__default.createElement( 'div', { className: isWide ? 'slide-layout-wide' : 'slide-layout-container' },
-            React__default.createElement( 'img', { className: 'slide-bg-img', src: isMobile ? mobileImg : img, alt: title, style: { height: ((this.getImgHeight()) + "px") } })
+            React__default.createElement( 'img', { className: 'slide-bg-img', src: isMobile ? mobileImg : img, alt: 'Slide image', style: { height: ((this.getImgHeight()) + "px") } })
           )
         ),
         React__default.createElement( 'div', { className: 'slide-layout-container' },
           React__default.createElement( 'div', { className: isMobile ? 'slide-content slide-content--mobile' : 'slide-content' },
-            React__default.createElement( 'div', { className: 'slide-title' }, truncate(title, MAX_TITLE_LENGTH)),
-            React__default.createElement( 'div', { className: 'slide-subtitle' }, subtitle),
-            React__default.createElement( 'div', { className: 'slide-description' }, description),
-            React__default.createElement( 'div', { className: 'slide-buttons' },
-              React__default.createElement( 'a', { className: ("btn btn-gray btn-site-primary slide-button " + buttonClass), href: links.item },
-                React__default.createElement( Icon$1, { name: 'play', color: 'white', size: 'xxsmall' }),
-                React__default.createElement( 'span', { className: 'slide-button-text' }, "Watch now")
-              ),
-              React__default.createElement( If, { condition: Boolean(links.trailer), inline: true },
-                React__default.createElement( 'a', { className: 'btn btn-transparent slide-button slide-button--alt', href: links.trailer },
-                  React__default.createElement( Icon$1, { name: 'play', color: 'white', size: 'xxsmall' }),
-                  React__default.createElement( 'span', { className: 'slide-button-text' }, "Trailer")
-                )
-              )
-            )
+            children
           )
         )
       )
@@ -1229,23 +1219,14 @@ Slide$1.propTypes = {
     width: PropTypes.number.isRequired,
     zIndex: PropTypes.string.isRequired,
   }).isRequired,
-  buttonClass: PropTypes.string,
-  description: PropTypes.string.isRequired,
+  children: PropTypes.node.isRequired,
   img: PropTypes.string.isRequired,
-  links: PropTypes.shape({
-    trailer: PropTypes.string,
-    item: PropTypes.string.isRequired,
-  }).isRequired,
   mobileImg: PropTypes.string.isRequired,
   isWide: PropTypes.bool,
-  title: PropTypes.string.isRequired,
-  subtitle: PropTypes.string,
 };
 
 Slide$1.defaultProps = {
-  buttonClass: 'slide-button--default',
   isWide: false,
-  subtitle: '',
 };
 
 function getClass$1(isHover) {
@@ -1568,7 +1549,13 @@ var Trigger = function (ref) {
   var triggerPlaceholder = ref.triggerPlaceholder;
 
   return (
-  React__default.createElement( 'span', { className: getTriggerClass({ color: color }), onClick: function () { return onOpenToggle(!isOpen); } }, triggerLabel || triggerPlaceholder)
+  React__default.createElement( 'a', {
+    href: '#', role: 'button', className: getTriggerClass({ color: color }), onClick: function (event) {
+      event.preventDefault();
+      onOpenToggle(!isOpen);
+    } },
+    triggerLabel || triggerPlaceholder
+  )
 );
 };
 
