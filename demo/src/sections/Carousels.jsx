@@ -185,18 +185,13 @@ const carouselCode = `
 const Slide1 = {
   Slide: props => (
     <Slide
-      description='Lorem ipsum...'
       dynamicProps={props}
       img='/images/16-6-A.png'
-      isWide={true}
       mobileImg='/images/16-6-A-mob.png'
-      subtitle='3 Seasons'
-      title='Slide 1 title'
-      links={{
-        item: '/videos/123',
-        trailer: '/trailers/123',
-      }}
-    />
+      isWide={true}
+    >
+      <div>Any slide contents can go here!</div>
+    </Slide>
   ),
   id: 's1',
 };
