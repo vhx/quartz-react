@@ -49,7 +49,7 @@ class PropTypeTable extends PureComponent {
             {
               this.propList.map(({ prop, type, defaultValue, description, isRequired }) => (
                 <tr key={prop}>
-                  <td><strong>{prop}</strong></td>
+                  <td className='truncate'><strong>{prop}</strong></td>
                   <td>{type}</td>
                   <td>{isRequired ? 'yes' : 'no' }</td>
                   <td><code>{defaultValue}</code></td>
