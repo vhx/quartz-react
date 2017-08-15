@@ -32,4 +32,9 @@ Header.defaultProps = {
   Description: '',
 };
 
+Header.propDescriptions = {
+  Description: 'Either a string or component',
+  icon: 'String: One of any of the valid icon names',
+};
+
 export default Header;
