@@ -5,6 +5,7 @@ import iconNames from '../../../components/Icon/icon-list.js';
 import {
   Block,
   DemoRow,
+  PropTypeTable,
   Title,
   Subtitle,
 } from '../ui';
@@ -121,6 +122,7 @@ const Icons = ({ title }) => (
     <DemoRow code={iconCirclesCode}><IconCircles /></DemoRow>
     <DemoRow code={iconColorsCode}><IconColors /></DemoRow>
     <DemoRow code={iconListCode}><IconList /></DemoRow>
+    <DemoRow><PropTypeTable component={Icon} /></DemoRow>
   </div>
 );
 
