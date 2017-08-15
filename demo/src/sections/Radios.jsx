@@ -5,6 +5,7 @@ import {
   Block,
   DemoRow,
   Details,
+  PropTypeTable,
   Subtitle,
   Title,
 } from '../ui';
@@ -204,6 +205,7 @@ const Radios = ({ title }) => (
     <DemoRow code={stackedRadioCode}><StackedRadio /></DemoRow>
     <DemoRow code={radioButtonsCode}><RadioButtons /></DemoRow>
     <DemoRow code={statefulDemoCode}><StatefulDemo /></DemoRow>
+    <DemoRow><PropTypeTable component={RadioGroup} /></DemoRow>
   </div>
 );
 

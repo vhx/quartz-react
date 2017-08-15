@@ -189,12 +189,14 @@ Carousel.propTypes = {
   }).isRequired).isRequired,
 };
 
+const noop = () => {};
+
 Carousel.defaultProps = {
   animationDuration: 600, // ms
   aspectRatio: '16:6',
   maxHeight: 640, // px
   minHeight: 368, // px
-  onSlideChange: () => {},
+  onSlideChange: noop,
 };
 
 Carousel.propDescriptions = {
