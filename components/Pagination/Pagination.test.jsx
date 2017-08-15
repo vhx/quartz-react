@@ -110,7 +110,7 @@ describe('Pagination', () => {
       expect(newIndex).to.equal(3);
     };
 
-    const wrapper = mount(<Pagination length={9} currentIndex={4} onChange={cb} />);
+    const wrapper = mount(<Pagination length={9} currentIndex={4} onPageChange={cb} />);
     wrapper.find('.pagination-link').first().simulate('click');
     expect(callCount).to.equal(1);
   });
@@ -122,7 +122,7 @@ describe('Pagination', () => {
       expect(newIndex).to.equal(5);
     };
 
-    const wrapper = mount(<Pagination length={9} currentIndex={4} onChange={cb} />);
+    const wrapper = mount(<Pagination length={9} currentIndex={4} onPageChange={cb} />);
     wrapper.find('.pagination-link').last().simulate('click');
     expect(callCount).to.equal(1);
   });
@@ -134,7 +134,7 @@ describe('Pagination', () => {
       expect(newIndex).to.equal(0);
     };
 
-    const wrapper = mount(<Pagination length={9} currentIndex={4} onChange={cb} />);
+    const wrapper = mount(<Pagination length={9} currentIndex={4} onPageChange={cb} />);
     wrapper.find('.pagination-button').first().simulate('click');
     expect(callCount).to.equal(1);
   });
