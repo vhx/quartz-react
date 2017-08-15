@@ -210,6 +210,8 @@ function immutableMerge() {
   return Object.freeze(Object.assign.apply(Object, [ {} ].concat( args )));
 }
 
+function noop() {}
+
 
 var utilities = Object.freeze({
 	truncate: truncate,
@@ -219,6 +221,7 @@ var utilities = Object.freeze({
 	typoPropType: typoPropType,
 	getAspectRatioHeight: getAspectRatioHeight,
 	immutableMerge: immutableMerge,
+	noop: noop,
 	If: If,
 	Model: Model$$1,
 	connect: connect$$1
@@ -236,14 +239,20 @@ var Avatar$1 = function (props) { return (
   )
 ); };
 
+var sizes = [ 'xsmall', 'small', 'medium', 'large', 'xlarge', 'xxlarge' ];
+
 Avatar$1.propTypes = {
-  size: PropTypes.oneOf([ 'xsmall', 'small', 'medium', 'large', 'xlarge', 'xxlarge' ]),
+  size: PropTypes.oneOf(sizes),
   image: PropTypes.string,
 };
 
 Avatar$1.defaultProps = {
   size: 'medium',
   image: '',
+};
+
+Avatar$1.propDescriptions = {
+  size: ("One of: [\"" + (sizes.join('", "')) + "\"]"),
 };
 
 /* eslint-disable react/no-unused-prop-types */
@@ -294,15 +303,18 @@ var Button$1 = function (props) {
   );
 };
 
+var colors = [ 'gray', 'teal', 'white', 'red', 'purple', 'green', 'slate', 'black', 'yellow', 'transparent', 'twitter', 'facebook', 'tumblr', 'paypal', 'roku' ];
+var sizes$1 = [ 'small', 'medium', 'large', 'half', 'fill' ];
+var typefaces = [ 'brandon', '' ];
 
 Button$1.propTypes = {
   children: PropTypes.node.isRequired,
   className: PropTypes.string,
-  color: PropTypes.oneOf([ 'gray', 'teal', 'white', 'red', 'purple', 'green', 'slate', 'black', 'yellow', 'transparent', 'twitter', 'facebook', 'tumblr', 'paypal', 'roku' ]),
+  color: PropTypes.oneOf(colors),
   processing: PropTypes.bool,
   onClick: PropTypes.func,
-  size: PropTypes.oneOf([ 'small', 'medium', 'large', 'half', 'fill' ]),
-  typeface: PropTypes.oneOf([ 'brandon', '' ]),
+  size: PropTypes.oneOf(sizes$1),
+  typeface: PropTypes.oneOf(typefaces),
 };
 
 Button$1.defaultProps = {
@@ -312,6 +324,13 @@ Button$1.defaultProps = {
   processing: false,
   size: 'medium',
   typeface: '',
+};
+
+Button$1.propDescriptions = {
+  color: ("One of: [\"" + (colors.join('", "')) + "\"]"),
+  processing: 'Displays loading indicator',
+  size: ("One of: [\"" + (sizes$1.join('", "')) + "\"]"),
+  typeface: ("One of: [\"" + (typefaces.join('", "')) + "\"]"),
 };
 
 var iconList = [ 'activity', 'add-member', 'alert', 'align', 'amex-card', 'android-workmark', 'android', 'angle-down', 'angle-left', 'angle-up', 'angle-right', 'api', 'apple', 'apps', 'arrow-down', 'arrow-left', 'arrow-right', 'arrow-up', 'audio', 'ban', 'bell', 'briefcase', 'calendar', 'camera', 'card', 'caret-down', 'caret-left', 'caret-right', 'caret-up', 'cassette-frown', 'cassette', 'chevron-down', 'check', 'chevron-left', 'chevron-right', 'chevron-up', 'chrome', 'clapboard', 'clock', 'code', 'cog', 'collection', 'comment', 'comments', 'currency', 'desktop', 'diners-card', 'csv', 'discover-card', 'doc', 'download-alt', 'download', 'dropbox', 'edit', 'ellipsis-vertical', 'ellipsis', 'envelope-sealed', 'envelope', 'external-link', 'eye', 'facebook', 'followers', 'gift', 'globe', 'grid', 'help', 'hi', 'home', 'instagram', 'invoice', 'ios', 'jcb-card', 'justify', 'key', 'link', 'list', 'lock', 'marker', 'mastercard-card', 'media', 'member', 'money-card', 'money-circle', 'money', 'paypal-card', 'pic', 'play-outline', 'play', 'plus-thin', 'plus', 'popular', 'power', 'printer', 'product', 'question', 'random', 'referral', 'refresh', 'revert', 'roku-wordmark', 'reply', 'roku', 'search', 'sliders', 'star-outline', 'star', 'tag', 'tags', 'todo', 'trash', 'transaction', 'tumblr', 'tv', 'tvos', 'twitter', 'upload-alt', 'upload', 'vhs', 'vhx', 'vimeovhx-dark', 'vimeovhx-light', 'visa-card', 'window', 'x', 'xmas-tree' ];
@@ -348,15 +367,18 @@ var Icon$1 = function (props) { return (
   React__default.createElement( 'span', { className: getClassName$1(props) }, props.children)
 ); };
 
+var colors$1 = [ '', 'navy', 'teal', 'white', 'gray' ];
+var sizes$2 = [ 'xxsmall', 'xsmall', 'small', 'medium', 'large', 'xlarge', 'xxlarge' ];
+
 Icon$1.propTypes = {
   children: PropTypes.node,
   className: PropTypes.string,
   circle: PropTypes.bool,
-  color: PropTypes.oneOf([ '', 'navy', 'teal', 'white', 'gray' ]),
+  color: PropTypes.oneOf(colors$1),
   name: PropTypes.oneOf(iconList).isRequired,
   left: PropTypes.bool,
   right: PropTypes.bool,
-  size: PropTypes.oneOf([ 'xxsmall', 'xsmall', 'small', 'medium', 'large', 'xlarge', 'xxlarge' ]),
+  size: PropTypes.oneOf(sizes$2),
 };
 
 Icon$1.defaultProps = {
@@ -367,6 +389,12 @@ Icon$1.defaultProps = {
   left: false,
   right: false,
   size: 'xsmall',
+};
+
+Icon$1.propDescriptions = {
+  color: ("One of: [\"" + (colors$1.join('", "')) + "\"]"),
+  name: 'String: One of any of the valid icon names',
+  size: ("One of: [\"" + (sizes$2.join('", "')) + "\"]"),
 };
 
 /* eslint-disable import/prefer-default-export */
@@ -588,7 +616,13 @@ Carousel$1.defaultProps = {
   aspectRatio: '16:6',
   maxHeight: 640, // px
   minHeight: 368, // px
-  onSlideChange: function () {},
+  onSlideChange: noop,
+};
+
+Carousel$1.propDescriptions = {
+  animationDuration: 'Milliseconds',
+  aspectRatio: 'String of two integers separated by ":"',
+  slides: 'Array of objects: { Slide: Component, id: String }',
 };
 
 /* eslint-disable react/no-unused-prop-types */
@@ -638,13 +672,16 @@ var Checkbox$1 = function (props) { return (
 ); };
 
 
+var sizes$3 = [ 'small', 'medium', 'large' ];
+var types = [ 'standard', 'toggle' ];
+
 Checkbox$1.propTypes = {
   checked: PropTypes.bool,
   label: PropTypes.string,
-  uniqueId: PropTypes.string.isRequired,
   onChange: PropTypes.func,
-  size: PropTypes.oneOf([ 'small', 'medium', 'large' ]),
-  type: PropTypes.oneOf([ 'standard', 'toggle' ]),
+  size: PropTypes.oneOf(sizes$3),
+  type: PropTypes.oneOf(types),
+  uniqueId: PropTypes.string.isRequired,
   value: PropTypes.string,
 };
 
@@ -655,6 +692,12 @@ Checkbox$1.defaultProps = {
   size: 'medium',
   type: 'standard',
   value: '',
+};
+
+Checkbox$1.propDescriptions = {
+  size: ("One of: [\"" + (sizes$3.join('", "')) + "\"]"),
+  type: ("One of: [\"" + (types.join('", "')) + "\"]"),
+  uniqueId: 'Must be globally unique--this sets the checkbox element\'s id attribute.',
 };
 
 var Header$1 = function (ref) {
@@ -692,6 +735,11 @@ Header$1.defaultProps = {
   border: true,
   children: null,
   Description: '',
+};
+
+Header$1.propDescriptions = {
+  Description: 'Either a string or component',
+  icon: 'String: One of any of the valid icon names',
 };
 
 /* eslint-disable react/no-unused-prop-types */
@@ -1057,6 +1105,8 @@ var RadioGroup$1 = function (ref) {
 );
 };
 
+var colors$2 = [ 'teal', 'gray' ];
+
 var radioItemPropType = PropTypes.shape({
   label: PropTypes.string.isRequired,
   uniqueId: PropTypes.string.isRequired,
@@ -1064,7 +1114,7 @@ var radioItemPropType = PropTypes.shape({
 
 RadioGroup$1.propTypes = {
   buttons: PropTypes.bool,
-  color: PropTypes.oneOf([ 'teal', 'gray' ]),
+  color: PropTypes.oneOf(colors$2),
   items: PropTypes.arrayOf(radioItemPropType).isRequired,
   onCheck: PropTypes.func,
   selectedIndex: PropTypes.number,
@@ -1074,9 +1124,13 @@ RadioGroup$1.propTypes = {
 RadioGroup$1.defaultProps = {
   buttons: false,
   color: 'teal',
-  onCheck: function () {},
+  onCheck: noop,
   selectedIndex: -1,
   stacked: false,
+};
+
+RadioGroup$1.propDescriptions = {
+  color: ("One of: [\"" + (colors$2.join('", "')) + "\"]"),
 };
 
 var EmptyComponent$1 = function () { return React__default.createElement( 'span', null ); };
@@ -1351,6 +1405,8 @@ var Text$1 = function (props) { return (
   React__default.createElement( 'span', { className: getClassName$5(props) }, props.children)
 ); };
 
+var colors$3 = [ 'navy', 'gray', 'teal', 'white' ];
+
 Text$1.propTypes = {
   block: PropTypes.bool,
   children: PropTypes.node.isRequired,
@@ -1360,7 +1416,7 @@ Text$1.propTypes = {
   h4: PropTypes.bool,
   h5: PropTypes.bool,
   className: PropTypes.string,
-  color: PropTypes.oneOf([ 'navy', 'gray', 'teal', 'white' ]),
+  color: PropTypes.oneOf(colors$3),
 };
 
 Text$1.defaultProps = {
@@ -1372,6 +1428,11 @@ Text$1.defaultProps = {
   h5: false,
   className: '',
   color: 'navy',
+};
+
+Text$1.propDescriptions = {
+  block: 'Set to true to make block-level text. Otherwise defaults to inline.',
+  color: ("One of: [\"" + (colors$3.join('", "')) + "\"]"),
 };
 
 var If$2 = If;
@@ -1638,10 +1699,14 @@ function SelectHOC(ref) {
     return Select;
   }(React.Component));
 
+  var caretAligns = [ 'left', 'center', 'right' ];
+  var colors = [ 'gray', 'white', 'teal' ];
+  var dropdownPositions = [ 'above', 'below' ];
+
   Select.propTypes = {
-    caretAlign: PropTypes.oneOf([ 'left', 'center', 'right' ]),
-    color: PropTypes.oneOf([ 'gray', 'white', 'teal' ]),
-    dropdownPosition: PropTypes.oneOf([ 'above', 'below' ]),
+    caretAlign: PropTypes.oneOf(caretAligns),
+    color: PropTypes.oneOf(colors),
+    dropdownPosition: PropTypes.oneOf(dropdownPositions),
     inline: PropTypes.bool,
     isOpen: PropTypes.bool,
     maxLabelLength: PropTypes.number,
@@ -1675,6 +1740,14 @@ function SelectHOC(ref) {
     Trigger: null,
     triggerLabel: '',
     triggerPlaceholder: 'Select an option',
+  };
+
+  Select.propDescriptions = {
+    caretAlign: ("One of: [\"" + (caretAligns.join('", "')) + "\"]"),
+    color: ("One of: [\"" + (colors.join('", "')) + "\"]"),
+    dropdownPosition: ("One of: [\"" + (dropdownPositions.join('", "')) + "\"]"),
+    options: 'Array of: { label: String, uniqueId: String, description: String? }',
+    selectedOptions: 'Object of booleans',
   };
 
   return Select;
