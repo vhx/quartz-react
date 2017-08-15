@@ -16,14 +16,20 @@ const Avatar = props => (
   </span>
 );
 
+const sizes = [ 'xsmall', 'small', 'medium', 'large', 'xlarge', 'xxlarge' ];
+
 Avatar.propTypes = {
-  size: PropTypes.oneOf([ 'xsmall', 'small', 'medium', 'large', 'xlarge', 'xxlarge' ]),
+  size: PropTypes.oneOf(sizes),
   image: PropTypes.string,
 };
 
 Avatar.defaultProps = {
   size: 'medium',
   image: '',
+};
+
+Avatar.propDescriptions = {
+  size: `One of: ["${sizes.join('", "')}"]`,
 };
 
 export default Avatar;
