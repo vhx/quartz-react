@@ -10,6 +10,7 @@ export { default as Header } from './components/Header';
 export { default as Icon } from './components/Icon';
 export { default as Input } from './components/Input';
 export { default as Modal } from './components/Modal';
+export { default as Pagination } from './components/Pagination';
 export { default as RadioGroup } from './components/RadioGroup';
 export { default as Sidebar } from './components/Sidebar';
 export { default as Slide } from './components/Slide';

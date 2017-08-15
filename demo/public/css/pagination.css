@@ -1,0 +1,27 @@
+.pagination-link {
+  cursor: pointer;
+  user-select: none;
+}
+
+.pagination-link.invisible {
+  visibility: hidden;
+}
+
+.pagination-button {
+  cursor: pointer;
+  user-select: none;
+}
+
+.pagination-button:hover {
+  background: #f0f2f4; /* gray-2 */
+}
+
+.pagination-button.active {
+  cursor: default;
+  pointer-events: none;
+  user-select: none;
+}
+
+.pagination-button.active:hover {
+  background: #869AA5; /* gray-5 */
+}
