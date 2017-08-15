@@ -4,6 +4,7 @@ import { Tag } from '../../../index.js';
 import {
   Block,
   DemoRow,
+  PropTypeTable,
   Subtitle,
   Title,
 } from '../ui';
@@ -68,6 +69,7 @@ const Tags = ({ title }) => (
     <DemoRow code={tagsDemoCode}><TagsDemo /></DemoRow>
     <DemoRow code={truncatedDemoCode}><TruncatedDemo /></DemoRow>
     <DemoRow code={processingDemoCode}><ProcessingDemo /></DemoRow>
+    <DemoRow><PropTypeTable component={Tag} /></DemoRow>
   </div>
 );
 
