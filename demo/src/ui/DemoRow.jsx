@@ -25,11 +25,11 @@ class DemoRow extends Component {
   render() {
     return (
       <div className='row'>
-        <div className='column medium-16 large-10 xlarge-11 padding-reset'>
+        <div className='column small-16 medium-16 large-16 xlarge-10 padding-reset'>
           <div className='guide-bar' style={{ minHeight: `${this.state.codeHeight}px` }}>{this.props.children}</div>
         </div>
         <If condition={Boolean(this.props.code)}>
-          <div className='column medium-0 large-6 xlarge-5 padding-reset' ref={this.setHeightOnce}>
+          <div className='column small-0 medium-0 large-0 xlarge-6 padding-reset' ref={this.setHeightOnce}>
             <div className='code-bar'>
               <pre className='padding-medium'>
                 <code dangerouslySetInnerHTML={this.markupCode()} />
