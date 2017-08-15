@@ -12,7 +12,7 @@ npm install @vhx/quartz-react
 
 ## Usage
 
-First include `quartz.css` and the css files from `dist/` for any components you intend to use.
+First include `quartz.css`, `components.css`, `quartz-icons.css`, and the css files from `dist/` for any components you intend to use.
 
 Then import the components:
 ```jsx
