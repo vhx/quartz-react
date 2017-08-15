@@ -5,6 +5,7 @@ import {
   Block,
   DemoRow,
   Details,
+  PropTypeTable,
   Subtitle,
   Title,
 } from '../ui';
@@ -148,6 +149,7 @@ const Checkboxes = ({ title }) => (
     <DemoRow code={statelessCheckboxSizesCode}><StatelessCheckboxSizes /></DemoRow>
     <DemoRow code={statelessCheckboxTogglesCode}><StatelessCheckboxToggles /></DemoRow>
     <DemoRow code={statefulCheckboxCode}><StatefulCheckboxDemo /></DemoRow>
+    <DemoRow><PropTypeTable component={Checkbox} /></DemoRow>
   </div>
 );
 

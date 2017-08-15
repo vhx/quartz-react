@@ -45,13 +45,16 @@ const Checkbox = props => (
 );
 
 
+const sizes = [ 'small', 'medium', 'large' ];
+const types = [ 'standard', 'toggle' ];
+
 Checkbox.propTypes = {
   checked: PropTypes.bool,
   label: PropTypes.string,
-  uniqueId: PropTypes.string.isRequired,
   onChange: PropTypes.func,
-  size: PropTypes.oneOf([ 'small', 'medium', 'large' ]),
-  type: PropTypes.oneOf([ 'standard', 'toggle' ]),
+  size: PropTypes.oneOf(sizes),
+  type: PropTypes.oneOf(types),
+  uniqueId: PropTypes.string.isRequired,
   value: PropTypes.string,
 };
 
@@ -62,6 +65,12 @@ Checkbox.defaultProps = {
   size: 'medium',
   type: 'standard',
   value: '',
+};
+
+Checkbox.propDescriptions = {
+  size: `One of: ["${sizes.join('", "')}"]`,
+  type: `One of: ["${types.join('", "')}"]`,
+  uniqueId: 'Must be globally unique--this sets the checkbox element\'s id attribute.',
 };
 
 export default Checkbox;

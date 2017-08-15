@@ -197,4 +197,10 @@ Carousel.defaultProps = {
   onSlideChange: () => {},
 };
 
+Carousel.propDescriptions = {
+  animationDuration: 'Milliseconds',
+  aspectRatio: 'String of two integers separated by ":"',
+  slides: 'Array of objects: { Slide: Component, id: String }',
+};
+
 export default Carousel;
