@@ -112,12 +112,12 @@ class Carousel extends Component {
 
   next() {
     const nextSlide = calcNext(this.props.slides.length, this.state.topSlideIndex);
-    this.goToSlide(nextSlide, 'TO_LEFT', 'next');
+    this.goToSlide(nextSlide, 'TO_LEFT', 'carousel_next');
   }
 
   prev() {
     const prevSlide = calcPrev(this.props.slides.length, this.state.topSlideIndex);
-    this.goToSlide(prevSlide, 'TO_RIGHT', 'prev');
+    this.goToSlide(prevSlide, 'TO_RIGHT', 'carousel_prev');
   }
 
   generateCoin(Slide, i) {
@@ -128,7 +128,7 @@ class Carousel extends Component {
         key={i}
         className={isCurrent ? 'coin active' : 'coin'}
         disabled={isCurrent || isAnimating}
-        onClick={() => this.goToSlide(i, '', 'coin') }
+        onClick={() => this.goToSlide(i, '', 'carousel_coin') }
       />
     );
   }
