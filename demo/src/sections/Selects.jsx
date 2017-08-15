@@ -11,6 +11,7 @@ import {
   Block,
   Details,
   DemoRow,
+  PropTypeTable,
   Subtitle,
   Title,
 } from '../ui';
@@ -596,6 +597,7 @@ const Selects = ({ title }) => (
     <DemoRow code={statefulMultiSelectDemoCode}><StatefulMultiSelectDemo /></DemoRow>
     <DemoRow code={customTriggerDemoCode}><CustomTriggerDemo /></DemoRow>
     <DemoRow code={statefulMediaSelectDemoCode}><StatefulMediaSelectDemo /></DemoRow>
+    <DemoRow><PropTypeTable component={Select} /></DemoRow>
   </div>
 );
 
