@@ -241,7 +241,7 @@ const Carousels = ({ title }) => (
         <pre className='code'>
           {
   `{
-  direction: String,
+  eventType: String, // either 'next', 'prev', or 'coin'
   slideIndex: Number,
 }`
           }

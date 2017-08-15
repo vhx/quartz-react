@@ -494,7 +494,7 @@ var Carousel$1 = (function (Component$$1) {
     if (key === KEY_CODES.RIGHT) { this.next(); }
   };
 
-  Carousel.prototype.goToSlide = function goToSlide (i, overrideDirection) {
+  Carousel.prototype.goToSlide = function goToSlide (i, overrideDirection, eventType) {
     var this$1 = this;
     if ( overrideDirection === void 0 ) overrideDirection = '';
 
@@ -517,17 +517,17 @@ var Carousel$1 = (function (Component$$1) {
       });
     }, this.props.animationDuration);
 
-    this.props.onSlideChange({ slideIndex: i, direction: direction });
+    this.props.onSlideChange({ slideIndex: i, eventType: eventType });
   };
 
   Carousel.prototype.next = function next () {
     var nextSlide = calcNext(this.props.slides.length, this.state.topSlideIndex);
-    this.goToSlide(nextSlide, 'TO_LEFT');
+    this.goToSlide(nextSlide, 'TO_LEFT', 'carousel_next');
   };
 
   Carousel.prototype.prev = function prev () {
     var prevSlide = calcPrev(this.props.slides.length, this.state.topSlideIndex);
-    this.goToSlide(prevSlide, 'TO_RIGHT');
+    this.goToSlide(prevSlide, 'TO_RIGHT', 'carousel_prev');
   };
 
   Carousel.prototype.generateCoin = function generateCoin (Slide, i) {
@@ -540,7 +540,7 @@ var Carousel$1 = (function (Component$$1) {
     var isCurrent = isAnimating ? bgSlideIndex === i : topSlideIndex === i;
     return (
       React__default.createElement( 'button', {
-        key: i, className: isCurrent ? 'coin active' : 'coin', disabled: isCurrent || isAnimating, onClick: function () { return this$1.goToSlide(i); } })
+        key: i, className: isCurrent ? 'coin active' : 'coin', disabled: isCurrent || isAnimating, onClick: function () { return this$1.goToSlide(i, '', 'carousel_coin'); } })
     );
   };
 
