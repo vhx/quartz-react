@@ -174,7 +174,7 @@ class SelectMinimal extends Component {
     };
     this.handleChange = this.handleChange.bind(this);
   }
-  handleChange(selectedOptions, label /*, optionToggled, optionWillBeChecked */) {
+  handleChange(selectedOptions, label /* , optionToggled, optionWillBeChecked */) {
     this.setState({ selectedOptions, label });
   }
   render() {

@@ -14,7 +14,17 @@ function getTriggerClass({ color }) {
 }
 
 const Trigger = ({ color, isOpen, onOpenToggle, triggerLabel, triggerPlaceholder }) => (
-  <span className={getTriggerClass({ color })} onClick={() => onOpenToggle(!isOpen)}>{triggerLabel || triggerPlaceholder}</span>
+  <a
+    href='#'
+    role='button'
+    className={getTriggerClass({ color })}
+    onClick={(event) => {
+      event.preventDefault();
+      onOpenToggle(!isOpen);
+    }}
+  >
+    {triggerLabel || triggerPlaceholder}
+  </a>
 );
 
 Trigger.propTypes = {

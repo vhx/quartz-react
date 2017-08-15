@@ -25,6 +25,11 @@ function containValue(max, min, value) {
   return value;
 }
 
+function getZIndex(topSlideIndex, bgSlideIndex, currentIndex) {
+  if (currentIndex === topSlideIndex) return '1';
+  if (currentIndex === bgSlideIndex) return '0';
+  return '-1';
+}
 
 class Carousel extends Component {
   constructor(props) {
@@ -101,6 +106,8 @@ class Carousel extends Component {
         topSlideIndex: this.state.bgSlideIndex, // === i
       });
     }, this.props.animationDuration);
+
+    this.props.onSlideChange({ slideIndex: i, direction });
   }
 
   next() {
@@ -143,7 +150,7 @@ class Carousel extends Component {
                 height={height}
                 isMobile={isMobile}
                 width={width}
-                zIndex={topSlideIndex === i ? '1' : bgSlideIndex === i ? '0' : '-1'}
+                zIndex={getZIndex(topSlideIndex, bgSlideIndex, i)}
               />
             ))
           }
@@ -175,6 +182,7 @@ Carousel.propTypes = {
   aspectRatio: aspectRatioPropType,
   maxHeight: PropTypes.number,
   minHeight: PropTypes.number,
+  onSlideChange: PropTypes.func,
   slides: PropTypes.arrayOf(PropTypes.shape({
     Slide: PropTypes.func.isRequired,
     id: PropTypes.string.isRequired,
@@ -185,7 +193,8 @@ Carousel.defaultProps = {
   animationDuration: 600, // ms
   aspectRatio: '16:6',
   maxHeight: 640, // px
-  minHeight: 368, //px
+  minHeight: 368, // px
+  onSlideChange: () => {},
 };
 
 export default Carousel;
