@@ -17,34 +17,34 @@ const AvatarDemo = () => (
   <div>
     <Subtitle>Headings</Subtitle>
     <Block inline><Avatar /></Block>
-    <Block inline><Avatar 
-      image="https://vhx.imgix.net/assets/1f843fdc-34da-4302-bd4f-06e5bd7ef2c3/IMG_7891.GIF"
-      size="xsmall" 
-      /></Block>
-      <Block inline><Avatar 
-        image="https://secure.gravatar.com/avatar/74b978ed4f10e05a6c2898c4f5516189.png"
-        size="small" 
-        /></Block>
-      <Block inline><Avatar 
-        image="https://secure.gravatar.com/avatar/74b978ed4f10e05a6c2898c4f5516189.png"
-        size="medium" 
-        /></Block>
-      <Block inline><Avatar 
-        image="https://secure.gravatar.com/avatar/460c13d4904dc7f889f00d2cd4c3e6e8.png"
-        size="large" 
-        /></Block>
-    <Block inline><Avatar 
-      image="https://vhx.imgix.net/assets/1f843fdc-34da-4302-bd4f-06e5bd7ef2c3/IMG_7891.GIF"
-      size="xlarge" 
-      /></Block>
+    <Block inline><Avatar
+      image='https://vhx.imgix.net/assets/1f843fdc-34da-4302-bd4f-06e5bd7ef2c3/IMG_7891.GIF'
+      size='xsmall'
+    /></Block>
+    <Block inline><Avatar
+      image='https://secure.gravatar.com/avatar/74b978ed4f10e05a6c2898c4f5516189.png'
+      size='small'
+    /></Block>
+    <Block inline><Avatar
+      image='https://secure.gravatar.com/avatar/74b978ed4f10e05a6c2898c4f5516189.png'
+      size='medium'
+    /></Block>
+    <Block inline><Avatar
+      image='https://secure.gravatar.com/avatar/460c13d4904dc7f889f00d2cd4c3e6e8.png'
+      size='large'
+    /></Block>
+    <Block inline><Avatar
+      image='https://vhx.imgix.net/assets/1f843fdc-34da-4302-bd4f-06e5bd7ef2c3/IMG_7891.GIF'
+      size='xlarge'
+    /></Block>
   </div>
 );
 
 const avatarCode = `
 <Avatar />
-<Avatar 
-image="https://[YOURIMAGEHERE].png"
-size="xlarge" 
+<Avatar
+  image='https://[YOURIMAGEHERE].png'
+  size='xlarge'
 />
 `;
 

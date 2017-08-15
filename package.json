@@ -1,13 +1,13 @@
 {
   "name": "@vhx/quartz-react",
-  "version": "0.0.8",
+  "version": "0.0.9",
   "description": "React Components for VHX Quartz",
   "main": "dist/quartz-react.js",
   "scripts": {
     "build": "node build/build-css.js && rollup -c build/rollup.config.js",
     "deploy": "firebase deploy",
     "dev": "rollup -c build/rollup.demo-config.js --watch",
-    "lint": "eslint components/** demo/src/** build/** index.js",
+    "lint": "eslint components/**/** demo/src/** build/** index.js",
     "preview": "firebase serve",
     "serve": "browser-sync start --server --serveStatic \"demo/public\" --files \"demo/public/js/bundle.js\" --no-open",
     "start": "npm-run-all --parallel dev serve",

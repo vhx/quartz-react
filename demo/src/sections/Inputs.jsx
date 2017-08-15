@@ -74,7 +74,7 @@ class StatefulInput extends Component {
   }
   render() {
     const { props, state } = this;
-    const handleInput = (event) => (
+    const handleInput = event => (
       this.setState({
         value: event.target.value,
       })

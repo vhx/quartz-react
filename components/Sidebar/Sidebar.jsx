@@ -19,7 +19,7 @@ class Sidebar extends Component {
     const { isOpen, Contents } = this.props;
     return (
       <div className={`sidebar c-sidebar bg-white shadow--gray ${isOpen ? 'sidebar--open' : ''}`}>
-        <a className='c-sidebar--close icon-circle icon-x-navy icon--xsmall' onClick={() => sidebarModel.close()} />
+        <span className='c-sidebar--close icon-circle icon-x-navy icon--xsmall' style={{ cursor: 'pointer' }} onClick={() => sidebarModel.close()} />
         <div><Contents /></div>
       </div>
     );

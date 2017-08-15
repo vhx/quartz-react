@@ -1,9 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import Icon from '../Icon';
-import { If, getAspectRatioHeight, truncate } from '../util';
-
-const MAX_TITLE_LENGTH = 50; // characters
+import { getAspectRatioHeight } from '../util';
 
 class Slide extends Component {
   constructor() {
@@ -25,32 +22,18 @@ class Slide extends Component {
 
   render() {
     const { animationDuration, enter, enterDirection, exitDirection, isMobile, zIndex } = this.props.dynamicProps;
-    const { buttonClass, title, subtitle, description, img, mobileImg, links, isWide } = this.props;
+    const { children, img, mobileImg, isWide } = this.props;
     const display = zIndex === '-1' ? 'none' : 'block';
     return (
       <div className={`slide ${exitDirection} ${enter ? `ENTER_${enterDirection}` : ''}`} style={{ animationDuration: `${animationDuration}ms`, display, zIndex }}>
         <div className={isMobile ? 'slide-bg slide-bg--mobile' : 'slide-bg' }>
           <div className={isWide ? 'slide-layout-wide' : 'slide-layout-container'}>
-            <img className='slide-bg-img' src={isMobile ? mobileImg : img} alt={title} style={{ height: `${this.getImgHeight()}px` }} />
+            <img className='slide-bg-img' src={isMobile ? mobileImg : img} alt='Slide image' style={{ height: `${this.getImgHeight()}px` }} />
           </div>
         </div>
         <div className='slide-layout-container'>
           <div className={isMobile ? 'slide-content slide-content--mobile' : 'slide-content'}>
-            <div className='slide-title'>{truncate(title, MAX_TITLE_LENGTH)}</div>
-            <div className='slide-subtitle'>{subtitle}</div>
-            <div className='slide-description'>{description}</div>
-            <div className='slide-buttons'>
-              <a className={`btn btn-gray btn-site-primary slide-button ${buttonClass}`} href={links.item}>
-                <Icon name='play' color='white' size='xxsmall' />
-                <span className='slide-button-text'>Watch now</span>
-              </a>
-              <If condition={Boolean(links.trailer)} inline>
-                <a className='btn btn-transparent slide-button slide-button--alt' href={links.trailer}>
-                  <Icon name='play' color='white' size='xxsmall' />
-                  <span className='slide-button-text'>Trailer</span>
-                </a>
-              </If>
-            </div>
+            { children }
           </div>
         </div>
       </div>
@@ -69,23 +52,14 @@ Slide.propTypes = {
     width: PropTypes.number.isRequired,
     zIndex: PropTypes.string.isRequired,
   }).isRequired,
-  buttonClass: PropTypes.string,
-  description: PropTypes.string.isRequired,
+  children: PropTypes.node.isRequired,
   img: PropTypes.string.isRequired,
-  links: PropTypes.shape({
-    trailer: PropTypes.string,
-    item: PropTypes.string.isRequired,
-  }).isRequired,
   mobileImg: PropTypes.string.isRequired,
   isWide: PropTypes.bool,
-  title: PropTypes.string.isRequired,
-  subtitle: PropTypes.string,
 };
 
 Slide.defaultProps = {
-  buttonClass: 'slide-button--default',
   isWide: false,
-  subtitle: '',
 };
 
 export default Slide;
