@@ -4,6 +4,7 @@ import { Text } from '../../../index.js';
 import {
   Block,
   DemoRow,
+  PropTypeTable,
   Subtitle,
   Title,
 } from '../ui';
@@ -63,6 +64,7 @@ const TextDemo = ({ title }) => (
     <DemoRow><Title>{title}</Title></DemoRow>
     <DemoRow code={textHeadingCode}><TextHeadings /></DemoRow>
     <DemoRow code={textColorsCode}><TextColors /></DemoRow>
+    <DemoRow><PropTypeTable component={Text} /></DemoRow>
   </div>
 );
 
