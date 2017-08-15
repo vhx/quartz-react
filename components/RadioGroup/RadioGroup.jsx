@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import Radio from './Radio.jsx';
 import RadioButton from './RadioButton.jsx';
+import { noop } from '../util';
 
 function getClassName({ buttons, color, stacked }) {
   return classNames({
@@ -42,8 +43,6 @@ RadioGroup.propTypes = {
   selectedIndex: PropTypes.number,
   stacked: PropTypes.bool,
 };
-
-const noop = () => {};
 
 RadioGroup.defaultProps = {
   buttons: false,

@@ -109,3 +109,5 @@ export function getAspectRatioHeight(aspectRatio, width) {
 export function immutableMerge(...args) {
   return Object.freeze(Object.assign({}, ...args));
 }
+
+export function noop() {}

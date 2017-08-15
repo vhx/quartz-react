@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import Icon from '../Icon';
-import { If, getAspectRatioHeight } from '../util';
+import { If, getAspectRatioHeight, noop } from '../util';
 import { KEY_CODES } from '../util/constants';
 
 
@@ -188,8 +188,6 @@ Carousel.propTypes = {
     id: PropTypes.string.isRequired,
   }).isRequired).isRequired,
 };
-
-const noop = () => {};
 
 Carousel.defaultProps = {
   animationDuration: 600, // ms
