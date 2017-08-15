@@ -27,15 +27,18 @@ const Icon = props => (
   <span className={getClassName(props)}>{props.children}</span>
 );
 
+const colors = [ '', 'navy', 'teal', 'white', 'gray' ];
+const sizes = [ 'xxsmall', 'xsmall', 'small', 'medium', 'large', 'xlarge', 'xxlarge' ];
+
 Icon.propTypes = {
   children: PropTypes.node,
   className: PropTypes.string,
   circle: PropTypes.bool,
-  color: PropTypes.oneOf([ '', 'navy', 'teal', 'white', 'gray' ]),
+  color: PropTypes.oneOf(colors),
   name: PropTypes.oneOf(iconList).isRequired,
   left: PropTypes.bool,
   right: PropTypes.bool,
-  size: PropTypes.oneOf([ 'xxsmall', 'xsmall', 'small', 'medium', 'large', 'xlarge', 'xxlarge' ]),
+  size: PropTypes.oneOf(sizes),
 };
 
 Icon.defaultProps = {
@@ -46,6 +49,12 @@ Icon.defaultProps = {
   left: false,
   right: false,
   size: 'xsmall',
+};
+
+Icon.propDescriptions = {
+  color: `One of: ["${colors.join('", "')}"]`,
+  name: 'String: One of any of the valid icon names',
+  size: `One of: ["${sizes.join('", "')}"]`,
 };
 
 export default Icon;

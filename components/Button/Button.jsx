@@ -45,15 +45,18 @@ const Button = (props) => {
   );
 };
 
+const colors = [ 'gray', 'teal', 'white', 'red', 'purple', 'green', 'slate', 'black', 'yellow', 'transparent', 'twitter', 'facebook', 'tumblr', 'paypal', 'roku' ];
+const sizes = [ 'small', 'medium', 'large', 'half', 'fill' ];
+const typefaces = [ 'brandon', '' ];
 
 Button.propTypes = {
   children: PropTypes.node.isRequired,
   className: PropTypes.string,
-  color: PropTypes.oneOf([ 'gray', 'teal', 'white', 'red', 'purple', 'green', 'slate', 'black', 'yellow', 'transparent', 'twitter', 'facebook', 'tumblr', 'paypal', 'roku' ]),
+  color: PropTypes.oneOf(colors),
   processing: PropTypes.bool,
   onClick: PropTypes.func,
-  size: PropTypes.oneOf([ 'small', 'medium', 'large', 'half', 'fill' ]),
-  typeface: PropTypes.oneOf([ 'brandon', '' ]),
+  size: PropTypes.oneOf(sizes),
+  typeface: PropTypes.oneOf(typefaces),
 };
 
 Button.defaultProps = {
@@ -63,6 +66,13 @@ Button.defaultProps = {
   processing: false,
   size: 'medium',
   typeface: '',
+};
+
+Button.propDescriptions = {
+  color: `One of: ["${colors.join('", "')}"]`,
+  processing: 'Displays loading indicator',
+  size: `One of: ["${sizes.join('", "')}"]`,
+  typeface: `One of: ["${typefaces.join('", "')}"]`,
 };
 
 export default Button;

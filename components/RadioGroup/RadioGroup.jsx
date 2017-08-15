@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import Radio from './Radio.jsx';
 import RadioButton from './RadioButton.jsx';
+import { noop } from '../util';
 
 function getClassName({ buttons, color, stacked }) {
   return classNames({
@@ -27,6 +28,8 @@ const RadioGroup = ({ buttons, color, items, onCheck, selectedIndex, stacked }) 
   </div>
 );
 
+const colors = [ 'teal', 'gray' ];
+
 const radioItemPropType = PropTypes.shape({
   label: PropTypes.string.isRequired,
   uniqueId: PropTypes.string.isRequired,
@@ -34,7 +37,7 @@ const radioItemPropType = PropTypes.shape({
 
 RadioGroup.propTypes = {
   buttons: PropTypes.bool,
-  color: PropTypes.oneOf([ 'teal', 'gray' ]),
+  color: PropTypes.oneOf(colors),
   items: PropTypes.arrayOf(radioItemPropType).isRequired,
   onCheck: PropTypes.func,
   selectedIndex: PropTypes.number,
@@ -44,9 +47,13 @@ RadioGroup.propTypes = {
 RadioGroup.defaultProps = {
   buttons: false,
   color: 'teal',
-  onCheck: () => {},
+  onCheck: noop,
   selectedIndex: -1,
   stacked: false,
+};
+
+RadioGroup.propDescriptions = {
+  color: `One of: ["${colors.join('", "')}"]`,
 };
 
 export default RadioGroup;

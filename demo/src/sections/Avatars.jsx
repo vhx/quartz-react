@@ -4,9 +4,10 @@ import { Avatar } from '../../../index.js';
 import {
   Block,
   DemoRow,
+  Details,
+  PropTypeTable,
   Subtitle,
   Title,
-  Details,
 } from '../ui';
 
 
@@ -62,10 +63,9 @@ const Avatars = ({ title }) => (
       <Details>
         Avatar sizes available: <code>xsmall</code>, <code>small</code>, <code>medium</code>, <code>large</code>, <code>xlarge</code>.
       </Details>
-
     </DemoRow>
     <DemoRow code={avatarCode}><AvatarDemo /></DemoRow>
-
+    <DemoRow><PropTypeTable component={Avatar} /></DemoRow>
   </div>
 );
 

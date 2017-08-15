@@ -62,10 +62,14 @@ export default function SelectHOC({ Dropdown, type }) {
     }
   }
 
+  const caretAligns = [ 'left', 'center', 'right' ];
+  const colors = [ 'gray', 'white', 'teal' ];
+  const dropdownPositions = [ 'above', 'below' ];
+
   Select.propTypes = {
-    caretAlign: PropTypes.oneOf([ 'left', 'center', 'right' ]),
-    color: PropTypes.oneOf([ 'gray', 'white', 'teal' ]),
-    dropdownPosition: PropTypes.oneOf([ 'above', 'below' ]),
+    caretAlign: PropTypes.oneOf(caretAligns),
+    color: PropTypes.oneOf(colors),
+    dropdownPosition: PropTypes.oneOf(dropdownPositions),
     inline: PropTypes.bool,
     isOpen: PropTypes.bool,
     maxLabelLength: PropTypes.number,
@@ -99,6 +103,14 @@ export default function SelectHOC({ Dropdown, type }) {
     Trigger: null,
     triggerLabel: '',
     triggerPlaceholder: 'Select an option',
+  };
+
+  Select.propDescriptions = {
+    caretAlign: `One of: ["${caretAligns.join('", "')}"]`,
+    color: `One of: ["${colors.join('", "')}"]`,
+    dropdownPosition: `One of: ["${dropdownPositions.join('", "')}"]`,
+    options: 'Array of: { label: String, uniqueId: String, description: String? }',
+    selectedOptions: 'Object of booleans',
   };
 
   return Select;

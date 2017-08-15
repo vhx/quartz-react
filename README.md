@@ -64,11 +64,48 @@ index.js                        # Every component that is exported in quartz-rea
     - [YourComponent].jsx
     - [YourComponent].test.jsx
 3. In the root level `index.js`, create a named export for your component.
-4. In `demo/src/sections/` create a file to demo your component (by convention, it should be `demo/src/sections/[YourComponent].jsx`). It should export a react component that makes use of the demo UI components (see below).
+4. In `demo/src/sections/` create a file to demo your component (by convention, it should be `demo/src/sections/[YourComponent].jsx`). It should export a react component that makes use of the demo UI components (see below). If your demo makes use of props, display them in a `<PropTypeTable />`.
 5. In `demo/src/index.jsx` import the demo you exported from the file in step 4, and add it to the `sections` object. This will include it in the sidebar navigation as well as render it to the page.
 6. Create a pull request and merge into master when ready. Then delete the branch.
 7. Run `npm version patch` (or `minor` or `major`, as appropriate), then run `npm run build`, then publish to npm.
 
+
+## Documenting Components
+
+In addition to the documentation in demo site, components should be self-documenting. Using `propTypes` and `defaultProps` help with this effort. A third, non-standard property called `propDescriptions` may additionally be used to document props.
+If any of these statics are defined on your component, use a `<PropTypeTable />`. For example:
+
+```jsx
+// in components/MyComponent/MyComponent.jsx
+// ---------------------------------------------
+const MyComponent = ({ title }) => <h1>{title.slice(0, 50)}</h1>;
+
+MyComponent.propTypes = {
+  title: PropTypes.string,
+};
+
+MyComponent.defaultProps = {
+  title: 'Hello World',
+};
+
+MyComponent.propDescriptions = {
+  title: 'A brief title, truncated at 50 characters'
+};
+
+// in demo/src/sections/MyComponent.jsx
+// ---------------------------------------------
+const MyComponentDemo = () => (
+  <div>
+    <DemoRow>
+      <Title>MyComponent</Title>
+      <Details>Some documentation for your component goes here...</Details>
+    </DemoRow>
+    <DemoRow>
+      <PropTypeTable component={MyComponent} />
+    </DemoRow>
+  </div>
+);
+```
 
 ## Demo UI Components
 

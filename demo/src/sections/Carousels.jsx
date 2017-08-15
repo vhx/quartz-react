@@ -4,6 +4,7 @@ import { Carousel, Icon, Slide, util } from '../../../index.js';
 import {
   DemoRow,
   Details,
+  PropTypeTable,
   Subtitle,
   Title,
 } from '../ui';
@@ -248,6 +249,7 @@ const Carousels = ({ title }) => (
       </Details>
     </DemoRow>
     <DemoRow code={carouselCode}><CarouselDemo /></DemoRow>
+    <DemoRow><PropTypeTable component={Carousel} /></DemoRow>
   </div>
 );
 

@@ -23,6 +23,8 @@ const Text = props => (
   <span className={getClassName(props)}>{props.children}</span>
 );
 
+const colors = [ 'navy', 'gray', 'teal', 'white' ];
+
 Text.propTypes = {
   block: PropTypes.bool,
   children: PropTypes.node.isRequired,
@@ -32,7 +34,7 @@ Text.propTypes = {
   h4: PropTypes.bool,
   h5: PropTypes.bool,
   className: PropTypes.string,
-  color: PropTypes.oneOf([ 'navy', 'gray', 'teal', 'white' ]),
+  color: PropTypes.oneOf(colors),
 };
 
 Text.defaultProps = {
@@ -44,6 +46,11 @@ Text.defaultProps = {
   h5: false,
   className: '',
   color: 'navy',
+};
+
+Text.propDescriptions = {
+  block: 'Set to true to make block-level text. Otherwise defaults to inline.',
+  color: `One of: ["${colors.join('", "')}"]`,
 };
 
 export default Text;

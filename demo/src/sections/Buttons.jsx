@@ -4,6 +4,7 @@ import { Button, Icon } from '../../../index.js';
 import {
   Block,
   DemoRow,
+  PropTypeTable,
   Title,
   Subtitle,
 } from '../ui';
@@ -152,6 +153,7 @@ const Buttons = ({ title }) => (
     <DemoRow code={buttonSizesCode}><ButtonSizes /></DemoRow>
     <DemoRow code={buttonTypefacesCode}><ButtonTypefaces /></DemoRow>
     <DemoRow code={buttonIconsCode}><ButtonIcons /></DemoRow>
+    <DemoRow><PropTypeTable component={Button} /></DemoRow>
   </div>
 );
 

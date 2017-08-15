@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import Icon from '../Icon';
-import { If, getAspectRatioHeight } from '../util';
+import { If, getAspectRatioHeight, noop } from '../util';
 import { KEY_CODES } from '../util/constants';
 
 
@@ -194,7 +194,13 @@ Carousel.defaultProps = {
   aspectRatio: '16:6',
   maxHeight: 640, // px
   minHeight: 368, // px
-  onSlideChange: () => {},
+  onSlideChange: noop,
+};
+
+Carousel.propDescriptions = {
+  animationDuration: 'Milliseconds',
+  aspectRatio: 'String of two integers separated by ":"',
+  slides: 'Array of objects: { Slide: Component, id: String }',
 };
 
 export default Carousel;

@@ -5,6 +5,7 @@ import {
   Block,
   DemoRow,
   Details,
+  PropTypeTable,
   Title,
   Subtitle,
 } from '../ui';
@@ -146,6 +147,7 @@ const Inputs = ({ title }) => (
     <DemoRow code={inputDemoCode}><InputDemo /></DemoRow>
     <DemoRow code={inputLabelCode}><InputLabel /></DemoRow>
     <DemoRow code={statefulInputCode}><StatefulInputDemo /></DemoRow>
+    <DemoRow><PropTypeTable component={Input} /></DemoRow>
   </div>
 );
 

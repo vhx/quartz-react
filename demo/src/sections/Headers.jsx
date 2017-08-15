@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { Button, Header } from '../../../index.js';
 import {
   DemoRow,
+  PropTypeTable,
   Subtitle,
   Title,
 } from '../ui';
@@ -63,6 +64,7 @@ const Headers = ({ title }) => (
     <DemoRow><Title>{title}</Title></DemoRow>
     <DemoRow code={defaultDemoCode}><DefaultDemo /></DemoRow>
     <DemoRow code={fullDemoCode}><FullDemo /></DemoRow>
+    <DemoRow><PropTypeTable component={Header} /></DemoRow>
   </div>
 );
 
