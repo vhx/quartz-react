@@ -14,6 +14,7 @@ function lookupType(propType) {
 function stringify(prop) {
   if (typeof prop === 'string') return `"${prop}"`;
   if (typeof prop === 'function') return prop.name || '[Function]';
+  if (String(prop) === '[object Object]') return JSON.stringify(prop);
   return String(prop);
 }
 
