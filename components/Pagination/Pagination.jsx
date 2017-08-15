@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import { noop } from '../util';
 
 const MAX_VISIBLE_LINKS = 7;
 
@@ -16,9 +17,9 @@ class Pagination extends Component {
   }
 
   link(i) {
-    const { currentIndex, onChange } = this.props;
+    const { currentIndex, onPageChange } = this.props;
     return (
-      <span className={`pagination-button text--bold padding-vert-xsmall padding-horz-small radius ${currentIndex === i ? 'active bg-gray-5 text--white' : ''}`} onClick={() => onChange(i)} key={`link-${i}`}>
+      <span className={`pagination-button text--bold padding-vert-xsmall padding-horz-small radius ${currentIndex === i ? 'active bg-gray-5 text--white' : ''}`} onClick={() => onPageChange(i)} key={`link-${i}`}>
         {i + 1}
       </span>
     );
@@ -54,7 +55,7 @@ class Pagination extends Component {
 
   render() {
     const { link, links } = this;
-    const { currentIndex, onChange, length } = this.props;
+    const { currentIndex, onPageChange, length } = this.props;
 
     if (length === 0) return <nav />;
     if (length === 1) return <nav className='text-center'>{link(0)}</nav>;
@@ -62,11 +63,11 @@ class Pagination extends Component {
     // NOTE: we toggle the visibility of the "Previous"/"Next" links rather than removing those links altogether so that the layout doesn't re-center when those links disappear
     return (
       <nav className='text-center'>
-        <span className={`pagination-link text--bold padding-small text--teal ${currentIndex === 0 ? 'invisible' : ''}`} onClick={() => onChange(currentIndex - 1) }>← Previous</span>
+        <span className={`pagination-link text--bold padding-small text--teal ${currentIndex === 0 ? 'invisible' : ''}`} onClick={() => onPageChange(currentIndex - 1) }>← Previous</span>
         { link(0) /* hard-code first pagination link */ }
         { links() /* dynamically generate range between first and last link */ }
         { link(length - 1)/* hard-code last pagination link */ }
-        <span className={`pagination-link text--bold padding-small text--teal ${currentIndex === length - 1 ? 'invisible' : ''}`} onClick={() => onChange(currentIndex + 1)}>Next →</span>
+        <span className={`pagination-link text--bold padding-small text--teal ${currentIndex === length - 1 ? 'invisible' : ''}`} onClick={() => onPageChange(currentIndex + 1)}>Next →</span>
       </nav>
     );
   }
@@ -76,12 +77,16 @@ class Pagination extends Component {
 Pagination.propTypes = {
   currentIndex: PropTypes.number,
   length: PropTypes.number.isRequired,
-  onChange: PropTypes.func,
+  onPageChange: PropTypes.func,
 };
 
 Pagination.defaultProps = {
   currentIndex: 0,
-  onChange: () => {},
+  onPageChange: noop,
+};
+
+Pagination.propDescriptions = {
+  onPageChange: 'onPageChange(newIndex)',
 };
 
 export default Pagination;

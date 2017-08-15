@@ -968,6 +968,109 @@ Modal$1.defaultProps = {
 
 var Modal$2 = connect$$1(modalModel, Modal$1);
 
+var MAX_VISIBLE_LINKS = 7;
+
+var Separator = function () { return (
+  React__default.createElement( 'span', { className: 'padding-small text--bold pagination-default' }, "...")
+); };
+
+
+var Pagination$1 = (function (Component$$1) {
+  function Pagination() {
+    Component$$1.call(this);
+    this.link = this.link.bind(this);
+    this.links = this.links.bind(this);
+  }
+
+  if ( Component$$1 ) Pagination.__proto__ = Component$$1;
+  Pagination.prototype = Object.create( Component$$1 && Component$$1.prototype );
+  Pagination.prototype.constructor = Pagination;
+
+  Pagination.prototype.link = function link (i) {
+    var ref = this.props;
+    var currentIndex = ref.currentIndex;
+    var onPageChange = ref.onPageChange;
+    return (
+      React__default.createElement( 'span', { className: ("pagination-button text--bold padding-vert-xsmall padding-horz-small radius " + (currentIndex === i ? 'active bg-gray-5 text--white' : '')), onClick: function () { return onPageChange(i); }, key: ("link-" + i) },
+        i + 1
+      )
+    );
+  };
+
+  Pagination.prototype.links = function links () {
+    var ref = this.props;
+    var currentIndex = ref.currentIndex;
+    var length = ref.length;
+    var ref$1 = this;
+    var link = ref$1.link;
+    var truncateBefore = currentIndex > 3 && length > MAX_VISIBLE_LINKS;
+    var truncateAfter = currentIndex < length - 4 && length > MAX_VISIBLE_LINKS;
+    var links = [];
+    if (truncateBefore) { links.push(React__default.createElement( Separator, { key: 'sep-0' })); }
+    if (truncateBefore && truncateAfter) {
+      links.push(link(currentIndex - 1));
+      links.push(link(currentIndex));
+      links.push(link(currentIndex + 1));
+    } else if (truncateBefore) {
+      links.push(link(length - 5));
+      links.push(link(length - 4));
+      links.push(link(length - 3));
+      links.push(link(length - 2));
+    } else if (truncateAfter) {
+      links.push(link(1));
+      links.push(link(2));
+      links.push(link(3));
+      links.push(link(4));
+    } else if (length > 1) {
+      for (var i = 1; i < length - 1; i++) { links.push(link(i)); }
+    }
+    if (truncateAfter) { links.push(React__default.createElement( Separator, { key: ("sep-" + (currentIndex + 2)) })); }
+    return links;
+  };
+
+  Pagination.prototype.render = function render () {
+    var ref = this;
+    var link = ref.link;
+    var links = ref.links;
+    var ref$1 = this.props;
+    var currentIndex = ref$1.currentIndex;
+    var onPageChange = ref$1.onPageChange;
+    var length = ref$1.length;
+
+    if (length === 0) { return React__default.createElement( 'nav', null ); }
+    if (length === 1) { return React__default.createElement( 'nav', { className: 'text-center' }, link(0)); }
+
+    // NOTE: we toggle the visibility of the "Previous"/"Next" links rather than removing those links altogether so that the layout doesn't re-center when those links disappear
+    return (
+      React__default.createElement( 'nav', { className: 'text-center' },
+        React__default.createElement( 'span', { className: ("pagination-link text--bold padding-small text--teal " + (currentIndex === 0 ? 'invisible' : '')), onClick: function () { return onPageChange(currentIndex - 1); } }, "← Previous"),
+        link(0),
+        links(),
+        link(length - 1),
+        React__default.createElement( 'span', { className: ("pagination-link text--bold padding-small text--teal " + (currentIndex === length - 1 ? 'invisible' : '')), onClick: function () { return onPageChange(currentIndex + 1); } }, "Next →")
+      )
+    );
+  };
+
+  return Pagination;
+}(React.Component));
+
+
+Pagination$1.propTypes = {
+  currentIndex: PropTypes.number,
+  length: PropTypes.number.isRequired,
+  onPageChange: PropTypes.func,
+};
+
+Pagination$1.defaultProps = {
+  currentIndex: 0,
+  onPageChange: noop,
+};
+
+Pagination$1.propDescriptions = {
+  onPageChange: 'onPageChange(newIndex)',
+};
+
 var RadioIcon = function () { return (
   React__default.createElement( 'span', { className: 'radio--icon' },
     React__default.createElement( 'i', { className: 'circle-top' }, React__default.createElement( 'span', null )),
@@ -1936,6 +2039,7 @@ exports.Header = Header$1;
 exports.Icon = Icon$1;
 exports.Input = Input$1;
 exports.Modal = Modal$2;
+exports.Pagination = Pagination$1;
 exports.RadioGroup = RadioGroup$1;
 exports.Sidebar = Sidebar$2;
 exports.Slide = Slide$1;
