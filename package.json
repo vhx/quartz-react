@@ -5,8 +5,10 @@
   "main": "dist/quartz-react.js",
   "scripts": {
     "build": "node build/build-css.js && rollup -c build/rollup.config.js",
+    "deploy": "firebase deploy",
     "dev": "rollup -c build/rollup.demo-config.js --watch",
     "lint": "eslint components/**/** demo/src/** build/** index.js",
+    "preview": "firebase serve",
     "serve": "browser-sync start --server --serveStatic \"demo/public\" --files \"demo/public/js/bundle.js\" --no-open",
     "start": "npm-run-all --parallel dev serve",
     "test": "nyc --extension .jsx --reporter=html --reporter=text-summary mocha components/**/*.test.jsx --compilers js:babel-register",
@@ -43,6 +45,7 @@
     "eslint-plugin-import": "^2.7.0",
     "eslint-plugin-jsx-a11y": "^6.0.2",
     "eslint-plugin-react": "^7.1.0",
+    "firebase-tools": "^3.9.2",
     "jsdom": "7.0.2",
     "mocha": "^3.4.2",
     "mocha-jsdom": "^1.1.0",
