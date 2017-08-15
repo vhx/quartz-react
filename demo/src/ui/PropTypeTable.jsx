@@ -5,9 +5,8 @@ import Subtitle from './Subtitle.jsx';
 const propTypeList = Object.keys(PropTypes);
 
 function lookupType(propType) {
-  if (propType === PropTypes.node || propType === PropTypes.node.isRequired) return 'node';
   return propTypeList.reduce((current, next) => {
-    return propType === PropTypes[next] ? next : current;
+    return (propType === PropTypes[next] || propType === PropTypes[next].isRequired) ? next : current;
   }, 'other');
 }
 
