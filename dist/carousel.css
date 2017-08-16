@@ -1,5 +1,5 @@
 /*
-  Quartz-react version: 0.1.2
+  Quartz-react version: 0.1.3
   Current file hash: 064240763173612ae21da9cf52848651
 */
 
@@ -112,5 +112,5 @@
 .coin[disabled]:active,
 .coin[disabled]:hover,
 .coin[disabled]:focus, {
-  background: #fff !important;
+  background: #fff;
 }
