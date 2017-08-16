@@ -1,10 +1,10 @@
 /*
   Quartz-react version: 0.1.3
-  Current file hash: 064240763173612ae21da9cf52848651
+  Current file hash: 115b6a0d9ffda7da6978183974bd0aef
 */
 
 .carousel {
-  background: #000;
+  background-color: #000;
   color: #fff;
   overflow: hidden;
   position: relative;
@@ -17,7 +17,7 @@
 }
 
 .carousel-arrow {
-  background: transparent;
+  background-color: transparent;
   border: 0;
   border-radius: 0;
   height: 100%;
@@ -37,7 +37,7 @@
 .carousel-arrow[disabled]:active,
 .carousel-arrow[disabled]:hover,
 .carousel-arrow[disabled]:focus {
-  background: transparent;
+  background-color: transparent;
 }
 
 .carousel:hover .carousel-arrow {
@@ -87,7 +87,7 @@
 }
 
 .coin {
-  background: #fff;
+  background-color: #fff;
   border: 0;
   borderRadius: 4px; /* 50% of height */
   box-shadow: 0 1px 5px #000;
@@ -112,5 +112,5 @@
 .coin[disabled]:active,
 .coin[disabled]:hover,
 .coin[disabled]:focus, {
-  background: #fff;
+  background-color: #fff;
 }
