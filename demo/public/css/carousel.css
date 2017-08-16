@@ -107,5 +107,5 @@
 .coin[disabled]:active,
 .coin[disabled]:hover,
 .coin[disabled]:focus, {
-  background-color: #fff;
+  background-color: #fff !important;
 }
