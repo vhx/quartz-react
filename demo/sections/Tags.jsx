@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Tag } from '../../../index.js';
+import { Tag } from '../../index.js';
 import {
   Block,
   DemoRow,

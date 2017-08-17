@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Icon, Text } from '../../../index.js';
-import iconNames from '../../../components/Icon/icon-list.js';
+import { Icon, Text } from '../../index.js';
+import iconNames from '../../components/Icon/icon-list.js';
 import {
   Block,
   DemoRow,

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { Checkbox } from '../../../index.js';
+import { Checkbox } from '../../index.js';
 import {
   Block,
   DemoRow,
