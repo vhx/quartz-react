@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Avatar } from '../../../index.js';
+import { Avatar } from '../../index.js';
 import {
   Block,
   DemoRow,

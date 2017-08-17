@@ -7,8 +7,8 @@ import filesize from 'rollup-plugin-filesize';
 const env = JSON.stringify(process.env.NODE_ENV);
 
 export default {
-  entry: 'demo/src/index.jsx',
-  dest: 'demo/public/js/bundle.js',
+  entry: 'demo/index.jsx',
+  dest: 'docs/js/bundle.js',
   format: 'iife',
   moduleName: 'QuartzReact',
   external: [ 'react', 'react-dom' ],

@@ -5,7 +5,7 @@ import {
   Select,
   StatefulMediaSelect,
   StatefulSelect,
-} from '../../../index.js';
+} from '../../index.js';
 
 import {
   Block,
