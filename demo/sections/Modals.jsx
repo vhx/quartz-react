@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Button, Modal } from '../../../index.js';
+import { Button, Modal } from '../../index.js';
 import {
   Block,
   DemoRow,
@@ -150,10 +150,10 @@ const doubleAction = [
 // Main exported demo
 // -----------------------------------------
 
-const ModalDemo = ({ title }) => (
+const ModalDemo = () => (
   <div>
     <DemoRow>
-      <Title>{title}</Title>
+      <Title>Modals</Title>
       <Details>
         <strong>Important:</strong> You probably do not want to use the Modal as a component! Use its static methods instead:
         <pre className='code'>
@@ -191,9 +191,5 @@ Modal.close();`
     <DemoRow code={modalActionsCode}><ModalActions /></DemoRow>
   </div>
 );
-
-ModalDemo.propTypes = {
-  title: PropTypes.string.isRequired,
-};
 
 export default ModalDemo;

@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Avatar } from '../../../index.js';
+import { Avatar } from '../../index.js';
 import {
   Block,
   DemoRow,
@@ -44,7 +44,7 @@ const AvatarDemo = () => (
 const avatarCode = `
 <Avatar />
 <Avatar
-  image='https://[YOURIMAGEHERE].png'
+  image='/path/to/avatar.png'
   size='xlarge'
 />
 `;
@@ -53,10 +53,10 @@ const avatarCode = `
 // Main exported demo
 // -----------------------------------------
 
-const Avatars = ({ title }) => (
+const Avatars = () => (
   <div>
     <DemoRow>
-      <Title>{title}</Title>
+      <Title>Avatar</Title>
       <Details>
         Avatar images and sizes are optional.  The default size is medium.
       </Details>
@@ -68,9 +68,5 @@ const Avatars = ({ title }) => (
     <DemoRow><PropTypeTable component={Avatar} /></DemoRow>
   </div>
 );
-
-Avatars.propTypes = {
-  title: PropTypes.string.isRequired,
-};
 
 export default Avatars;

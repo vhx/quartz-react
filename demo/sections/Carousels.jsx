@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Carousel, Icon, Slide, util } from '../../../index.js';
+import { Carousel, Icon, Slide, util } from '../../index.js';
 import {
   DemoRow,
   Details,
@@ -40,8 +40,8 @@ const Slide1 = {
   Slide: props => (
     <Slide
       dynamicProps={props}
-      img='/images/16-6-A.png'
-      mobileImg='/images/16-6-A-mob.png'
+      img='images/16-6-A.png'
+      mobileImg='images/16-6-A-mob.png'
       isWide={true}
     >
       <BrowsePageSlide
@@ -63,8 +63,8 @@ const Slide2 = {
   Slide: props => (
     <Slide
       dynamicProps={props}
-      img='/images/16-9-B.png'
-      mobileImg='/images/16-9-B-mob.png'
+      img='images/16-9-B.png'
+      mobileImg='images/16-9-B-mob.png'
       isWide={true}
     >
       <BrowsePageSlide
@@ -86,8 +86,8 @@ const Slide3 = {
   Slide: props => (
     <Slide
       dynamicProps={props}
-      img='/images/16-9-A.png'
-      mobileImg='/images/16-9-A-mob.png'
+      img='images/16-9-A.png'
+      mobileImg='images/16-9-A-mob.png'
       isWide={false}
     >
       <BrowsePageSlide
@@ -109,8 +109,8 @@ const Slide4 = {
   Slide: props => (
     <Slide
       dynamicProps={props}
-      img='/images/16-9-B.png'
-      mobileImg='/images/16-9-B-mob.png'
+      img='images/16-9-B.png'
+      mobileImg='images/16-9-B-mob.png'
       isWide={false}
     >
       <BrowsePageSlide
@@ -131,8 +131,8 @@ const Slide5 = {
   Slide: props => (
     <Slide
       dynamicProps={props}
-      img='/images/16-6-B.png'
-      mobileImg='/images/16-6-B-mob.png'
+      img='images/16-6-B.png'
+      mobileImg='images/16-6-B-mob.png'
       isWide={true}
     >
       <BrowsePageSlide
@@ -187,8 +187,8 @@ const Slide1 = {
   Slide: props => (
     <Slide
       dynamicProps={props}
-      img='/images/16-6-A.png'
-      mobileImg='/images/16-6-A-mob.png'
+      img='images/16-6-A.png'
+      mobileImg='images/16-6-A-mob.png'
       isWide={true}
     >
       <div>Any slide contents can go here!</div>
@@ -204,10 +204,10 @@ const Slide1 = {
 // Main exported demo
 // -----------------------------------------
 
-const Carousels = ({ title }) => (
+const Carousels = () => (
   <div>
     <DemoRow>
-      <Title>{title}</Title>
+      <Title>Carousels</Title>
       <Details>
         Carousels are composed of three components. There is the base <code>Carousel</code>
         component which handles the navigation ui and aspect ratio sizing. Then there is
@@ -252,9 +252,5 @@ const Carousels = ({ title }) => (
     <DemoRow><PropTypeTable component={Carousel} /></DemoRow>
   </div>
 );
-
-Carousels.propTypes = {
-  title: PropTypes.string.isRequired,
-};
 
 export default Carousels;

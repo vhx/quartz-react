@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { util } from '../../../index.js';
+import { util } from '../../index.js';
 
 const { If } = util;
 

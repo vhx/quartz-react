@@ -5,7 +5,7 @@ import {
   Select,
   StatefulMediaSelect,
   StatefulSelect,
-} from '../../../index.js';
+} from '../../index.js';
 
 import {
   Block,
@@ -24,19 +24,19 @@ const options = [
     label: 'One',
     uniqueId: 'opt-1',
     description: 'Foo',
-    imageUrl: '/images/1.jpg',
+    imageUrl: 'images/1.jpg',
   },
   {
     label: 'Two',
     uniqueId: 'opt-2',
     description: 'Bar',
-    imageUrl: '/images/2.jpg',
+    imageUrl: 'images/2.jpg',
   },
   {
     label: 'Three',
     uniqueId: 'opt-3',
     description: 'Baz',
-    imageUrl: '/images/3.jpg',
+    imageUrl: 'images/3.jpg',
   },
 ];
 
@@ -55,19 +55,19 @@ const options = [
     label: 'One',
     uniqueId: 'opt-1',
     description: 'Foo',
-    imageUrl: '/images/1.jpg',
+    imageUrl: 'images/1.jpg',
   },
   {
     label: 'Two',
     uniqueId: 'opt-2',
     description: 'Bar',
-    imageUrl: '/images/2.jpg',
+    imageUrl: 'images/2.jpg',
   },
   {
     label: 'Three',
     uniqueId: 'opt-3',
     description: 'Baz',
-    imageUrl: '/images/3.jpg',
+    imageUrl: 'images/3.jpg',
   },
 ];
 
@@ -525,10 +525,10 @@ import { StatefulMediaSelect } from '@vhx/quartz-react';
 // Main exported demo
 // -----------------------------------------
 
-const Selects = ({ title }) => (
+const Selects = () => (
   <div>
     <DemoRow code={introCode}>
-      <Title>{title}</Title>
+      <Title>Selects</Title>
       <Details>
         Selects are, by default, strictly presentational, so in order
         to enable interactivity you must place them within a stateful
@@ -600,9 +600,5 @@ const Selects = ({ title }) => (
     <DemoRow><PropTypeTable component={Select} /></DemoRow>
   </div>
 );
-
-Selects.propTypes = {
-  title: PropTypes.string.isRequired,
-};
 
 export default Selects;

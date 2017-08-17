@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Button, Sidebar } from '../../../index.js';
+import { Button, Sidebar } from '../../index.js';
 import {
   Block,
   DemoRow,
@@ -15,7 +15,7 @@ const SidebarChildren = () => <div>Sidebar children go here</div>;
 const OtherSidebarChildren = () => (
   <div>
     <div>Here is some different content for the sidebar</div>
-    <img src='/images/1.jpg' alt='yum' />
+    <img src='images/1.jpg' alt='yum' />
   </div>
 );
 
@@ -64,10 +64,10 @@ const Children = () => (
 // Main exported demo
 // -----------------------------------------
 
-const Sidebars = ({ title }) => (
+const Sidebars = () => (
   <div>
     <DemoRow>
-      <Title>{title}</Title>
+      <Title>Sidebars</Title>
       <Details>
         <strong>Important:</strong> You probably do not want to use the <code>Sidebar</code> as a component!
         Use its static methods:
@@ -94,9 +94,5 @@ Sidebar.toggle(ChildComponent);`
     <DemoRow code={sidebarCode}><SidebarDemo /></DemoRow>
   </div>
 );
-
-Sidebars.propTypes = {
-  title: PropTypes.string.isRequired,
-};
 
 export default Sidebars;

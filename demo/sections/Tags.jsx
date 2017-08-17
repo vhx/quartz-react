@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Tag } from '../../../index.js';
+import { Tag } from '../../index.js';
 import {
   Block,
   DemoRow,
@@ -63,18 +63,14 @@ const processingDemoCode = `
 // Main exported demo
 // -----------------------------------------
 
-const Tags = ({ title }) => (
+const Tags = () => (
   <div>
-    <DemoRow><Title>{title}</Title></DemoRow>
+    <DemoRow><Title>Tags</Title></DemoRow>
     <DemoRow code={tagsDemoCode}><TagsDemo /></DemoRow>
     <DemoRow code={truncatedDemoCode}><TruncatedDemo /></DemoRow>
     <DemoRow code={processingDemoCode}><ProcessingDemo /></DemoRow>
     <DemoRow><PropTypeTable component={Tag} /></DemoRow>
   </div>
 );
-
-Tags.propTypes = {
-  title: PropTypes.string.isRequired,
-};
 
 export default Tags;

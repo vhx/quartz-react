@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Button, Header } from '../../../index.js';
+import { Button, Header } from '../../index.js';
 import {
   DemoRow,
   PropTypeTable,
@@ -59,17 +59,13 @@ const HeaderDescription = () => (
 // Main exported demo
 // -----------------------------------------
 
-const Headers = ({ title }) => (
+const Headers = () => (
   <div>
-    <DemoRow><Title>{title}</Title></DemoRow>
+    <DemoRow><Title>Headers</Title></DemoRow>
     <DemoRow code={defaultDemoCode}><DefaultDemo /></DemoRow>
     <DemoRow code={fullDemoCode}><FullDemo /></DemoRow>
     <DemoRow><PropTypeTable component={Header} /></DemoRow>
   </div>
 );
-
-Headers.propTypes = {
-  title: PropTypes.string.isRequired,
-};
 
 export default Headers;
