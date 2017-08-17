@@ -1,6 +1,6 @@
 /*
   Quartz-react version: 0.1.3
-  Current file hash: f68f75f5319db5565fb7f6a68a713f9a
+  Current file hash: 0c0be180dec0de3913e0ae6713290640
 */
 
 .carousel {
@@ -87,7 +87,7 @@
 }
 
 .coin {
-  background-color: #fff;
+  background-color: #fff !important;
   border: 0;
   borderRadius: 4px; /* 50% of height */
   box-shadow: 0 1px 5px #000;
