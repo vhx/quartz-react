@@ -94,7 +94,7 @@ MyComponent.defaultProps = {
 };
 
 MyComponent.propDescriptions = {
-  title: 'A brief title, truncated at 50 characters'
+  title: 'A brief title, truncated at 50 characters',
 };
 
 // in demo/src/sections/MyComponent.jsx
