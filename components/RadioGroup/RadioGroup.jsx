@@ -54,6 +54,8 @@ RadioGroup.defaultProps = {
 
 RadioGroup.propDescriptions = {
   color: `One of: ["${colors.join('", "')}"]`,
+  items: 'Array of { label: String, uniqueId: String }, where uniqueId will be used as they key and need only be unique among the items in the radioGroup, not globally unique.',
+  onCheck: 'onCheck(event, itemIndex)',
 };
 
 export default RadioGroup;

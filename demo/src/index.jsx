@@ -1,8 +1,9 @@
-import React from 'react';
+import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 
 import { Nav } from './ui';
 import { Sidebar, Modal } from '../../index.js';
+import { slug } from './util';
 
 import Avatars from './sections/Avatars.jsx';
 import Buttons from './sections/Buttons.jsx';
@@ -38,21 +39,54 @@ const sections = {
 
 const sectionTitles = Object.keys(sections);
 
-const AllComponents = () => (
-  <div>
-    <Nav sections={sectionTitles} />
-    <div className='stage'>
-      {
-        sectionTitles.map(section => React.createElement(sections[section], {
-          key: section,
-          title: section,
-        }))
-      }
-    </div>
-    <Sidebar />
-    <Modal />
-  </div>
-);
+class AllComponents extends Component {
+  constructor() {
+    super();
+    this.state = { activeSection: window.location.hash.slice(1) };
+    this.updateScroll = this.updateScroll.bind(this);
+    this.sectionElements = [];
+    // this.calcSectionOf
+  }
+  componentWillMount() {
+    window.addEventListener('scroll', this.updateHashOnScroll);
+  }
+  componentDidMount() {
+    this.sectionElements = sectionTitles.map((title, index) => {
+      const titleSlug = slug(title);
+      const element = document.getElementById(titleSlug);
+      return { titleSlug, element };
+    });
+    console.log(sectionElements);
+  }
+  componentWillUnmount() {
+    window.removeEventListener('scroll', this.updateHashOnScroll);
+  }
+  updateHashOnScroll() {
+    // minimum positive offset top is the current 'active' section
+    // let minEl = this.sectionElements.reduce(());
+    // for (let i = 0; i < this.sectionElements.length; i++) {
+    //   const el = this.sectionElements[i].element;
+    //   const offset =
+    // }
+  }
+  render() {
+    return (
+      <div>
+        <Nav sections={sectionTitles} />
+        <div className='stage'>
+          {
+            sectionTitles.map(section => React.createElement(sections[section], {
+              key: section,
+              title: section,
+            }))
+          }
+        </div>
+        <Sidebar />
+        <Modal />
+      </div>
+    );
+  }
+}
 
 const mountNode = document.getElementById('app');
 ReactDOM.render(<AllComponents />, mountNode);

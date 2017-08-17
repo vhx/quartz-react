@@ -70,7 +70,7 @@ Checkbox.defaultProps = {
 Checkbox.propDescriptions = {
   size: `One of: ["${sizes.join('", "')}"]`,
   type: `One of: ["${types.join('", "')}"]`,
-  uniqueId: 'Must be globally unique--this sets the checkbox element\'s id attribute.',
+  uniqueId: 'Must be globally unique—this sets the checkbox element\'s id attribute.',
 };
 
 export default Checkbox;
