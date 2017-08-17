@@ -3318,7 +3318,7 @@ var BrowsePageSlide = function (ref) {
 var Slide1 = {
   Slide: function (props) { return (
     React__default.createElement( Slide$1, {
-      dynamicProps: props, img: '/images/16-6-A.png', mobileImg: '/images/16-6-A-mob.png', isWide: true },
+      dynamicProps: props, img: 'images/16-6-A.png', mobileImg: 'images/16-6-A-mob.png', isWide: true },
       React__default.createElement( BrowsePageSlide, {
         title: 'Slide 1 title', subtitle: '3 Seasons', description: lorem, buttonClass: '', links: {
           item: '#',
@@ -3332,7 +3332,7 @@ var Slide1 = {
 var Slide2 = {
   Slide: function (props) { return (
     React__default.createElement( Slide$1, {
-      dynamicProps: props, img: '/images/16-9-B.png', mobileImg: '/images/16-9-B-mob.png', isWide: true },
+      dynamicProps: props, img: 'images/16-9-B.png', mobileImg: 'images/16-9-B-mob.png', isWide: true },
       React__default.createElement( BrowsePageSlide, {
         title: 'Slide 2 title is a very long title with many words', subtitle: '3 Seasons', description: lorem, buttonClass: '', links: {
           item: '#',
@@ -3346,7 +3346,7 @@ var Slide2 = {
 var Slide3 = {
   Slide: function (props) { return (
     React__default.createElement( Slide$1, {
-      dynamicProps: props, img: '/images/16-9-A.png', mobileImg: '/images/16-9-A-mob.png', isWide: false },
+      dynamicProps: props, img: 'images/16-9-A.png', mobileImg: 'images/16-9-A-mob.png', isWide: false },
       React__default.createElement( BrowsePageSlide, {
         title: 'Slide 3 has a custom button class', subtitle: '3 Seasons', description: lorem, buttonClass: 'btn-teal', links: {
           item: '#',
@@ -3360,7 +3360,7 @@ var Slide3 = {
 var Slide4 = {
   Slide: function (props) { return (
     React__default.createElement( Slide$1, {
-      dynamicProps: props, img: '/images/16-9-B.png', mobileImg: '/images/16-9-B-mob.png', isWide: false },
+      dynamicProps: props, img: 'images/16-9-B.png', mobileImg: 'images/16-9-B-mob.png', isWide: false },
       React__default.createElement( BrowsePageSlide, {
         title: 'Slide 4', subtitle: '3 Seasons', description: lorem, links: {
           item: '#',
@@ -3374,7 +3374,7 @@ var Slide4 = {
 var Slide5 = {
   Slide: function (props) { return (
     React__default.createElement( Slide$1, {
-      dynamicProps: props, img: '/images/16-6-B.png', mobileImg: '/images/16-6-B-mob.png', isWide: true },
+      dynamicProps: props, img: 'images/16-6-B.png', mobileImg: 'images/16-6-B-mob.png', isWide: true },
       React__default.createElement( BrowsePageSlide, {
         title: 'Slide 5 has no trailer and is 16:6 with a very long title containing many words. 100 characters long', subtitle: '3 Seasons', description: lorem, buttonClass: 'btn-teal', links: {
           item: '#',
@@ -3409,7 +3409,7 @@ var CarouselDemo = function () { return (
   )
 ); };
 
-var carouselCode = "\nconst Slide1 = {\n  Slide: props => (\n    <Slide\n      dynamicProps={props}\n      img='/images/16-6-A.png'\n      mobileImg='/images/16-6-A-mob.png'\n      isWide={true}\n    >\n      <div>Any slide contents can go here!</div>\n    </Slide>\n  ),\n  id: 's1',\n};\n\n<Carousel slides={[ Slide1 ]} />\n";
+var carouselCode = "\nconst Slide1 = {\n  Slide: props => (\n    <Slide\n      dynamicProps={props}\n      img='images/16-6-A.png'\n      mobileImg='images/16-6-A-mob.png'\n      isWide={true}\n    >\n      <div>Any slide contents can go here!</div>\n    </Slide>\n  ),\n  id: 's1',\n};\n\n<Carousel slides={[ Slide1 ]} />\n";
 
 
 // Main exported demo
@@ -4101,19 +4101,19 @@ var options = [
     label: 'One',
     uniqueId: 'opt-1',
     description: 'Foo',
-    imageUrl: '/images/1.jpg',
+    imageUrl: 'images/1.jpg',
   },
   {
     label: 'Two',
     uniqueId: 'opt-2',
     description: 'Bar',
-    imageUrl: '/images/2.jpg',
+    imageUrl: 'images/2.jpg',
   },
   {
     label: 'Three',
     uniqueId: 'opt-3',
     description: 'Baz',
-    imageUrl: '/images/3.jpg',
+    imageUrl: 'images/3.jpg',
   } ];
 
 var selection = {
@@ -4123,7 +4123,7 @@ var selection = {
 };
 
 
-var introCode$1 = "\n\n\nconst options = [\n  {\n    label: 'One',\n    uniqueId: 'opt-1',\n    description: 'Foo',\n    imageUrl: '/images/1.jpg',\n  },\n  {\n    label: 'Two',\n    uniqueId: 'opt-2',\n    description: 'Bar',\n    imageUrl: '/images/2.jpg',\n  },\n  {\n    label: 'Three',\n    uniqueId: 'opt-3',\n    description: 'Baz',\n    imageUrl: '/images/3.jpg',\n  },\n];\n\n\nconst selection = {\n  'opt-1': false,\n  'opt-2': true,\n  'opt-3': true\n};\n";
+var introCode$1 = "\n\n\nconst options = [\n  {\n    label: 'One',\n    uniqueId: 'opt-1',\n    description: 'Foo',\n    imageUrl: 'images/1.jpg',\n  },\n  {\n    label: 'Two',\n    uniqueId: 'opt-2',\n    description: 'Bar',\n    imageUrl: 'images/2.jpg',\n  },\n  {\n    label: 'Three',\n    uniqueId: 'opt-3',\n    description: 'Baz',\n    imageUrl: 'images/3.jpg',\n  },\n];\n\n\nconst selection = {\n  'opt-1': false,\n  'opt-2': true,\n  'opt-3': true\n};\n";
 
 
 // Default demo
@@ -4428,7 +4428,7 @@ var SidebarChildren = function () { return React__default.createElement( 'div', 
 var OtherSidebarChildren = function () { return (
   React__default.createElement( 'div', null,
     React__default.createElement( 'div', null, "Here is some different content for the sidebar" ),
-    React__default.createElement( 'img', { src: '/images/1.jpg', alt: 'yum' })
+    React__default.createElement( 'img', { src: 'images/1.jpg', alt: 'yum' })
   )
 ); };
 

@@ -24,19 +24,19 @@ const options = [
     label: 'One',
     uniqueId: 'opt-1',
     description: 'Foo',
-    imageUrl: '/images/1.jpg',
+    imageUrl: 'images/1.jpg',
   },
   {
     label: 'Two',
     uniqueId: 'opt-2',
     description: 'Bar',
-    imageUrl: '/images/2.jpg',
+    imageUrl: 'images/2.jpg',
   },
   {
     label: 'Three',
     uniqueId: 'opt-3',
     description: 'Baz',
-    imageUrl: '/images/3.jpg',
+    imageUrl: 'images/3.jpg',
   },
 ];
 
@@ -55,19 +55,19 @@ const options = [
     label: 'One',
     uniqueId: 'opt-1',
     description: 'Foo',
-    imageUrl: '/images/1.jpg',
+    imageUrl: 'images/1.jpg',
   },
   {
     label: 'Two',
     uniqueId: 'opt-2',
     description: 'Bar',
-    imageUrl: '/images/2.jpg',
+    imageUrl: 'images/2.jpg',
   },
   {
     label: 'Three',
     uniqueId: 'opt-3',
     description: 'Baz',
-    imageUrl: '/images/3.jpg',
+    imageUrl: 'images/3.jpg',
   },
 ];
 

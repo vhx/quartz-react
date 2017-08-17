@@ -15,7 +15,7 @@ const SidebarChildren = () => <div>Sidebar children go here</div>;
 const OtherSidebarChildren = () => (
   <div>
     <div>Here is some different content for the sidebar</div>
-    <img src='/images/1.jpg' alt='yum' />
+    <img src='images/1.jpg' alt='yum' />
   </div>
 );
 
