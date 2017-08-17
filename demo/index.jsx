@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 
 import { Nav } from './ui';
-import { Sidebar, Modal } from '../../index.js';
+import { Sidebar, Modal } from '../index.js';
 
 import Avatars from './sections/Avatars.jsx';
 import Buttons from './sections/Buttons.jsx';

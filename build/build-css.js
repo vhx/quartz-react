@@ -9,7 +9,7 @@ const readFile = promisify(fs.readFile);
 const writeFile = promisify(fs.writeFile);
 
 const rootDir = path.resolve(__dirname, '..');
-const cssDir = path.resolve(rootDir, 'demo/public/css');
+const cssDir = path.resolve(rootDir, 'docs/css');
 
 async function main() {
   const cssFiles = await readdir(cssDir);

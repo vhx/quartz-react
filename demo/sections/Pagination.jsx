@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { Pagination } from '../../../index.js';
+import { Pagination } from '../../index.js';
 import {
   DemoRow,
   Details,

@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Carousel, Icon, Slide, util } from '../../../index.js';
+import { Carousel, Icon, Slide, util } from '../../index.js';
 import {
   DemoRow,
   Details,

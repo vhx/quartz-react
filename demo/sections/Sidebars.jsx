@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Button, Sidebar } from '../../../index.js';
+import { Button, Sidebar } from '../../index.js';
 import {
   Block,
   DemoRow,

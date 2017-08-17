@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Text } from '../../../index.js';
+import { Text } from '../../index.js';
 import {
   Block,
   DemoRow,

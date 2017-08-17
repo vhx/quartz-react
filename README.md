@@ -34,7 +34,6 @@ For demos and code examples, run `npm start` and open up `localhost:3000` in you
 - **`npm run build`**: Run this before any release. It transpiles the source code and puts the output in `dist/`.
 - **`npm run deploy`**: This deploys the demo website (currently to firebase)
 - **`npm run lint`**: This script ensures that the component code passes eslint. Run this before making a PR.
-- **`npm run preview`**: This creates a local server with the same configuration as the live demo. Only use this to verify that nothing broke prior to deploying the demo site.
 - **`npm test`**: This script runs the tests for all the components and utilities in a jsdom environment.
 - **`npm run dev` and `npm run serve`**: Together, these two scripts form the start script. `dev` transpiles and watches the source code for changes and `serve` creates a local server to display the demos.
 
@@ -42,9 +41,9 @@ For demos and code examples, run `npm start` and open up `localhost:3000` in you
 ## Folder Hierarchy
 ```
 build/
-  build-css.js                  # Copies css from demo/public/css to /dist and prepends version & hash
+  build-css.js                  # Copies css from /docs/css to /dist and prepends version & hash
   rollup.config.js              # Configuration for the bundler to output js to dist/
-  rollup.demo-config.js         # Same as above, but for the demo site (/demo/public/js)
+  rollup.demo-config.js         # Same as above, but for the demo site (/docs/js)
 components/
   [Component]/                  # At minimum contains the following files, but can be extended as necessary
     index.js                    # This just exports your [Component].jsx
@@ -52,11 +51,10 @@ components/
     [Component].test.jsx        # Unit tests for the component
   util/                         # Utility functions shared by components
 demo/
-  public/                       # Assets to be used by the demo page
-  src/
-    sections/                   # Sections of the demo page with code and examples
-    ui/                         # Components specific to the demo page that are not included in quartz-react
-    index.jsx                   # The demo page itself (ie. what is seen on localhost:3000)
+  sections/                     # Sections of the demo page with code and examples
+  ui/                           # Components specific to the demo page that are not included in quartz-react
+  index.jsx                     # The demo page itself (ie. what is seen on localhost:3000)
+docs/                           # The github pages website. `demo/index.jsx` gets compiled into here.
 index.js                        # Every component that is exported in quartz-react
 ```
 
@@ -69,8 +67,8 @@ index.js                        # Every component that is exported in quartz-rea
     - [YourComponent].jsx
     - [YourComponent].test.jsx
 3. In the root level `index.js`, create a named export for your component.
-4. In `demo/src/sections/` create a file to demo your component (by convention, it should be `demo/src/sections/[YourComponent].jsx`). It should export a react component that makes use of the demo UI components (see below). If your demo makes use of props, display them in a `<PropTypeTable />`.
-5. In `demo/src/index.jsx` import the demo you exported from the file in step 4, and add it to the `sections` object. This will include it in the sidebar navigation as well as render it to the page.
+4. In `demo/sections/` create a file to demo your component (by convention, it should be `demo/sections/[YourComponent].jsx`). It should export a react component that makes use of the demo UI components (see below). If your demo makes use of props, display them in a `<PropTypeTable />`.
+5. In `demo/index.jsx` import the demo you exported from the file in step 4, and add it to the `sections` object. This will include it in the sidebar navigation as well as render it to the page.
 6. Create a pull request and merge into master when ready. Then delete the branch.
 7. Run `npm version patch` (or `minor` or `major`, as appropriate), then run `npm run build`, then publish to npm.
 
@@ -97,7 +95,7 @@ MyComponent.propDescriptions = {
   title: 'A brief title, truncated at 50 characters',
 };
 
-// in demo/src/sections/MyComponent.jsx
+// in demo/sections/MyComponent.jsx
 // ---------------------------------------------
 const MyComponentDemo = () => (
   <div>
@@ -114,6 +112,6 @@ const MyComponentDemo = () => (
 
 ## Demo UI Components
 
-Component demo files (`demo/src/sections/*.jsx`) should export a component containing `<DemoRow>`s. These accept an optional `code` prop that's a string of code to display on the right side of the page.
+Component demo files (`demo/sections/*.jsx`) should export a component containing `<DemoRow>`s. These accept an optional `code` prop that's a string of code to display on the right side of the page.
 
 Follow the example from the `Text` component's demo for the simplest example setup.
