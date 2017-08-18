@@ -2937,7 +2937,7 @@ var NavLink = function (ref) {
 
   return (
   React__default.createElement( 'li', null,
-    React__default.createElement( 'a', { href: ("/#" + slug), className: 'text--gray block' }, title)
+    React__default.createElement( 'a', { href: ("#" + slug), className: 'text--gray block' }, title)
   )
 );
 };
@@ -3113,6 +3113,9 @@ var Avatars = function () { return (
   )
 ); };
 
+// Colors demo
+// -----------------------------------------
+
 var colors$4 = [
   'gray',
   'teal',
@@ -3222,6 +3225,9 @@ var Buttons = function () { return (
     React__default.createElement( DemoRow, null, React__default.createElement( PropTypeTable, { component: Button$1 }) )
   )
 ); };
+
+// Carousel demo
+// -----------------------------------------
 
 var MAX_TITLE_LENGTH = 50; // characters
 var lorem = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua';
@@ -3373,6 +3379,9 @@ var Carousels = function () { return (
   )
 ); };
 
+// Checked / unchecked demo
+// -----------------------------------------
+
 var handler = function () { return alert('Hi!'); };
 var StatelessCheckboxes = function () { return (
   React__default.createElement( 'div', null,
@@ -3478,6 +3487,9 @@ var Checkboxes = function () { return (
   )
 ); };
 
+// Standard header
+// -----------------------------------------
+
 var DefaultDemo = function () { return (
   React__default.createElement( 'div', null,
     React__default.createElement( Subtitle, null, "Default" ),
@@ -3517,6 +3529,9 @@ var Headers = function () { return (
     React__default.createElement( DemoRow, null, React__default.createElement( PropTypeTable, { component: Header$1 }) )
   )
 ); };
+
+// All icons demo
+// -----------------------------------------
 
 var IconList = function () { return (
   React__default.createElement( 'div', null,
@@ -3601,6 +3616,9 @@ var Icons = function () { return (
     React__default.createElement( DemoRow, null, React__default.createElement( PropTypeTable, { component: Icon$1 }) )
   )
 ); };
+
+// Input demo
+// -----------------------------------------
 
 var InputDemo = function () { return (
   React__default.createElement( 'div', null,
@@ -3694,6 +3712,9 @@ var Inputs = function () { return (
     React__default.createElement( DemoRow, null, React__default.createElement( PropTypeTable, { component: Input$1 }) )
   )
 ); };
+
+// Shared
+// -----------------------------------------
 
 var MyModalContents = function () { return React__default.createElement( 'div', null, "Hello!" ); };
 
@@ -3952,6 +3973,9 @@ var Radios = function () { return (
     React__default.createElement( DemoRow, null, React__default.createElement( PropTypeTable, { component: RadioGroup$1 }) )
   )
 ); };
+
+// Intro
+// -----------------------------------------
 
 var options = [
   {
@@ -4317,6 +4341,9 @@ var Sidebars = function () { return (
   )
 ); };
 
+// Tags default demo
+// -----------------------------------------
+
 var TagsDemo = function () { return (
   React__default.createElement( 'div', null,
     React__default.createElement( Subtitle, null, "Tags with Two Callbacks" ),
@@ -4363,6 +4390,9 @@ var Tags = function () { return (
     React__default.createElement( DemoRow, null, React__default.createElement( PropTypeTable, { component: Tag$1 }) )
   )
 ); };
+
+// Text headings
+// -----------------------------------------
 
 var TextHeadings = function () { return (
   React__default.createElement( 'div', null,
