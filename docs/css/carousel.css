@@ -82,7 +82,7 @@
 }
 
 .coin {
-  background-color: #fff;
+  background-color: #fff !important;
   border: 0;
   borderRadius: 4px; /* 50% of height */
   box-shadow: 0 1px 5px #000;
