@@ -134,7 +134,7 @@ const FooComponents = () => (
         <Foo bar='baz' />
       </Block>
     </DemoRow>
-    <DemoRow code=`<Foo alternate />`>
+    <DemoRow code='<Foo alternate />'>
       <Subtitle>Foo Component Alternate Demo</Subtitle>
       <Foo alternate />
     </DemoRow>
