@@ -2932,26 +2932,23 @@ var Hr = function () { return (
 ); };
 
 var NavLink = function (ref) {
-  var isActive = ref.isActive;
   var slug = ref.slug;
   var title = ref.title;
 
   return (
-  React__default.createElement( 'li', { className: isActive ? 'bg-gray-3' : 'bg-gray-1' },
+  React__default.createElement( 'li', null,
     React__default.createElement( 'a', { href: ("/#" + slug), className: 'text--gray block' }, title)
   )
 );
 };
 
 NavLink.propTypes = {
-  isActive: index.bool.isRequired,
   slug: index.string.isRequired,
   title: index.string.isRequired,
 };
 
 
 var Nav = function (ref) {
-  var activeSectionSlug = ref.activeSectionSlug;
   var sections = ref.sections;
 
   return (
@@ -2966,7 +2963,7 @@ var Nav = function (ref) {
         var slug = ref.slug;
         var title = ref.title;
 
-        return React__default.createElement( NavLink, { key: slug, isActive: slug === activeSectionSlug, title: title, slug: slug });
+        return React__default.createElement( NavLink, { key: slug, title: title, slug: slug });
   })
     )
   )
@@ -2974,7 +2971,6 @@ var Nav = function (ref) {
 };
 
 Nav.propTypes = {
-  activeSectionSlug: index.string.isRequired,
   sections: index.arrayOf(index.shape({
     Section: index.func.isRequired,
     slug: index.string.isRequired,
@@ -4432,72 +4428,25 @@ var sections = [
   { Section: TextDemo,        slug: 'text',         title: 'Text' } ];
 /* eslint-enable no-multi-spaces */
 
-var AllComponents = (function (Component$$1) {
-  function AllComponents() {
-    Component$$1.call(this);
-    this.state = {
-      activeSectionSlug: window.location.hash.slice(1),
-    };
-    this.updateOnScroll = this.updateOnScroll.bind(this);
-    this.sectionElements = [];
-  }
+var AllComponents = function () { return (
+  React__default.createElement( 'div', null,
+    React__default.createElement( Nav, { sections: sections }),
+    React__default.createElement( 'div', { className: 'stage' },
+      sections.map(function (ref) {
+          var Section = ref.Section;
+          var slug = ref.slug;
 
-  if ( Component$$1 ) AllComponents.__proto__ = Component$$1;
-  AllComponents.prototype = Object.create( Component$$1 && Component$$1.prototype );
-  AllComponents.prototype.constructor = AllComponents;
-  AllComponents.prototype.componentWillMount = function componentWillMount () {
-    window.addEventListener('scroll', this.updateOnScroll);
-  };
-  AllComponents.prototype.componentDidMount = function componentDidMount () {
-    this.sectionElements = sections.map(function (ref) {
-      var slug = ref.slug;
-
-      var element = document.getElementById(slug);
-      return { slug: slug, element: element };
-    });
-  };
-  AllComponents.prototype.componentWillUnmount = function componentWillUnmount () {
-    window.removeEventListener('scroll', this.updateOnScroll);
-  };
-  AllComponents.prototype.updateOnScroll = function updateOnScroll () {
-    var this$1 = this;
-
-    for (var i = 0; i < this.sectionElements.length; i++) {
-      var prior = i === 0 ? 0 : i - 1;
-      var ref = this$1.sectionElements[i];
-      var element = ref.element;
-      var ref$1 = this$1.sectionElements[prior];
-      var slug = ref$1.slug;
-      if (element.getBoundingClientRect().top >= 0) {
-        this$1.setState({ activeSectionSlug: slug });
-        break;
-      }
-    }
-  };
-  AllComponents.prototype.render = function render () {
-    return (
-      React__default.createElement( 'div', null,
-        React__default.createElement( Nav, { sections: sections, activeSectionSlug: this.state.activeSectionSlug }),
-        React__default.createElement( 'div', { className: 'stage' },
-          sections.map(function (ref) {
-              var Section = ref.Section;
-              var slug = ref.slug;
-
-              return (
-              React__default.createElement( 'div', { id: slug, key: slug },
-                React__default.createElement( Section, { title: 'foo' })
-              )
-            );
-    })
-        ),
-        React__default.createElement( Sidebar$2, null ),
-        React__default.createElement( Modal$2, null )
-      )
-    );
-  };
-
-  return AllComponents;
-}(React.Component));
+          return (
+          React__default.createElement( 'div', { id: slug, key: slug },
+            React__default.createElement( Section, { title: 'foo' })
+          )
+        );
+  })
+    ),
+    React__default.createElement( Sidebar$2, null ),
+    React__default.createElement( Modal$2, null )
+  )
+); };
 
 var mountNode = document.getElementById('app');
 ReactDOM.render(React__default.createElement( AllComponents, null ), mountNode);

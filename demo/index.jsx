@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import ReactDOM from 'react-dom';
 
 import { Nav } from './ui';
@@ -41,57 +41,22 @@ const sections = [
 ];
 /* eslint-enable no-multi-spaces */
 
-class AllComponents extends Component {
-  constructor() {
-    super();
-    this.state = {
-      activeSectionSlug: window.location.hash.slice(1),
-    };
-    this.updateOnScroll = this.updateOnScroll.bind(this);
-    this.sectionElements = [];
-  }
-  componentWillMount() {
-    window.addEventListener('scroll', this.updateOnScroll);
-  }
-  componentDidMount() {
-    this.sectionElements = sections.map(({ slug }) => {
-      const element = document.getElementById(slug);
-      return { slug, element };
-    });
-  }
-  componentWillUnmount() {
-    window.removeEventListener('scroll', this.updateOnScroll);
-  }
-  updateOnScroll() {
-    for (let i = 0; i < this.sectionElements.length; i++) {
-      const prior = i === 0 ? 0 : i - 1;
-      const { element } = this.sectionElements[i];
-      const { slug } = this.sectionElements[prior];
-      if (element.getBoundingClientRect().top >= 0) {
-        this.setState({ activeSectionSlug: slug });
-        break;
+const AllComponents = () => (
+  <div>
+    <Nav sections={sections} />
+    <div className='stage'>
+      {
+        sections.map(({ Section, slug }) => (
+          <div id={slug} key={slug}>
+            <Section title={'foo'} />
+          </div>
+        ))
       }
-    }
-  }
-  render() {
-    return (
-      <div>
-        <Nav sections={sections} activeSectionSlug={this.state.activeSectionSlug} />
-        <div className='stage'>
-          {
-            sections.map(({ Section, slug }) => (
-              <div id={slug} key={slug}>
-                <Section title={'foo'} />
-              </div>
-            ))
-          }
-        </div>
-        <Sidebar />
-        <Modal />
-      </div>
-    );
-  }
-}
+    </div>
+    <Sidebar />
+    <Modal />
+  </div>
+);
 
 const mountNode = document.getElementById('app');
 ReactDOM.render(<AllComponents />, mountNode);
