@@ -104,6 +104,10 @@ const MyComponentDemo = () => (
       <Title>MyComponent</Title>
       <Details>Some documentation for your component goes here...</Details>
     </DemoRow>
+    <DemoRow code='<MyComponent />'>
+      <Subtitle>Section heading goes here</Subtitle>
+      <MyComponent />
+    </DemoRow>
     <DemoRow>
       <PropTypeTable component={MyComponent} />
     </DemoRow>
@@ -114,36 +118,6 @@ const MyComponentDemo = () => (
 ## Demo UI Components
 
 Component demo files (`demo/sections/*.jsx`) should export a component containing `<DemoRow>`s. These accept an optional `code` prop that's a string of code to display on the right side of the page.
-
-For instance:
-
-```jsx
-const FooComponents = () => (
-  <div>
-    <DemoRow>
-      <Title>Foo</Title>
-      <Details>Optional description goes here</Details>
-    </DemoRow>
-    <DemoRow code='<Foo bar={`baz`} />'>
-      <Subtitle>Foo Component Demo</Subtitle>
-      <Block>
-        <Foo />
-      </Block>
-      <Hr />
-      <Block>
-        <Foo bar='baz' />
-      </Block>
-    </DemoRow>
-    <DemoRow code='<Foo alternate />'>
-      <Subtitle>Foo Component Alternate Demo</Subtitle>
-      <Foo alternate />
-    </DemoRow>
-    <DemoRow>
-      <PropTypeTable component={Foo} />
-    </DemoRow>
-  </div>
-);
-```
 
 Available UI componennts for use in demos include:
 - `<Block>`: Provides some padding to nicely display elements
