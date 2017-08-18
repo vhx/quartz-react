@@ -1,6 +1,6 @@
 # React Components for VHX Quartz
 
-https://vhx-quartz-react.firebaseapp.com
+https://vhx.github.io/quartz-react/
 
 
 ## Installation
