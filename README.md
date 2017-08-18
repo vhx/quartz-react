@@ -115,6 +115,8 @@ const MyComponentDemo = () => (
 );
 ```
 
+You must also write tests for your component. This not only helps prevent regressions, but serves as an additional source of documentation.
+
 ## Demo UI Components
 
 Component demo files (`demo/sections/*.jsx`) should export a component containing `<DemoRow>`s. These accept an optional `code` prop that's a string of code to display on the right side of the page.
