@@ -2338,6 +2338,7 @@ var Text$1 = function (props) { return (
 var colors$3 = [ 'navy', 'gray', 'teal', 'white' ];
 
 Text$1.propTypes = {
+  autofocus: index.bool,
   block: index.bool,
   children: index.node.isRequired,
   h1: index.bool,
@@ -2937,7 +2938,7 @@ var NavLink = function (ref) {
 
   return (
   React__default.createElement( 'li', null,
-    React__default.createElement( 'a', { href: ("/#" + slug), className: 'text--gray block' }, title)
+    React__default.createElement( 'a', { href: ("#" + slug), className: 'text--gray block' }, title)
   )
 );
 };
@@ -4407,10 +4408,6 @@ var TextDemo = function () { return (
   )
 ); };
 
-/* eslint-disable no-multi-spaces */
-// `Section` is a component that renders a demo section
-// `slug` is used in the url hash and section ids
-// `title` is used as the text in the nav sidebar
 var sections = [
   { Section: Avatars,     slug: 'avatars',      title: 'Avatars' },
   { Section: Buttons,     slug: 'buttons',      title: 'Buttons' },

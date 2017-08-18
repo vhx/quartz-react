@@ -599,6 +599,8 @@ function aspectRatioPropType(props) {
   }
 }
 
+aspectRatioPropType.isRequired = false;
+
 Carousel$1.propTypes = {
   animationDuration: PropTypes.number,
   aspectRatio: aspectRatioPropType,
@@ -697,7 +699,7 @@ Checkbox$1.defaultProps = {
 Checkbox$1.propDescriptions = {
   size: ("One of: [\"" + (sizes$3.join('", "')) + "\"]"),
   type: ("One of: [\"" + (types.join('", "')) + "\"]"),
-  uniqueId: 'Must be globally unique--this sets the checkbox element\'s id attribute.',
+  uniqueId: 'Must be globally unique—this sets the checkbox element\'s id attribute.',
 };
 
 var Header$1 = function (ref) {
@@ -1234,6 +1236,8 @@ RadioGroup$1.defaultProps = {
 
 RadioGroup$1.propDescriptions = {
   color: ("One of: [\"" + (colors$2.join('", "')) + "\"]"),
+  items: 'Array of { label: String, uniqueId: String }, where uniqueId will be used as they key and need only be unique among the items in the radioGroup, not globally unique.',
+  onCheck: 'onCheck(event, itemIndex)',
 };
 
 var EmptyComponent$1 = function () { return React__default.createElement( 'span', null ); };
@@ -1511,6 +1515,7 @@ var Text$1 = function (props) { return (
 var colors$3 = [ 'navy', 'gray', 'teal', 'white' ];
 
 Text$1.propTypes = {
+  autofocus: PropTypes.bool,
   block: PropTypes.bool,
   children: PropTypes.node.isRequired,
   h1: PropTypes.bool,

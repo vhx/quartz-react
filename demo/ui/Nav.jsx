@@ -4,7 +4,7 @@ import { Icon } from '../../index.js';
 
 const NavLink = ({ slug, title }) => (
   <li>
-    <a href={`/#${slug}`} className='text--gray block'>{title}</a>
+    <a href={`#${slug}`} className='text--gray block'>{title}</a>
   </li>
 );
 

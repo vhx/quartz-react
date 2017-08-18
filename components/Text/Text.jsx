@@ -26,6 +26,7 @@ const Text = props => (
 const colors = [ 'navy', 'gray', 'teal', 'white' ];
 
 Text.propTypes = {
+  autofocus: PropTypes.bool,
   block: PropTypes.bool,
   children: PropTypes.node.isRequired,
   h1: PropTypes.bool,
