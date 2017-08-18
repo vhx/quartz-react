@@ -59,17 +59,13 @@ const textColorsCode = `
 // Main exported demo
 // -----------------------------------------
 
-const TextDemo = ({ title }) => (
+const TextDemo = () => (
   <div>
-    <DemoRow><Title>{title}</Title></DemoRow>
+    <DemoRow><Title>Text</Title></DemoRow>
     <DemoRow code={textHeadingCode}><TextHeadings /></DemoRow>
     <DemoRow code={textColorsCode}><TextColors /></DemoRow>
     <DemoRow><PropTypeTable component={Text} /></DemoRow>
   </div>
 );
-
-TextDemo.propTypes = {
-  title: PropTypes.string.isRequired,
-};
 
 export default TextDemo;

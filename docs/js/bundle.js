@@ -8,17 +8,6 @@ function createCommonjsModule(fn, module) {
 	return module = { exports: {} }, fn(module, module.exports), module.exports;
 }
 
-/**
- * Copyright (c) 2013-present, Facebook, Inc.
- * All rights reserved.
- *
- * This source code is licensed under the BSD-style license found in the
- * LICENSE file in the root directory of this source tree. An additional grant
- * of patent rights can be found in the PATENTS file in the same directory.
- *
- * 
- */
-
 function makeEmptyFunction(arg) {
   return function () {
     return arg;
@@ -55,17 +44,6 @@ var emptyFunction_1 = emptyFunction;
  *
  */
 
-/**
- * Use invariant() to assert state which your program assumes to be true.
- *
- * Provide sprintf-style format (only %s is supported) and arguments
- * to provide information about what broke and what you were
- * expecting.
- *
- * The invariant message will be stripped in production, but the invariant
- * will remain to ensure logic does not differ in production.
- */
-
 var validateFormat = function validateFormat(format) {};
 
 if (undefined !== 'production') {
@@ -98,13 +76,6 @@ function invariant(condition, format, a, b, c, d, e, f) {
 }
 
 var invariant_1 = invariant;
-
-/**
- * Similar to invariant but only logs a warning if the condition is not met.
- * This can be used to log issues in development environments in critical
- * paths. Removing the logging code for production environments will keep the
- * same logic and follow the same code paths.
- */
 
 var warning = emptyFunction_1;
 
@@ -909,13 +880,6 @@ function connect$$1(model, Component$$1) {
 <If condition={false}><MyComponent /></If> // MyComponent will not render
 <If condition={true}><MyComponent /></If> // MyComponent will render
 */
-/*
-truncate('foo-bar-baz', 4);
-=> 'foo-...'
-
-truncate('foo', 4);
-=> 'foo'
-*/
 function truncate(str, maxLength) {
   return str.length > maxLength ? str.slice(0, maxLength).concat('...') : str;
 }
@@ -1267,9 +1231,6 @@ var KEY_CODES = Object.freeze({
   RIGHT: 39,
 });
 
-// calcNext(3, 0) => 1
-// calcNext(3, 1) => 2
-// calcNext(3, 2) => 0 // <- it wraps around to the first slide
 function calcNext(length, current) {
   return (current + 1) % length;
 }
@@ -1461,6 +1422,8 @@ function aspectRatioPropType(props) {
   }
 }
 
+aspectRatioPropType.isRequired = false;
+
 Carousel$1.propTypes = {
   animationDuration: index.number,
   aspectRatio: aspectRatioPropType,
@@ -1559,7 +1522,7 @@ Checkbox$1.defaultProps = {
 Checkbox$1.propDescriptions = {
   size: ("One of: [\"" + (sizes$3.join('", "')) + "\"]"),
   type: ("One of: [\"" + (types.join('", "')) + "\"]"),
-  uniqueId: 'Must be globally unique--this sets the checkbox element\'s id attribute.',
+  uniqueId: 'Must be globally unique—this sets the checkbox element\'s id attribute.',
 };
 
 var Header$1 = function (ref) {
@@ -2096,6 +2059,8 @@ RadioGroup$1.defaultProps = {
 
 RadioGroup$1.propDescriptions = {
   color: ("One of: [\"" + (colors$2.join('", "')) + "\"]"),
+  items: 'Array of { label: String, uniqueId: String }, where uniqueId will be used as they key and need only be unique among the items in the radioGroup, not globally unique.',
+  onCheck: 'onCheck(event, itemIndex)',
 };
 
 var EmptyComponent$1 = function () { return React__default.createElement( 'span', null ); };
@@ -2516,8 +2481,6 @@ function SelectDropdownHOC(ref) {
   return SelectDropdown;
 }
 
-// TODO: this is a hack, we should have this in css if possible to make a PR to Quartz css
-// (This fixes wrapping issues in `inline` select dropdowns)
 var listStyle = { whiteSpace: 'nowrap' };
 
 var SelectDropdownOption = function (ref) {
@@ -2968,24 +2931,20 @@ var Hr = function () { return (
   React__default.createElement( 'div', { className: 'border-bottom border--gray-light margin-vert-small' })
 ); };
 
-// this is disabled to make it possible to have other exports
-// form this file in the future:
-/* eslint-disable import/prefer-default-export */
-
-var slug = function (str) { return str.replace(/[\s+]/g, '-').toLowerCase(); };
-
 var NavLink = function (ref) {
-  var children = ref.children;
+  var slug = ref.slug;
+  var title = ref.title;
 
   return (
   React__default.createElement( 'li', null,
-    React__default.createElement( 'a', { href: ("/#" + (slug(children))), className: 'text--gray block' }, children)
+    React__default.createElement( 'a', { href: ("/#" + slug), className: 'text--gray block' }, title)
   )
 );
 };
 
 NavLink.propTypes = {
-  children: index.string.isRequired,
+  slug: index.string.isRequired,
+  title: index.string.isRequired,
 };
 
 
@@ -3000,14 +2959,23 @@ var Nav = function (ref) {
     ),
     React__default.createElement( 'h2', { className: 'head-5 head--gray margin-top-large padding-bottom-medium' }, "Components"),
     React__default.createElement( 'ul', { className: 'no-bullet' },
-      sections.map(function (section) { return React__default.createElement( NavLink, { key: section }, section); })
+      sections.map(function (ref) {
+        var slug = ref.slug;
+        var title = ref.title;
+
+        return React__default.createElement( NavLink, { key: slug, title: title, slug: slug });
+  })
     )
   )
 );
 };
 
 Nav.propTypes = {
-  sections: index.arrayOf(index.string.isRequired).isRequired,
+  sections: index.arrayOf(index.shape({
+    Section: index.func.isRequired,
+    slug: index.string.isRequired,
+    title: index.string.isRequired,
+  }).isRequired).isRequired,
 };
 
 var Subtitle = function (ref) {
@@ -3062,11 +3030,11 @@ var PropTypeTable = (function (PureComponent$$1) {
         React__default.createElement( 'table', { className: 'table table--ticks table--striped margin-bottom-large' },
           React__default.createElement( 'thead', null,
             React__default.createElement( 'tr', null,
-              React__default.createElement( 'th', { className: 'small-2' }, "Prop"),
-              React__default.createElement( 'th', { className: 'small-2' }, "Type"),
-              React__default.createElement( 'th', { className: 'small-2' }, "Required"),
-              React__default.createElement( 'th', { className: 'small-3' }, "Default value"),
-              React__default.createElement( 'th', null, "Description" )
+              React__default.createElement( 'th', { className: 'small-3', title: 'Prop' }, "Prop"),
+              React__default.createElement( 'th', { className: 'small-2', title: 'Type' }, "Type"),
+              React__default.createElement( 'th', { className: 'small-2', title: 'Required' }, "Required"),
+              React__default.createElement( 'th', { className: 'small-3', title: 'Default value' }, "Default value"),
+              React__default.createElement( 'th', { title: 'Description' }, "Description")
             )
           ),
           React__default.createElement( 'tbody', null,
@@ -3079,11 +3047,11 @@ var PropTypeTable = (function (PureComponent$$1) {
 
                 return (
                 React__default.createElement( 'tr', { key: prop },
-                  React__default.createElement( 'td', { className: 'truncate' }, React__default.createElement( 'strong', null, prop )),
-                  React__default.createElement( 'td', null, type ),
-                  React__default.createElement( 'td', null, isRequired ? 'yes' : 'no' ),
-                  React__default.createElement( 'td', null, React__default.createElement( 'code', null, defaultValue ) ),
-                  React__default.createElement( 'td', null, description )
+                  React__default.createElement( 'td', { className: 'truncate text--bold', title: prop }, prop),
+                  React__default.createElement( 'td', { title: type }, type),
+                  React__default.createElement( 'td', { className: isRequired ? 'text--bold' : '' }, isRequired ? 'yes' : 'no'),
+                  React__default.createElement( 'td', { title: defaultValue }, React__default.createElement( 'code', null, defaultValue )),
+                  React__default.createElement( 'td', { title: description }, description)
                 )
               );
     })
@@ -3104,7 +3072,7 @@ var Title = function (ref) {
   var children = ref.children;
 
   return (
-  React__default.createElement( 'div', { className: 'padding-top-large', id: slug(children) },
+  React__default.createElement( 'div', { className: 'padding-top-large' },
     React__default.createElement( Text$1, { h3: true, className: 'text--bold' }, children)
   )
 );
@@ -3113,9 +3081,6 @@ var Title = function (ref) {
 Title.propTypes = {
   children: index.string.isRequired,
 };
-
-// Avatars headings
-// -----------------------------------------
 
 var AvatarDemo = function () { return (
   React__default.createElement( 'div', null,
@@ -3134,34 +3099,19 @@ var AvatarDemo = function () { return (
   )
 ); };
 
-var avatarCode = "\n<Avatar />\n<Avatar\n  image='https://[YOURIMAGEHERE].png'\n  size='xlarge'\n/>\n";
+var avatarCode = "\n<Avatar />\n<Avatar\n  image='/path/to/avatar.png'\n  size='xlarge'\n/>\n";
 
 
 // Main exported demo
 // -----------------------------------------
 
-var Avatars = function (ref) {
-  var title = ref.title;
-
-  return (
+var Avatars = function () { return (
   React__default.createElement( 'div', null,
-    React__default.createElement( DemoRow, null,
-      React__default.createElement( Title, null, title ),
-      React__default.createElement( Details, null, "Avatar images and sizes are optional.  The default size is medium." ),
-      React__default.createElement( Details, null, "Avatar sizes available: ", React__default.createElement( 'code', null, "xsmall" ), ", ", React__default.createElement( 'code', null, "small" ), ", ", React__default.createElement( 'code', null, "medium" ), ", ", React__default.createElement( 'code', null, "large" ), ", ", React__default.createElement( 'code', null, "xlarge" ), "." )
-    ),
+    React__default.createElement( DemoRow, null, React__default.createElement( Title, null, "Avatar" ) ),
     React__default.createElement( DemoRow, { code: avatarCode }, React__default.createElement( AvatarDemo, null )),
     React__default.createElement( DemoRow, null, React__default.createElement( PropTypeTable, { component: Avatar$1 }) )
   )
-);
-};
-
-Avatars.propTypes = {
-  title: index.string.isRequired,
-};
-
-// Colors demo
-// -----------------------------------------
+); };
 
 var colors$4 = [
   'gray',
@@ -3261,12 +3211,9 @@ var buttonIconsCode = "\n<Button>\n  <Icon name='product' left button />\n  Icon
 // Main exported demo
 // -----------------------------------------
 
-var Buttons = function (ref) {
-  var title = ref.title;
-
-  return (
+var Buttons = function () { return (
   React__default.createElement( 'div', null,
-    React__default.createElement( DemoRow, null, React__default.createElement( Title, null, title ) ),
+    React__default.createElement( DemoRow, null, React__default.createElement( Title, null, "Buttons" ) ),
     React__default.createElement( DemoRow, { code: buttonColorsCode }, React__default.createElement( ButtonColors, null )),
     React__default.createElement( DemoRow, { code: buttonProcessingCode }, React__default.createElement( ButtonProcessing, null )),
     React__default.createElement( DemoRow, { code: buttonSizesCode }, React__default.createElement( ButtonSizes, null )),
@@ -3274,15 +3221,7 @@ var Buttons = function (ref) {
     React__default.createElement( DemoRow, { code: buttonIconsCode }, React__default.createElement( ButtonIcons, null )),
     React__default.createElement( DemoRow, null, React__default.createElement( PropTypeTable, { component: Button$1 }) )
   )
-);
-};
-
-Buttons.propTypes = {
-  title: index.string.isRequired,
-};
-
-// Carousel demo
-// -----------------------------------------
+); };
 
 var MAX_TITLE_LENGTH = 50; // characters
 var lorem = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua';
@@ -3415,13 +3354,10 @@ var carouselCode = "\nconst Slide1 = {\n  Slide: props => (\n    <Slide\n      d
 // Main exported demo
 // -----------------------------------------
 
-var Carousels = function (ref) {
-  var title = ref.title;
-
-  return (
+var Carousels = function () { return (
   React__default.createElement( 'div', null,
     React__default.createElement( DemoRow, null,
-      React__default.createElement( Title, null, title ),
+      React__default.createElement( Title, null, "Carousels" ),
       React__default.createElement( Details, null, "Carousels are composed of three components. There is the base ", React__default.createElement( 'code', null, "Carousel" ), "component which handles the navigation ui and aspect ratio sizing. Then there is the ", React__default.createElement( 'code', null, "Slide" ), " which handles the background images animations between slide changes. Finally, there are the children passed into the ", React__default.createElement( 'code', null, "Slide" ), "component, which can be any arbitrary components." ),
       React__default.createElement( Details, null, "The only required prop that a Carousel component requires is an array of objects of the following form: ", React__default.createElement( 'pre', { className: 'code' },
           "{\n  Slide: ReactComponent,\n  id: String,\n}"
@@ -3435,15 +3371,7 @@ var Carousels = function (ref) {
     React__default.createElement( DemoRow, { code: carouselCode }, React__default.createElement( CarouselDemo, null )),
     React__default.createElement( DemoRow, null, React__default.createElement( PropTypeTable, { component: Carousel$1 }) )
   )
-);
-};
-
-Carousels.propTypes = {
-  title: index.string.isRequired,
-};
-
-// Checked / unchecked demo
-// -----------------------------------------
+); };
 
 var handler = function () { return alert('Hi!'); };
 var StatelessCheckboxes = function () { return (
@@ -3535,13 +3463,10 @@ var statefulCheckboxCode = "\n// An example stateful checkbox implementation\ncl
 // Main exported demo
 // -----------------------------------------
 
-var Checkboxes = function (ref) {
-  var title = ref.title;
-
-  return (
+var Checkboxes = function () { return (
   React__default.createElement( 'div', null,
     React__default.createElement( DemoRow, null,
-      React__default.createElement( Title, null, title ),
+      React__default.createElement( Title, null, "Checkboxes" ),
       React__default.createElement( Details, null, "Checkboxes are strictly presentational, so in order to enable interactivity you must place them within a stateful component that reacts to their ", React__default.createElement( 'code', null, "onChange" ), " method. Note that in the ", React__default.createElement( 'code', null, "onChange" ), " method, ", React__default.createElement( 'code', null, "event.target" ), "will be the native ", React__default.createElement( 'code', null, "input[type=checkbox]" ), " element." ),
       React__default.createElement( Details, null, "The required ", React__default.createElement( 'code', null, "uniqueId" ), " prop will be used as the checkbox element’s ", React__default.createElement( 'code', null, "id" ), " and therefore must be globally unique. No other element on the page can have that ID!" )
     ),
@@ -3551,15 +3476,7 @@ var Checkboxes = function (ref) {
     React__default.createElement( DemoRow, { code: statefulCheckboxCode }, React__default.createElement( StatefulCheckboxDemo, null )),
     React__default.createElement( DemoRow, null, React__default.createElement( PropTypeTable, { component: Checkbox$1 }) )
   )
-);
-};
-
-Checkboxes.propTypes = {
-  title: index.string.isRequired,
-};
-
-// Standard header
-// -----------------------------------------
+); };
 
 var DefaultDemo = function () { return (
   React__default.createElement( 'div', null,
@@ -3592,25 +3509,14 @@ var fullDemoCode = "\n// `Description` can be a component or a string\nconst Hea
 // Main exported demo
 // -----------------------------------------
 
-var Headers = function (ref) {
-  var title = ref.title;
-
-  return (
+var Headers = function () { return (
   React__default.createElement( 'div', null,
-    React__default.createElement( DemoRow, null, React__default.createElement( Title, null, title ) ),
+    React__default.createElement( DemoRow, null, React__default.createElement( Title, null, "Headers" ) ),
     React__default.createElement( DemoRow, { code: defaultDemoCode }, React__default.createElement( DefaultDemo, null )),
     React__default.createElement( DemoRow, { code: fullDemoCode }, React__default.createElement( FullDemo, null )),
     React__default.createElement( DemoRow, null, React__default.createElement( PropTypeTable, { component: Header$1 }) )
   )
-);
-};
-
-Headers.propTypes = {
-  title: index.string.isRequired,
-};
-
-// All icons demo
-// -----------------------------------------
+); };
 
 var IconList = function () { return (
   React__default.createElement( 'div', null,
@@ -3685,27 +3591,16 @@ var iconColorsCode = "\n<Icon name='product' />\n<Icon name='product' color='nav
 // Main exported demo
 // -----------------------------------------
 
-var Icons = function (ref) {
-  var title = ref.title;
-
-  return (
+var Icons = function () { return (
   React__default.createElement( 'div', null,
-    React__default.createElement( DemoRow, null, React__default.createElement( Title, null, title ) ),
+    React__default.createElement( DemoRow, null, React__default.createElement( Title, null, "Icons" ) ),
     React__default.createElement( DemoRow, { code: iconSizesCode }, React__default.createElement( IconSizes, null )),
     React__default.createElement( DemoRow, { code: iconCirclesCode }, React__default.createElement( IconCircles, null )),
     React__default.createElement( DemoRow, { code: iconColorsCode }, React__default.createElement( IconColors, null )),
     React__default.createElement( DemoRow, { code: iconListCode }, React__default.createElement( IconList, null )),
     React__default.createElement( DemoRow, null, React__default.createElement( PropTypeTable, { component: Icon$1 }) )
   )
-);
-};
-
-Icons.propTypes = {
-  title: index.string.isRequired,
-};
-
-// Input demo
-// -----------------------------------------
+); };
 
 var InputDemo = function () { return (
   React__default.createElement( 'div', null,
@@ -3780,13 +3675,10 @@ var statefulInputCode = "\n// An example stateful input implementation\nclass St
 // Main exported demo
 // -----------------------------------------
 
-var Inputs = function (ref) {
-  var title = ref.title;
-
-  return (
+var Inputs = function () { return (
   React__default.createElement( 'div', null,
     React__default.createElement( DemoRow, null,
-      React__default.createElement( Title, null, title ),
+      React__default.createElement( Title, null, "Inputs" ),
       React__default.createElement( Details, null, "Inputs are strictly presentational, so in order to enable interactivity you must place them within a stateful component that reacts to one or more of the following methods: ", React__default.createElement( 'ul', { className: 'demo-list' },
           React__default.createElement( 'li', null, React__default.createElement( 'code', null, "onChange" ) ),
           React__default.createElement( 'li', null, React__default.createElement( 'code', null, "onInput" ) ),
@@ -3801,15 +3693,7 @@ var Inputs = function (ref) {
     React__default.createElement( DemoRow, { code: statefulInputCode }, React__default.createElement( StatefulInputDemo, null )),
     React__default.createElement( DemoRow, null, React__default.createElement( PropTypeTable, { component: Input$1 }) )
   )
-);
-};
-
-Inputs.propTypes = {
-  title: index.string.isRequired,
-};
-
-// Shared
-// -----------------------------------------
+); };
 
 var MyModalContents = function () { return React__default.createElement( 'div', null, "Hello!" ); };
 
@@ -3870,13 +3754,10 @@ var modalActionsCode = "\nconst singleAction = [\n  { label: 'Cancel', callback:
 // Main exported demo
 // -----------------------------------------
 
-var ModalDemo = function (ref) {
-  var title = ref.title;
-
-  return (
+var ModalDemo = function () { return (
   React__default.createElement( 'div', null,
     React__default.createElement( DemoRow, null,
-      React__default.createElement( Title, null, title ),
+      React__default.createElement( Title, null, "Modals" ),
       React__default.createElement( Details, null,
         React__default.createElement( 'strong', null, "Important:" ), " You probably do not want to use the Modal as a component! Use its static methods instead: ", React__default.createElement( 'pre', { className: 'code' },
           "Modal.open({\n  actions: Array<Object>,\n  Children: ReactComponent,\n  size: String,\n  title: String\n});\nModal.close();"
@@ -3892,12 +3773,7 @@ var ModalDemo = function (ref) {
     React__default.createElement( DemoRow, { code: modalSizesCode }, React__default.createElement( ModalSizes, null )),
     React__default.createElement( DemoRow, { code: modalActionsCode }, React__default.createElement( ModalActions, null ))
   )
-);
-};
-
-ModalDemo.propTypes = {
-  title: index.string.isRequired,
-};
+); };
 
 var StatefulPagination = (function (Component$$1) {
   function StatefulPagination() {
@@ -3944,24 +3820,16 @@ var paginatorCode = "\n// A stateful implementation:\nclass StatefulPagination e
 // Main exported demo
 // -----------------------------------------
 
-var Paginators = function (ref) {
-  var title = ref.title;
-
-  return (
+var Paginators = function () { return (
   React__default.createElement( 'div', null,
     React__default.createElement( DemoRow, null,
-      React__default.createElement( Title, null, title ),
+      React__default.createElement( Title, null, "Pagination" ),
       React__default.createElement( Details, null, "The ", React__default.createElement( 'code', null, "Pagination" ), " component displays up to 7 page links and a possible \"Previous\" or \"Next\" link when appropriate. It will also call an ", React__default.createElement( 'code', null, "onPageChange" ), " callback with the index of the new selected link whenever one of the links (or \"Previous\"/\"Next\") is clicked." )
     ),
     React__default.createElement( DemoRow, { code: paginatorCode }, React__default.createElement( PaginatorDemo, null )),
     React__default.createElement( DemoRow, null, React__default.createElement( PropTypeTable, { component: Pagination$1 }) )
   )
-);
-};
-
-Paginators.propTypes = {
-  title: index.string.isRequired,
-};
+); };
 
 var items = [
   { label: '#1', uniqueId: 'opt-1', description: 'Foo' },
@@ -4068,13 +3936,10 @@ var statefulDemoCode = "\n// An example stateful checkbox implementation\nclass 
 // Main exported demo
 // -----------------------------------------
 
-var Radios = function (ref) {
-  var title = ref.title;
-
-  return (
+var Radios = function () { return (
   React__default.createElement( 'div', null,
     React__default.createElement( DemoRow, { code: introCode },
-      React__default.createElement( Title, null, title ),
+      React__default.createElement( Title, null, "Radio Groups" ),
       React__default.createElement( Details, null, "Radio groups are strictly presentational, so in order to enable interactivity you must place them within a stateful component that reacts to their ", React__default.createElement( 'code', null, "onCheck" ), " method. Note that in the ", React__default.createElement( 'code', null, "onCheck" ), " method, ", React__default.createElement( 'code', null, "event.target" ), "will be the native ", React__default.createElement( 'code', null, "input[type=radio]" ), " element. The second argument to the ", React__default.createElement( 'code', null, "onCheck" ), " handler is the index of the new selected item in the ", React__default.createElement( 'code', null, "items" ), " array." ),
       React__default.createElement( Details, null, "The required ", React__default.createElement( 'code', null, "uniqueId" ), " property in objects within the ", React__default.createElement( 'code', null, "items" ), " array will be used as a ", React__default.createElement( 'code', null, "key" ), ", so it does not need to be globally unique—just unique among the items in the radio group." ),
       React__default.createElement( Details, null, "The objects in the ", React__default.createElement( 'code', null, "items" ), " array can contain a ", React__default.createElement( 'code', null, "description" ), " property that will be displayed if the radio group has the ", React__default.createElement( 'code', null, "buttons" ), " prop enabled." )
@@ -4086,15 +3951,7 @@ var Radios = function (ref) {
     React__default.createElement( DemoRow, { code: statefulDemoCode }, React__default.createElement( StatefulDemo, null )),
     React__default.createElement( DemoRow, null, React__default.createElement( PropTypeTable, { component: RadioGroup$1 }) )
   )
-);
-};
-
-Radios.propTypes = {
-  title: index.string.isRequired,
-};
-
-// Intro
-// -----------------------------------------
+); };
 
 var options = [
   {
@@ -4385,13 +4242,10 @@ var statefulMediaSelectDemoCode = "\nimport { StatefulMediaSelect } from '@vhx/q
 // Main exported demo
 // -----------------------------------------
 
-var Selects = function (ref) {
-  var title = ref.title;
-
-  return (
+var Selects = function () { return (
   React__default.createElement( 'div', null,
     React__default.createElement( DemoRow, { code: introCode$1 },
-      React__default.createElement( Title, null, title ),
+      React__default.createElement( Title, null, "Selects" ),
       React__default.createElement( Details, null, "Selects are, by default, strictly presentational, so in order to enable interactivity you must place them within a stateful component that reacts to their ", React__default.createElement( 'code', null, "onOpenToggle" ), " and ", React__default.createElement( 'code', null, "onSelectionToggle" ), " methods. For convenience, you can import the ", React__default.createElement( 'code', null, "StatefulSelect" ), " instead which reduces some of the boilerplate at the price of reduced flexibility. Examples are provided below, both for implementing your own stateful select and for using the default stateful select." ),
       React__default.createElement( Details, null, "The set of options passed to the select must be an array of objects of the following form: ", React__default.createElement( 'pre', { className: 'code' },
           "{\n  uniqueId: String,\n  label: String,\n  description: String?,\n  imageUrl: String?\n}"
@@ -4416,12 +4270,7 @@ var Selects = function (ref) {
     React__default.createElement( DemoRow, { code: statefulMediaSelectDemoCode }, React__default.createElement( StatefulMediaSelectDemo, null )),
     React__default.createElement( DemoRow, null, React__default.createElement( PropTypeTable, { component: Select }) )
   )
-);
-};
-
-Selects.propTypes = {
-  title: index.string.isRequired,
-};
+); };
 
 var SidebarChildren = function () { return React__default.createElement( 'div', null, "Sidebar children go here" ); };
 
@@ -4453,13 +4302,10 @@ var sidebarCode = "\nconst Children = () => (\n  <div>Sidebar children go here</
 // Main exported demo
 // -----------------------------------------
 
-var Sidebars = function (ref) {
-  var title = ref.title;
-
-  return (
+var Sidebars = function () { return (
   React__default.createElement( 'div', null,
     React__default.createElement( DemoRow, null,
-      React__default.createElement( Title, null, title ),
+      React__default.createElement( Title, null, "Sidebars" ),
       React__default.createElement( Details, null,
         React__default.createElement( 'strong', null, "Important:" ), " You probably do not want to use the ", React__default.createElement( 'code', null, "Sidebar" ), " as a component! Use its static methods: ", React__default.createElement( 'pre', { className: 'code' },
           "Sidebar.open(ChildComponent);\nSidebar.close();\nSidebar.toggle(ChildComponent);"
@@ -4469,15 +4315,7 @@ var Sidebars = function (ref) {
     ),
     React__default.createElement( DemoRow, { code: sidebarCode }, React__default.createElement( SidebarDemo, null ))
   )
-);
-};
-
-Sidebars.propTypes = {
-  title: index.string.isRequired,
-};
-
-// Tags default demo
-// -----------------------------------------
+); };
 
 var TagsDemo = function () { return (
   React__default.createElement( 'div', null,
@@ -4516,26 +4354,15 @@ var processingDemoCode = "\n<Tag label='Foo' isProcessing />\n";
 // Main exported demo
 // -----------------------------------------
 
-var Tags = function (ref) {
-  var title = ref.title;
-
-  return (
+var Tags = function () { return (
   React__default.createElement( 'div', null,
-    React__default.createElement( DemoRow, null, React__default.createElement( Title, null, title ) ),
+    React__default.createElement( DemoRow, null, React__default.createElement( Title, null, "Tags" ) ),
     React__default.createElement( DemoRow, { code: tagsDemoCode }, React__default.createElement( TagsDemo, null )),
     React__default.createElement( DemoRow, { code: truncatedDemoCode }, React__default.createElement( TruncatedDemo, null )),
     React__default.createElement( DemoRow, { code: processingDemoCode }, React__default.createElement( ProcessingDemo, null )),
     React__default.createElement( DemoRow, null, React__default.createElement( PropTypeTable, { component: Tag$1 }) )
   )
-);
-};
-
-Tags.propTypes = {
-  title: index.string.isRequired,
-};
-
-// Text headings
-// -----------------------------------------
+); };
 
 var TextHeadings = function () { return (
   React__default.createElement( 'div', null,
@@ -4571,50 +4398,50 @@ var textColorsCode = "\n<Text>Default</Text>\n<Text color='navy'>navy</Text>\n<T
 // Main exported demo
 // -----------------------------------------
 
-var TextDemo = function (ref) {
-  var title = ref.title;
-
-  return (
+var TextDemo = function () { return (
   React__default.createElement( 'div', null,
-    React__default.createElement( DemoRow, null, React__default.createElement( Title, null, title ) ),
+    React__default.createElement( DemoRow, null, React__default.createElement( Title, null, "Text" ) ),
     React__default.createElement( DemoRow, { code: textHeadingCode }, React__default.createElement( TextHeadings, null )),
     React__default.createElement( DemoRow, { code: textColorsCode }, React__default.createElement( TextColors, null )),
     React__default.createElement( DemoRow, null, React__default.createElement( PropTypeTable, { component: Text$1 }) )
   )
-);
-};
+); };
 
-TextDemo.propTypes = {
-  title: index.string.isRequired,
-};
-
-var sections = {
-  Avatars: Avatars,
-  Buttons: Buttons,
-  Carousels: Carousels,
-  Checkboxes: Checkboxes,
-  Headers: Headers,
-  Icons: Icons,
-  Inputs: Inputs,
-  Modals: ModalDemo,
-  Pagination: Paginators,
-  'Radio Groups': Radios,
-  Selects: Selects,
-  Sidebars: Sidebars,
-  Tags: Tags,
-  Text: TextDemo,
-};
-
-var sectionTitles = Object.keys(sections);
+/* eslint-disable no-multi-spaces */
+// `Section` is a component that renders a demo section
+// `slug` is used in the url hash and section ids
+// `title` is used as the text in the nav sidebar
+var sections = [
+  { Section: Avatars,     slug: 'avatars',      title: 'Avatars' },
+  { Section: Buttons,     slug: 'buttons',      title: 'Buttons' },
+  { Section: Carousels,   slug: 'carousels',    title: 'Carousels' },
+  { Section: Checkboxes,  slug: 'checkboxes',   title: 'Checkboxes' },
+  { Section: Headers,     slug: 'headers',      title: 'Headers' },
+  { Section: Icons,       slug: 'icons',        title: 'Icons' },
+  { Section: Inputs,      slug: 'inputs',       title: 'Inputs' },
+  { Section: ModalDemo,      slug: 'modals',       title: 'Modals' },
+  { Section: Paginators,  slug: 'pagination',   title: 'Pagination' },
+  { Section: Radios,      slug: 'radiogroups',  title: 'Radio Groups' },
+  { Section: Selects,     slug: 'selects',      title: 'Selects' },
+  { Section: Sidebars,    slug: 'sidebars',     title: 'Sidebars' },
+  { Section: Tags,        slug: 'tags',         title: 'Tags' },
+  { Section: TextDemo,        slug: 'text',         title: 'Text' } ];
+/* eslint-enable no-multi-spaces */
 
 var AllComponents = function () { return (
   React__default.createElement( 'div', null,
-    React__default.createElement( Nav, { sections: sectionTitles }),
+    React__default.createElement( Nav, { sections: sections }),
     React__default.createElement( 'div', { className: 'stage' },
-      sectionTitles.map(function (section) { return React__default.createElement(sections[section], {
-          key: section,
-          title: section,
-        }); })
+      sections.map(function (ref) {
+          var Section = ref.Section;
+          var slug = ref.slug;
+
+          return (
+          React__default.createElement( 'div', { id: slug, key: slug },
+            React__default.createElement( Section, { title: 'foo' })
+          )
+        );
+  })
     ),
     React__default.createElement( Sidebar$2, null ),
     React__default.createElement( Modal$2, null )

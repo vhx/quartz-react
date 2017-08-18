@@ -1,10 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Text } from '../../index.js';
-import { slug } from '../util';
 
 const Title = ({ children }) => (
-  <div className='padding-top-large' id={slug(children)}>
+  <div className='padding-top-large'>
     <Text h3 className='text--bold'>{children}</Text>
   </div>
 );

@@ -38,22 +38,22 @@ class PropTypeTable extends PureComponent {
         <table className='table table--ticks table--striped margin-bottom-large'>
           <thead>
             <tr>
-              <th className='small-2'>Prop</th>
-              <th className='small-2'>Type</th>
-              <th className='small-2'>Required</th>
-              <th className='small-3'>Default value</th>
-              <th>Description</th>
+              <th className='small-3' title='Prop'>Prop</th>
+              <th className='small-2' title='Type'>Type</th>
+              <th className='small-2' title='Required'>Required</th>
+              <th className='small-3' title='Default value'>Default value</th>
+              <th title='Description'>Description</th>
             </tr>
           </thead>
           <tbody>
             {
               this.propList.map(({ prop, type, defaultValue, description, isRequired }) => (
                 <tr key={prop}>
-                  <td className='truncate'><strong>{prop}</strong></td>
-                  <td>{type}</td>
-                  <td>{isRequired ? 'yes' : 'no' }</td>
-                  <td><code>{defaultValue}</code></td>
-                  <td>{description}</td>
+                  <td className='truncate text--bold' title={prop}>{prop}</td>
+                  <td title={type}>{type}</td>
+                  <td className={isRequired ? 'text--bold' : ''}>{isRequired ? 'yes' : 'no'}</td>
+                  <td title={defaultValue}><code>{defaultValue}</code></td>
+                  <td title={description}>{description}</td>
                 </tr>
               ))
             }

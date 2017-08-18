@@ -19,34 +19,38 @@ import Sidebars from './sections/Sidebars.jsx';
 import Tags from './sections/Tags.jsx';
 import Text from './sections/TextDemo.jsx';
 
-const sections = {
-  Avatars,
-  Buttons,
-  Carousels,
-  Checkboxes,
-  Headers,
-  Icons,
-  Inputs,
-  Modals,
-  Pagination,
-  'Radio Groups': Radios,
-  Selects,
-  Sidebars,
-  Tags,
-  Text,
-};
-
-const sectionTitles = Object.keys(sections);
+/* eslint-disable no-multi-spaces */
+// `Section` is a component that renders a demo section
+// `slug` is used in the url hash and section ids
+// `title` is used as the text in the nav sidebar
+const sections = [
+  { Section: Avatars,     slug: 'avatars',      title: 'Avatars' },
+  { Section: Buttons,     slug: 'buttons',      title: 'Buttons' },
+  { Section: Carousels,   slug: 'carousels',    title: 'Carousels' },
+  { Section: Checkboxes,  slug: 'checkboxes',   title: 'Checkboxes' },
+  { Section: Headers,     slug: 'headers',      title: 'Headers' },
+  { Section: Icons,       slug: 'icons',        title: 'Icons' },
+  { Section: Inputs,      slug: 'inputs',       title: 'Inputs' },
+  { Section: Modals,      slug: 'modals',       title: 'Modals' },
+  { Section: Pagination,  slug: 'pagination',   title: 'Pagination' },
+  { Section: Radios,      slug: 'radiogroups',  title: 'Radio Groups' },
+  { Section: Selects,     slug: 'selects',      title: 'Selects' },
+  { Section: Sidebars,    slug: 'sidebars',     title: 'Sidebars' },
+  { Section: Tags,        slug: 'tags',         title: 'Tags' },
+  { Section: Text,        slug: 'text',         title: 'Text' },
+];
+/* eslint-enable no-multi-spaces */
 
 const AllComponents = () => (
   <div>
-    <Nav sections={sectionTitles} />
+    <Nav sections={sections} />
     <div className='stage'>
       {
-        sectionTitles.map(section => React.createElement(sections[section], {
-          key: section,
-          title: section,
-        }))
+        sections.map(({ Section, slug }) => (
+          <div id={slug} key={slug}>
+            <Section title={'foo'} />
+          </div>
+        ))
       }
     </div>
     <Sidebar />

@@ -525,10 +525,10 @@ import { StatefulMediaSelect } from '@vhx/quartz-react';
 // Main exported demo
 // -----------------------------------------
 
-const Selects = ({ title }) => (
+const Selects = () => (
   <div>
     <DemoRow code={introCode}>
-      <Title>{title}</Title>
+      <Title>Selects</Title>
       <Details>
         Selects are, by default, strictly presentational, so in order
         to enable interactivity you must place them within a stateful
@@ -600,9 +600,5 @@ const Selects = ({ title }) => (
     <DemoRow><PropTypeTable component={Select} /></DemoRow>
   </div>
 );
-
-Selects.propTypes = {
-  title: PropTypes.string.isRequired,
-};
 
 export default Selects;

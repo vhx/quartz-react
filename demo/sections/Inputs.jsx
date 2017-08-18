@@ -120,10 +120,10 @@ class StatefulInput extends Component {
 // Main exported demo
 // -----------------------------------------
 
-const Inputs = ({ title }) => (
+const Inputs = () => (
   <div>
     <DemoRow>
-      <Title>{title}</Title>
+      <Title>Inputs</Title>
       <Details>
         Inputs are strictly presentational, so in order
         to enable interactivity you must place them within a stateful
@@ -150,10 +150,5 @@ const Inputs = ({ title }) => (
     <DemoRow><PropTypeTable component={Input} /></DemoRow>
   </div>
 );
-
-Inputs.propTypes = {
-  title: PropTypes.string.isRequired,
-};
-
 
 export default Inputs;

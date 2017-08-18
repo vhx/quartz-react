@@ -44,7 +44,7 @@ const AvatarDemo = () => (
 const avatarCode = `
 <Avatar />
 <Avatar
-  image='https://[YOURIMAGEHERE].png'
+  image='/path/to/avatar.png'
   size='xlarge'
 />
 `;
@@ -53,24 +53,12 @@ const avatarCode = `
 // Main exported demo
 // -----------------------------------------
 
-const Avatars = ({ title }) => (
+const Avatars = () => (
   <div>
-    <DemoRow>
-      <Title>{title}</Title>
-      <Details>
-        Avatar images and sizes are optional.  The default size is medium.
-      </Details>
-      <Details>
-        Avatar sizes available: <code>xsmall</code>, <code>small</code>, <code>medium</code>, <code>large</code>, <code>xlarge</code>.
-      </Details>
-    </DemoRow>
+    <DemoRow><Title>Avatar</Title></DemoRow>
     <DemoRow code={avatarCode}><AvatarDemo /></DemoRow>
     <DemoRow><PropTypeTable component={Avatar} /></DemoRow>
   </div>
 );
-
-Avatars.propTypes = {
-  title: PropTypes.string.isRequired,
-};
 
 export default Avatars;

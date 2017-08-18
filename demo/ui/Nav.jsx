@@ -1,16 +1,16 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Icon } from '../../index.js';
-import { slug } from '../util';
 
-const NavLink = ({ children }) => (
+const NavLink = ({ slug, title }) => (
   <li>
-    <a href={`/#${slug(children)}`} className='text--gray block'>{children}</a>
+    <a href={`/#${slug}`} className='text--gray block'>{title}</a>
   </li>
 );
 
 NavLink.propTypes = {
-  children: PropTypes.string.isRequired,
+  slug: PropTypes.string.isRequired,
+  title: PropTypes.string.isRequired,
 };
 
 
@@ -22,13 +22,17 @@ const Nav = ({ sections }) => (
     </h1>
     <h2 className='head-5 head--gray margin-top-large padding-bottom-medium'>Components</h2>
     <ul className='no-bullet'>
-      { sections.map(section => <NavLink key={section}>{section}</NavLink>) }
+      { sections.map(({ slug, title }) => <NavLink key={slug} title={title} slug={slug} />) }
     </ul>
   </nav>
 );
 
 Nav.propTypes = {
-  sections: PropTypes.arrayOf(PropTypes.string.isRequired).isRequired,
+  sections: PropTypes.arrayOf(PropTypes.shape({
+    Section: PropTypes.func.isRequired,
+    slug: PropTypes.string.isRequired,
+    title: PropTypes.string.isRequired,
+  }).isRequired).isRequired,
 };
 
 export default Nav;

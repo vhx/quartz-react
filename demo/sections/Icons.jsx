@@ -115,9 +115,9 @@ const iconColorsCode = `
 // Main exported demo
 // -----------------------------------------
 
-const Icons = ({ title }) => (
+const Icons = () => (
   <div>
-    <DemoRow><Title>{title}</Title></DemoRow>
+    <DemoRow><Title>Icons</Title></DemoRow>
     <DemoRow code={iconSizesCode}><IconSizes /></DemoRow>
     <DemoRow code={iconCirclesCode}><IconCircles /></DemoRow>
     <DemoRow code={iconColorsCode}><IconColors /></DemoRow>
@@ -125,9 +125,5 @@ const Icons = ({ title }) => (
     <DemoRow><PropTypeTable component={Icon} /></DemoRow>
   </div>
 );
-
-Icons.propTypes = {
-  title: PropTypes.string.isRequired,
-};
 
 export default Icons;

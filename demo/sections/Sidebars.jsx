@@ -64,10 +64,10 @@ const Children = () => (
 // Main exported demo
 // -----------------------------------------
 
-const Sidebars = ({ title }) => (
+const Sidebars = () => (
   <div>
     <DemoRow>
-      <Title>{title}</Title>
+      <Title>Sidebars</Title>
       <Details>
         <strong>Important:</strong> You probably do not want to use the <code>Sidebar</code> as a component!
         Use its static methods:
@@ -94,9 +94,5 @@ Sidebar.toggle(ChildComponent);`
     <DemoRow code={sidebarCode}><SidebarDemo /></DemoRow>
   </div>
 );
-
-Sidebars.propTypes = {
-  title: PropTypes.string.isRequired,
-};
 
 export default Sidebars;

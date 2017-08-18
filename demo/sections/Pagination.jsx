@@ -71,10 +71,10 @@ class StatefulPagination extends Component {
 // Main exported demo
 // -----------------------------------------
 
-const Paginators = ({ title }) => (
+const Paginators = () => (
   <div>
     <DemoRow>
-      <Title>{title}</Title>
+      <Title>Pagination</Title>
       <Details>
         The <code>Pagination</code> component displays up to 7 page links and a
         possible "Previous" or "Next" link when appropriate. It will also call
@@ -86,9 +86,5 @@ const Paginators = ({ title }) => (
     <DemoRow><PropTypeTable component={Pagination} /></DemoRow>
   </div>
 );
-
-Paginators.propTypes = {
-  title: PropTypes.string.isRequired,
-};
 
 export default Paginators;

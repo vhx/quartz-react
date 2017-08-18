@@ -204,10 +204,10 @@ const Slide1 = {
 // Main exported demo
 // -----------------------------------------
 
-const Carousels = ({ title }) => (
+const Carousels = () => (
   <div>
     <DemoRow>
-      <Title>{title}</Title>
+      <Title>Carousels</Title>
       <Details>
         Carousels are composed of three components. There is the base <code>Carousel</code>
         component which handles the navigation ui and aspect ratio sizing. Then there is
@@ -252,9 +252,5 @@ const Carousels = ({ title }) => (
     <DemoRow><PropTypeTable component={Carousel} /></DemoRow>
   </div>
 );
-
-Carousels.propTypes = {
-  title: PropTypes.string.isRequired,
-};
 
 export default Carousels;
