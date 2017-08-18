@@ -62,16 +62,16 @@ index.js                        # Every component that is exported in quartz-rea
 ## How to Create a New Component
 
 **Checklist:**
-[] Create a branch for the new component
-[] In `components/` add a folder for your component that contains the following files:
+- [ ] Create a branch for the new component
+- [ ] In `components/` add a folder for your component that contains the following files:
     - index.js
     - [YourComponent].jsx
     - [YourComponent].test.jsx
-[] In the root level `index.js`, create a named export for your component.
-[] In `demo/sections/` create a file to demo your component (by convention, it should be `demo/sections/[YourComponent].jsx`). It should export a react component that makes use of the demo UI components (see below). If your demo makes use of props, display them in a `<PropTypeTable />`.
-[] In `demo/index.jsx` import the demo you exported from the file in step 4, and add it to the `sections` object. This will include it in the sidebar navigation as well as render it to the page.
-[] Create a pull request and merge into master when ready. Then delete the branch.
-[] Run `npm version patch` (or `minor` or `major`, as appropriate), then run `npm run build`, then publish to npm.
+- [ ] In the root level `index.js`, create a named export for your component.
+- [ ] In `demo/sections/` create a file to demo your component (by convention, it should be `demo/sections/[YourComponent].jsx`). It should export a react component that makes use of the demo UI components (see below). If your demo makes use of props, display them in a `<PropTypeTable />`.
+- [ ] In `demo/index.jsx` import the demo you exported from the file in step 4, and add it to the `sections` object. This will include it in the sidebar navigation as well as render it to the page.
+- [ ] Create a pull request and merge into master when ready. Then delete the branch.
+- [ ] Run `npm version patch` (or `minor` or `major`, as appropriate), then run `npm run build`, then publish to npm.
 
 
 ## Documenting Components
@@ -126,7 +126,17 @@ const FooComponents = () => (
     </DemoRow>
     <DemoRow code='<Foo bar={`baz`} />'>
       <Subtitle>Foo Component Demo</Subtitle>
-      <Foo />
+      <Block>
+        <Foo />
+      </Block>
+      <Hr />
+      <Block>
+        <Foo bar='baz' />
+      </Block>
+    </DemoRow>
+    <DemoRow code=`<Foo alternate />`>
+      <Subtitle>Foo Component Alternate Demo</Subtitle>
+      <Foo alternate />
     </DemoRow>
     <DemoRow>
       <PropTypeTable component={Foo} />
