@@ -1,6 +1,6 @@
 # React Components for VHX Quartz
 
-https://vhx-quartz-react.firebaseapp.com
+https://vhx.github.io/quartz-react/
 
 
 ## Installation
@@ -25,7 +25,7 @@ const MyComponent = () => (
 );
 ```
 
-For demos and code examples, run `npm start` and open up `localhost:3000` in your browser.
+For demos and code examples, run `npm start` and open up `localhost:3000` in your browser. Or visit https://vhx.github.io/quartz-react/
 
 
 ## NPM Scripts
@@ -61,16 +61,17 @@ index.js                        # Every component that is exported in quartz-rea
 
 ## How to Create a New Component
 
-1. Create a branch for the new component
-2. In `components/` add a folder for your component that contains the following files:
+**Checklist:**
+- [ ] Create a branch for the new component
+- [ ] In `components/` add a folder for your component that contains the following files:
     - index.js
     - [YourComponent].jsx
     - [YourComponent].test.jsx
-3. In the root level `index.js`, create a named export for your component.
-4. In `demo/sections/` create a file to demo your component (by convention, it should be `demo/sections/[YourComponent].jsx`). It should export a react component that makes use of the demo UI components (see below). If your demo makes use of props, display them in a `<PropTypeTable />`.
-5. In `demo/index.jsx` import the demo you exported from the file in step 4, and add it to the `sections` object. This will include it in the sidebar navigation as well as render it to the page.
-6. Create a pull request and merge into master when ready. Then delete the branch.
-7. Run `npm version patch` (or `minor` or `major`, as appropriate), then run `npm run build`, then publish to npm.
+- [ ] In the root level `index.js`, create a named export for your component.
+- [ ] In `demo/sections/` create a file to demo your component (by convention, it should be `demo/sections/[YourComponent].jsx`). It should export a react component that makes use of the demo UI components (see below). If your demo makes use of props, display them in a `<PropTypeTable />`.
+- [ ] In `demo/index.jsx` import the demo you exported from the file in step 4, and add it to the `sections` object. This will include it in the sidebar navigation as well as render it to the page.
+- [ ] Create a pull request and merge into master when ready. Then delete the branch.
+- [ ] Run `npm version patch` (or `minor` or `major`, as appropriate), then run `npm run build`, then publish to npm.
 
 
 ## Documenting Components
@@ -103,6 +104,10 @@ const MyComponentDemo = () => (
       <Title>MyComponent</Title>
       <Details>Some documentation for your component goes here...</Details>
     </DemoRow>
+    <DemoRow code='<MyComponent />'>
+      <Subtitle>Section heading goes here</Subtitle>
+      <MyComponent />
+    </DemoRow>
     <DemoRow>
       <PropTypeTable component={MyComponent} />
     </DemoRow>
@@ -110,8 +115,19 @@ const MyComponentDemo = () => (
 );
 ```
 
+You must also write tests for your component. This not only helps prevent regressions, but serves as an additional source of documentation.
+
 ## Demo UI Components
 
 Component demo files (`demo/sections/*.jsx`) should export a component containing `<DemoRow>`s. These accept an optional `code` prop that's a string of code to display on the right side of the page.
+
+Available UI componennts for use in demos include:
+- `<Block>`: Provides some padding to nicely display elements
+- `<DemoRow>`: Displays a part of a demo section and optionally accepts a `code` prop of type string
+- `<Details>`: Usually used after the `<Title>` component to display more information
+- `<Hr />`: Same purpose as `<hr />`, but styled for the demo
+- `<PropTypeTable />`: Displays prop information for a component
+- `<Subtitle>`: Used within a `<DemoRow>`. This makes it possible to have labeled subsections of your demo.
+- `<Title>`: Used within a `<DemoRow>`. There should only be one title per component demo section.
 
 Follow the example from the `Text` component's demo for the simplest example setup.
