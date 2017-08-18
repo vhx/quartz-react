@@ -58,15 +58,15 @@ class AllComponents extends Component {
       const element = document.getElementById(slug);
       return { slug, element };
     });
-    console.log(this.sectionElements);
   }
   componentWillUnmount() {
     window.removeEventListener('scroll', this.updateOnScroll);
   }
   updateOnScroll() {
-    console.log(1111);
     for (let i = 0; i < this.sectionElements.length; i++) {
-      const { slug, element } = this.sectionElements[i];
+      const prior = i === 0 ? 0 : i - 1;
+      const { element } = this.sectionElements[i];
+      const { slug } = this.sectionElements[prior];
       if (element.getBoundingClientRect().top >= 0) {
         this.setState({ activeSectionSlug: slug });
         break;

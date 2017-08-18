@@ -1422,6 +1422,8 @@ function aspectRatioPropType(props) {
   }
 }
 
+aspectRatioPropType.isRequired = false;
+
 Carousel$1.propTypes = {
   animationDuration: index.number,
   aspectRatio: aspectRatioPropType,
@@ -3109,11 +3111,7 @@ var avatarCode = "\n<Avatar />\n<Avatar\n  image='/path/to/avatar.png'\n  size='
 
 var Avatars = function () { return (
   React__default.createElement( 'div', null,
-    React__default.createElement( DemoRow, null,
-      React__default.createElement( Title, null, "Avatar" ),
-      React__default.createElement( Details, null, "Avatar images and sizes are optional.  The default size is medium." ),
-      React__default.createElement( Details, null, "Avatar sizes available: ", React__default.createElement( 'code', null, "xsmall" ), ", ", React__default.createElement( 'code', null, "small" ), ", ", React__default.createElement( 'code', null, "medium" ), ", ", React__default.createElement( 'code', null, "large" ), ", ", React__default.createElement( 'code', null, "xlarge" ), "." )
-    ),
+    React__default.createElement( DemoRow, null, React__default.createElement( Title, null, "Avatar" ) ),
     React__default.createElement( DemoRow, { code: avatarCode }, React__default.createElement( AvatarDemo, null )),
     React__default.createElement( DemoRow, null, React__default.createElement( PropTypeTable, { component: Avatar$1 }) )
   )
@@ -4457,7 +4455,6 @@ var AllComponents = (function (Component$$1) {
       var element = document.getElementById(slug);
       return { slug: slug, element: element };
     });
-    console.log(this.sectionElements);
   };
   AllComponents.prototype.componentWillUnmount = function componentWillUnmount () {
     window.removeEventListener('scroll', this.updateOnScroll);
@@ -4465,11 +4462,12 @@ var AllComponents = (function (Component$$1) {
   AllComponents.prototype.updateOnScroll = function updateOnScroll () {
     var this$1 = this;
 
-    console.log(1111);
     for (var i = 0; i < this.sectionElements.length; i++) {
+      var prior = i === 0 ? 0 : i - 1;
       var ref = this$1.sectionElements[i];
-      var slug = ref.slug;
       var element = ref.element;
+      var ref$1 = this$1.sectionElements[prior];
+      var slug = ref$1.slug;
       if (element.getBoundingClientRect().top >= 0) {
         this$1.setState({ activeSectionSlug: slug });
         break;

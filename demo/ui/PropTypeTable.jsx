@@ -51,7 +51,7 @@ class PropTypeTable extends PureComponent {
                 <tr key={prop}>
                   <td className='truncate text--bold' title={prop}>{prop}</td>
                   <td title={type}>{type}</td>
-                  <td className={isRequired ? 'text--bold' : ''}>{isRequired ? 'yes' : 'no' }</td>
+                  <td className={isRequired ? 'text--bold' : ''}>{isRequired ? 'yes' : 'no'}</td>
                   <td title={defaultValue}><code>{defaultValue}</code></td>
                   <td title={description}>{description}</td>
                 </tr>

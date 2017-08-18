@@ -177,6 +177,8 @@ function aspectRatioPropType(props) {
   }
 }
 
+aspectRatioPropType.isRequired = false;
+
 Carousel.propTypes = {
   animationDuration: PropTypes.number,
   aspectRatio: aspectRatioPropType,

@@ -55,15 +55,7 @@ const avatarCode = `
 
 const Avatars = () => (
   <div>
-    <DemoRow>
-      <Title>Avatar</Title>
-      <Details>
-        Avatar images and sizes are optional.  The default size is medium.
-      </Details>
-      <Details>
-        Avatar sizes available: <code>xsmall</code>, <code>small</code>, <code>medium</code>, <code>large</code>, <code>xlarge</code>.
-      </Details>
-    </DemoRow>
+    <DemoRow><Title>Avatar</Title></DemoRow>
     <DemoRow code={avatarCode}><AvatarDemo /></DemoRow>
     <DemoRow><PropTypeTable component={Avatar} /></DemoRow>
   </div>
