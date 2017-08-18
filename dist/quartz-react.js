@@ -1515,7 +1515,6 @@ var Text$1 = function (props) { return (
 var colors$3 = [ 'navy', 'gray', 'teal', 'white' ];
 
 Text$1.propTypes = {
-  autofocus: PropTypes.bool,
   block: PropTypes.bool,
   children: PropTypes.node.isRequired,
   h1: PropTypes.bool,

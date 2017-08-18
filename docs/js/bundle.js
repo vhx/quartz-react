@@ -2338,7 +2338,6 @@ var Text$1 = function (props) { return (
 var colors$3 = [ 'navy', 'gray', 'teal', 'white' ];
 
 Text$1.propTypes = {
-  autofocus: index.bool,
   block: index.bool,
   children: index.node.isRequired,
   h1: index.bool,
