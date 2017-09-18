@@ -6485,6 +6485,60 @@ a.text--blue:hover, a.text--blue:active {
 a.text--blue.is-disabled:link, a.text--blue.is-disabled:visited, a.text--blue.is-disabled:hover, a.text--blue.is-disabled:active {
   color: #0F4E7B; }
 
+.text--vimeo-blue {
+  color: #00adef; }
+  .text--vimeo-blue.text--transparent {
+    color: rgba(46, 6, 74, 0.5); }
+
+a.text--vimeo-blue:link, a.text--vimeo-blue:visited {
+  color: #00adef;
+  text-decoration: none; }
+
+a.text--vimeo-blue:hover, a.text--vimeo-blue:active {
+  color: #0088cc;
+  text-decoration: none; }
+  a.text--vimeo-blue:hover.is-hover-text--vimeo-blue, a.text--vimeo-blue:active.is-hover-text--vimeo-blue {
+    color: #0088cc; }
+
+a.text--vimeo-blue.is-disabled:link, a.text--vimeo-blue.is-disabled:visited, a.text--vimeo-blue.is-disabled:hover, a.text--vimeo-blue.is-disabled:active {
+  color: #2E064A; }
+
+.text--sunset-orange {
+  color: #ff4d4d; }
+  .text--teal.text--transparent {
+    color: rgba(34, 185, 176, 0.5); }
+
+a.text--sunset-orange:link, a.text--sunset-orange:visited {
+  color: #ff4d4d;
+  text-decoration: none; }
+
+a.text--sunset-orange:hover, a.text--sunset-orange:active {
+  color: #d93636;
+  text-decoration: none; }
+  a.text--sunset-orange:hover.is-hover-text--sunset-orange, a.text--sunset-orange:active.is-hover-text--sunset-orange {
+    color: #d93636; }
+
+a.text--sunset-orange.is-disabled:link, a.text--sunset-orange.is-disabled:visited, a.text--sunset-orange.is-disabled:hover, a.text--sunset-orange.is-disabled:active {
+  color: #ff4d4d; }
+
+.text--regent-gray {
+  color: #8699a6 }
+  .text--vimeo-blue.text--transparent {
+    color: rgba(46, 6, 74, 0.5); }
+
+a.text--regent-gray:link, a.text--vimeo-blue:visited {
+  color: #8699a6
+  text-decoration: none; }
+
+a.text--regent-gray:hover, a.text--regent-gray:active {
+  color: #1a2e3b;
+  text-decoration: none; }
+  a.text--regent-gray:hover.is-hover-text--regent-gray, a.text--regent-gray:active.is-hover-text--regent-gray {
+    color: #1a2e3b; }
+
+a.text--regent-gray.is-disabled:link, a.text--regent-gray.is-disabled:visited, a.text--regent-gray.is-disabled:hover, a.text--regent-gray.is-disabled:active {
+  color: #8699a6 }
+
 /* modifiers
 ......................................*/
 .text--bold {
