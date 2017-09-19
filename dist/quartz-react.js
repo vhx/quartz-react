@@ -1505,14 +1505,17 @@ function getClassName$5(props) {
     'text--gray': props.color === 'gray',
     'text--teal': props.color === 'teal',
     'text--white': props.color === 'white',
+    'text--vimeo-blue': props.color === 'vimeo-blue',
+    'text--sunset-orange': props.color === 'sunset-orange',
+    'text--regent-gray': props.color === 'regent-gray'
   });
 }
 
 var Text$1 = function (props) { return (
-  React__default.createElement( 'span', { className: getClassName$5(props) }, props.children)
+  React__default.createElement( 'a', { href: '#', className: getClassName$5(props) }, props.children)
 ); };
 
-var colors$3 = [ 'navy', 'gray', 'teal', 'white' ];
+var colors$3 = [ 'navy', 'gray', 'teal', 'white', 'vimeo-blue', 'sunset-orange', 'regent-gray' ];
 
 Text$1.propTypes = {
   block: PropTypes.bool,

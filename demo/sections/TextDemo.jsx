@@ -44,6 +44,9 @@ const TextColors = () => (
     <Block><Text color='teal'>teal</Text></Block>
     <Block><Text color='gray'>gray</Text></Block>
     <Block dark inline><Text color='white'>white</Text></Block>
+    <Block><Text color='vimeo-blue'>vimeo blue</Text></Block>
+    <Block><Text color='sunset-orange'>sunset orange</Text></Block>
+    <Block><Text color='regent-gray'>regent gray</Text></Block>
   </div>
 );
 
@@ -53,6 +56,8 @@ const textColorsCode = `
 <Text color='teal'>teal</Text>
 <Text color='gray'>gray</Text>
 <Text color='white'>white</Text>
+<Text color='vimeo-blue'>vimeo blue</Text>
+<Text color='regent-gray'>regent gray</Text>
 `;
 
 

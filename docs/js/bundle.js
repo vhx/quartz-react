@@ -2365,14 +2365,17 @@ function getClassName$5(props) {
     'text--gray': props.color === 'gray',
     'text--teal': props.color === 'teal',
     'text--white': props.color === 'white',
+    'text--vimeo-blue': props.color === 'vimeo-blue',
+    'text--sunset-orange': props.color === 'sunset-orange',
+    'text--regent-gray': props.color === 'regent-gray'
   });
 }
 
 var Text$1 = function (props) { return (
-  React__default.createElement( 'span', { className: getClassName$5(props) }, props.children)
+  React__default.createElement( 'a', { href: '#', className: getClassName$5(props) }, props.children)
 ); };
 
-var colors$3 = [ 'navy', 'gray', 'teal', 'white' ];
+var colors$3 = [ 'navy', 'gray', 'teal', 'white', 'vimeo-blue', 'sunset-orange', 'regent-gray' ];
 
 Text$1.propTypes = {
   block: index.bool,
@@ -4460,11 +4463,14 @@ var TextColors = function () { return (
     React__default.createElement( Block, null, React__default.createElement( Text$1, { color: 'navy' }, "navy") ),
     React__default.createElement( Block, null, React__default.createElement( Text$1, { color: 'teal' }, "teal") ),
     React__default.createElement( Block, null, React__default.createElement( Text$1, { color: 'gray' }, "gray") ),
-    React__default.createElement( Block, { dark: true, inline: true }, React__default.createElement( Text$1, { color: 'white' }, "white"))
+    React__default.createElement( Block, { dark: true, inline: true }, React__default.createElement( Text$1, { color: 'white' }, "white")),
+    React__default.createElement( Block, null, React__default.createElement( Text$1, { color: 'vimeo-blue' }, "vimeo blue") ),
+    React__default.createElement( Block, null, React__default.createElement( Text$1, { color: 'sunset-orange' }, "sunset orange") ),
+    React__default.createElement( Block, null, React__default.createElement( Text$1, { color: 'regent-gray' }, "regent gray") )
   )
 ); };
 
-var textColorsCode = "\n<Text>Default</Text>\n<Text color='navy'>navy</Text>\n<Text color='teal'>teal</Text>\n<Text color='gray'>gray</Text>\n<Text color='white'>white</Text>\n";
+var textColorsCode = "\n<Text>Default</Text>\n<Text color='navy'>navy</Text>\n<Text color='teal'>teal</Text>\n<Text color='gray'>gray</Text>\n<Text color='white'>white</Text>\n<Text color='vimeo-blue'>vimeo blue</Text>\n<Text color='regent-gray'>regent gray</Text>\n";
 
 
 // Main exported demo

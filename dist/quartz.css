@@ -1,6 +1,6 @@
 /*
   Quartz-react version: 0.1.5
-  Current file hash: cefcaf8d8ba0fdfa4feaf58129d005ed
+  Current file hash: ad6e097e3931ec9b3fc7caad5f1d4176
 */
 
 /* generated with grunt-sass-globbing */
@@ -6527,22 +6527,23 @@ a.text--sunset-orange.is-disabled:link, a.text--sunset-orange.is-disabled:visite
   color: #ff4d4d; }
 
 .text--regent-gray {
-  color: #8699a6 }
-  .text--vimeo-blue.text--transparent {
+  color: #8699a6;}
+  .text--regent-gray.text--transparent {
     color: rgba(46, 6, 74, 0.5); }
 
-a.text--regent-gray:link, a.text--vimeo-blue:visited {
-  color: #8699a6
+a.text--regent-gray:link, a.text--regent-gray:visited {
+  color: #1a2e3b;
   text-decoration: none; }
 
 a.text--regent-gray:hover, a.text--regent-gray:active {
   color: #1a2e3b;
   text-decoration: none; }
   a.text--regent-gray:hover.is-hover-text--regent-gray, a.text--regent-gray:active.is-hover-text--regent-gray {
-    color: #1a2e3b; }
+    color: #1a2e3b;}
 
 a.text--regent-gray.is-disabled:link, a.text--regent-gray.is-disabled:visited, a.text--regent-gray.is-disabled:hover, a.text--regent-gray.is-disabled:active {
-  color: #8699a6 }
+  color: #8699a6; }
+
 
 /* modifiers
 ......................................*/
