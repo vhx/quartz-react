@@ -16,6 +16,9 @@ import {
 const colors = [
   'gray',
   'teal',
+  'vimeo-blue',
+  'vimeo-secondary',
+  'vimeo-secondary-outline',
   'white',
   'red',
   'purple',

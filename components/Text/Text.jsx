@@ -16,6 +16,10 @@ function getClassName(props) {
     'text--gray': props.color === 'gray',
     'text--teal': props.color === 'teal',
     'text--white': props.color === 'white',
+    'text--vimeo-blue': props.color === 'vimeo-blue',
+    'text--sunset-orange': props.color === 'sunset-orange',
+    'text--regent-gray': props.color === 'regent-gray',
+    'text--astro-granite': props.color === 'astro-granite',
   });
 }
 
@@ -23,7 +27,7 @@ const Text = props => (
   <span className={getClassName(props)}>{props.children}</span>
 );
 
-const colors = [ 'navy', 'gray', 'teal', 'white' ];
+const colors = [ 'navy', 'gray', 'teal', 'white', 'vimeo-blue' ];
 
 Text.propTypes = {
   block: PropTypes.bool,

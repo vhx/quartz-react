@@ -12,6 +12,10 @@ function getClassName({ className, color, size, typeface, processing }) {
     'btn-teal': color === 'teal',
     'btn-white': color === 'white',
     'btn-red': color === 'red',
+    // vimeo-colors
+    'btn-vimeo-blue': color === 'vimeo-blue',
+    'btn-vimeo-secondary': color === 'vimeo-secondary',
+    'btn-vimeo-secondary-outline': color === 'vimeo-secondary-outline',
     // alternate colors
     'btn-purple': color === 'purple',
     'btn-green': color === 'green',
@@ -45,7 +49,7 @@ const Button = (props) => {
   );
 };
 
-const colors = [ 'gray', 'teal', 'white', 'red', 'purple', 'green', 'slate', 'black', 'yellow', 'transparent', 'twitter', 'facebook', 'tumblr', 'paypal', 'roku' ];
+const colors = [ 'gray', 'teal', 'white', 'red', 'purple', 'green', 'slate', 'black', 'yellow', 'transparent', 'vimeo-blue', 'vimeo-secondary', 'vimeo-secondary-outline', 'twitter', 'facebook', 'tumblr', 'paypal', 'roku' ];
 const sizes = [ 'small', 'medium', 'large', 'half', 'fill' ];
 const typefaces = [ 'brandon', '' ];
 
