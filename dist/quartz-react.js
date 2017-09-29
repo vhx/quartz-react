@@ -270,6 +270,10 @@ function getClassName(ref) {
     'btn-teal': color === 'teal',
     'btn-white': color === 'white',
     'btn-red': color === 'red',
+    // vimeo-colors
+    'btn-vimeo-blue': color === 'vimeo-blue',
+    'btn-vimeo-secondary': color === 'vimeo-secondary',
+    'btn-vimeo-secondary-outline': color === 'vimeo-secondary-outline',
     // alternate colors
     'btn-purple': color === 'purple',
     'btn-green': color === 'green',
@@ -303,7 +307,7 @@ var Button$1 = function (props) {
   );
 };
 
-var colors = [ 'gray', 'teal', 'white', 'red', 'purple', 'green', 'slate', 'black', 'yellow', 'transparent', 'twitter', 'facebook', 'tumblr', 'paypal', 'roku' ];
+var colors = [ 'gray', 'teal', 'white', 'red', 'purple', 'green', 'slate', 'black', 'yellow', 'transparent', 'vimeo-blue', 'vimeo-secondary', 'vimeo-secondary-outline', 'twitter', 'facebook', 'tumblr', 'paypal', 'roku' ];
 var sizes$1 = [ 'small', 'medium', 'large', 'half', 'fill' ];
 var typefaces = [ 'brandon', '' ];
 
@@ -1505,6 +1509,10 @@ function getClassName$5(props) {
     'text--gray': props.color === 'gray',
     'text--teal': props.color === 'teal',
     'text--white': props.color === 'white',
+    'text--vimeo-blue': props.color === 'vimeo-blue',
+    'text--sunset-orange': props.color === 'sunset-orange',
+    'text--regent-gray': props.color === 'regent-gray',
+    'text--astro-granite': props.color === 'astro-granite',
   });
 }
 
@@ -1512,7 +1520,7 @@ var Text$1 = function (props) { return (
   React__default.createElement( 'span', { className: getClassName$5(props) }, props.children)
 ); };
 
-var colors$3 = [ 'navy', 'gray', 'teal', 'white' ];
+var colors$3 = [ 'navy', 'gray', 'teal', 'white', 'vimeo-blue', 'sunset-orange', 'regent-gray', 'astro-granite' ];
 
 Text$1.propTypes = {
   block: PropTypes.bool,
