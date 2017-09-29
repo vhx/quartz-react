@@ -27,7 +27,7 @@ const Text = props => (
   <span className={getClassName(props)}>{props.children}</span>
 );
 
-const colors = [ 'navy', 'gray', 'teal', 'white', 'vimeo-blue' ];
+const colors = [ 'navy', 'gray', 'teal', 'white', 'vimeo-blue', 'sunset-orange', 'regent-gray', 'astro-granite' ];
 
 Text.propTypes = {
   block: PropTypes.bool,

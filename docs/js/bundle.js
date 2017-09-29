@@ -2343,7 +2343,7 @@ var Text$1 = function (props) { return (
   React__default.createElement( 'span', { className: getClassName$5(props) }, props.children)
 ); };
 
-var colors$3 = [ 'navy', 'gray', 'teal', 'white', 'vimeo-blue' ];
+var colors$3 = [ 'navy', 'gray', 'teal', 'white', 'vimeo-blue', 'sunset-orange', 'regent-gray', 'astro-granite' ];
 
 Text$1.propTypes = {
   block: index.bool,
