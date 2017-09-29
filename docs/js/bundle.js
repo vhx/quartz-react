@@ -3121,6 +3121,9 @@ var Avatars = function () { return (
   )
 ); };
 
+// Colors demo
+// -----------------------------------------
+
 var colors$4 = [
   'gray',
   'teal',
@@ -4374,6 +4377,9 @@ var Tags = function () { return (
     React__default.createElement( DemoRow, null, React__default.createElement( PropTypeTable, { component: Tag$1 }) )
   )
 ); };
+
+// Text headings
+// -----------------------------------------
 
 var TextHeadings = function () { return (
   React__default.createElement( 'div', null,
