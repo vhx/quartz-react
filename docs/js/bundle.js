@@ -2120,7 +2120,7 @@ var Sidebar$1 = (function (Component$$1) {
     var Contents = ref.Contents;
     return (
       React__default.createElement( 'div', { className: ("sidebar c-sidebar bg-white shadow--gray " + (isOpen ? 'sidebar--open' : '')) },
-        React__default.createElement( 'span', { className: 'c-sidebar--close icon-circle icon-x-navy icon--xsmall', style: { cursor: 'pointer' }, onClick: function () { return sidebarModel.close(); } }),
+        React__default.createElement( 'span', { className: 'c-sidebar--close icon-circle icon-x-black icon--xsmall', style: { cursor: 'pointer' }, onClick: function () { return sidebarModel.close(); } }),
         React__default.createElement( 'div', null, React__default.createElement( Contents, null ) )
       )
     );
@@ -3120,9 +3120,6 @@ var Avatars = function () { return (
     React__default.createElement( DemoRow, null, React__default.createElement( PropTypeTable, { component: Avatar$1 }) )
   )
 ); };
-
-// Colors demo
-// -----------------------------------------
 
 var colors$4 = [
   'gray',
@@ -4377,9 +4374,6 @@ var Tags = function () { return (
     React__default.createElement( DemoRow, null, React__default.createElement( PropTypeTable, { component: Tag$1 }) )
   )
 ); };
-
-// Text headings
-// -----------------------------------------
 
 var TextHeadings = function () { return (
   React__default.createElement( 'div', null,
