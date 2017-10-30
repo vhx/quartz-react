@@ -271,6 +271,7 @@ function getClassName(ref) {
     'btn-white': color === 'white',
     'btn-red': color === 'red',
     // vimeo-colors
+    'btn-vimeo-alt': color === 'vimeo-alt',
     'btn-vimeo-blue': color === 'vimeo-blue',
     'btn-vimeo-secondary': color === 'vimeo-secondary',
     'btn-vimeo-secondary-outline': color === 'vimeo-secondary-outline',
@@ -307,7 +308,7 @@ var Button$1 = function (props) {
   );
 };
 
-var colors = [ 'gray', 'teal', 'white', 'red', 'purple', 'green', 'slate', 'black', 'yellow', 'transparent', 'vimeo-blue', 'vimeo-secondary', 'vimeo-secondary-outline', 'twitter', 'facebook', 'tumblr', 'paypal', 'roku' ];
+var colors = [ 'gray', 'teal', 'white', 'red', 'purple', 'green', 'slate', 'black', 'yellow', 'transparent', 'vimeo-blue', 'vimeo-secondary', 'vimeo-secondary-outline', 'vimeo-alt', 'twitter', 'facebook', 'tumblr', 'paypal', 'roku' ];
 var sizes$1 = [ 'small', 'medium', 'large', 'half', 'fill' ];
 var typefaces = [ 'brandon', '' ];
 
