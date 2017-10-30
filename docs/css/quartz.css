@@ -581,7 +581,7 @@ select {
 
 /* base
 ......................................*/
-.btn, .btn-gray, .btn-dropdown-gray, .btn-slate, .btn-teal, .btn-dropdown-teal, .btn-red, .btn-purple, .btn-green, .btn-black, .btn-white, .btn-dropdown-white, .btn-yellow, .btn-facebook, .btn-twitter, .btn-transparent, .btn-tumblr, .btn-paypal, .btn-roku, .btn-search, .btn-vimeo-blue, .btn-dropdown-vimeo-blue, .btn-vimeo-secondary, .btn-dropdown-vimeo-secondary, .btn-vimeo-secondary-outline, .btn-dropdown-vimeo-secondary-outline, .btn-vimeo-black, .btn-dropdown {
+.btn, .btn-gray, .btn-dropdown-gray, .btn-slate, .btn-teal, .btn-dropdown-teal, .btn-red, .btn-purple, .btn-green, .btn-black, .btn-white, .btn-dropdown-white, .btn-yellow, .btn-facebook, .btn-twitter, .btn-transparent, .btn-tumblr, .btn-paypal, .btn-roku, .btn-search, .btn-vimeo-blue, .btn-dropdown-vimeo-blue, .btn-vimeo-secondary, .btn-dropdown-vimeo-secondary, .btn-vimeo-secondary-outline, .btn-dropdown-vimeo-secondary-outline, .btn-vimeo-alt, .btn-vimeo-black, .btn-vimeo-red, .btn-dropdown {
   transition: border 300ms cubic-bezier(0.19, 1, 0.22, 1), color 300ms cubic-bezier(0.19, 1, 0.22, 1), opacity 300ms cubic-bezier(0.19, 1, 0.22, 1), background-color 300ms cubic-bezier(0.19, 1, 0.22, 1);
   background-color: transparent;
   border: 1px solid transparent;
@@ -598,29 +598,29 @@ select {
   padding: 0 20px;
   outline: none;
   border-radius: 5px; }
-  .btn:link, .btn-gray:link, .btn-dropdown-gray:link, .btn-slate:link, .btn-teal:link, .btn-dropdown-teal:link, .btn-red:link, .btn-purple:link, .btn-green:link, .btn-black:link, .btn-white:link, .btn-dropdown-white:link, .btn-yellow:link, .btn-facebook:link, .btn-twitter:link, .btn-transparent:link, .btn-tumblr:link, .btn-paypal:link, .btn-roku:link, .btn-search:link, .btn-vimeo-blue:link, .btn-dropdown-vimeo-blue:link, .btn-vimeo-secondary:link, .btn-dropdown-vimeo-secondary:link, .btn-vimeo-secondary-outline:link, .btn-dropdown-vimeo-secondary-outline:link, .btn-vimeo-black:link, .btn-dropdown:link, .btn:visited, .btn-gray:visited, .btn-dropdown-gray:visited, .btn-slate:visited, .btn-teal:visited, .btn-dropdown-teal:visited, .btn-red:visited, .btn-purple:visited, .btn-green:visited, .btn-black:visited, .btn-white:visited, .btn-dropdown-white:visited, .btn-yellow:visited, .btn-facebook:visited, .btn-twitter:visited, .btn-transparent:visited, .btn-tumblr:visited, .btn-paypal:visited, .btn-roku:visited, .btn-search:visited, .btn-vimeo-blue:visited, .btn-dropdown-vimeo-blue:visited, .btn-vimeo-secondary:visited, .btn-dropdown-vimeo-secondary:visited, .btn-vimeo-secondary-outline:visited, .btn-dropdown-vimeo-secondary-outline:visited, .btn-vimeo-black:visited, .btn-dropdown:visited {
+  .btn:link, .btn-gray:link, .btn-dropdown-gray:link, .btn-slate:link, .btn-teal:link, .btn-dropdown-teal:link, .btn-red:link, .btn-purple:link, .btn-green:link, .btn-black:link, .btn-white:link, .btn-dropdown-white:link, .btn-yellow:link, .btn-facebook:link, .btn-twitter:link, .btn-transparent:link, .btn-tumblr:link, .btn-paypal:link, .btn-roku:link, .btn-search:link, .btn-vimeo-blue:link, .btn-dropdown-vimeo-blue:link, .btn-vimeo-secondary:link, .btn-dropdown-vimeo-secondary:link, .btn-vimeo-secondary-outline:link, .btn-dropdown-vimeo-secondary-outline:link, .btn-vimeo-alt:link, .btn-vimeo-black:link, .btn-vimeo-red:link, .btn-dropdown:link, .btn:visited, .btn-gray:visited, .btn-dropdown-gray:visited, .btn-slate:visited, .btn-teal:visited, .btn-dropdown-teal:visited, .btn-red:visited, .btn-purple:visited, .btn-green:visited, .btn-black:visited, .btn-white:visited, .btn-dropdown-white:visited, .btn-yellow:visited, .btn-facebook:visited, .btn-twitter:visited, .btn-transparent:visited, .btn-tumblr:visited, .btn-paypal:visited, .btn-roku:visited, .btn-search:visited, .btn-vimeo-blue:visited, .btn-dropdown-vimeo-blue:visited, .btn-vimeo-secondary:visited, .btn-dropdown-vimeo-secondary:visited, .btn-vimeo-secondary-outline:visited, .btn-dropdown-vimeo-secondary-outline:visited, .btn-vimeo-alt:visited, .btn-vimeo-black:visited, .btn-vimeo-red:visited, .btn-dropdown:visited {
     text-decoration: none;
     border: 1px solid transparent; }
-  .btn.icon--left, .icon--left.btn-gray, .icon--left.btn-dropdown-gray, .icon--left.btn-slate, .icon--left.btn-teal, .icon--left.btn-dropdown-teal, .icon--left.btn-red, .icon--left.btn-purple, .icon--left.btn-green, .icon--left.btn-black, .icon--left.btn-white, .icon--left.btn-dropdown-white, .icon--left.btn-yellow, .icon--left.btn-facebook, .icon--left.btn-twitter, .icon--left.btn-transparent, .icon--left.btn-tumblr, .icon--left.btn-paypal, .icon--left.btn-roku, .icon--left.btn-search, .icon--left.btn-vimeo-blue, .icon--left.btn-dropdown-vimeo-blue, .icon--left.btn-vimeo-secondary, .icon--left.btn-dropdown-vimeo-secondary, .icon--left.btn-vimeo-secondary-outline, .icon--left.btn-dropdown-vimeo-secondary-outline, .icon--left.btn-vimeo-black, .icon--left.btn-dropdown {
+  .btn.icon--left, .icon--left.btn-gray, .icon--left.btn-dropdown-gray, .icon--left.btn-slate, .icon--left.btn-teal, .icon--left.btn-dropdown-teal, .icon--left.btn-red, .icon--left.btn-purple, .icon--left.btn-green, .icon--left.btn-black, .icon--left.btn-white, .icon--left.btn-dropdown-white, .icon--left.btn-yellow, .icon--left.btn-facebook, .icon--left.btn-twitter, .icon--left.btn-transparent, .icon--left.btn-tumblr, .icon--left.btn-paypal, .icon--left.btn-roku, .icon--left.btn-search, .icon--left.btn-vimeo-blue, .icon--left.btn-dropdown-vimeo-blue, .icon--left.btn-vimeo-secondary, .icon--left.btn-dropdown-vimeo-secondary, .icon--left.btn-vimeo-secondary-outline, .icon--left.btn-dropdown-vimeo-secondary-outline, .icon--left.btn-vimeo-alt, .icon--left.btn-vimeo-black, .icon--left.btn-vimeo-red, .icon--left.btn-dropdown {
     background-position: left 21px center;
     padding-left: 43px; }
-    .btn.icon--left.icon--xsmall, .icon--left.icon--xsmall.btn-gray, .icon--left.icon--xsmall.btn-dropdown-gray, .icon--left.icon--xsmall.btn-slate, .icon--left.icon--xsmall.btn-teal, .icon--left.icon--xsmall.btn-dropdown-teal, .icon--left.icon--xsmall.btn-red, .icon--left.icon--xsmall.btn-purple, .icon--left.icon--xsmall.btn-green, .icon--left.icon--xsmall.btn-black, .icon--left.icon--xsmall.btn-white, .icon--left.icon--xsmall.btn-dropdown-white, .icon--left.icon--xsmall.btn-yellow, .icon--left.icon--xsmall.btn-facebook, .icon--left.icon--xsmall.btn-twitter, .icon--left.icon--xsmall.btn-transparent, .icon--left.icon--xsmall.btn-tumblr, .icon--left.icon--xsmall.btn-paypal, .icon--left.icon--xsmall.btn-roku, .icon--left.icon--xsmall.btn-search, .icon--left.icon--xsmall.btn-vimeo-blue, .icon--left.icon--xsmall.btn-dropdown-vimeo-blue, .icon--left.icon--xsmall.btn-vimeo-secondary, .icon--left.icon--xsmall.btn-dropdown-vimeo-secondary, .icon--left.icon--xsmall.btn-vimeo-secondary-outline, .icon--left.icon--xsmall.btn-dropdown-vimeo-secondary-outline, .icon--left.icon--xsmall.btn-vimeo-black, .icon--left.icon--xsmall.btn-dropdown {
+    .btn.icon--left.icon--xsmall, .icon--left.icon--xsmall.btn-gray, .icon--left.icon--xsmall.btn-dropdown-gray, .icon--left.icon--xsmall.btn-slate, .icon--left.icon--xsmall.btn-teal, .icon--left.icon--xsmall.btn-dropdown-teal, .icon--left.icon--xsmall.btn-red, .icon--left.icon--xsmall.btn-purple, .icon--left.icon--xsmall.btn-green, .icon--left.icon--xsmall.btn-black, .icon--left.icon--xsmall.btn-white, .icon--left.icon--xsmall.btn-dropdown-white, .icon--left.icon--xsmall.btn-yellow, .icon--left.icon--xsmall.btn-facebook, .icon--left.icon--xsmall.btn-twitter, .icon--left.icon--xsmall.btn-transparent, .icon--left.icon--xsmall.btn-tumblr, .icon--left.icon--xsmall.btn-paypal, .icon--left.icon--xsmall.btn-roku, .icon--left.icon--xsmall.btn-search, .icon--left.icon--xsmall.btn-vimeo-blue, .icon--left.icon--xsmall.btn-dropdown-vimeo-blue, .icon--left.icon--xsmall.btn-vimeo-secondary, .icon--left.icon--xsmall.btn-dropdown-vimeo-secondary, .icon--left.icon--xsmall.btn-vimeo-secondary-outline, .icon--left.icon--xsmall.btn-dropdown-vimeo-secondary-outline, .icon--left.icon--xsmall.btn-vimeo-alt, .icon--left.icon--xsmall.btn-vimeo-black, .icon--left.icon--xsmall.btn-vimeo-red, .icon--left.icon--xsmall.btn-dropdown {
       background-position: left 16px center;
       padding-left: 40px; }
-    .btn.icon--left.icon--xxsmall, .icon--left.icon--xxsmall.btn-gray, .icon--left.icon--xxsmall.btn-dropdown-gray, .icon--left.icon--xxsmall.btn-slate, .icon--left.icon--xxsmall.btn-teal, .icon--left.icon--xxsmall.btn-dropdown-teal, .icon--left.icon--xxsmall.btn-red, .icon--left.icon--xxsmall.btn-purple, .icon--left.icon--xxsmall.btn-green, .icon--left.icon--xxsmall.btn-black, .icon--left.icon--xxsmall.btn-white, .icon--left.icon--xxsmall.btn-dropdown-white, .icon--left.icon--xxsmall.btn-yellow, .icon--left.icon--xxsmall.btn-facebook, .icon--left.icon--xxsmall.btn-twitter, .icon--left.icon--xxsmall.btn-transparent, .icon--left.icon--xxsmall.btn-tumblr, .icon--left.icon--xxsmall.btn-paypal, .icon--left.icon--xxsmall.btn-roku, .icon--left.icon--xxsmall.btn-search, .icon--left.icon--xxsmall.btn-vimeo-blue, .icon--left.icon--xxsmall.btn-dropdown-vimeo-blue, .icon--left.icon--xxsmall.btn-vimeo-secondary, .icon--left.icon--xxsmall.btn-dropdown-vimeo-secondary, .icon--left.icon--xxsmall.btn-vimeo-secondary-outline, .icon--left.icon--xxsmall.btn-dropdown-vimeo-secondary-outline, .icon--left.icon--xxsmall.btn-vimeo-black, .icon--left.icon--xxsmall.btn-dropdown {
+    .btn.icon--left.icon--xxsmall, .icon--left.icon--xxsmall.btn-gray, .icon--left.icon--xxsmall.btn-dropdown-gray, .icon--left.icon--xxsmall.btn-slate, .icon--left.icon--xxsmall.btn-teal, .icon--left.icon--xxsmall.btn-dropdown-teal, .icon--left.icon--xxsmall.btn-red, .icon--left.icon--xxsmall.btn-purple, .icon--left.icon--xxsmall.btn-green, .icon--left.icon--xxsmall.btn-black, .icon--left.icon--xxsmall.btn-white, .icon--left.icon--xxsmall.btn-dropdown-white, .icon--left.icon--xxsmall.btn-yellow, .icon--left.icon--xxsmall.btn-facebook, .icon--left.icon--xxsmall.btn-twitter, .icon--left.icon--xxsmall.btn-transparent, .icon--left.icon--xxsmall.btn-tumblr, .icon--left.icon--xxsmall.btn-paypal, .icon--left.icon--xxsmall.btn-roku, .icon--left.icon--xxsmall.btn-search, .icon--left.icon--xxsmall.btn-vimeo-blue, .icon--left.icon--xxsmall.btn-dropdown-vimeo-blue, .icon--left.icon--xxsmall.btn-vimeo-secondary, .icon--left.icon--xxsmall.btn-dropdown-vimeo-secondary, .icon--left.icon--xxsmall.btn-vimeo-secondary-outline, .icon--left.icon--xxsmall.btn-dropdown-vimeo-secondary-outline, .icon--left.icon--xxsmall.btn-vimeo-alt, .icon--left.icon--xxsmall.btn-vimeo-black, .icon--left.icon--xxsmall.btn-vimeo-red, .icon--left.icon--xxsmall.btn-dropdown {
       background-position: left 18px center;
       padding-left: 37px; }
-    .btn.icon--left .icon--right, .icon--left.btn-gray .icon--right, .icon--left.btn-dropdown-gray .icon--right, .icon--left.btn-slate .icon--right, .icon--left.btn-teal .icon--right, .icon--left.btn-dropdown-teal .icon--right, .icon--left.btn-red .icon--right, .icon--left.btn-purple .icon--right, .icon--left.btn-green .icon--right, .icon--left.btn-black .icon--right, .icon--left.btn-white .icon--right, .icon--left.btn-dropdown-white .icon--right, .icon--left.btn-yellow .icon--right, .icon--left.btn-facebook .icon--right, .icon--left.btn-twitter .icon--right, .icon--left.btn-transparent .icon--right, .icon--left.btn-tumblr .icon--right, .icon--left.btn-paypal .icon--right, .icon--left.btn-roku .icon--right, .icon--left.btn-search .icon--right, .icon--left.btn-vimeo-blue .icon--right, .icon--left.btn-dropdown-vimeo-blue .icon--right, .icon--left.btn-vimeo-secondary .icon--right, .icon--left.btn-dropdown-vimeo-secondary .icon--right, .icon--left.btn-vimeo-secondary-outline .icon--right, .icon--left.btn-dropdown-vimeo-secondary-outline .icon--right, .icon--left.btn-vimeo-black .icon--right, .icon--left.btn-dropdown .icon--right {
+    .btn.icon--left .icon--right, .icon--left.btn-gray .icon--right, .icon--left.btn-dropdown-gray .icon--right, .icon--left.btn-slate .icon--right, .icon--left.btn-teal .icon--right, .icon--left.btn-dropdown-teal .icon--right, .icon--left.btn-red .icon--right, .icon--left.btn-purple .icon--right, .icon--left.btn-green .icon--right, .icon--left.btn-black .icon--right, .icon--left.btn-white .icon--right, .icon--left.btn-dropdown-white .icon--right, .icon--left.btn-yellow .icon--right, .icon--left.btn-facebook .icon--right, .icon--left.btn-twitter .icon--right, .icon--left.btn-transparent .icon--right, .icon--left.btn-tumblr .icon--right, .icon--left.btn-paypal .icon--right, .icon--left.btn-roku .icon--right, .icon--left.btn-search .icon--right, .icon--left.btn-vimeo-blue .icon--right, .icon--left.btn-dropdown-vimeo-blue .icon--right, .icon--left.btn-vimeo-secondary .icon--right, .icon--left.btn-dropdown-vimeo-secondary .icon--right, .icon--left.btn-vimeo-secondary-outline .icon--right, .icon--left.btn-dropdown-vimeo-secondary-outline .icon--right, .icon--left.btn-vimeo-alt .icon--right, .icon--left.btn-vimeo-black .icon--right, .icon--left.btn-vimeo-red .icon--right, .icon--left.btn-dropdown .icon--right {
       background-position: right 0px center;
       padding-right: 21px;
       background-size: 15px 15px; }
-  .btn.icon--right, .icon--right.btn-gray, .icon--right.btn-dropdown-gray, .icon--right.btn-slate, .icon--right.btn-teal, .icon--right.btn-dropdown-teal, .icon--right.btn-red, .icon--right.btn-purple, .icon--right.btn-green, .icon--right.btn-black, .icon--right.btn-white, .icon--right.btn-dropdown-white, .icon--right.btn-yellow, .icon--right.btn-facebook, .icon--right.btn-twitter, .icon--right.btn-transparent, .icon--right.btn-tumblr, .icon--right.btn-paypal, .icon--right.btn-roku, .icon--right.btn-search, .icon--right.btn-vimeo-blue, .icon--right.btn-dropdown-vimeo-blue, .icon--right.btn-vimeo-secondary, .icon--right.btn-dropdown-vimeo-secondary, .icon--right.btn-vimeo-secondary-outline, .icon--right.btn-dropdown-vimeo-secondary-outline, .icon--right.btn-vimeo-black, .icon--right.btn-dropdown {
+  .btn.icon--right, .icon--right.btn-gray, .icon--right.btn-dropdown-gray, .icon--right.btn-slate, .icon--right.btn-teal, .icon--right.btn-dropdown-teal, .icon--right.btn-red, .icon--right.btn-purple, .icon--right.btn-green, .icon--right.btn-black, .icon--right.btn-white, .icon--right.btn-dropdown-white, .icon--right.btn-yellow, .icon--right.btn-facebook, .icon--right.btn-twitter, .icon--right.btn-transparent, .icon--right.btn-tumblr, .icon--right.btn-paypal, .icon--right.btn-roku, .icon--right.btn-search, .icon--right.btn-vimeo-blue, .icon--right.btn-dropdown-vimeo-blue, .icon--right.btn-vimeo-secondary, .icon--right.btn-dropdown-vimeo-secondary, .icon--right.btn-vimeo-secondary-outline, .icon--right.btn-dropdown-vimeo-secondary-outline, .icon--right.btn-vimeo-alt, .icon--right.btn-vimeo-black, .icon--right.btn-vimeo-red, .icon--right.btn-dropdown {
     background-position: right 21px center;
     padding-right: 43px; }
-    .btn.icon--right.icon--xsmall, .icon--right.icon--xsmall.btn-gray, .icon--right.icon--xsmall.btn-dropdown-gray, .icon--right.icon--xsmall.btn-slate, .icon--right.icon--xsmall.btn-teal, .icon--right.icon--xsmall.btn-dropdown-teal, .icon--right.icon--xsmall.btn-red, .icon--right.icon--xsmall.btn-purple, .icon--right.icon--xsmall.btn-green, .icon--right.icon--xsmall.btn-black, .icon--right.icon--xsmall.btn-white, .icon--right.icon--xsmall.btn-dropdown-white, .icon--right.icon--xsmall.btn-yellow, .icon--right.icon--xsmall.btn-facebook, .icon--right.icon--xsmall.btn-twitter, .icon--right.icon--xsmall.btn-transparent, .icon--right.icon--xsmall.btn-tumblr, .icon--right.icon--xsmall.btn-paypal, .icon--right.icon--xsmall.btn-roku, .icon--right.icon--xsmall.btn-search, .icon--right.icon--xsmall.btn-vimeo-blue, .icon--right.icon--xsmall.btn-dropdown-vimeo-blue, .icon--right.icon--xsmall.btn-vimeo-secondary, .icon--right.icon--xsmall.btn-dropdown-vimeo-secondary, .icon--right.icon--xsmall.btn-vimeo-secondary-outline, .icon--right.icon--xsmall.btn-dropdown-vimeo-secondary-outline, .icon--right.icon--xsmall.btn-vimeo-black, .icon--right.icon--xsmall.btn-dropdown {
+    .btn.icon--right.icon--xsmall, .icon--right.icon--xsmall.btn-gray, .icon--right.icon--xsmall.btn-dropdown-gray, .icon--right.icon--xsmall.btn-slate, .icon--right.icon--xsmall.btn-teal, .icon--right.icon--xsmall.btn-dropdown-teal, .icon--right.icon--xsmall.btn-red, .icon--right.icon--xsmall.btn-purple, .icon--right.icon--xsmall.btn-green, .icon--right.icon--xsmall.btn-black, .icon--right.icon--xsmall.btn-white, .icon--right.icon--xsmall.btn-dropdown-white, .icon--right.icon--xsmall.btn-yellow, .icon--right.icon--xsmall.btn-facebook, .icon--right.icon--xsmall.btn-twitter, .icon--right.icon--xsmall.btn-transparent, .icon--right.icon--xsmall.btn-tumblr, .icon--right.icon--xsmall.btn-paypal, .icon--right.icon--xsmall.btn-roku, .icon--right.icon--xsmall.btn-search, .icon--right.icon--xsmall.btn-vimeo-blue, .icon--right.icon--xsmall.btn-dropdown-vimeo-blue, .icon--right.icon--xsmall.btn-vimeo-secondary, .icon--right.icon--xsmall.btn-dropdown-vimeo-secondary, .icon--right.icon--xsmall.btn-vimeo-secondary-outline, .icon--right.icon--xsmall.btn-dropdown-vimeo-secondary-outline, .icon--right.icon--xsmall.btn-vimeo-alt, .icon--right.icon--xsmall.btn-vimeo-black, .icon--right.icon--xsmall.btn-vimeo-red, .icon--right.icon--xsmall.btn-dropdown {
       background-position: right 16px center;
       padding-left: 40px; }
-    .btn.icon--right.icon--xxsmall, .icon--right.icon--xxsmall.btn-gray, .icon--right.icon--xxsmall.btn-dropdown-gray, .icon--right.icon--xxsmall.btn-slate, .icon--right.icon--xxsmall.btn-teal, .icon--right.icon--xxsmall.btn-dropdown-teal, .icon--right.icon--xxsmall.btn-red, .icon--right.icon--xxsmall.btn-purple, .icon--right.icon--xxsmall.btn-green, .icon--right.icon--xxsmall.btn-black, .icon--right.icon--xxsmall.btn-white, .icon--right.icon--xxsmall.btn-dropdown-white, .icon--right.icon--xxsmall.btn-yellow, .icon--right.icon--xxsmall.btn-facebook, .icon--right.icon--xxsmall.btn-twitter, .icon--right.icon--xxsmall.btn-transparent, .icon--right.icon--xxsmall.btn-tumblr, .icon--right.icon--xxsmall.btn-paypal, .icon--right.icon--xxsmall.btn-roku, .icon--right.icon--xxsmall.btn-search, .icon--right.icon--xxsmall.btn-vimeo-blue, .icon--right.icon--xxsmall.btn-dropdown-vimeo-blue, .icon--right.icon--xxsmall.btn-vimeo-secondary, .icon--right.icon--xxsmall.btn-dropdown-vimeo-secondary, .icon--right.icon--xxsmall.btn-vimeo-secondary-outline, .icon--right.icon--xxsmall.btn-dropdown-vimeo-secondary-outline, .icon--right.icon--xxsmall.btn-vimeo-black, .icon--right.icon--xxsmall.btn-dropdown {
+    .btn.icon--right.icon--xxsmall, .icon--right.icon--xxsmall.btn-gray, .icon--right.icon--xxsmall.btn-dropdown-gray, .icon--right.icon--xxsmall.btn-slate, .icon--right.icon--xxsmall.btn-teal, .icon--right.icon--xxsmall.btn-dropdown-teal, .icon--right.icon--xxsmall.btn-red, .icon--right.icon--xxsmall.btn-purple, .icon--right.icon--xxsmall.btn-green, .icon--right.icon--xxsmall.btn-black, .icon--right.icon--xxsmall.btn-white, .icon--right.icon--xxsmall.btn-dropdown-white, .icon--right.icon--xxsmall.btn-yellow, .icon--right.icon--xxsmall.btn-facebook, .icon--right.icon--xxsmall.btn-twitter, .icon--right.icon--xxsmall.btn-transparent, .icon--right.icon--xxsmall.btn-tumblr, .icon--right.icon--xxsmall.btn-paypal, .icon--right.icon--xxsmall.btn-roku, .icon--right.icon--xxsmall.btn-search, .icon--right.icon--xxsmall.btn-vimeo-blue, .icon--right.icon--xxsmall.btn-dropdown-vimeo-blue, .icon--right.icon--xxsmall.btn-vimeo-secondary, .icon--right.icon--xxsmall.btn-dropdown-vimeo-secondary, .icon--right.icon--xxsmall.btn-vimeo-secondary-outline, .icon--right.icon--xxsmall.btn-dropdown-vimeo-secondary-outline, .icon--right.icon--xxsmall.btn-vimeo-alt, .icon--right.icon--xxsmall.btn-vimeo-black, .icon--right.icon--xxsmall.btn-vimeo-red, .icon--right.icon--xxsmall.btn-dropdown {
       background-position: right 18px center;
       padding-left: 37px; }
 
@@ -1450,6 +1450,50 @@ select {
     .btn-vimeo-secondary-outline.is-processing.btn--large, .is-processing.btn--large.btn-dropdown-vimeo-secondary-outline, .btn-vimeo-secondary-outline.processing.btn--large, .processing.btn--large.btn-dropdown-vimeo-secondary-outline, .btn-vimeo-secondary-outline.is-loading.btn--large, .is-loading.btn--large.btn-dropdown-vimeo-secondary-outline, .btn-vimeo-secondary-outline.loading.btn--large, .loading.btn--large.btn-dropdown-vimeo-secondary-outline {
       background-size: 45px 45px; }
 
+.btn-vimeo-alt {
+  background-color: #3A5161;
+  color: #fff;
+  border: 1px solid #3A5161;
+  background-size: 15px 15px; }
+  .btn-vimeo-alt:link, .btn-vimeo-alt:visited {
+    color: #fff;
+    border: 1px solid #3A5161; }
+  .btn-vimeo-alt:hover, .btn-vimeo-alt.is-hover, .btn-vimeo-alt:focus:hover, .btn-vimeo-alt:focus.is-hover {
+    color: #fff;
+    cursor: pointer;
+    background-color: #1a2e3b;
+    border: 1px solid #1a2e3b; }
+  .btn-vimeo-alt:active, .btn-vimeo-alt.is-active, .btn-vimeo-alt:focus, .btn-vimeo-alt.is-focus {
+    color: #fff;
+    background-color: #3A5161;
+    border: 1px solid #3A5161; }
+  .btn-vimeo-alt.is-selected {
+    color: #fff;
+    cursor: pointer;
+    background-color: #1a2e3b;
+    border: 1px solid #1a2e3b; }
+  .btn-vimeo-alt[disabled], .btn-vimeo-alt.is-disabled {
+    opacity: .5;
+    background-color: #3A5161;
+    color: #fff;
+    border: 1px solid #3A5161; }
+    .btn-vimeo-alt[disabled]:visited, .btn-vimeo-alt[disabled]:hover, .btn-vimeo-alt[disabled].is-hover, .btn-vimeo-alt[disabled]:active, .btn-vimeo-alt[disabled].is-active, .btn-vimeo-alt.is-disabled:visited, .btn-vimeo-alt.is-disabled:hover, .btn-vimeo-alt.is-disabled.is-hover, .btn-vimeo-alt.is-disabled:active, .btn-vimeo-alt.is-disabled.is-active {
+      background-color: #3A5161;
+      color: #fff;
+      border: 1px solid #3A5161; }
+  .btn-vimeo-alt.is-processing, .btn-vimeo-alt.processing, .btn-vimeo-alt.is-loading, .btn-vimeo-alt.loading {
+    background-position: center center !important;
+    color: transparent !important;
+    background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg%20version%3D%221.1%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20xmlns%3Axlink%3D%22http%3A%2F%2Fwww.w3.org%2F1999%2Fxlink%22%20x%3D%220px%22%20y%3D%220px%22%0D%0A%20%20viewBox%3D%220%200%2040%2040%22%20xml%3Aspace%3D%22preserve%22%3E%0D%0A%3Cpath%20opacity%3D%220.2%22%20fill%3D%22%23FFFFFF%22%20d%3D%22M20.201%2C5.169c-8.254%2C0-14.946%2C6.692-14.946%2C14.946c0%2C8.255%2C6.692%2C14.946%2C14.946%2C14.946%0D%0A%20%20s14.946-6.691%2C14.946-14.946C35.146%2C11.861%2C28.455%2C5.169%2C20.201%2C5.169z%20M20.201%2C31.749c-6.425%2C0-11.634-5.208-11.634-11.634%0D%0A%20%20c0-6.425%2C5.209-11.634%2C11.634-11.634c6.425%2C0%2C11.633%2C5.209%2C11.633%2C11.634C31.834%2C26.541%2C26.626%2C31.749%2C20.201%2C31.749z%22%2F%3E%0D%0A%3Cpath%20fill%3D%22%23FFFFFF%22%20d%3D%22M26.013%2C10.047l1.654-2.866c-2.198-1.272-4.743-2.012-7.466-2.012h0v3.312h0%0D%0A%20%20C22.32%2C8.481%2C24.301%2C9.057%2C26.013%2C10.047z%22%3E%0D%0A%20%20%3CanimateTransform%20attributeType%3D%22xml%22%0D%0A%20%20%20%20attributeName%3D%22transform%22%0D%0A%20%20%20%20type%3D%22rotate%22%0D%0A%20%20%20%20from%3D%220%2020%2020%22%0D%0A%20%20%20%20to%3D%22360%2020%2020%22%0D%0A%20%20%20%20dur%3D%220.5s%22%0D%0A%20%20%20%20repeatCount%3D%22indefinite%22%2F%3E%0D%0A%20%20%3C%2Fpath%3E%0D%0A%3C%2Fsvg%3E");
+    background-repeat: no-repeat;
+    background-size: 23px 23px; }
+    .btn-vimeo-alt.is-processing.btn--small, .btn-vimeo-alt.is-processing.btn-search, .btn-vimeo-alt.processing.btn--small, .btn-vimeo-alt.processing.btn-search, .btn-vimeo-alt.is-loading.btn--small, .btn-vimeo-alt.is-loading.btn-search, .btn-vimeo-alt.loading.btn--small, .btn-vimeo-alt.loading.btn-search {
+      background-size: 20px 20px; }
+    .btn-vimeo-alt.is-processing.btn--medium, .btn-vimeo-alt.processing.btn--medium, .btn-vimeo-alt.is-loading.btn--medium, .btn-vimeo-alt.loading.btn--medium {
+      background-size: 23px 23px; }
+    .btn-vimeo-alt.is-processing.btn--large, .btn-vimeo-alt.processing.btn--large, .btn-vimeo-alt.is-loading.btn--large, .btn-vimeo-alt.loading.btn--large {
+      background-size: 45px 45px; }
+
 .btn-vimeo-black {
   background-color: rgba(26, 46, 59, 0.5);
   color: rgba(255, 255, 255, 0.8);
@@ -1492,6 +1536,50 @@ select {
     .btn-vimeo-black.is-processing.btn--medium, .btn-vimeo-black.processing.btn--medium, .btn-vimeo-black.is-loading.btn--medium, .btn-vimeo-black.loading.btn--medium {
       background-size: 23px 23px; }
     .btn-vimeo-black.is-processing.btn--large, .btn-vimeo-black.processing.btn--large, .btn-vimeo-black.is-loading.btn--large, .btn-vimeo-black.loading.btn--large {
+      background-size: 45px 45px; }
+
+.btn-vimeo-red {
+  background-color: #ff4d4d;
+  color: #ffffff;
+  border: 1px solid #ff4d4d;
+  background-size: 15px 15px; }
+  .btn-vimeo-red:link, .btn-vimeo-red:visited {
+    color: #ffffff;
+    border: 1px solid #ff4d4d; }
+  .btn-vimeo-red:hover, .btn-vimeo-red.is-hover, .btn-vimeo-red:focus:hover, .btn-vimeo-red:focus.is-hover {
+    color: #ffffff;
+    cursor: pointer;
+    background-color: #d93636;
+    border: 1px solid #d93636; }
+  .btn-vimeo-red:active, .btn-vimeo-red.is-active, .btn-vimeo-red:focus, .btn-vimeo-red.is-focus {
+    color: #ffffff;
+    background-color: #ff4d4d;
+    border: 1px solid #ff4d4d; }
+  .btn-vimeo-red.is-selected {
+    color: #ffffff;
+    cursor: pointer;
+    background-color: #d93636;
+    border: 1px solid #d93636; }
+  .btn-vimeo-red[disabled], .btn-vimeo-red.is-disabled {
+    opacity: .5;
+    background-color: #ff4d4d;
+    color: #ffffff;
+    border: 1px solid #ff4d4d; }
+    .btn-vimeo-red[disabled]:visited, .btn-vimeo-red[disabled]:hover, .btn-vimeo-red[disabled].is-hover, .btn-vimeo-red[disabled]:active, .btn-vimeo-red[disabled].is-active, .btn-vimeo-red.is-disabled:visited, .btn-vimeo-red.is-disabled:hover, .btn-vimeo-red.is-disabled.is-hover, .btn-vimeo-red.is-disabled:active, .btn-vimeo-red.is-disabled.is-active {
+      background-color: #ff4d4d;
+      color: #ffffff;
+      border: 1px solid #ff4d4d; }
+  .btn-vimeo-red.is-processing, .btn-vimeo-red.processing, .btn-vimeo-red.is-loading, .btn-vimeo-red.loading {
+    background-position: center center !important;
+    color: transparent !important;
+    background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg%20version%3D%221.1%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20xmlns%3Axlink%3D%22http%3A%2F%2Fwww.w3.org%2F1999%2Fxlink%22%20x%3D%220px%22%20y%3D%220px%22%0D%0A%20%20viewBox%3D%220%200%2040%2040%22%20xml%3Aspace%3D%22preserve%22%3E%0D%0A%3Cpath%20opacity%3D%220.2%22%20fill%3D%22%238699a6%22%20d%3D%22M20.201%2C5.169c-8.254%2C0-14.946%2C6.692-14.946%2C14.946c0%2C8.255%2C6.692%2C14.946%2C14.946%2C14.946%0D%0A%20%20s14.946-6.691%2C14.946-14.946C35.146%2C11.861%2C28.455%2C5.169%2C20.201%2C5.169z%20M20.201%2C31.749c-6.425%2C0-11.634-5.208-11.634-11.634%0D%0A%20%20c0-6.425%2C5.209-11.634%2C11.634-11.634c6.425%2C0%2C11.633%2C5.209%2C11.633%2C11.634C31.834%2C26.541%2C26.626%2C31.749%2C20.201%2C31.749z%22%2F%3E%0D%0A%3Cpath%20fill%3D%22%238699a6%22%20d%3D%22M26.013%2C10.047l1.654-2.866c-2.198-1.272-4.743-2.012-7.466-2.012h0v3.312h0%0D%0A%20%20C22.32%2C8.481%2C24.301%2C9.057%2C26.013%2C10.047z%22%3E%0D%0A%20%20%3CanimateTransform%20attributeType%3D%22xml%22%0D%0A%20%20%20%20attributeName%3D%22transform%22%0D%0A%20%20%20%20type%3D%22rotate%22%0D%0A%20%20%20%20from%3D%220%2020%2020%22%0D%0A%20%20%20%20to%3D%22360%2020%2020%22%0D%0A%20%20%20%20dur%3D%220.5s%22%0D%0A%20%20%20%20repeatCount%3D%22indefinite%22%2F%3E%0D%0A%20%20%3C%2Fpath%3E%0D%0A%3C%2Fsvg%3E");
+    background-repeat: no-repeat;
+    background-size: 23px 23px; }
+    .btn-vimeo-red.is-processing.btn--small, .btn-vimeo-red.is-processing.btn-search, .btn-vimeo-red.processing.btn--small, .btn-vimeo-red.processing.btn-search, .btn-vimeo-red.is-loading.btn--small, .btn-vimeo-red.is-loading.btn-search, .btn-vimeo-red.loading.btn--small, .btn-vimeo-red.loading.btn-search {
+      background-size: 20px 20px; }
+    .btn-vimeo-red.is-processing.btn--medium, .btn-vimeo-red.processing.btn--medium, .btn-vimeo-red.is-loading.btn--medium, .btn-vimeo-red.loading.btn--medium {
+      background-size: 23px 23px; }
+    .btn-vimeo-red.is-processing.btn--large, .btn-vimeo-red.processing.btn--large, .btn-vimeo-red.is-loading.btn--large, .btn-vimeo-red.loading.btn--large {
       background-size: 45px 45px; }
 
 /*.....................................
@@ -3187,7 +3275,7 @@ hr.column {
     display: none;
     background: #fff;
     z-index: 2147483600;
-    border: 1px solid #D7DDE1;
+    border: 1px solid #e3e8e9;
     border-radius: 5px;
     position: absolute;
     top: 50px;
@@ -3223,7 +3311,7 @@ hr.column {
       margin-right: -7px; }
     .dropdown .dropdown-list:before {
       border-color: rgba(255, 255, 255, 0);
-      border-bottom-color: #D7DDE1;
+      border-bottom-color: #e3e8e9;
       border-width: 6px;
       margin-right: -8px; }
   .dropdown.dropdown--xsmall .dropdown-list {
@@ -3306,7 +3394,7 @@ hr.column {
     color: #5E7887;
     font-size: 14px;
     background-color: #fff;
-    border: 1px solid #d1d9dc;
+    border: 1px solid #e3e8e9;
     margin-bottom: 0;
     box-shadow: none;
     box-sizing: border-box;
@@ -3322,7 +3410,7 @@ hr.column {
     .form input[type="password"]::-webkit-input-placeholder,
     .form input[type="number"]::-webkit-input-placeholder,
     .form textarea::-webkit-input-placeholder {
-      color: rgba(55, 86, 103, 0.5) !important;
+      color: rgba(26, 46, 59, 0.5) !important;
       font-weight: normal; }
     .form input[type="text"]:-moz-placeholder,
     .form input[type="email"]:-moz-placeholder,
@@ -3330,7 +3418,7 @@ hr.column {
     .form input[type="password"]:-moz-placeholder,
     .form input[type="number"]:-moz-placeholder,
     .form textarea:-moz-placeholder {
-      color: rgba(55, 86, 103, 0.5) !important;
+      color: rgba(26, 46, 59, 0.5) !important;
       font-weight: normal;
       opacity: 1; }
     .form input[type="text"]::-moz-placeholder,
@@ -3339,7 +3427,7 @@ hr.column {
     .form input[type="password"]::-moz-placeholder,
     .form input[type="number"]::-moz-placeholder,
     .form textarea::-moz-placeholder {
-      color: rgba(55, 86, 103, 0.5) !important;
+      color: rgba(26, 46, 59, 0.5) !important;
       font-weight: normal;
       opacity: 1; }
     .form input[type="text"]:-ms-input-placeholder,
@@ -3348,7 +3436,7 @@ hr.column {
     .form input[type="password"]:-ms-input-placeholder,
     .form input[type="number"]:-ms-input-placeholder,
     .form textarea:-ms-input-placeholder {
-      color: rgba(55, 86, 103, 0.5) !important;
+      color: rgba(26, 46, 59, 0.5) !important;
       font-weight: normal; }
     .form input[type="text"][disabled],
     .form input[type="email"][disabled],
@@ -3372,30 +3460,30 @@ hr.column {
     .form input[type="password"].is-error,
     .form input[type="number"].is-error,
     .form textarea.is-error {
-      color: #D3104A;
-      border: 1px solid #D3104A; }
+      color: #ff4d4d;
+      border: 1px solid #ff4d4d; }
       .form input[type="text"].is-error.is-selected,
       .form input[type="email"].is-error.is-selected,
       .form input[type="tel"].is-error.is-selected,
       .form input[type="password"].is-error.is-selected,
       .form input[type="number"].is-error.is-selected,
       .form textarea.is-error.is-selected {
-        border: 2px solid #cf124c;
-        background-color: #641728; }
+        border: 2px solid #ff4d4d;
+        background-color: #ff4d4d; }
       .form input[type="text"].is-error::-webkit-input-placeholder,
       .form input[type="email"].is-error::-webkit-input-placeholder,
       .form input[type="tel"].is-error::-webkit-input-placeholder,
       .form input[type="password"].is-error::-webkit-input-placeholder,
       .form input[type="number"].is-error::-webkit-input-placeholder,
       .form textarea.is-error::-webkit-input-placeholder {
-        color: #D3104A !important; }
+        color: #ff4d4d !important; }
       .form input[type="text"].is-error:-moz-placeholder,
       .form input[type="email"].is-error:-moz-placeholder,
       .form input[type="tel"].is-error:-moz-placeholder,
       .form input[type="password"].is-error:-moz-placeholder,
       .form input[type="number"].is-error:-moz-placeholder,
       .form textarea.is-error:-moz-placeholder {
-        color: #D3104A !important;
+        color: #ff4d4d !important;
         opacity: 1; }
       .form input[type="text"].is-error::-moz-placeholder,
       .form input[type="email"].is-error::-moz-placeholder,
@@ -3403,7 +3491,7 @@ hr.column {
       .form input[type="password"].is-error::-moz-placeholder,
       .form input[type="number"].is-error::-moz-placeholder,
       .form textarea.is-error::-moz-placeholder {
-        color: #D3104A !important;
+        color: #ff4d4d !important;
         opacity: 1; }
       .form input[type="text"].is-error:-ms-input-placeholder,
       .form input[type="email"].is-error:-ms-input-placeholder,
@@ -3411,7 +3499,7 @@ hr.column {
       .form input[type="password"].is-error:-ms-input-placeholder,
       .form input[type="number"].is-error:-ms-input-placeholder,
       .form textarea.is-error:-ms-input-placeholder {
-        color: #D3104A !important; }
+        color: #ff4d4d !important; }
     .form input[type="text"]:focus,
     .form input[type="email"]:focus,
     .form input[type="tel"]:focus,
@@ -3419,8 +3507,8 @@ hr.column {
     .form input[type="number"]:focus,
     .form textarea:focus {
       outline: none;
-      color: #5E7887;
-      border: 1px solid #9aaab4;
+      color: #8699a6;
+      border: 1px solid #b3bfc8;
       box-shadow: none;
       /* on focus + has error
       ...................................*/ }
@@ -3460,16 +3548,16 @@ hr.column {
       .form input[type="password"]:focus.is-error,
       .form input[type="number"]:focus.is-error,
       .form textarea:focus.is-error {
-        color: #D3104A;
-        border: 1px solid #D3104A; }
+        color: #ff4d4d;
+        border: 1px solid #ff4d4d; }
         .form input[type="text"]:focus.is-error.is-selected,
         .form input[type="email"]:focus.is-error.is-selected,
         .form input[type="tel"]:focus.is-error.is-selected,
         .form input[type="password"]:focus.is-error.is-selected,
         .form input[type="number"]:focus.is-error.is-selected,
         .form textarea:focus.is-error.is-selected {
-          border: 2px solid #cf124c;
-          background-color: #641728; }
+          border: 2px solid #ff4d4d;
+          background-color: #ff4d4d; }
         .form input[type="text"]:focus.is-error::-webkit-input-placeholder,
         .form input[type="email"]:focus.is-error::-webkit-input-placeholder,
         .form input[type="tel"]:focus.is-error::-webkit-input-placeholder,
@@ -3477,7 +3565,7 @@ hr.column {
         .form input[type="number"]:focus.is-error::-webkit-input-placeholder,
         .form textarea:focus.is-error::-webkit-input-placeholder {
           transition: all .2s ease;
-          color: #D3104A !important; }
+          color: #ff4d4d !important; }
         .form input[type="text"]:focus.is-error:-moz-placeholder,
         .form input[type="email"]:focus.is-error:-moz-placeholder,
         .form input[type="tel"]:focus.is-error:-moz-placeholder,
@@ -3485,7 +3573,7 @@ hr.column {
         .form input[type="number"]:focus.is-error:-moz-placeholder,
         .form textarea:focus.is-error:-moz-placeholder {
           transition: all .2s ease;
-          color: #D3104A !important;
+          color: #ff4d4d !important;
           opacity: 1; }
         .form input[type="text"]:focus.is-error::-moz-placeholder,
         .form input[type="email"]:focus.is-error::-moz-placeholder,
@@ -3494,7 +3582,7 @@ hr.column {
         .form input[type="number"]:focus.is-error::-moz-placeholder,
         .form textarea:focus.is-error::-moz-placeholder {
           transition: all .2s ease;
-          color: #D3104A !important;
+          color: #ff4d4d !important;
           opacity: 1; }
         .form input[type="text"]:focus.is-error:-ms-input-placeholder,
         .form input[type="email"]:focus.is-error:-ms-input-placeholder,
@@ -3503,7 +3591,7 @@ hr.column {
         .form input[type="number"]:focus.is-error:-ms-input-placeholder,
         .form textarea:focus.is-error:-ms-input-placeholder {
           transition: all .2s ease;
-          color: #D3104A !important; }
+          color: #ff4d4d !important; }
     .form input[type="text"].small,
     .form input[type="email"].small,
     .form input[type="tel"].small,
@@ -3546,6 +3634,8 @@ hr.column {
     .form .inner-button .button,
     .form .inner-button .btn-gray,
     .form .inner-button .btn-dropdown-gray,
+    .form .inner-button .btn-vimeo-blue,
+    .form .inner-button .btn-dropdown-vimeo-blue,
     .form .inner-button .btn-search,
     .form .inner-button .btn,
     .form .inner-button .btn-gray,
@@ -3573,7 +3663,9 @@ hr.column {
     .form .inner-button .btn-dropdown-vimeo-secondary,
     .form .inner-button .btn-vimeo-secondary-outline,
     .form .inner-button .btn-dropdown-vimeo-secondary-outline,
+    .form .inner-button .btn-vimeo-alt,
     .form .inner-button .btn-vimeo-black,
+    .form .inner-button .btn-vimeo-red,
     .form .inner-button .btn-dropdown {
       position: absolute;
       top: 5px;
@@ -3599,7 +3691,7 @@ hr.column {
     position: absolute;
     top: 11px;
     left: 15px;
-    color: #F0F2F4; }
+    color: #eef1f2; }
 
 /* .....................................
   Fonts
@@ -6019,7 +6111,7 @@ th {
 /* sizes
 ......................................*/
 .head, .head-1, .head-2, .head-3, .head-4, .head-5 {
-  color: #375667;
+  color: #1a2e3b;
   font-weight: 500;
   text-transform: uppercase;
   font-family: "brandon-grotesque-n1", "brandon-grotesque", "Brandon Grotesque", sans-serif; }
@@ -6059,41 +6151,41 @@ th {
 /* header navy
 ......................................*/
 .head--navy {
-  color: #375667; }
+  color: #1a2e3b; }
 
 a.head--navy:link, a.head--navy:visited,
 a.head-1:link,
 a.head-1:visited, a.head-2:link, a.head-2:visited, a.head-3:link, a.head-3:visited, a.head-4:link, a.head-4:visited, a.head-5:link, a.head-5:visited {
-  color: #375667;
+  color: #1a2e3b;
   text-decoration: none; }
 a.head--navy:visited, a.head--navy:hover,
 a.head-1:visited,
 a.head-1:hover, a.head-2:visited, a.head-2:hover, a.head-3:visited, a.head-3:hover, a.head-4:visited, a.head-4:hover, a.head-5:visited, a.head-5:hover {
-  color: #869AA5;
+  color: #8699a6;
   text-decoration: none; }
 
 /* header gray
 ......................................*/
 .head--gray {
-  color: #869AA5; }
+  color: #8699a6; }
 
 a.head--gray:link, a.head--gray:visited {
-  color: #869AA5;
+  color: #8699a6;
   text-decoration: none; }
 a.head--gray:hover, a.head--gray:active {
-  color: #5E7887;
+  color: #8699a6;
   text-decoration: none; }
 
 /* header teal
 ......................................*/
 .head--teal {
-  color: #22B9B0; }
+  color: #00adef; }
 
 a.head--teal:link, a.head--teal:visited {
-  color: #22B9B0;
+  color: #00adef;
   text-decoration: none; }
 a.head--teal:hover, a.head--teal:active {
-  color: #149A97;
+  color: #00adef;
   text-decoration: none; }
 
 /* header white
@@ -7018,7 +7110,7 @@ a.head--vimeo-blue:hover, a.head--vimeo-blue:active {
 /* reset
 ......................................*/
 body {
-  color: #5E7887; }
+  color: #8699a6; }
 
 body, ul, ol, dl, li, p, div, section, nav, table, h1, h2, h3, h4, h5, h6 {
   font-family: "Helvetica", "Arial", sans-serif;
@@ -7047,88 +7139,88 @@ a {
 .text-1 {
   font-size: 16px;
   line-height: 24px;
-  color: #5E7887; }
+  color: #8699a6; }
 
 .text-2 {
   font-size: 14px;
   line-height: 22px;
-  color: #5E7887; }
+  color: #8699a6; }
 
 .text-3 {
   font-size: 13px;
   line-height: 18px;
-  color: #5E7887; }
+  color: #8699a6; }
 
 .text-4 {
   font-size: 12px;
   line-height: 16px;
-  color: #5E7887; }
+  color: #8699a6; }
 
 /* colors
 ......................................*/
 .text--navy {
-  color: #375667; }
+  color: #1a2e3b; }
   .text--navy.text--transparent {
-    color: rgba(55, 86, 103, 0.5); }
+    color: rgba(26, 46, 59, 0.5); }
 
 a.text--navy:link, a.text--navy:visited {
-  color: #375667;
+  color: #1a2e3b;
   text-decoration: none; }
 a.text--navy:hover, a.text--navy:active {
-  color: #869AA5;
+  color: #8699a6;
   text-decoration: none; }
   a.text--navy:hover.is-hover-text--navy, a.text--navy:active.is-hover-text--navy {
-    color: #375667; }
+    color: #1a2e3b; }
 a.text--navy.is-disabled:link, a.text--navy.is-disabled:visited, a.text--navy.is-disabled:hover, a.text--navy.is-disabled:active {
-  color: #375667; }
+  color: #1a2e3b; }
 
 .text--gray {
-  color: #869AA5; }
+  color: #8699a6; }
   .text--gray.text--transparent {
-    color: rgba(134, 154, 165, 0.5); }
+    color: rgba(134, 153, 166, 0.5); }
 
 a.text--gray:link, a.text--gray:visited {
-  color: #869AA5;
+  color: #8699a6;
   text-decoration: none; }
 a.text--gray:hover, a.text--gray:active {
-  color: #375667;
+  color: #1a2e3b;
   text-decoration: none; }
   a.text--gray:hover.is-hover-text--gray, a.text--gray:active.is-hover-text--gray {
-    color: #869AA5; }
+    color: #8699a6; }
 a.text--gray.is-disabled:link, a.text--gray.is-disabled:visited, a.text--gray.is-disabled:hover, a.text--gray.is-disabled:active {
-  color: #869AA5; }
+  color: #8699a6; }
 
 .text--gray-light {
-  color: #F0F2F4; }
+  color: #eef1f2; }
   .text--gray-light.text--transparent {
-    color: rgba(240, 242, 244, 0.5); }
+    color: rgba(238, 241, 242, 0.5); }
 
 a.text--gray-light:link, a.text--gray-light:visited {
-  color: #F0F2F4;
+  color: #eef1f2;
   text-decoration: none; }
 a.text--gray-light:hover, a.text--gray-light:active {
-  color: #AFBCC3;
+  color: #b3bfc8;
   text-decoration: none; }
   a.text--gray-light:hover.is-hover-text--gray-light, a.text--gray-light:active.is-hover-text--gray-light {
-    color: #F0F2F4; }
+    color: #eef1f2; }
 a.text--gray-light.is-disabled:link, a.text--gray-light.is-disabled:visited, a.text--gray-light.is-disabled:hover, a.text--gray-light.is-disabled:active {
-  color: #AFBCC3; }
+  color: #b3bfc8; }
 
 .text--teal {
-  color: #22B9B0; }
+  color: #00adef; }
   .text--teal.text--transparent {
-    color: rgba(34, 185, 176, 0.5); }
+    color: rgba(0, 173, 239, 0.5); }
 
 a.text--teal:link, a.text--teal:visited {
-  color: #22B9B0;
+  color: #00adef;
   text-decoration: none; }
 a.text--teal:hover, a.text--teal:active {
-  color: #149A97;
+  color: #00adef;
   text-decoration: none; }
   a.text--teal:hover.is-hover-text--teal, a.text--teal:active.is-hover-text--teal {
-    color: #F0F2F4; }
+    color: #eef1f2; }
 a.text--teal.is-disabled:link, a.text--teal.is-disabled:visited, a.text--teal.is-disabled:hover, a.text--teal.is-disabled:active {
-  color: #149A97; }
+  color: #00adef; }
 
 .text--white {
   color: #fff; }
@@ -7179,20 +7271,20 @@ a.text--green.is-disabled:link, a.text--green.is-disabled:visited, a.text--green
   color: #9DBB36; }
 
 .text--red {
-  color: #D3104A; }
+  color: #ff4d4d; }
   .text--red.text--transparent {
-    color: rgba(211, 16, 74, 0.5); }
+    color: rgba(255, 77, 77, 0.5); }
 
 a.text--red:link, a.text--red:visited {
-  color: #D3104A;
+  color: #ff4d4d;
   text-decoration: none; }
 a.text--red:hover, a.text--red:active {
-  color: #D3104A;
+  color: #ff4d4d;
   text-decoration: none; }
   a.text--red:hover.is-hover-text--red, a.text--red:active.is-hover-text--red {
-    color: #D3104A; }
+    color: #ff4d4d; }
 a.text--red.is-disabled:link, a.text--red.is-disabled:visited, a.text--red.is-disabled:hover, a.text--red.is-disabled:active {
-  color: #D3104A; }
+  color: #ff4d4d; }
 
 .text--orange {
   color: #D06B5E; }
@@ -7307,20 +7399,20 @@ a.text--sunset-orange.is-disabled:link, a.text--sunset-orange.is-disabled:visite
   color: #d93636; }
 
 .text--southerly-sky {
-  color: #b3bfc8; }
+  color: #8699a6; }
   .text--southerly-sky.text--transparent {
-    color: rgba(179, 191, 200, 0.5); }
+    color: rgba(134, 153, 166, 0.5); }
 
 a.text--southerly-sky:link, a.text--southerly-sky:visited {
-  color: #b3bfc8;
+  color: #8699a6;
   text-decoration: none; }
 a.text--southerly-sky:hover, a.text--southerly-sky:active {
   color: #1a2e3b;
   text-decoration: none; }
   a.text--southerly-sky:hover.is-hover-text--southerly-sky, a.text--southerly-sky:active.is-hover-text--southerly-sky {
-    color: #b3bfc8; }
+    color: #8699a6; }
 a.text--southerly-sky.is-disabled:link, a.text--southerly-sky.is-disabled:visited, a.text--southerly-sky.is-disabled:hover, a.text--southerly-sky.is-disabled:active {
-  color: #b3bfc8; }
+  color: #8699a6; }
 
 .text--regent-gray {
   color: #8699a6; }
@@ -7367,7 +7459,7 @@ a.text--astro-granite.is-disabled:link, a.text--astro-granite.is-disabled:visite
     font-style: italic; }
 
 .text--transparent {
-  color: rgba(94, 120, 135, 0.5); }
+  color: rgba(134, 153, 166, 0.5); }
 
 .text--uppercase {
   text-transform: uppercase; }
@@ -7439,8 +7531,8 @@ a.text--astro-granite.is-disabled:link, a.text--astro-granite.is-disabled:visite
   position: relative;
   opacity: 0;
   border-radius: 5px;
-  border: 1px solid #00142B;
-  background: #00142B;
+  border: 1px solid #1a2e3b;
+  background: #1a2e3b;
   /* arrows
   ......................................*/ }
   .tooltip.is-active {
@@ -7478,10 +7570,10 @@ a.text--astro-granite.is-disabled:link, a.text--astro-granite.is-disabled:visite
     top: 100%;
     right: 10%; }
   .tooltip.arrow--bottom-right:after, .tooltip.arrow--bottom-left:after, .tooltip.arrow--bottom-center:after {
-    border-top-color: #00142B;
+    border-top-color: #1a2e3b;
     margin-left: -10px; }
   .tooltip.arrow--bottom-right:before, .tooltip.arrow--bottom-left:before, .tooltip.arrow--bottom-center:before {
-    border-top-color: #00142B;
+    border-top-color: #1a2e3b;
     margin-left: -11px; }
   .tooltip.arrow--left-center:after, .tooltip.arrow--left-center:before {
     right: 100%;
@@ -7493,10 +7585,10 @@ a.text--astro-granite.is-disabled:link, a.text--astro-granite.is-disabled:visite
     right: 100%;
     bottom: 10%; }
   .tooltip.arrow--left-center:after, .tooltip.arrow--left-top:after, .tooltip.arrow--left-bottom:after {
-    border-right-color: #00142B;
+    border-right-color: #1a2e3b;
     margin-top: -10px; }
   .tooltip.arrow--left-center:before, .tooltip.arrow--left-top:before, .tooltip.arrow--left-bottom:before {
-    border-right-color: #00142B;
+    border-right-color: #1a2e3b;
     margin-top: -11px; }
   .tooltip.arrow--right-center:after, .tooltip.arrow--right-center:before {
     left: 100%;
@@ -7508,10 +7600,10 @@ a.text--astro-granite.is-disabled:link, a.text--astro-granite.is-disabled:visite
     left: 100%;
     bottom: 10%; }
   .tooltip.arrow--right-bottom:after, .tooltip.arrow--right-top:after, .tooltip.arrow--right-center:after {
-    border-left-color: #00142B;
+    border-left-color: #1a2e3b;
     margin-top: -10px; }
   .tooltip.arrow--right-bottom:before, .tooltip.arrow--right-top:before, .tooltip.arrow--right-center:before {
-    border-left-color: #00142B;
+    border-left-color: #1a2e3b;
     margin-top: -11px; }
   .tooltip.arrow--top-center:after, .tooltip.arrow--top-center:before {
     bottom: 100%;
@@ -7523,10 +7615,10 @@ a.text--astro-granite.is-disabled:link, a.text--astro-granite.is-disabled:visite
     bottom: 100%;
     right: 10%; }
   .tooltip.arrow--top-right:after, .tooltip.arrow--top-left:after, .tooltip.arrow--top-center:after {
-    border-bottom-color: #00142B;
+    border-bottom-color: #1a2e3b;
     margin-left: -10px; }
   .tooltip.arrow--top-right:before, .tooltip.arrow--top-left:before, .tooltip.arrow--top-center:before {
-    border-bottom-color: #00142B;
+    border-bottom-color: #1a2e3b;
     margin-left: -11px; }
 
 /* tooltip sizes

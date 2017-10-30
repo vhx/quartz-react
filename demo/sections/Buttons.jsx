@@ -19,6 +19,7 @@ const colors = [
   'vimeo-blue',
   'vimeo-secondary',
   'vimeo-secondary-outline',
+  'vimeo-alt',
   'white',
   'red',
   'purple',
