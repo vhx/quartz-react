@@ -8,6 +8,17 @@ function createCommonjsModule(fn, module) {
 	return module = { exports: {} }, fn(module, module.exports), module.exports;
 }
 
+/**
+ * Copyright (c) 2013-present, Facebook, Inc.
+ * All rights reserved.
+ *
+ * This source code is licensed under the BSD-style license found in the
+ * LICENSE file in the root directory of this source tree. An additional grant
+ * of patent rights can be found in the PATENTS file in the same directory.
+ *
+ * 
+ */
+
 function makeEmptyFunction(arg) {
   return function () {
     return arg;
@@ -44,6 +55,17 @@ var emptyFunction_1 = emptyFunction;
  *
  */
 
+/**
+ * Use invariant() to assert state which your program assumes to be true.
+ *
+ * Provide sprintf-style format (only %s is supported) and arguments
+ * to provide information about what broke and what you were
+ * expecting.
+ *
+ * The invariant message will be stripped in production, but the invariant
+ * will remain to ensure logic does not differ in production.
+ */
+
 var validateFormat = function validateFormat(format) {};
 
 if (undefined !== 'production') {
@@ -76,6 +98,13 @@ function invariant(condition, format, a, b, c, d, e, f) {
 }
 
 var invariant_1 = invariant;
+
+/**
+ * Similar to invariant but only logs a warning if the condition is not met.
+ * This can be used to log issues in development environments in critical
+ * paths. Removing the logging code for production environments will keep the
+ * same logic and follow the same code paths.
+ */
 
 var warning = emptyFunction_1;
 
@@ -880,6 +909,13 @@ function connect$$1(model, Component$$1) {
 <If condition={false}><MyComponent /></If> // MyComponent will not render
 <If condition={true}><MyComponent /></If> // MyComponent will render
 */
+/*
+truncate('foo-bar-baz', 4);
+=> 'foo-...'
+
+truncate('foo', 4);
+=> 'foo'
+*/
 function truncate(str, maxLength) {
   return str.length > maxLength ? str.slice(0, maxLength).concat('...') : str;
 }
@@ -1236,6 +1272,9 @@ var KEY_CODES = Object.freeze({
   RIGHT: 39,
 });
 
+// calcNext(3, 0) => 1
+// calcNext(3, 1) => 2
+// calcNext(3, 2) => 0 // <- it wraps around to the first slide
 function calcNext(length, current) {
   return (current + 1) % length;
 }
@@ -1585,7 +1624,7 @@ function getClass(ref) {
     'is-error': error,
     'c-select--search': search,
     'padding-right-large': search,
-    'icon-search-navy': search,
+    'icon-search-black': search,
     'icon--xsmall': search,
   });
 }
@@ -2490,6 +2529,8 @@ function SelectDropdownHOC(ref) {
   return SelectDropdown;
 }
 
+// TODO: this is a hack, we should have this in css if possible to make a PR to Quartz css
+// (This fixes wrapping issues in `inline` select dropdowns)
 var listStyle = { whiteSpace: 'nowrap' };
 
 var SelectDropdownOption = function (ref) {
@@ -3091,6 +3132,9 @@ Title.propTypes = {
   children: index.string.isRequired,
 };
 
+// Avatars headings
+// -----------------------------------------
+
 var AvatarDemo = function () { return (
   React__default.createElement( 'div', null,
     React__default.createElement( Subtitle, null, "Headings" ),
@@ -3238,6 +3282,9 @@ var Buttons = function () { return (
     React__default.createElement( DemoRow, null, React__default.createElement( PropTypeTable, { component: Button$1 }) )
   )
 ); };
+
+// Carousel demo
+// -----------------------------------------
 
 var MAX_TITLE_LENGTH = 50; // characters
 var lorem = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua';
@@ -3389,6 +3436,9 @@ var Carousels = function () { return (
   )
 ); };
 
+// Checked / unchecked demo
+// -----------------------------------------
+
 var handler = function () { return alert('Hi!'); };
 var StatelessCheckboxes = function () { return (
   React__default.createElement( 'div', null,
@@ -3494,6 +3544,9 @@ var Checkboxes = function () { return (
   )
 ); };
 
+// Standard header
+// -----------------------------------------
+
 var DefaultDemo = function () { return (
   React__default.createElement( 'div', null,
     React__default.createElement( Subtitle, null, "Default" ),
@@ -3533,6 +3586,9 @@ var Headers = function () { return (
     React__default.createElement( DemoRow, null, React__default.createElement( PropTypeTable, { component: Header$1 }) )
   )
 ); };
+
+// All icons demo
+// -----------------------------------------
 
 var IconList = function () { return (
   React__default.createElement( 'div', null,
@@ -3617,6 +3673,9 @@ var Icons = function () { return (
     React__default.createElement( DemoRow, null, React__default.createElement( PropTypeTable, { component: Icon$1 }) )
   )
 ); };
+
+// Input demo
+// -----------------------------------------
 
 var InputDemo = function () { return (
   React__default.createElement( 'div', null,
@@ -3710,6 +3769,9 @@ var Inputs = function () { return (
     React__default.createElement( DemoRow, null, React__default.createElement( PropTypeTable, { component: Input$1 }) )
   )
 ); };
+
+// Shared
+// -----------------------------------------
 
 var MyModalContents = function () { return React__default.createElement( 'div', null, "Hello!" ); };
 
@@ -3968,6 +4030,9 @@ var Radios = function () { return (
     React__default.createElement( DemoRow, null, React__default.createElement( PropTypeTable, { component: RadioGroup$1 }) )
   )
 ); };
+
+// Intro
+// -----------------------------------------
 
 var options = [
   {
@@ -4333,6 +4398,9 @@ var Sidebars = function () { return (
   )
 ); };
 
+// Tags default demo
+// -----------------------------------------
+
 var TagsDemo = function () { return (
   React__default.createElement( 'div', null,
     React__default.createElement( Subtitle, null, "Tags with Two Callbacks" ),
@@ -4379,6 +4447,9 @@ var Tags = function () { return (
     React__default.createElement( DemoRow, null, React__default.createElement( PropTypeTable, { component: Tag$1 }) )
   )
 ); };
+
+// Text headings
+// -----------------------------------------
 
 var TextHeadings = function () { return (
   React__default.createElement( 'div', null,
@@ -4427,6 +4498,10 @@ var TextDemo = function () { return (
   )
 ); };
 
+/* eslint-disable no-multi-spaces */
+// `Section` is a component that renders a demo section
+// `slug` is used in the url hash and section ids
+// `title` is used as the text in the nav sidebar
 var sections = [
   { Section: Avatars,     slug: 'avatars',      title: 'Avatars' },
   { Section: Buttons,     slug: 'buttons',      title: 'Buttons' },
