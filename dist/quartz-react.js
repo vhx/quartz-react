@@ -762,7 +762,7 @@ function getClass(ref) {
     'is-error': error,
     'c-select--search': search,
     'padding-right-large': search,
-    'icon-search-navy': search,
+    'icon-search-black': search,
     'icon--xsmall': search,
   });
 }
