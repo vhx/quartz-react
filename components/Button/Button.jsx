@@ -17,6 +17,7 @@ function getClassName({ className, color, size, typeface, processing }) {
     'btn-vimeo-blue': color === 'vimeo-blue',
     'btn-vimeo-secondary': color === 'vimeo-secondary',
     'btn-vimeo-secondary-outline': color === 'vimeo-secondary-outline',
+    'btn-vimeo-alt': color === 'vimeo-alt',
     // alternate colors
     'btn-purple': color === 'purple',
     'btn-green': color === 'green',
