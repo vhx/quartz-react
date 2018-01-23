@@ -802,7 +802,7 @@ Input$1.propTypes = {
   small: PropTypes.bool,
   style: PropTypes.object, // eslint-disable-line react/forbid-prop-types
   type: PropTypes.string,
-  value: PropTypes.string.isRequired,
+  value: PropTypes.string,
 };
 
 Input$1.defaultProps = {
@@ -824,6 +824,7 @@ Input$1.defaultProps = {
   small: false,
   style: {},
   type: 'text',
+  value: '',
 };
 
 var EmptyComponent = function () { return React__default.createElement( 'div', null ); };
