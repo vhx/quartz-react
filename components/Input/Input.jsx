@@ -52,7 +52,7 @@ Input.propTypes = {
   small: PropTypes.bool,
   style: PropTypes.object, // eslint-disable-line react/forbid-prop-types
   type: PropTypes.string,
-  value: PropTypes.string.isRequired,
+  value: PropTypes.string,
 };
 
 Input.defaultProps = {
@@ -74,6 +74,7 @@ Input.defaultProps = {
   small: false,
   style: {},
   type: 'text',
+  value: '',
 };
 
 export default Input;
