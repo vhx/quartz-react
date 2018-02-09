@@ -685,7 +685,7 @@ var types = [ 'standard', 'toggle' ];
 
 Checkbox$1.propTypes = {
   checked: PropTypes.bool,
-  label: PropTypes.string,
+  label: PropTypes.node,
   onChange: PropTypes.func,
   size: PropTypes.oneOf(sizes$3),
   type: PropTypes.oneOf(types),

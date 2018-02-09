@@ -50,7 +50,7 @@ const types = [ 'standard', 'toggle' ];
 
 Checkbox.propTypes = {
   checked: PropTypes.bool,
-  label: PropTypes.string,
+  label: PropTypes.node,
   onChange: PropTypes.func,
   size: PropTypes.oneOf(sizes),
   type: PropTypes.oneOf(types),
