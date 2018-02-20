@@ -14,14 +14,14 @@ export default {
   moduleName: 'QuartzReact',
   external: [ 'react', 'react-dom', 'prop-types', 'classnames' ],
   plugins: [
+    postcss({
+      modules: true,
+      plugins: [],
+    }),
     replace({ 'process.env.NODE_ENV': env }),
     resolve(),
     commonjs(),
     buble({ objectAssign: 'Object.assign' }),
     filesize(),
-    postcss({
-      modules: true,
-      plugins: [],
-    }),
   ],
 };

@@ -1,12 +1,50 @@
 (function (React,ReactDOM) {
 'use strict';
 
+function __$$styleInject(css, ref) {
+  if ( ref === void 0 ) ref = {};
+  var insertAt = ref.insertAt;
+
+  if (!css || typeof document === 'undefined') { return; }
+
+  var head = document.head || document.getElementsByTagName('head')[0];
+  var style = document.createElement('style');
+  style.type = 'text/css';
+
+  if (insertAt === 'top') {
+    if (head.firstChild) {
+      head.insertBefore(style, head.firstChild);
+    } else {
+      head.appendChild(style);
+    }
+  } else {
+    head.appendChild(style);
+  }
+
+  if (style.styleSheet) {
+    style.styleSheet.cssText = css;
+  } else {
+    style.appendChild(document.createTextNode(css));
+  }
+}
+
 var React__default = 'default' in React ? React['default'] : React;
 ReactDOM = 'default' in ReactDOM ? ReactDOM['default'] : ReactDOM;
 
 function createCommonjsModule(fn, module) {
 	return module = { exports: {} }, fn(module, module.exports), module.exports;
 }
+
+/**
+ * Copyright (c) 2013-present, Facebook, Inc.
+ * All rights reserved.
+ *
+ * This source code is licensed under the BSD-style license found in the
+ * LICENSE file in the root directory of this source tree. An additional grant
+ * of patent rights can be found in the PATENTS file in the same directory.
+ *
+ * 
+ */
 
 function makeEmptyFunction(arg) {
   return function () {
@@ -44,6 +82,17 @@ var emptyFunction_1 = emptyFunction;
  *
  */
 
+/**
+ * Use invariant() to assert state which your program assumes to be true.
+ *
+ * Provide sprintf-style format (only %s is supported) and arguments
+ * to provide information about what broke and what you were
+ * expecting.
+ *
+ * The invariant message will be stripped in production, but the invariant
+ * will remain to ensure logic does not differ in production.
+ */
+
 var validateFormat = function validateFormat(format) {};
 
 if (undefined !== 'production') {
@@ -76,6 +125,13 @@ function invariant(condition, format, a, b, c, d, e, f) {
 }
 
 var invariant_1 = invariant;
+
+/**
+ * Similar to invariant but only logs a warning if the condition is not met.
+ * This can be used to log issues in development environments in critical
+ * paths. Removing the logging code for production environments will keep the
+ * same logic and follow the same code paths.
+ */
 
 var warning = emptyFunction_1;
 
@@ -880,6 +936,13 @@ function connect$$1(model, Component$$1) {
 <If condition={false}><MyComponent /></If> // MyComponent will not render
 <If condition={true}><MyComponent /></If> // MyComponent will render
 */
+/*
+truncate('foo-bar-baz', 4);
+=> 'foo-...'
+
+truncate('foo', 4);
+=> 'foo'
+*/
 function truncate(str, maxLength) {
   return str.length > maxLength ? str.slice(0, maxLength).concat('...') : str;
 }
@@ -1000,10 +1063,14 @@ var utilities = Object.freeze({
 	connect: connect$$1
 });
 
+var css = "/* .....................................\n  Vimeo Colors\n..................................... */\n/* .....................................\n  Grayscale\n..................................... */\n/* .....................................\n  Blues\n..................................... */\n/* .....................................\n  Greens\n..................................... */\n/* .....................................\n  Reds\n..................................... */\n/* .....................................\n  Interaction Colors\n..................................... */\n/* .....................................\n  Vimeo Legacy Colors\n..................................... */\n/* .....................................\n  Default Text\n..................................... */\n/* .....................................\n  Default Sizing\n..................................... */\n/* .....................................\n  Vimeo Colors\n..................................... */\n/* .....................................\n  Grayscale\n..................................... */\n/* .....................................\n  Blues\n..................................... */\n/* .....................................\n  Greens\n..................................... */\n/* .....................................\n  Reds\n..................................... */\n/* .....................................\n  Interaction Colors\n..................................... */\n/* .....................................\n  Vimeo Legacy Colors\n..................................... */\n/* .....................................\n  Default Text\n..................................... */\n/* .....................................\n  Default Sizing\n..................................... */\n/*.....................................\n  VIMEO FONT MIXINS\n......................................*/\n/* .....................................\n  Vimeo Colors\n..................................... */\n/* .....................................\n  Grayscale\n..................................... */\n/* .....................................\n  Blues\n..................................... */\n/* .....................................\n  Greens\n..................................... */\n/* .....................................\n  Reds\n..................................... */\n/* .....................................\n  Interaction Colors\n..................................... */\n/* .....................................\n  Vimeo Legacy Colors\n..................................... */\n/* .....................................\n  Default Text\n..................................... */\n/* .....................................\n  Default Sizing\n..................................... */\n/* .....................................\n  Vimeo Colors\n..................................... */\n/* .....................................\n  Grayscale\n..................................... */\n/* .....................................\n  Blues\n..................................... */\n/* .....................................\n  Greens\n..................................... */\n/* .....................................\n  Reds\n..................................... */\n/* .....................................\n  Interaction Colors\n..................................... */\n/* .....................................\n  Vimeo Legacy Colors\n..................................... */\n/* .....................................\n  Default Text\n..................................... */\n/* .....................................\n  Default Sizing\n..................................... */\n.Avatar_default-avatar-xsmall__1dZPQ {\n  background-color: red; }\n\n.Avatar_default-avatar-small__2pCUd {\n  background-color: orange; }\n\n.Avatar_default-avatar-medium__2fyqH {\n  background-color: yellow; }\n\n.Avatar_default-avatar-large__2THMb {\n  background-color: green; }\n\n.Avatar_default-avatar-xlarge__3XpS2 {\n  background-color: blue; }\n\n.Avatar_default-avatar-xxlarge__aBjS- {\n  background-color: purple; }\n";
+var styles = {"default-avatar-xsmall":"Avatar_default-avatar-xsmall__1dZPQ","default-avatar-small":"Avatar_default-avatar-small__2pCUd","default-avatar-medium":"Avatar_default-avatar-medium__2fyqH","default-avatar-large":"Avatar_default-avatar-large__2THMb","default-avatar-xlarge":"Avatar_default-avatar-xlarge__3XpS2","default-avatar-xxlarge":"Avatar_default-avatar-xxlarge__aBjS-"};
+__$$styleInject(css);
+
 /* eslint-disable react/no-unused-prop-types */
 
 var Avatar$1 = function (props) { return (
-  React__default.createElement( 'span', { className: ("avatar color-teal avatar--" + (props.size)) },
+  React__default.createElement( 'span', { className: styles.defaultAvatarXsmall },
     React__default.createElement( 'span', {
       className: 'avatar-user user-avatar', style: {
         backgroundImage: ("url('" + (props.image) + "')"),
@@ -1237,6 +1304,9 @@ var KEY_CODES = Object.freeze({
   RIGHT: 39,
 });
 
+// calcNext(3, 0) => 1
+// calcNext(3, 1) => 2
+// calcNext(3, 2) => 0 // <- it wraps around to the first slide
 function calcNext(length, current) {
   return (current + 1) % length;
 }
@@ -2491,6 +2561,8 @@ function SelectDropdownHOC(ref) {
   return SelectDropdown;
 }
 
+// TODO: this is a hack, we should have this in css if possible to make a PR to Quartz css
+// (This fixes wrapping issues in `inline` select dropdowns)
 var listStyle = { whiteSpace: 'nowrap' };
 
 var SelectDropdownOption = function (ref) {
@@ -3092,6 +3164,9 @@ Title.propTypes = {
   children: index.string.isRequired,
 };
 
+// Avatars headings
+// -----------------------------------------
+
 var AvatarDemo = function () { return (
   React__default.createElement( 'div', null,
     React__default.createElement( Subtitle, null, "Headings" ),
@@ -3122,6 +3197,9 @@ var Avatars = function () { return (
     React__default.createElement( DemoRow, null, React__default.createElement( PropTypeTable, { component: Avatar$1 }) )
   )
 ); };
+
+// Colors demo
+// -----------------------------------------
 
 var colors$4 = [
   'gray',
@@ -3236,6 +3314,9 @@ var Buttons = function () { return (
     React__default.createElement( DemoRow, null, React__default.createElement( PropTypeTable, { component: Button$1 }) )
   )
 ); };
+
+// Carousel demo
+// -----------------------------------------
 
 var MAX_TITLE_LENGTH = 50; // characters
 var lorem = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua';
@@ -3387,6 +3468,9 @@ var Carousels = function () { return (
   )
 ); };
 
+// Checked / unchecked demo
+// -----------------------------------------
+
 var handler = function () { return alert('Hi!'); };
 var StatelessCheckboxes = function () { return (
   React__default.createElement( 'div', null,
@@ -3492,6 +3576,9 @@ var Checkboxes = function () { return (
   )
 ); };
 
+// Standard header
+// -----------------------------------------
+
 var DefaultDemo = function () { return (
   React__default.createElement( 'div', null,
     React__default.createElement( Subtitle, null, "Default" ),
@@ -3531,6 +3618,9 @@ var Headers = function () { return (
     React__default.createElement( DemoRow, null, React__default.createElement( PropTypeTable, { component: Header$1 }) )
   )
 ); };
+
+// All icons demo
+// -----------------------------------------
 
 var IconList = function () { return (
   React__default.createElement( 'div', null,
@@ -3615,6 +3705,9 @@ var Icons = function () { return (
     React__default.createElement( DemoRow, null, React__default.createElement( PropTypeTable, { component: Icon$1 }) )
   )
 ); };
+
+// Input demo
+// -----------------------------------------
 
 var InputDemo = function () { return (
   React__default.createElement( 'div', null,
@@ -3708,6 +3801,9 @@ var Inputs = function () { return (
     React__default.createElement( DemoRow, null, React__default.createElement( PropTypeTable, { component: Input$1 }) )
   )
 ); };
+
+// Shared
+// -----------------------------------------
 
 var MyModalContents = function () { return React__default.createElement( 'div', null, "Hello!" ); };
 
@@ -3966,6 +4062,9 @@ var Radios = function () { return (
     React__default.createElement( DemoRow, null, React__default.createElement( PropTypeTable, { component: RadioGroup$1 }) )
   )
 ); };
+
+// Intro
+// -----------------------------------------
 
 var options = [
   {
@@ -4331,6 +4430,9 @@ var Sidebars = function () { return (
   )
 ); };
 
+// Tags default demo
+// -----------------------------------------
+
 var TagsDemo = function () { return (
   React__default.createElement( 'div', null,
     React__default.createElement( Subtitle, null, "Tags with Two Callbacks" ),
@@ -4377,6 +4479,9 @@ var Tags = function () { return (
     React__default.createElement( DemoRow, null, React__default.createElement( PropTypeTable, { component: Tag$1 }) )
   )
 ); };
+
+// Text headings
+// -----------------------------------------
 
 var TextHeadings = function () { return (
   React__default.createElement( 'div', null,
@@ -4425,6 +4530,10 @@ var TextDemo = function () { return (
   )
 ); };
 
+/* eslint-disable no-multi-spaces */
+// `Section` is a component that renders a demo section
+// `slug` is used in the url hash and section ids
+// `title` is used as the text in the nav sidebar
 var sections = [
   { Section: Avatars,     slug: 'avatars',      title: 'Avatars' },
   { Section: Buttons,     slug: 'buttons',      title: 'Buttons' },
