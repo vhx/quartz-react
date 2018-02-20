@@ -3,6 +3,7 @@ import buble from 'rollup-plugin-buble';
 import resolve from 'rollup-plugin-node-resolve';
 import replace from 'rollup-plugin-replace';
 import filesize from 'rollup-plugin-filesize';
+import postcss from 'rollup-plugin-postcss';
 
 const env = JSON.stringify(process.env.NODE_ENV);
 
@@ -19,5 +20,9 @@ export default {
     commonjs(),
     buble({ objectAssign: 'Object.assign' }),
     filesize(),
+    postcss({
+      modules: true,
+      plugins: [],
+    }),
   ],
 };

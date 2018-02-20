@@ -2,10 +2,11 @@
 
 import React from 'react';
 import PropTypes from 'prop-types';
+import styles from './Avatar.scss';
 
 
 const Avatar = props => (
-  <span className={`avatar color-teal avatar--${props.size}`}>
+  <span className={styles.defaultAvatarXsmall}>
     <span
       className='avatar-user user-avatar'
       style={{
