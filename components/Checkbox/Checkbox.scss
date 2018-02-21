@@ -16,9 +16,40 @@
   display: block;
 }
 
+.checkboxCircle {
+  left: 0;
+  top: -2px;
+  width: 18px;
+  height: 18px;
+  transition: opacity 0.2s ease;
+  overflow: hidden;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.circleTop {
+  height: 9px;
+  transition: opacity 0.2s ease;
+  overflow: hidden;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.circleBottom {
+  height: 9px;
+  transition: opacity 0.2s ease;
+  overflow: hidden;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
+
 //idk what this does really, just a placeholder.
 .checkboxAnimate,
-.toggle {
+.toggle,
+.alt {
   display: block;
 }
 

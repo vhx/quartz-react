@@ -21,7 +21,7 @@ const StandardCheckbox = () => (
 const ToggleCheckbox = () => (
   <span>
     <span className={styles.checkboxIcon} />
-    <span className='checkbox--circle'>
+    <span className={styles.checkboxCircle}>
       <i className='circle-top'><span /></i>
       <i className='circle-bottom'><span /></i>
     </span>
@@ -40,9 +40,9 @@ const Checkbox = props => {
       <fieldset className={getClassName(props)}>
         <input {...excludeProps([ 'label', 'uniqueId', 'size', 'type' ], props)} type='checkbox' name={props.uniqueId} id={props.uniqueId} />
         <label htmlFor={props.uniqueId}>
-          <span className='checkbox--contain'>
+          <span className={styles.checkboxContain}>
             { props.type === 'toggle' ? <ToggleCheckbox /> : <StandardCheckbox /> }
-            <span className='checkbox--label'>{props.label}</span>
+            <span className={styles.checkboxLabel}>{props.label}</span>
           </span>
         </label>
       </fieldset>
