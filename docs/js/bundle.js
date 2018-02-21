@@ -35,17 +35,6 @@ function createCommonjsModule(fn, module) {
 	return module = { exports: {} }, fn(module, module.exports), module.exports;
 }
 
-/**
- * Copyright (c) 2013-present, Facebook, Inc.
- * All rights reserved.
- *
- * This source code is licensed under the BSD-style license found in the
- * LICENSE file in the root directory of this source tree. An additional grant
- * of patent rights can be found in the PATENTS file in the same directory.
- *
- * 
- */
-
 function makeEmptyFunction(arg) {
   return function () {
     return arg;
@@ -82,17 +71,6 @@ var emptyFunction_1 = emptyFunction;
  *
  */
 
-/**
- * Use invariant() to assert state which your program assumes to be true.
- *
- * Provide sprintf-style format (only %s is supported) and arguments
- * to provide information about what broke and what you were
- * expecting.
- *
- * The invariant message will be stripped in production, but the invariant
- * will remain to ensure logic does not differ in production.
- */
-
 var validateFormat = function validateFormat(format) {};
 
 if (undefined !== 'production') {
@@ -125,13 +103,6 @@ function invariant(condition, format, a, b, c, d, e, f) {
 }
 
 var invariant_1 = invariant;
-
-/**
- * Similar to invariant but only logs a warning if the condition is not met.
- * This can be used to log issues in development environments in critical
- * paths. Removing the logging code for production environments will keep the
- * same logic and follow the same code paths.
- */
 
 var warning = emptyFunction_1;
 
@@ -936,13 +907,6 @@ function connect$$1(model, Component$$1) {
 <If condition={false}><MyComponent /></If> // MyComponent will not render
 <If condition={true}><MyComponent /></If> // MyComponent will render
 */
-/*
-truncate('foo-bar-baz', 4);
-=> 'foo-...'
-
-truncate('foo', 4);
-=> 'foo'
-*/
 function truncate(str, maxLength) {
   return str.length > maxLength ? str.slice(0, maxLength).concat('...') : str;
 }
@@ -1063,37 +1027,9 @@ var utilities = Object.freeze({
 	connect: connect$$1
 });
 
-var css = "/* .....................................\n  Vimeo Colors\n..................................... */\n/* .....................................\n  Grayscale\n..................................... */\n/* .....................................\n  Blues\n..................................... */\n/* .....................................\n  Greens\n..................................... */\n/* .....................................\n  Reds\n..................................... */\n/* .....................................\n  Interaction Colors\n..................................... */\n/* .....................................\n  Vimeo Legacy Colors\n..................................... */\n/* .....................................\n  Default Text\n..................................... */\n/* .....................................\n  Default Sizing\n..................................... */\n/* .....................................\n  Vimeo Colors\n..................................... */\n/* .....................................\n  Grayscale\n..................................... */\n/* .....................................\n  Blues\n..................................... */\n/* .....................................\n  Greens\n..................................... */\n/* .....................................\n  Reds\n..................................... */\n/* .....................................\n  Interaction Colors\n..................................... */\n/* .....................................\n  Vimeo Legacy Colors\n..................................... */\n/* .....................................\n  Default Text\n..................................... */\n/* .....................................\n  Default Sizing\n..................................... */\n/*.....................................\n  VIMEO FONT MIXINS\n......................................*/\n/* .....................................\n  Vimeo Colors\n..................................... */\n/* .....................................\n  Grayscale\n..................................... */\n/* .....................................\n  Blues\n..................................... */\n/* .....................................\n  Greens\n..................................... */\n/* .....................................\n  Reds\n..................................... */\n/* .....................................\n  Interaction Colors\n..................................... */\n/* .....................................\n  Vimeo Legacy Colors\n..................................... */\n/* .....................................\n  Default Text\n..................................... */\n/* .....................................\n  Default Sizing\n..................................... */\n/* .....................................\n  Vimeo Colors\n..................................... */\n/* .....................................\n  Grayscale\n..................................... */\n/* .....................................\n  Blues\n..................................... */\n/* .....................................\n  Greens\n..................................... */\n/* .....................................\n  Reds\n..................................... */\n/* .....................................\n  Interaction Colors\n..................................... */\n/* .....................................\n  Vimeo Legacy Colors\n..................................... */\n/* .....................................\n  Default Text\n..................................... */\n/* .....................................\n  Default Sizing\n..................................... */\n.Avatar_default-avatar-xsmall__1dZPQ {\n  background-color: red; }\n\n.Avatar_default-avatar-small__2pCUd {\n  background-color: orange; }\n\n.Avatar_default-avatar-medium__2fyqH {\n  background-color: yellow; }\n\n.Avatar_default-avatar-large__2THMb {\n  background-color: green; }\n\n.Avatar_default-avatar-xlarge__3XpS2 {\n  background-color: blue; }\n\n.Avatar_default-avatar-xxlarge__aBjS- {\n  background-color: purple; }\n";
-var styles = {"default-avatar-xsmall":"Avatar_default-avatar-xsmall__1dZPQ","default-avatar-small":"Avatar_default-avatar-small__2pCUd","default-avatar-medium":"Avatar_default-avatar-medium__2fyqH","default-avatar-large":"Avatar_default-avatar-large__2THMb","default-avatar-xlarge":"Avatar_default-avatar-xlarge__3XpS2","default-avatar-xxlarge":"Avatar_default-avatar-xxlarge__aBjS-"};
+var css = "/* .....................................\n  Vimeo Colors\n..................................... */\n/* .....................................\n  Grayscale\n..................................... */\n/* .....................................\n  Blues\n..................................... */\n/* .....................................\n  Greens\n..................................... */\n/* .....................................\n  Reds\n..................................... */\n/* .....................................\n  Interaction Colors\n..................................... */\n/* .....................................\n  Vimeo Legacy Colors\n..................................... */\n/* .....................................\n  Default Text\n..................................... */\n/* .....................................\n  Default Sizing\n..................................... */\n/* .....................................\n  Vimeo Colors\n..................................... */\n/* .....................................\n  Grayscale\n..................................... */\n/* .....................................\n  Blues\n..................................... */\n/* .....................................\n  Greens\n..................................... */\n/* .....................................\n  Reds\n..................................... */\n/* .....................................\n  Interaction Colors\n..................................... */\n/* .....................................\n  Vimeo Legacy Colors\n..................................... */\n/* .....................................\n  Default Text\n..................................... */\n/* .....................................\n  Default Sizing\n..................................... */\n/*.....................................\n  VIMEO FONT MIXINS\n......................................*/\n/* .....................................\n  Vimeo Colors\n..................................... */\n/* .....................................\n  Grayscale\n..................................... */\n/* .....................................\n  Blues\n..................................... */\n/* .....................................\n  Greens\n..................................... */\n/* .....................................\n  Reds\n..................................... */\n/* .....................................\n  Interaction Colors\n..................................... */\n/* .....................................\n  Vimeo Legacy Colors\n..................................... */\n/* .....................................\n  Default Text\n..................................... */\n/* .....................................\n  Default Sizing\n..................................... */\n/* .....................................\n  Vimeo Colors\n..................................... */\n/* .....................................\n  Grayscale\n..................................... */\n/* .....................................\n  Blues\n..................................... */\n/* .....................................\n  Greens\n..................................... */\n/* .....................................\n  Reds\n..................................... */\n/* .....................................\n  Interaction Colors\n..................................... */\n/* .....................................\n  Vimeo Legacy Colors\n..................................... */\n/* .....................................\n  Default Text\n..................................... */\n/* .....................................\n  Default Sizing\n..................................... */\n.Avatar_defaultAvatarXsmall__1F3aJ,\n.Avatar_defaultAvatarSmall__2Qaih,\n.Avatar_defaultAvatarMedium__3KWZI,\n.Avatar_defaultAvatarLarge__1hfuE,\n.Avatar_defaultAvatarXlarge__6Ag2X,\n.Avatar_defaultAvatarXxlarge__2b9Tp {\n  background-color: #00adef;\n  background-size: cover;\n  border-radius: 50%;\n  display: inline-block;\n  position: relative;\n  overflow: hidden; }\n  .Avatar_defaultAvatarXsmall__1F3aJ:before,\n  .Avatar_defaultAvatarSmall__2Qaih:before,\n  .Avatar_defaultAvatarMedium__3KWZI:before,\n  .Avatar_defaultAvatarLarge__1hfuE:before,\n  .Avatar_defaultAvatarXlarge__6Ag2X:before,\n  .Avatar_defaultAvatarXxlarge__2b9Tp:before {\n    color: #fff;\n    content: ' ';\n    display: block;\n    -webkit-background-clip: padding-box;\n    background-clip: padding-box;\n    width: 100%;\n    height: 100%;\n    background-image: url('data:image/svg+xml;charset=US-ASCII,<svg%20xmlns%3D\"http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg\"%20width%3D\"23\"%20height%3D\"23\"%20viewBox%3D\"0%200%2023%2023\"><g%20fill%3D\"%23ffffff\"><path%20d%3D\"M7.1%2011c1.8%200%201.8-2.8%200-2.8S5.3%2011%207.1%2011zM15.9%2011c1.8%200%201.8-2.8%200-2.8s-1.8%202.8%200%202.8z\"%20fill%3D\"%23ffffff\"><%2Fpath><path%20d%3D\"M4.2%2012.9c.3%200%20.5.2.5.5v1.4h13.6v-1.4c0-.3.2-.5.5-.5h3.8V4.6c0-.4-.3-.8-.8-.8H1.2c-.4%200-.8.4-.8.8v8.3h3.8zm11.7-5.7c3.1%200%203.1%204.8%200%204.8s-3.1-4.8%200-4.8zm-8.8%200c3.1%200%203.1%204.8%200%204.8S4%207.2%207.1%207.2z\"%20fill%3D\"%23ffffff\"><%2Fpath><path%20d%3D\"M19.3%2013.9v1.4c0%20.3-.2.5-.5.5H4.2c-.3%200-.5-.2-.5-.5v-1.4H.4v4.5c0%20.4.3.8.8.8h20.7c.4%200%20.8-.4.8-.8v-4.5h-3.4z\"%20fill%3D\"%23ffffff\"><%2Fpath><%2Fg><path%20d%3D\"M7.1%208.2c-1.8%200-1.8%202.8%200%202.8s1.8-2.8%200-2.8zM15.9%208.2c-1.8%200-1.8%202.8%200%202.8s1.8-2.8%200-2.8z\"%20fill%3D\"%23ffffff\"><%2Fpath><%2Fsvg>');\n    background-repeat: no-repeat;\n    background-position: 50% 50%;\n    background-size: 50%; }\n\n.Avatar_default-avatar-xsmall__1dZPQ {\n  width: 25px;\n  height: 25px; }\n\n.Avatar_defaultAvatarSmall__2Qaih {\n  height: 35px;\n  width: 35px; }\n\n.Avatar_defaultAvatarMedium__3KWZI {\n  width: 45px;\n  height: 45px; }\n\n.Avatar_defaultAvatarLarge__1hfuE {\n  height: 60px;\n  width: 60px; }\n\n.Avatar_default-avatar-xlarge__3XpS2 {\n  height: 80px;\n  width: 80px; }\n\n.Avatar_defaultAvatarXxlarge__2b9Tp {\n  width: 100px;\n  height: 100px; }\n\n.Avatar_avatarImage__3y074 {\n  position: absolute;\n  top: 0;\n  left: 0;\n  width: 100%;\n  height: 100%;\n  background-size: cover; }\n";
+var styles = {"defaultAvatarXsmall":"Avatar_defaultAvatarXsmall__1F3aJ","defaultAvatarSmall":"Avatar_defaultAvatarSmall__2Qaih","defaultAvatarMedium":"Avatar_defaultAvatarMedium__3KWZI","defaultAvatarLarge":"Avatar_defaultAvatarLarge__1hfuE","defaultAvatarXlarge":"Avatar_defaultAvatarXlarge__6Ag2X","defaultAvatarXxlarge":"Avatar_defaultAvatarXxlarge__2b9Tp","default-avatar-xsmall":"Avatar_default-avatar-xsmall__1dZPQ","default-avatar-xlarge":"Avatar_default-avatar-xlarge__3XpS2","avatarImage":"Avatar_avatarImage__3y074"};
 __$$styleInject(css);
-
-/* eslint-disable react/no-unused-prop-types */
-
-var Avatar$1 = function (props) { return (
-  React__default.createElement( 'span', { className: styles.defaultAvatarXsmall },
-    React__default.createElement( 'span', {
-      className: 'avatar-user user-avatar', style: {
-        backgroundImage: ("url('" + (props.image) + "')"),
-      } })
-
-  )
-); };
-
-var sizes = [ 'xsmall', 'small', 'medium', 'large', 'xlarge', 'xxlarge' ];
-
-Avatar$1.propTypes = {
-  size: index.oneOf(sizes),
-  image: index.string,
-};
-
-Avatar$1.defaultProps = {
-  size: 'medium',
-  image: '',
-};
-
-Avatar$1.propDescriptions = {
-  size: ("One of: [\"" + (sizes.join('", "')) + "\"]"),
-};
 
 var index$1 = createCommonjsModule(function (module) {
 /*!
@@ -1147,6 +1083,42 @@ var index$1 = createCommonjsModule(function (module) {
 	}
 }());
 });
+
+/* eslint-disable react/no-unused-prop-types */
+
+var setClass = function (props) {
+  return index$1(( obj = {}, obj[styles.defaultAvatarXsmall] = props.size === 'xsmall', obj[styles.defaultAvatarSmall] = props.size === 'small', obj[styles.defaultAvatarMedium] = props.size === 'medium', obj[styles.defaultAvatarLarge] = props.size === 'large', obj[styles.defaultAvatarXlarge] = props.size === 'xlarge', obj[styles.defaultAvatarXxlarge] = props.size === 'xxlarge', obj ))
+  var obj;
+};
+
+
+var Avatar$1 = function (props) {
+  console.log('avatar', props);
+  return (
+    React__default.createElement( 'span', { className: setClass(props), style: { zIndex: 1 } },
+      React__default.createElement( 'span', {
+        className: styles.avatarImage, style: {
+          backgroundImage: ("url('" + (props.image) + "')"),
+        } })
+    )
+  );
+};
+
+var sizes = [ 'xsmall', 'small', 'medium', 'large', 'xlarge', 'xxlarge' ];
+
+Avatar$1.propTypes = {
+  size: index.oneOf(sizes),
+  image: index.string,
+};
+
+Avatar$1.defaultProps = {
+  size: 'medium',
+  image: '',
+};
+
+Avatar$1.propDescriptions = {
+  size: ("One of: [\"" + (sizes.join('", "')) + "\"]"),
+};
 
 /* eslint-disable react/no-unused-prop-types */
 
@@ -1304,9 +1276,6 @@ var KEY_CODES = Object.freeze({
   RIGHT: 39,
 });
 
-// calcNext(3, 0) => 1
-// calcNext(3, 1) => 2
-// calcNext(3, 2) => 0 // <- it wraps around to the first slide
 function calcNext(length, current) {
   return (current + 1) % length;
 }
@@ -2561,8 +2530,6 @@ function SelectDropdownHOC(ref) {
   return SelectDropdown;
 }
 
-// TODO: this is a hack, we should have this in css if possible to make a PR to Quartz css
-// (This fixes wrapping issues in `inline` select dropdowns)
 var listStyle = { whiteSpace: 'nowrap' };
 
 var SelectDropdownOption = function (ref) {
@@ -3164,9 +3131,6 @@ Title.propTypes = {
   children: index.string.isRequired,
 };
 
-// Avatars headings
-// -----------------------------------------
-
 var AvatarDemo = function () { return (
   React__default.createElement( 'div', null,
     React__default.createElement( Subtitle, null, "Headings" ),
@@ -3180,7 +3144,9 @@ var AvatarDemo = function () { return (
     React__default.createElement( Block, { inline: true }, React__default.createElement( Avatar$1, {
       image: 'https://secure.gravatar.com/avatar/460c13d4904dc7f889f00d2cd4c3e6e8.png', size: 'large' })),
     React__default.createElement( Block, { inline: true }, React__default.createElement( Avatar$1, {
-      image: 'https://vhx.imgix.net/assets/1f843fdc-34da-4302-bd4f-06e5bd7ef2c3/IMG_7891.GIF', size: 'xlarge' }))
+      image: 'https://vhx.imgix.net/assets/1f843fdc-34da-4302-bd4f-06e5bd7ef2c3/IMG_7891.GIF', size: 'xlarge' })),
+    React__default.createElement( Block, { inline: true }, React__default.createElement( Avatar$1, {
+      image: 'https://vhx.imgix.net/assets/1f843fdc-34da-4302-bd4f-06e5bd7ef2c3/IMG_7891.GIF', size: 'xxlarge' }))
   )
 ); };
 
@@ -3197,9 +3163,6 @@ var Avatars = function () { return (
     React__default.createElement( DemoRow, null, React__default.createElement( PropTypeTable, { component: Avatar$1 }) )
   )
 ); };
-
-// Colors demo
-// -----------------------------------------
 
 var colors$4 = [
   'gray',
@@ -3314,9 +3277,6 @@ var Buttons = function () { return (
     React__default.createElement( DemoRow, null, React__default.createElement( PropTypeTable, { component: Button$1 }) )
   )
 ); };
-
-// Carousel demo
-// -----------------------------------------
 
 var MAX_TITLE_LENGTH = 50; // characters
 var lorem = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua';
@@ -3468,9 +3428,6 @@ var Carousels = function () { return (
   )
 ); };
 
-// Checked / unchecked demo
-// -----------------------------------------
-
 var handler = function () { return alert('Hi!'); };
 var StatelessCheckboxes = function () { return (
   React__default.createElement( 'div', null,
@@ -3576,9 +3533,6 @@ var Checkboxes = function () { return (
   )
 ); };
 
-// Standard header
-// -----------------------------------------
-
 var DefaultDemo = function () { return (
   React__default.createElement( 'div', null,
     React__default.createElement( Subtitle, null, "Default" ),
@@ -3618,9 +3572,6 @@ var Headers = function () { return (
     React__default.createElement( DemoRow, null, React__default.createElement( PropTypeTable, { component: Header$1 }) )
   )
 ); };
-
-// All icons demo
-// -----------------------------------------
 
 var IconList = function () { return (
   React__default.createElement( 'div', null,
@@ -3705,9 +3656,6 @@ var Icons = function () { return (
     React__default.createElement( DemoRow, null, React__default.createElement( PropTypeTable, { component: Icon$1 }) )
   )
 ); };
-
-// Input demo
-// -----------------------------------------
 
 var InputDemo = function () { return (
   React__default.createElement( 'div', null,
@@ -3801,9 +3749,6 @@ var Inputs = function () { return (
     React__default.createElement( DemoRow, null, React__default.createElement( PropTypeTable, { component: Input$1 }) )
   )
 ); };
-
-// Shared
-// -----------------------------------------
 
 var MyModalContents = function () { return React__default.createElement( 'div', null, "Hello!" ); };
 
@@ -4062,9 +4007,6 @@ var Radios = function () { return (
     React__default.createElement( DemoRow, null, React__default.createElement( PropTypeTable, { component: RadioGroup$1 }) )
   )
 ); };
-
-// Intro
-// -----------------------------------------
 
 var options = [
   {
@@ -4430,9 +4372,6 @@ var Sidebars = function () { return (
   )
 ); };
 
-// Tags default demo
-// -----------------------------------------
-
 var TagsDemo = function () { return (
   React__default.createElement( 'div', null,
     React__default.createElement( Subtitle, null, "Tags with Two Callbacks" ),
@@ -4479,9 +4418,6 @@ var Tags = function () { return (
     React__default.createElement( DemoRow, null, React__default.createElement( PropTypeTable, { component: Tag$1 }) )
   )
 ); };
-
-// Text headings
-// -----------------------------------------
 
 var TextHeadings = function () { return (
   React__default.createElement( 'div', null,
@@ -4530,10 +4466,6 @@ var TextDemo = function () { return (
   )
 ); };
 
-/* eslint-disable no-multi-spaces */
-// `Section` is a component that renders a demo section
-// `slug` is used in the url hash and section ids
-// `title` is used as the text in the nav sidebar
 var sections = [
   { Section: Avatars,     slug: 'avatars',      title: 'Avatars' },
   { Section: Buttons,     slug: 'buttons',      title: 'Buttons' },

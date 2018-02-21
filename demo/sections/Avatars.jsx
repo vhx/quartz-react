@@ -38,6 +38,10 @@ const AvatarDemo = () => (
       image='https://vhx.imgix.net/assets/1f843fdc-34da-4302-bd4f-06e5bd7ef2c3/IMG_7891.GIF'
       size='xlarge'
     /></Block>
+    <Block inline><Avatar
+      image='https://vhx.imgix.net/assets/1f843fdc-34da-4302-bd4f-06e5bd7ef2c3/IMG_7891.GIF'
+      size='xxlarge'
+    /></Block>
   </div>
 );
 
