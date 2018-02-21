@@ -47,7 +47,7 @@ const colors = [ 'gray', 'white', 'red', 'transparent', 'vimeo-blue', 'vimeo-sec
 const sizes = [ 'small', 'medium', 'large', 'half', 'fill' ];
 
 Button.propTypes = {
-  children: PropTypes.node.isRequired,
+  children: PropTypes.node,
   className: PropTypes.string,
   color: PropTypes.oneOf(colors),
   processing: PropTypes.bool,

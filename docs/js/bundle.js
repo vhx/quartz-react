@@ -35,17 +35,6 @@ function createCommonjsModule(fn, module) {
 	return module = { exports: {} }, fn(module, module.exports), module.exports;
 }
 
-/**
- * Copyright (c) 2013-present, Facebook, Inc.
- * All rights reserved.
- *
- * This source code is licensed under the BSD-style license found in the
- * LICENSE file in the root directory of this source tree. An additional grant
- * of patent rights can be found in the PATENTS file in the same directory.
- *
- * 
- */
-
 function makeEmptyFunction(arg) {
   return function () {
     return arg;
@@ -82,17 +71,6 @@ var emptyFunction_1 = emptyFunction;
  *
  */
 
-/**
- * Use invariant() to assert state which your program assumes to be true.
- *
- * Provide sprintf-style format (only %s is supported) and arguments
- * to provide information about what broke and what you were
- * expecting.
- *
- * The invariant message will be stripped in production, but the invariant
- * will remain to ensure logic does not differ in production.
- */
-
 var validateFormat = function validateFormat(format) {};
 
 if (undefined !== 'production') {
@@ -125,13 +103,6 @@ function invariant(condition, format, a, b, c, d, e, f) {
 }
 
 var invariant_1 = invariant;
-
-/**
- * Similar to invariant but only logs a warning if the condition is not met.
- * This can be used to log issues in development environments in critical
- * paths. Removing the logging code for production environments will keep the
- * same logic and follow the same code paths.
- */
 
 var warning = emptyFunction_1;
 
@@ -936,13 +907,6 @@ function connect$$1(model, Component$$1) {
 <If condition={false}><MyComponent /></If> // MyComponent will not render
 <If condition={true}><MyComponent /></If> // MyComponent will render
 */
-/*
-truncate('foo-bar-baz', 4);
-=> 'foo-...'
-
-truncate('foo', 4);
-=> 'foo'
-*/
 function truncate(str, maxLength) {
   return str.length > maxLength ? str.slice(0, maxLength).concat('...') : str;
 }
@@ -1183,7 +1147,7 @@ var colors = [ 'gray', 'white', 'red', 'transparent', 'vimeo-blue', 'vimeo-secon
 var sizes$1 = [ 'small', 'medium', 'large', 'half', 'fill' ];
 
 Button$1.propTypes = {
-  children: index.node.isRequired,
+  children: index.node,
   className: index.string,
   color: index.oneOf(colors),
   processing: index.bool,
@@ -1277,9 +1241,6 @@ var KEY_CODES = Object.freeze({
   RIGHT: 39,
 });
 
-// calcNext(3, 0) => 1
-// calcNext(3, 1) => 2
-// calcNext(3, 2) => 0 // <- it wraps around to the first slide
 function calcNext(length, current) {
   return (current + 1) % length;
 }
@@ -1499,6 +1460,10 @@ Carousel$1.propDescriptions = {
   slides: 'Array of objects: { Slide: Component, id: String }',
 };
 
+var css$2 = "/* .....................................\n  Vimeo Colors\n..................................... */\n/* .....................................\n  Grayscale\n..................................... */\n/* .....................................\n  Blues\n..................................... */\n/* .....................................\n  Greens\n..................................... */\n/* .....................................\n  Reds\n..................................... */\n/* .....................................\n  Interaction Colors\n..................................... */\n/* .....................................\n  Vimeo Legacy Colors\n..................................... */\n/* .....................................\n  Default Text\n..................................... */\n/* .....................................\n  Default Sizing\n..................................... */\n/* .....................................\n  Vimeo Colors\n..................................... */\n/* .....................................\n  Grayscale\n..................................... */\n/* .....................................\n  Blues\n..................................... */\n/* .....................................\n  Greens\n..................................... */\n/* .....................................\n  Reds\n..................................... */\n/* .....................................\n  Interaction Colors\n..................................... */\n/* .....................................\n  Vimeo Legacy Colors\n..................................... */\n/* .....................................\n  Default Text\n..................................... */\n/* .....................................\n  Default Sizing\n..................................... */\n/*.....................................\n  VIMEO FONT MIXINS\n......................................*/\n/* .....................................\n  Vimeo Colors\n..................................... */\n/* .....................................\n  Grayscale\n..................................... */\n/* .....................................\n  Blues\n..................................... */\n/* .....................................\n  Greens\n..................................... */\n/* .....................................\n  Reds\n..................................... */\n/* .....................................\n  Interaction Colors\n..................................... */\n/* .....................................\n  Vimeo Legacy Colors\n..................................... */\n/* .....................................\n  Default Text\n..................................... */\n/* .....................................\n  Default Sizing\n..................................... */\n/* .....................................\n  Vimeo Colors\n..................................... */\n/* .....................................\n  Grayscale\n..................................... */\n/* .....................................\n  Blues\n..................................... */\n/* .....................................\n  Greens\n..................................... */\n/* .....................................\n  Reds\n..................................... */\n/* .....................................\n  Interaction Colors\n..................................... */\n/* .....................................\n  Vimeo Legacy Colors\n..................................... */\n/* .....................................\n  Default Text\n..................................... */\n/* .....................................\n  Default Sizing\n..................................... */\n.Checkbox_checkbox__qoIPk {\n  transition: border 400ms ease-out;\n  border: 1px solid #e3e8e9;\n  background-image: none; }\n\n.Checkbox_checkboxSmall__1YcL5 {\n  min-height: 13.33333px; }\n\n.Checkbox_checkboxContain__1MT0X {\n  min-height: 20px;\n  width: 100%;\n  display: block; }\n\n.Checkbox_checkboxAnimate__3PyrG,\n.Checkbox_toggle__18A4M {\n  display: block; }\n\n.Checkbox_checkboxIcon__1FiGu,\n.Checkbox_checkboxIconSmall__24eJE,\n.Checkbox_checkboxIconMedium__xUUoF,\n.Checkbox_checkboxIconLarge__22UXG {\n  margin-right: 10px;\n  transition: border 400ms ease-out;\n  border: 1px solid #e3e8e9;\n  background-image: none;\n  display: inline-block;\n  float: left;\n  background-color: #fff;\n  background-position: 50% 50%;\n  background-size: 75%;\n  position: relative;\n  box-shadow: none;\n  border-radius: 3px; }\n\n.Checkbox_checkboxIconSmall__24eJE {\n  width: 13.33333px;\n  height: 13.33333px; }\n\n.Checkbox_checkboxIconMedium__xUUoF,\n.Checkbox_checkboxIcon__1FiGu {\n  width: 20px;\n  height: 20px; }\n\n.Checkbox_checkboxIconLarge__22UXG {\n  width: 40px;\n  height: 40px; }\n\n.Checkbox_checkboxLabel__2RlSe,\n.Checkbox_checkboxLabelSmall__CSn2t,\n.Checkbox_checkboxLabelMedium__t62Y4 {\n  margin-left: 10px;\n  position: absolute;\n  white-space: nowrap;\n  overflow: hidden;\n  text-overflow: ellipsis;\n  display: block;\n  float: left; }\n\n.Checkbox_checkboxLabelSmall__CSn2t {\n  min-height: 13.33333px;\n  line-height: 13.33333px;\n  width: calc(100% - 18.33333px);\n  left: 18.33333px; }\n\n.Checkbox_checkboxLabelMedium__t62Y4,\n.Checkbox_checkboxLabel__2RlSe {\n  min-height: 20px;\n  line-height: 20px;\n  width: calc(100% - 25px);\n  left: 25px; }\n\n.Checkbox_checkboxLabelLarge__2jmXW {\n  margin-left: 5px;\n  min-height: 40px;\n  line-height: 40px;\n  float: left; }\n\n.Checkbox_checkboxLabel__2RlSe:after,\n.Checkbox_checkboxContain__1MT0X:after {\n  content: \"\";\n  display: table;\n  clear: both; }\n";
+var styles$2 = {"checkbox":"Checkbox_checkbox__qoIPk","checkboxSmall":"Checkbox_checkboxSmall__1YcL5","checkboxContain":"Checkbox_checkboxContain__1MT0X","checkboxAnimate":"Checkbox_checkboxAnimate__3PyrG","toggle":"Checkbox_toggle__18A4M","checkboxIcon":"Checkbox_checkboxIcon__1FiGu","checkboxIconSmall":"Checkbox_checkboxIconSmall__24eJE","checkboxIconMedium":"Checkbox_checkboxIconMedium__xUUoF","checkboxIconLarge":"Checkbox_checkboxIconLarge__22UXG","checkboxLabel":"Checkbox_checkboxLabel__2RlSe","checkboxLabelSmall":"Checkbox_checkboxLabelSmall__CSn2t","checkboxLabelMedium":"Checkbox_checkboxLabelMedium__t62Y4","checkboxLabelLarge":"Checkbox_checkboxLabelLarge__2jmXW"};
+__$$styleInject(css$2);
+
 /* eslint-disable react/no-unused-prop-types */
 
 var getClassName$2 = function (ref) {
@@ -1508,17 +1473,16 @@ var getClassName$2 = function (ref) {
   return index$1('checkbox', size, { alt: type === 'toggle' });
 };
 
-
 var StandardCheckbox = function () { return (
-  React__default.createElement( 'span', { className: 'checkbox--icon' },
-    React__default.createElement( 'span', { className: 'checkbox--animate' })
+  React__default.createElement( 'span', { className: styles$2.checkboxIcon },
+    React__default.createElement( 'span', { className: styles$2.checkboxAnimate })
   )
 ); };
 
 
 var ToggleCheckbox = function () { return (
   React__default.createElement( 'span', null,
-    React__default.createElement( 'span', { className: 'checkbox--icon' }),
+    React__default.createElement( 'span', { className: styles$2.checkboxIcon }),
     React__default.createElement( 'span', { className: 'checkbox--circle' },
       React__default.createElement( 'i', { className: 'circle-top' }, React__default.createElement( 'span', null )),
       React__default.createElement( 'i', { className: 'circle-bottom' }, React__default.createElement( 'span', null ))
@@ -1531,19 +1495,23 @@ var ToggleCheckbox = function () { return (
 // styling since quartz/components.css nests .checkbox under .form. This limitation can
 // probably very easily be removed by changing https://github.com/vhx/quartz/blob/master/quartz-js/components/checkbox/styles/checkbox.scss
 // to have .checkbox not be required to be a descendent of .form
-var Checkbox$1 = function (props) { return (
-  React__default.createElement( 'div', { className: 'form' },
-    React__default.createElement( 'fieldset', { className: getClassName$2(props) },
-      React__default.createElement( 'input', Object.assign({}, excludeProps([ 'label', 'uniqueId', 'size', 'type' ], props), { type: 'checkbox', name: props.uniqueId, id: props.uniqueId })),
-      React__default.createElement( 'label', { htmlFor: props.uniqueId },
-        React__default.createElement( 'span', { className: 'checkbox--contain' },
-          props.type === 'toggle' ? React__default.createElement( ToggleCheckbox, null ) : React__default.createElement( StandardCheckbox, null ),
-          React__default.createElement( 'span', { className: 'checkbox--label' }, props.label)
+var Checkbox$1 = function (props) {
+  console.log('get class Names', getClassName$2(props));
+  return (
+    React__default.createElement( 'div', { className: 'form' },
+      React__default.createElement( 'fieldset', { className: getClassName$2(props) },
+        React__default.createElement( 'input', Object.assign({}, excludeProps([ 'label', 'uniqueId', 'size', 'type' ], props), { type: 'checkbox', name: props.uniqueId, id: props.uniqueId })),
+        React__default.createElement( 'label', { htmlFor: props.uniqueId },
+          React__default.createElement( 'span', { className: 'checkbox--contain' },
+            props.type === 'toggle' ? React__default.createElement( ToggleCheckbox, null ) : React__default.createElement( StandardCheckbox, null ),
+            React__default.createElement( 'span', { className: 'checkbox--label' }, props.label)
+          )
         )
       )
     )
-  )
-); };
+  );
+};
+
 
 
 var sizes$3 = [ 'small', 'medium', 'large' ];
@@ -2534,8 +2502,6 @@ function SelectDropdownHOC(ref) {
   return SelectDropdown;
 }
 
-// TODO: this is a hack, we should have this in css if possible to make a PR to Quartz css
-// (This fixes wrapping issues in `inline` select dropdowns)
 var listStyle = { whiteSpace: 'nowrap' };
 
 var SelectDropdownOption = function (ref) {
@@ -3137,9 +3103,6 @@ Title.propTypes = {
   children: index.string.isRequired,
 };
 
-// Avatars headings
-// -----------------------------------------
-
 var AvatarDemo = function () { return (
   React__default.createElement( 'div', null,
     React__default.createElement( Subtitle, null, "Headings" ),
@@ -3172,9 +3135,6 @@ var Avatars = function () { return (
     React__default.createElement( DemoRow, null, React__default.createElement( PropTypeTable, { component: Avatar$1 }) )
   )
 ); };
-
-// Colors demo
-// -----------------------------------------
 
 var colors$4 = [
   'gray',
@@ -3276,9 +3236,6 @@ var Buttons = function () { return (
     React__default.createElement( DemoRow, null, React__default.createElement( PropTypeTable, { component: Button$1 }) )
   )
 ); };
-
-// Carousel demo
-// -----------------------------------------
 
 var MAX_TITLE_LENGTH = 50; // characters
 var lorem = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua';
@@ -3430,9 +3387,6 @@ var Carousels = function () { return (
   )
 ); };
 
-// Checked / unchecked demo
-// -----------------------------------------
-
 var handler = function () { return alert('Hi!'); };
 var StatelessCheckboxes = function () { return (
   React__default.createElement( 'div', null,
@@ -3538,9 +3492,6 @@ var Checkboxes = function () { return (
   )
 ); };
 
-// Standard header
-// -----------------------------------------
-
 var DefaultDemo = function () { return (
   React__default.createElement( 'div', null,
     React__default.createElement( Subtitle, null, "Default" ),
@@ -3580,9 +3531,6 @@ var Headers = function () { return (
     React__default.createElement( DemoRow, null, React__default.createElement( PropTypeTable, { component: Header$1 }) )
   )
 ); };
-
-// All icons demo
-// -----------------------------------------
 
 var IconList = function () { return (
   React__default.createElement( 'div', null,
@@ -3667,9 +3615,6 @@ var Icons = function () { return (
     React__default.createElement( DemoRow, null, React__default.createElement( PropTypeTable, { component: Icon$1 }) )
   )
 ); };
-
-// Input demo
-// -----------------------------------------
 
 var InputDemo = function () { return (
   React__default.createElement( 'div', null,
@@ -3763,9 +3708,6 @@ var Inputs = function () { return (
     React__default.createElement( DemoRow, null, React__default.createElement( PropTypeTable, { component: Input$1 }) )
   )
 ); };
-
-// Shared
-// -----------------------------------------
 
 var MyModalContents = function () { return React__default.createElement( 'div', null, "Hello!" ); };
 
@@ -4024,9 +3966,6 @@ var Radios = function () { return (
     React__default.createElement( DemoRow, null, React__default.createElement( PropTypeTable, { component: RadioGroup$1 }) )
   )
 ); };
-
-// Intro
-// -----------------------------------------
 
 var options = [
   {
@@ -4392,9 +4331,6 @@ var Sidebars = function () { return (
   )
 ); };
 
-// Tags default demo
-// -----------------------------------------
-
 var TagsDemo = function () { return (
   React__default.createElement( 'div', null,
     React__default.createElement( Subtitle, null, "Tags with Two Callbacks" ),
@@ -4441,9 +4377,6 @@ var Tags = function () { return (
     React__default.createElement( DemoRow, null, React__default.createElement( PropTypeTable, { component: Tag$1 }) )
   )
 ); };
-
-// Text headings
-// -----------------------------------------
 
 var TextHeadings = function () { return (
   React__default.createElement( 'div', null,
@@ -4492,10 +4425,6 @@ var TextDemo = function () { return (
   )
 ); };
 
-/* eslint-disable no-multi-spaces */
-// `Section` is a component that renders a demo section
-// `slug` is used in the url hash and section ids
-// `title` is used as the text in the nav sidebar
 var sections = [
   { Section: Avatars,     slug: 'avatars',      title: 'Avatars' },
   { Section: Buttons,     slug: 'buttons',      title: 'Buttons' },
