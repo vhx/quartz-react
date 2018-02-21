@@ -18,7 +18,6 @@ const setClass = (props) => {
 
 
 const Avatar = props => {
-  console.log('avatar', props);
   return (
     <span className={setClass(props)} style={{ zIndex: 1 }}>
       <span
