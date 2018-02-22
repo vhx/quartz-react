@@ -1,10 +1,21 @@
+
 @import 'node_modules/@vhx/adventurine/partials/variables.scss';
 @import 'node_modules/@vhx/adventurine/partials/typography.scss';
 @import 'node_modules/@vhx/adventurine/partials/spacing.scss';
 @import 'node_modules/@vhx/adventurine/partials/media.scss';
 
+/* .....................................
+  Vimeo Specific Fonts
+..................................... */
+$font-default: Helvetica, Arial, sans-serif;
+$brandon-font: 'brandon-grotesque-n1', 'brandon-grotesque', 'BrandonMedium', sans-serif;
+$brandon3-font: 'brandon-grotesque-n3', 'brandon-grotesque', 'BrandonMedium', sans-serif;
+$number-font: "alternate-gothic-no-3-d-n4","alternate-gothic-no-3-d",sans-serif;
 
-// Specific styles:
+
+/* .....................................
+  Vimeo Specific Widths
+..................................... */
 
 $xsmall: 5px;
 $small: 10px;
@@ -12,3 +23,21 @@ $medium: 20px;
 $large: 40px;
 $xlarge: 80px;
 $xxlarge: 160px;
+
+
+/* .....................................
+  Vimeo Media Query Breakpoints
+..................................... */
+
+$mobile: 'screen and (min-device-width: 320px) and (max-width: 667px)';
+$mobile-portrait: 'screen and (min-device-width: 320px) and (max-width: 667px) and (oreintation: portrait)';
+$mobile-landscape: 'screen and (min-device-width: 320px) and (max-width: 667px) and (oreintation: landscape)';
+
+$tablet: 'screen and (min-device-width: 768px) and (max-width: 1024px)';
+$tablet-portrait: 'screen and (min-device-width: 768px) and (max-width: 1024px) and (oreintation: portrait)';
+$tablet-landscape: 'screen and (min-device-width: 768px) and (max-width: 1024px) and (oreintation: landscape)';
+
+$desktop: 'screen (min-width: 1025px) and (-webkit-min-device-pixel-ratio: 1)';
+$desktop-retina: 'screen (min-width: 1025px) and (-webkit-min-device-pixel-ratio: 2) and (min-resolution: 192dpi)';
+
+

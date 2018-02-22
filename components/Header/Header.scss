@@ -1,0 +1,116 @@
+@import '../util/include-responsive.scss';
+@import 'node_modules/@vhx/adventurine/partials/borders.scss';
+
+.headerContainer {
+  $marginProps: (
+    orientation: 'custom-four',
+    top-side: 0,
+    right-side: -0.468675rem,
+    bottom-side: 0,
+    left-side: -0.468675rem,
+  );
+
+  $paddingProps: (
+    orientation: 'bottom-only',
+    bottom-side: $medium,
+  );
+
+  @include Margin($marginProps);
+  @include Padding($paddingProps);
+  width: auto;
+  max-width: none;
+}
+
+.headerContainerBorder {
+  $marginProps: (
+    orientation: 'custom-four',
+    top-side: 0,
+    right-side: -0.468675rem,
+    bottom-side: 0,
+    left-side: -0.468675rem,
+  );
+
+  $paddingProps: (
+    orientation: 'bottom-only',
+    bottom-side: $medium,
+  );
+
+  @include Margin($marginProps);
+  @include Padding($paddingProps);
+  @include BorderMixin($position: 'bottom');
+  width: auto;
+  max-width: none;
+
+  &:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+}
+
+.mediaColumnWrapper,
+.headerColumnOptionsWrapper {
+  $paddingProps: (
+    orientation: 'left-right',
+    left-side: 0.46875rem,
+    right-side: 0.46875rem,
+  );
+  @include Padding($paddingProps);
+  position: relative;
+  width: 62.5%;
+  float: left;
+}
+
+.mediaColumnWrapper {
+  width: 62.5%;
+}
+
+.headerColumnOptionsWrapper {
+  width: 37.5%;
+  text-align: right;
+}
+
+.media {
+  display: flex;
+  width: 100%;
+  justify-content: flex-start;
+}
+
+.mediaIconUnit,
+.mediaTextUnit {
+  display: inline-block;
+}
+
+.mediaTextUnit {
+  $paddingProps: (
+    orientation: 'left-only',
+    left-side: $medium,
+  );
+
+  @include Padding($paddingProps);
+}
+
+.headerTitle {
+  @include Type400($color: $AstroGranite, $size: 22px, $fontFamily: $brandon-font);
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.headerDescription {
+  @include Type400($size: 14px);
+}
+
+@media #{$tablet} {
+  .mediaColumnWrapper,
+  .headerColumnOptionsWrapper {
+    width: 50%;
+  }
+}
+
+@media #{$mobile} {
+  .mediaColumnWrapper,
+  .headerColumnOptionsWrapper {
+    width: 100%;
+  }
+}
+

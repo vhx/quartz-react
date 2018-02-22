@@ -1,22 +1,37 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import cx from 'classnames';
 import Icon from '../Icon';
 import iconList from '../Icon/icon-list.js';
 
-const Header = ({ border, children, Description, icon, title }) => (
-  <div className={`header row padding-bottom-medium ${border ? 'border-bottom' : ''}`}>
-    <div className='column small-16 medium-8 large-10'>
-      <div className='media'>
-        <div className='media-unit text-top'><Icon name={icon} size='large' /></div>
-        <div className='media-unit media-fill padding-left-medium'>
-          <h2 className='head-3'>{title}</h2>
-          <div className='text text--gray'>{typeof Description === 'string' ? Description : <Description />}</div>
+import styles from './Header.scss';
+
+const containerClasses = border => {
+  return cx({
+    [styles.headerContainer]: border === false || border === undefined,
+    [styles.headerContainerBorder]: border === true,
+  });
+};
+
+const Header = ({ border, children, Description, icon, title }) => {
+  return (
+    <div className={containerClasses(border)}>
+      <div className={styles.mediaColumnWrapper}>
+        <div className={styles.media}>
+          <div className={styles.mediaIconUnit}>
+            <Icon name={icon} size='large' />
+          </div>
+          <div className={styles.mediaTextUnit}>
+            <h2 className={styles.headerTitle}>{title}</h2>
+            <div className={styles.headerDescription}>{typeof Description === 'string' ? Description : <Description />}
+            </div>
+          </div>
         </div>
       </div>
+      <div className={styles.headerColumnOptionsWrapper}>{children}</div>
     </div>
-    <div className='column small-16 medium-8 large-6 text-right'>{children}</div>
-  </div>
-);
+  );
+}
 
 Header.propTypes = {
   border: PropTypes.bool,

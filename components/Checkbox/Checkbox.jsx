@@ -34,7 +34,6 @@ const ToggleCheckbox = () => (
 // probably very easily be removed by changing https://github.com/vhx/quartz/blob/master/quartz-js/components/checkbox/styles/checkbox.scss
 // to have .checkbox not be required to be a descendent of .form
 const Checkbox = props => {
-  console.log('get class Names', getClassName(props));
   return (
     <div className='form'>
       <fieldset className={getClassName(props)}>
