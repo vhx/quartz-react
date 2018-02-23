@@ -95,7 +95,6 @@ const iconColor = props => {
 }
 
 const Icon = props => {
-  console.log(props.color);
   const iconStyles = {
     backgroundColor: iconColor(props),
     width: iconSize(props),

@@ -1265,7 +1265,6 @@ var iconColor = function (props) {
 };
 
 var Icon$1 = function (props) {
-  console.log(props.color);
   var iconStyles = {
     backgroundColor: iconColor(props),
     width: iconSize(props),
@@ -3644,7 +3643,7 @@ var IconSizes = function () { return (
   )
 ); };
 
-var iconSizesCode = "\n  <Icon\n    size='xxsmall'\n    src={testImage}\n  />\n  <Icon\n    size='xsmall'\n    src={testImage}\n  />\n  <Icon\n    size='small'\n    src={testImage}\n  />\n  <Icon\n    size='medium'\n    src={testImage}\n  />\n  <Icon\n    size='large'\n    src={testImage}\n  />\n  <Icon\n    size='xlarge'\n    src={testImage}\n  />\n  <Icon\n    size='xxlarge'\n    src={testImage}\n  />\n";
+var iconSizesCode = "\n  <Icon size='xxsmall' src={testImage} />\n  <Icon size='xsmall' src={testImage} />\n  <Icon size='small' src={testImage} />\n  <Icon size='medium' src={testImage} />\n  <Icon size='large' src={testImage} />\n  <Icon size='xlarge' src={testImage} />\n  <Icon size='xxlarge' src={testImage} />\n";
 
 
 // Icon colors demo
@@ -3696,7 +3695,7 @@ var IconColors = function () { return (
   )
 ); };
 
-var iconColorsCode = "\n  <Icon\n    name='product'\n    size='medium'\n    src={testImage}\n    color='AstroGranite'\n  />\n";
+var iconColorsCode = "\n  <Icon name='product' size='medium' src={testImage} color='AstroGranite' />\n";
 
 
 // Main exported demo

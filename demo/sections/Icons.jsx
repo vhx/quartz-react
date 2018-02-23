@@ -57,34 +57,13 @@ const IconSizes = () => (
 );
 
 const iconSizesCode = `
-  <Icon
-    size='xxsmall'
-    src={testImage}
-  />
-  <Icon
-    size='xsmall'
-    src={testImage}
-  />
-  <Icon
-    size='small'
-    src={testImage}
-  />
-  <Icon
-    size='medium'
-    src={testImage}
-  />
-  <Icon
-    size='large'
-    src={testImage}
-  />
-  <Icon
-    size='xlarge'
-    src={testImage}
-  />
-  <Icon
-    size='xxlarge'
-    src={testImage}
-  />
+  <Icon size='xxsmall' src={testImage} />
+  <Icon size='xsmall' src={testImage} />
+  <Icon size='small' src={testImage} />
+  <Icon size='medium' src={testImage} />
+  <Icon size='large' src={testImage} />
+  <Icon size='xlarge' src={testImage} />
+  <Icon size='xxlarge' src={testImage} />
 `;
 
 
@@ -168,12 +147,7 @@ const IconColors = () => (
 );
 
 const iconColorsCode = `
-  <Icon
-    name='product'
-    size='medium'
-    src={testImage}
-    color='AstroGranite'
-  />
+  <Icon name='product' size='medium' src={testImage} color='AstroGranite' />
 `;
 
 
