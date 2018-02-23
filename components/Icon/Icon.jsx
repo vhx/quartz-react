@@ -6,96 +6,49 @@ import iconList from './icon-list.js';
 
 import styles from './Icon.scss'
 
-const compileClassName = props => {
-
-  let Arr = ['icon'];
+const iconSize = props => {
 
   if (props.size == 'xxsmall') {
-    Arr.push('Xxsmall');
+    return '15px';
   }
 
   if (props.size == 'xsmall') {
-    Arr.push('Xsmall');
+    return '15px';
   }
 
   if (props.size == 'small') {
-    Arr.push('Small');
+    return '25px';
   }
 
   if (props.size == 'medium') {
-    Arr.push('Medium');
+    return '35px';
   }
 
   if (props.size == 'large') {
-    Arr.push('Large');
+    return '45px';
   }
 
   if (props.size == 'xlarge') {
-    Arr.push('Xlarge');
+    return '55px';
   }
 
   if (props.size == 'xxlarge') {
-    Arr.push('Xxlarge');
+    return '65px';
   }
-
-  if (props.color === 'white' ) {
-    Arr.push('White');
-  }
-
-  if (props.color === 'Porcelain' ) {
-    Arr.push('Porcelain');
-  }
-
-  if (props.color === 'RegentGray' ) {
-    Arr.push('RegentGray');
-  }
-
-  if (props.color === 'SoutherlySky' ) {
-    Arr.push('SoutherlySky');
-  }
-
-  if (props.color === 'AstroGranite' ) {
-    Arr.push('AstroGranite');
-  }
-
-  if (props.color === 'SunsetOrange' ) {
-    Arr.push('SunsetOrange');
-  }
-
-  if (props.color === 'VimeoBlue' ) {
-    Arr.push('VimeoBlue');
-  }
-
-  if (props.color === 'Foam' ) {
-    Arr.push('Foam');
-  }
-
-  if (props.color === 'RumSwizzle' ) {
-    Arr.push('RumSwizzle');
-  }
-
-  if (props.color === 'PalePink' ) {
-    Arr.push('PalePink');
-  }
-
-  if (props.color === 'Pistachio' ) {
-    Arr.push('Pistachio');
-  }
-
-  return Arr.join('');
 }
 
-
 const Icon = props => {
+  const iconStyles = {
+    backgroundColor: props.color,
+    width: iconSize(props),
+    height: iconSize(props),
+    backgroundImage: `url(${props.src})`,
+  }
   return (
-    <span
-      className={`styles.${compileClassName(props)}`}
-    >
-      <img
-        className='tbd'
-        src={props.src}
-      />
-    </span>
+    <div
+      className={styles.icon}
+      style={iconStyles}
+    />
   );
 }
 
