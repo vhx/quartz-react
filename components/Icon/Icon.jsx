@@ -103,7 +103,7 @@ const Icon = props => {
   );
 }
 
-const colors = [ '', 'navy', 'teal', 'white', 'gray' ];
+const colors = [ '', 'VimeoBlue', 'SunsetOrange', 'white', 'Pistachio', 'RumSwizzle', 'PalePink', 'Foam', 'Porcelain', 'SoutherlySky', 'RegentGray', 'AstroGranite' ];
 const sizes = [ 'xxsmall', 'xsmall', 'small', 'medium', 'large', 'xlarge', 'xxlarge' ];
 
 Icon.propTypes = {
