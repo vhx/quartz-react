@@ -88,7 +88,6 @@ const iconColor = props => {
   if (props.color === 'AstroGranite') {
     return '#1a2e3b';
   }
-
 }
 
 const Icon = props => {
