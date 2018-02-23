@@ -1,5 +1,4 @@
 /* eslint-disable react/no-unused-prop-types */
-
 import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
@@ -89,15 +88,11 @@ const getClassName = props => {
 
 
 const Icon = props => {
-  console.log('Icon props', props);
-  const coloredBg = {
-    backgroundColor: props.color,
-  }
+  console.log(props)
   return (
     <span
       className={getClassName(props)}
     >
-      <div className={}
       {props.children}
     </span>
   );
@@ -109,11 +104,8 @@ const sizes = [ 'xxsmall', 'xsmall', 'small', 'medium', 'large', 'xlarge', 'xxla
 Icon.propTypes = {
   children: PropTypes.node,
   className: PropTypes.string,
-  circle: PropTypes.bool,
   color: PropTypes.oneOf(colors),
   name: PropTypes.oneOf(iconList).isRequired,
-  left: PropTypes.bool,
-  right: PropTypes.bool,
   size: PropTypes.oneOf(sizes),
 };
 
@@ -122,8 +114,6 @@ Icon.defaultProps = {
   className: '',
   circle: false,
   color: null,
-  left: false,
-  right: false,
   size: 'xsmall',
 };
 

@@ -1171,11 +1171,10 @@ Button$1.propDescriptions = {
 
 var iconNames = [ 'activity', 'add-member', 'alert', 'align', 'amex-card', 'android-workmark', 'android', 'angle-down', 'angle-left', 'angle-up', 'angle-right', 'api', 'apple', 'apps', 'arrow-down', 'arrow-left', 'arrow-right', 'arrow-up', 'audio', 'ban', 'bell', 'briefcase', 'calendar', 'camera', 'card', 'caret-down', 'caret-left', 'caret-right', 'caret-up', 'cassette-frown', 'cassette', 'chevron-down', 'check', 'chevron-left', 'chevron-right', 'chevron-up', 'chrome', 'clapboard', 'clock', 'code', 'cog', 'collection', 'comment', 'comments', 'currency', 'desktop', 'diners-card', 'csv', 'discover-card', 'doc', 'download-alt', 'download', 'dropbox', 'edit', 'ellipsis-vertical', 'ellipsis', 'envelope-sealed', 'envelope', 'external-link', 'eye', 'facebook', 'followers', 'gift', 'globe', 'grid', 'help', 'hi', 'home', 'instagram', 'invoice', 'ios', 'jcb-card', 'justify', 'key', 'link', 'list', 'lock', 'marker', 'mastercard-card', 'media', 'member', 'money-card', 'money-circle', 'money', 'paypal-card', 'pic', 'play-outline', 'play', 'plus-thin', 'plus', 'popular', 'power', 'printer', 'product', 'question', 'random', 'referral', 'refresh', 'revert', 'roku-wordmark', 'reply', 'roku', 'search', 'sliders', 'star-outline', 'star', 'tag', 'tags', 'todo', 'trash', 'transaction', 'tumblr', 'tv', 'tvos', 'twitter', 'upload-alt', 'upload', 'vhs', 'vhx', 'vimeovhx-dark', 'vimeovhx-light', 'visa-card', 'window', 'x', 'xmas-tree' ];
 
-var css$2 = "/* .....................................\n  Vimeo Colors\n..................................... */\n/* .....................................\n  Grayscale\n..................................... */\n/* .....................................\n  Blues\n..................................... */\n/* .....................................\n  Greens\n..................................... */\n/* .....................................\n  Reds\n..................................... */\n/* .....................................\n  Interaction Colors\n..................................... */\n/* .....................................\n  Vimeo Legacy Colors\n..................................... */\n/* .....................................\n  Default Text\n..................................... */\n/* .....................................\n  Default Sizing\n..................................... */\n/* .....................................\n  Vimeo Colors\n..................................... */\n/* .....................................\n  Grayscale\n..................................... */\n/* .....................................\n  Blues\n..................................... */\n/* .....................................\n  Greens\n..................................... */\n/* .....................................\n  Reds\n..................................... */\n/* .....................................\n  Interaction Colors\n..................................... */\n/* .....................................\n  Vimeo Legacy Colors\n..................................... */\n/* .....................................\n  Default Text\n..................................... */\n/* .....................................\n  Default Sizing\n..................................... */\n/*.....................................\n  VIMEO FONT MIXINS\n......................................*/\n/* .....................................\n  Vimeo Colors\n..................................... */\n/* .....................................\n  Grayscale\n..................................... */\n/* .....................................\n  Blues\n..................................... */\n/* .....................................\n  Greens\n..................................... */\n/* .....................................\n  Reds\n..................................... */\n/* .....................................\n  Interaction Colors\n..................................... */\n/* .....................................\n  Vimeo Legacy Colors\n..................................... */\n/* .....................................\n  Default Text\n..................................... */\n/* .....................................\n  Default Sizing\n..................................... */\n/* .....................................\n  Vimeo Colors\n..................................... */\n/* .....................................\n  Grayscale\n..................................... */\n/* .....................................\n  Blues\n..................................... */\n/* .....................................\n  Greens\n..................................... */\n/* .....................................\n  Reds\n..................................... */\n/* .....................................\n  Interaction Colors\n..................................... */\n/* .....................................\n  Vimeo Legacy Colors\n..................................... */\n/* .....................................\n  Default Text\n..................................... */\n/* .....................................\n  Default Sizing\n..................................... */\n/* .....................................\n  Vimeo Specific Fonts\n..................................... */\n/* .....................................\n  Vimeo Specific Widths\n..................................... */\n/* .....................................\n  Vimeo Media Query Breakpoints\n..................................... */\n.Icon_icon__1SIxy,\n.Icon_iconXxsmall__2F4Md,\n.Icon_iconXsmall__1-RTR,\n.Icon_iconSmall__1Y_8A,\n.Icon_iconMedium__3MB6Q,\n.Icon_iconLarge__1PgSl,\n.Icon_iconXlarge__3zxed,\n.Icon_iconXxlarge__2saNc,\n.Icon_iconRight__2cleo,\n.Icon_iconRightXxsmall__3XRTt,\n.Icon_iconRightXsmall__2tM__,\n.Icon_iconRightSmall__3Sdm1,\n.Icon_iconRightMedium__1os-B,\n.Icon_iconRightLarge__1LXTW,\n.Icon_iconRightXlarge__3VC44,\n.Icon_iconRightXxlarge__LHT5D,\n.Icon_iconLeft__30NKB,\n.Icon_iconLeftXxsmall__2q4xa,\n.Icon_iconLeftXsmall__230Ac,\n.Icon_iconLeftSmall__3j2oV,\n.Icon_iconLeftMedium__3xXch,\n.Icon_iconLeftLarge__2BFB5,\n.Icon_iconLeftXlarge__duilc,\n.Icon_iconLeftXxlarge__3PvGW {\n  display: inline-block;\n  background-position: 50% 50%;\n  background-size: contain;\n  text-indent: -9999px; }\n\n.Icon_icon__1SIxy,\n.Icon_iconSmall__1Y_8A,\n.Icon_iconLeft__30NKB,\n.Icon_iconLeftSmall__3j2oV,\n.Icon_iconRight__2cleo,\n.Icon_iconRightSmall__3Sdm1 {\n  width: 25px;\n  height: 25px; }\n\n.Icon_iconXxsmall__2F4Md,\n.Icon_iconXsmall__1-RTR,\n.Icon_iconLeftXxsmall__2q4xa,\n.Icon_iconLeftXxsmall__2q4xa,\n.Icon_iconLeftXsmall__230Ac,\n.Icon_iconLeftXsmall__230Ac,\n.Icon_iconRightXxsmall__3XRTt,\n.Icon_iconRightXxsmall__3XRTt,\n.Icon_iconRightXsmall__2tM__,\n.Icon_iconRightXsmall__2tM__ {\n  width: 15px;\n  height: 15px; }\n\n.Icon_iconMedium__3MB6Q,\n.Icon_iconLeftMedium__3xXch,\n.Icon_iconRightMedium__1os-B {\n  width: 35px;\n  height: 35px; }\n\n.Icon_iconLarge__1PgSl,\n.Icon_iconLeftLarge__2BFB5,\n.Icon_iconRightLarge__1LXTW {\n  width: 45px;\n  height: 45px; }\n\n.Icon_iconXlarge__3zxed,\n.Icon_iconLeftXlarge__duilc,\n.Icon_iconRightXlarge__3VC44 {\n  width: 55px;\n  height: 55px; }\n\n.Icon_iconXxlarge__2saNc,\n.Icon_iconLeftXxlarge__3PvGW,\n.Icon_iconRightXxlarge__LHT5D {\n  width: 65px;\n  height: 65px; }\n\n.Icon_iconLeft__30NKB {\n  background-position: left 21px center; }\n\n.Icon_iconLeftXsmall__230Ac {\n  background-position: left 16px center; }\n\n.Icon_iconLeftXxsmall__2q4xa {\n  background-position: left 18px center; }\n\n.Icon_iconRight__2cleo {\n  background-position: right 0px center; }\n\n.Icon_iconRightXxsmall__3XRTt {\n  background-position: left 18px center; }\n\n.Icon_iconCircle__MeCp3,\n.Icon_iconXxsmallCircle__1yUEP,\n.Icon_iconXsmallCircle__1cK4Z,\n.Icon_iconSmallCircle__20nVO,\n.Icon_iconMediumCircle__2-VBZ,\n.Icon_iconLargeCircle__1eBPG,\n.Icon_iconXlargeCircle__2IgAD,\n.Icon_iconXxlargeCircle__3VFzj {\n  border-radius: 50%;\n  border: 1px solid #e3e8e9;\n  box-sizing: content-box;\n  display: inline-block;\n  background-position: 50% 50%; }\n\n.Icon_iconXxsmallCircle__1yUEP {\n  padding: 3px;\n  background-size: 10px 10px;\n  width: 10px;\n  height: 10px; }\n\n.Icon_iconXsmallCircle__1cK4Z {\n  padding: 5px;\n  background-size: 15px 15px;\n  width: 15px;\n  height: 15px; }\n\n.Icon_iconSmallCircle__20nVO {\n  padding: 10px;\n  background-size: 25px 25px;\n  width: 25px;\n  height: 25px; }\n\n.Icon_iconMediumCircle__2-VBZ {\n  padding: 15px;\n  background-size: 35px 35px;\n  width: 35px;\n  height: 35px; }\n\n.Icon_iconLargeCircle__1eBPG {\n  padding: 20px;\n  background-size: 45px 45px;\n  width: 45px;\n  height: 45px; }\n\n.Icon_iconXlargeCircle__2IgAD {\n  padding: 25px;\n  background-size: 55px 55px;\n  width: 55px;\n  height: 55px; }\n\n.Icon_iconXxlargeCircle__3VFzj {\n  padding: 35px;\n  background-size: 65px 65px;\n  width: 65px;\n  height: 65px; }\n";
+var css$2 = "/* .....................................\n  Vimeo Colors\n..................................... */\n/* .....................................\n  Grayscale\n..................................... */\n/* .....................................\n  Blues\n..................................... */\n/* .....................................\n  Greens\n..................................... */\n/* .....................................\n  Reds\n..................................... */\n/* .....................................\n  Interaction Colors\n..................................... */\n/* .....................................\n  Vimeo Legacy Colors\n..................................... */\n/* .....................................\n  Default Text\n..................................... */\n/* .....................................\n  Default Sizing\n..................................... */\n/* .....................................\n  Vimeo Colors\n..................................... */\n/* .....................................\n  Grayscale\n..................................... */\n/* .....................................\n  Blues\n..................................... */\n/* .....................................\n  Greens\n..................................... */\n/* .....................................\n  Reds\n..................................... */\n/* .....................................\n  Interaction Colors\n..................................... */\n/* .....................................\n  Vimeo Legacy Colors\n..................................... */\n/* .....................................\n  Default Text\n..................................... */\n/* .....................................\n  Default Sizing\n..................................... */\n/*.....................................\n  VIMEO FONT MIXINS\n......................................*/\n/* .....................................\n  Vimeo Colors\n..................................... */\n/* .....................................\n  Grayscale\n..................................... */\n/* .....................................\n  Blues\n..................................... */\n/* .....................................\n  Greens\n..................................... */\n/* .....................................\n  Reds\n..................................... */\n/* .....................................\n  Interaction Colors\n..................................... */\n/* .....................................\n  Vimeo Legacy Colors\n..................................... */\n/* .....................................\n  Default Text\n..................................... */\n/* .....................................\n  Default Sizing\n..................................... */\n/* .....................................\n  Vimeo Colors\n..................................... */\n/* .....................................\n  Grayscale\n..................................... */\n/* .....................................\n  Blues\n..................................... */\n/* .....................................\n  Greens\n..................................... */\n/* .....................................\n  Reds\n..................................... */\n/* .....................................\n  Interaction Colors\n..................................... */\n/* .....................................\n  Vimeo Legacy Colors\n..................................... */\n/* .....................................\n  Default Text\n..................................... */\n/* .....................................\n  Default Sizing\n..................................... */\n/* .....................................\n  Vimeo Specific Fonts\n..................................... */\n/* .....................................\n  Vimeo Specific Widths\n..................................... */\n/* .....................................\n  Vimeo Media Query Breakpoints\n..................................... */\n.Icon_icon__1SIxy,\n.Icon_iconXxsmall__2F4Md,\n.Icon_iconXsmall__1-RTR,\n.Icon_iconSmall__1Y_8A,\n.Icon_iconMedium__3MB6Q,\n.Icon_iconLarge__1PgSl,\n.Icon_iconXlarge__3zxed,\n.Icon_iconXxlarge__2saNc,\n.Icon_iconWhite__214kp,\n.Icon_iconWhiteXxsmall__mkKaF,\n.Icon_iconWhiteXsmall__27pPF,\n.Icon_iconWhiteSmall__1KJLX,\n.Icon_iconWhiteMedium__HMsSk,\n.Icon_iconWhiteLarge__zQnx3,\n.Icon_iconWhiteXlarge__2jOGW,\n.Icon_iconWhiteXxlarge__28FyW,\n.Icon_iconVimeoBlue__1-BHA,\n.Icon_iconVimeoBlueXxsmall__f7LDl,\n.Icon_iconVimeoBlueXsmall__3GRAd,\n.Icon_iconVimeoBlueSmall__18nxC,\n.Icon_iconVimeoBlueMedium__19X9K,\n.Icon_iconVimeoBlueLarge__YeYkc,\n.Icon_iconVimeoBlueXlarge__1v47V,\n.Icon_iconVimeoBlueXxlarge__MKo10,\n.Icon_iconSunsetOrange__1dwAg,\n.Icon_iconSunsetOrangeXxsmall__UANxB,\n.Icon_iconSunsetOrangeXsmall__1ABUH,\n.Icon_iconSunsetOrangeSmall__11lWN,\n.Icon_iconSunsetOrangeMedium__2OciQ,\n.Icon_iconSunsetOrangeLarge__3d4_R,\n.Icon_iconSunsetOrangeXlarge__2j-mc,\n.Icon_iconSunsetOrangeXxlarge__Tbffc,\n.Icon_iconPistachio__N9h3a,\n.Icon_iconPistachioXxsmall__LFBw5,\n.Icon_iconPistachioXsmall__3_N27,\n.Icon_iconPistachioSmall__37XgG,\n.Icon_iconPistachioMedium__2gIBE,\n.Icon_iconPistachioLarge__385u0,\n.Icon_iconPistachioXlarge__ktwas,\n.Icon_iconPistachioXxlarge__2OGWK,\n.Icon_iconRumSwizzle__IuOQZ,\n.Icon_iconRumSwizzleXxsmall__2WO9F,\n.Icon_iconRumSwizzleXsmall__1uKjE,\n.Icon_iconRumSwizzleSmall__3I9Ai,\n.Icon_iconRumSwizzleMedium__1sQ40,\n.Icon_iconRumSwizzleLarge__2b7JR,\n.Icon_iconRumSwizzleXlarge__1Bngr,\n.Icon_iconRumSwizzleXxlarge__oeym9,\n.Icon_iconPalePink__2RHCb,\n.Icon_iconPalePinkXxsmall__pHKAC,\n.Icon_iconPalePinkXsmall__2LAKr,\n.Icon_iconPalePinkSmall__9LCaL,\n.Icon_iconPalePinkMedium__28Ynn,\n.Icon_iconPalePinkLarge__1MuEP,\n.Icon_iconPalePinkXlarge__i9eW0,\n.Icon_iconPalePinkXxlarge__3A7zq,\n.Icon_iconFoam__E5vqL,\n.Icon_iconFoamXxsmall__1wjAT,\n.Icon_iconFoamXsmall__1btrG,\n.Icon_iconFoamSmall__FVXQM,\n.Icon_iconFoamMedium__19YHJ,\n.Icon_iconFoamLarge__3jTjz,\n.Icon_iconFoamXlarge__1NIJ5,\n.Icon_iconFoamXxlarge__3P8cS,\n.Icon_iconPorcelain__1ZvS1,\n.Icon_iconPorcelainXxsmall__2UTUe,\n.Icon_iconPorcelainXsmall__81yv5,\n.Icon_iconPorcelainSmall__1wSlX,\n.Icon_iconPorcelainMedium__3pHBH,\n.Icon_iconPorcelainLarge__3dHDf,\n.Icon_iconPorcelainXlarge__3eHfs,\n.Icon_iconPorcelainXxlarge__3BrBA,\n.Icon_iconSoutherlySky__2mF1B,\n.Icon_iconSoutherlySkyXxsmall__3nTzs,\n.Icon_iconSoutherlySkyXsmall__29sC9,\n.Icon_iconSoutherlySkySmall__3iOL1,\n.Icon_iconSoutherlySkyMedium__3xfAk,\n.Icon_iconSoutherlySkyLarge__1ORgD,\n.Icon_iconSoutherlySkyXlarge__1h8_C,\n.Icon_iconSoutherlySkyXxlarge__3cHH2,\n.Icon_iconRegentGray__1QIPu,\n.Icon_iconRegentGrayXxsmall__1QehG,\n.Icon_iconRegentGrayXsmall__2K_aS,\n.Icon_iconRegentGraySmall__1yFdT,\n.Icon_iconRegentGrayMedium__Sdean,\n.Icon_iconRegentGrayLarge__15R00,\n.Icon_iconRegentGrayXlarge__TsOO-,\n.Icon_iconRegentGrayXxlarge__3DrFS,\n.Icon_iconAstroGranite__23QqZ,\n.Icon_iconAstroGraniteXxsmall__3M_JX,\n.Icon_iconAstroGraniteXsmall__2kCfg,\n.Icon_iconAstroGraniteSmall__1wNSi,\n.Icon_iconAstroGraniteMedium__L89Ow,\n.Icon_iconAstroGraniteLarge__33S0j,\n.Icon_iconAstroGraniteXlarge__3nTIn,\n.Icon_iconAstroGraniteXxlarge__3Jy8K {\n  display: inline-block;\n  background-position: 50% 50%;\n  background-size: contain;\n  text-indent: -9999px; }\n\n.Icon_icon__1SIxy,\n.Icon_iconSmall__1Y_8A,\n.Icon_iconWhite__214kp,\n.Icon_iconVimeoBlue__1-BHA,\n.Icon_iconSunsetOrange__1dwAg,\n.Icon_iconPistachio__N9h3a,\n.Icon_iconRumSwizzle__IuOQZ,\n.Icon_iconFoam__E5vqL,\n.Icon_iconPorcelain__1ZvS1,\n.Icon_iconSoutherlySky__2mF1B,\n.Icon_iconRegentGray__1QIPu,\n.Icon_iconAstroGranite__23QqZ,\n.Icon_iconWhiteSmall__1KJLX,\n.Icon_iconVimeoBlueSmall__18nxC,\n.Icon_iconSunsetOrangeSmall__11lWN,\n.Icon_iconPistachioSmall__37XgG,\n.Icon_iconRumSwizzleSmall__3I9Ai,\n.Icon_iconFoamSmall__FVXQM,\n.Icon_iconPorcelainSmall__1wSlX,\n.Icon_iconSoutherlySkySmall__3iOL1,\n.Icon_iconRegentGraySmall__1yFdT,\n.Icon_iconAstroGraniteSmall__1wNSi {\n  width: 25px;\n  height: 25px; }\n\n.Icon_iconXxsmall__2F4Md,\n.Icon_iconXsmall__1-RTR,\n.Icon_iconWhiteXxsmall__mkKaF,\n.Icon_iconVimeoBlueXxsmall__f7LDl,\n.Icon_iconSunsetOrangeXxsmall__UANxB,\n.Icon_iconPistachioXxsmall__LFBw5,\n.Icon_iconRumSwizzleXxsmall__2WO9F,\n.Icon_iconFoamXxsmall__1wjAT,\n.Icon_iconPorcelainXxsmall__2UTUe,\n.Icon_iconSoutherlySkyXxsmall__3nTzs,\n.Icon_iconRegentGrayXxsmall__1QehG,\n.Icon_iconAstroGraniteXxsmall__3M_JX,\n.Icon_iconWhiteXsmall__27pPF,\n.Icon_iconVimeoBlueXsmall__3GRAd,\n.Icon_iconSunsetOrangeXsmall__1ABUH,\n.Icon_iconPistachioXsmall__3_N27,\n.Icon_iconRumSwizzleXsmall__1uKjE,\n.Icon_iconFoamXsmall__1btrG,\n.Icon_iconPorcelainXsmall__81yv5,\n.Icon_iconSoutherlySkyXsmall__29sC9,\n.Icon_iconRegentGrayXsmall__2K_aS,\n.Icon_iconAstroGraniteXsmall__2kCfg {\n  width: 15px;\n  height: 15px; }\n\n.Icon_iconMedium__3MB6Q,\n.Icon_iconWhiteMedium__HMsSk,\n.Icon_iconVimeoBlueMedium__19X9K,\n.Icon_iconSunsetOrangeMedium__2OciQ,\n.Icon_iconPistachioMedium__2gIBE,\n.Icon_iconRumSwizzleMedium__1sQ40,\n.Icon_iconFoamMedium__19YHJ,\n.Icon_iconPorcelainMedium__3pHBH,\n.Icon_iconSoutherlySkyMedium__3xfAk,\n.Icon_iconRegentGrayMedium__Sdean,\n.Icon_iconAstroGraniteMedium__L89Ow {\n  width: 35px;\n  height: 35px; }\n\n.Icon_iconLarge__1PgSl,\n.Icon_iconWhiteLarge__zQnx3,\n.Icon_iconVimeoBlueLarge__YeYkc,\n.Icon_iconSunsetOrangeLarge__3d4_R,\n.Icon_iconPistachioLarge__385u0,\n.Icon_iconRumSwizzleLarge__2b7JR,\n.Icon_iconFoamLarge__3jTjz,\n.Icon_iconPorcelainLarge__3dHDf,\n.Icon_iconSoutherlySkyLarge__1ORgD,\n.Icon_iconRegentGrayLarge__15R00,\n.Icon_iconAstroGraniteLarge__33S0j {\n  width: 45px;\n  height: 45px; }\n\n.Icon_iconXlarge__3zxed,\n.Icon_iconWhiteXlarge__2jOGW,\n.Icon_iconVimeoBlueXlarge__1v47V,\n.Icon_iconSunsetOrangeXlarge__2j-mc,\n.Icon_iconPistachioXlarge__ktwas,\n.Icon_iconRumSwizzleXlarge__1Bngr,\n.Icon_iconFoamXlarge__1NIJ5,\n.Icon_iconPorcelainXlarge__3eHfs,\n.Icon_iconSoutherlySkyXlarge__1h8_C,\n.Icon_iconRegentGrayXlarge__TsOO-,\n.Icon_iconAstroGraniteXlarge__3nTIn {\n  width: 55px;\n  height: 55px; }\n\n.Icon_iconXxlarge__2saNc,\n.Icon_iconWhiteXxlarge__28FyW,\n.Icon_iconVimeoBlueXxlarge__MKo10,\n.Icon_iconSunsetOrangeXxlarge__Tbffc,\n.Icon_iconPistachioXxlarge__2OGWK,\n.Icon_iconRumSwizzleXxlarge__oeym9,\n.Icon_iconFoamXxlarge__3P8cS,\n.Icon_iconPorcelainXxlarge__3BrBA,\n.Icon_iconSoutherlySkyXxlarge__3cHH2,\n.Icon_iconRegentGrayXxlarge__3DrFS,\n.Icon_iconAstroGraniteXxlarge__3Jy8K {\n  width: 65px;\n  height: 65px; }\n\n.Icon_iconWhite__214kp,\n.Icon_iconWhiteXxsmall__mkKaF,\n.Icon_iconWhiteXsmall__27pPF,\n.Icon_iconWhiteMedium__HMsSk,\n.Icon_iconWhiteLarge__zQnx3,\n.Icon_iconWhiteXlarge__2jOGW,\n.Icon_iconWhiteXxlarge__28FyW {\n  background-color: #fff; }\n\n.Icon_iconVimeoBlue__1-BHA,\n.Icon_iconVimeoBlueXxsmall__f7LDl,\n.Icon_iconVimeoBlueXsmall__3GRAd,\n.Icon_iconVimeoBlueMedium__19X9K,\n.Icon_iconVimeoBlueLarge__YeYkc,\n.Icon_iconVimeoBlueXlarge__1v47V,\n.Icon_iconVimeoBlueXxlarge__MKo10 {\n  background-color: #00adef; }\n\n.Icon_iconSunsetOrange__1dwAg,\n.Icon_iconSunsetOrangeXxsmall__UANxB,\n.Icon_iconSunsetOrangeXsmall__1ABUH,\n.Icon_iconSunsetOrangeMedium__2OciQ,\n.Icon_iconSunsetOrangeLarge__3d4_R,\n.Icon_iconSunsetOrangeXlarge__2j-mc,\n.Icon_iconSunsetOrangeXxlarge__Tbffc {\n  background-color: #ff4d4d; }\n\n.Icon_iconPistachio__N9h3a,\n.Icon_iconPistachioXxsmall__LFBw5,\n.Icon_iconPistachioXsmall__3_N27,\n.Icon_iconPistachioMedium__2gIBE,\n.Icon_iconPistachioLarge__385u0,\n.Icon_iconPistachioXlarge__ktwas,\n.Icon_iconPistachioXxlarge__2OGWK {\n  background-color: #7FC400; }\n\n.Icon_iconRumSwizzle__IuOQZ,\n.Icon_iconRumSwizzleXxsmall__2WO9F,\n.Icon_iconRumSwizzleXsmall__1uKjE,\n.Icon_iconRumSwizzleMedium__1sQ40,\n.Icon_iconRumSwizzleLarge__2b7JR,\n.Icon_iconRumSwizzleXlarge__1Bngr,\n.Icon_iconRumSwizzleXxlarge__oeym9 {\n  background-color: #f2f9e5; }\n\n.Icon_iconFoam__E5vqL,\n.Icon_iconFoamXxsmall__1wjAT,\n.Icon_iconFoamXsmall__1btrG,\n.Icon_iconFoamMedium__19YHJ,\n.Icon_iconFoamLarge__3jTjz,\n.Icon_iconFoamXlarge__1NIJ5,\n.Icon_iconFoamXxlarge__3P8cS {\n  background-color: #e5f7fd; }\n\n.Icon_iconPorcelain__1ZvS1,\n.Icon_iconPorcelainXxsmall__2UTUe,\n.Icon_iconPorcelainXsmall__81yv5,\n.Icon_iconPorcelainMedium__3pHBH,\n.Icon_iconPorcelainLarge__3dHDf,\n.Icon_iconPorcelainXlarge__3eHfs,\n.Icon_iconPorcelainXxlarge__3BrBA {\n  background-color: #e3e8e9; }\n\n.Icon_iconSoutherlySky__2mF1B,\n.Icon_iconSoutherlySkyXxsmall__3nTzs,\n.Icon_iconSoutherlySkyXsmall__29sC9,\n.Icon_iconSoutherlySkyMedium__3xfAk,\n.Icon_iconSoutherlySkyLarge__1ORgD,\n.Icon_iconSoutherlySkyXlarge__1h8_C,\n.Icon_iconSoutherlySkyXxlarge__3cHH2 {\n  background-color: #b3bfc8; }\n\n.Icon_iconRegentGray__1QIPu,\n.Icon_iconRegentGrayXxsmall__1QehG,\n.Icon_iconRegentGrayXsmall__2K_aS,\n.Icon_iconRegentGrayMedium__Sdean,\n.Icon_iconRegentGrayLarge__15R00,\n.Icon_iconRegentGrayXlarge__TsOO-,\n.Icon_iconRegentGrayXxlarge__3DrFS {\n  background-color: #8699a6; }\n\n.Icon_iconAstroGranite__23QqZ,\n.Icon_iconAstroGraniteXxsmall__3M_JX,\n.Icon_iconAstroGraniteXsmall__2kCfg,\n.Icon_iconAstroGraniteMedium__L89Ow,\n.Icon_iconAstroGraniteLarge__33S0j,\n.Icon_iconAstroGraniteXlarge__3nTIn,\n.Icon_iconAstroGraniteXxlarge__3Jy8K {\n  background-color: #1a2e3b; }\n";
 __$$styleInject(css$2);
 
 /* eslint-disable react/no-unused-prop-types */
-
 var getClassName$1 = function (props) {
 
   var Arr = ['icon'];
@@ -1208,24 +1207,57 @@ var getClassName$1 = function (props) {
     Arr.push('Xxlarge');
   }
 
-
-  if (props.right === true) {
-    Arr.push('Right');
+  if (props.color === 'white' ) {
+    Arr.push('White');
   }
 
-  if (props.left === true) {
-    Arr.push('Left');
+  if (props.color === 'Porcelain' ) {
+    Arr.push('Porcelain');
   }
 
-  if (props.circle === true) {
-    Arr.push('Circle');
+  if (props.color === 'RegentGray' ) {
+    Arr.push('RegentGray');
+  }
+
+  if (props.color === 'SoutherlySky' ) {
+    Arr.push('SoutherlySky');
+  }
+
+  if (props.color === 'AstroGranite' ) {
+    Arr.push('AstroGranite');
+  }
+
+  if (props.color === 'SunsetOrange' ) {
+    Arr.push('SunsetOrange');
+  }
+
+  if (props.color === 'VimeoBlue' ) {
+    Arr.push('VimeoBlue');
+  }
+
+  if (props.color === 'Foam' ) {
+    Arr.push('Foam');
+  }
+
+  if (props.color === 'RumSwizzle' ) {
+    Arr.push('RumSwizzle');
+  }
+
+  if (props.color === 'PalePink' ) {
+    Arr.push('PalePink');
+  }
+
+  if (props.color === 'Pistachio' ) {
+    Arr.push('Pistachio');
   }
 
   return Arr.join('');
 };
 
+
+
 var Icon$1 = function (props) {
-  console.log('Icon props', props);
+  console.log(props);
   return (
     React__default.createElement( 'span', {
       className: getClassName$1(props) },
@@ -1234,17 +1266,14 @@ var Icon$1 = function (props) {
   );
 };
 
-var colors$1 = [ '', 'navy', 'teal', 'white', 'gray' ];
+var colors$1 = [ '', 'VimeoBlue', 'SunsetOrange', 'white', 'Pistachio', 'RumSwizzle', 'PalePink', 'Foam', 'Porcelain', 'SoutherlySky', 'RegentGray', 'AstroGranite' ];
 var sizes$2 = [ 'xxsmall', 'xsmall', 'small', 'medium', 'large', 'xlarge', 'xxlarge' ];
 
 Icon$1.propTypes = {
   children: index.node,
   className: index.string,
-  circle: index.bool,
   color: index.oneOf(colors$1),
   name: index.oneOf(iconNames).isRequired,
-  left: index.bool,
-  right: index.bool,
   size: index.oneOf(sizes$2),
 };
 
@@ -1253,8 +1282,6 @@ Icon$1.defaultProps = {
   className: '',
   circle: false,
   color: null,
-  left: false,
-  right: false,
   size: 'xsmall',
 };
 
@@ -3609,24 +3636,6 @@ var IconSizes = function () { return (
 var iconSizesCode = "\n<Icon name='product' size='xsmall' />\n<Icon name='product' size='small' />\n<Icon name='product' size='medium' />\n<Icon name='product' size='large' />\n<Icon name='product' size='xlarge' />\n<Icon name='product' size='xxlarge' />\n";
 
 
-// Icon circle demo
-// -----------------------------------------
-
-var IconCircles = function () { return (
-  React__default.createElement( 'div', null,
-    React__default.createElement( Subtitle, null, "Circles" ),
-    React__default.createElement( Block, { inline: true }, React__default.createElement( Icon$1, { circle: true, name: 'product', size: 'xsmall' })),
-    React__default.createElement( Block, { inline: true }, React__default.createElement( Icon$1, { circle: true, name: 'product', size: 'small' })),
-    React__default.createElement( Block, { inline: true }, React__default.createElement( Icon$1, { circle: true, name: 'product', size: 'medium' })),
-    React__default.createElement( Block, { inline: true }, React__default.createElement( Icon$1, { circle: true, name: 'product', size: 'large' })),
-    React__default.createElement( Block, { inline: true }, React__default.createElement( Icon$1, { circle: true, name: 'product', size: 'xlarge' })),
-    React__default.createElement( Block, { inline: true }, React__default.createElement( Icon$1, { circle: true, name: 'product', size: 'xxlarge' }))
-  )
-); };
-
-var iconCirclesCode = "\n<Icon circle name='product' size='xsmall' />\n<Icon circle name='product' size='small' />\n<Icon circle name='product' size='medium' />\n<Icon circle name='product' size='large' />\n<Icon circle name='product' size='xlarge' />\n<Icon circle name='product' size='xxlarge' />\n";
-
-
 // Icon colors demo
 // -----------------------------------------
 
@@ -3651,7 +3660,6 @@ var Icons = function () { return (
   React__default.createElement( 'div', null,
     React__default.createElement( DemoRow, null, React__default.createElement( Title, null, "Icons" ) ),
     React__default.createElement( DemoRow, { code: iconSizesCode }, React__default.createElement( IconSizes, null )),
-    React__default.createElement( DemoRow, { code: iconCirclesCode }, React__default.createElement( IconCircles, null )),
     React__default.createElement( DemoRow, { code: iconColorsCode }, React__default.createElement( IconColors, null )),
     React__default.createElement( DemoRow, { code: iconListCode }, React__default.createElement( IconList, null )),
     React__default.createElement( DemoRow, null, React__default.createElement( PropTypeTable, { component: Icon$1 }) )

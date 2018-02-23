@@ -64,31 +64,6 @@ const iconSizesCode = `
 `;
 
 
-// Icon circle demo
-// -----------------------------------------
-
-const IconCircles = () => (
-  <div>
-    <Subtitle>Circles</Subtitle>
-    <Block inline><Icon circle name='product' size='xsmall' /></Block>
-    <Block inline><Icon circle name='product' size='small' /></Block>
-    <Block inline><Icon circle name='product' size='medium' /></Block>
-    <Block inline><Icon circle name='product' size='large' /></Block>
-    <Block inline><Icon circle name='product' size='xlarge' /></Block>
-    <Block inline><Icon circle name='product' size='xxlarge' /></Block>
-  </div>
-);
-
-const iconCirclesCode = `
-<Icon circle name='product' size='xsmall' />
-<Icon circle name='product' size='small' />
-<Icon circle name='product' size='medium' />
-<Icon circle name='product' size='large' />
-<Icon circle name='product' size='xlarge' />
-<Icon circle name='product' size='xxlarge' />
-`;
-
-
 // Icon colors demo
 // -----------------------------------------
 
@@ -119,7 +94,6 @@ const Icons = () => (
   <div>
     <DemoRow><Title>Icons</Title></DemoRow>
     <DemoRow code={iconSizesCode}><IconSizes /></DemoRow>
-    <DemoRow code={iconCirclesCode}><IconCircles /></DemoRow>
     <DemoRow code={iconColorsCode}><IconColors /></DemoRow>
     <DemoRow code={iconListCode}><IconList /></DemoRow>
     <DemoRow><PropTypeTable component={Icon} /></DemoRow>
