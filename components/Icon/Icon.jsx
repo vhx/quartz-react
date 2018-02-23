@@ -110,27 +110,20 @@ const colors = [ '', 'VimeoBlue', 'SunsetOrange', 'white', 'Pistachio', 'RumSwiz
 const sizes = [ 'xxsmall', 'xsmall', 'small', 'medium', 'large', 'xlarge', 'xxlarge' ];
 
 Icon.propTypes = {
-  children: PropTypes.node,
-  className: PropTypes.string,
   color: PropTypes.oneOf(colors),
-  name: PropTypes.oneOf(iconList),
   size: PropTypes.oneOf(sizes),
   src: PropTypes.string,
 };
 
 Icon.defaultProps = {
-  children: '',
-  className: '',
-  circle: false,
   color: null,
   size: 'xsmall',
   src: '',
-  name: '',
 };
 
 Icon.propDescriptions = {
   color: `One of: ["${colors.join('", "')}"]`,
-  name: 'String: One of any of the valid icon names',
+  src: 'String: an image hosted locally in your repository',
   size: `One of: ["${sizes.join('", "')}"]`,
 };
 

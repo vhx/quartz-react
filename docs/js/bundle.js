@@ -1169,7 +1169,7 @@ Button$1.propDescriptions = {
   size: ("One of: [\"" + (sizes$1.join('", "')) + "\"]"),
 };
 
-var iconNames = [ 'activity', 'add-member', 'alert', 'align', 'amex-card', 'android-workmark', 'android', 'angle-down', 'angle-left', 'angle-up', 'angle-right', 'api', 'apple', 'apps', 'arrow-down', 'arrow-left', 'arrow-right', 'arrow-up', 'audio', 'ban', 'bell', 'briefcase', 'calendar', 'camera', 'card', 'caret-down', 'caret-left', 'caret-right', 'caret-up', 'cassette-frown', 'cassette', 'chevron-down', 'check', 'chevron-left', 'chevron-right', 'chevron-up', 'chrome', 'clapboard', 'clock', 'code', 'cog', 'collection', 'comment', 'comments', 'currency', 'desktop', 'diners-card', 'csv', 'discover-card', 'doc', 'download-alt', 'download', 'dropbox', 'edit', 'ellipsis-vertical', 'ellipsis', 'envelope-sealed', 'envelope', 'external-link', 'eye', 'facebook', 'followers', 'gift', 'globe', 'grid', 'help', 'hi', 'home', 'instagram', 'invoice', 'ios', 'jcb-card', 'justify', 'key', 'link', 'list', 'lock', 'marker', 'mastercard-card', 'media', 'member', 'money-card', 'money-circle', 'money', 'paypal-card', 'pic', 'play-outline', 'play', 'plus-thin', 'plus', 'popular', 'power', 'printer', 'product', 'question', 'random', 'referral', 'refresh', 'revert', 'roku-wordmark', 'reply', 'roku', 'search', 'sliders', 'star-outline', 'star', 'tag', 'tags', 'todo', 'trash', 'transaction', 'tumblr', 'tv', 'tvos', 'twitter', 'upload-alt', 'upload', 'vhs', 'vhx', 'vimeovhx-dark', 'vimeovhx-light', 'visa-card', 'window', 'x', 'xmas-tree' ];
+var iconList = [ 'activity', 'add-member', 'alert', 'align', 'amex-card', 'android-workmark', 'android', 'angle-down', 'angle-left', 'angle-up', 'angle-right', 'api', 'apple', 'apps', 'arrow-down', 'arrow-left', 'arrow-right', 'arrow-up', 'audio', 'ban', 'bell', 'briefcase', 'calendar', 'camera', 'card', 'caret-down', 'caret-left', 'caret-right', 'caret-up', 'cassette-frown', 'cassette', 'chevron-down', 'check', 'chevron-left', 'chevron-right', 'chevron-up', 'chrome', 'clapboard', 'clock', 'code', 'cog', 'collection', 'comment', 'comments', 'currency', 'desktop', 'diners-card', 'csv', 'discover-card', 'doc', 'download-alt', 'download', 'dropbox', 'edit', 'ellipsis-vertical', 'ellipsis', 'envelope-sealed', 'envelope', 'external-link', 'eye', 'facebook', 'followers', 'gift', 'globe', 'grid', 'help', 'hi', 'home', 'instagram', 'invoice', 'ios', 'jcb-card', 'justify', 'key', 'link', 'list', 'lock', 'marker', 'mastercard-card', 'media', 'member', 'money-card', 'money-circle', 'money', 'paypal-card', 'pic', 'play-outline', 'play', 'plus-thin', 'plus', 'popular', 'power', 'printer', 'product', 'question', 'random', 'referral', 'refresh', 'revert', 'roku-wordmark', 'reply', 'roku', 'search', 'sliders', 'star-outline', 'star', 'tag', 'tags', 'todo', 'trash', 'transaction', 'tumblr', 'tv', 'tvos', 'twitter', 'upload-alt', 'upload', 'vhs', 'vhx', 'vimeovhx-dark', 'vimeovhx-light', 'visa-card', 'window', 'x', 'xmas-tree' ];
 
 var css$2 = "/* .....................................\n  Vimeo Colors\n..................................... */\n/* .....................................\n  Grayscale\n..................................... */\n/* .....................................\n  Blues\n..................................... */\n/* .....................................\n  Greens\n..................................... */\n/* .....................................\n  Reds\n..................................... */\n/* .....................................\n  Interaction Colors\n..................................... */\n/* .....................................\n  Vimeo Legacy Colors\n..................................... */\n/* .....................................\n  Default Text\n..................................... */\n/* .....................................\n  Default Sizing\n..................................... */\n/* .....................................\n  Vimeo Colors\n..................................... */\n/* .....................................\n  Grayscale\n..................................... */\n/* .....................................\n  Blues\n..................................... */\n/* .....................................\n  Greens\n..................................... */\n/* .....................................\n  Reds\n..................................... */\n/* .....................................\n  Interaction Colors\n..................................... */\n/* .....................................\n  Vimeo Legacy Colors\n..................................... */\n/* .....................................\n  Default Text\n..................................... */\n/* .....................................\n  Default Sizing\n..................................... */\n/*.....................................\n  VIMEO FONT MIXINS\n......................................*/\n/* .....................................\n  Vimeo Colors\n..................................... */\n/* .....................................\n  Grayscale\n..................................... */\n/* .....................................\n  Blues\n..................................... */\n/* .....................................\n  Greens\n..................................... */\n/* .....................................\n  Reds\n..................................... */\n/* .....................................\n  Interaction Colors\n..................................... */\n/* .....................................\n  Vimeo Legacy Colors\n..................................... */\n/* .....................................\n  Default Text\n..................................... */\n/* .....................................\n  Default Sizing\n..................................... */\n/* .....................................\n  Vimeo Colors\n..................................... */\n/* .....................................\n  Grayscale\n..................................... */\n/* .....................................\n  Blues\n..................................... */\n/* .....................................\n  Greens\n..................................... */\n/* .....................................\n  Reds\n..................................... */\n/* .....................................\n  Interaction Colors\n..................................... */\n/* .....................................\n  Vimeo Legacy Colors\n..................................... */\n/* .....................................\n  Default Text\n..................................... */\n/* .....................................\n  Default Sizing\n..................................... */\n/* .....................................\n  Vimeo Specific Fonts\n..................................... */\n/* .....................................\n  Vimeo Specific Widths\n..................................... */\n/* .....................................\n  Vimeo Media Query Breakpoints\n..................................... */\n.Icon_icon__1SIxy {\n  display: inline-block;\n  background-position: 50% 50%;\n  background-size: contain;\n  text-indent: -9999px; }\n";
 var styles$2 = {"icon":"Icon_icon__1SIxy"};
@@ -1278,27 +1278,20 @@ var colors$1 = [ '', 'VimeoBlue', 'SunsetOrange', 'white', 'Pistachio', 'RumSwiz
 var sizes$2 = [ 'xxsmall', 'xsmall', 'small', 'medium', 'large', 'xlarge', 'xxlarge' ];
 
 Icon$1.propTypes = {
-  children: index.node,
-  className: index.string,
   color: index.oneOf(colors$1),
-  name: index.oneOf(iconNames),
   size: index.oneOf(sizes$2),
   src: index.string,
 };
 
 Icon$1.defaultProps = {
-  children: '',
-  className: '',
-  circle: false,
   color: null,
   size: 'xsmall',
   src: '',
-  name: '',
 };
 
 Icon$1.propDescriptions = {
   color: ("One of: [\"" + (colors$1.join('", "')) + "\"]"),
-  name: 'String: One of any of the valid icon names',
+  src: 'String: an image hosted locally in your repository',
   size: ("One of: [\"" + (sizes$2.join('", "')) + "\"]"),
 };
 
@@ -1649,7 +1642,7 @@ Header$1.propTypes = {
   border: index.bool,
   children: index.node,
   Description: index.oneOfType([ index.string, index.func ]), // can be a string or component
-  icon: index.oneOf(iconNames).isRequired,
+  icon: index.oneOf(iconList).isRequired,
   title: index.string.isRequired,
 };
 
@@ -3614,34 +3607,6 @@ var Headers = function () { return (
 
 var testImage = '../demo/sections/upload.svg';
 
-// All icons demo
-// -----------------------------------------
-
-var IconList = function () {
-  return (
-    React__default.createElement( 'div', null,
-      React__default.createElement( Subtitle, null, "All Icons" ),
-      React__default.createElement( 'ul', { className: 'small-block-grid-6 text-center' },
-        iconNames.map(function (icon, index$$1) {
-            return (
-              React__default.createElement( 'li', { key: index$$1 },
-                React__default.createElement( Block, null,
-                  React__default.createElement( Text$1, {
-                    color: 'gray', className: 'padding-bottom-small' }, icon)
-                ),
-                React__default.createElement( Icon$1, {
-                  name: icon, size: 'small', src: testImage })
-              )
-            )
-          })
-      )
-    )
-  );
-};
-
-var iconListCode = "\n<Icon name='product' />\n\n// Optional hidden text can help when aligning\n// icons with text of a specific line-height\n<Icon name='product'>hidden text</Icon>\n";
-
-
 // Icon sizes demo
 // -----------------------------------------
 
@@ -3738,7 +3703,6 @@ var Icons = function () { return (
     React__default.createElement( DemoRow, null, React__default.createElement( Title, null, "Icons" ) ),
     React__default.createElement( DemoRow, { code: iconSizesCode }, React__default.createElement( IconSizes, null )),
     React__default.createElement( DemoRow, { code: iconColorsCode }, React__default.createElement( IconColors, null )),
-    React__default.createElement( DemoRow, { code: iconListCode }, React__default.createElement( IconList, null )),
     React__default.createElement( DemoRow, null, React__default.createElement( PropTypeTable, { component: Icon$1 }) )
   )
 ); };

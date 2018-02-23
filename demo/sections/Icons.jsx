@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Icon, Text } from '../../index.js';
-import iconNames from '../../components/Icon/icon-list.js';
 import {
   Block,
   DemoRow,
@@ -11,47 +10,6 @@ import {
 } from '../ui';
 
 const testImage = '../demo/sections/upload.svg';
-
-// All icons demo
-// -----------------------------------------
-
-const IconList = () => {
-  return (
-    <div>
-      <Subtitle>All Icons</Subtitle>
-      <ul className='small-block-grid-6 text-center'>
-        {
-          iconNames.map((icon, index) => {
-            return (
-              <li key={index}>
-                <Block>
-                  <Text
-                    color='gray'
-                    className='padding-bottom-small'
-                  >{icon}</Text>
-                </Block>
-                <Icon
-                  name={icon}
-                  size='small'
-                  src={testImage}
-                />
-              </li>
-            )
-          })
-        }
-      </ul>
-    </div>
-  );
-}
-
-const iconListCode = `
-<Icon name='product' />
-
-// Optional hidden text can help when aligning
-// icons with text of a specific line-height
-<Icon name='product'>hidden text</Icon>
-`;
-
 
 // Icon sizes demo
 // -----------------------------------------
@@ -227,7 +185,6 @@ const Icons = () => (
     <DemoRow><Title>Icons</Title></DemoRow>
     <DemoRow code={iconSizesCode}><IconSizes /></DemoRow>
     <DemoRow code={iconColorsCode}><IconColors /></DemoRow>
-    <DemoRow code={iconListCode}><IconList /></DemoRow>
     <DemoRow><PropTypeTable component={Icon} /></DemoRow>
   </div>
 );
