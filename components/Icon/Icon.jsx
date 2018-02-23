@@ -7,7 +7,6 @@ import iconList from './icon-list.js';
 import styles from './Icon.scss'
 
 const iconSize = props => {
-
   if (props.size == 'xxsmall') {
     return '15px';
   }
@@ -37,9 +36,65 @@ const iconSize = props => {
   }
 }
 
+const iconColor = props => {
+  if (props.color === 'white') {
+    return '#ffffff';
+  }
+
+  if (props.color === 'VimeoBlue') {
+    return '#00adef';
+  }
+
+  if (props.color === 'SunsetOrange') {
+    return '#ff4d4d';
+  }
+
+  if (props.color === 'Pistachio') {
+    return '#7fc400';
+  }
+
+  if (props.color === 'Foam') {
+    return '#e5f7fd';
+  }
+
+  if (props.color === 'RumSwizzle') {
+    return '#f2f9e5';
+  }
+
+  if (props.color === 'PalePink') {
+    return '#ffeded';
+  }
+
+  if (props.color === 'Paste') {
+    return '#f6f7f8';
+  }
+
+  if (props.color === 'Plaster') {
+    return '#eef1f2';
+  }
+
+  if (props.color === 'Porcelain') {
+    return '#e3e8e9';
+  }
+
+  if (props.color === 'SoutherlySky') {
+    return '#b3bfc8';
+  }
+
+  if (props.color === 'RegentGray') {
+    return '#8699a6';
+  }
+
+  if (props.color === 'AstroGranite') {
+    return '#1a2e3b';
+  }
+
+}
+
 const Icon = props => {
+  console.log(props.color);
   const iconStyles = {
-    backgroundColor: props.color,
+    backgroundColor: iconColor(props),
     width: iconSize(props),
     height: iconSize(props),
     backgroundImage: `url(${props.src})`,
@@ -52,7 +107,7 @@ const Icon = props => {
   );
 }
 
-const colors = [ '', 'VimeoBlue', 'SunsetOrange', 'white', 'Pistachio', 'RumSwizzle', 'PalePink', 'Foam', 'Porcelain', 'SoutherlySky', 'RegentGray', 'AstroGranite' ];
+const colors = [ '', 'VimeoBlue', 'SunsetOrange', 'white', 'Pistachio', 'RumSwizzle', 'PalePink', 'Foam', 'Porcelain', 'Paste', 'Plaster', 'SoutherlySky', 'RegentGray', 'AstroGranite' ];
 const sizes = [ 'xxsmall', 'xsmall', 'small', 'medium', 'large', 'xlarge', 'xxlarge' ];
 
 Icon.propTypes = {
