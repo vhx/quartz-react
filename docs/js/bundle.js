@@ -1204,6 +1204,8 @@ var iconSize = function (props) {
   if (props.size == 'xxlarge') {
     return '65px';
   }
+
+  return '25px';
 };
 
 var iconColor = function (props) {
@@ -1258,6 +1260,8 @@ var iconColor = function (props) {
   if (props.color === 'AstroGranite') {
     return '#1a2e3b';
   }
+
+  return null;
 };
 
 var Icon$1 = function (props) {

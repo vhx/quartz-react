@@ -34,6 +34,8 @@ const iconSize = props => {
   if (props.size == 'xxlarge') {
     return '65px';
   }
+
+  return '25px';
 }
 
 const iconColor = props => {
@@ -88,6 +90,8 @@ const iconColor = props => {
   if (props.color === 'AstroGranite') {
     return '#1a2e3b';
   }
+
+  return null;
 }
 
 const Icon = props => {
