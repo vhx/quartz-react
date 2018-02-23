@@ -1171,7 +1171,7 @@ Button$1.propDescriptions = {
 
 var iconNames = [ 'activity', 'add-member', 'alert', 'align', 'amex-card', 'android-workmark', 'android', 'angle-down', 'angle-left', 'angle-up', 'angle-right', 'api', 'apple', 'apps', 'arrow-down', 'arrow-left', 'arrow-right', 'arrow-up', 'audio', 'ban', 'bell', 'briefcase', 'calendar', 'camera', 'card', 'caret-down', 'caret-left', 'caret-right', 'caret-up', 'cassette-frown', 'cassette', 'chevron-down', 'check', 'chevron-left', 'chevron-right', 'chevron-up', 'chrome', 'clapboard', 'clock', 'code', 'cog', 'collection', 'comment', 'comments', 'currency', 'desktop', 'diners-card', 'csv', 'discover-card', 'doc', 'download-alt', 'download', 'dropbox', 'edit', 'ellipsis-vertical', 'ellipsis', 'envelope-sealed', 'envelope', 'external-link', 'eye', 'facebook', 'followers', 'gift', 'globe', 'grid', 'help', 'hi', 'home', 'instagram', 'invoice', 'ios', 'jcb-card', 'justify', 'key', 'link', 'list', 'lock', 'marker', 'mastercard-card', 'media', 'member', 'money-card', 'money-circle', 'money', 'paypal-card', 'pic', 'play-outline', 'play', 'plus-thin', 'plus', 'popular', 'power', 'printer', 'product', 'question', 'random', 'referral', 'refresh', 'revert', 'roku-wordmark', 'reply', 'roku', 'search', 'sliders', 'star-outline', 'star', 'tag', 'tags', 'todo', 'trash', 'transaction', 'tumblr', 'tv', 'tvos', 'twitter', 'upload-alt', 'upload', 'vhs', 'vhx', 'vimeovhx-dark', 'vimeovhx-light', 'visa-card', 'window', 'x', 'xmas-tree' ];
 
-var css$2 = "/* .....................................\n  Vimeo Colors\n..................................... */\n/* .....................................\n  Grayscale\n..................................... */\n/* .....................................\n  Blues\n..................................... */\n/* .....................................\n  Greens\n..................................... */\n/* .....................................\n  Reds\n..................................... */\n/* .....................................\n  Interaction Colors\n..................................... */\n/* .....................................\n  Vimeo Legacy Colors\n..................................... */\n/* .....................................\n  Default Text\n..................................... */\n/* .....................................\n  Default Sizing\n..................................... */\n/* .....................................\n  Vimeo Colors\n..................................... */\n/* .....................................\n  Grayscale\n..................................... */\n/* .....................................\n  Blues\n..................................... */\n/* .....................................\n  Greens\n..................................... */\n/* .....................................\n  Reds\n..................................... */\n/* .....................................\n  Interaction Colors\n..................................... */\n/* .....................................\n  Vimeo Legacy Colors\n..................................... */\n/* .....................................\n  Default Text\n..................................... */\n/* .....................................\n  Default Sizing\n..................................... */\n/*.....................................\n  VIMEO FONT MIXINS\n......................................*/\n/* .....................................\n  Vimeo Colors\n..................................... */\n/* .....................................\n  Grayscale\n..................................... */\n/* .....................................\n  Blues\n..................................... */\n/* .....................................\n  Greens\n..................................... */\n/* .....................................\n  Reds\n..................................... */\n/* .....................................\n  Interaction Colors\n..................................... */\n/* .....................................\n  Vimeo Legacy Colors\n..................................... */\n/* .....................................\n  Default Text\n..................................... */\n/* .....................................\n  Default Sizing\n..................................... */\n/* .....................................\n  Vimeo Colors\n..................................... */\n/* .....................................\n  Grayscale\n..................................... */\n/* .....................................\n  Blues\n..................................... */\n/* .....................................\n  Greens\n..................................... */\n/* .....................................\n  Reds\n..................................... */\n/* .....................................\n  Interaction Colors\n..................................... */\n/* .....................................\n  Vimeo Legacy Colors\n..................................... */\n/* .....................................\n  Default Text\n..................................... */\n/* .....................................\n  Default Sizing\n..................................... */\n/* .....................................\n  Vimeo Specific Fonts\n..................................... */\n/* .....................................\n  Vimeo Specific Widths\n..................................... */\n/* .....................................\n  Vimeo Media Query Breakpoints\n..................................... */\n.Icon_icon__1SIxy,\n.Icon_iconXxsmall__2F4Md,\n.Icon_iconXsmall__1-RTR,\n.Icon_iconSmall__1Y_8A,\n.Icon_iconMedium__3MB6Q,\n.Icon_iconLarge__1PgSl,\n.Icon_iconXlarge__3zxed,\n.Icon_iconXxlarge__2saNc,\n.Icon_iconWhite__214kp,\n.Icon_iconWhiteXxsmall__mkKaF,\n.Icon_iconWhiteXsmall__27pPF,\n.Icon_iconWhiteSmall__1KJLX,\n.Icon_iconWhiteMedium__HMsSk,\n.Icon_iconWhiteLarge__zQnx3,\n.Icon_iconWhiteXlarge__2jOGW,\n.Icon_iconWhiteXxlarge__28FyW,\n.Icon_iconVimeoBlue__1-BHA,\n.Icon_iconVimeoBlueXxsmall__f7LDl,\n.Icon_iconVimeoBlueXsmall__3GRAd,\n.Icon_iconVimeoBlueSmall__18nxC,\n.Icon_iconVimeoBlueMedium__19X9K,\n.Icon_iconVimeoBlueLarge__YeYkc,\n.Icon_iconVimeoBlueXlarge__1v47V,\n.Icon_iconVimeoBlueXxlarge__MKo10,\n.Icon_iconSunsetOrange__1dwAg,\n.Icon_iconSunsetOrangeXxsmall__UANxB,\n.Icon_iconSunsetOrangeXsmall__1ABUH,\n.Icon_iconSunsetOrangeSmall__11lWN,\n.Icon_iconSunsetOrangeMedium__2OciQ,\n.Icon_iconSunsetOrangeLarge__3d4_R,\n.Icon_iconSunsetOrangeXlarge__2j-mc,\n.Icon_iconSunsetOrangeXxlarge__Tbffc,\n.Icon_iconPistachio__N9h3a,\n.Icon_iconPistachioXxsmall__LFBw5,\n.Icon_iconPistachioXsmall__3_N27,\n.Icon_iconPistachioSmall__37XgG,\n.Icon_iconPistachioMedium__2gIBE,\n.Icon_iconPistachioLarge__385u0,\n.Icon_iconPistachioXlarge__ktwas,\n.Icon_iconPistachioXxlarge__2OGWK,\n.Icon_iconRumSwizzle__IuOQZ,\n.Icon_iconRumSwizzleXxsmall__2WO9F,\n.Icon_iconRumSwizzleXsmall__1uKjE,\n.Icon_iconRumSwizzleSmall__3I9Ai,\n.Icon_iconRumSwizzleMedium__1sQ40,\n.Icon_iconRumSwizzleLarge__2b7JR,\n.Icon_iconRumSwizzleXlarge__1Bngr,\n.Icon_iconRumSwizzleXxlarge__oeym9,\n.Icon_iconPalePink__2RHCb,\n.Icon_iconPalePinkXxsmall__pHKAC,\n.Icon_iconPalePinkXsmall__2LAKr,\n.Icon_iconPalePinkSmall__9LCaL,\n.Icon_iconPalePinkMedium__28Ynn,\n.Icon_iconPalePinkLarge__1MuEP,\n.Icon_iconPalePinkXlarge__i9eW0,\n.Icon_iconPalePinkXxlarge__3A7zq,\n.Icon_iconFoam__E5vqL,\n.Icon_iconFoamXxsmall__1wjAT,\n.Icon_iconFoamXsmall__1btrG,\n.Icon_iconFoamSmall__FVXQM,\n.Icon_iconFoamMedium__19YHJ,\n.Icon_iconFoamLarge__3jTjz,\n.Icon_iconFoamXlarge__1NIJ5,\n.Icon_iconFoamXxlarge__3P8cS,\n.Icon_iconPorcelain__1ZvS1,\n.Icon_iconPorcelainXxsmall__2UTUe,\n.Icon_iconPorcelainXsmall__81yv5,\n.Icon_iconPorcelainSmall__1wSlX,\n.Icon_iconPorcelainMedium__3pHBH,\n.Icon_iconPorcelainLarge__3dHDf,\n.Icon_iconPorcelainXlarge__3eHfs,\n.Icon_iconPorcelainXxlarge__3BrBA,\n.Icon_iconSoutherlySky__2mF1B,\n.Icon_iconSoutherlySkyXxsmall__3nTzs,\n.Icon_iconSoutherlySkyXsmall__29sC9,\n.Icon_iconSoutherlySkySmall__3iOL1,\n.Icon_iconSoutherlySkyMedium__3xfAk,\n.Icon_iconSoutherlySkyLarge__1ORgD,\n.Icon_iconSoutherlySkyXlarge__1h8_C,\n.Icon_iconSoutherlySkyXxlarge__3cHH2,\n.Icon_iconRegentGray__1QIPu,\n.Icon_iconRegentGrayXxsmall__1QehG,\n.Icon_iconRegentGrayXsmall__2K_aS,\n.Icon_iconRegentGraySmall__1yFdT,\n.Icon_iconRegentGrayMedium__Sdean,\n.Icon_iconRegentGrayLarge__15R00,\n.Icon_iconRegentGrayXlarge__TsOO-,\n.Icon_iconRegentGrayXxlarge__3DrFS,\n.Icon_iconAstroGranite__23QqZ,\n.Icon_iconAstroGraniteXxsmall__3M_JX,\n.Icon_iconAstroGraniteXsmall__2kCfg,\n.Icon_iconAstroGraniteSmall__1wNSi,\n.Icon_iconAstroGraniteMedium__L89Ow,\n.Icon_iconAstroGraniteLarge__33S0j,\n.Icon_iconAstroGraniteXlarge__3nTIn,\n.Icon_iconAstroGraniteXxlarge__3Jy8K {\n  display: inline-block;\n  background-position: 50% 50%;\n  background-size: contain;\n  text-indent: -9999px; }\n\n.Icon_icon__1SIxy,\n.Icon_iconSmall__1Y_8A,\n.Icon_iconWhite__214kp,\n.Icon_iconVimeoBlue__1-BHA,\n.Icon_iconSunsetOrange__1dwAg,\n.Icon_iconPistachio__N9h3a,\n.Icon_iconRumSwizzle__IuOQZ,\n.Icon_iconFoam__E5vqL,\n.Icon_iconPorcelain__1ZvS1,\n.Icon_iconSoutherlySky__2mF1B,\n.Icon_iconRegentGray__1QIPu,\n.Icon_iconAstroGranite__23QqZ,\n.Icon_iconWhiteSmall__1KJLX,\n.Icon_iconVimeoBlueSmall__18nxC,\n.Icon_iconSunsetOrangeSmall__11lWN,\n.Icon_iconPistachioSmall__37XgG,\n.Icon_iconRumSwizzleSmall__3I9Ai,\n.Icon_iconFoamSmall__FVXQM,\n.Icon_iconPorcelainSmall__1wSlX,\n.Icon_iconSoutherlySkySmall__3iOL1,\n.Icon_iconRegentGraySmall__1yFdT,\n.Icon_iconAstroGraniteSmall__1wNSi {\n  width: 25px;\n  height: 25px; }\n\n.Icon_iconXxsmall__2F4Md,\n.Icon_iconXsmall__1-RTR,\n.Icon_iconWhiteXxsmall__mkKaF,\n.Icon_iconVimeoBlueXxsmall__f7LDl,\n.Icon_iconSunsetOrangeXxsmall__UANxB,\n.Icon_iconPistachioXxsmall__LFBw5,\n.Icon_iconRumSwizzleXxsmall__2WO9F,\n.Icon_iconFoamXxsmall__1wjAT,\n.Icon_iconPorcelainXxsmall__2UTUe,\n.Icon_iconSoutherlySkyXxsmall__3nTzs,\n.Icon_iconRegentGrayXxsmall__1QehG,\n.Icon_iconAstroGraniteXxsmall__3M_JX,\n.Icon_iconWhiteXsmall__27pPF,\n.Icon_iconVimeoBlueXsmall__3GRAd,\n.Icon_iconSunsetOrangeXsmall__1ABUH,\n.Icon_iconPistachioXsmall__3_N27,\n.Icon_iconRumSwizzleXsmall__1uKjE,\n.Icon_iconFoamXsmall__1btrG,\n.Icon_iconPorcelainXsmall__81yv5,\n.Icon_iconSoutherlySkyXsmall__29sC9,\n.Icon_iconRegentGrayXsmall__2K_aS,\n.Icon_iconAstroGraniteXsmall__2kCfg {\n  width: 15px;\n  height: 15px; }\n\n.Icon_iconMedium__3MB6Q,\n.Icon_iconWhiteMedium__HMsSk,\n.Icon_iconVimeoBlueMedium__19X9K,\n.Icon_iconSunsetOrangeMedium__2OciQ,\n.Icon_iconPistachioMedium__2gIBE,\n.Icon_iconRumSwizzleMedium__1sQ40,\n.Icon_iconFoamMedium__19YHJ,\n.Icon_iconPorcelainMedium__3pHBH,\n.Icon_iconSoutherlySkyMedium__3xfAk,\n.Icon_iconRegentGrayMedium__Sdean,\n.Icon_iconAstroGraniteMedium__L89Ow {\n  width: 35px;\n  height: 35px; }\n\n.Icon_iconLarge__1PgSl,\n.Icon_iconWhiteLarge__zQnx3,\n.Icon_iconVimeoBlueLarge__YeYkc,\n.Icon_iconSunsetOrangeLarge__3d4_R,\n.Icon_iconPistachioLarge__385u0,\n.Icon_iconRumSwizzleLarge__2b7JR,\n.Icon_iconFoamLarge__3jTjz,\n.Icon_iconPorcelainLarge__3dHDf,\n.Icon_iconSoutherlySkyLarge__1ORgD,\n.Icon_iconRegentGrayLarge__15R00,\n.Icon_iconAstroGraniteLarge__33S0j {\n  width: 45px;\n  height: 45px; }\n\n.Icon_iconXlarge__3zxed,\n.Icon_iconWhiteXlarge__2jOGW,\n.Icon_iconVimeoBlueXlarge__1v47V,\n.Icon_iconSunsetOrangeXlarge__2j-mc,\n.Icon_iconPistachioXlarge__ktwas,\n.Icon_iconRumSwizzleXlarge__1Bngr,\n.Icon_iconFoamXlarge__1NIJ5,\n.Icon_iconPorcelainXlarge__3eHfs,\n.Icon_iconSoutherlySkyXlarge__1h8_C,\n.Icon_iconRegentGrayXlarge__TsOO-,\n.Icon_iconAstroGraniteXlarge__3nTIn {\n  width: 55px;\n  height: 55px; }\n\n.Icon_iconXxlarge__2saNc,\n.Icon_iconWhiteXxlarge__28FyW,\n.Icon_iconVimeoBlueXxlarge__MKo10,\n.Icon_iconSunsetOrangeXxlarge__Tbffc,\n.Icon_iconPistachioXxlarge__2OGWK,\n.Icon_iconRumSwizzleXxlarge__oeym9,\n.Icon_iconFoamXxlarge__3P8cS,\n.Icon_iconPorcelainXxlarge__3BrBA,\n.Icon_iconSoutherlySkyXxlarge__3cHH2,\n.Icon_iconRegentGrayXxlarge__3DrFS,\n.Icon_iconAstroGraniteXxlarge__3Jy8K {\n  width: 65px;\n  height: 65px; }\n\n.Icon_iconWhite__214kp,\n.Icon_iconWhiteXxsmall__mkKaF,\n.Icon_iconWhiteXsmall__27pPF,\n.Icon_iconWhiteMedium__HMsSk,\n.Icon_iconWhiteLarge__zQnx3,\n.Icon_iconWhiteXlarge__2jOGW,\n.Icon_iconWhiteXxlarge__28FyW {\n  background-color: #fff; }\n\n.Icon_iconVimeoBlue__1-BHA,\n.Icon_iconVimeoBlueXxsmall__f7LDl,\n.Icon_iconVimeoBlueXsmall__3GRAd,\n.Icon_iconVimeoBlueMedium__19X9K,\n.Icon_iconVimeoBlueLarge__YeYkc,\n.Icon_iconVimeoBlueXlarge__1v47V,\n.Icon_iconVimeoBlueXxlarge__MKo10 {\n  background-color: #00adef; }\n\n.Icon_iconSunsetOrange__1dwAg,\n.Icon_iconSunsetOrangeXxsmall__UANxB,\n.Icon_iconSunsetOrangeXsmall__1ABUH,\n.Icon_iconSunsetOrangeMedium__2OciQ,\n.Icon_iconSunsetOrangeLarge__3d4_R,\n.Icon_iconSunsetOrangeXlarge__2j-mc,\n.Icon_iconSunsetOrangeXxlarge__Tbffc {\n  background-color: #ff4d4d; }\n\n.Icon_iconPistachio__N9h3a,\n.Icon_iconPistachioXxsmall__LFBw5,\n.Icon_iconPistachioXsmall__3_N27,\n.Icon_iconPistachioMedium__2gIBE,\n.Icon_iconPistachioLarge__385u0,\n.Icon_iconPistachioXlarge__ktwas,\n.Icon_iconPistachioXxlarge__2OGWK {\n  background-color: #7FC400; }\n\n.Icon_iconRumSwizzle__IuOQZ,\n.Icon_iconRumSwizzleXxsmall__2WO9F,\n.Icon_iconRumSwizzleXsmall__1uKjE,\n.Icon_iconRumSwizzleMedium__1sQ40,\n.Icon_iconRumSwizzleLarge__2b7JR,\n.Icon_iconRumSwizzleXlarge__1Bngr,\n.Icon_iconRumSwizzleXxlarge__oeym9 {\n  background-color: #f2f9e5; }\n\n.Icon_iconFoam__E5vqL,\n.Icon_iconFoamXxsmall__1wjAT,\n.Icon_iconFoamXsmall__1btrG,\n.Icon_iconFoamMedium__19YHJ,\n.Icon_iconFoamLarge__3jTjz,\n.Icon_iconFoamXlarge__1NIJ5,\n.Icon_iconFoamXxlarge__3P8cS {\n  background-color: #e5f7fd; }\n\n.Icon_iconPorcelain__1ZvS1,\n.Icon_iconPorcelainXxsmall__2UTUe,\n.Icon_iconPorcelainXsmall__81yv5,\n.Icon_iconPorcelainMedium__3pHBH,\n.Icon_iconPorcelainLarge__3dHDf,\n.Icon_iconPorcelainXlarge__3eHfs,\n.Icon_iconPorcelainXxlarge__3BrBA {\n  background-color: #e3e8e9; }\n\n.Icon_iconSoutherlySky__2mF1B,\n.Icon_iconSoutherlySkyXxsmall__3nTzs,\n.Icon_iconSoutherlySkyXsmall__29sC9,\n.Icon_iconSoutherlySkyMedium__3xfAk,\n.Icon_iconSoutherlySkyLarge__1ORgD,\n.Icon_iconSoutherlySkyXlarge__1h8_C,\n.Icon_iconSoutherlySkyXxlarge__3cHH2 {\n  background-color: #b3bfc8; }\n\n.Icon_iconRegentGray__1QIPu,\n.Icon_iconRegentGrayXxsmall__1QehG,\n.Icon_iconRegentGrayXsmall__2K_aS,\n.Icon_iconRegentGrayMedium__Sdean,\n.Icon_iconRegentGrayLarge__15R00,\n.Icon_iconRegentGrayXlarge__TsOO-,\n.Icon_iconRegentGrayXxlarge__3DrFS {\n  background-color: #8699a6; }\n\n.Icon_iconAstroGranite__23QqZ,\n.Icon_iconAstroGraniteXxsmall__3M_JX,\n.Icon_iconAstroGraniteXsmall__2kCfg,\n.Icon_iconAstroGraniteMedium__L89Ow,\n.Icon_iconAstroGraniteLarge__33S0j,\n.Icon_iconAstroGraniteXlarge__3nTIn,\n.Icon_iconAstroGraniteXxlarge__3Jy8K {\n  background-color: #1a2e3b; }\n";
+var css$2 = "/* .....................................\n  Vimeo Colors\n..................................... */\n/* .....................................\n  Grayscale\n..................................... */\n/* .....................................\n  Blues\n..................................... */\n/* .....................................\n  Greens\n..................................... */\n/* .....................................\n  Reds\n..................................... */\n/* .....................................\n  Interaction Colors\n..................................... */\n/* .....................................\n  Vimeo Legacy Colors\n..................................... */\n/* .....................................\n  Default Text\n..................................... */\n/* .....................................\n  Default Sizing\n..................................... */\n/* .....................................\n  Vimeo Colors\n..................................... */\n/* .....................................\n  Grayscale\n..................................... */\n/* .....................................\n  Blues\n..................................... */\n/* .....................................\n  Greens\n..................................... */\n/* .....................................\n  Reds\n..................................... */\n/* .....................................\n  Interaction Colors\n..................................... */\n/* .....................................\n  Vimeo Legacy Colors\n..................................... */\n/* .....................................\n  Default Text\n..................................... */\n/* .....................................\n  Default Sizing\n..................................... */\n/*.....................................\n  VIMEO FONT MIXINS\n......................................*/\n/* .....................................\n  Vimeo Colors\n..................................... */\n/* .....................................\n  Grayscale\n..................................... */\n/* .....................................\n  Blues\n..................................... */\n/* .....................................\n  Greens\n..................................... */\n/* .....................................\n  Reds\n..................................... */\n/* .....................................\n  Interaction Colors\n..................................... */\n/* .....................................\n  Vimeo Legacy Colors\n..................................... */\n/* .....................................\n  Default Text\n..................................... */\n/* .....................................\n  Default Sizing\n..................................... */\n/* .....................................\n  Vimeo Colors\n..................................... */\n/* .....................................\n  Grayscale\n..................................... */\n/* .....................................\n  Blues\n..................................... */\n/* .....................................\n  Greens\n..................................... */\n/* .....................................\n  Reds\n..................................... */\n/* .....................................\n  Interaction Colors\n..................................... */\n/* .....................................\n  Vimeo Legacy Colors\n..................................... */\n/* .....................................\n  Default Text\n..................................... */\n/* .....................................\n  Default Sizing\n..................................... */\n/* .....................................\n  Vimeo Specific Fonts\n..................................... */\n/* .....................................\n  Vimeo Specific Widths\n..................................... */\n/* .....................................\n  Vimeo Media Query Breakpoints\n..................................... */\n.Icon_icon__1SIxy,\n.Icon_iconXxsmall__2F4Md,\n.Icon_iconXsmall__1-RTR,\n.Icon_iconSmall__1Y_8A,\n.Icon_iconMedium__3MB6Q,\n.Icon_iconLarge__1PgSl,\n.Icon_iconXlarge__3zxed,\n.Icon_iconXxlarge__2saNc,\n.Icon_iconWhite__214kp,\n.Icon_iconWhiteXxsmall__mkKaF,\n.Icon_iconWhiteXsmall__27pPF,\n.Icon_iconWhiteSmall__1KJLX,\n.Icon_iconWhiteMedium__HMsSk,\n.Icon_iconWhiteLarge__zQnx3,\n.Icon_iconWhiteXlarge__2jOGW,\n.Icon_iconWhiteXxlarge__28FyW,\n.Icon_iconVimeoBlue__1-BHA,\n.Icon_iconVimeoBlueXxsmall__f7LDl,\n.Icon_iconVimeoBlueXsmall__3GRAd,\n.Icon_iconVimeoBlueSmall__18nxC,\n.Icon_iconVimeoBlueMedium__19X9K,\n.Icon_iconVimeoBlueLarge__YeYkc,\n.Icon_iconVimeoBlueXlarge__1v47V,\n.Icon_iconVimeoBlueXxlarge__MKo10,\n.Icon_iconSunsetOrange__1dwAg,\n.Icon_iconSunsetOrangeXxsmall__UANxB,\n.Icon_iconSunsetOrangeXsmall__1ABUH,\n.Icon_iconSunsetOrangeSmall__11lWN,\n.Icon_iconSunsetOrangeMedium__2OciQ,\n.Icon_iconSunsetOrangeLarge__3d4_R,\n.Icon_iconSunsetOrangeXlarge__2j-mc,\n.Icon_iconSunsetOrangeXxlarge__Tbffc,\n.Icon_iconPistachio__N9h3a,\n.Icon_iconPistachioXxsmall__LFBw5,\n.Icon_iconPistachioXsmall__3_N27,\n.Icon_iconPistachioSmall__37XgG,\n.Icon_iconPistachioMedium__2gIBE,\n.Icon_iconPistachioLarge__385u0,\n.Icon_iconPistachioXlarge__ktwas,\n.Icon_iconPistachioXxlarge__2OGWK,\n.Icon_iconRumSwizzle__IuOQZ,\n.Icon_iconRumSwizzleXxsmall__2WO9F,\n.Icon_iconRumSwizzleXsmall__1uKjE,\n.Icon_iconRumSwizzleSmall__3I9Ai,\n.Icon_iconRumSwizzleMedium__1sQ40,\n.Icon_iconRumSwizzleLarge__2b7JR,\n.Icon_iconRumSwizzleXlarge__1Bngr,\n.Icon_iconRumSwizzleXxlarge__oeym9,\n.Icon_iconPalePink__2RHCb,\n.Icon_iconPalePinkXxsmall__pHKAC,\n.Icon_iconPalePinkXsmall__2LAKr,\n.Icon_iconPalePinkSmall__9LCaL,\n.Icon_iconPalePinkMedium__28Ynn,\n.Icon_iconPalePinkLarge__1MuEP,\n.Icon_iconPalePinkXlarge__i9eW0,\n.Icon_iconPalePinkXxlarge__3A7zq,\n.Icon_iconFoam__E5vqL,\n.Icon_iconFoamXxsmall__1wjAT,\n.Icon_iconFoamXsmall__1btrG,\n.Icon_iconFoamSmall__FVXQM,\n.Icon_iconFoamMedium__19YHJ,\n.Icon_iconFoamLarge__3jTjz,\n.Icon_iconFoamXlarge__1NIJ5,\n.Icon_iconFoamXxlarge__3P8cS,\n.Icon_iconPorcelain__1ZvS1,\n.Icon_iconPorcelainXxsmall__2UTUe,\n.Icon_iconPorcelainXsmall__81yv5,\n.Icon_iconPorcelainSmall__1wSlX,\n.Icon_iconPorcelainMedium__3pHBH,\n.Icon_iconPorcelainLarge__3dHDf,\n.Icon_iconPorcelainXlarge__3eHfs,\n.Icon_iconPorcelainXxlarge__3BrBA,\n.Icon_iconSoutherlySky__2mF1B,\n.Icon_iconSoutherlySkyXxsmall__3nTzs,\n.Icon_iconSoutherlySkyXsmall__29sC9,\n.Icon_iconSoutherlySkySmall__3iOL1,\n.Icon_iconSoutherlySkyMedium__3xfAk,\n.Icon_iconSoutherlySkyLarge__1ORgD,\n.Icon_iconSoutherlySkyXlarge__1h8_C,\n.Icon_iconSoutherlySkyXxlarge__3cHH2,\n.Icon_iconRegentGray__1QIPu,\n.Icon_iconRegentGrayXxsmall__1QehG,\n.Icon_iconRegentGrayXsmall__2K_aS,\n.Icon_iconRegentGraySmall__1yFdT,\n.Icon_iconRegentGrayMedium__Sdean,\n.Icon_iconRegentGrayLarge__15R00,\n.Icon_iconRegentGrayXlarge__TsOO-,\n.Icon_iconRegentGrayXxlarge__3DrFS,\n.Icon_iconAstroGranite__23QqZ,\n.Icon_iconAstroGraniteXxsmall__3M_JX,\n.Icon_iconAstroGraniteXsmall__2kCfg,\n.Icon_iconAstroGraniteSmall__1wNSi,\n.Icon_iconAstroGraniteMedium__L89Ow,\n.Icon_iconAstroGraniteLarge__33S0j,\n.Icon_iconAstroGraniteXlarge__3nTIn,\n.Icon_iconAstroGraniteXxlarge__3Jy8K {\n  display: inline-block;\n  background-position: 50% 50%;\n  background-size: contain;\n  text-indent: -9999px; }\n\n.Icon_icon__1SIxy,\n.Icon_iconSmall__1Y_8A,\n.Icon_iconWhite__214kp,\n.Icon_iconVimeoBlue__1-BHA,\n.Icon_iconSunsetOrange__1dwAg,\n.Icon_iconPistachio__N9h3a,\n.Icon_iconRumSwizzle__IuOQZ,\n.Icon_iconFoam__E5vqL,\n.Icon_iconPalePink__2RHCb,\n.Icon_iconPorcelain__1ZvS1,\n.Icon_iconSoutherlySky__2mF1B,\n.Icon_iconRegentGray__1QIPu,\n.Icon_iconAstroGranite__23QqZ,\n.Icon_iconWhiteSmall__1KJLX,\n.Icon_iconVimeoBlueSmall__18nxC,\n.Icon_iconSunsetOrangeSmall__11lWN,\n.Icon_iconPistachioSmall__37XgG,\n.Icon_iconRumSwizzleSmall__3I9Ai,\n.Icon_iconFoamSmall__FVXQM,\n.Icon_iconPalePinkSmall__9LCaL,\n.Icon_iconPorcelainSmall__1wSlX,\n.Icon_iconSoutherlySkySmall__3iOL1,\n.Icon_iconRegentGraySmall__1yFdT,\n.Icon_iconAstroGraniteSmall__1wNSi {\n  width: 25px;\n  height: 25px; }\n\n.Icon_iconXxsmall__2F4Md,\n.Icon_iconXsmall__1-RTR,\n.Icon_iconWhiteXxsmall__mkKaF,\n.Icon_iconVimeoBlueXxsmall__f7LDl,\n.Icon_iconSunsetOrangeXxsmall__UANxB,\n.Icon_iconPistachioXxsmall__LFBw5,\n.Icon_iconRumSwizzleXxsmall__2WO9F,\n.Icon_iconFoamXxsmall__1wjAT,\n.Icon_iconPalePinkXxsmall__pHKAC,\n.Icon_iconPorcelainXxsmall__2UTUe,\n.Icon_iconSoutherlySkyXxsmall__3nTzs,\n.Icon_iconRegentGrayXxsmall__1QehG,\n.Icon_iconAstroGraniteXxsmall__3M_JX,\n.Icon_iconWhiteXsmall__27pPF,\n.Icon_iconVimeoBlueXsmall__3GRAd,\n.Icon_iconSunsetOrangeXsmall__1ABUH,\n.Icon_iconPistachioXsmall__3_N27,\n.Icon_iconRumSwizzleXsmall__1uKjE,\n.Icon_iconFoamXsmall__1btrG,\n.Icon_iconPalePinkXsmall__2LAKr,\n.Icon_iconPorcelainXsmall__81yv5,\n.Icon_iconSoutherlySkyXsmall__29sC9,\n.Icon_iconRegentGrayXsmall__2K_aS,\n.Icon_iconAstroGraniteXsmall__2kCfg {\n  width: 15px;\n  height: 15px; }\n\n.Icon_iconMedium__3MB6Q,\n.Icon_iconWhiteMedium__HMsSk,\n.Icon_iconVimeoBlueMedium__19X9K,\n.Icon_iconSunsetOrangeMedium__2OciQ,\n.Icon_iconPistachioMedium__2gIBE,\n.Icon_iconRumSwizzleMedium__1sQ40,\n.Icon_iconFoamMedium__19YHJ,\n.Icon_iconPalePinkMedium__28Ynn,\n.Icon_iconPorcelainMedium__3pHBH,\n.Icon_iconSoutherlySkyMedium__3xfAk,\n.Icon_iconRegentGrayMedium__Sdean,\n.Icon_iconAstroGraniteMedium__L89Ow {\n  width: 35px;\n  height: 35px; }\n\n.Icon_iconLarge__1PgSl,\n.Icon_iconWhiteLarge__zQnx3,\n.Icon_iconVimeoBlueLarge__YeYkc,\n.Icon_iconSunsetOrangeLarge__3d4_R,\n.Icon_iconPistachioLarge__385u0,\n.Icon_iconRumSwizzleLarge__2b7JR,\n.Icon_iconFoamLarge__3jTjz,\n.Icon_iconPalePinkLarge__1MuEP,\n.Icon_iconPorcelainLarge__3dHDf,\n.Icon_iconSoutherlySkyLarge__1ORgD,\n.Icon_iconRegentGrayLarge__15R00,\n.Icon_iconAstroGraniteLarge__33S0j {\n  width: 45px;\n  height: 45px; }\n\n.Icon_iconXlarge__3zxed,\n.Icon_iconWhiteXlarge__2jOGW,\n.Icon_iconVimeoBlueXlarge__1v47V,\n.Icon_iconSunsetOrangeXlarge__2j-mc,\n.Icon_iconPistachioXlarge__ktwas,\n.Icon_iconRumSwizzleXlarge__1Bngr,\n.Icon_iconFoamXlarge__1NIJ5,\n.Icon_iconPorcelainXlarge__3eHfs,\n.Icon_iconSoutherlySkyXlarge__1h8_C,\n.Icon_iconRegentGrayXlarge__TsOO-,\n.Icon_iconAstroGraniteXlarge__3nTIn {\n  width: 55px;\n  height: 55px; }\n\n.Icon_iconXxlarge__2saNc,\n.Icon_iconWhiteXxlarge__28FyW,\n.Icon_iconVimeoBlueXxlarge__MKo10,\n.Icon_iconSunsetOrangeXxlarge__Tbffc,\n.Icon_iconPistachioXxlarge__2OGWK,\n.Icon_iconRumSwizzleXxlarge__oeym9,\n.Icon_iconFoamXxlarge__3P8cS,\n.Icon_iconPalePinkXxlarge__3A7zq,\n.Icon_iconPorcelainXxlarge__3BrBA,\n.Icon_iconSoutherlySkyXxlarge__3cHH2,\n.Icon_iconRegentGrayXxlarge__3DrFS,\n.Icon_iconAstroGraniteXxlarge__3Jy8K {\n  width: 65px;\n  height: 65px; }\n\n.Icon_iconWhite__214kp,\n.Icon_iconWhiteXxsmall__mkKaF,\n.Icon_iconWhiteXsmall__27pPF,\n.Icon_iconWhiteMedium__HMsSk,\n.Icon_iconWhiteLarge__zQnx3,\n.Icon_iconWhiteXlarge__2jOGW,\n.Icon_iconWhiteXxlarge__28FyW {\n  background-color: #fff; }\n\n.Icon_iconVimeoBlue__1-BHA,\n.Icon_iconVimeoBlueXxsmall__f7LDl,\n.Icon_iconVimeoBlueXsmall__3GRAd,\n.Icon_iconVimeoBlueMedium__19X9K,\n.Icon_iconVimeoBlueLarge__YeYkc,\n.Icon_iconVimeoBlueXlarge__1v47V,\n.Icon_iconVimeoBlueXxlarge__MKo10 {\n  background-color: #00adef; }\n\n.Icon_iconSunsetOrange__1dwAg,\n.Icon_iconSunsetOrangeXxsmall__UANxB,\n.Icon_iconSunsetOrangeXsmall__1ABUH,\n.Icon_iconSunsetOrangeMedium__2OciQ,\n.Icon_iconSunsetOrangeLarge__3d4_R,\n.Icon_iconSunsetOrangeXlarge__2j-mc,\n.Icon_iconSunsetOrangeXxlarge__Tbffc {\n  background-color: #ff4d4d; }\n\n.Icon_iconPistachio__N9h3a,\n.Icon_iconPistachioXxsmall__LFBw5,\n.Icon_iconPistachioXsmall__3_N27,\n.Icon_iconPistachioMedium__2gIBE,\n.Icon_iconPistachioLarge__385u0,\n.Icon_iconPistachioXlarge__ktwas,\n.Icon_iconPistachioXxlarge__2OGWK {\n  background-color: #7FC400; }\n\n.Icon_iconRumSwizzle__IuOQZ,\n.Icon_iconRumSwizzleXxsmall__2WO9F,\n.Icon_iconRumSwizzleXsmall__1uKjE,\n.Icon_iconRumSwizzleMedium__1sQ40,\n.Icon_iconRumSwizzleLarge__2b7JR,\n.Icon_iconRumSwizzleXlarge__1Bngr,\n.Icon_iconRumSwizzleXxlarge__oeym9 {\n  background-color: #f2f9e5; }\n\n.Icon_iconFoam__E5vqL,\n.Icon_iconFoamXxsmall__1wjAT,\n.Icon_iconFoamXsmall__1btrG,\n.Icon_iconFoamMedium__19YHJ,\n.Icon_iconFoamLarge__3jTjz,\n.Icon_iconFoamXlarge__1NIJ5,\n.Icon_iconFoamXxlarge__3P8cS {\n  background-color: #e5f7fd; }\n\n.Icon_iconPalePink__2RHCb,\n.Icon_iconPalePinkXxsmall__pHKAC,\n.Icon_iconPalePinkXsmall__2LAKr,\n.Icon_iconPalePinkMedium__28Ynn,\n.Icon_iconPalePinkLarge__1MuEP,\n.Icon_iconPalePinkXlarge__i9eW0,\n.Icon_iconPalePinkXxlarge__3A7zq {\n  background-color: #ffeded; }\n\n.Icon_iconPorcelain__1ZvS1,\n.Icon_iconPorcelainXxsmall__2UTUe,\n.Icon_iconPorcelainXsmall__81yv5,\n.Icon_iconPorcelainMedium__3pHBH,\n.Icon_iconPorcelainLarge__3dHDf,\n.Icon_iconPorcelainXlarge__3eHfs,\n.Icon_iconPorcelainXxlarge__3BrBA {\n  background-color: #e3e8e9; }\n\n.Icon_iconSoutherlySky__2mF1B,\n.Icon_iconSoutherlySkyXxsmall__3nTzs,\n.Icon_iconSoutherlySkyXsmall__29sC9,\n.Icon_iconSoutherlySkyMedium__3xfAk,\n.Icon_iconSoutherlySkyLarge__1ORgD,\n.Icon_iconSoutherlySkyXlarge__1h8_C,\n.Icon_iconSoutherlySkyXxlarge__3cHH2 {\n  background-color: #b3bfc8; }\n\n.Icon_iconRegentGray__1QIPu,\n.Icon_iconRegentGrayXxsmall__1QehG,\n.Icon_iconRegentGrayXsmall__2K_aS,\n.Icon_iconRegentGrayMedium__Sdean,\n.Icon_iconRegentGrayLarge__15R00,\n.Icon_iconRegentGrayXlarge__TsOO-,\n.Icon_iconRegentGrayXxlarge__3DrFS {\n  background-color: #8699a6; }\n\n.Icon_iconAstroGranite__23QqZ,\n.Icon_iconAstroGraniteXxsmall__3M_JX,\n.Icon_iconAstroGraniteXsmall__2kCfg,\n.Icon_iconAstroGraniteMedium__L89Ow,\n.Icon_iconAstroGraniteLarge__33S0j,\n.Icon_iconAstroGraniteXlarge__3nTIn,\n.Icon_iconAstroGraniteXxlarge__3Jy8K {\n  background-color: #1a2e3b; }\n";
 __$$styleInject(css$2);
 
 /* eslint-disable react/no-unused-prop-types */
@@ -1257,11 +1257,11 @@ var getClassName$1 = function (props) {
 
 
 var Icon$1 = function (props) {
-  console.log(props);
   return (
     React__default.createElement( 'span', {
-      className: getClassName$1(props) },
-      props.children
+      className: ("styles." + (getClassName$1(props))) },
+      React__default.createElement( 'img', {
+        className: 'tbd', src: props.src })
     )
   );
 };
@@ -1273,8 +1273,9 @@ Icon$1.propTypes = {
   children: index.node,
   className: index.string,
   color: index.oneOf(colors$1),
-  name: index.oneOf(iconNames).isRequired,
+  name: index.oneOf(iconNames),
   size: index.oneOf(sizes$2),
+  src: index.string,
 };
 
 Icon$1.defaultProps = {
@@ -1283,6 +1284,8 @@ Icon$1.defaultProps = {
   circle: false,
   color: null,
   size: 'xsmall',
+  src: '',
+  name: '',
 };
 
 Icon$1.propDescriptions = {
@@ -3601,19 +3604,32 @@ var Headers = function () { return (
   )
 ); };
 
-var IconList = function () { return (
-  React__default.createElement( 'div', null,
-    React__default.createElement( Subtitle, null, "All Icons" ),
-    React__default.createElement( 'ul', { className: 'small-block-grid-6 text-center' },
-      iconNames.map(function (icon) { return (
-          React__default.createElement( 'li', { key: icon },
-            React__default.createElement( Block, null, React__default.createElement( Text$1, { color: 'gray', className: 'padding-bottom-small' }, icon) ),
-            React__default.createElement( Icon$1, { name: icon, size: 'small' })
-          )
-        ); })
+var testImage = '../demo/sections/upload.svg';
+
+// All icons demo
+// -----------------------------------------
+
+var IconList = function () {
+  return (
+    React__default.createElement( 'div', null,
+      React__default.createElement( Subtitle, null, "All Icons" ),
+      React__default.createElement( 'ul', { className: 'small-block-grid-6 text-center' },
+        iconNames.map(function (icon, index$$1) {
+            return (
+              React__default.createElement( 'li', { key: index$$1 },
+                React__default.createElement( Block, null,
+                  React__default.createElement( Text$1, {
+                    color: 'gray', className: 'padding-bottom-small' }, icon)
+                ),
+                React__default.createElement( Icon$1, {
+                  name: icon, size: 'small', src: testImage })
+              )
+            )
+          })
+      )
     )
-  )
-); };
+  );
+};
 
 var iconListCode = "\n<Icon name='product' />\n\n// Optional hidden text can help when aligning\n// icons with text of a specific line-height\n<Icon name='product'>hidden text</Icon>\n";
 
@@ -3624,16 +3640,34 @@ var iconListCode = "\n<Icon name='product' />\n\n// Optional hidden text can hel
 var IconSizes = function () { return (
   React__default.createElement( 'div', null,
     React__default.createElement( Subtitle, null, "Sizes" ),
-    React__default.createElement( Block, { inline: true }, React__default.createElement( Icon$1, { name: 'product', size: 'xsmall' })),
-    React__default.createElement( Block, { inline: true }, React__default.createElement( Icon$1, { name: 'product', size: 'small' })),
-    React__default.createElement( Block, { inline: true }, React__default.createElement( Icon$1, { name: 'product', size: 'medium' })),
-    React__default.createElement( Block, { inline: true }, React__default.createElement( Icon$1, { name: 'product', size: 'large' })),
-    React__default.createElement( Block, { inline: true }, React__default.createElement( Icon$1, { name: 'product', size: 'xlarge' })),
-    React__default.createElement( Block, { inline: true }, React__default.createElement( Icon$1, { name: 'product', size: 'xxlarge' }))
+    React__default.createElement( Block, { inline: true },
+      React__default.createElement( Icon$1, {
+        size: 'xsmall', src: testImage })
+    ),
+    React__default.createElement( Block, { inline: true },
+      React__default.createElement( Icon$1, {
+        size: 'small', src: testImage })
+    ),
+    React__default.createElement( Block, { inline: true },
+      React__default.createElement( Icon$1, {
+        size: 'medium', src: testImage })
+    ),
+    React__default.createElement( Block, { inline: true },
+      React__default.createElement( Icon$1, {
+        size: 'large', src: testImage })
+    ),
+    React__default.createElement( Block, { inline: true },
+      React__default.createElement( Icon$1, {
+        size: 'xlarge', src: testImage })
+    ),
+    React__default.createElement( Block, { inline: true },
+      React__default.createElement( Icon$1, {
+        size: 'xxlarge', src: testImage })
+    )
   )
 ); };
 
-var iconSizesCode = "\n<Icon name='product' size='xsmall' />\n<Icon name='product' size='small' />\n<Icon name='product' size='medium' />\n<Icon name='product' size='large' />\n<Icon name='product' size='xlarge' />\n<Icon name='product' size='xxlarge' />\n";
+var iconSizesCode = "\n  <Icon\n    size='xxsmall'\n    src={testImage}\n  />\n  <Icon\n    size='xsmall'\n    src={testImage}\n  />\n  <Icon\n    size='small'\n    src={testImage}\n  />\n  <Icon\n    size='medium'\n    src={testImage}\n  />\n  <Icon\n    size='large'\n    src={testImage}\n  />\n  <Icon\n    size='xlarge'\n    src={testImage}\n  />\n  <Icon\n    size='xxlarge'\n    src={testImage}\n  />\n";
 
 
 // Icon colors demo
@@ -3642,15 +3676,50 @@ var iconSizesCode = "\n<Icon name='product' size='xsmall' />\n<Icon name='produc
 var IconColors = function () { return (
   React__default.createElement( 'div', null,
     React__default.createElement( Subtitle, null, "Colors" ),
-    React__default.createElement( Block, { inline: true }, React__default.createElement( Icon$1, { name: 'product', size: 'medium' })),
-    React__default.createElement( Block, { inline: true }, React__default.createElement( Icon$1, { name: 'product', size: 'medium', color: 'navy' })),
-    React__default.createElement( Block, { inline: true }, React__default.createElement( Icon$1, { name: 'product', size: 'medium', color: 'teal' })),
-    React__default.createElement( Block, { inline: true }, React__default.createElement( Icon$1, { name: 'product', size: 'medium', color: 'gray' })),
-    React__default.createElement( Block, { inline: true, dark: true }, React__default.createElement( Icon$1, { name: 'product', size: 'medium', color: 'white' }))
+    React__default.createElement( Block, { inline: true },
+      React__default.createElement( Icon$1, {
+        size: 'medium', src: testImage, color: 'white' })
+    ),
+    React__default.createElement( Block, { inline: true },
+      React__default.createElement( Icon$1, {
+        size: 'medium', src: testImage, color: 'VimeoBlue' })
+    ),
+    React__default.createElement( Block, { inline: true },
+      React__default.createElement( Icon$1, {
+        size: 'medium', src: testImage, color: 'SunsetOrange' })
+    ),
+    React__default.createElement( Block, { inline: true },
+      React__default.createElement( Icon$1, {
+        size: 'medium', src: testImage, color: 'RumSwizzle' })
+    ),
+    React__default.createElement( Block, { inline: true },
+      React__default.createElement( Icon$1, {
+        size: 'medium', src: testImage, color: 'Foam' })
+    ),
+    React__default.createElement( Block, { inline: true },
+      React__default.createElement( Icon$1, {
+        size: 'medium', src: testImage, color: 'PalePink' })
+    ),
+    React__default.createElement( Block, { inline: true },
+      React__default.createElement( Icon$1, {
+        size: 'medium', src: testImage, color: 'Porcelain' })
+    ),
+    React__default.createElement( Block, { inline: true },
+      React__default.createElement( Icon$1, {
+        size: 'medium', src: testImage, color: 'SoutherlySky' })
+    ),
+    React__default.createElement( Block, { inline: true },
+      React__default.createElement( Icon$1, {
+        size: 'medium', src: testImage, color: 'RegentGray' })
+    ),
+    React__default.createElement( Block, { inline: true },
+      React__default.createElement( Icon$1, {
+        size: 'medium', src: testImage, color: 'AstroGranite' })
+    )
   )
 ); };
 
-var iconColorsCode = "\n<Icon name='product' />\n<Icon name='product' color='navy' />\n<Icon name='product' color='teal' />\n<Icon name='product' color='gray' />\n<Icon name='product' color='white' />\n";
+var iconColorsCode = "\n  <Icon\n    name='product'\n    size='medium'\n    src={testImage}\n    color='AstroGranite'\n  />\n";
 
 
 // Main exported demo

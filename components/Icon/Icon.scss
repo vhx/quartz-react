@@ -110,6 +110,7 @@
 .iconPistachio,
 .iconRumSwizzle,
 .iconFoam,
+.iconPalePink,
 .iconPorcelain,
 .iconSoutherlySky,
 .iconRegentGray,
@@ -120,6 +121,7 @@
 .iconPistachioSmall,
 .iconRumSwizzleSmall,
 .iconFoamSmall,
+.iconPalePinkSmall,
 .iconPorcelainSmall,
 .iconSoutherlySkySmall,
 .iconRegentGraySmall,
@@ -137,6 +139,7 @@
 .iconPistachioXxsmall,
 .iconRumSwizzleXxsmall,
 .iconFoamXxsmall,
+.iconPalePinkXxsmall,
 .iconPorcelainXxsmall,
 .iconSoutherlySkyXxsmall,
 .iconRegentGrayXxsmall,
@@ -147,6 +150,7 @@
 .iconPistachioXsmall,
 .iconRumSwizzleXsmall,
 .iconFoamXsmall,
+.iconPalePinkXsmall,
 .iconPorcelainXsmall,
 .iconSoutherlySkyXsmall,
 .iconRegentGrayXsmall,
@@ -163,6 +167,7 @@
 .iconPistachioMedium,
 .iconRumSwizzleMedium,
 .iconFoamMedium,
+.iconPalePinkMedium,
 .iconPorcelainMedium,
 .iconSoutherlySkyMedium,
 .iconRegentGrayMedium,
@@ -178,6 +183,7 @@
 .iconPistachioLarge,
 .iconRumSwizzleLarge,
 .iconFoamLarge,
+.iconPalePinkLarge,
 .iconPorcelainLarge,
 .iconSoutherlySkyLarge,
 .iconRegentGrayLarge,
@@ -208,6 +214,7 @@
 .iconPistachioXxlarge,
 .iconRumSwizzleXxlarge,
 .iconFoamXxlarge,
+.iconPalePinkXxlarge,
 .iconPorcelainXxlarge,
 .iconSoutherlySkyXxlarge,
 .iconRegentGrayXxlarge,
@@ -274,6 +281,16 @@
 .iconFoamXlarge,
 .iconFoamXxlarge {
   background-color: $Foam;
+}
+
+.iconPalePink,
+.iconPalePinkXxsmall,
+.iconPalePinkXsmall,
+.iconPalePinkMedium,
+.iconPalePinkLarge,
+.iconPalePinkXlarge,
+.iconPalePinkXxlarge {
+  background-color: $PalePink;
 }
 
 .iconPorcelain,

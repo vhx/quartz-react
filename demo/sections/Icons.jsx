@@ -10,25 +10,39 @@ import {
   Subtitle,
 } from '../ui';
 
+const testImage = '../demo/sections/upload.svg';
 
 // All icons demo
 // -----------------------------------------
 
-const IconList = () => (
-  <div>
-    <Subtitle>All Icons</Subtitle>
-    <ul className='small-block-grid-6 text-center'>
-      {
-        iconNames.map(icon => (
-          <li key={icon}>
-            <Block><Text color='gray' className='padding-bottom-small'>{icon}</Text></Block>
-            <Icon name={icon} size='small' />
-          </li>
-        ))
-      }
-    </ul>
-  </div>
-);
+const IconList = () => {
+  return (
+    <div>
+      <Subtitle>All Icons</Subtitle>
+      <ul className='small-block-grid-6 text-center'>
+        {
+          iconNames.map((icon, index) => {
+            return (
+              <li key={index}>
+                <Block>
+                  <Text
+                    color='gray'
+                    className='padding-bottom-small'
+                  >{icon}</Text>
+                </Block>
+                <Icon
+                  name={icon}
+                  size='small'
+                  src={testImage}
+                />
+              </li>
+            )
+          })
+        }
+      </ul>
+    </div>
+  );
+}
 
 const iconListCode = `
 <Icon name='product' />
@@ -45,22 +59,74 @@ const iconListCode = `
 const IconSizes = () => (
   <div>
     <Subtitle>Sizes</Subtitle>
-    <Block inline><Icon name='product' size='xsmall' /></Block>
-    <Block inline><Icon name='product' size='small' /></Block>
-    <Block inline><Icon name='product' size='medium' /></Block>
-    <Block inline><Icon name='product' size='large' /></Block>
-    <Block inline><Icon name='product' size='xlarge' /></Block>
-    <Block inline><Icon name='product' size='xxlarge' /></Block>
+    <Block inline>
+      <Icon
+        size='xsmall'
+        src={testImage}
+      />
+    </Block>
+    <Block inline>
+      <Icon
+        size='small'
+        src={testImage}
+      />
+    </Block>
+    <Block inline>
+      <Icon
+        size='medium'
+        src={testImage}
+      />
+    </Block>
+    <Block inline>
+      <Icon
+        size='large'
+        src={testImage}
+      />
+    </Block>
+    <Block inline>
+      <Icon
+        size='xlarge'
+        src={testImage}
+      />
+    </Block>
+    <Block inline>
+      <Icon
+        size='xxlarge'
+        src={testImage}
+      />
+    </Block>
   </div>
 );
 
 const iconSizesCode = `
-<Icon name='product' size='xsmall' />
-<Icon name='product' size='small' />
-<Icon name='product' size='medium' />
-<Icon name='product' size='large' />
-<Icon name='product' size='xlarge' />
-<Icon name='product' size='xxlarge' />
+  <Icon
+    size='xxsmall'
+    src={testImage}
+  />
+  <Icon
+    size='xsmall'
+    src={testImage}
+  />
+  <Icon
+    size='small'
+    src={testImage}
+  />
+  <Icon
+    size='medium'
+    src={testImage}
+  />
+  <Icon
+    size='large'
+    src={testImage}
+  />
+  <Icon
+    size='xlarge'
+    src={testImage}
+  />
+  <Icon
+    size='xxlarge'
+    src={testImage}
+  />
 `;
 
 
@@ -70,20 +136,86 @@ const iconSizesCode = `
 const IconColors = () => (
   <div>
     <Subtitle>Colors</Subtitle>
-    <Block inline><Icon name='product' size='medium' /></Block>
-    <Block inline><Icon name='product' size='medium' color='navy' /></Block>
-    <Block inline><Icon name='product' size='medium' color='teal' /></Block>
-    <Block inline><Icon name='product' size='medium' color='gray' /></Block>
-    <Block inline dark><Icon name='product' size='medium' color='white' /></Block>
+    <Block inline>
+      <Icon
+        size='medium'
+        src={testImage}
+        color='white'
+      />
+    </Block>
+    <Block inline>
+      <Icon
+        size='medium'
+        src={testImage}
+        color='VimeoBlue'
+      />
+    </Block>
+    <Block inline>
+      <Icon
+        size='medium'
+        src={testImage}
+        color='SunsetOrange'
+      />
+    </Block>
+    <Block inline>
+      <Icon
+        size='medium'
+        src={testImage}
+        color='RumSwizzle'
+      />
+    </Block>
+    <Block inline>
+      <Icon
+        size='medium'
+        src={testImage}
+        color='Foam'
+      />
+    </Block>
+    <Block inline>
+      <Icon
+        size='medium'
+        src={testImage}
+        color='PalePink'
+      />
+    </Block>
+    <Block inline>
+      <Icon
+        size='medium'
+        src={testImage}
+        color='Porcelain'
+      />
+    </Block>
+    <Block inline>
+      <Icon
+        size='medium'
+        src={testImage}
+        color='SoutherlySky'
+      />
+    </Block>
+    <Block inline>
+      <Icon
+        size='medium'
+        src={testImage}
+        color='RegentGray'
+      />
+    </Block>
+    <Block inline>
+      <Icon
+        size='medium'
+        src={testImage}
+        color='AstroGranite'
+      />
+    </Block>
   </div>
 );
 
 const iconColorsCode = `
-<Icon name='product' />
-<Icon name='product' color='navy' />
-<Icon name='product' color='teal' />
-<Icon name='product' color='gray' />
-<Icon name='product' color='white' />
+  <Icon
+    name='product'
+    size='medium'
+    src={testImage}
+    color='AstroGranite'
+  />
 `;
 
 

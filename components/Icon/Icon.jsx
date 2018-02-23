@@ -88,12 +88,14 @@ const getClassName = props => {
 
 
 const Icon = props => {
-  console.log(props)
   return (
     <span
-      className={getClassName(props)}
+      className={`styles.${getClassName(props)}`}
     >
-      {props.children}
+      <img
+        className='tbd'
+        src={props.src}
+      />
     </span>
   );
 }
@@ -105,8 +107,9 @@ Icon.propTypes = {
   children: PropTypes.node,
   className: PropTypes.string,
   color: PropTypes.oneOf(colors),
-  name: PropTypes.oneOf(iconList).isRequired,
+  name: PropTypes.oneOf(iconList),
   size: PropTypes.oneOf(sizes),
+  src: PropTypes.string,
 };
 
 Icon.defaultProps = {
@@ -115,6 +118,8 @@ Icon.defaultProps = {
   circle: false,
   color: null,
   size: 'xsmall',
+  src: '',
+  name: '',
 };
 
 Icon.propDescriptions = {
