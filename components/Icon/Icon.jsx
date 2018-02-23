@@ -117,7 +117,7 @@ Icon.propTypes = {
 
 Icon.defaultProps = {
   color: null,
-  size: 'xsmall',
+  size: 'small',
   src: '',
 };
 
