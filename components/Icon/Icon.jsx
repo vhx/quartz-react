@@ -6,7 +6,7 @@ import iconList from './icon-list.js';
 
 import styles from './Icon.scss'
 
-const getClassName = props => {
+const compileClassName = props => {
 
   let Arr = ['icon'];
 
@@ -86,11 +86,10 @@ const getClassName = props => {
 }
 
 
-
 const Icon = props => {
   return (
     <span
-      className={`styles.${getClassName(props)}`}
+      className={`styles.${compileClassName(props)}`}
     >
       <img
         className='tbd'

@@ -1175,7 +1175,7 @@ var css$2 = "/* .....................................\n  Vimeo Colors\n.........
 __$$styleInject(css$2);
 
 /* eslint-disable react/no-unused-prop-types */
-var getClassName$1 = function (props) {
+var compileClassName = function (props) {
 
   var Arr = ['icon'];
 
@@ -1255,11 +1255,10 @@ var getClassName$1 = function (props) {
 };
 
 
-
 var Icon$1 = function (props) {
   return (
     React__default.createElement( 'span', {
-      className: ("styles." + (getClassName$1(props))) },
+      className: ("styles." + (compileClassName(props))) },
       React__default.createElement( 'img', {
         className: 'tbd', src: props.src })
     )
@@ -1527,7 +1526,7 @@ __$$styleInject(css$3);
 
 /* eslint-disable react/no-unused-prop-types */
 
-var getClassName$2 = function (ref) {
+var getClassName$1 = function (ref) {
   var type = ref.type;
   var size = ref.size;
 
@@ -1559,7 +1558,7 @@ var ToggleCheckbox = function () { return (
 var Checkbox$1 = function (props) {
   return (
     React__default.createElement( 'div', { className: 'form' },
-      React__default.createElement( 'fieldset', { className: getClassName$2(props) },
+      React__default.createElement( 'fieldset', { className: getClassName$1(props) },
         React__default.createElement( 'input', Object.assign({}, excludeProps([ 'label', 'uniqueId', 'size', 'type' ], props), { type: 'checkbox', name: props.uniqueId, id: props.uniqueId })),
         React__default.createElement( 'label', { htmlFor: props.uniqueId },
           React__default.createElement( 'span', { className: styles$2.checkboxContain },
@@ -2024,7 +2023,7 @@ function getDescriptionClassName(checked) {
   });
 }
 
-function getClassName$4(checked) {
+function getClassName$3(checked) {
   return index$1({
     'btn-teal': checked,
     'btn-gray': !checked,
@@ -2057,7 +2056,7 @@ var RadioButton = function (ref) {
   React__default.createElement( 'li', null,
     React__default.createElement( 'input', {
       type: 'radio', checked: checked, onChange: function (event) { return onCheck(event, index$$1); } }),
-    React__default.createElement( 'label', { className: getClassName$4(checked), onClick: function (event) { return onCheck(event, index$$1); } },
+    React__default.createElement( 'label', { className: getClassName$3(checked), onClick: function (event) { return onCheck(event, index$$1); } },
       React__default.createElement( RadioIcon, null ),
       React__default.createElement( 'span', { className: 'radio--label text-left padding-left-small', style: getStyle(description) },
         React__default.createElement( 'strong', { className: getTitleClassName(checked) }, label),
@@ -2082,7 +2081,7 @@ RadioButton.defaultProps = {
   description: '',
 };
 
-function getClassName$3(ref) {
+function getClassName$2(ref) {
   var buttons = ref.buttons;
   var color = ref.color;
   var stacked = ref.stacked;
@@ -2115,7 +2114,7 @@ var RadioGroup$1 = function (ref) {
 
   return (
   React__default.createElement( 'div', { className: 'form' },
-    React__default.createElement( 'ul', { className: getClassName$3({ buttons: buttons, color: color, stacked: stacked }) },
+    React__default.createElement( 'ul', { className: getClassName$2({ buttons: buttons, color: color, stacked: stacked }) },
       items.map(getRadioComponent({ buttons: buttons, onCheck: onCheck, selectedIndex: selectedIndex }))
     )
   )
@@ -2405,7 +2404,7 @@ Tag$1.defaultProps = {
 
 /* eslint-disable react/no-unused-prop-types */
 
-function getClassName$5(props) {
+function getClassName$4(props) {
   return index$1(props.className, {
     block: Boolean(props.block),
     'head-1': Boolean(props.h1),
@@ -2425,7 +2424,7 @@ function getClassName$5(props) {
 }
 
 var Text$1 = function (props) { return (
-  React__default.createElement( 'span', { className: getClassName$5(props) }, props.children)
+  React__default.createElement( 'span', { className: getClassName$4(props) }, props.children)
 ); };
 
 var colors$3 = [ 'navy', 'gray', 'teal', 'white', 'vimeo-blue', 'sunset-orange', 'regent-gray', 'astro-granite' ];
