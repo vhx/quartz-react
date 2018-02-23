@@ -1,0 +1,85 @@
+@import '../util/include-responsive.scss';
+
+.icon,
+.iconXxsmall,
+.iconXsmall,
+.iconSmall,
+.iconMedium,
+.iconLarge,
+.iconXlarge,
+.iconXxlarge,
+.iconRight,
+.iconRightXxsmall,
+.iconRightXsmall,
+.iconRightSmall,
+.iconRightMedium,
+.iconRightLarge,
+.iconRightXlarge,
+.iconRightXxlarge,
+.iconLeft,
+.iconLeftXxsmall,
+.iconLeftXsmall,
+.iconLeftSmall,
+.iconLeftMedium,
+.iconLeftLarge,
+.iconLeftXlarge,
+.iconLeftXxlarge {
+  display: inline-block;
+  background-position: 50% 50%;
+  background-size: contain;
+  text-indent: -9999px;
+}
+
+.icon,
+.iconSmall,
+.iconLeft,
+.iconLeftSmall,
+.iconRight,
+.iconRightSmall {
+  width: 25px;
+  height: 25px;
+}
+
+// not sure what xx small size is
+.iconXxsmall,
+.iconXsmall {
+  width: 15px;
+  height: 15px;
+}
+
+
+.iconMedium {
+  width: 35px;
+  height: 35px;
+}
+
+.iconLarge {
+  width: 45px;
+  height: 45px;
+}
+
+.iconXlarge {
+  width: 55px;
+  height: 55px;
+}
+
+.iconXxlarge {
+  width: 65px;
+  height: 65px;
+}
+
+.iconLeft {
+  $paddingProps: (
+    orientation: 'left-only',
+    left-side: 43px,
+  );
+  background-position: left 21px center;
+}
+
+.iconRight {
+
+}
+
+.iconCircle {
+
+}

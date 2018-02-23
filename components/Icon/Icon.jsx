@@ -5,22 +5,77 @@ import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import iconList from './icon-list.js';
 
-function getClassName({ button, circle, className, left, color, name, right, size }) {
-  return classNames(className, {
-    icon: !button,
-    [`icon-${name}`]: !color,
-    [`icon-${name}-${color}`]: !!color,
-    'icon-circle': circle,
-    'icon--left': left,
-    'icon--right': right,
-    'icon--xxsmall': size === 'xxsmall',
-    'icon--xsmall': size === 'xsmall',
-    'icon--small': size === 'small',
-    'icon--medium': size === 'medium',
-    'icon--large': size === 'large',
-    'icon--xlarge': size === 'xlarge',
-    'icon--xxlarge': size === 'xxlarge',
-  });
+import styles from './Icon.scss'
+
+const jsUcfirst = (string) => {
+    return string.charAt(0).toUpperCase() + string.slice(1);
+}
+
+// function getClassName({ button, circle, className, left, color, name, right, size }) {
+//   return classNames(className, {
+//     icon: !button,
+//     [`styles.icon${jsUcfirst(name)}`]: !color,
+//     [`styles.icon${jsUcfirst(name)}${jsUcfirst(color)}`]: !!color,
+//     [styles.iconCircle]: circle,
+//     [styles.iconLeft]: left,
+//     [styles.iconRight]: right,
+//     [styles.iconXxsmall]: size === 'xxsmall',
+//     [styles.iconXsmall]: size === 'xsmall',
+//     [styles.iconSmall]: size === 'small',
+//     [styles.iconMedium]: size === 'medium',
+//     [styles.iconLaarge]: size === 'large',
+//     [styles.iconXlarge]: size === 'xlarge',
+//     [styles.iconXxlarge]: size === 'xxlarge',
+//   });
+// }
+
+
+const getClassName = props => {
+
+  let Arr = ['icon'];
+
+  if (props.size == 'xxsmall') {
+    Arr.push('Xxsmall');
+  }
+
+  if (props.size == 'xsmall') {
+    Arr.push('Xsmall');
+  }
+
+  if (props.size == 'small') {
+    Arr.push('Small');
+  }
+
+  if (props.size == 'medium') {
+    Arr.push('Medium');
+  }
+
+  if (props.size == 'large') {
+    Arr.push('Large');
+  }
+
+  if (props.size == 'xlarge') {
+    Arr.push('Xlarge');
+  }
+
+  if (props.size == 'xxlarge') {
+    Arr.push('Xxlarge');
+  }
+
+
+  if (props.right === true) {
+    Arr.push('Right');
+  }
+
+  if (props.left === true) {
+    Arr.push('Left');
+  }
+
+  if (props.circle === true) {
+    Arr.push('Circle');
+  }
+
+  return Arr.join('');
 }
 
 const Icon = props => (
