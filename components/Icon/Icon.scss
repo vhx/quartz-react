@@ -42,28 +42,44 @@
 
 // not sure what xx small size is
 .iconXxsmall,
-.iconXsmall {
+.iconXsmall,
+.iconLeftXxsmall,
+.iconLeftXxsmall,
+.iconLeftXsmall,
+.iconLeftXsmall,
+.iconRightXxsmall,
+.iconRightXxsmall,
+.iconRightXsmall,
+.iconRightXsmall {
   width: 15px;
   height: 15px;
 }
 
 
-.iconMedium {
+.iconMedium,
+.iconLeftMedium,
+.iconRightMedium {
   width: 35px;
   height: 35px;
 }
 
-.iconLarge {
+.iconLarge,
+.iconLeftLarge,
+.iconRightLarge {
   width: 45px;
   height: 45px;
 }
 
-.iconXlarge {
+.iconXlarge,
+.iconLeftXlarge,
+.iconRightXlarge {
   width: 55px;
   height: 55px;
 }
 
-.iconXxlarge {
+.iconXxlarge,
+.iconLeftXxlarge,
+.iconRightXxlarge {
   width: 65px;
   height: 65px;
 }
@@ -76,10 +92,133 @@
   background-position: left 21px center;
 }
 
-.iconRight {
-
+.iconLeftXsmall {
+  $paddingProps: (
+    orientation: 'left-only',
+    left-side: 40px,
+  );
+  background-position: left 16px center;
 }
 
-.iconCircle {
+.iconLeftXxsmall {
+  $paddingProps: (
+    orientation: 'left-only',
+    left-side: 37px,
+  );
+  background-position: left 18px center;
+}
 
+.iconRight {
+  $paddingProps: (
+    orientation: 'right-only',
+    right-side: 21px,
+  );
+  background-position: right 0px center;
+}
+
+.iconRightXxsmall {
+  $paddingProps: (
+    orientation: 'right-only',
+    right-side: 37px,
+  );
+  background-position: left 18px center;
+}
+
+.iconCircle,
+.iconXxsmallCircle,
+.iconXsmallCircle,
+.iconSmallCircle,
+.iconMediumCircle,
+.iconLargeCircle,
+.iconXlargeCircle,
+.iconXxlargeCircle {
+  border-radius: 50%;
+  border: 1px solid $Porcelain;
+  box-sizing: content-box;
+  display: inline-block;
+  background-position: 50% 50%;
+}
+
+.iconXxsmallCircle {
+  $paddingProps: (
+    orientation: 'all',
+    all-side: 3px;
+  );
+
+  @include Padding($paddingProps);
+  background-size: 10px 10px;
+  width: 10px;
+  height: 10px;
+}
+
+.iconXsmallCircle {
+  $paddingProps: (
+    orientation: 'all',
+    all-side: 5px;
+  );
+
+  @include Padding($paddingProps);
+  background-size: 15px 15px;
+  width: 15px;
+  height: 15px;
+}
+
+.iconSmallCircle {
+  $paddingProps: (
+    orientation: 'all',
+    all-side: 10px;
+  );
+
+  @include Padding($paddingProps);
+  background-size: 25px 25px;
+  width: 25px;
+  height: 25px;
+}
+
+.iconMediumCircle {
+  $paddingProps: (
+    orientation: 'all',
+    all-side: 15px;
+  );
+
+  @include Padding($paddingProps);
+  background-size: 35px 35px;
+  width: 35px;
+  height: 35px;
+}
+
+.iconLargeCircle {
+  $paddingProps: (
+    orientation: 'all',
+    all-side: 20px;
+  );
+
+  @include Padding($paddingProps);
+  background-size: 45px 45px;
+  width: 45px;
+  height: 45px;
+}
+
+.iconXlargeCircle {
+  $paddingProps: (
+    orientation: 'all',
+    all-side: 25px;
+  );
+
+  @include Padding($paddingProps);
+  background-size: 55px 55px;
+  width: 55px;
+  height: 55px;
+}
+
+.iconXxlargeCircle {
+  $paddingProps: (
+    orientation: 'all',
+    all-side: 35px;
+  );
+
+  @include Padding($paddingProps);
+  background-size: 65px 65px;
+  width: 65px;
+  height: 65px;
 }
