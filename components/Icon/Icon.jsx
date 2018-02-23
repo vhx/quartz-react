@@ -7,29 +7,6 @@ import iconList from './icon-list.js';
 
 import styles from './Icon.scss'
 
-const jsUcfirst = (string) => {
-    return string.charAt(0).toUpperCase() + string.slice(1);
-}
-
-// function getClassName({ button, circle, className, left, color, name, right, size }) {
-//   return classNames(className, {
-//     icon: !button,
-//     [`styles.icon${jsUcfirst(name)}`]: !color,
-//     [`styles.icon${jsUcfirst(name)}${jsUcfirst(color)}`]: !!color,
-//     [styles.iconCircle]: circle,
-//     [styles.iconLeft]: left,
-//     [styles.iconRight]: right,
-//     [styles.iconXxsmall]: size === 'xxsmall',
-//     [styles.iconXsmall]: size === 'xsmall',
-//     [styles.iconSmall]: size === 'small',
-//     [styles.iconMedium]: size === 'medium',
-//     [styles.iconLaarge]: size === 'large',
-//     [styles.iconXlarge]: size === 'xlarge',
-//     [styles.iconXxlarge]: size === 'xxlarge',
-//   });
-// }
-
-
 const getClassName = props => {
 
   let Arr = ['icon'];
@@ -62,25 +39,69 @@ const getClassName = props => {
     Arr.push('Xxlarge');
   }
 
-
-  if (props.right === true) {
-    Arr.push('Right');
+  if (props.color === 'white' ) {
+    Arr.push('White');
   }
 
-  if (props.left === true) {
-    Arr.push('Left');
+  if (props.color === 'Porcelain' ) {
+    Arr.push('Porcelain');
   }
 
-  if (props.circle === true) {
-    Arr.push('Circle');
+  if (props.color === 'RegentGray' ) {
+    Arr.push('RegentGray');
+  }
+
+  if (props.color === 'SoutherlySky' ) {
+    Arr.push('SoutherlySky');
+  }
+
+  if (props.color === 'AstroGranite' ) {
+    Arr.push('AstroGranite');
+  }
+
+  if (props.color === 'SunsetOrange' ) {
+    Arr.push('SunsetOrange');
+  }
+
+  if (props.color === 'VimeoBlue' ) {
+    Arr.push('VimeoBlue');
+  }
+
+  if (props.color === 'Foam' ) {
+    Arr.push('Foam');
+  }
+
+  if (props.color === 'RumSwizzle' ) {
+    Arr.push('RumSwizzle');
+  }
+
+  if (props.color === 'PalePink' ) {
+    Arr.push('PalePink');
+  }
+
+  if (props.color === 'Pistachio' ) {
+    Arr.push('Pistachio');
   }
 
   return Arr.join('');
 }
 
-const Icon = props => (
-  <span className={getClassName(props)}>{props.children}</span>
-);
+
+
+const Icon = props => {
+  console.log('Icon props', props);
+  const coloredBg = {
+    backgroundColor: props.color,
+  }
+  return (
+    <span
+      className={getClassName(props)}
+    >
+      <div className={}
+      {props.children}
+    </span>
+  );
+}
 
 const colors = [ '', 'navy', 'teal', 'white', 'gray' ];
 const sizes = [ 'xxsmall', 'xsmall', 'small', 'medium', 'large', 'xlarge', 'xxlarge' ];
