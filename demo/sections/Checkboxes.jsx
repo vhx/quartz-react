@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { Checkbox } from '../../index.js';
+import { Checkbox, ToggleCheckbox } from '../../index.js';
 import {
   Block,
   DemoRow,
@@ -36,8 +36,8 @@ const StatelessCheckboxToggles = () => (
   <div>
     <Subtitle>Toggles</Subtitle>
     {/* readOnly prop only added to stop react warnings from polluting the console */}
-    <Block><Checkbox uniqueId='c9' type='toggle' size='small' readOnly /></Block>
-    <Block><Checkbox uniqueId='c10' type='toggle' size='small' checked readOnly /></Block>
+    <Block><ToggleCheckbox uniqueId='c9' type='toggle' size='small' readOnly /></Block>
+    <Block><ToggleCheckbox uniqueId='c10' type='toggle' size='small' checked readOnly /></Block>
   </div>
 );
 
