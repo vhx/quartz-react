@@ -14,6 +14,13 @@ const checkboxClasses = props => {
   })
 }
 
+const circleChecked = props => {
+  return classNames({
+    [styles.checkboxCircle]: props.checked === false,
+    [styles.checkboxCircleChecked]: props.checked === true,
+  })
+}
+
 const checkboxUpperCircle = props => {
   return classNames({
     [styles.circleTop]: props.checked === false,
