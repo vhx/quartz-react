@@ -7,14 +7,22 @@ import { excludeProps } from '../util';
 
 import styles from './Checkbox.scss';
 
+const checkboxClasses = props => {
+  return classNames({
+    [styles.standardCheckboxLabel]: props.checked === false,
+    [styles.standardCheckedCheckboxLabel]: props.checked === true,
+  })
+}
+
 const Checkbox = props => {
+  console.log(props)
   return (
     <div className={styles.standardCheckboxWrapper}>
       <fieldset>
         <div className={styles.standardCheckbox}>
           <input {...excludeProps([ 'label', 'uniqueId', 'size', 'type' ], props)} type='checkbox' name={props.uniqueId} id={props.uniqueId} />
         </div>
-        <label className={styles.standardCheckboxLabel} />
+        <label className={checkboxClasses(props)} />
       </fieldset>
     </div>
   );
