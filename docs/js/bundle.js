@@ -1494,68 +1494,35 @@ Carousel$1.propDescriptions = {
   slides: 'Array of objects: { Slide: Component, id: String }',
 };
 
-var css$3 = "/* .....................................\n  Vimeo Colors\n..................................... */\n/* .....................................\n  Grayscale\n..................................... */\n/* .....................................\n  Blues\n..................................... */\n/* .....................................\n  Greens\n..................................... */\n/* .....................................\n  Reds\n..................................... */\n/* .....................................\n  Interaction Colors\n..................................... */\n/* .....................................\n  Vimeo Legacy Colors\n..................................... */\n/* .....................................\n  Default Text\n..................................... */\n/* .....................................\n  Default Sizing\n..................................... */\n/* .....................................\n  Vimeo Colors\n..................................... */\n/* .....................................\n  Grayscale\n..................................... */\n/* .....................................\n  Blues\n..................................... */\n/* .....................................\n  Greens\n..................................... */\n/* .....................................\n  Reds\n..................................... */\n/* .....................................\n  Interaction Colors\n..................................... */\n/* .....................................\n  Vimeo Legacy Colors\n..................................... */\n/* .....................................\n  Default Text\n..................................... */\n/* .....................................\n  Default Sizing\n..................................... */\n/*.....................................\n  VIMEO FONT MIXINS\n......................................*/\n/* .....................................\n  Vimeo Colors\n..................................... */\n/* .....................................\n  Grayscale\n..................................... */\n/* .....................................\n  Blues\n..................................... */\n/* .....................................\n  Greens\n..................................... */\n/* .....................................\n  Reds\n..................................... */\n/* .....................................\n  Interaction Colors\n..................................... */\n/* .....................................\n  Vimeo Legacy Colors\n..................................... */\n/* .....................................\n  Default Text\n..................................... */\n/* .....................................\n  Default Sizing\n..................................... */\n/* .....................................\n  Vimeo Colors\n..................................... */\n/* .....................................\n  Grayscale\n..................................... */\n/* .....................................\n  Blues\n..................................... */\n/* .....................................\n  Greens\n..................................... */\n/* .....................................\n  Reds\n..................................... */\n/* .....................................\n  Interaction Colors\n..................................... */\n/* .....................................\n  Vimeo Legacy Colors\n..................................... */\n/* .....................................\n  Default Text\n..................................... */\n/* .....................................\n  Default Sizing\n..................................... */\n/* .....................................\n  Vimeo Specific Fonts\n..................................... */\n/* .....................................\n  Vimeo Specific Widths\n..................................... */\n/* .....................................\n  Vimeo Media Query Breakpoints\n..................................... */\n.Checkbox_checkbox__qoIPk {\n  transition: border 400ms ease-out;\n  border: 1px solid #e3e8e9;\n  background-image: none; }\n\n.Checkbox_checkboxSmall__1YcL5 {\n  min-height: 13.33333px; }\n\n.Checkbox_checkboxContain__1MT0X {\n  min-height: 20px;\n  width: 100%;\n  display: block; }\n\n.Checkbox_checkboxCircle__3EVZy {\n  left: 0;\n  top: -2px;\n  width: 18px;\n  height: 18px;\n  transition: opacity 0.2s ease;\n  overflow: hidden;\n  position: absolute;\n  top: 0;\n  left: 0; }\n\n.Checkbox_circleTop__2rtHY {\n  height: 9px;\n  transition: opacity 0.2s ease;\n  overflow: hidden;\n  position: absolute;\n  top: 0;\n  left: 0; }\n\n.Checkbox_circleBottom__3xDHJ {\n  height: 9px;\n  transition: opacity 0.2s ease;\n  overflow: hidden;\n  position: absolute;\n  bottom: 0;\n  left: 0; }\n\n.Checkbox_checkboxAnimate__3PyrG,\n.Checkbox_toggle__18A4M,\n.Checkbox_alt__me0qn {\n  display: block; }\n\n.Checkbox_checkboxIcon__1FiGu,\n.Checkbox_checkboxIconSmall__24eJE,\n.Checkbox_checkboxIconMedium__xUUoF,\n.Checkbox_checkboxIconLarge__22UXG {\n  margin-right: 10px;\n  transition: border 400ms ease-out;\n  border: 1px solid #e3e8e9;\n  background-image: none;\n  display: inline-block;\n  float: left;\n  background-color: #fff;\n  background-position: 50% 50%;\n  background-size: 75%;\n  position: relative;\n  box-shadow: none;\n  border-radius: 3px; }\n\n.Checkbox_checkboxIconSmall__24eJE {\n  width: 13.33333px;\n  height: 13.33333px; }\n\n.Checkbox_checkboxIconMedium__xUUoF,\n.Checkbox_checkboxIcon__1FiGu {\n  width: 20px;\n  height: 20px; }\n\n.Checkbox_checkboxIconLarge__22UXG {\n  width: 40px;\n  height: 40px; }\n\n.Checkbox_checkboxLabel__2RlSe,\n.Checkbox_checkboxLabelSmall__CSn2t,\n.Checkbox_checkboxLabelMedium__t62Y4 {\n  margin-left: 10px;\n  position: absolute;\n  white-space: nowrap;\n  overflow: hidden;\n  text-overflow: ellipsis;\n  display: block;\n  float: left; }\n\n.Checkbox_checkboxLabelSmall__CSn2t {\n  min-height: 13.33333px;\n  line-height: 13.33333px;\n  width: calc(100% - 18.33333px);\n  left: 18.33333px; }\n\n.Checkbox_checkboxLabelMedium__t62Y4,\n.Checkbox_checkboxLabel__2RlSe {\n  min-height: 20px;\n  line-height: 20px;\n  width: calc(100% - 25px);\n  left: 25px; }\n\n.Checkbox_checkboxLabelLarge__2jmXW {\n  margin-left: 5px;\n  min-height: 40px;\n  line-height: 40px;\n  float: left; }\n\n.Checkbox_checkboxLabel__2RlSe:after,\n.Checkbox_checkboxContain__1MT0X:after {\n  content: \"\";\n  display: table;\n  clear: both; }\n";
-var styles$3 = {"checkbox":"Checkbox_checkbox__qoIPk","checkboxSmall":"Checkbox_checkboxSmall__1YcL5","checkboxContain":"Checkbox_checkboxContain__1MT0X","checkboxCircle":"Checkbox_checkboxCircle__3EVZy","circleTop":"Checkbox_circleTop__2rtHY","circleBottom":"Checkbox_circleBottom__3xDHJ","checkboxAnimate":"Checkbox_checkboxAnimate__3PyrG","toggle":"Checkbox_toggle__18A4M","alt":"Checkbox_alt__me0qn","checkboxIcon":"Checkbox_checkboxIcon__1FiGu","checkboxIconSmall":"Checkbox_checkboxIconSmall__24eJE","checkboxIconMedium":"Checkbox_checkboxIconMedium__xUUoF","checkboxIconLarge":"Checkbox_checkboxIconLarge__22UXG","checkboxLabel":"Checkbox_checkboxLabel__2RlSe","checkboxLabelSmall":"Checkbox_checkboxLabelSmall__CSn2t","checkboxLabelMedium":"Checkbox_checkboxLabelMedium__t62Y4","checkboxLabelLarge":"Checkbox_checkboxLabelLarge__2jmXW"};
+var css$3 = "/* .....................................\n  Vimeo Colors\n..................................... */\n/* .....................................\n  Grayscale\n..................................... */\n/* .....................................\n  Blues\n..................................... */\n/* .....................................\n  Greens\n..................................... */\n/* .....................................\n  Reds\n..................................... */\n/* .....................................\n  Interaction Colors\n..................................... */\n/* .....................................\n  Vimeo Legacy Colors\n..................................... */\n/* .....................................\n  Default Text\n..................................... */\n/* .....................................\n  Default Sizing\n..................................... */\n/* .....................................\n  Vimeo Colors\n..................................... */\n/* .....................................\n  Grayscale\n..................................... */\n/* .....................................\n  Blues\n..................................... */\n/* .....................................\n  Greens\n..................................... */\n/* .....................................\n  Reds\n..................................... */\n/* .....................................\n  Interaction Colors\n..................................... */\n/* .....................................\n  Vimeo Legacy Colors\n..................................... */\n/* .....................................\n  Default Text\n..................................... */\n/* .....................................\n  Default Sizing\n..................................... */\n/*.....................................\n  VIMEO FONT MIXINS\n......................................*/\n/* .....................................\n  Vimeo Colors\n..................................... */\n/* .....................................\n  Grayscale\n..................................... */\n/* .....................................\n  Blues\n..................................... */\n/* .....................................\n  Greens\n..................................... */\n/* .....................................\n  Reds\n..................................... */\n/* .....................................\n  Interaction Colors\n..................................... */\n/* .....................................\n  Vimeo Legacy Colors\n..................................... */\n/* .....................................\n  Default Text\n..................................... */\n/* .....................................\n  Default Sizing\n..................................... */\n/* .....................................\n  Vimeo Colors\n..................................... */\n/* .....................................\n  Grayscale\n..................................... */\n/* .....................................\n  Blues\n..................................... */\n/* .....................................\n  Greens\n..................................... */\n/* .....................................\n  Reds\n..................................... */\n/* .....................................\n  Interaction Colors\n..................................... */\n/* .....................................\n  Vimeo Legacy Colors\n..................................... */\n/* .....................................\n  Default Text\n..................................... */\n/* .....................................\n  Default Sizing\n..................................... */\n/* .....................................\n  Vimeo Specific Fonts\n..................................... */\n/* .....................................\n  Vimeo Specific Widths\n..................................... */\n/* .....................................\n  Vimeo Media Query Breakpoints\n..................................... */\n.Checkbox_standardCheckboxWrapper__yMkN5 {\n  padding-bottom: 15px;\n  height: 20px;\n  width: 20px; }\n\n.Checkbox_standardCheckbox__21cU1 {\n  width: 20px;\n  position: relative; }\n  .Checkbox_standardCheckbox__21cU1 input[type=checkbox] {\n    opacity: 0;\n    position: absolute; }\n    .Checkbox_standardCheckbox__21cU1 input[type=checkbox]:checked {\n      border: 5px solid blue; }\n      .Checkbox_standardCheckbox__21cU1 input[type=checkbox]:checked + label {\n        background-color: #00adef; }\n        .Checkbox_standardCheckbox__21cU1 input[type=checkbox]:checked + label :after {\n          opacity: 1; }\n\n.Checkbox_standardCheckboxLabel__WJleR {\n  cursor: pointer;\n  position: absolute;\n  width: 20px;\n  height: 20px;\n  background: #fff;\n  border: 1px solid #e3e8e9;\n  border-radius: 2px; }\n  .Checkbox_standardCheckboxLabel__WJleR:hover {\n    background-color: #00adef; }\n    .Checkbox_standardCheckboxLabel__WJleR:hover::after {\n      opacity: 1; }\n  .Checkbox_standardCheckboxLabel__WJleR:after {\n    opacity: 1;\n    content: '';\n    position: absolute;\n    width: 13px;\n    height: 8px;\n    background: transparent;\n    top: 3px;\n    left: 3px;\n    border: 3px solid #fff;\n    border-top: none;\n    border-right: none;\n    transform: rotate(-45deg); }\n\n.Checkbox_standardCheckedCheckboxLabel__3b2ga {\n  cursor: pointer;\n  position: absolute;\n  width: 20px;\n  height: 20px;\n  background: #00adef;\n  border: 1px solid #e3e8e9;\n  border-radius: 2px; }\n  .Checkbox_standardCheckedCheckboxLabel__3b2ga:hover {\n    background-color: #00adef; }\n    .Checkbox_standardCheckedCheckboxLabel__3b2ga:hover::after {\n      opacity: 1; }\n  .Checkbox_standardCheckedCheckboxLabel__3b2ga:after {\n    opacity: 1;\n    content: '';\n    position: absolute;\n    width: 13px;\n    height: 8px;\n    background: transparent;\n    top: 3px;\n    left: 3px;\n    border: 3px solid #fff;\n    border-top: none;\n    border-right: none;\n    transform: rotate(-45deg); }\n\n.Checkbox_checkbox__qoIPk {\n  transition: border 400ms ease-out;\n  border: 1px solid #e3e8e9;\n  background-image: none; }\n\n.Checkbox_checkboxSmall__1YcL5 {\n  min-height: 13.33333px; }\n\n.Checkbox_checkboxContain__1MT0X {\n  min-height: 20px;\n  width: 100%;\n  display: block; }\n\n.Checkbox_checkboxCircle__3EVZy {\n  left: 0;\n  top: -2px;\n  width: 18px;\n  height: 18px;\n  transition: opacity 0.2s ease;\n  overflow: hidden;\n  position: absolute;\n  top: 0;\n  left: 0; }\n\n.Checkbox_circleTop__2rtHY {\n  height: 9px;\n  transition: opacity 0.2s ease;\n  overflow: hidden;\n  position: absolute;\n  top: 0;\n  left: 0; }\n\n.Checkbox_circleBottom__3xDHJ {\n  height: 9px;\n  transition: opacity 0.2s ease;\n  overflow: hidden;\n  position: absolute;\n  bottom: 0;\n  left: 0; }\n\n.Checkbox_checkboxAnimate__3PyrG,\n.Checkbox_toggle__18A4M,\n.Checkbox_alt__me0qn {\n  display: block; }\n\n.Checkbox_checkboxIcon__1FiGu,\n.Checkbox_checkboxIconSmall__24eJE,\n.Checkbox_checkboxIconMedium__xUUoF,\n.Checkbox_checkboxIconLarge__22UXG {\n  margin-right: 10px;\n  transition: border 400ms ease-out;\n  border: 1px solid #e3e8e9;\n  background-image: none;\n  display: inline-block;\n  float: left;\n  background-color: #fff;\n  background-position: 50% 50%;\n  background-size: 75%;\n  position: relative;\n  box-shadow: none;\n  border-radius: 3px; }\n\n.Checkbox_checkboxIconSmall__24eJE {\n  width: 13.33333px;\n  height: 13.33333px; }\n\n.Checkbox_checkboxIconMedium__xUUoF,\n.Checkbox_checkboxIcon__1FiGu {\n  width: 20px;\n  height: 20px; }\n\n.Checkbox_checkboxIconLarge__22UXG {\n  width: 40px;\n  height: 40px; }\n\n.Checkbox_checkboxLabel__2RlSe,\n.Checkbox_checkboxLabelSmall__CSn2t,\n.Checkbox_checkboxLabelMedium__t62Y4 {\n  margin-left: 10px;\n  position: absolute;\n  white-space: nowrap;\n  overflow: hidden;\n  text-overflow: ellipsis;\n  display: block;\n  float: left; }\n\n.Checkbox_checkboxLabelSmall__CSn2t {\n  min-height: 13.33333px;\n  line-height: 13.33333px;\n  width: calc(100% - 18.33333px);\n  left: 18.33333px; }\n\n.Checkbox_checkboxLabelMedium__t62Y4,\n.Checkbox_checkboxLabel__2RlSe {\n  min-height: 20px;\n  line-height: 20px;\n  width: calc(100% - 25px);\n  left: 25px; }\n\n.Checkbox_checkboxLabelLarge__2jmXW {\n  margin-left: 5px;\n  min-height: 40px;\n  line-height: 40px;\n  float: left; }\n\n.Checkbox_checkboxLabel__2RlSe:after,\n.Checkbox_checkboxContain__1MT0X:after {\n  content: \"\";\n  display: table;\n  clear: both; }\n";
+var styles$3 = {"standardCheckboxWrapper":"Checkbox_standardCheckboxWrapper__yMkN5","standardCheckbox":"Checkbox_standardCheckbox__21cU1","standardCheckboxLabel":"Checkbox_standardCheckboxLabel__WJleR","standardCheckedCheckboxLabel":"Checkbox_standardCheckedCheckboxLabel__3b2ga","checkbox":"Checkbox_checkbox__qoIPk","checkboxSmall":"Checkbox_checkboxSmall__1YcL5","checkboxContain":"Checkbox_checkboxContain__1MT0X","checkboxCircle":"Checkbox_checkboxCircle__3EVZy","circleTop":"Checkbox_circleTop__2rtHY","circleBottom":"Checkbox_circleBottom__3xDHJ","checkboxAnimate":"Checkbox_checkboxAnimate__3PyrG","toggle":"Checkbox_toggle__18A4M","alt":"Checkbox_alt__me0qn","checkboxIcon":"Checkbox_checkboxIcon__1FiGu","checkboxIconSmall":"Checkbox_checkboxIconSmall__24eJE","checkboxIconMedium":"Checkbox_checkboxIconMedium__xUUoF","checkboxIconLarge":"Checkbox_checkboxIconLarge__22UXG","checkboxLabel":"Checkbox_checkboxLabel__2RlSe","checkboxLabelSmall":"Checkbox_checkboxLabelSmall__CSn2t","checkboxLabelMedium":"Checkbox_checkboxLabelMedium__t62Y4","checkboxLabelLarge":"Checkbox_checkboxLabelLarge__2jmXW"};
 __$$styleInject(css$3);
 
 /* eslint-disable react/no-unused-prop-types */
 
-var getClassName$1 = function (ref) {
-  var type = ref.type;
-  var size = ref.size;
-
-  return index$1('checkbox', size, { alt: type === 'toggle' });
+var checkboxClasses = function (props) {
+  return index$1(( obj = {}, obj[styles$3.standardCheckboxLabel] = props.checked === false, obj[styles$3.standardCheckedCheckboxLabel] = props.checked === true, obj ))
+  var obj;
 };
 
-var StandardCheckbox = function () { return (
-  React__default.createElement( 'span', { className: styles$3.checkboxIcon },
-    React__default.createElement( 'span', { className: styles$3.checkboxAnimate })
-  )
-); };
-
-
-var ToggleCheckbox = function () { return (
-  React__default.createElement( 'span', null,
-    React__default.createElement( 'span', { className: styles$3.checkboxIcon }),
-    React__default.createElement( 'span', { className: styles$3.checkboxCircle },
-      React__default.createElement( 'i', { className: 'circle-top' }, React__default.createElement( 'span', null )),
-      React__default.createElement( 'i', { className: 'circle-bottom' }, React__default.createElement( 'span', null ))
-    )
-  )
-); };
-
-
-// NOTE: .form does not affect styles in any way, but is required for proper checkbox
-// styling since quartz/components.css nests .checkbox under .form. This limitation can
-// probably very easily be removed by changing https://github.com/vhx/quartz/blob/master/quartz-js/components/checkbox/styles/checkbox.scss
-// to have .checkbox not be required to be a descendent of .form
 var Checkbox$1 = function (props) {
+  console.log(props);
   return (
-    React__default.createElement( 'div', { className: 'form' },
-      React__default.createElement( 'fieldset', { className: getClassName$1(props) },
-        React__default.createElement( 'input', Object.assign({}, excludeProps([ 'label', 'uniqueId', 'size', 'type' ], props), { type: 'checkbox', name: props.uniqueId, id: props.uniqueId })),
-        React__default.createElement( 'label', { htmlFor: props.uniqueId },
-          React__default.createElement( 'span', { className: styles$3.checkboxContain },
-            props.type === 'toggle' ? React__default.createElement( ToggleCheckbox, null ) : React__default.createElement( StandardCheckbox, null ),
-            React__default.createElement( 'span', { className: styles$3.checkboxLabel }, props.label)
-          )
-        )
+    React__default.createElement( 'div', { className: styles$3.standardCheckboxWrapper },
+      React__default.createElement( 'fieldset', null,
+        React__default.createElement( 'div', { className: styles$3.standardCheckbox },
+          React__default.createElement( 'input', Object.assign({}, excludeProps([ 'label', 'uniqueId', 'size', 'type' ], props), { type: 'checkbox', name: props.uniqueId, id: props.uniqueId }))
+        ),
+        React__default.createElement( 'label', { className: checkboxClasses(props) })
       )
     )
   );
 };
 
-
-
-var sizes$3 = [ 'small', 'medium', 'large' ];
-var types = [ 'standard', 'toggle' ];
-
 Checkbox$1.propTypes = {
   checked: index.bool,
   label: index.string,
   onChange: index.func,
-  size: index.oneOf(sizes$3),
-  type: index.oneOf(types),
   uniqueId: index.string.isRequired,
   value: index.string,
 };
@@ -1564,14 +1531,10 @@ Checkbox$1.defaultProps = {
   checked: false,
   label: '',
   onChange: null,
-  size: 'medium',
-  type: 'standard',
   value: '',
 };
 
 Checkbox$1.propDescriptions = {
-  size: ("One of: [\"" + (sizes$3.join('", "')) + "\"]"),
-  type: ("One of: [\"" + (types.join('", "')) + "\"]"),
   uniqueId: 'Must be globally unique—this sets the checkbox element\'s id attribute.',
 };
 
@@ -1997,7 +1960,7 @@ function getDescriptionClassName(checked) {
   });
 }
 
-function getClassName$3(checked) {
+function getClassName$2(checked) {
   return index$1({
     'btn-teal': checked,
     'btn-gray': !checked,
@@ -2030,7 +1993,7 @@ var RadioButton = function (ref) {
   React__default.createElement( 'li', null,
     React__default.createElement( 'input', {
       type: 'radio', checked: checked, onChange: function (event) { return onCheck(event, index$$1); } }),
-    React__default.createElement( 'label', { className: getClassName$3(checked), onClick: function (event) { return onCheck(event, index$$1); } },
+    React__default.createElement( 'label', { className: getClassName$2(checked), onClick: function (event) { return onCheck(event, index$$1); } },
       React__default.createElement( RadioIcon, null ),
       React__default.createElement( 'span', { className: 'radio--label text-left padding-left-small', style: getStyle(description) },
         React__default.createElement( 'strong', { className: getTitleClassName(checked) }, label),
@@ -2055,7 +2018,7 @@ RadioButton.defaultProps = {
   description: '',
 };
 
-function getClassName$2(ref) {
+function getClassName$1(ref) {
   var buttons = ref.buttons;
   var color = ref.color;
   var stacked = ref.stacked;
@@ -2088,7 +2051,7 @@ var RadioGroup$1 = function (ref) {
 
   return (
   React__default.createElement( 'div', { className: 'form' },
-    React__default.createElement( 'ul', { className: getClassName$2({ buttons: buttons, color: color, stacked: stacked }) },
+    React__default.createElement( 'ul', { className: getClassName$1({ buttons: buttons, color: color, stacked: stacked }) },
       items.map(getRadioComponent({ buttons: buttons, onCheck: onCheck, selectedIndex: selectedIndex }))
     )
   )
@@ -2378,7 +2341,7 @@ Tag$1.defaultProps = {
 
 /* eslint-disable react/no-unused-prop-types */
 
-function getClassName$4(props) {
+function getClassName$3(props) {
   return index$1(props.className, {
     block: Boolean(props.block),
     'head-1': Boolean(props.h1),
@@ -2398,7 +2361,7 @@ function getClassName$4(props) {
 }
 
 var Text$1 = function (props) { return (
-  React__default.createElement( 'span', { className: getClassName$4(props) }, props.children)
+  React__default.createElement( 'span', { className: getClassName$3(props) }, props.children)
 ); };
 
 var colors$3 = [ 'navy', 'gray', 'teal', 'white', 'vimeo-blue', 'sunset-orange', 'regent-gray', 'astro-granite' ];
@@ -3432,6 +3395,9 @@ var Carousels = function () { return (
   )
 ); };
 
+// Checked / unchecked demo
+// -----------------------------------------
+
 var handler = function () { return alert('Hi!'); };
 var StatelessCheckboxes = function () { return (
   React__default.createElement( 'div', null,
@@ -3442,26 +3408,6 @@ var StatelessCheckboxes = function () { return (
 ); };
 
 var statelessCheckboxCode = "\nconst handler = (event) => alert('Hi!');\n<Checkbox uniqueId='c1' label='Foo' onChange={handler} />\n<Checkbox uniqueId='c2' label='Bar' onChange={handler} checked />\n";
-
-
-// Sizes demo
-// -----------------------------------------
-
-var StatelessCheckboxSizes = function () { return (
-  React__default.createElement( 'div', null,
-    React__default.createElement( Subtitle, null, "Sizes" )
-    /* readOnly prop only added to stop react warnings from polluting the console */,
-    React__default.createElement( Block, null, React__default.createElement( Checkbox$1, { uniqueId: 'c3', label: 'Foo', size: 'small', readOnly: true }) ),
-    React__default.createElement( Block, null, React__default.createElement( Checkbox$1, { uniqueId: 'c4', label: 'Bar', size: 'medium', readOnly: true }) ),
-    React__default.createElement( Block, null, React__default.createElement( Checkbox$1, { uniqueId: 'c5', label: 'Baz', size: 'large', readOnly: true }) ),
-    React__default.createElement( Block, null, React__default.createElement( Checkbox$1, { uniqueId: 'c6', label: 'Foo', size: 'small', checked: true, readOnly: true }) ),
-    React__default.createElement( Block, null, React__default.createElement( Checkbox$1, { uniqueId: 'c7', label: 'Bar', size: 'medium', checked: true, readOnly: true }) ),
-    React__default.createElement( Block, null, React__default.createElement( Checkbox$1, { uniqueId: 'c8', label: 'Baz', size: 'large', checked: true, readOnly: true }) )
-  )
-); };
-
-var statelessCheckboxSizesCode = "\n<Checkbox uniqueId='c3' label='Foo' size='small' />\n<Checkbox uniqueId='c4' label='Bar' size='medium' />\n<Checkbox uniqueId='c5' label='Baz' size='large' />\n<Checkbox uniqueId='c6' label='Foo' size='small' checked />\n<Checkbox uniqueId='c7' label='Bar' size='medium' checked />\n<Checkbox uniqueId='c8' label='Baz' size='large' checked />\n";
-
 
 // Toggles demo
 // -----------------------------------------
@@ -3530,7 +3476,6 @@ var Checkboxes = function () { return (
       React__default.createElement( Details, null, "The required ", React__default.createElement( 'code', null, "uniqueId" ), " prop will be used as the checkbox element’s ", React__default.createElement( 'code', null, "id" ), " and therefore must be globally unique. No other element on the page can have that ID!" )
     ),
     React__default.createElement( DemoRow, { code: statelessCheckboxCode }, React__default.createElement( StatelessCheckboxes, null )),
-    React__default.createElement( DemoRow, { code: statelessCheckboxSizesCode }, React__default.createElement( StatelessCheckboxSizes, null )),
     React__default.createElement( DemoRow, { code: statelessCheckboxTogglesCode }, React__default.createElement( StatelessCheckboxToggles, null )),
     React__default.createElement( DemoRow, { code: statefulCheckboxCode }, React__default.createElement( StatefulCheckboxDemo, null )),
     React__default.createElement( DemoRow, null, React__default.createElement( PropTypeTable, { component: Checkbox$1 }) )
