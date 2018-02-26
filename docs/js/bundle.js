@@ -1208,6 +1208,7 @@ var iconSize = function (props) {
   return '25px';
 };
 
+// note, if more colors are needed, they may be re-added
 var iconColor = function (props) {
   if (props.color === 'white') {
     return '#ffffff';
@@ -1221,40 +1222,8 @@ var iconColor = function (props) {
     return '#ff4d4d';
   }
 
-  if (props.color === 'Pistachio') {
-    return '#7fc400';
-  }
-
-  if (props.color === 'Foam') {
-    return '#e5f7fd';
-  }
-
-  if (props.color === 'RumSwizzle') {
-    return '#f2f9e5';
-  }
-
-  if (props.color === 'PalePink') {
-    return '#ffeded';
-  }
-
-  if (props.color === 'Paste') {
-    return '#f6f7f8';
-  }
-
-  if (props.color === 'Plaster') {
-    return '#eef1f2';
-  }
-
   if (props.color === 'Porcelain') {
     return '#e3e8e9';
-  }
-
-  if (props.color === 'SoutherlySky') {
-    return '#b3bfc8';
-  }
-
-  if (props.color === 'RegentGray') {
-    return '#8699a6';
   }
 
   if (props.color === 'AstroGranite') {
@@ -1277,7 +1246,7 @@ var Icon$1 = function (props) {
   );
 };
 
-var colors$1 = [ '', 'VimeoBlue', 'SunsetOrange', 'white', 'Pistachio', 'RumSwizzle', 'PalePink', 'Foam', 'Porcelain', 'Paste', 'Plaster', 'SoutherlySky', 'RegentGray', 'AstroGranite' ];
+var colors$1 = [ '', 'VimeoBlue', 'SunsetOrange', 'white',  'Porcelain', 'AstroGranite' ];
 var sizes$2 = [ 'xxsmall', 'xsmall', 'small', 'medium', 'large', 'xlarge', 'xxlarge' ];
 
 Icon$1.propTypes = {
@@ -3666,27 +3635,7 @@ var IconColors = function () { return (
     ),
     React__default.createElement( Block, { inline: true },
       React__default.createElement( Icon$1, {
-        size: 'medium', src: testImage, color: 'RumSwizzle' })
-    ),
-    React__default.createElement( Block, { inline: true },
-      React__default.createElement( Icon$1, {
-        size: 'medium', src: testImage, color: 'Foam' })
-    ),
-    React__default.createElement( Block, { inline: true },
-      React__default.createElement( Icon$1, {
-        size: 'medium', src: testImage, color: 'PalePink' })
-    ),
-    React__default.createElement( Block, { inline: true },
-      React__default.createElement( Icon$1, {
         size: 'medium', src: testImage, color: 'Porcelain' })
-    ),
-    React__default.createElement( Block, { inline: true },
-      React__default.createElement( Icon$1, {
-        size: 'medium', src: testImage, color: 'SoutherlySky' })
-    ),
-    React__default.createElement( Block, { inline: true },
-      React__default.createElement( Icon$1, {
-        size: 'medium', src: testImage, color: 'RegentGray' })
     ),
     React__default.createElement( Block, { inline: true },
       React__default.createElement( Icon$1, {

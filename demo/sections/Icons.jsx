@@ -98,42 +98,7 @@ const IconColors = () => (
       <Icon
         size='medium'
         src={testImage}
-        color='RumSwizzle'
-      />
-    </Block>
-    <Block inline>
-      <Icon
-        size='medium'
-        src={testImage}
-        color='Foam'
-      />
-    </Block>
-    <Block inline>
-      <Icon
-        size='medium'
-        src={testImage}
-        color='PalePink'
-      />
-    </Block>
-    <Block inline>
-      <Icon
-        size='medium'
-        src={testImage}
         color='Porcelain'
-      />
-    </Block>
-    <Block inline>
-      <Icon
-        size='medium'
-        src={testImage}
-        color='SoutherlySky'
-      />
-    </Block>
-    <Block inline>
-      <Icon
-        size='medium'
-        src={testImage}
-        color='RegentGray'
       />
     </Block>
     <Block inline>

@@ -38,6 +38,7 @@ const iconSize = props => {
   return '25px';
 }
 
+// note, if more colors are needed, they may be re-added
 const iconColor = props => {
   if (props.color === 'white') {
     return '#ffffff';
@@ -51,40 +52,8 @@ const iconColor = props => {
     return '#ff4d4d';
   }
 
-  if (props.color === 'Pistachio') {
-    return '#7fc400';
-  }
-
-  if (props.color === 'Foam') {
-    return '#e5f7fd';
-  }
-
-  if (props.color === 'RumSwizzle') {
-    return '#f2f9e5';
-  }
-
-  if (props.color === 'PalePink') {
-    return '#ffeded';
-  }
-
-  if (props.color === 'Paste') {
-    return '#f6f7f8';
-  }
-
-  if (props.color === 'Plaster') {
-    return '#eef1f2';
-  }
-
   if (props.color === 'Porcelain') {
     return '#e3e8e9';
-  }
-
-  if (props.color === 'SoutherlySky') {
-    return '#b3bfc8';
-  }
-
-  if (props.color === 'RegentGray') {
-    return '#8699a6';
   }
 
   if (props.color === 'AstroGranite') {
@@ -109,7 +78,7 @@ const Icon = props => {
   );
 }
 
-const colors = [ '', 'VimeoBlue', 'SunsetOrange', 'white', 'Pistachio', 'RumSwizzle', 'PalePink', 'Foam', 'Porcelain', 'Paste', 'Plaster', 'SoutherlySky', 'RegentGray', 'AstroGranite' ];
+const colors = [ '', 'VimeoBlue', 'SunsetOrange', 'white',  'Porcelain', 'AstroGranite' ];
 const sizes = [ 'xxsmall', 'xsmall', 'small', 'medium', 'large', 'xlarge', 'xxlarge' ];
 
 Icon.propTypes = {
