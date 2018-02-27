@@ -4,16 +4,18 @@ import classNames from 'classnames';
 import RadioIcon from './RadioIcon.jsx';
 import { If } from '../util';
 
+import styles from './RadioGroup.scss';
+
 function getDescriptionClassName(checked) {
   return classNames({
-    'text--white': checked,
-    'text-4': true,
+    [styles.checkedButtonText]: checked,
+    [styles.strongText]: true,
   });
 }
 
 function getClassName(checked) {
   return classNames({
-    'btn-teal': checked,
+    'btn-vimeo-blue': checked,
     'btn-gray': !checked,
     'btn--fill': true,
     'btn-radio': true,
@@ -23,8 +25,8 @@ function getClassName(checked) {
 
 function getTitleClassName(checked) {
   return classNames({
-    'text--white': checked,
-    'text--navy': !checked,
+    [styles.checkedButtonTitle]: checked,
+    [styles.uncheckedButtonTitle]: !checked,
     'text-2': true,
   });
 }

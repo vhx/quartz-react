@@ -18,6 +18,7 @@
   box-sizing: border-box;
   border-radius: 20px;
   transition: box-shadow .2s ease, color .2s ease;
+  background-color: $White;
 }
 
 .radioChecked {
@@ -42,4 +43,20 @@
   height: 10px;
   background: transparent;
   border-radius: 10px;
+}
+
+.checkedButtonTitle {
+  @include Type700($color: $White);
+}
+
+.checkedButtonText {
+  @include Type400($color: $White);
+}
+
+.uncheckedButtonTitle {
+  @include Type700($color: $AstroGranite);
+}
+
+.strongText {
+  @include Type400($color: $AstroGranite, $size: 12px);
 }
