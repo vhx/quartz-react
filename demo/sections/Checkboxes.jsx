@@ -42,7 +42,6 @@ class StatefulCheckbox extends Component {
     const { props, state } = this;
     const { checked } = state;
     const toggle = () => this.setState({ checked: !checked });
-    console.log(this.state);
     return <Checkbox { ...props } checked={checked} onChange={toggle} />;
   }
 }

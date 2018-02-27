@@ -61,9 +61,9 @@ const TextColors = () => (
 
 const textColorsCode = `
 <Text>Default</Text>
-<Text color='navy'>navy</Text>
-<Text color='teal'>teal</Text>
-<Text color='gray'>gray</Text>
+<Text color='AstroGranite'>AstroGranite</Text>
+<Text color='VimeoBlue'>Vimeo Blue</Text>
+<Text color='SoutherlySky'>Southerly Sky</Text>
 <Text color='white'>white</Text>
 `;
 

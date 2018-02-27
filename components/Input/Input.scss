@@ -1,0 +1,64 @@
+@import '../util/include-responsive.scss';
+
+
+.form {
+  input[type="text"],
+  input[type="password"],
+  input[type="email"],
+  input[type="date"],
+  input[type="datetime"],
+  input[type="month"],
+  input[type="week"],
+  input[type="number"],
+  input[type="search"],
+  input[type="tel"],
+  input[type="time"],
+  input[type="url"],
+  input[type="color"],
+  fieldset,
+  textarea {
+    $paddingProps: (
+      orientation: 'custom-four',
+      top-side: 6px,
+      right-side: 15px,
+      bottom-side: 6px,
+      left-side: 15px,
+    );
+
+    $marginProps: (
+      orientation: 'bottom-only',
+      bottom-side: 0,
+    );
+    @include Padding($paddingProps);
+    @include Margin($marginProps);
+
+    height: 40px;
+    width: 100%;
+    color: $AstroGranite;
+    font-size: 14px;
+    background-color: $White;
+    border: 1px solid $Porcelain;
+    box-shadow: none;
+    box-sizing: border-box;
+    border-radius: 3px;
+    transition: border .2s ease;
+  }
+
+  input[type="text"]:disabled,
+  input[type="password"]:disabled,
+  input[type="email"]:disabled,
+  input[type="date"]:disabled,
+  input[type="datetime"]:disabled,
+  input[type="month"]:disabled,
+  input[type="week"]:disabled,
+  input[type="number"]:disabled,
+  input[type="search"]:disabled,
+  input[type="tel"]:disabled,
+  input[type="time"]:disabled,
+  input[type="url"]:disabled,
+  input[type="color"]:disabled,
+  fieldset:disabled,
+  textarea:disabled {
+    opacity: 0.4;
+  }
+}

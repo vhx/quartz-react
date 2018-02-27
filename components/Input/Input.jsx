@@ -5,7 +5,13 @@ import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import { excludeProps } from '../util';
 
+import styles from './Input.scss';
+
 function getClass({ className, error, search, small }) {
+  console.log('className', className);
+  console.log('error', error);
+  console.log('search', search);
+  console.log('small', small);
   return classNames(className, {
     small,
     'is-error': error,
@@ -19,19 +25,22 @@ function getClass({ className, error, search, small }) {
 // NOTE: like in the Checkbox component, the `form` class does not
 // do anything here except allow the css selector `.form input` to apply styles.
 // We should consider refactoring the css to remove this requirement.
-const Input = props => (
-  <div className='form'>
-    <input
-      {...excludeProps([ 'className', 'error', 'search', 'small' ], props)}
-      className={getClass({
-        className: props.className,
-        error: props.error,
-        search: props.search,
-        small: props.small,
-      })}
-    />
-  </div>
-);
+const Input = props => {
+  console.log('input props', props);
+  return (
+    <div className={styles.form}>
+      <input
+        {...excludeProps([ 'className', 'error', 'search', 'small' ], props)}
+        className={getClass({
+          className: props.className,
+          error: props.error,
+          search: props.search,
+          small: props.small,
+        })}
+      />
+    </div>
+  );
+}
 
 Input.propTypes = {
   autoFocus: PropTypes.bool,

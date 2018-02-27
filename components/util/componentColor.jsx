@@ -2,7 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 const componentColor = props => {
-  console.log(props.color);
   if (props.color === 'white') {
     return '#ffffff';
   }
