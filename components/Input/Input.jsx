@@ -7,19 +7,10 @@ import { excludeProps } from '../util';
 
 import styles from './Input.scss';
 
-function getClass({ className, error, search, small }) {
-  console.log('className', className);
-  console.log('error', error);
-  console.log('search', search);
-  console.log('small', small);
-  return classNames(className, {
-    small,
-    'is-error': error,
-    'c-select--search': search,
-    'padding-right-large': search,
-    'icon-search-black': search,
-    'icon--xsmall': search,
-  });
+const searchIcon = props => {
+  return classNames({
+    [styles.searchIcon]: props.search === true,
+  })
 }
 
 const errorColor = props => {
@@ -44,12 +35,13 @@ const Input = props => {
     border: errorBorder(props),
     width: inputSize(props),
   }
-
+  console.log('props', props);
   return (
     <div className={styles.form}>
       <input
         {...excludeProps([ 'className', 'error', 'search', 'small' ], props)}
         style={inputStyles}
+        className={searchIcon(props)}
       />
     </div>
   );

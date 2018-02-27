@@ -1650,11 +1650,16 @@ Header$1.propDescriptions = {
   icon: 'String: One of any of the valid icon names',
 };
 
-var css$5 = "/* .....................................\n  Vimeo Colors\n..................................... */\n/* .....................................\n  Grayscale\n..................................... */\n/* .....................................\n  Blues\n..................................... */\n/* .....................................\n  Greens\n..................................... */\n/* .....................................\n  Reds\n..................................... */\n/* .....................................\n  Interaction Colors\n..................................... */\n/* .....................................\n  Vimeo Legacy Colors\n..................................... */\n/* .....................................\n  Default Text\n..................................... */\n/* .....................................\n  Default Sizing\n..................................... */\n/* .....................................\n  Vimeo Colors\n..................................... */\n/* .....................................\n  Grayscale\n..................................... */\n/* .....................................\n  Blues\n..................................... */\n/* .....................................\n  Greens\n..................................... */\n/* .....................................\n  Reds\n..................................... */\n/* .....................................\n  Interaction Colors\n..................................... */\n/* .....................................\n  Vimeo Legacy Colors\n..................................... */\n/* .....................................\n  Default Text\n..................................... */\n/* .....................................\n  Default Sizing\n..................................... */\n/*.....................................\n  VIMEO FONT MIXINS\n......................................*/\n/* .....................................\n  Vimeo Colors\n..................................... */\n/* .....................................\n  Grayscale\n..................................... */\n/* .....................................\n  Blues\n..................................... */\n/* .....................................\n  Greens\n..................................... */\n/* .....................................\n  Reds\n..................................... */\n/* .....................................\n  Interaction Colors\n..................................... */\n/* .....................................\n  Vimeo Legacy Colors\n..................................... */\n/* .....................................\n  Default Text\n..................................... */\n/* .....................................\n  Default Sizing\n..................................... */\n/* .....................................\n  Vimeo Colors\n..................................... */\n/* .....................................\n  Grayscale\n..................................... */\n/* .....................................\n  Blues\n..................................... */\n/* .....................................\n  Greens\n..................................... */\n/* .....................................\n  Reds\n..................................... */\n/* .....................................\n  Interaction Colors\n..................................... */\n/* .....................................\n  Vimeo Legacy Colors\n..................................... */\n/* .....................................\n  Default Text\n..................................... */\n/* .....................................\n  Default Sizing\n..................................... */\n/* .....................................\n  Vimeo Specific Fonts\n..................................... */\n/* .....................................\n  Vimeo Specific Widths\n..................................... */\n/* .....................................\n  Vimeo Media Query Breakpoints\n..................................... */\n.Input_form__1ia2S input[type=\"text\"],\n.Input_form__1ia2S input[type=\"password\"],\n.Input_form__1ia2S input[type=\"email\"],\n.Input_form__1ia2S input[type=\"date\"],\n.Input_form__1ia2S input[type=\"datetime\"],\n.Input_form__1ia2S input[type=\"month\"],\n.Input_form__1ia2S input[type=\"week\"],\n.Input_form__1ia2S input[type=\"number\"],\n.Input_form__1ia2S input[type=\"search\"],\n.Input_form__1ia2S input[type=\"tel\"],\n.Input_form__1ia2S input[type=\"time\"],\n.Input_form__1ia2S input[type=\"url\"],\n.Input_form__1ia2S input[type=\"color\"],\n.Input_form__1ia2S fieldset,\n.Input_form__1ia2S textarea {\n  padding: 6px 15px 6px 15px;\n  margin-bottom: 0;\n  height: 40px;\n  width: 100%;\n  color: #1a2e3b;\n  font-size: 14px;\n  background-color: #fff;\n  border: 1px solid #e3e8e9;\n  box-shadow: none;\n  box-sizing: border-box;\n  border-radius: 3px;\n  transition: border .2s ease; }\n\n.Input_form__1ia2S input[type=\"text\"]:disabled,\n.Input_form__1ia2S input[type=\"password\"]:disabled,\n.Input_form__1ia2S input[type=\"email\"]:disabled,\n.Input_form__1ia2S input[type=\"date\"]:disabled,\n.Input_form__1ia2S input[type=\"datetime\"]:disabled,\n.Input_form__1ia2S input[type=\"month\"]:disabled,\n.Input_form__1ia2S input[type=\"week\"]:disabled,\n.Input_form__1ia2S input[type=\"number\"]:disabled,\n.Input_form__1ia2S input[type=\"search\"]:disabled,\n.Input_form__1ia2S input[type=\"tel\"]:disabled,\n.Input_form__1ia2S input[type=\"time\"]:disabled,\n.Input_form__1ia2S input[type=\"url\"]:disabled,\n.Input_form__1ia2S input[type=\"color\"]:disabled,\n.Input_form__1ia2S fieldset:disabled,\n.Input_form__1ia2S textarea:disabled {\n  opacity: 0.4; }\n";
-var styles$5 = {"form":"Input_form__1ia2S"};
+var css$5 = "/* .....................................\n  Vimeo Colors\n..................................... */\n/* .....................................\n  Grayscale\n..................................... */\n/* .....................................\n  Blues\n..................................... */\n/* .....................................\n  Greens\n..................................... */\n/* .....................................\n  Reds\n..................................... */\n/* .....................................\n  Interaction Colors\n..................................... */\n/* .....................................\n  Vimeo Legacy Colors\n..................................... */\n/* .....................................\n  Default Text\n..................................... */\n/* .....................................\n  Default Sizing\n..................................... */\n/* .....................................\n  Vimeo Colors\n..................................... */\n/* .....................................\n  Grayscale\n..................................... */\n/* .....................................\n  Blues\n..................................... */\n/* .....................................\n  Greens\n..................................... */\n/* .....................................\n  Reds\n..................................... */\n/* .....................................\n  Interaction Colors\n..................................... */\n/* .....................................\n  Vimeo Legacy Colors\n..................................... */\n/* .....................................\n  Default Text\n..................................... */\n/* .....................................\n  Default Sizing\n..................................... */\n/*.....................................\n  VIMEO FONT MIXINS\n......................................*/\n/* .....................................\n  Vimeo Colors\n..................................... */\n/* .....................................\n  Grayscale\n..................................... */\n/* .....................................\n  Blues\n..................................... */\n/* .....................................\n  Greens\n..................................... */\n/* .....................................\n  Reds\n..................................... */\n/* .....................................\n  Interaction Colors\n..................................... */\n/* .....................................\n  Vimeo Legacy Colors\n..................................... */\n/* .....................................\n  Default Text\n..................................... */\n/* .....................................\n  Default Sizing\n..................................... */\n/* .....................................\n  Vimeo Colors\n..................................... */\n/* .....................................\n  Grayscale\n..................................... */\n/* .....................................\n  Blues\n..................................... */\n/* .....................................\n  Greens\n..................................... */\n/* .....................................\n  Reds\n..................................... */\n/* .....................................\n  Interaction Colors\n..................................... */\n/* .....................................\n  Vimeo Legacy Colors\n..................................... */\n/* .....................................\n  Default Text\n..................................... */\n/* .....................................\n  Default Sizing\n..................................... */\n/* .....................................\n  Vimeo Specific Fonts\n..................................... */\n/* .....................................\n  Vimeo Specific Widths\n..................................... */\n/* .....................................\n  Vimeo Media Query Breakpoints\n..................................... */\n.Input_form__1ia2S input[type=\"text\"],\n.Input_form__1ia2S input[type=\"password\"],\n.Input_form__1ia2S input[type=\"email\"],\n.Input_form__1ia2S input[type=\"date\"],\n.Input_form__1ia2S input[type=\"datetime\"],\n.Input_form__1ia2S input[type=\"month\"],\n.Input_form__1ia2S input[type=\"week\"],\n.Input_form__1ia2S input[type=\"number\"],\n.Input_form__1ia2S input[type=\"search\"],\n.Input_form__1ia2S input[type=\"tel\"],\n.Input_form__1ia2S input[type=\"time\"],\n.Input_form__1ia2S input[type=\"url\"],\n.Input_form__1ia2S input[type=\"color\"],\n.Input_form__1ia2S fieldset,\n.Input_form__1ia2S textarea {\n  padding: 6px 15px 6px 15px;\n  margin-bottom: 0;\n  height: 40px;\n  width: 100%;\n  color: #1a2e3b;\n  font-size: 14px;\n  background-color: #fff;\n  border: 1px solid #e3e8e9;\n  box-shadow: none;\n  box-sizing: border-box;\n  border-radius: 3px;\n  transition: border .2s ease; }\n\n.Input_form__1ia2S input[type=\"text\"]:disabled,\n.Input_form__1ia2S input[type=\"password\"]:disabled,\n.Input_form__1ia2S input[type=\"email\"]:disabled,\n.Input_form__1ia2S input[type=\"date\"]:disabled,\n.Input_form__1ia2S input[type=\"datetime\"]:disabled,\n.Input_form__1ia2S input[type=\"month\"]:disabled,\n.Input_form__1ia2S input[type=\"week\"]:disabled,\n.Input_form__1ia2S input[type=\"number\"]:disabled,\n.Input_form__1ia2S input[type=\"search\"]:disabled,\n.Input_form__1ia2S input[type=\"tel\"]:disabled,\n.Input_form__1ia2S input[type=\"time\"]:disabled,\n.Input_form__1ia2S input[type=\"url\"]:disabled,\n.Input_form__1ia2S input[type=\"color\"]:disabled,\n.Input_form__1ia2S fieldset:disabled,\n.Input_form__1ia2S textarea:disabled {\n  opacity: 0.4; }\n\n.Input_searchIcon__1yYMv {\n  background-image: url(\"data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2223%22%20height%3D%2223%22%20viewBox%3D%220%200%2023%2023%22%3E%3Ctitle%3Eicons-ui-set%20copy%3C%2Ftitle%3E%3Cpath%20d%3D%22M22.46%2C20l-4.74-4.73a15.24%2C15.24%2C0%2C0%2C1-2.5%2C2.5L20%2C22.47C21.53%2C24.1%2C24.08%2C21.6%2C22.46%2C20Z%22%20fill%3D%22%23000000%22%2F%3E%3Cpath%20d%3D%22M15.25%2C17.73A9.83%2C9.83%2C0%2C0%2C0%2C17.17%2C3.46%2C9.82%2C9.82%2C0%2C0%2C0%2C4.36%2C1.62%2C9.82%2C9.82%2C0%2C0%2C0%2C1.08%2C14.14%2C9.81%2C9.81%2C0%2C0%2C0%2C14%2C18.46a9.44%2C9.44%2C0%2C0%2C0%2C1.26-.74h0ZM9.73%2C15.9A6.25%2C6.25%2C0%2C0%2C1%2C3.55%2C9.72%2C6.25%2C6.25%2C0%2C0%2C1%2C9.73%2C3.53a6.25%2C6.25%2C0%2C0%2C1%2C6.19%2C6.18A6.25%2C6.25%2C0%2C0%2C1%2C9.73%2C15.9Z%22%20fill%3D%22%23000000%22%2F%3E%3Cpath%20d%3D%22M9.73%2C1.59a8.13%2C8.13%2C0%2C0%2C1%2C4.9%2C14.61l-0.3.21A8.12%2C8.12%2C0%2C1%2C1%2C9.73%2C1.59M9.73%2C0a9.72%2C9.72%2C0%2C1%2C0%2C5.51%2C17.73h0A9.72%2C9.72%2C0%2C0%2C0%2C9.73%2C0h0Z%22%20fill%3D%22%23000000%22%2F%3E%3C%2Fsvg%3E\");\n  background-position: right 5px center;\n  background-repeat: no-repeat;\n  background-size: 15px 15px; }\n";
+var styles$5 = {"form":"Input_form__1ia2S","searchIcon":"Input_searchIcon__1yYMv"};
 __$$styleInject(css$5);
 
 /* eslint-disable react/no-unused-prop-types */
+
+var searchIcon = function (props) {
+  return index$1(( obj = {}, obj[styles$5.searchIcon] = props.search === true, obj ))
+  var obj;
+};
 
 var errorColor = function (props) {
   console.log('error Color', props);
@@ -1678,11 +1683,11 @@ var Input$1 = function (props) {
     border: errorBorder(props),
     width: inputSize(props),
   };
-
+  console.log('props', props);
   return (
     React__default.createElement( 'div', { className: styles$5.form },
       React__default.createElement( 'input', Object.assign({},
-        excludeProps([ 'className', 'error', 'search', 'small' ], props), { style: inputStyles }))
+        excludeProps([ 'className', 'error', 'search', 'small' ], props), { style: inputStyles, className: searchIcon(props) }))
     )
   );
 };
@@ -2300,7 +2305,7 @@ Slide$1.defaultProps = {
   isWide: false,
 };
 
-function getClass$1(isHover) {
+function getClass(isHover) {
   return index$1({
     inline: true,
     relative: true,
@@ -2372,7 +2377,7 @@ var Tag$1 = (function (Component$$1) {
     var setHover = ref$2.setHover;
     var setRemoveHover = ref$2.setRemoveHover;
     return (
-      React__default.createElement( 'span', { className: getClass$1(isHover), onMouseOver: setHover(true), onMouseOut: setHover(false) },
+      React__default.createElement( 'span', { className: getClass(isHover), onMouseOver: setHover(true), onMouseOut: setHover(false) },
         React__default.createElement( 'button', { className: getButtonClass(isHover, isProcessing), onClick: onClick },
           truncate(label, maxLength)
         ),
@@ -2647,7 +2652,7 @@ Trigger.propTypes = {
 
 /* eslint-disable react/no-unused-prop-types */
 
-function getClass$2(props, type) {
+function getClass$1(props, type) {
   var caretAlign = props.caretAlign;
   var dropdownPosition = props.dropdownPosition;
   var inline = props.inline;
@@ -2704,7 +2709,7 @@ function SelectHOC(ref) {
 
       var Trigger$$1 = this.props.Trigger || Trigger;
       return (
-        React__default.createElement( 'div', { className: getClass$2(this.props, type), ref: (function (el) { this$1.element = el; }) },
+        React__default.createElement( 'div', { className: getClass$1(this.props, type), ref: (function (el) { this$1.element = el; }) },
           React__default.createElement( Trigger$$1, this.props),
           React__default.createElement( If$1, { condition: this.props.isOpen },
             React__default.createElement( Dropdown, this.props)
@@ -3645,6 +3650,9 @@ var Icons = function () { return (
     React__default.createElement( DemoRow, null, React__default.createElement( PropTypeTable, { component: Icon$1 }) )
   )
 ); };
+
+// Input demo
+// -----------------------------------------
 
 var InputDemo = function () { return (
   React__default.createElement( 'div', null,
