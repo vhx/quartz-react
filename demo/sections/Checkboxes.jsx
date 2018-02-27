@@ -75,7 +75,6 @@ class StatefulCheckbox extends Component {
 
 // Usage of the stateful component
 <StatefulCheckbox uniqueId='c11' size='large' />
-<StatefulCheckbox uniqueId='c12' type='toggle' size='large' />
 `;
 
 

@@ -3448,7 +3448,7 @@ var StatefulCheckboxDemo = function () { return (
   )
 ); };
 
-var statefulCheckboxCode = "\n// An example stateful checkbox implementation\nclass StatefulCheckbox extends Component {\n  constructor() {\n    super();\n    this.state = { checked: true };\n  }\n  render() {\n    const { props, state } = this;\n    const { checked } = state;\n    const toggle = () => this.setState({ checked: !checked });\n    return <Checkbox { ...props } checked={checked} onChange={toggle} />;\n  }\n}\n\n// Usage of the stateful component\n<StatefulCheckbox uniqueId='c11' size='large' />\n<StatefulCheckbox uniqueId='c12' type='toggle' size='large' />\n";
+var statefulCheckboxCode = "\n// An example stateful checkbox implementation\nclass StatefulCheckbox extends Component {\n  constructor() {\n    super();\n    this.state = { checked: true };\n  }\n  render() {\n    const { props, state } = this;\n    const { checked } = state;\n    const toggle = () => this.setState({ checked: !checked });\n    return <Checkbox { ...props } checked={checked} onChange={toggle} />;\n  }\n}\n\n// Usage of the stateful component\n<StatefulCheckbox uniqueId='c11' size='large' />\n";
 
 
 // Main exported demo
