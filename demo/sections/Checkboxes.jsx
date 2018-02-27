@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { Checkbox, ToggleCheckbox } from '../../index.js';
+import { Checkbox } from '../../index.js';
 import {
   Block,
   DemoRow,
@@ -27,25 +27,6 @@ const statelessCheckboxCode = `
 const handler = (event) => alert('Hi!');
 <Checkbox uniqueId='c1' label='Foo' onChange={handler} />
 <Checkbox uniqueId='c2' label='Bar' onChange={handler} checked />
-`;
-
-// Toggles demo
-// -----------------------------------------
-
-const StatelessCheckboxToggles = () => (
-  <div>
-    <Subtitle>Toggles</Subtitle>
-    {/* readOnly prop only added to stop react warnings from polluting the console */}
-    <Block><ToggleCheckbox uniqueId='c9' type='toggle' size='small' readOnly /></Block>
-    <Block><ToggleCheckbox uniqueId='c10' type='toggle' size='small' checked readOnly /></Block>
-  </div>
-);
-
-const statelessCheckboxTogglesCode = `
-// Can use all the same sizes
-// that default checkboxes accept
-<Checkbox uniqueId='c9' type='toggle' size='small' />
-<Checkbox uniqueId='c10' type='toggle' size='small' checked />
 `;
 
 
@@ -119,7 +100,6 @@ const Checkboxes = () => (
       </Details>
     </DemoRow>
     <DemoRow code={statelessCheckboxCode}><StatelessCheckboxes /></DemoRow>
-    <DemoRow code={statelessCheckboxTogglesCode}><StatelessCheckboxToggles /></DemoRow>
     <DemoRow code={statefulCheckboxCode}><StatefulCheckboxDemo /></DemoRow>
     <DemoRow><PropTypeTable component={Checkbox} /></DemoRow>
   </div>

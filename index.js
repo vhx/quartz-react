@@ -6,7 +6,6 @@ export { default as Avatar } from './components/Avatar';
 export { default as Button } from './components/Button';
 export { default as Carousel } from './components/Carousel';
 export { default as Checkbox } from './components/Checkbox';
-export { default as ToggleCheckbox } from './components/ToggleCheckbox';
 export { default as Header } from './components/Header';
 export { default as Icon } from './components/Icon';
 export { default as Input } from './components/Input';
