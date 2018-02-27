@@ -21,7 +21,7 @@ const Checkbox = props => {
         <div className={styles.standardCheckbox}>
           <input {...excludeProps([ 'label', 'uniqueId', 'size', 'type' ], props)} type='checkbox' name={props.uniqueId} id={props.uniqueId} />
         </div>
-        <label className={checkboxClasses(props)} />
+        <label className={checkboxClasses(props)} htmlFor={props.uniqueId} />
       </fieldset>
     </div>
   );

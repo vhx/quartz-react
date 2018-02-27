@@ -1512,7 +1512,7 @@ var Checkbox$1 = function (props) {
         React__default.createElement( 'div', { className: styles$3.standardCheckbox },
           React__default.createElement( 'input', Object.assign({}, excludeProps([ 'label', 'uniqueId', 'size', 'type' ], props), { type: 'checkbox', name: props.uniqueId, id: props.uniqueId }))
         ),
-        React__default.createElement( 'label', { className: checkboxClasses(props) })
+        React__default.createElement( 'label', { className: checkboxClasses(props), htmlFor: props.uniqueId })
       )
     )
   );
@@ -2338,30 +2338,24 @@ Tag$1.defaultProps = {
   onRemove: null,
 };
 
+var css$5 = "/* .....................................\n  Vimeo Colors\n..................................... */\n/* .....................................\n  Grayscale\n..................................... */\n/* .....................................\n  Blues\n..................................... */\n/* .....................................\n  Greens\n..................................... */\n/* .....................................\n  Reds\n..................................... */\n/* .....................................\n  Interaction Colors\n..................................... */\n/* .....................................\n  Vimeo Legacy Colors\n..................................... */\n/* .....................................\n  Default Text\n..................................... */\n/* .....................................\n  Default Sizing\n..................................... */\n/* .....................................\n  Vimeo Colors\n..................................... */\n/* .....................................\n  Grayscale\n..................................... */\n/* .....................................\n  Blues\n..................................... */\n/* .....................................\n  Greens\n..................................... */\n/* .....................................\n  Reds\n..................................... */\n/* .....................................\n  Interaction Colors\n..................................... */\n/* .....................................\n  Vimeo Legacy Colors\n..................................... */\n/* .....................................\n  Default Text\n..................................... */\n/* .....................................\n  Default Sizing\n..................................... */\n/*.....................................\n  VIMEO FONT MIXINS\n......................................*/\n/* .....................................\n  Vimeo Colors\n..................................... */\n/* .....................................\n  Grayscale\n..................................... */\n/* .....................................\n  Blues\n..................................... */\n/* .....................................\n  Greens\n..................................... */\n/* .....................................\n  Reds\n..................................... */\n/* .....................................\n  Interaction Colors\n..................................... */\n/* .....................................\n  Vimeo Legacy Colors\n..................................... */\n/* .....................................\n  Default Text\n..................................... */\n/* .....................................\n  Default Sizing\n..................................... */\n/* .....................................\n  Vimeo Colors\n..................................... */\n/* .....................................\n  Grayscale\n..................................... */\n/* .....................................\n  Blues\n..................................... */\n/* .....................................\n  Greens\n..................................... */\n/* .....................................\n  Reds\n..................................... */\n/* .....................................\n  Interaction Colors\n..................................... */\n/* .....................................\n  Vimeo Legacy Colors\n..................................... */\n/* .....................................\n  Default Text\n..................................... */\n/* .....................................\n  Default Sizing\n..................................... */\n/* .....................................\n  Vimeo Specific Fonts\n..................................... */\n/* .....................................\n  Vimeo Specific Widths\n..................................... */\n/* .....................................\n  Vimeo Media Query Breakpoints\n..................................... */\n.Text_headOne__3tT_Z {\n  font-family: Helvetica, Arial, sans-serif;\n  color: #1a2e3b;\n  font-weight: 400;\n  font-size: 40px;\n  line-height: 1.2;\n  text-transform: uppercase; }\n\n.Text_headTwo__Wj-0P {\n  font-family: Helvetica, Arial, sans-serif;\n  color: #1a2e3b;\n  font-weight: 400;\n  font-size: 30px;\n  line-height: 1.2;\n  text-transform: uppercase; }\n\n.Text_headThree__3C6Ub {\n  font-family: Helvetica, Arial, sans-serif;\n  color: #1a2e3b;\n  font-weight: 400;\n  font-size: 22px;\n  line-height: 1.2;\n  text-transform: uppercase; }\n\n.Text_headFour__3HfA3 {\n  font-family: Helvetica, Arial, sans-serif;\n  color: #1a2e3b;\n  font-weight: 400;\n  font-size: 16px;\n  line-height: 1.2;\n  text-transform: uppercase; }\n\n.Text_headFive__2HVnE {\n  font-family: Helvetica, Arial, sans-serif;\n  color: #1a2e3b;\n  font-weight: 400;\n  font-size: 14px;\n  line-height: 1.2;\n  text-transform: uppercase; }\n\n.Text_headSix__3E4bV {\n  font-family: Helvetica, Arial, sans-serif;\n  color: #1a2e3b;\n  font-weight: 400;\n  font-size: 12px;\n  line-height: 1.2;\n  text-transform: uppercase; }\n";
+var styles$5 = {"headOne":"Text_headOne__3tT_Z","headTwo":"Text_headTwo__Wj-0P","headThree":"Text_headThree__3C6Ub","headFour":"Text_headFour__3HfA3","headFive":"Text_headFive__2HVnE","headSix":"Text_headSix__3E4bV"};
+__$$styleInject(css$5);
+
 /* eslint-disable react/no-unused-prop-types */
 
 function getClassName$3(props) {
-  return index$1(props.className, {
-    block: Boolean(props.block),
-    'head-1': Boolean(props.h1),
-    'head-2': Boolean(props.h2),
-    'head-3': Boolean(props.h3),
-    'head-4': Boolean(props.h4),
-    'head-5': Boolean(props.h5),
-    'text--navy': props.color === 'navy',
-    'text--gray': props.color === 'gray',
-    'text--teal': props.color === 'teal',
-    'text--white': props.color === 'white',
-    'text--vimeo-blue': props.color === 'vimeo-blue',
-    'text--sunset-orange': props.color === 'sunset-orange',
-    'text--regent-gray': props.color === 'regent-gray',
-    'text--astro-granite': props.color === 'astro-granite',
-  });
+  console.log('getClassName', props);
+  return index$1(( obj = {}, obj[styles$5.headOne] = props.h1 === true, obj[styles$5.headTwo] = props.h2 === true, obj[styles$5.headThree] = props.h3 === true, obj[styles$5.headFour] = props.h4 === true, obj[styles$5.headFive] = props.h5 === true, obj[styles$5.headSix] = props.h6 === true, obj ));
+  var obj;
 }
 
-var Text$1 = function (props) { return (
-  React__default.createElement( 'span', { className: getClassName$3(props) }, props.children)
-); };
+var Text$1 = function (props) {
+  console.log(props);
+  return(
+    React__default.createElement( 'span', { className: getClassName$3(props) }, props.children)
+  );
+};
 
 var colors$3 = [ 'navy', 'gray', 'teal', 'white', 'vimeo-blue', 'sunset-orange', 'regent-gray', 'astro-granite' ];
 
@@ -2373,6 +2367,7 @@ Text$1.propTypes = {
   h3: index.bool,
   h4: index.bool,
   h5: index.bool,
+  h6: index.bool,
   className: index.string,
   color: index.oneOf(colors$3),
 };
@@ -2384,6 +2379,7 @@ Text$1.defaultProps = {
   h3: false,
   h4: false,
   h5: false,
+  h6: false,
   className: '',
   color: 'navy',
 };
@@ -4355,7 +4351,8 @@ var TextHeadings = function () { return (
     React__default.createElement( Block, null, React__default.createElement( Text$1, { h2: true }, "Heading 2") ),
     React__default.createElement( Block, null, React__default.createElement( Text$1, { h3: true }, "Heading 3") ),
     React__default.createElement( Block, null, React__default.createElement( Text$1, { h4: true }, "Heading 4") ),
-    React__default.createElement( Block, null, React__default.createElement( Text$1, { h5: true }, "Heading 5") )
+    React__default.createElement( Block, null, React__default.createElement( Text$1, { h5: true }, "Heading 5") ),
+    React__default.createElement( Block, null, React__default.createElement( Text$1, { h6: true }, "Heading 6") )
   )
 ); };
 

@@ -21,6 +21,7 @@ const TextHeadings = () => (
     <Block><Text h3>Heading 3</Text></Block>
     <Block><Text h4>Heading 4</Text></Block>
     <Block><Text h5>Heading 5</Text></Block>
+    <Block><Text h6>Heading 6</Text></Block>
   </div>
 );
 
