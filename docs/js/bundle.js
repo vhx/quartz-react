@@ -834,6 +834,39 @@ If$1.defaultProps = {
   inline: false,
 };
 
+var componentColor = function (props) {
+  console.log('componentColor', props);
+  if (props.color === 'white') {
+    return '#ffffff';
+  }
+
+  if (props.color === 'VimeoBlue') {
+    return '#00adef';
+  }
+
+  if (props.color === 'SunsetOrange') {
+    return '#ff4d4d';
+  }
+
+  if (props.color === 'Porcelain') {
+    return '#e3e8e9';
+  }
+
+  if (props.color === 'AstroGranite') {
+    return '#1a2e3b';
+  }
+
+  return null;
+};
+
+componentColor.propTypes = {
+  color: index.string,
+};
+
+componentColor.defaultProps = {
+  color: '',
+};
+
 var toStr = Object.prototype.toString;
 
 function Model$$1(ref) {
@@ -1023,6 +1056,7 @@ var utilities = Object.freeze({
 	immutableMerge: immutableMerge,
 	noop: noop,
 	If: If$1,
+	componentColor: componentColor,
 	Model: Model$$1,
 	connect: connect$$1
 });
@@ -1208,34 +1242,9 @@ var iconSize = function (props) {
   return '25px';
 };
 
-// note, if more colors are needed, they may be re-added
-var iconColor = function (props) {
-  if (props.color === 'white') {
-    return '#ffffff';
-  }
-
-  if (props.color === 'VimeoBlue') {
-    return '#00adef';
-  }
-
-  if (props.color === 'SunsetOrange') {
-    return '#ff4d4d';
-  }
-
-  if (props.color === 'Porcelain') {
-    return '#e3e8e9';
-  }
-
-  if (props.color === 'AstroGranite') {
-    return '#1a2e3b';
-  }
-
-  return null;
-};
-
 var Icon$1 = function (props) {
   var iconStyles = {
-    backgroundColor: iconColor(props),
+    backgroundColor: componentColor(props),
     width: iconSize(props),
     height: iconSize(props),
     backgroundImage: ("url(" + (props.src) + ")"),
