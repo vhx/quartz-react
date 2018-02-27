@@ -15,7 +15,6 @@ const checkboxClasses = props => {
 }
 
 const Checkbox = props => {
-  console.log(props)
   return (
     <div className={styles.standardCheckboxWrapper}>
       <fieldset>
