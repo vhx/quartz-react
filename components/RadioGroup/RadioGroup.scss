@@ -1,5 +1,23 @@
 @import '../util/include-responsive.scss';
 
+.stackedRadios {
+  display: block;
+  height: auto;
+}
+
+.blueRadio,
+.grayRadio {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+  list-style: none;
+  margin-left: 0;
+  color: $AstroGranite;
+  font-size: 14px;
+  background: $White;
+  user-select: none;
+}
+
 .radioButton {
   $marginProps: (
     orientation: 'left-right',

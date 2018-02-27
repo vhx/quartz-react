@@ -7,14 +7,11 @@ import { noop } from '../util';
 import styles from './RadioGroup.scss';
 
 function getClassName({ buttons, color, stacked }) {
-  // console.log('buttons', buttons);
-  // console.log('color', color);
-  // console.log('stacked', stacked);
   return classNames({
-    'radio-teal': color === 'VimeoBlue',
-    'radio-gray': color === 'SoutherlySky',
-    'radio--buttons': buttons,
-    'radio--stacked': stacked,
+    [styles.blueRadio]: color === 'VimeoBlue',
+    [styles.grayRadio]: color === 'SoutherlySky',
+    [styles.buttonRadios]: buttons,
+    [styles.stackedRadios]: stacked,
   });
 }
 
