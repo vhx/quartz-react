@@ -48,6 +48,7 @@ const TextColors = () => (
     <Block dark><Text color='Paste'>Paste</Text></Block>
     <Block><Text color='VimeoBlue'>Vimeo Blue</Text></Block>
     <Block><Text color='VimeoBlue-Darkened'>Vimeo Blue Darkened</Text></Block>
+    <Block dark><Text color='Foam'>Foam</Text></Block>
     <Block><Text color='Pistachio'>Pistachio</Text></Block>
     <Block><Text color='Pistachio-Darkened'>Pistachio Darkened</Text></Block>
     <Block dark><Text color='RumSwizzle'>Rum Swizzle</Text></Block>

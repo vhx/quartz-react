@@ -4438,6 +4438,7 @@ var TextColors = function () { return (
     React__default.createElement( Block, { dark: true }, React__default.createElement( Text$1, { color: 'Paste' }, "Paste")),
     React__default.createElement( Block, null, React__default.createElement( Text$1, { color: 'VimeoBlue' }, "Vimeo Blue") ),
     React__default.createElement( Block, null, React__default.createElement( Text$1, { color: 'VimeoBlue-Darkened' }, "Vimeo Blue Darkened") ),
+    React__default.createElement( Block, { dark: true }, React__default.createElement( Text$1, { color: 'Foam' }, "Foam")),
     React__default.createElement( Block, null, React__default.createElement( Text$1, { color: 'Pistachio' }, "Pistachio") ),
     React__default.createElement( Block, null, React__default.createElement( Text$1, { color: 'Pistachio-Darkened' }, "Pistachio Darkened") ),
     React__default.createElement( Block, { dark: true }, React__default.createElement( Text$1, { color: 'RumSwizzle' }, "Rum Swizzle")),
