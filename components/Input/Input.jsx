@@ -14,7 +14,6 @@ const searchIcon = props => {
 }
 
 const errorColor = props => {
-  console.log('error Color', props);
   return (props.error === true) ? '#ff4d4d' : '#1a2e3b';
 }
 
@@ -35,7 +34,6 @@ const Input = props => {
     border: errorBorder(props),
     width: inputSize(props),
   }
-  console.log('props', props);
   return (
     <div className={styles.form}>
       <input

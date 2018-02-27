@@ -1,0 +1,45 @@
+@import '../util/include-responsive.scss';
+
+.radioButton {
+  $marginProps: (
+    orientation: 'left-right',
+    left-side: $xsmall,
+    right-side: $xsmall,
+  );
+
+  @include Margin($marginProps);
+  position: relative;
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  float: left;
+  border: 1px solid $AstroGranite;
+  box-shadow: none;
+  box-sizing: border-box;
+  border-radius: 20px;
+  transition: box-shadow .2s ease, color .2s ease;
+}
+
+.radioChecked {
+  overflow: hidden;
+  position: absolute;
+  top: 4px;
+  left: 4px;
+  display: block;
+  width: 10px;
+  height: 10px;
+  background: $VimeoBlue;
+  border-radius: 10px;
+}
+
+.radioUnchecked {
+  overflow: hidden;
+  position: absolute;
+  top: 4px;
+  left: 4px;
+  display: block;
+  width: 10px;
+  height: 10px;
+  background: transparent;
+  border-radius: 10px;
+}

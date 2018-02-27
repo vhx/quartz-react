@@ -1662,7 +1662,6 @@ var searchIcon = function (props) {
 };
 
 var errorColor = function (props) {
-  console.log('error Color', props);
   return (props.error === true) ? '#ff4d4d' : '#1a2e3b';
 };
 
@@ -1683,7 +1682,6 @@ var Input$1 = function (props) {
     border: errorBorder(props),
     width: inputSize(props),
   };
-  console.log('props', props);
   return (
     React__default.createElement( 'div', { className: styles$5.form },
       React__default.createElement( 'input', Object.assign({},
@@ -1988,29 +1986,41 @@ Pagination$1.propDescriptions = {
   onPageChange: 'onPageChange(newIndex)',
 };
 
-var RadioIcon = function () { return (
-  React__default.createElement( 'span', { className: 'radio--icon' },
-    React__default.createElement( 'i', { className: 'circle-top' }, React__default.createElement( 'span', null )),
-    React__default.createElement( 'i', { className: 'circle-bottom' }, React__default.createElement( 'span', null ))
-  )
-); };
+var css$6 = "/* .....................................\n  Vimeo Colors\n..................................... */\n/* .....................................\n  Grayscale\n..................................... */\n/* .....................................\n  Blues\n..................................... */\n/* .....................................\n  Greens\n..................................... */\n/* .....................................\n  Reds\n..................................... */\n/* .....................................\n  Interaction Colors\n..................................... */\n/* .....................................\n  Vimeo Legacy Colors\n..................................... */\n/* .....................................\n  Default Text\n..................................... */\n/* .....................................\n  Default Sizing\n..................................... */\n/* .....................................\n  Vimeo Colors\n..................................... */\n/* .....................................\n  Grayscale\n..................................... */\n/* .....................................\n  Blues\n..................................... */\n/* .....................................\n  Greens\n..................................... */\n/* .....................................\n  Reds\n..................................... */\n/* .....................................\n  Interaction Colors\n..................................... */\n/* .....................................\n  Vimeo Legacy Colors\n..................................... */\n/* .....................................\n  Default Text\n..................................... */\n/* .....................................\n  Default Sizing\n..................................... */\n/*.....................................\n  VIMEO FONT MIXINS\n......................................*/\n/* .....................................\n  Vimeo Colors\n..................................... */\n/* .....................................\n  Grayscale\n..................................... */\n/* .....................................\n  Blues\n..................................... */\n/* .....................................\n  Greens\n..................................... */\n/* .....................................\n  Reds\n..................................... */\n/* .....................................\n  Interaction Colors\n..................................... */\n/* .....................................\n  Vimeo Legacy Colors\n..................................... */\n/* .....................................\n  Default Text\n..................................... */\n/* .....................................\n  Default Sizing\n..................................... */\n/* .....................................\n  Vimeo Colors\n..................................... */\n/* .....................................\n  Grayscale\n..................................... */\n/* .....................................\n  Blues\n..................................... */\n/* .....................................\n  Greens\n..................................... */\n/* .....................................\n  Reds\n..................................... */\n/* .....................................\n  Interaction Colors\n..................................... */\n/* .....................................\n  Vimeo Legacy Colors\n..................................... */\n/* .....................................\n  Default Text\n..................................... */\n/* .....................................\n  Default Sizing\n..................................... */\n/* .....................................\n  Vimeo Specific Fonts\n..................................... */\n/* .....................................\n  Vimeo Specific Widths\n..................................... */\n/* .....................................\n  Vimeo Media Query Breakpoints\n..................................... */\n.RadioGroup_radioButton__1K54x {\n  margin-left: 5px;\n  margin-right: 5px;\n  position: relative;\n  display: inline-block;\n  width: 20px;\n  height: 20px;\n  float: left;\n  border: 1px solid #1a2e3b;\n  box-shadow: none;\n  box-sizing: border-box;\n  border-radius: 20px;\n  transition: box-shadow .2s ease, color .2s ease; }\n\n.RadioGroup_radioChecked__3CZnz {\n  overflow: hidden;\n  position: absolute;\n  top: 4px;\n  left: 4px;\n  display: block;\n  width: 10px;\n  height: 10px;\n  background: #00adef;\n  border-radius: 10px; }\n\n.RadioGroup_radioUnchecked__1tLDF {\n  overflow: hidden;\n  position: absolute;\n  top: 4px;\n  left: 4px;\n  display: block;\n  width: 10px;\n  height: 10px;\n  background: transparent;\n  border-radius: 10px; }\n";
+var styles$6 = {"radioButton":"RadioGroup_radioButton__1K54x","radioChecked":"RadioGroup_radioChecked__3CZnz","radioUnchecked":"RadioGroup_radioUnchecked__1tLDF"};
+__$$styleInject(css$6);
 
-var Radio = function (ref) {
-  var checked = ref.checked;
-  var index$$1 = ref.index;
-  var label = ref.label;
-  var onCheck = ref.onCheck;
+var internalButton = function (props) {
+  return index$1(( obj = {}, obj[styles$6.radioChecked] = props.checked === true, obj[styles$6.radioUnchecked] = props.checked === false, obj ))
+  var obj;
+};
 
+
+
+var RadioIcon = function (props) {
+  console.log('radio icon', props);
   return (
-  React__default.createElement( 'li', null,
-    React__default.createElement( 'input', {
-      type: 'radio', checked: checked, onChange: function (event) { return onCheck(event, index$$1); } }),
-    React__default.createElement( 'label', { onClick: function (event) { return onCheck(event, index$$1); } },
-      React__default.createElement( RadioIcon, null ),
-      React__default.createElement( 'span', { className: 'radio--label text-left' }, label)
+    React__default.createElement( 'span', { className: styles$6.radioButton },
+      React__default.createElement( 'i', { className: internalButton(props) })
     )
-  )
-);
+  );
+};
+
+var Radio = function (props) {
+  var checked = props.checked;
+  var index$$1 = props.index;
+  var label = props.label;
+  var onCheck = props.onCheck;
+  return (
+    React__default.createElement( 'li', null,
+      React__default.createElement( 'input', {
+        type: 'radio', checked: checked, onChange: function (event) { return onCheck(event, index$$1); } }),
+      React__default.createElement( 'label', { onClick: function (event) { return onCheck(event, index$$1); } },
+        React__default.createElement( RadioIcon, props),
+        React__default.createElement( 'span', { className: 'radio--label text-left' }, label)
+      )
+    )
+  );
 };
 
 Radio.propTypes = {
@@ -2090,9 +2100,12 @@ function getClassName$1(ref) {
   var color = ref.color;
   var stacked = ref.stacked;
 
+  // console.log('buttons', buttons);
+  // console.log('color', color);
+  // console.log('stacked', stacked);
   return index$1({
-    'radio-teal': color === 'teal',
-    'radio-gray': color === 'gray',
+    'radio-teal': color === 'VimeoBlue',
+    'radio-gray': color === 'SoutherlySky',
     'radio--buttons': buttons,
     'radio--stacked': stacked,
   });
@@ -2125,7 +2138,7 @@ var RadioGroup$1 = function (ref) {
 );
 };
 
-var colors$2 = [ 'teal', 'gray' ];
+var colors$2 = [ 'VimeoBlue', 'SoutherlySky' ];
 
 var radioItemPropType = index.shape({
   label: index.string.isRequired,
@@ -2143,7 +2156,7 @@ RadioGroup$1.propTypes = {
 
 RadioGroup$1.defaultProps = {
   buttons: false,
-  color: 'teal',
+  color: 'VimeoBlue',
   onCheck: noop,
   selectedIndex: -1,
   stacked: false,
@@ -2406,14 +2419,14 @@ Tag$1.defaultProps = {
   onRemove: null,
 };
 
-var css$6 = "/* .....................................\n  Vimeo Colors\n..................................... */\n/* .....................................\n  Grayscale\n..................................... */\n/* .....................................\n  Blues\n..................................... */\n/* .....................................\n  Greens\n..................................... */\n/* .....................................\n  Reds\n..................................... */\n/* .....................................\n  Interaction Colors\n..................................... */\n/* .....................................\n  Vimeo Legacy Colors\n..................................... */\n/* .....................................\n  Default Text\n..................................... */\n/* .....................................\n  Default Sizing\n..................................... */\n/* .....................................\n  Vimeo Colors\n..................................... */\n/* .....................................\n  Grayscale\n..................................... */\n/* .....................................\n  Blues\n..................................... */\n/* .....................................\n  Greens\n..................................... */\n/* .....................................\n  Reds\n..................................... */\n/* .....................................\n  Interaction Colors\n..................................... */\n/* .....................................\n  Vimeo Legacy Colors\n..................................... */\n/* .....................................\n  Default Text\n..................................... */\n/* .....................................\n  Default Sizing\n..................................... */\n/*.....................................\n  VIMEO FONT MIXINS\n......................................*/\n/* .....................................\n  Vimeo Colors\n..................................... */\n/* .....................................\n  Grayscale\n..................................... */\n/* .....................................\n  Blues\n..................................... */\n/* .....................................\n  Greens\n..................................... */\n/* .....................................\n  Reds\n..................................... */\n/* .....................................\n  Interaction Colors\n..................................... */\n/* .....................................\n  Vimeo Legacy Colors\n..................................... */\n/* .....................................\n  Default Text\n..................................... */\n/* .....................................\n  Default Sizing\n..................................... */\n/* .....................................\n  Vimeo Colors\n..................................... */\n/* .....................................\n  Grayscale\n..................................... */\n/* .....................................\n  Blues\n..................................... */\n/* .....................................\n  Greens\n..................................... */\n/* .....................................\n  Reds\n..................................... */\n/* .....................................\n  Interaction Colors\n..................................... */\n/* .....................................\n  Vimeo Legacy Colors\n..................................... */\n/* .....................................\n  Default Text\n..................................... */\n/* .....................................\n  Default Sizing\n..................................... */\n/* .....................................\n  Vimeo Specific Fonts\n..................................... */\n/* .....................................\n  Vimeo Specific Widths\n..................................... */\n/* .....................................\n  Vimeo Media Query Breakpoints\n..................................... */\n.Text_headOne__3tT_Z {\n  font-family: Helvetica, Arial, sans-serif;\n  color: #1a2e3b;\n  font-weight: 400;\n  font-size: 40px;\n  line-height: 1.2;\n  text-transform: uppercase; }\n\n.Text_headTwo__Wj-0P {\n  font-family: Helvetica, Arial, sans-serif;\n  color: #1a2e3b;\n  font-weight: 400;\n  font-size: 30px;\n  line-height: 1.2;\n  text-transform: uppercase; }\n\n.Text_headThree__3C6Ub {\n  font-family: Helvetica, Arial, sans-serif;\n  color: #1a2e3b;\n  font-weight: 400;\n  font-size: 22px;\n  line-height: 1.2;\n  text-transform: uppercase; }\n\n.Text_headFour__3HfA3 {\n  font-family: Helvetica, Arial, sans-serif;\n  color: #1a2e3b;\n  font-weight: 400;\n  font-size: 16px;\n  line-height: 1.2;\n  text-transform: uppercase; }\n\n.Text_headFive__2HVnE {\n  font-family: Helvetica, Arial, sans-serif;\n  color: #1a2e3b;\n  font-weight: 400;\n  font-size: 14px;\n  line-height: 1.2;\n  text-transform: uppercase; }\n\n.Text_headSix__3E4bV {\n  font-family: Helvetica, Arial, sans-serif;\n  color: #1a2e3b;\n  font-weight: 400;\n  font-size: 12px;\n  line-height: 1.2;\n  text-transform: uppercase; }\n";
-var styles$6 = {"headOne":"Text_headOne__3tT_Z","headTwo":"Text_headTwo__Wj-0P","headThree":"Text_headThree__3C6Ub","headFour":"Text_headFour__3HfA3","headFive":"Text_headFive__2HVnE","headSix":"Text_headSix__3E4bV"};
-__$$styleInject(css$6);
+var css$7 = "/* .....................................\n  Vimeo Colors\n..................................... */\n/* .....................................\n  Grayscale\n..................................... */\n/* .....................................\n  Blues\n..................................... */\n/* .....................................\n  Greens\n..................................... */\n/* .....................................\n  Reds\n..................................... */\n/* .....................................\n  Interaction Colors\n..................................... */\n/* .....................................\n  Vimeo Legacy Colors\n..................................... */\n/* .....................................\n  Default Text\n..................................... */\n/* .....................................\n  Default Sizing\n..................................... */\n/* .....................................\n  Vimeo Colors\n..................................... */\n/* .....................................\n  Grayscale\n..................................... */\n/* .....................................\n  Blues\n..................................... */\n/* .....................................\n  Greens\n..................................... */\n/* .....................................\n  Reds\n..................................... */\n/* .....................................\n  Interaction Colors\n..................................... */\n/* .....................................\n  Vimeo Legacy Colors\n..................................... */\n/* .....................................\n  Default Text\n..................................... */\n/* .....................................\n  Default Sizing\n..................................... */\n/*.....................................\n  VIMEO FONT MIXINS\n......................................*/\n/* .....................................\n  Vimeo Colors\n..................................... */\n/* .....................................\n  Grayscale\n..................................... */\n/* .....................................\n  Blues\n..................................... */\n/* .....................................\n  Greens\n..................................... */\n/* .....................................\n  Reds\n..................................... */\n/* .....................................\n  Interaction Colors\n..................................... */\n/* .....................................\n  Vimeo Legacy Colors\n..................................... */\n/* .....................................\n  Default Text\n..................................... */\n/* .....................................\n  Default Sizing\n..................................... */\n/* .....................................\n  Vimeo Colors\n..................................... */\n/* .....................................\n  Grayscale\n..................................... */\n/* .....................................\n  Blues\n..................................... */\n/* .....................................\n  Greens\n..................................... */\n/* .....................................\n  Reds\n..................................... */\n/* .....................................\n  Interaction Colors\n..................................... */\n/* .....................................\n  Vimeo Legacy Colors\n..................................... */\n/* .....................................\n  Default Text\n..................................... */\n/* .....................................\n  Default Sizing\n..................................... */\n/* .....................................\n  Vimeo Specific Fonts\n..................................... */\n/* .....................................\n  Vimeo Specific Widths\n..................................... */\n/* .....................................\n  Vimeo Media Query Breakpoints\n..................................... */\n.Text_headOne__3tT_Z {\n  font-family: Helvetica, Arial, sans-serif;\n  color: #1a2e3b;\n  font-weight: 400;\n  font-size: 40px;\n  line-height: 1.2;\n  text-transform: uppercase; }\n\n.Text_headTwo__Wj-0P {\n  font-family: Helvetica, Arial, sans-serif;\n  color: #1a2e3b;\n  font-weight: 400;\n  font-size: 30px;\n  line-height: 1.2;\n  text-transform: uppercase; }\n\n.Text_headThree__3C6Ub {\n  font-family: Helvetica, Arial, sans-serif;\n  color: #1a2e3b;\n  font-weight: 400;\n  font-size: 22px;\n  line-height: 1.2;\n  text-transform: uppercase; }\n\n.Text_headFour__3HfA3 {\n  font-family: Helvetica, Arial, sans-serif;\n  color: #1a2e3b;\n  font-weight: 400;\n  font-size: 16px;\n  line-height: 1.2;\n  text-transform: uppercase; }\n\n.Text_headFive__2HVnE {\n  font-family: Helvetica, Arial, sans-serif;\n  color: #1a2e3b;\n  font-weight: 400;\n  font-size: 14px;\n  line-height: 1.2;\n  text-transform: uppercase; }\n\n.Text_headSix__3E4bV {\n  font-family: Helvetica, Arial, sans-serif;\n  color: #1a2e3b;\n  font-weight: 400;\n  font-size: 12px;\n  line-height: 1.2;\n  text-transform: uppercase; }\n";
+var styles$7 = {"headOne":"Text_headOne__3tT_Z","headTwo":"Text_headTwo__Wj-0P","headThree":"Text_headThree__3C6Ub","headFour":"Text_headFour__3HfA3","headFive":"Text_headFive__2HVnE","headSix":"Text_headSix__3E4bV"};
+__$$styleInject(css$7);
 
 /* eslint-disable react/no-unused-prop-types */
 
 function getClassName$3(props) {
-  return index$1(( obj = {}, obj[styles$6.headOne] = props.h1 === true, obj[styles$6.headTwo] = props.h2 === true, obj[styles$6.headThree] = props.h3 === true, obj[styles$6.headFour] = props.h4 === true, obj[styles$6.headFive] = props.h5 === true, obj[styles$6.headSix] = props.h6 === true, obj ));
+  return index$1(( obj = {}, obj[styles$7.headOne] = props.h1 === true, obj[styles$7.headTwo] = props.h2 === true, obj[styles$7.headThree] = props.h3 === true, obj[styles$7.headFour] = props.h4 === true, obj[styles$7.headFive] = props.h5 === true, obj[styles$7.headSix] = props.h6 === true, obj ));
   var obj;
 }
 
@@ -3651,9 +3664,6 @@ var Icons = function () { return (
   )
 ); };
 
-// Input demo
-// -----------------------------------------
-
 var InputDemo = function () { return (
   React__default.createElement( 'div', null,
     React__default.createElement( Subtitle, null, "Default input" ),
@@ -3910,12 +3920,12 @@ var statelessRadioCode = "\n<RadioGroup\n  items={items}\n  selectedIndex={0}\n 
 var RadioColors = function () { return (
   React__default.createElement( 'div', null,
     React__default.createElement( Subtitle, null, "Color variants" ),
-    React__default.createElement( Block, null, React__default.createElement( RadioGroup$1, { items: items, selectedIndex: 0, color: 'gray' }) ),
-    React__default.createElement( Block, null, React__default.createElement( RadioGroup$1, { items: items, selectedIndex: 0, color: 'teal' }) )
+    React__default.createElement( Block, null, React__default.createElement( RadioGroup$1, { items: items, selectedIndex: 0, color: 'SoutherlySky' }) ),
+    React__default.createElement( Block, null, React__default.createElement( RadioGroup$1, { items: items, selectedIndex: 0, color: 'VimeoBlue' }) )
   )
 ); };
 
-var radioColorsCode = "\n<RadioGroup\n  items={items}\n  selectedIndex={0}\n  color='gray'\n/>\n\n<RadioGroup\n  items={items}\n  selectedIndex={0}\n  color='teal'\n/>\n";
+var radioColorsCode = "\n<RadioGroup\n  items={items}\n  selectedIndex={0}\n  color='SoutherlySky'\n/>\n\n<RadioGroup\n  items={items}\n  selectedIndex={0}\n  color='VimeoBlue'\n/>\n";
 
 
 // Stacked
