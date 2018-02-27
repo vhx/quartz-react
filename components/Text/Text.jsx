@@ -3,11 +3,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
+import { componentColor } from '../util';
 
 import styles from './Text.scss';
 
 function getClassName(props) {
-  console.log('getClassName', props);
   return classNames({
     [styles.headOne]: props.h1 === true,
     [styles.headTwo]: props.h2 === true,
@@ -18,14 +18,17 @@ function getClassName(props) {
   });
 }
 
+
 const Text = props => {
-  console.log(props);
+  const textStyles = {
+    color: componentColor(props),
+  }
   return(
-    <span className={getClassName(props)}>{props.children}</span>
+    <span style={textStyles} className={getClassName(props)}>{props.children}</span>
   );
 };
 
-const colors = [ 'navy', 'gray', 'teal', 'white', 'vimeo-blue', 'sunset-orange', 'regent-gray', 'astro-granite' ];
+const colors = [ 'AstroGranite', 'RegentGray', 'SoutherlySky', 'Paste', 'Porcelain', 'Plaster', 'white', 'VimeoBlue', 'VimeoBlue-Darkened', 'SunsetOrange', 'SunsetOrange-Darkened', 'Pistachio', 'RumSwizzle', 'Pistachio-Darkened', 'VimeoBlue-Darkened', 'Foam', 'PalePink' ];
 
 Text.propTypes = {
   block: PropTypes.bool,

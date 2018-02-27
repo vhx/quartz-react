@@ -41,14 +41,20 @@ const TextColors = () => (
   <div>
     <Subtitle>Colors</Subtitle>
     <Block><Text>Default</Text></Block>
-    <Block><Text color='navy'>navy</Text></Block>
-    <Block><Text color='teal'>teal</Text></Block>
-    <Block><Text color='gray'>gray</Text></Block>
-    <Block><Text color='vimeo-blue'>Vimeo blue</Text></Block>
-    <Block><Text color='sunset-orange'>Sunset Orange</Text></Block>
-    <Block><Text color='regent-gray'>Regent Gray</Text></Block>
-    <Block><Text color='astro-granite'>Astrogranite</Text></Block>
-    <Block dark inline><Text color='white'>white</Text></Block>
+    <Block><Text color='AstroGranite'>Astrogranite</Text></Block>
+    <Block><Text color='RegentGray'>Regent Gray</Text></Block>
+    <Block><Text color='SoutherlySky'>Southerly Sky</Text></Block>
+    <Block dark><Text color='Porcelain'>Porcelain</Text></Block>
+    <Block dark><Text color='Paste'>Paste</Text></Block>
+    <Block><Text color='VimeoBlue'>Vimeo Blue</Text></Block>
+    <Block><Text color='VimeoBlue-Darkened'>Vimeo Blue Darkened</Text></Block>
+    <Block><Text color='Pistachio'>Pistachio</Text></Block>
+    <Block><Text color='Pistachio-Darkened'>Pistachio Darkened</Text></Block>
+    <Block dark><Text color='RumSwizzle'>Rum Swizzle</Text></Block>
+    <Block><Text color='SunsetOrange'>Sunset Orange</Text></Block>
+    <Block><Text color='SunsetOrange-Darkened'>Sunset Orange Darkened</Text></Block>
+    <Block dark><Text color='PalePink'>Pale Pink</Text></Block>
+    <Block dark><Text color='white'>white</Text></Block>
   </div>
 );
 

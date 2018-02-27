@@ -39,4 +39,4 @@ componentSize.defaultProps = {
   size: '25px',
 }
 
-export default componentColor;
+export default componentSize;

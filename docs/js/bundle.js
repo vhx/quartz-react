@@ -835,21 +835,65 @@ If$1.defaultProps = {
 };
 
 var componentColor = function (props) {
-  console.log('componentColor', props);
+  console.log(props.color);
   if (props.color === 'white') {
     return '#ffffff';
+  }
+
+  if (props.color === 'VimeoBlue-Darkened') {
+    return '#0088cc';
   }
 
   if (props.color === 'VimeoBlue') {
     return '#00adef';
   }
 
+  if (props.color === 'Foam') {
+    return '#e5f7fd';
+  }
+
+  if (props.color === 'Pistachio-Darkened') {
+    return '#5a9e02';
+  }
+
+  if (props.color === 'Pistachio') {
+    return '#7fc400';
+  }
+
+  if (props.color === 'RumSwizzle') {
+    return '#f2f9e5';
+  }
+
+  if (props.color === 'SunsetOrange-Darkened') {
+    return '#d96336';
+  }
+
   if (props.color === 'SunsetOrange') {
     return '#ff4d4d';
   }
 
+  if (props.color === 'PalePink') {
+    return '#ffeded';
+  }
+
   if (props.color === 'Porcelain') {
     return '#e3e8e9';
+  }
+
+  if (props.color === 'Plaster') {
+    return '#eef1f2';
+  }
+
+  if (props.color === 'Paste') {
+    return '#f6f7f8';
+  }
+
+  if (props.color === 'RegentGray') {
+    return '#8699a6';
+  }
+
+  if (props.color === 'SoutherlySky') {
+    return '#b3bfc8';
   }
 
   if (props.color === 'AstroGranite') {
@@ -865,6 +909,44 @@ componentColor.propTypes = {
 
 componentColor.defaultProps = {
   color: '',
+};
+
+var componentSize = function (props) {
+  if (props.size == 'xxsmall') {
+    return '15px';
+  }
+
+  if (props.size == 'xsmall') {
+    return '15px';
+  }
+
+  if (props.size == 'small') {
+    return '25px';
+  }
+
+  if (props.size == 'medium') {
+    return '35px';
+  }
+
+  if (props.size == 'large') {
+    return '45px';
+  }
+
+  if (props.size == 'xlarge') {
+    return '55px';
+  }
+
+  if (props.size == 'xxlarge') {
+    return '65px';
+  }
+};
+
+componentSize.propTypes = {
+  size: index.string,
+};
+
+componentSize.defaultProps = {
+  size: '25px',
 };
 
 var toStr = Object.prototype.toString;
@@ -1057,6 +1139,7 @@ var utilities = Object.freeze({
 	noop: noop,
 	If: If$1,
 	componentColor: componentColor,
+	componentSize: componentSize,
 	Model: Model$$1,
 	connect: connect$$1
 });
@@ -1210,43 +1293,11 @@ var styles$2 = {"icon":"Icon_icon__1SIxy"};
 __$$styleInject(css$2);
 
 /* eslint-disable react/no-unused-prop-types */
-var iconSize = function (props) {
-  if (props.size == 'xxsmall') {
-    return '15px';
-  }
-
-  if (props.size == 'xsmall') {
-    return '15px';
-  }
-
-  if (props.size == 'small') {
-    return '25px';
-  }
-
-  if (props.size == 'medium') {
-    return '35px';
-  }
-
-  if (props.size == 'large') {
-    return '45px';
-  }
-
-  if (props.size == 'xlarge') {
-    return '55px';
-  }
-
-  if (props.size == 'xxlarge') {
-    return '65px';
-  }
-
-  return '25px';
-};
-
 var Icon$1 = function (props) {
   var iconStyles = {
     backgroundColor: componentColor(props),
-    width: iconSize(props),
-    height: iconSize(props),
+    width: componentSize(props),
+    height: componentSize(props),
     backgroundImage: ("url(" + (props.src) + ")"),
   };
   return (
@@ -2354,19 +2405,21 @@ __$$styleInject(css$5);
 /* eslint-disable react/no-unused-prop-types */
 
 function getClassName$3(props) {
-  console.log('getClassName', props);
   return index$1(( obj = {}, obj[styles$5.headOne] = props.h1 === true, obj[styles$5.headTwo] = props.h2 === true, obj[styles$5.headThree] = props.h3 === true, obj[styles$5.headFour] = props.h4 === true, obj[styles$5.headFive] = props.h5 === true, obj[styles$5.headSix] = props.h6 === true, obj ));
   var obj;
 }
 
+
 var Text$1 = function (props) {
-  console.log(props);
+  var textStyles = {
+    color: componentColor(props),
+  };
   return(
-    React__default.createElement( 'span', { className: getClassName$3(props) }, props.children)
+    React__default.createElement( 'span', { style: textStyles, className: getClassName$3(props) }, props.children)
   );
 };
 
-var colors$3 = [ 'navy', 'gray', 'teal', 'white', 'vimeo-blue', 'sunset-orange', 'regent-gray', 'astro-granite' ];
+var colors$3 = [ 'AstroGranite', 'RegentGray', 'SoutherlySky', 'Paste', 'Porcelain', 'Plaster', 'white', 'VimeoBlue', 'VimeoBlue-Darkened', 'SunsetOrange', 'SunsetOrange-Darkened', 'Pistachio', 'RumSwizzle', 'Pistachio-Darkened', 'VimeoBlue-Darkened', 'Foam', 'PalePink' ];
 
 Text$1.propTypes = {
   block: index.bool,
@@ -4353,6 +4406,9 @@ var Tags = function () { return (
   )
 ); };
 
+// Text headings
+// -----------------------------------------
+
 var TextHeadings = function () { return (
   React__default.createElement( 'div', null,
     React__default.createElement( Subtitle, null, "Headings" ),
@@ -4375,14 +4431,20 @@ var TextColors = function () { return (
   React__default.createElement( 'div', null,
     React__default.createElement( Subtitle, null, "Colors" ),
     React__default.createElement( Block, null, React__default.createElement( Text$1, null, "Default" ) ),
-    React__default.createElement( Block, null, React__default.createElement( Text$1, { color: 'navy' }, "navy") ),
-    React__default.createElement( Block, null, React__default.createElement( Text$1, { color: 'teal' }, "teal") ),
-    React__default.createElement( Block, null, React__default.createElement( Text$1, { color: 'gray' }, "gray") ),
-    React__default.createElement( Block, null, React__default.createElement( Text$1, { color: 'vimeo-blue' }, "Vimeo blue") ),
-    React__default.createElement( Block, null, React__default.createElement( Text$1, { color: 'sunset-orange' }, "Sunset Orange") ),
-    React__default.createElement( Block, null, React__default.createElement( Text$1, { color: 'regent-gray' }, "Regent Gray") ),
-    React__default.createElement( Block, null, React__default.createElement( Text$1, { color: 'astro-granite' }, "Astrogranite") ),
-    React__default.createElement( Block, { dark: true, inline: true }, React__default.createElement( Text$1, { color: 'white' }, "white"))
+    React__default.createElement( Block, null, React__default.createElement( Text$1, { color: 'AstroGranite' }, "Astrogranite") ),
+    React__default.createElement( Block, null, React__default.createElement( Text$1, { color: 'RegentGray' }, "Regent Gray") ),
+    React__default.createElement( Block, null, React__default.createElement( Text$1, { color: 'SoutherlySky' }, "Southerly Sky") ),
+    React__default.createElement( Block, { dark: true }, React__default.createElement( Text$1, { color: 'Porcelain' }, "Porcelain")),
+    React__default.createElement( Block, { dark: true }, React__default.createElement( Text$1, { color: 'Paste' }, "Paste")),
+    React__default.createElement( Block, null, React__default.createElement( Text$1, { color: 'VimeoBlue' }, "Vimeo Blue") ),
+    React__default.createElement( Block, null, React__default.createElement( Text$1, { color: 'VimeoBlue-Darkened' }, "Vimeo Blue Darkened") ),
+    React__default.createElement( Block, null, React__default.createElement( Text$1, { color: 'Pistachio' }, "Pistachio") ),
+    React__default.createElement( Block, null, React__default.createElement( Text$1, { color: 'Pistachio-Darkened' }, "Pistachio Darkened") ),
+    React__default.createElement( Block, { dark: true }, React__default.createElement( Text$1, { color: 'RumSwizzle' }, "Rum Swizzle")),
+    React__default.createElement( Block, null, React__default.createElement( Text$1, { color: 'SunsetOrange' }, "Sunset Orange") ),
+    React__default.createElement( Block, null, React__default.createElement( Text$1, { color: 'SunsetOrange-Darkened' }, "Sunset Orange Darkened") ),
+    React__default.createElement( Block, { dark: true }, React__default.createElement( Text$1, { color: 'PalePink' }, "Pale Pink")),
+    React__default.createElement( Block, { dark: true }, React__default.createElement( Text$1, { color: 'white' }, "white"))
   )
 ); };
 

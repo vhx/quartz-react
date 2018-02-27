@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 const componentColor = props => {
+  console.log(props.color);
   if (props.color === 'white') {
     return '#ffffff';
   }
@@ -52,6 +53,14 @@ const componentColor = props => {
 
   if (props.color === 'Paste') {
     return '#f6f7f8';
+  }
+
+  if (props.color === 'RegentGray') {
+    return '#8699a6';
+  }
+
+  if (props.color === 'SoutherlySky') {
+    return '#b3bfc8';
   }
 
   if (props.color === 'AstroGranite') {
