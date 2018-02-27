@@ -1656,40 +1656,33 @@ __$$styleInject(css$5);
 
 /* eslint-disable react/no-unused-prop-types */
 
-function getClass(ref) {
-  var className = ref.className;
-  var error = ref.error;
-  var search = ref.search;
-  var small = ref.small;
+var errorColor = function (props) {
+  console.log('error Color', props);
+  return (props.error === true) ? '#ff4d4d' : '#1a2e3b';
+};
 
-  console.log('className', className);
-  console.log('error', error);
-  console.log('search', search);
-  console.log('small', small);
-  return index$1(className, {
-    small: small,
-    'is-error': error,
-    'c-select--search': search,
-    'padding-right-large': search,
-    'icon-search-black': search,
-    'icon--xsmall': search,
-  });
-}
+var errorBorder = function (props) {
+  return (props.error === true) ? '1px solid #ff4d4d' : '1px solid #1a2e3b';
+};
+
+var inputSize = function (props) {
+  return (props.small === true) ? '45px' : '100%';
+};
 
 // NOTE: like in the Checkbox component, the `form` class does not
 // do anything here except allow the css selector `.form input` to apply styles.
 // We should consider refactoring the css to remove this requirement.
 var Input$1 = function (props) {
-  console.log('input props', props);
+  var inputStyles = {
+    color: errorColor(props),
+    border: errorBorder(props),
+    width: inputSize(props),
+  };
+
   return (
     React__default.createElement( 'div', { className: styles$5.form },
       React__default.createElement( 'input', Object.assign({},
-        excludeProps([ 'className', 'error', 'search', 'small' ], props), { className: getClass({
-          className: props.className,
-          error: props.error,
-          search: props.search,
-          small: props.small,
-        }) }))
+        excludeProps([ 'className', 'error', 'search', 'small' ], props), { style: inputStyles }))
     )
   );
 };

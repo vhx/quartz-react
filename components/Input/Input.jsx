@@ -22,21 +22,34 @@ function getClass({ className, error, search, small }) {
   });
 }
 
+const errorColor = props => {
+  console.log('error Color', props);
+  return (props.error === true) ? '#ff4d4d' : '#1a2e3b';
+}
+
+const errorBorder = props => {
+  return (props.error === true) ? '1px solid #ff4d4d' : '1px solid #1a2e3b';
+}
+
+const inputSize = props => {
+  return (props.small === true) ? '45px' : '100%';
+}
+
 // NOTE: like in the Checkbox component, the `form` class does not
 // do anything here except allow the css selector `.form input` to apply styles.
 // We should consider refactoring the css to remove this requirement.
 const Input = props => {
-  console.log('input props', props);
+  const inputStyles = {
+    color: errorColor(props),
+    border: errorBorder(props),
+    width: inputSize(props),
+  }
+
   return (
     <div className={styles.form}>
       <input
         {...excludeProps([ 'className', 'error', 'search', 'small' ], props)}
-        className={getClass({
-          className: props.className,
-          error: props.error,
-          search: props.search,
-          small: props.small,
-        })}
+        style={inputStyles}
       />
     </div>
   );
