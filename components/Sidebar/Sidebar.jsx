@@ -31,7 +31,7 @@ class Sidebar extends Component {
     }
     return (
       <div style={{ zIndex: 2147483800 }} className={sidebarClasses(isOpen)}>
-        <span className='c-sidebar--close icon-circle icon-x-black icon--xsmall' style={{ cursor: 'pointer' }} onClick={() => sidebarModel.close()} />
+        <span className={styles.closeIcon} style={{ cursor: 'pointer' }} onClick={() => sidebarModel.close()} />
         <div><Contents /></div>
       </div>
     );
