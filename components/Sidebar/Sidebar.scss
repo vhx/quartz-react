@@ -1,0 +1,23 @@
+@import '../util/include-responsive.scss';
+
+.sidebar {
+  max-width: 100%;
+  right: 0;
+  transition: transform 400ms ease;
+  width: 600px;
+  background-color: $White;
+  overflow: auto;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  height: 100%;
+}
+
+.sidebar {
+  transform: translate3d(0, 0, 0);
+}
+
+.sidebarOpen {
+  transform: translate3d(608px, 0, 0);
+}
+
