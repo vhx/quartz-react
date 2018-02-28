@@ -13,10 +13,10 @@ function getClass(isHover) {
 }
 
 function getButtonClass(isHover, isProcessing) {
+  console.log('isHover', isHover);
+  console.log('isProcessing', isProcessing);
   return classNames({
-    'c-tag--button': true,
-    [styles.tagButtonBlue]: isHover,
-    [styles.tagButtonGray]: !isHover,
+    [styles.tagHoverButton]: isHover,
     [styles.tagProcessing]: isProcessing,
   });
 }
@@ -55,7 +55,7 @@ class Tag extends Component {
     const { setHover, setRemoveHover } = this;
     return (
       <span className={styles.tag} onMouseOver={setHover(true)} onMouseOut={setHover(false)}>
-        <button className={styles.tagHoverButton} onClick={onClick}>
+        <button className={getButtonClass(isHover, isProcessing)} onClick={onClick}>
           { truncate(label, maxLength) }
         </button>
         <a
