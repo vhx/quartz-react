@@ -13,7 +13,6 @@ const internalButton = props => {
 
 
 const RadioIcon = props => {
-  console.log('radio icon', props);
   return (
     <span className={styles.radioButton}>
       <i className={internalButton(props)} />

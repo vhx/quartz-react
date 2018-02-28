@@ -15,11 +15,8 @@ function getDescriptionClassName(checked) {
 
 function getClassName(checked) {
   return classNames({
-    'btn-vimeo-blue': checked,
-    'btn-gray': !checked,
-    'btn--fill': true,
-    'btn-radio': true,
-    'margin-bottom-medium': true,
+    [styles.radioButtonLabel]: checked,
+    [styles.radioButtonLabelGray]: !checked,
   });
 }
 
@@ -37,20 +34,27 @@ function getStyle(description) {
 
 const RadioButton = ({ checked, description, index, label, onCheck }) => (
   <li>
-    <input
-      type='radio'
-      checked={checked}
-      onChange={event => onCheck(event, index)}
-    />
-    <label className={getClassName(checked)} onClick={event => onCheck(event, index)}>
-      <RadioIcon />
-      <span className='radio--label text-left padding-left-small' style={getStyle(description)}>
-        <strong className={getTitleClassName(checked)}>{label}</strong>
-        <If condition={Boolean(description)}>
-          <p className={getDescriptionClassName(checked)}>{description}</p>
-        </If>
-      </span>
-    </label>
+    <div className={styles.radioButtonWrapper}>
+      <input
+        type='radio'
+        checked={checked}
+        onChange={event => onCheck(event, index)}
+      />
+      <label
+        className={getClassName(checked)}
+        onClick={event => onCheck(event, index)}
+      >
+        <span className={styles.radioButtonRadioWrapper}>
+          <RadioIcon />
+        </span>
+        <span className={styles.radioButtonsTextWrapper} style={getStyle(description)}>
+          <strong className={getTitleClassName(checked)}>{label}</strong>
+          <If condition={Boolean(description)}>
+            <p className={getDescriptionClassName(checked)}>{description}</p>
+          </If>
+        </span>
+      </label>
+    </div>
   </li>
 );
 

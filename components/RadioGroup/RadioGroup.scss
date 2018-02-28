@@ -3,6 +3,67 @@
 input[type="radio"] {
   display: none;
 }
+
+.radioButtonWrapper {
+  display: inline-flex;
+  justify-content: space-between;
+}
+
+.radioButtonRadioWrapper {
+  $paddingProps: (
+    orientation: 'top-only',
+    top-side: $small,
+  );
+
+  @include Margin($paddingProps);
+  display: inline-block;
+}
+
+.radioButtonsTextWrapper {
+  $paddingProps: (
+    orientation: 'left-only',
+    left-side: $small,
+  );
+
+  @include Padding($paddingProps);
+  display: inline-block;
+}
+
+.radioButtonLabel,
+.radioButtonLabelGray {
+  $marginProps: (
+    orientation: 'bottom-only',
+    bottom-side: $xsmall,
+  );
+
+  $paddingProps: (
+    orientation: 'custom-four',
+    top-side: $xsmall,
+    left-side: $small,
+    bottom-side: $xsmall,
+    right-side: $small,
+  );
+
+  @include Margin($marginProps);
+  @include Padding($paddingProps);
+  display: block;
+  color: $AstroGranite;
+  font-size: 14px;
+  height: auto;
+  width: 100%;
+  box-sizing: border-box;
+  border-radius: 3px;
+
+}
+
+.radioButtonLabel {
+  background-color: $VimeoBlue;
+}
+
+.radioButtonLabelGray {
+  background-color: $Porcelain;
+}
+
 .stackedRadios,
 .buttonRadios {
   display: block;
@@ -12,7 +73,6 @@ input[type="radio"] {
 .blueRadio,
 .grayRadio {
   position: relative;
-  display: inline-block;
   width: 100%;
   list-style: none;
   margin-left: 0;
@@ -43,18 +103,7 @@ input[type="radio"] {
   background-color: $White;
 }
 
-.radioChecked {
-  overflow: hidden;
-  position: absolute;
-  top: 4px;
-  left: 4px;
-  display: block;
-  width: 10px;
-  height: 10px;
-  background: $VimeoBlue;
-  border-radius: 10px;
-}
-
+.radioChecked,
 .radioUnchecked {
   overflow: hidden;
   position: absolute;
@@ -63,8 +112,15 @@ input[type="radio"] {
   display: block;
   width: 10px;
   height: 10px;
-  background: transparent;
   border-radius: 10px;
+}
+
+.radioChecked {
+  background: $VimeoBlue;
+}
+
+.radioUnchecked {
+  background: transparent;
 }
 
 .checkedButtonTitle {
