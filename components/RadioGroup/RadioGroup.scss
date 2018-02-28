@@ -1,6 +1,10 @@
 @import '../util/include-responsive.scss';
 
-.stackedRadios {
+input[type="radio"] {
+  display: none;
+}
+.stackedRadios,
+.buttonRadios {
   display: block;
   height: auto;
 }
