@@ -3,33 +3,28 @@ import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import { truncate } from '../util';
 
+import styles from './Tag.scss';
+
 function getClass(isHover) {
   return classNames({
-    inline: true,
-    relative: true,
-    'c-tag': true,
-    'is-hover': isHover,
+    [styles.tag]: true,
+    [styles.tagHover]: isHover,
   });
 }
 
 function getButtonClass(isHover, isProcessing) {
   return classNames({
     'c-tag--button': true,
-    'btn-teal': isHover,
-    'is-hover': isHover,
-    'btn-gray': !isHover,
-    'is-processing': isProcessing,
+    [styles.tagButtonBlue]: isHover,
+    [styles.tagButtonGray]: !isHover,
+    [styles.tagProcessing]: isProcessing,
   });
 }
 
-function getLinkClass(isRemoveHover) {
+function getLinkClass(isHover) {
   return classNames({
-    'c-tag--remove': true,
-    'icon--center': true,
-    'icon-x-white': true,
-    'icon--xxsmall': true,
-    'btn-red': isRemoveHover,
-    'btn-teal': !isRemoveHover,
+    [styles.hoverCloseButton]: isHover,
+    [styles.closeButton]: !isHover,
   });
 }
 
@@ -59,12 +54,12 @@ class Tag extends Component {
     const { isHover, isRemoveHover } = this.state;
     const { setHover, setRemoveHover } = this;
     return (
-      <span className={getClass(isHover)} onMouseOver={setHover(true)} onMouseOut={setHover(false)}>
-        <button className={getButtonClass(isHover, isProcessing)} onClick={onClick}>
+      <span className={styles.tag} onMouseOver={setHover(true)} onMouseOut={setHover(false)}>
+        <button className={styles.tagHoverButton} onClick={onClick}>
           { truncate(label, maxLength) }
         </button>
         <a
-          className={getLinkClass(isRemoveHover)}
+          className={getLinkClass(isHover)}
           onClick={onRemove}
           onMouseOver={setRemoveHover(true)}
           onMouseOut={setRemoveHover(false)}
