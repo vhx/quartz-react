@@ -13,11 +13,12 @@ function getClass(isHover) {
 }
 
 function getButtonClass(isHover, isProcessing) {
-  console.log('isHover', isHover);
-  console.log('isProcessing', isProcessing);
+  console.log('isHover and isProcessing', isHover && isProcessing);
   return classNames({
-    [styles.tagHoverButton]: isHover,
+    [styles.tagHoverButton]: isHover === false,
+    [styles.tagHoverButtonBlue]: isHover === true,
     [styles.tagProcessing]: isProcessing,
+    [styles.tagProcessingBlue]: isProcessing === true && isHover === true,
   });
 }
 
