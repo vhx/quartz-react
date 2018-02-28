@@ -12,7 +12,7 @@ input[type="radio"] {
 .radioButtonRadioWrapper {
   $paddingProps: (
     orientation: 'top-only',
-    top-side: $small,
+    top-side: $xsmall,
   );
 
   @include Margin($paddingProps);
