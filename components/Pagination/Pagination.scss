@@ -42,12 +42,11 @@
     all-sides: $small,
   );
 
-  @include Type700();
+  @include Type700($color: $VimeoBlue);
   @include Padding($paddingProps);
 
   cursor: pointer;
   user-select: none;
-  color: $VimeoBlue;
 }
 
 .paginationLinkInvisible {
@@ -58,4 +57,14 @@
 
   @include Padding($paddingProps);
   visibility: hidden;
+}
+
+.paginationSeparator {
+  $paddingProps: (
+    orientation: 'all',
+    all-sides: $small,
+  );
+
+  @include Type700();
+  @include Padding($paddingProps);
 }

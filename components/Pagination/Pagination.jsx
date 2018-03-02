@@ -8,7 +8,7 @@ import styles from './Pagination.scss';
 const MAX_VISIBLE_LINKS = 7;
 
 const Separator = () => (
-  <span className='padding-small text--bold pagination-default'>...</span>
+  <span className={styles.paginationSeparator}>...</span>
 );
 
 
@@ -74,7 +74,6 @@ class Pagination extends Component {
 
     const paginationLinkClassesEnd = (currentIndex, length) => {
       const isEnd = currentIndex === length - 1;
-      console.log(isEnd);
       return classNames({
         [styles.paginationLink]: isEnd === false,
         [styles.paginationLinkInvisible]: isEnd === true,
@@ -89,7 +88,6 @@ class Pagination extends Component {
       })
     }
 
-    console.log('currentIndex', currentIndex);
     return (
       <nav className='text-center'>
         <span className={paginationLinkClassesStart(currentIndex, length)} onClick={() => onPageChange(currentIndex - 1) }>← Previous</span>
