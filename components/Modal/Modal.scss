@@ -55,3 +55,47 @@
   margin-left: -325px;
 }
 
+.modalHeader {
+  $paddingProps: (
+    orientation: 'all',
+    all-side: $medium,
+  );
+
+  @include Padding($paddingProps);
+  border-bottom: 1px solid rgba($AstroGranite, 0.2);
+}
+
+.modalTitle {
+  @include Type700($color: $AstroGranite, $size: 16px);
+  text-align: left;
+  text-transform: uppercase;
+}
+
+.modalBody {
+  $paddingProps: (
+    orientation: 'all',
+    all-side: $medium,
+  );
+
+  @include Padding($paddingProps);
+}
+
+.modalActionContainer {
+  background: $White;
+  border-top: 1px solid rgba($AstroGranite, 0.2);
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+}
+
+.modalActionPosition {
+  $paddingProps: (
+    orientation: 'all',
+    all-side: $small,
+  );
+
+  @include Padding($paddingProps);
+  text-align: center;
+}
+

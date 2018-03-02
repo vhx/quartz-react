@@ -11,12 +11,6 @@ import modalModel from './modalModel.jsx';
 
 import styles from './Modal.scss';
 
-const openModalComponent = open => {
-  console.log('open true', open === true);
-  return classNames('c-modal', {
-    [styles.openModal]: open === true,
-  });
-};
 
 const modalActionContainerClasses = (size) => {
   return classNames('c-modal-container', {
@@ -87,15 +81,15 @@ class Modal extends Component {
     return (
       <div className={`c-modal ${isOpen ? 'is-open' : ''}`}>
         <div className={this.containerClasses()} ref={(el) => { this.el = el; }}>
-          <div className='c-modal--header padding-medium'>
+          <div className={styles.modalHeader}>
             <span>
-              <div className='h2 head-4 head secondary text-left'>{title}</div>
+              <div className={styles.modalTitle}>{title}</div>
             </span>
           </div>
-          <div className='c-modal--body padding-medium'>{body}</div>
+          <div className={styles.modalBody}>{body}</div>
           <If condition={actions.length !== 0}>
-            <div className='c-modal--actions'>
-              <div className='padding-small text-center'>
+            <div className={styles.modalActionContainer}>
+              <div className={styles.modalActionPosition}>
                 {
                   actions.map((action, index) => (
                     <div
