@@ -1,0 +1,61 @@
+@import '../util/include-responsive.scss';
+
+.paginationButtonActive {
+  $paddingProps: (
+    orientation: 'custom-four',
+    top-side: $xsmall,
+    left-side: $small,
+    bottom-side: $xsmall,
+    right-side: $small,
+  );
+  @include Type700($color: $White);
+  @include Padding($paddingProps);
+
+  cursor: default;
+  pointer-events: none;
+  user-select: none;
+  border-radius: 3px;
+  background-color: $RegentGray;
+}
+
+.paginationButton {
+  $paddingProps: (
+    orientation: 'custom-four',
+    top-side: $xsmall,
+    left-side: $small,
+    bottom-side: $xsmall,
+    right-side: $small,
+  );
+  @include Type700();
+  @include Padding($paddingProps);
+
+  cursor: pointer;
+  pointer-events: none;
+  user-select: none;
+  border-radius: 3px;
+  background-color: $White;
+}
+
+.paginationLink {
+  $paddingProps: (
+    orientation: 'all',
+    all-sides: $small,
+  );
+
+  @include Type700();
+  @include Padding($paddingProps);
+
+  cursor: pointer;
+  user-select: none;
+  color: $VimeoBlue;
+}
+
+.paginationLinkInvisible {
+  $paddingProps: (
+    orientation: 'all',
+    all-sides: $small,
+  );
+
+  @include Padding($paddingProps);
+  visibility: hidden;
+}
