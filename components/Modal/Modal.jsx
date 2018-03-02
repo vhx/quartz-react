@@ -9,6 +9,30 @@ import { KEY_CODES } from '../util/constants';
 import { If, connect } from '../util';
 import modalModel from './modalModel.jsx';
 
+import styles from './Modal.scss';
+
+const openModalComponent = open => {
+  console.log('open true', open === true);
+  return classNames('c-modal', {
+    [styles.openModal]: open === true,
+  });
+};
+
+const modalActionContainerClasses = (size) => {
+  return classNames('c-modal-container', {
+    [styles.smallActionModal]: size === 'small',
+    [styles.mediumActionModal]: size === 'medium',
+    [styles.largeActionModal]: size === 'large',
+  })
+}
+
+const modalContainerClasses = (size) => {
+  return classNames('c-modal-container', {
+    [styles.smallModal]: size === 'small',
+    [styles.mediumModal]: size === 'medium',
+    [styles.largeModal]: size === 'large',
+  })
+}
 
 function getActionClass({ actions, index }) {
   return classNames({
@@ -32,6 +56,8 @@ class Modal extends Component {
   constructor() {
     super();
     this.el = null;
+
+    this.containerClasses = this.containerClasses.bind(this);
   }
 
   componentWillMount() {
@@ -52,11 +78,15 @@ class Modal extends Component {
     window.removeEventListener('keyup', handleEscapeKey);
   }
 
+  containerClasses() {
+    return (this.actions === true) ? modalActionContainerClasses(this.size) : modalContainerClasses(this.size)
+  }
+
   render() {
     const { actions, body, isOpen, size, title } = this.props;
     return (
       <div className={`c-modal ${isOpen ? 'is-open' : ''}`}>
-        <div className={`c-modal-container ${actions.length !== 0 ? 'c-modal--has-actions' : ''} c-modal--${size}`} ref={(el) => { this.el = el; }}>
+        <div className={this.containerClasses()} ref={(el) => { this.el = el; }}>
           <div className='c-modal--header padding-medium'>
             <span>
               <div className='h2 head-4 head secondary text-left'>{title}</div>

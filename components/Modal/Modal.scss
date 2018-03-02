@@ -1,0 +1,56 @@
+@import '../util/include-responsive.scss';
+
+.openModal {
+  z-index: 2147483801;
+  position: relative;
+  left: 0;
+}
+
+.smallModal {
+  width: 300px;
+  margin-left: -150px;
+}
+
+.smallActionModal {
+  $paddingProps: (
+    orientation: 'bottom-only',
+    bottom-side: 65px,
+  );
+
+  @include Padding($paddingProps);
+  width: 300px;
+  margin-left: -150px;
+}
+
+.mediumModal {
+  width: 450px;
+  margin-left: -225px;
+}
+
+.mediumActionModal {
+  $paddingProps: (
+    orientation: 'bottom-only',
+    bottom-side: 65px,
+  );
+
+  @include Padding($paddingProps);
+  width: 450px;
+  margin-left: -225px;
+}
+
+.largeModal {
+  width: 650px;
+  margin-left: -325px;
+}
+
+.largeActionModal {
+  $paddingProps: (
+    orientation: 'bottom-only',
+    bottom-side: 65px,
+  );
+
+  @include Padding($paddingProps);
+  width: 650px;
+  margin-left: -325px;
+}
+
