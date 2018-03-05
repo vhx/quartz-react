@@ -1334,6 +1334,9 @@ var KEY_CODES = Object.freeze({
   RIGHT: 39,
 });
 
+// calcNext(3, 0) => 1
+// calcNext(3, 1) => 2
+// calcNext(3, 2) => 0 // <- it wraps around to the first slide
 function calcNext(length, current) {
   return (current + 1) % length;
 }
