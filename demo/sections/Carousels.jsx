@@ -22,13 +22,19 @@ const BrowsePageSlide = ({ title, subtitle, description, buttonClass, links }) =
     <div className='slide-subtitle'>{subtitle}</div>
     <div className='slide-description'>{description}</div>
     <div className='slide-buttons'>
-      <a className={`btn btn-gray btn-site-primary slide-button ${buttonClass}`} href={links.item}>
-        <Icon name='play' color='white' size='xxsmall' />
+      <a className={`btn btn-vimeo-secondary btn-site-primary slide-button ${buttonClass}`} href={links.item}>
+        <Icon
+          src='data:image/svg+xml;base64,PHN2ZyBpZD0iTGF5ZXJfMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB2aWV3Qm94PSIwIDAgMTQgMTYiPjx0aXRsZT5wbGF5czwvdGl0bGU+PHBhdGggZD0iTTYsMjBhMSwxLDAsMCwxLTEtMVY1YTEsMSwwLDAsMSwxLjUtLjg2bDEyLDdhMSwxLDAsMCwxLDAsMS43M2wtMTIsN0ExLDEsMCwwLDEsNiwyMFpNNyw2Ljc0VjE3LjI2TDE2LDEyWiIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoLTUgLTQpIiBmaWxsPSIjRkZGRkZGIi8+PC9zdmc+'
+          size='xxsmall'
+        />
         <span className='slide-button-text'>Watch now</span>
       </a>
       <util.If condition={Boolean(links.trailer)} inline>
         <a className='btn btn-transparent slide-button slide-button--alt' href={links.trailer}>
-          <Icon name='play' color='white' size='xxsmall' />
+          <Icon
+            src='data:image/svg+xml;base64,PHN2ZyBpZD0iTGF5ZXJfMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB2aWV3Qm94PSIwIDAgMTQgMTYiPjx0aXRsZT5wbGF5czwvdGl0bGU+PHBhdGggZD0iTTYsMjBhMSwxLDAsMCwxLTEtMVY1YTEsMSwwLDAsMSwxLjUtLjg2bDEyLDdhMSwxLDAsMCwxLDAsMS43M2wtMTIsN0ExLDEsMCwwLDEsNiwyMFpNNyw2Ljc0VjE3LjI2TDE2LDEyWiIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoLTUgLTQpIiBmaWxsPSIjRkZGRkZGIi8+PC9zdmc+'
+            size='xxsmall'
+          />
           <span className='slide-button-text'>Trailer</span>
         </a>
       </util.If>

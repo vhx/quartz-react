@@ -13,6 +13,7 @@ const Icon = props => {
     width: componentSize(props),
     height: componentSize(props),
     backgroundImage: `url(${props.src})`,
+    backgroundRepeat: 'no-repeat',
   }
   return (
     <div

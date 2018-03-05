@@ -33,6 +33,13 @@ function getZIndex(topSlideIndex, bgSlideIndex, currentIndex) {
   return '-1';
 }
 
+const carouselContainer = isMobile => {
+  return classNames({
+    [styles.carousel]: isMobile === false,
+    [styles.carouselMobile]: isMobile === true,
+  })
+}
+
 const coinClasses = isCurrent => {
   return classNames({
     [styles.carouselCoin]: isCurrent === false,
@@ -146,7 +153,7 @@ class Carousel extends Component {
     const { topSlideIndex, bgSlideIndex, enterDirection, exitDirection, isAnimating, isFresh, isMobile, height, width } = this.state;
     const { animationDuration, slides } = this.props;
     return (
-      <div className={`carousel ${isMobile ? 'carousel--mobile' : ''}`} ref={(el) => { this.el = el; }}>
+      <div className={carouselContainer(isMobile)} ref={(el) => { this.el = el; }}>
         <div className='carousel-slides'>
           {
             slides.map(({ Slide, id }, i) => (
@@ -165,15 +172,15 @@ class Carousel extends Component {
           }
         </div>
         <If condition={slides.length > 1}>
-          <div className='carousel-layout-container' style={{ height: `${height}px` }}>
-            <div className='coins'>{ slides.map(this.generateCoin) }</div>
-            <button disabled={isAnimating} onClick={this.prev} className='carousel-arrow carousel-arrow--left'>
+          <div className={styles.carouselLayoutContainer} style={{ height: `${height}px` }}>
+            <div className={styles.carouselCoins}>{ slides.map(this.generateCoin) }</div>
+            <button disabled={isAnimating} onClick={this.prev} className={styles.leftCarouselArrow}>
               <div className={styles.carouselLeftArrow}>
                 <Icon name='angle-left' src='data:image/svg+xml;base64,PHN2ZyBpZD0iTGF5ZXJfMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB2aWV3Qm94PSIwIDAgMjQgMjQiPjx0aXRsZT5JY29uLUNoZXZyb24tUmlnaHQ8L3RpdGxlPjxwYXRoIGQ9Ik05LjcxLDE3LjcxLDguMjksMTYuMjksMTIuNTksMTIsOC4yOSw3LjcxLDkuNzEsNi4yOWw1LDVhMSwxLDAsMCwxLDAsMS40MVoiIGZpbGw9IiNGRkZGRkYiLz48L3N2Zz4=' size={isMobile ? 'xsmall' : 'small' }
                />
               </div>
             </button>
-            <button disabled={isAnimating} onClick={this.next} className='carousel-arrow carousel-arrow--right'>
+            <button disabled={isAnimating} onClick={this.next} className={styles.rightCarouselArrow}>
               <Icon name='angle-right' src='data:image/svg+xml;base64,PHN2ZyBpZD0iTGF5ZXJfMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB2aWV3Qm94PSIwIDAgMjQgMjQiPjx0aXRsZT5JY29uLUNoZXZyb24tUmlnaHQ8L3RpdGxlPjxwYXRoIGQ9Ik05LjcxLDE3LjcxLDguMjksMTYuMjksMTIuNTksMTIsOC4yOSw3LjcxLDkuNzEsNi4yOWw1LDVhMSwxLDAsMCwxLDAsMS40MVoiIGZpbGw9IiNGRkZGRkYiLz48L3N2Zz4=' size={isMobile ? 'xsmall' : 'small' } />
             </button>
           </div>
