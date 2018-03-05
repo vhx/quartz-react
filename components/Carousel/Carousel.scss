@@ -1,0 +1,33 @@
+@import '../util/include-responsive.scss';
+
+.carouselCoin,
+.carouselCoinActive {
+  $marginProps: (
+    orientation: 'left-right',
+    left-side: 4px,
+    right-side: 4px,
+  );
+
+  @include Margin($marginProps);
+
+  border: 0;
+  border-radius: 4px;
+  box-shadow: 0 1px 5px $AstroGranite;
+  height: 8px;
+  outline: 0;
+  padding: 0;
+  transition: opacity .3s ease;
+  width: 8px;
+}
+
+.carouselCoin {
+  background-color: rgba($White, 0.5);
+}
+
+.carouselCoinActive {
+  background-color: $White;
+}
+
+.carouselLeftArrow {
+  transform: rotate(180deg);
+}

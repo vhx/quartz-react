@@ -4,6 +4,7 @@ import Icon from '../Icon';
 import { If, getAspectRatioHeight, noop } from '../util';
 import { KEY_CODES } from '../util/constants';
 
+import styles from './Carousel.scss';
 
 // calcNext(3, 0) => 1
 // calcNext(3, 1) => 2
@@ -158,8 +159,15 @@ class Carousel extends Component {
         <If condition={slides.length > 1}>
           <div className='carousel-layout-container' style={{ height: `${height}px` }}>
             <div className='coins'>{ slides.map(this.generateCoin) }</div>
-            <button disabled={isAnimating} onClick={this.prev} className='carousel-arrow carousel-arrow--left'><Icon name='angle-left' color='white' size={isMobile ? 'xsmall' : 'small' } /></button>
-            <button disabled={isAnimating} onClick={this.next} className='carousel-arrow carousel-arrow--right'><Icon name='angle-right' color='white' size={isMobile ? 'xsmall' : 'small' } /></button>
+            <button disabled={isAnimating} onClick={this.prev} className='carousel-arrow carousel-arrow--left'>
+              <div className={styles.carouselLeftArrow}>
+                <Icon name='angle-left' src='data:image/svg+xml;base64,PHN2ZyBpZD0iTGF5ZXJfMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB2aWV3Qm94PSIwIDAgMjQgMjQiPjx0aXRsZT5JY29uLUNoZXZyb24tUmlnaHQ8L3RpdGxlPjxwYXRoIGQ9Ik05LjcxLDE3LjcxLDguMjksMTYuMjksMTIuNTksMTIsOC4yOSw3LjcxLDkuNzEsNi4yOWw1LDVhMSwxLDAsMCwxLDAsMS40MVoiIGZpbGw9IiNGRkZGRkYiLz48L3N2Zz4=' size={isMobile ? 'xsmall' : 'small' }
+               />
+              </div>
+            </button>
+            <button disabled={isAnimating} onClick={this.next} className='carousel-arrow carousel-arrow--right'>
+              <Icon name='angle-right' src='data:image/svg+xml;base64,PHN2ZyBpZD0iTGF5ZXJfMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB2aWV3Qm94PSIwIDAgMjQgMjQiPjx0aXRsZT5JY29uLUNoZXZyb24tUmlnaHQ8L3RpdGxlPjxwYXRoIGQ9Ik05LjcxLDE3LjcxLDguMjksMTYuMjksMTIuNTksMTIsOC4yOSw3LjcxLDkuNzEsNi4yOWw1LDVhMSwxLDAsMCwxLDAsMS40MVoiIGZpbGw9IiNGRkZGRkYiLz48L3N2Zz4=' size={isMobile ? 'xsmall' : 'small' } />
+            </button>
           </div>
         </If>
       </div>
