@@ -231,6 +231,7 @@ var utilities = Object.freeze({
 
 var Avatar$1 = function (props) { return (
   React__default.createElement( 'span', { className: ("avatar color-teal avatar--" + (props.size)) },
+    React__default.createElement( 'span', { className: 'default-avatar' }, props.initial),
     React__default.createElement( 'span', {
       className: 'avatar-user user-avatar', style: {
         backgroundImage: ("url('" + (props.image) + "')"),
@@ -244,11 +245,13 @@ var sizes = [ 'xsmall', 'small', 'medium', 'large', 'xlarge', 'xxlarge' ];
 Avatar$1.propTypes = {
   size: PropTypes.oneOf(sizes),
   image: PropTypes.string,
+  initial: PropTypes.string,
 };
 
 Avatar$1.defaultProps = {
   size: 'medium',
   image: '',
+  initial: '',
 };
 
 Avatar$1.propDescriptions = {
