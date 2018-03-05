@@ -1338,6 +1338,9 @@ var css$3 = "/* .....................................\n  Vimeo Colors\n.........
 var styles$3 = {"carouselCoin":"Carousel_carouselCoin__1Q9kQ","carouselCoinActive":"Carousel_carouselCoinActive__n_w0q","carouselLeftArrow":"Carousel_carouselLeftArrow__3B1Qm"};
 __$$styleInject(css$3);
 
+// calcNext(3, 0) => 1
+// calcNext(3, 1) => 2
+// calcNext(3, 2) => 0 // <- it wraps around to the first slide
 function calcNext(length, current) {
   return (current + 1) % length;
 }
@@ -1360,6 +1363,11 @@ function getZIndex(topSlideIndex, bgSlideIndex, currentIndex) {
   if (currentIndex === bgSlideIndex) { return '0'; }
   return '-1';
 }
+
+var coinClasses = function (isCurrent) {
+  return index$1(( obj = {}, obj[styles$3.carouselCoin] = isCurrent === false, obj[styles$3.carouselCoinActive] = isCurrent === true, obj ))
+  var obj;
+};
 
 var Carousel$1 = (function (Component$$1) {
   function Carousel(props) {
@@ -1470,7 +1478,7 @@ var Carousel$1 = (function (Component$$1) {
     var isCurrent = isAnimating ? bgSlideIndex === i : topSlideIndex === i;
     return (
       React__default.createElement( 'button', {
-        key: i, className: isCurrent ? 'coin active' : 'coin', disabled: isCurrent || isAnimating, onClick: function () { return this$1.goToSlide(i, '', 'carousel_coin'); } })
+        key: i, className: coinClasses(isCurrent), disabled: isCurrent || isAnimating, onClick: function () { return this$1.goToSlide(i, '', 'carousel_coin'); } })
     );
   };
 

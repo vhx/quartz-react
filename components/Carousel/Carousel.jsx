@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import classNames from 'classnames';
 import Icon from '../Icon';
 import { If, getAspectRatioHeight, noop } from '../util';
 import { KEY_CODES } from '../util/constants';
@@ -30,6 +31,13 @@ function getZIndex(topSlideIndex, bgSlideIndex, currentIndex) {
   if (currentIndex === topSlideIndex) return '1';
   if (currentIndex === bgSlideIndex) return '0';
   return '-1';
+}
+
+const coinClasses = isCurrent => {
+  return classNames({
+    [styles.carouselCoin]: isCurrent === false,
+    [styles.carouselCoinActive]: isCurrent === true,
+  })
 }
 
 class Carousel extends Component {
@@ -127,7 +135,7 @@ class Carousel extends Component {
     return (
       <button
         key={i}
-        className={isCurrent ? 'coin active' : 'coin'}
+        className={coinClasses(isCurrent)}
         disabled={isCurrent || isAnimating}
         onClick={() => this.goToSlide(i, '', 'carousel_coin') }
       />
