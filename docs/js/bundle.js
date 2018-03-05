@@ -1339,9 +1339,6 @@ var css$3 = "/* .....................................\n  Vimeo Colors\n.........
 var styles$3 = {"carousel":"Carousel_carousel__1StRs","carouselMobile":"Carousel_carouselMobile__Zmt7V","carouselLayoutContainer":"Carousel_carouselLayoutContainer__1SWNQ","carouselCoins":"Carousel_carouselCoins__1ZFBn","carouselCoin":"Carousel_carouselCoin__1Q9kQ","carouselCoinActive":"Carousel_carouselCoinActive__n_w0q","leftCarouselArrow":"Carousel_leftCarouselArrow__2EK2g","rightCarouselArrow":"Carousel_rightCarouselArrow__LOj3L","carouselLeftArrow":"Carousel_carouselLeftArrow__3B1Qm"};
 __$$styleInject(css$3);
 
-// calcNext(3, 0) => 1
-// calcNext(3, 1) => 2
-// calcNext(3, 2) => 0 // <- it wraps around to the first slide
 function calcNext(length, current) {
   return (current + 1) % length;
 }
@@ -1641,7 +1638,7 @@ var Header$1 = function (ref) {
       React__default.createElement( 'div', { className: styles$5.mediaColumnWrapper },
         React__default.createElement( 'div', { className: styles$5.media },
           React__default.createElement( 'div', { className: styles$5.mediaIconUnit },
-            React__default.createElement( Icon$1, { name: icon, size: 'large' })
+            React__default.createElement( Icon$1, { src: 'data:image/svg+xml;base64,PHN2ZyBpZD0iTGF5ZXJfMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB2aWV3Qm94PSIwIDAgMjMgMjMiPjxzdHlsZT4uc3Qwe2ZpbGw6IzAwYWRlZn0uc3Qxe2ZpbGw6IzFhMmUzYn08L3N0eWxlPjx0aXRsZT5pY29ucy1zaW5nbGV0b25zPC90aXRsZT48cGF0aCBjbGFzcz0ic3QwIiBkPSJNNi40IDYuMmw1LjEtMi45IDUuMSAyLjktNS4xIDMuMXoiLz48cGF0aCBjbGFzcz0ic3QxIiBkPSJNMTEuNS4yTDEuOSA1Ljd2MTEuNmw5LjYgNS41IDkuNi01LjVWNS43TDExLjUuMnptNy41IDZsLTcuNSA0LjVMNCA2LjJsNy41LTQuM0wxOSA2LjJ6TTMuMyA3LjRsNy41IDQuNXY4LjhsLTcuNS00LjN2LTl6bTguOSAxMy4zdi04LjhsNy41LTQuNXY5LjFsLTcuNSA0LjJ6Ii8+PC9zdmc+', size: 'large' })
           ),
           React__default.createElement( 'div', { className: styles$5.mediaTextUnit },
             React__default.createElement( 'h2', { className: styles$5.headerTitle }, title),
