@@ -99,3 +99,32 @@
   text-align: center;
 }
 
+.modalCloseContainer {
+  display: block;
+  position: absolute;
+  top: -25px;
+  right: -25px;
+  cursor: pointer;
+  width: 16px;
+}
+
+.modalBackgroundOpen {
+  animation: modal-bg-open 300ms ease forwards;
+  background-color: rgba($AstroGranite, 0.55);
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.modalBackgroundClosed {
+  animation: modal-bg-closed 300ms ease forwards;
+  background-color: transparent;
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+}
+

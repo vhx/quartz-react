@@ -76,8 +76,10 @@ class Modal extends Component {
     return (this.actions === true) ? modalActionContainerClasses(this.size) : modalContainerClasses(this.size)
   }
 
+  // v2 consider background.  For now, this works.
   render() {
     const { actions, body, isOpen, size, title } = this.props;
+
     return (
       <div className={`c-modal ${isOpen ? 'is-open' : ''}`}>
         <div className={this.containerClasses()} ref={(el) => { this.el = el; }}>
@@ -104,8 +106,8 @@ class Modal extends Component {
               </div>
             </div>
           </If>
-          <div className='c-modal--close' onClick={modalModel.close}>
-            <Icon size='xsmall' color='white' name='x' />
+          <div className={styles.modalCloseContainer} onClick={modalModel.close}>
+            <Icon size='xsmall' name='x' src={'../components/Modal/close-icon.svg'} />
           </div>
         </div>
         <div className='c-modal-bg' onClick={modalModel.close} />
