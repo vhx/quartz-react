@@ -30,52 +30,6 @@ const handler = (event) => alert('Hi!');
 `;
 
 
-// Sizes demo
-// -----------------------------------------
-
-const StatelessCheckboxSizes = () => (
-  <div>
-    <Subtitle>Sizes</Subtitle>
-    {/* readOnly prop only added to stop react warnings from polluting the console */}
-    <Block><Checkbox uniqueId='c3' label='Foo' size='small' readOnly /></Block>
-    <Block><Checkbox uniqueId='c4' label='Bar' size='medium' readOnly /></Block>
-    <Block><Checkbox uniqueId='c5' label='Baz' size='large' readOnly /></Block>
-    <Block><Checkbox uniqueId='c6' label='Foo' size='small' checked readOnly /></Block>
-    <Block><Checkbox uniqueId='c7' label='Bar' size='medium' checked readOnly /></Block>
-    <Block><Checkbox uniqueId='c8' label='Baz' size='large' checked readOnly /></Block>
-  </div>
-);
-
-const statelessCheckboxSizesCode = `
-<Checkbox uniqueId='c3' label='Foo' size='small' />
-<Checkbox uniqueId='c4' label='Bar' size='medium' />
-<Checkbox uniqueId='c5' label='Baz' size='large' />
-<Checkbox uniqueId='c6' label='Foo' size='small' checked />
-<Checkbox uniqueId='c7' label='Bar' size='medium' checked />
-<Checkbox uniqueId='c8' label='Baz' size='large' checked />
-`;
-
-
-// Toggles demo
-// -----------------------------------------
-
-const StatelessCheckboxToggles = () => (
-  <div>
-    <Subtitle>Toggles</Subtitle>
-    {/* readOnly prop only added to stop react warnings from polluting the console */}
-    <Block><Checkbox uniqueId='c9' type='toggle' size='small' readOnly /></Block>
-    <Block><Checkbox uniqueId='c10' type='toggle' size='small' checked readOnly /></Block>
-  </div>
-);
-
-const statelessCheckboxTogglesCode = `
-// Can use all the same sizes
-// that default checkboxes accept
-<Checkbox uniqueId='c9' type='toggle' size='small' />
-<Checkbox uniqueId='c10' type='toggle' size='small' checked />
-`;
-
-
 // Stateful demo
 // -----------------------------------------
 
@@ -121,7 +75,6 @@ class StatefulCheckbox extends Component {
 
 // Usage of the stateful component
 <StatefulCheckbox uniqueId='c11' size='large' />
-<StatefulCheckbox uniqueId='c12' type='toggle' size='large' />
 `;
 
 
@@ -146,8 +99,6 @@ const Checkboxes = () => (
       </Details>
     </DemoRow>
     <DemoRow code={statelessCheckboxCode}><StatelessCheckboxes /></DemoRow>
-    <DemoRow code={statelessCheckboxSizesCode}><StatelessCheckboxSizes /></DemoRow>
-    <DemoRow code={statelessCheckboxTogglesCode}><StatelessCheckboxToggles /></DemoRow>
     <DemoRow code={statefulCheckboxCode}><StatefulCheckboxDemo /></DemoRow>
     <DemoRow><PropTypeTable component={Checkbox} /></DemoRow>
   </div>

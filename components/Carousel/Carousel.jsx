@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import classNames from 'classnames';
 import Icon from '../Icon';
 import { If, getAspectRatioHeight, noop } from '../util';
 import { KEY_CODES } from '../util/constants';
 
+import styles from './Carousel.scss';
 
 // calcNext(3, 0) => 1
 // calcNext(3, 1) => 2
@@ -29,6 +31,20 @@ function getZIndex(topSlideIndex, bgSlideIndex, currentIndex) {
   if (currentIndex === topSlideIndex) return '1';
   if (currentIndex === bgSlideIndex) return '0';
   return '-1';
+}
+
+const carouselContainer = isMobile => {
+  return classNames({
+    [styles.carousel]: isMobile === false,
+    [styles.carouselMobile]: isMobile === true,
+  })
+}
+
+const coinClasses = isCurrent => {
+  return classNames({
+    [styles.carouselCoin]: isCurrent === false,
+    [styles.carouselCoinActive]: isCurrent === true,
+  })
 }
 
 class Carousel extends Component {
@@ -126,7 +142,7 @@ class Carousel extends Component {
     return (
       <button
         key={i}
-        className={isCurrent ? 'coin active' : 'coin'}
+        className={coinClasses(isCurrent)}
         disabled={isCurrent || isAnimating}
         onClick={() => this.goToSlide(i, '', 'carousel_coin') }
       />
@@ -137,7 +153,7 @@ class Carousel extends Component {
     const { topSlideIndex, bgSlideIndex, enterDirection, exitDirection, isAnimating, isFresh, isMobile, height, width } = this.state;
     const { animationDuration, slides } = this.props;
     return (
-      <div className={`carousel ${isMobile ? 'carousel--mobile' : ''}`} ref={(el) => { this.el = el; }}>
+      <div className={carouselContainer(isMobile)} ref={(el) => { this.el = el; }}>
         <div className='carousel-slides'>
           {
             slides.map(({ Slide, id }, i) => (
@@ -156,10 +172,17 @@ class Carousel extends Component {
           }
         </div>
         <If condition={slides.length > 1}>
-          <div className='carousel-layout-container' style={{ height: `${height}px` }}>
-            <div className='coins'>{ slides.map(this.generateCoin) }</div>
-            <button disabled={isAnimating} onClick={this.prev} className='carousel-arrow carousel-arrow--left'><Icon name='angle-left' color='white' size={isMobile ? 'xsmall' : 'small' } /></button>
-            <button disabled={isAnimating} onClick={this.next} className='carousel-arrow carousel-arrow--right'><Icon name='angle-right' color='white' size={isMobile ? 'xsmall' : 'small' } /></button>
+          <div className={styles.carouselLayoutContainer} style={{ height: `${height}px` }}>
+            <div className={styles.carouselCoins}>{ slides.map(this.generateCoin) }</div>
+            <button disabled={isAnimating} onClick={this.prev} className={styles.leftCarouselArrow}>
+              <div className={styles.carouselLeftArrow}>
+                <Icon name='angle-left' src='data:image/svg+xml;base64,PHN2ZyBpZD0iTGF5ZXJfMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB2aWV3Qm94PSIwIDAgMjQgMjQiPjx0aXRsZT5JY29uLUNoZXZyb24tUmlnaHQ8L3RpdGxlPjxwYXRoIGQ9Ik05LjcxLDE3LjcxLDguMjksMTYuMjksMTIuNTksMTIsOC4yOSw3LjcxLDkuNzEsNi4yOWw1LDVhMSwxLDAsMCwxLDAsMS40MVoiIGZpbGw9IiNGRkZGRkYiLz48L3N2Zz4=' size={isMobile ? 'xsmall' : 'small' }
+               />
+              </div>
+            </button>
+            <button disabled={isAnimating} onClick={this.next} className={styles.rightCarouselArrow}>
+              <Icon name='angle-right' src='data:image/svg+xml;base64,PHN2ZyBpZD0iTGF5ZXJfMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB2aWV3Qm94PSIwIDAgMjQgMjQiPjx0aXRsZT5JY29uLUNoZXZyb24tUmlnaHQ8L3RpdGxlPjxwYXRoIGQ9Ik05LjcxLDE3LjcxLDguMjksMTYuMjksMTIuNTksMTIsOC4yOSw3LjcxLDkuNzEsNi4yOWw1LDVhMSwxLDAsMCwxLDAsMS40MVoiIGZpbGw9IiNGRkZGRkYiLz48L3N2Zz4=' size={isMobile ? 'xsmall' : 'small' } />
+            </button>
           </div>
         </If>
       </div>

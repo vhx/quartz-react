@@ -5,33 +5,45 @@ import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import { excludeProps } from '../util';
 
-function getClass({ className, error, search, small }) {
-  return classNames(className, {
-    small,
-    'is-error': error,
-    'c-select--search': search,
-    'padding-right-large': search,
-    'icon-search-black': search,
-    'icon--xsmall': search,
-  });
+import styles from './Input.scss';
+
+const searchIcon = props => {
+  return classNames({
+    [styles.searchIcon]: props.search === true,
+  })
+}
+
+const errorColor = props => {
+  return (props.error === true) ? '#ff4d4d' : '#1a2e3b';
+}
+
+const errorBorder = props => {
+  return (props.error === true) ? '1px solid #ff4d4d' : '1px solid #1a2e3b';
+}
+
+const inputSize = props => {
+  return (props.small === true) ? '45px' : '100%';
 }
 
 // NOTE: like in the Checkbox component, the `form` class does not
 // do anything here except allow the css selector `.form input` to apply styles.
 // We should consider refactoring the css to remove this requirement.
-const Input = props => (
-  <div className='form'>
-    <input
-      {...excludeProps([ 'className', 'error', 'search', 'small' ], props)}
-      className={getClass({
-        className: props.className,
-        error: props.error,
-        search: props.search,
-        small: props.small,
-      })}
-    />
-  </div>
-);
+const Input = props => {
+  const inputStyles = {
+    color: errorColor(props),
+    border: errorBorder(props),
+    width: inputSize(props),
+  }
+  return (
+    <div className={styles.form}>
+      <input
+        {...excludeProps([ 'className', 'error', 'search', 'small' ], props)}
+        style={inputStyles}
+        className={searchIcon(props)}
+      />
+    </div>
+  );
+}
 
 Input.propTypes = {
   autoFocus: PropTypes.bool,

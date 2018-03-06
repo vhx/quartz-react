@@ -3,6 +3,7 @@ import buble from 'rollup-plugin-buble';
 import resolve from 'rollup-plugin-node-resolve';
 import replace from 'rollup-plugin-replace';
 import filesize from 'rollup-plugin-filesize';
+import postcss from 'rollup-plugin-postcss';
 
 const env = JSON.stringify(process.env.NODE_ENV);
 
@@ -14,6 +15,10 @@ export default {
   external: [ 'react', 'react-dom' ],
   globals: { react: 'React', 'react-dom': 'ReactDOM' },
   plugins: [
+    postcss({
+      modules: true,
+      plugins: [],
+    }),
     replace({ 'process.env.NODE_ENV': env }),
     resolve(),
     commonjs(),

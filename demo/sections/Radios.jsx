@@ -56,8 +56,8 @@ const statelessRadioCode = `
 const RadioColors = () => (
   <div>
     <Subtitle>Color variants</Subtitle>
-    <Block><RadioGroup items={items} selectedIndex={0} color='gray' /></Block>
-    <Block><RadioGroup items={items} selectedIndex={0} color='teal' /></Block>
+    <Block><RadioGroup items={items} selectedIndex={0} color='SoutherlySky' /></Block>
+    <Block><RadioGroup items={items} selectedIndex={0} color='VimeoBlue' /></Block>
   </div>
 );
 
@@ -65,13 +65,13 @@ const radioColorsCode = `
 <RadioGroup
   items={items}
   selectedIndex={0}
-  color='gray'
+  color='SoutherlySky'
 />
 
 <RadioGroup
   items={items}
   selectedIndex={0}
-  color='teal'
+  color='VimeoBlue'
 />
 `;
 

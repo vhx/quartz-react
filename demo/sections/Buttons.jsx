@@ -15,18 +15,12 @@ import {
 
 const colors = [
   'gray',
-  'teal',
   'vimeo-blue',
   'vimeo-secondary',
   'vimeo-secondary-outline',
   'vimeo-alt',
   'white',
   'red',
-  'purple',
-  'green',
-  'slate',
-  'black',
-  'yellow',
   'twitter',
   'facebook',
   'tumblr',
@@ -64,10 +58,18 @@ const buttonColorsCode = `
 const ButtonProcessing = () => (
   <div>
     <Subtitle>Processing State</Subtitle>
-    <Block inline><Button processing>processing</Button></Block>
-    <Block inline><Button color='teal' processing>processing</Button></Block>
-    <Block inline><Button color='white' processing>processing</Button></Block>
-    <Block inline><Button color='red' processing>processing</Button></Block>
+    <Block inline>
+      <Button processing />
+    </Block>
+    <Block inline>
+      <Button color='vimeo-blue' processing />
+    </Block>
+    <Block inline>
+      <Button color='white' processing />
+    </Block>
+    <Block inline>
+      <Button color='red' processing />
+    </Block>
   </div>
 );
 
@@ -96,23 +98,6 @@ const buttonSizesCode = `
 <Button size='large'>large</Button>
 <Button size='half'>half</Button>
 <Button size='fill'>fill</Button>
-`;
-
-
-// Typefaces demo
-// -----------------------------------------
-
-const ButtonTypefaces = () => (
-  <div>
-    <Subtitle>Typefaces</Subtitle>
-    <Block><Button>Default</Button></Block>
-    <Block><Button typeface='brandon'>Brandon</Button></Block>
-  </div>
-);
-
-const buttonTypefacesCode = `
-<Button>Default</Button>
-<Button typeface='brandon'>Brandon</Button>
 `;
 
 
@@ -155,7 +140,6 @@ const Buttons = () => (
     <DemoRow code={buttonColorsCode}><ButtonColors /></DemoRow>
     <DemoRow code={buttonProcessingCode}><ButtonProcessing /></DemoRow>
     <DemoRow code={buttonSizesCode}><ButtonSizes /></DemoRow>
-    <DemoRow code={buttonTypefacesCode}><ButtonTypefaces /></DemoRow>
     <DemoRow code={buttonIconsCode}><ButtonIcons /></DemoRow>
     <DemoRow><PropTypeTable component={Button} /></DemoRow>
   </div>

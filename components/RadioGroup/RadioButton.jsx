@@ -4,27 +4,26 @@ import classNames from 'classnames';
 import RadioIcon from './RadioIcon.jsx';
 import { If } from '../util';
 
+import styles from './RadioGroup.scss';
+
 function getDescriptionClassName(checked) {
   return classNames({
-    'text--white': checked,
-    'text-4': true,
+    [styles.checkedButtonText]: checked,
+    [styles.strongText]: true,
   });
 }
 
 function getClassName(checked) {
   return classNames({
-    'btn-teal': checked,
-    'btn-gray': !checked,
-    'btn--fill': true,
-    'btn-radio': true,
-    'margin-bottom-medium': true,
+    [styles.radioButtonLabel]: checked,
+    [styles.radioButtonLabelGray]: !checked,
   });
 }
 
 function getTitleClassName(checked) {
   return classNames({
-    'text--white': checked,
-    'text--navy': !checked,
+    [styles.checkedButtonTitle]: checked,
+    [styles.uncheckedButtonTitle]: !checked,
     'text-2': true,
   });
 }
@@ -35,20 +34,27 @@ function getStyle(description) {
 
 const RadioButton = ({ checked, description, index, label, onCheck }) => (
   <li>
-    <input
-      type='radio'
-      checked={checked}
-      onChange={event => onCheck(event, index)}
-    />
-    <label className={getClassName(checked)} onClick={event => onCheck(event, index)}>
-      <RadioIcon />
-      <span className='radio--label text-left padding-left-small' style={getStyle(description)}>
-        <strong className={getTitleClassName(checked)}>{label}</strong>
-        <If condition={Boolean(description)}>
-          <p className={getDescriptionClassName(checked)}>{description}</p>
-        </If>
-      </span>
-    </label>
+    <div className={styles.radioButtonWrapper}>
+      <input
+        type='radio'
+        checked={checked}
+        onChange={event => onCheck(event, index)}
+      />
+      <label
+        className={getClassName(checked)}
+        onClick={event => onCheck(event, index)}
+      >
+        <span className={styles.radioButtonRadioWrapper}>
+          <RadioIcon />
+        </span>
+        <span className={styles.radioButtonsTextWrapper} style={getStyle(description)}>
+          <strong className={getTitleClassName(checked)}>{label}</strong>
+          <If condition={Boolean(description)}>
+            <p className={getDescriptionClassName(checked)}>{description}</p>
+          </If>
+        </span>
+      </label>
+    </div>
   </li>
 );
 

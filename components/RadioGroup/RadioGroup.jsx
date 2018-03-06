@@ -4,13 +4,14 @@ import classNames from 'classnames';
 import Radio from './Radio.jsx';
 import RadioButton from './RadioButton.jsx';
 import { noop } from '../util';
+import styles from './RadioGroup.scss';
 
 function getClassName({ buttons, color, stacked }) {
   return classNames({
-    'radio-teal': color === 'teal',
-    'radio-gray': color === 'gray',
-    'radio--buttons': buttons,
-    'radio--stacked': stacked,
+    [styles.blueRadio]: color === 'VimeoBlue',
+    [styles.grayRadio]: color === 'SoutherlySky',
+    [styles.buttonRadios]: buttons,
+    [styles.stackedRadios]: stacked,
   });
 }
 
@@ -28,7 +29,7 @@ const RadioGroup = ({ buttons, color, items, onCheck, selectedIndex, stacked }) 
   </div>
 );
 
-const colors = [ 'teal', 'gray' ];
+const colors = [ 'VimeoBlue', 'SoutherlySky' ];
 
 const radioItemPropType = PropTypes.shape({
   label: PropTypes.string.isRequired,
@@ -46,7 +47,7 @@ RadioGroup.propTypes = {
 
 RadioGroup.defaultProps = {
   buttons: false,
-  color: 'teal',
+  color: 'VimeoBlue',
   onCheck: noop,
   selectedIndex: -1,
   stacked: false,

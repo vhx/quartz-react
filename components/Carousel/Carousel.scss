@@ -1,0 +1,93 @@
+@import '../util/include-responsive.scss';
+
+// note:  there wasn't any styles for carousel mobile, but left this as a placeholder for now.
+
+.carousel,
+.carouselMobile {
+  background-color: $black;
+  color: $White;
+  overflow: hidden;
+  position: relative
+}
+
+.carouselLayoutContainer {
+  max-width: 1720px;
+  margin: auto;
+  position: relative;
+}
+
+.carouselCoins {
+  bottom: 0;
+  height: 40px;
+  line-height: 0;
+  opacity: 0;
+  position: absolute;
+  text-align: center;
+  transition: opacity .3s ease;
+  width: 100%;
+  z-index: 1;
+
+  &:hover {
+    opacity: 1;
+  }
+}
+
+.carouselCoin,
+.carouselCoinActive {
+  $marginProps: (
+    orientation: 'left-right',
+    left-side: 4px,
+    right-side: 4px,
+  );
+
+  @include Margin($marginProps);
+
+  border: 0;
+  border-radius: 4px;
+  box-shadow: 0 1px 5px $AstroGranite;
+  height: 8px;
+  outline: 0;
+  padding: 0;
+  transition: opacity .3s ease;
+  width: 8px;
+}
+
+.carouselCoin {
+  background-color: rgba($White, 0.5);
+}
+
+.carouselCoinActive {
+  background-color: $White;
+}
+
+.leftCarouselArrow ,
+.rightCarouselArrow {
+  background-color: transparent;
+  border: 0;
+  border-radius: 0;
+  height: 100%;
+  outline: 0;
+  padding: 24px;
+  position: absolute;
+  transition: opacity .3s ease;
+  z-index: 1;
+  opacity: 0;
+
+  &:hover {
+    opacity: 1;
+  }
+}
+
+.rightCarouselArrow {
+  padding-left: 0;
+  right: 0;
+}
+
+.leftCarouselArrow {
+  padding-right: 0;
+  left: 0;
+}
+
+.carouselLeftArrow {
+  transform: rotate(180deg);
+}

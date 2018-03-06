@@ -1,0 +1,130 @@
+@import '../util/include-responsive.scss';
+
+// need to figure out openModal class, relying on Quartz.
+.openModal {
+  z-index: 2147483801;
+  position: relative;
+  left: 0;
+}
+
+.smallModal {
+  width: 300px;
+  margin-left: -150px;
+}
+
+.smallActionModal {
+  $paddingProps: (
+    orientation: 'bottom-only',
+    bottom-side: 65px,
+  );
+
+  @include Padding($paddingProps);
+  width: 300px;
+  margin-left: -150px;
+}
+
+.mediumModal {
+  width: 450px;
+  margin-left: -225px;
+}
+
+.mediumActionModal {
+  $paddingProps: (
+    orientation: 'bottom-only',
+    bottom-side: 65px,
+  );
+
+  @include Padding($paddingProps);
+  width: 450px;
+  margin-left: -225px;
+}
+
+.largeModal {
+  width: 650px;
+  margin-left: -325px;
+}
+
+.largeActionModal {
+  $paddingProps: (
+    orientation: 'bottom-only',
+    bottom-side: 65px,
+  );
+
+  @include Padding($paddingProps);
+  width: 650px;
+  margin-left: -325px;
+}
+
+.modalHeader {
+  $paddingProps: (
+    orientation: 'all',
+    all-side: $medium,
+  );
+
+  @include Padding($paddingProps);
+  border-bottom: 1px solid rgba($AstroGranite, 0.2);
+}
+
+.modalTitle {
+  @include Type700($color: $AstroGranite, $size: 16px);
+  text-align: left;
+  text-transform: uppercase;
+}
+
+.modalBody {
+  $paddingProps: (
+    orientation: 'all',
+    all-side: $medium,
+  );
+
+  @include Padding($paddingProps);
+}
+
+.modalActionContainer {
+  background: $White;
+  border-top: 1px solid rgba($AstroGranite, 0.2);
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+}
+
+.modalActionPosition {
+  $paddingProps: (
+    orientation: 'all',
+    all-side: $small,
+  );
+
+  @include Padding($paddingProps);
+  text-align: center;
+}
+
+.modalCloseContainer {
+  display: block;
+  position: absolute;
+  top: -25px;
+  right: -25px;
+  cursor: pointer;
+  width: 16px;
+}
+
+.modalBackgroundOpen {
+  animation: modal-bg-open 300ms ease forwards;
+  background-color: rgba($AstroGranite, 0.55);
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.modalBackgroundClosed {
+  animation: modal-bg-closed 300ms ease forwards;
+  background-color: transparent;
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+}
+

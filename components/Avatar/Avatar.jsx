@@ -2,19 +2,33 @@
 
 import React from 'react';
 import PropTypes from 'prop-types';
+import styles from './Avatar.scss';
+import cx from 'classnames';
+
+const setClass = (props) => {
+  return cx({
+    [styles.defaultAvatarXsmall]: props.size === 'xsmall',
+    [styles.defaultAvatarSmall]: props.size === 'small',
+    [styles.defaultAvatarMedium]: props.size === 'medium',
+    [styles.defaultAvatarLarge]: props.size === 'large',
+    [styles.defaultAvatarXlarge]: props.size === 'xlarge',
+    [styles.defaultAvatarXxlarge]: props.size === 'xxlarge',
+  })
+}
 
 
-const Avatar = props => (
-  <span className={`avatar color-teal avatar--${props.size}`}>
-    <span
-      className='avatar-user user-avatar'
-      style={{
-        backgroundImage: `url('${props.image}')`,
-      }}
-    />
-
-  </span>
-);
+const Avatar = props => {
+  return (
+    <span className={setClass(props)} style={{ zIndex: 1 }}>
+      <span
+        className={styles.avatarImage}
+        style={{
+          backgroundImage: `url('${props.image}')`,
+        }}
+      />
+    </span>
+  );
+};
 
 const sizes = [ 'xsmall', 'small', 'medium', 'large', 'xlarge', 'xxlarge' ];
 

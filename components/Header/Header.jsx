@@ -1,22 +1,37 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import cx from 'classnames';
 import Icon from '../Icon';
 import iconList from '../Icon/icon-list.js';
 
-const Header = ({ border, children, Description, icon, title }) => (
-  <div className={`header row padding-bottom-medium ${border ? 'border-bottom' : ''}`}>
-    <div className='column small-16 medium-8 large-10'>
-      <div className='media'>
-        <div className='media-unit text-top'><Icon name={icon} size='large' /></div>
-        <div className='media-unit media-fill padding-left-medium'>
-          <h2 className='head-3'>{title}</h2>
-          <div className='text text--gray'>{typeof Description === 'string' ? Description : <Description />}</div>
+import styles from './Header.scss';
+
+const containerClasses = border => {
+  return cx({
+    [styles.headerContainer]: border === false || border === undefined,
+    [styles.headerContainerBorder]: border === true,
+  });
+};
+
+const Header = ({ border, children, Description, icon, title }) => {
+  return (
+    <div className={containerClasses(border)}>
+      <div className={styles.mediaColumnWrapper}>
+        <div className={styles.media}>
+          <div className={styles.mediaIconUnit}>
+            <Icon src='data:image/svg+xml;base64,PHN2ZyBpZD0iTGF5ZXJfMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB2aWV3Qm94PSIwIDAgMjMgMjMiPjxzdHlsZT4uc3Qwe2ZpbGw6IzAwYWRlZn0uc3Qxe2ZpbGw6IzFhMmUzYn08L3N0eWxlPjx0aXRsZT5pY29ucy1zaW5nbGV0b25zPC90aXRsZT48cGF0aCBjbGFzcz0ic3QwIiBkPSJNNi40IDYuMmw1LjEtMi45IDUuMSAyLjktNS4xIDMuMXoiLz48cGF0aCBjbGFzcz0ic3QxIiBkPSJNMTEuNS4yTDEuOSA1Ljd2MTEuNmw5LjYgNS41IDkuNi01LjVWNS43TDExLjUuMnptNy41IDZsLTcuNSA0LjVMNCA2LjJsNy41LTQuM0wxOSA2LjJ6TTMuMyA3LjRsNy41IDQuNXY4LjhsLTcuNS00LjN2LTl6bTguOSAxMy4zdi04LjhsNy41LTQuNXY5LjFsLTcuNSA0LjJ6Ii8+PC9zdmc+' size='large' />
+          </div>
+          <div className={styles.mediaTextUnit}>
+            <h2 className={styles.headerTitle}>{title}</h2>
+            <div className={styles.headerDescription}>{typeof Description === 'string' ? Description : <Description />}
+            </div>
+          </div>
         </div>
       </div>
+      <div className={styles.headerColumnOptionsWrapper}>{children}</div>
     </div>
-    <div className='column small-16 medium-8 large-6 text-right'>{children}</div>
-  </div>
-);
+  );
+}
 
 Header.propTypes = {
   border: PropTypes.bool,

@@ -5,6 +5,9 @@
 <If condition={true}><MyComponent /></If> // MyComponent will render
 */
 export { default as If } from './If.jsx';
+export { default as componentColor } from './componentColor.jsx';
+export { default as componentSize } from './componentSize.jsx';
+
 
 export { Model, connect } from './model.js';
 

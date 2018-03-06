@@ -1,59 +1,46 @@
 /* eslint-disable react/no-unused-prop-types */
-
 import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import iconList from './icon-list.js';
+import { componentColor, componentSize } from '../util';
 
-function getClassName({ button, circle, className, left, color, name, right, size }) {
-  return classNames(className, {
-    icon: !button,
-    [`icon-${name}`]: !color,
-    [`icon-${name}-${color}`]: !!color,
-    'icon-circle': circle,
-    'icon--left': left,
-    'icon--right': right,
-    'icon--xxsmall': size === 'xxsmall',
-    'icon--xsmall': size === 'xsmall',
-    'icon--small': size === 'small',
-    'icon--medium': size === 'medium',
-    'icon--large': size === 'large',
-    'icon--xlarge': size === 'xlarge',
-    'icon--xxlarge': size === 'xxlarge',
-  });
+import styles from './Icon.scss'
+
+const Icon = props => {
+  const iconStyles = {
+    backgroundColor: componentColor(props),
+    width: componentSize(props),
+    height: componentSize(props),
+    backgroundImage: `url(${props.src})`,
+    backgroundRepeat: 'no-repeat',
+  }
+  return (
+    <div
+      className={styles.icon}
+      style={iconStyles}
+    />
+  );
 }
 
-const Icon = props => (
-  <span className={getClassName(props)}>{props.children}</span>
-);
-
-const colors = [ '', 'navy', 'teal', 'white', 'gray' ];
+const colors = [ '', 'VimeoBlue', 'SunsetOrange', 'white',  'Porcelain', 'AstroGranite' ];
 const sizes = [ 'xxsmall', 'xsmall', 'small', 'medium', 'large', 'xlarge', 'xxlarge' ];
 
 Icon.propTypes = {
-  children: PropTypes.node,
-  className: PropTypes.string,
-  circle: PropTypes.bool,
   color: PropTypes.oneOf(colors),
-  name: PropTypes.oneOf(iconList).isRequired,
-  left: PropTypes.bool,
-  right: PropTypes.bool,
   size: PropTypes.oneOf(sizes),
+  src: PropTypes.string,
 };
 
 Icon.defaultProps = {
-  children: '',
-  className: '',
-  circle: false,
   color: null,
-  left: false,
-  right: false,
-  size: 'xsmall',
+  size: 'small',
+  src: '',
 };
 
 Icon.propDescriptions = {
   color: `One of: ["${colors.join('", "')}"]`,
-  name: 'String: One of any of the valid icon names',
+  src: 'String: an image hosted locally in your repository',
   size: `One of: ["${sizes.join('", "')}"]`,
 };
 

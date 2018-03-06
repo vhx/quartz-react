@@ -1,0 +1,31 @@
+@import '../util/include-responsive.scss';
+
+.headOne {
+  @include Type400($color: $AstroGranite, $size: 40px);
+  text-transform: uppercase;
+}
+
+.headTwo {
+  @include Type400($color: $AstroGranite, $size: 30px);
+  text-transform: uppercase;
+}
+
+.headThree {
+  @include Type400($color: $AstroGranite, $size: 22px);
+  text-transform: uppercase;
+}
+
+.headFour {
+  @include Type400($color: $AstroGranite);
+  text-transform: uppercase;
+}
+
+.headFive {
+  @include Type400($color: $AstroGranite, $size: 14px);
+  text-transform: uppercase;
+}
+
+.headSix {
+  @include Type400($color: $AstroGranite, $size: 12px);
+  text-transform: uppercase;
+}

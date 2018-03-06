@@ -1,0 +1,48 @@
+@import '../util/include-responsive.scss';
+
+.checkboxContain {
+  min-height: 20px;
+  width: 100%;
+  display: block;
+}
+
+.checkboxIcon {
+  $marginProps: (orientation: 'right-only', right-side: $small, );
+  @include Margin($marginProps);
+  transition: border 400ms ease-out;
+  border: 1px solid $Porcelain;
+  background-image: none;
+  width: 20px;
+  height: 20px;
+  display: inline-block;
+  float: left;
+  background-color: $White;
+  background-position: 50% 50%;
+  background-size: 75%;
+  position: relative;
+  box-shadow: none;
+  border-radius: 3px;
+}
+
+.checkboxLabel {
+  $marginProps: (orientation: 'left-only', left-side: $small,);
+  @include Margin($marginProps);
+  min-height: 20px;
+  width: calc(100% - 25px);
+  position: absolute;
+  left: 25px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: block;
+  float: left;
+}
+
+.checkboxLabel,
+.checkboxContain {
+  &:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+}

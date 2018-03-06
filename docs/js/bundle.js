@@ -1,6 +1,33 @@
 (function (React,ReactDOM) {
 'use strict';
 
+function __$$styleInject(css, ref) {
+  if ( ref === void 0 ) ref = {};
+  var insertAt = ref.insertAt;
+
+  if (!css || typeof document === 'undefined') { return; }
+
+  var head = document.head || document.getElementsByTagName('head')[0];
+  var style = document.createElement('style');
+  style.type = 'text/css';
+
+  if (insertAt === 'top') {
+    if (head.firstChild) {
+      head.insertBefore(style, head.firstChild);
+    } else {
+      head.appendChild(style);
+    }
+  } else {
+    head.appendChild(style);
+  }
+
+  if (style.styleSheet) {
+    style.styleSheet.cssText = css;
+  } else {
+    style.appendChild(document.createTextNode(css));
+  }
+}
+
 var React__default = 'default' in React ? React['default'] : React;
 ReactDOM = 'default' in ReactDOM ? ReactDOM['default'] : ReactDOM;
 
@@ -807,6 +834,120 @@ If$1.defaultProps = {
   inline: false,
 };
 
+var componentColor = function (props) {
+  if (props.color === 'white') {
+    return '#ffffff';
+  }
+
+  if (props.color === 'VimeoBlue-Darkened') {
+    return '#0088cc';
+  }
+
+  if (props.color === 'VimeoBlue') {
+    return '#00adef';
+  }
+
+  if (props.color === 'Foam') {
+    return '#e5f7fd';
+  }
+
+  if (props.color === 'Pistachio-Darkened') {
+    return '#5a9e02';
+  }
+
+  if (props.color === 'Pistachio') {
+    return '#7fc400';
+  }
+
+  if (props.color === 'RumSwizzle') {
+    return '#f2f9e5';
+  }
+
+  if (props.color === 'SunsetOrange-Darkened') {
+    return '#d96336';
+  }
+
+  if (props.color === 'SunsetOrange') {
+    return '#ff4d4d';
+  }
+
+  if (props.color === 'PalePink') {
+    return '#ffeded';
+  }
+
+  if (props.color === 'Porcelain') {
+    return '#e3e8e9';
+  }
+
+  if (props.color === 'Plaster') {
+    return '#eef1f2';
+  }
+
+  if (props.color === 'Paste') {
+    return '#f6f7f8';
+  }
+
+  if (props.color === 'RegentGray') {
+    return '#8699a6';
+  }
+
+  if (props.color === 'SoutherlySky') {
+    return '#b3bfc8';
+  }
+
+  if (props.color === 'AstroGranite') {
+    return '#1a2e3b';
+  }
+
+  return null;
+};
+
+componentColor.propTypes = {
+  color: index.string,
+};
+
+componentColor.defaultProps = {
+  color: '',
+};
+
+var componentSize = function (props) {
+  if (props.size == 'xxsmall') {
+    return '15px';
+  }
+
+  if (props.size == 'xsmall') {
+    return '15px';
+  }
+
+  if (props.size == 'small') {
+    return '25px';
+  }
+
+  if (props.size == 'medium') {
+    return '35px';
+  }
+
+  if (props.size == 'large') {
+    return '45px';
+  }
+
+  if (props.size == 'xlarge') {
+    return '55px';
+  }
+
+  if (props.size == 'xxlarge') {
+    return '65px';
+  }
+};
+
+componentSize.propTypes = {
+  size: index.string,
+};
+
+componentSize.defaultProps = {
+  size: '25px',
+};
+
 var toStr = Object.prototype.toString;
 
 function Model$$1(ref) {
@@ -996,37 +1137,15 @@ var utilities = Object.freeze({
 	immutableMerge: immutableMerge,
 	noop: noop,
 	If: If$1,
+	componentColor: componentColor,
+	componentSize: componentSize,
 	Model: Model$$1,
 	connect: connect$$1
 });
 
-/* eslint-disable react/no-unused-prop-types */
-
-var Avatar$1 = function (props) { return (
-  React__default.createElement( 'span', { className: ("avatar color-teal avatar--" + (props.size)) },
-    React__default.createElement( 'span', {
-      className: 'avatar-user user-avatar', style: {
-        backgroundImage: ("url('" + (props.image) + "')"),
-      } })
-
-  )
-); };
-
-var sizes = [ 'xsmall', 'small', 'medium', 'large', 'xlarge', 'xxlarge' ];
-
-Avatar$1.propTypes = {
-  size: index.oneOf(sizes),
-  image: index.string,
-};
-
-Avatar$1.defaultProps = {
-  size: 'medium',
-  image: '',
-};
-
-Avatar$1.propDescriptions = {
-  size: ("One of: [\"" + (sizes.join('", "')) + "\"]"),
-};
+var css = "/* .....................................\n  Vimeo Colors\n..................................... */\n/* .....................................\n  Grayscale\n..................................... */\n/* .....................................\n  Blues\n..................................... */\n/* .....................................\n  Greens\n..................................... */\n/* .....................................\n  Reds\n..................................... */\n/* .....................................\n  Interaction Colors\n..................................... */\n/* .....................................\n  Vimeo Legacy Colors\n..................................... */\n/* .....................................\n  Default Text\n..................................... */\n/* .....................................\n  Default Sizing\n..................................... */\n/* .....................................\n  Vimeo Colors\n..................................... */\n/* .....................................\n  Grayscale\n..................................... */\n/* .....................................\n  Blues\n..................................... */\n/* .....................................\n  Greens\n..................................... */\n/* .....................................\n  Reds\n..................................... */\n/* .....................................\n  Interaction Colors\n..................................... */\n/* .....................................\n  Vimeo Legacy Colors\n..................................... */\n/* .....................................\n  Default Text\n..................................... */\n/* .....................................\n  Default Sizing\n..................................... */\n/*.....................................\n  VIMEO FONT MIXINS\n......................................*/\n/* .....................................\n  Vimeo Colors\n..................................... */\n/* .....................................\n  Grayscale\n..................................... */\n/* .....................................\n  Blues\n..................................... */\n/* .....................................\n  Greens\n..................................... */\n/* .....................................\n  Reds\n..................................... */\n/* .....................................\n  Interaction Colors\n..................................... */\n/* .....................................\n  Vimeo Legacy Colors\n..................................... */\n/* .....................................\n  Default Text\n..................................... */\n/* .....................................\n  Default Sizing\n..................................... */\n/* .....................................\n  Vimeo Colors\n..................................... */\n/* .....................................\n  Grayscale\n..................................... */\n/* .....................................\n  Blues\n..................................... */\n/* .....................................\n  Greens\n..................................... */\n/* .....................................\n  Reds\n..................................... */\n/* .....................................\n  Interaction Colors\n..................................... */\n/* .....................................\n  Vimeo Legacy Colors\n..................................... */\n/* .....................................\n  Default Text\n..................................... */\n/* .....................................\n  Default Sizing\n..................................... */\n/* .....................................\n  Vimeo Specific Fonts\n..................................... */\n/* .....................................\n  Vimeo Specific Widths\n..................................... */\n/* .....................................\n  Vimeo Media Query Breakpoints\n..................................... */\n.Avatar_defaultAvatarXsmall__1F3aJ,\n.Avatar_defaultAvatarSmall__2Qaih,\n.Avatar_defaultAvatarMedium__3KWZI,\n.Avatar_defaultAvatarLarge__1hfuE,\n.Avatar_defaultAvatarXlarge__6Ag2X,\n.Avatar_defaultAvatarXxlarge__2b9Tp {\n  background-color: #00adef;\n  background-size: cover;\n  border-radius: 50%;\n  display: inline-block;\n  position: relative;\n  overflow: hidden; }\n  .Avatar_defaultAvatarXsmall__1F3aJ:before,\n  .Avatar_defaultAvatarSmall__2Qaih:before,\n  .Avatar_defaultAvatarMedium__3KWZI:before,\n  .Avatar_defaultAvatarLarge__1hfuE:before,\n  .Avatar_defaultAvatarXlarge__6Ag2X:before,\n  .Avatar_defaultAvatarXxlarge__2b9Tp:before {\n    color: #fff;\n    content: ' ';\n    display: block;\n    -webkit-background-clip: padding-box;\n    background-clip: padding-box;\n    width: 100%;\n    height: 100%;\n    background-image: url('data:image/svg+xml;charset=US-ASCII,<svg%20xmlns%3D\"http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg\"%20width%3D\"23\"%20height%3D\"23\"%20viewBox%3D\"0%200%2023%2023\"><g%20fill%3D\"%23ffffff\"><path%20d%3D\"M7.1%2011c1.8%200%201.8-2.8%200-2.8S5.3%2011%207.1%2011zM15.9%2011c1.8%200%201.8-2.8%200-2.8s-1.8%202.8%200%202.8z\"%20fill%3D\"%23ffffff\"><%2Fpath><path%20d%3D\"M4.2%2012.9c.3%200%20.5.2.5.5v1.4h13.6v-1.4c0-.3.2-.5.5-.5h3.8V4.6c0-.4-.3-.8-.8-.8H1.2c-.4%200-.8.4-.8.8v8.3h3.8zm11.7-5.7c3.1%200%203.1%204.8%200%204.8s-3.1-4.8%200-4.8zm-8.8%200c3.1%200%203.1%204.8%200%204.8S4%207.2%207.1%207.2z\"%20fill%3D\"%23ffffff\"><%2Fpath><path%20d%3D\"M19.3%2013.9v1.4c0%20.3-.2.5-.5.5H4.2c-.3%200-.5-.2-.5-.5v-1.4H.4v4.5c0%20.4.3.8.8.8h20.7c.4%200%20.8-.4.8-.8v-4.5h-3.4z\"%20fill%3D\"%23ffffff\"><%2Fpath><%2Fg><path%20d%3D\"M7.1%208.2c-1.8%200-1.8%202.8%200%202.8s1.8-2.8%200-2.8zM15.9%208.2c-1.8%200-1.8%202.8%200%202.8s1.8-2.8%200-2.8z\"%20fill%3D\"%23ffffff\"><%2Fpath><%2Fsvg>');\n    background-repeat: no-repeat;\n    background-position: 50% 50%;\n    background-size: 50%; }\n\n.Avatar_default-avatar-xsmall__1dZPQ {\n  width: 25px;\n  height: 25px; }\n\n.Avatar_defaultAvatarSmall__2Qaih {\n  height: 35px;\n  width: 35px; }\n\n.Avatar_defaultAvatarMedium__3KWZI {\n  width: 45px;\n  height: 45px; }\n\n.Avatar_defaultAvatarLarge__1hfuE {\n  height: 60px;\n  width: 60px; }\n\n.Avatar_default-avatar-xlarge__3XpS2 {\n  height: 80px;\n  width: 80px; }\n\n.Avatar_defaultAvatarXxlarge__2b9Tp {\n  width: 100px;\n  height: 100px; }\n\n.Avatar_avatarImage__3y074 {\n  position: absolute;\n  top: 0;\n  left: 0;\n  width: 100%;\n  height: 100%;\n  background-size: cover; }\n";
+var styles = {"defaultAvatarXsmall":"Avatar_defaultAvatarXsmall__1F3aJ","defaultAvatarSmall":"Avatar_defaultAvatarSmall__2Qaih","defaultAvatarMedium":"Avatar_defaultAvatarMedium__3KWZI","defaultAvatarLarge":"Avatar_defaultAvatarLarge__1hfuE","defaultAvatarXlarge":"Avatar_defaultAvatarXlarge__6Ag2X","defaultAvatarXxlarge":"Avatar_defaultAvatarXxlarge__2b9Tp","default-avatar-xsmall":"Avatar_default-avatar-xsmall__1dZPQ","default-avatar-xlarge":"Avatar_default-avatar-xlarge__3XpS2","avatarImage":"Avatar_avatarImage__3y074"};
+__$$styleInject(css);
 
 var index$1 = createCommonjsModule(function (module) {
 /*!
@@ -1083,6 +1202,45 @@ var index$1 = createCommonjsModule(function (module) {
 
 /* eslint-disable react/no-unused-prop-types */
 
+var setClass = function (props) {
+  return index$1(( obj = {}, obj[styles.defaultAvatarXsmall] = props.size === 'xsmall', obj[styles.defaultAvatarSmall] = props.size === 'small', obj[styles.defaultAvatarMedium] = props.size === 'medium', obj[styles.defaultAvatarLarge] = props.size === 'large', obj[styles.defaultAvatarXlarge] = props.size === 'xlarge', obj[styles.defaultAvatarXxlarge] = props.size === 'xxlarge', obj ))
+  var obj;
+};
+
+
+var Avatar$1 = function (props) {
+  return (
+    React__default.createElement( 'span', { className: setClass(props), style: { zIndex: 1 } },
+      React__default.createElement( 'span', {
+        className: styles.avatarImage, style: {
+          backgroundImage: ("url('" + (props.image) + "')"),
+        } })
+    )
+  );
+};
+
+var sizes = [ 'xsmall', 'small', 'medium', 'large', 'xlarge', 'xxlarge' ];
+
+Avatar$1.propTypes = {
+  size: index.oneOf(sizes),
+  image: index.string,
+};
+
+Avatar$1.defaultProps = {
+  size: 'medium',
+  image: '',
+};
+
+Avatar$1.propDescriptions = {
+  size: ("One of: [\"" + (sizes.join('", "')) + "\"]"),
+};
+
+var css$1 = "/* .....................................\n  Vimeo Colors\n..................................... */\n/* .....................................\n  Grayscale\n..................................... */\n/* .....................................\n  Blues\n..................................... */\n/* .....................................\n  Greens\n..................................... */\n/* .....................................\n  Reds\n..................................... */\n/* .....................................\n  Interaction Colors\n..................................... */\n/* .....................................\n  Vimeo Legacy Colors\n..................................... */\n/* .....................................\n  Default Text\n..................................... */\n/* .....................................\n  Default Sizing\n..................................... */\n/* .....................................\n  Vimeo Colors\n..................................... */\n/* .....................................\n  Grayscale\n..................................... */\n/* .....................................\n  Blues\n..................................... */\n/* .....................................\n  Greens\n..................................... */\n/* .....................................\n  Reds\n..................................... */\n/* .....................................\n  Interaction Colors\n..................................... */\n/* .....................................\n  Vimeo Legacy Colors\n..................................... */\n/* .....................................\n  Default Text\n..................................... */\n/* .....................................\n  Default Sizing\n..................................... */\n/*.....................................\n  VIMEO FONT MIXINS\n......................................*/\n/* .....................................\n  Vimeo Colors\n..................................... */\n/* .....................................\n  Grayscale\n..................................... */\n/* .....................................\n  Blues\n..................................... */\n/* .....................................\n  Greens\n..................................... */\n/* .....................................\n  Reds\n..................................... */\n/* .....................................\n  Interaction Colors\n..................................... */\n/* .....................................\n  Vimeo Legacy Colors\n..................................... */\n/* .....................................\n  Default Text\n..................................... */\n/* .....................................\n  Default Sizing\n..................................... */\n/* .....................................\n  Vimeo Colors\n..................................... */\n/* .....................................\n  Grayscale\n..................................... */\n/* .....................................\n  Blues\n..................................... */\n/* .....................................\n  Greens\n..................................... */\n/* .....................................\n  Reds\n..................................... */\n/* .....................................\n  Interaction Colors\n..................................... */\n/* .....................................\n  Vimeo Legacy Colors\n..................................... */\n/* .....................................\n  Default Text\n..................................... */\n/* .....................................\n  Default Sizing\n..................................... */\n/* .....................................\n  Vimeo Specific Fonts\n..................................... */\n/* .....................................\n  Vimeo Specific Widths\n..................................... */\n/* .....................................\n  Vimeo Media Query Breakpoints\n..................................... */\n/* .....................................\n  Vimeo Colors\n..................................... */\n/* .....................................\n  Grayscale\n..................................... */\n/* .....................................\n  Blues\n..................................... */\n/* .....................................\n  Greens\n..................................... */\n/* .....................................\n  Reds\n..................................... */\n/* .....................................\n  Interaction Colors\n..................................... */\n/* .....................................\n  Vimeo Legacy Colors\n..................................... */\n/* .....................................\n  Default Text\n..................................... */\n/* .....................................\n  Default Sizing\n..................................... */\n.Button_smallButton__29nyN {\n  -webkit-transition: \"background-color\" 500ms ease-out;\n  -moz-transition: \"background-color\" 500ms ease-out;\n  -ms-transition: \"background-color\" 500ms ease-out;\n  -o-transition: \"background-color\" 500ms ease-out;\n  transition: \"background-color\" 500ms ease-out;\n  padding: 0 10px;\n  margin: 0;\n  line-height: 28px;\n  height: 30px;\n  font-size: 12px;\n  background-size: 13px 13px; }\n\n.Button_mediumButton__3YSpx {\n  -webkit-transition: \"background-color\" 500ms ease-out;\n  -moz-transition: \"background-color\" 500ms ease-out;\n  -ms-transition: \"background-color\" 500ms ease-out;\n  -o-transition: \"background-color\" 500ms ease-out;\n  transition: \"background-color\" 500ms ease-out;\n  padding: 0 20px;\n  margin: 0;\n  line-height: 38px;\n  height: 40px;\n  font-size: 14px;\n  background-size: 15px 15px; }\n\n.Button_largeButton__1XOsT {\n  -webkit-transition: \"background-color\" 500ms ease-out;\n  -moz-transition: \"background-color\" 500ms ease-out;\n  -ms-transition: \"background-color\" 500ms ease-out;\n  -o-transition: \"background-color\" 500ms ease-out;\n  transition: \"background-color\" 500ms ease-out;\n  padding: 0 30px;\n  margin: 0;\n  line-height: 58px;\n  height: 60px;\n  font-size: 20px;\n  letter-spacing: 1px;\n  background-size: 23px 23px; }\n\n.Button_fillButton__2P5X7 {\n  -webkit-transition: \"background-color\" 500ms ease-out;\n  -moz-transition: \"background-color\" 500ms ease-out;\n  -ms-transition: \"background-color\" 500ms ease-out;\n  -o-transition: \"background-color\" 500ms ease-out;\n  transition: \"background-color\" 500ms ease-out;\n  box-sizing: border-box;\n  width: 100%; }\n\n.Button_halfButton__3LMse {\n  -webkit-transition: \"background-color\" 500ms ease-out;\n  -moz-transition: \"background-color\" 500ms ease-out;\n  -ms-transition: \"background-color\" 500ms ease-out;\n  -o-transition: \"background-color\" 500ms ease-out;\n  transition: \"background-color\" 500ms ease-out;\n  box-sizing: border-box;\n  width: 48%;\n  margin: 0 0.5%; }\n\n.Button_grayButton__2UJIP {\n  background-color: #e3e8e9;\n  border: 1px solid #e3e8e9;\n  color: #1a2e3b;\n  outline: none;\n  border-radius: 5px; }\n  .Button_grayButton__2UJIP:active, .Button_grayButton__2UJIP:hover, .Button_grayButton__2UJIP:focus {\n    background-color: #c6d1d3;\n    border: 1px solid #c6d1d3;\n    color: #1a2e3b;\n    text-decoration: none; }\n  .Button_grayButton__2UJIP:link, .Button_grayButton__2UJIP:visited {\n    background-color: #e3e8e9;\n    border: 1px solid #e3e8e9;\n    color: #1a2e3b;\n    text-decoration: none; }\n\n.Button_whiteButton__1RjUf {\n  background-color: #fff;\n  border: 1px solid #e3e8e9;\n  color: #1a2e3b;\n  outline: none;\n  border-radius: 5px; }\n  .Button_whiteButton__1RjUf:active, .Button_whiteButton__1RjUf:hover, .Button_whiteButton__1RjUf:focus {\n    background-color: #e3e8e9;\n    border: 1px solid #c6d1d3;\n    color: #1a2e3b;\n    text-decoration: none; }\n  .Button_whiteButton__1RjUf:link, .Button_whiteButton__1RjUf:visited {\n    background-color: #fff;\n    border: 1px solid #e3e8e9;\n    color: #1a2e3b;\n    text-decoration: none; }\n\n.Button_redButton__3EzjL {\n  background-color: #ff4d4d;\n  border: 1px solid #ff4d4d;\n  color: #fff;\n  outline: none;\n  border-radius: 5px; }\n  .Button_redButton__3EzjL:active, .Button_redButton__3EzjL:hover, .Button_redButton__3EzjL:focus {\n    background-color: #ff1a1a;\n    border: 1px solid #ff1a1a;\n    color: #fff;\n    text-decoration: none; }\n  .Button_redButton__3EzjL:link, .Button_redButton__3EzjL:visited {\n    background-color: #ff4d4d;\n    border: 1px solid #ff4d4d;\n    color: #fff;\n    text-decoration: none; }\n\n.Button_vimeoAlt__1rtNL {\n  background-color: #1a2e3b;\n  border: 1px solid #1a2e3b;\n  color: #fff;\n  outline: none;\n  border-radius: 5px; }\n  .Button_vimeoAlt__1rtNL:active, .Button_vimeoAlt__1rtNL:hover, .Button_vimeoAlt__1rtNL:focus {\n    background-color: #0a1218;\n    border: 1px solid #0a1218;\n    color: #fff;\n    text-decoration: none; }\n  .Button_vimeoAlt__1rtNL:link, .Button_vimeoAlt__1rtNL:visited {\n    background-color: #1a2e3b;\n    border: 1px solid #1a2e3b;\n    color: #fff;\n    text-decoration: none; }\n\n.Button_vimeoBlue__2YD1S {\n  background-color: #00adef;\n  border: 1px solid #00adef;\n  color: #fff;\n  outline: none;\n  border-radius: 5px; }\n  .Button_vimeoBlue__2YD1S:active, .Button_vimeoBlue__2YD1S:hover, .Button_vimeoBlue__2YD1S:focus {\n    background-color: #0088bc;\n    border: 1px solid #0088bc;\n    color: #fff;\n    text-decoration: none; }\n  .Button_vimeoBlue__2YD1S:link, .Button_vimeoBlue__2YD1S:visited {\n    background-color: #00adef;\n    border: 1px solid #00adef;\n    color: #fff;\n    text-decoration: none; }\n\n.Button_vimeoSecondary__2krAP {\n  background-color: #e3e8e9;\n  border: 1px solid #e3e8e9;\n  color: #1a2e3b;\n  outline: none;\n  border-radius: 5px; }\n  .Button_vimeoSecondary__2krAP:active, .Button_vimeoSecondary__2krAP:hover, .Button_vimeoSecondary__2krAP:focus {\n    background-color: #c6d1d3;\n    border: 1px solid #c6d1d3;\n    color: #1a2e3b;\n    text-decoration: none; }\n  .Button_vimeoSecondary__2krAP:link, .Button_vimeoSecondary__2krAP:visited {\n    background-color: #e3e8e9;\n    border: 1px solid #e3e8e9;\n    color: #1a2e3b;\n    text-decoration: none; }\n\n.Button_vimeoSecondaryOutline__3oRZP {\n  background-color: #fff;\n  border: 1px solid #b3bfc8;\n  color: #b3bfc8;\n  outline: none;\n  border-radius: 5px; }\n  .Button_vimeoSecondaryOutline__3oRZP:active, .Button_vimeoSecondaryOutline__3oRZP:hover, .Button_vimeoSecondaryOutline__3oRZP:focus {\n    background-color: #e3e8e9;\n    border: 1px solid #e3e8e9;\n    color: #1a2e3b;\n    text-decoration: none; }\n  .Button_vimeoSecondaryOutline__3oRZP:link, .Button_vimeoSecondaryOutline__3oRZP:visited {\n    background-color: #fff;\n    border: 1px solid #b3bfc8;\n    color: #b3bfc8;\n    text-decoration: none; }\n\n.Button_transparentButton__KbkGC {\n  background-color: rgba(255, 255, 255, 0.5);\n  border: 1px solid transparent;\n  color: #fff;\n  outline: none;\n  border-radius: 5px; }\n  .Button_transparentButton__KbkGC:active, .Button_transparentButton__KbkGC:hover, .Button_transparentButton__KbkGC:focus {\n    background-color: rgba(255, 255, 255, 0.7);\n    border: 1px solid transparent;\n    color: #fff;\n    text-decoration: none; }\n  .Button_transparentButton__KbkGC:link, .Button_transparentButton__KbkGC:visited {\n    background-color: rgba(255, 255, 255, 0.5);\n    border: 1px solid transparent;\n    color: #fff;\n    text-decoration: none; }\n\n.Button_twitterButton__mrD3A {\n  background-color: #55ACEE;\n  border: 1px solid #2795e9;\n  color: #fff;\n  outline: none;\n  border-radius: 5px; }\n  .Button_twitterButton__mrD3A:active, .Button_twitterButton__mrD3A:hover, .Button_twitterButton__mrD3A:focus {\n    background-color: #2795e9;\n    border: 1px solid #147bc9;\n    color: #fff;\n    text-decoration: none; }\n  .Button_twitterButton__mrD3A:link, .Button_twitterButton__mrD3A:visited {\n    background-color: #55ACEE;\n    border: 1px solid #2795e9;\n    color: #fff;\n    text-decoration: none; }\n\n.Button_facebookButton__3F_3c {\n  background-color: #3B5999;\n  border: 1px solid #2d4474;\n  color: #fff;\n  outline: none;\n  border-radius: 5px; }\n  .Button_facebookButton__3F_3c:active, .Button_facebookButton__3F_3c:hover, .Button_facebookButton__3F_3c:focus {\n    background-color: #2d4474;\n    border: 1px solid #1f2e4f;\n    color: #fff;\n    text-decoration: none; }\n  .Button_facebookButton__3F_3c:link, .Button_facebookButton__3F_3c:visited {\n    background-color: #3B5999;\n    border: 1px solid #2d4474;\n    color: #fff;\n    text-decoration: none; }\n\n.Button_tumblrButton__1D5Po {\n  background-color: #34465D;\n  border: 1px solid #222d3c;\n  color: #fff;\n  outline: none;\n  border-radius: 5px; }\n  .Button_tumblrButton__1D5Po:active, .Button_tumblrButton__1D5Po:hover, .Button_tumblrButton__1D5Po:focus {\n    background-color: #222d3c;\n    border: 1px solid #10151b;\n    color: #fff;\n    text-decoration: none; }\n  .Button_tumblrButton__1D5Po:link, .Button_tumblrButton__1D5Po:visited {\n    background-color: #34465D;\n    border: 1px solid #222d3c;\n    color: #fff;\n    text-decoration: none; }\n\n.Button_paypalButton__1prW9 {\n  background-color: #00457C;\n  border: 1px solid #002949;\n  color: #fff;\n  outline: none;\n  border-radius: 5px; }\n  .Button_paypalButton__1prW9:active, .Button_paypalButton__1prW9:hover, .Button_paypalButton__1prW9:focus {\n    background-color: #002949;\n    border: 1px solid #000c16;\n    color: #fff;\n    text-decoration: none; }\n  .Button_paypalButton__1prW9:link, .Button_paypalButton__1prW9:visited {\n    background-color: #00457C;\n    border: 1px solid #002949;\n    color: #fff;\n    text-decoration: none; }\n\n.Button_rokuButton__2z2Pp {\n  background-color: #662C91;\n  border: 1px solid #4a206a;\n  color: #fff;\n  outline: none;\n  border-radius: 5px; }\n  .Button_rokuButton__2z2Pp:active, .Button_rokuButton__2z2Pp:hover, .Button_rokuButton__2z2Pp:focus {\n    background-color: #4a206a;\n    border: 1px solid #2f1443;\n    color: #fff;\n    text-decoration: none; }\n  .Button_rokuButton__2z2Pp:link, .Button_rokuButton__2z2Pp:visited {\n    background-color: #662C91;\n    border: 1px solid #4a206a;\n    color: #fff;\n    text-decoration: none; }\n\n.Button_isProcessing__3TuVR {\n  width: 23px;\n  height: 23px;\n  background-image: url(\"data:image/svg+xml;charset=utf-8,%3Csvg%20version%3D%221.1%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20xmlns%3Axlink%3D%22http%3A%2F%2Fwww.w3.org%2F1999%2Fxlink%22%20x%3D%220px%22%20y%3D%220px%22%0D%0A%20%20viewBox%3D%220%200%2040%2040%22%20xml%3Aspace%3D%22preserve%22%3E%0D%0A%3Cpath%20opacity%3D%220.2%22%20fill%3D%22%23233741%22%20d%3D%22M20.201%2C5.169c-8.254%2C0-14.946%2C6.692-14.946%2C14.946c0%2C8.255%2C6.692%2C14.946%2C14.946%2C14.946%0D%0A%20%20s14.946-6.691%2C14.946-14.946C35.146%2C11.861%2C28.455%2C5.169%2C20.201%2C5.169z%20M20.201%2C31.749c-6.425%2C0-11.634-5.208-11.634-11.634%0D%0A%20%20c0-6.425%2C5.209-11.634%2C11.634-11.634c6.425%2C0%2C11.633%2C5.209%2C11.633%2C11.634C31.834%2C26.541%2C26.626%2C31.749%2C20.201%2C31.749z%22%2F%3E%0D%0A%3Cpath%20fill%3D%22%23233741%22%20d%3D%22M26.013%2C10.047l1.654-2.866c-2.198-1.272-4.743-2.012-7.466-2.012h0v3.312h0%0D%0A%20%20C22.32%2C8.481%2C24.301%2C9.057%2C26.013%2C10.047z%22%3E%0D%0A%20%20%3CanimateTransform%20attributeType%3D%22xml%22%0D%0A%20%20%20%20attributeName%3D%22transform%22%0D%0A%20%20%20%20type%3D%22rotate%22%0D%0A%20%20%20%20from%3D%220%2020%2020%22%0D%0A%20%20%20%20to%3D%22360%2020%2020%22%0D%0A%20%20%20%20dur%3D%220.5s%22%0D%0A%20%20%20%20repeatCount%3D%22indefinite%22%2F%3E%0D%0A%20%20%3C%2Fpath%3E%0D%0A%3C%2Fsvg%3E\");\n  background-position: center center;\n  color: transparent;\n  background-repeat: no-repeat; }\n";
+var styles$1 = {"smallButton":"Button_smallButton__29nyN","mediumButton":"Button_mediumButton__3YSpx","largeButton":"Button_largeButton__1XOsT","fillButton":"Button_fillButton__2P5X7","halfButton":"Button_halfButton__3LMse","grayButton":"Button_grayButton__2UJIP","whiteButton":"Button_whiteButton__1RjUf","redButton":"Button_redButton__3EzjL","vimeoAlt":"Button_vimeoAlt__1rtNL","vimeoBlue":"Button_vimeoBlue__2YD1S","vimeoSecondary":"Button_vimeoSecondary__2krAP","vimeoSecondaryOutline":"Button_vimeoSecondaryOutline__3oRZP","transparentButton":"Button_transparentButton__KbkGC","twitterButton":"Button_twitterButton__mrD3A","facebookButton":"Button_facebookButton__3F_3c","tumblrButton":"Button_tumblrButton__1D5Po","paypalButton":"Button_paypalButton__1prW9","rokuButton":"Button_rokuButton__2z2Pp","isProcessing":"Button_isProcessing__3TuVR"};
+__$$styleInject(css$1);
+
+/* eslint-disable react/no-unused-prop-types */
+
 function getClassName(ref) {
   var className = ref.className;
   var color = ref.color;
@@ -1090,41 +1248,8 @@ function getClassName(ref) {
   var typeface = ref.typeface;
   var processing = ref.processing;
 
-  return index$1('btn', className, {
-    // core colors
-    'btn-gray': color === 'gray',
-    'btn-teal': color === 'teal',
-    'btn-white': color === 'white',
-    'btn-red': color === 'red',
-    // vimeo-colors
-    'btn-vimeo-alt': color === 'vimeo-alt',
-    'btn-vimeo-blue': color === 'vimeo-blue',
-    'btn-vimeo-secondary': color === 'vimeo-secondary',
-    'btn-vimeo-secondary-outline': color === 'vimeo-secondary-outline',
-    // alternate colors
-    'btn-purple': color === 'purple',
-    'btn-green': color === 'green',
-    'btn-slate': color === 'slate',
-    'btn-black': color === 'black',
-    'btn-yellow': color === 'yellow',
-    'btn-transparent': color === 'transparent',
-    // brand colors
-    'btn-twitter': color === 'twitter',
-    'btn-facebook': color === 'facebook',
-    'btn-tumblr': color === 'tumblr',
-    'btn-paypal': color === 'paypal',
-    'btn-roku': color === 'roku',
-    // sizes
-    'btn--small': size === 'small',
-    'btn--medium': size === 'medium',
-    'btn--large': size === 'large',
-    'btn--half': size === 'half',
-    'btn--fill': size === 'fill',
-    // typefaces
-    'btn--brandon': typeface === 'brandon',
-    // button states
-    'is-processing': processing === true,
-  });
+  return index$1('btn', className, ( obj = {}, obj[styles$1.grayButton] = color === 'gray', obj[styles$1.whiteButton] = color === 'white', obj[styles$1.redButton] = color === 'red', obj[styles$1.vimeoAlt] = color === 'vimeo-alt', obj[styles$1.vimeoBlue] = color === 'vimeo-blue', obj[styles$1.vimeoSecondary] = color === 'vimeo-secondary', obj[styles$1.vimeoSecondaryOutline] = color === 'vimeo-secondary-outline', obj[styles$1.transparentButton] = color === 'transparent', obj[styles$1.twitterButton] = color === 'twitter', obj[styles$1.facebookButton] = color === 'facebook', obj[styles$1.tumblrButton] = color === 'tumblr', obj[styles$1.paypalButton] = color === 'paypal', obj[styles$1.rokuButton] = color === 'roku', obj[styles$1.smallButton] = size === 'small', obj[styles$1.mediumButton] = size === 'medium', obj[styles$1.largeButton] = size === 'large', obj[styles$1.halfButton] = size === 'half', obj[styles$1.fillButton] = size === 'fill', obj[styles$1.isProcessing] = processing === true, obj ));
+  var obj;
 }
 
 var Button$1 = function (props) {
@@ -1134,18 +1259,16 @@ var Button$1 = function (props) {
   );
 };
 
-var colors = [ 'gray', 'teal', 'white', 'red', 'purple', 'green', 'slate', 'black', 'yellow', 'transparent', 'vimeo-blue', 'vimeo-secondary', 'vimeo-secondary-outline', 'vimeo-alt', 'twitter', 'facebook', 'tumblr', 'paypal', 'roku' ];
+var colors = [ 'gray', 'white', 'red', 'transparent', 'vimeo-blue', 'vimeo-secondary', 'vimeo-secondary-outline', 'vimeo-alt', 'twitter', 'facebook', 'tumblr', 'paypal', 'roku' ];
 var sizes$1 = [ 'small', 'medium', 'large', 'half', 'fill' ];
-var typefaces = [ 'brandon', '' ];
 
 Button$1.propTypes = {
-  children: index.node.isRequired,
+  children: index.node,
   className: index.string,
   color: index.oneOf(colors),
   processing: index.bool,
   onClick: index.func,
   size: index.oneOf(sizes$1),
-  typeface: index.oneOf(typefaces),
 };
 
 Button$1.defaultProps = {
@@ -1154,77 +1277,53 @@ Button$1.defaultProps = {
   onClick: null,
   processing: false,
   size: 'medium',
-  typeface: '',
 };
 
 Button$1.propDescriptions = {
   color: ("One of: [\"" + (colors.join('", "')) + "\"]"),
   processing: 'Displays loading indicator',
   size: ("One of: [\"" + (sizes$1.join('", "')) + "\"]"),
-  typeface: ("One of: [\"" + (typefaces.join('", "')) + "\"]"),
 };
 
-var iconNames = [ 'activity', 'add-member', 'alert', 'align', 'amex-card', 'android-workmark', 'android', 'angle-down', 'angle-left', 'angle-up', 'angle-right', 'api', 'apple', 'apps', 'arrow-down', 'arrow-left', 'arrow-right', 'arrow-up', 'audio', 'ban', 'bell', 'briefcase', 'calendar', 'camera', 'card', 'caret-down', 'caret-left', 'caret-right', 'caret-up', 'cassette-frown', 'cassette', 'chevron-down', 'check', 'chevron-left', 'chevron-right', 'chevron-up', 'chrome', 'clapboard', 'clock', 'code', 'cog', 'collection', 'comment', 'comments', 'currency', 'desktop', 'diners-card', 'csv', 'discover-card', 'doc', 'download-alt', 'download', 'dropbox', 'edit', 'ellipsis-vertical', 'ellipsis', 'envelope-sealed', 'envelope', 'external-link', 'eye', 'facebook', 'followers', 'gift', 'globe', 'grid', 'help', 'hi', 'home', 'instagram', 'invoice', 'ios', 'jcb-card', 'justify', 'key', 'link', 'list', 'lock', 'marker', 'mastercard-card', 'media', 'member', 'money-card', 'money-circle', 'money', 'paypal-card', 'pic', 'play-outline', 'play', 'plus-thin', 'plus', 'popular', 'power', 'printer', 'product', 'question', 'random', 'referral', 'refresh', 'revert', 'roku-wordmark', 'reply', 'roku', 'search', 'sliders', 'star-outline', 'star', 'tag', 'tags', 'todo', 'trash', 'transaction', 'tumblr', 'tv', 'tvos', 'twitter', 'upload-alt', 'upload', 'vhs', 'vhx', 'vimeovhx-dark', 'vimeovhx-light', 'visa-card', 'window', 'x', 'xmas-tree' ];
+var iconList = [ 'activity', 'add-member', 'alert', 'align', 'amex-card', 'android-workmark', 'android', 'angle-down', 'angle-left', 'angle-up', 'angle-right', 'api', 'apple', 'apps', 'arrow-down', 'arrow-left', 'arrow-right', 'arrow-up', 'audio', 'ban', 'bell', 'briefcase', 'calendar', 'camera', 'card', 'caret-down', 'caret-left', 'caret-right', 'caret-up', 'cassette-frown', 'cassette', 'chevron-down', 'check', 'chevron-left', 'chevron-right', 'chevron-up', 'chrome', 'clapboard', 'clock', 'code', 'cog', 'collection', 'comment', 'comments', 'currency', 'desktop', 'diners-card', 'csv', 'discover-card', 'doc', 'download-alt', 'download', 'dropbox', 'edit', 'ellipsis-vertical', 'ellipsis', 'envelope-sealed', 'envelope', 'external-link', 'eye', 'facebook', 'followers', 'gift', 'globe', 'grid', 'help', 'hi', 'home', 'instagram', 'invoice', 'ios', 'jcb-card', 'justify', 'key', 'link', 'list', 'lock', 'marker', 'mastercard-card', 'media', 'member', 'money-card', 'money-circle', 'money', 'paypal-card', 'pic', 'play-outline', 'play', 'plus-thin', 'plus', 'popular', 'power', 'printer', 'product', 'question', 'random', 'referral', 'refresh', 'revert', 'roku-wordmark', 'reply', 'roku', 'search', 'sliders', 'star-outline', 'star', 'tag', 'tags', 'todo', 'trash', 'transaction', 'tumblr', 'tv', 'tvos', 'twitter', 'upload-alt', 'upload', 'vhs', 'vhx', 'vimeovhx-dark', 'vimeovhx-light', 'visa-card', 'window', 'x', 'xmas-tree' ];
+
+var css$2 = "/* .....................................\n  Vimeo Colors\n..................................... */\n/* .....................................\n  Grayscale\n..................................... */\n/* .....................................\n  Blues\n..................................... */\n/* .....................................\n  Greens\n..................................... */\n/* .....................................\n  Reds\n..................................... */\n/* .....................................\n  Interaction Colors\n..................................... */\n/* .....................................\n  Vimeo Legacy Colors\n..................................... */\n/* .....................................\n  Default Text\n..................................... */\n/* .....................................\n  Default Sizing\n..................................... */\n/* .....................................\n  Vimeo Colors\n..................................... */\n/* .....................................\n  Grayscale\n..................................... */\n/* .....................................\n  Blues\n..................................... */\n/* .....................................\n  Greens\n..................................... */\n/* .....................................\n  Reds\n..................................... */\n/* .....................................\n  Interaction Colors\n..................................... */\n/* .....................................\n  Vimeo Legacy Colors\n..................................... */\n/* .....................................\n  Default Text\n..................................... */\n/* .....................................\n  Default Sizing\n..................................... */\n/*.....................................\n  VIMEO FONT MIXINS\n......................................*/\n/* .....................................\n  Vimeo Colors\n..................................... */\n/* .....................................\n  Grayscale\n..................................... */\n/* .....................................\n  Blues\n..................................... */\n/* .....................................\n  Greens\n..................................... */\n/* .....................................\n  Reds\n..................................... */\n/* .....................................\n  Interaction Colors\n..................................... */\n/* .....................................\n  Vimeo Legacy Colors\n..................................... */\n/* .....................................\n  Default Text\n..................................... */\n/* .....................................\n  Default Sizing\n..................................... */\n/* .....................................\n  Vimeo Colors\n..................................... */\n/* .....................................\n  Grayscale\n..................................... */\n/* .....................................\n  Blues\n..................................... */\n/* .....................................\n  Greens\n..................................... */\n/* .....................................\n  Reds\n..................................... */\n/* .....................................\n  Interaction Colors\n..................................... */\n/* .....................................\n  Vimeo Legacy Colors\n..................................... */\n/* .....................................\n  Default Text\n..................................... */\n/* .....................................\n  Default Sizing\n..................................... */\n/* .....................................\n  Vimeo Specific Fonts\n..................................... */\n/* .....................................\n  Vimeo Specific Widths\n..................................... */\n/* .....................................\n  Vimeo Media Query Breakpoints\n..................................... */\n.Icon_icon__1SIxy {\n  display: inline-block;\n  background-position: 50% 50%;\n  background-size: contain;\n  text-indent: -9999px; }\n";
+var styles$2 = {"icon":"Icon_icon__1SIxy"};
+__$$styleInject(css$2);
 
 /* eslint-disable react/no-unused-prop-types */
+var Icon$1 = function (props) {
+  var iconStyles = {
+    backgroundColor: componentColor(props),
+    width: componentSize(props),
+    height: componentSize(props),
+    backgroundImage: ("url(" + (props.src) + ")"),
+    backgroundRepeat: 'no-repeat',
+  };
+  return (
+    React__default.createElement( 'div', {
+      className: styles$2.icon, style: iconStyles })
+  );
+};
 
-function getClassName$1(ref) {
-  var button = ref.button;
-  var circle = ref.circle;
-  var className = ref.className;
-  var left = ref.left;
-  var color = ref.color;
-  var name = ref.name;
-  var right = ref.right;
-  var size = ref.size;
-
-  return index$1(className, ( obj = {
-    icon: !button,
-    'icon-circle': circle,
-    'icon--left': left,
-    'icon--right': right,
-    'icon--xxsmall': size === 'xxsmall',
-    'icon--xsmall': size === 'xsmall',
-    'icon--small': size === 'small',
-    'icon--medium': size === 'medium',
-    'icon--large': size === 'large',
-    'icon--xlarge': size === 'xlarge',
-    'icon--xxlarge': size === 'xxlarge',
-  }, obj[("icon-" + name)] = !color, obj[("icon-" + name + "-" + color)] = !!color, obj ));
-  var obj;
-}
-
-var Icon$1 = function (props) { return (
-  React__default.createElement( 'span', { className: getClassName$1(props) }, props.children)
-); };
-
-var colors$1 = [ '', 'navy', 'teal', 'white', 'gray' ];
+var colors$1 = [ '', 'VimeoBlue', 'SunsetOrange', 'white',  'Porcelain', 'AstroGranite' ];
 var sizes$2 = [ 'xxsmall', 'xsmall', 'small', 'medium', 'large', 'xlarge', 'xxlarge' ];
 
 Icon$1.propTypes = {
-  children: index.node,
-  className: index.string,
-  circle: index.bool,
   color: index.oneOf(colors$1),
-  name: index.oneOf(iconNames).isRequired,
-  left: index.bool,
-  right: index.bool,
   size: index.oneOf(sizes$2),
+  src: index.string,
 };
 
 Icon$1.defaultProps = {
-  children: '',
-  className: '',
-  circle: false,
   color: null,
-  left: false,
-  right: false,
-  size: 'xsmall',
+  size: 'small',
+  src: '',
 };
 
 Icon$1.propDescriptions = {
   color: ("One of: [\"" + (colors$1.join('", "')) + "\"]"),
-  name: 'String: One of any of the valid icon names',
+  src: 'String: an image hosted locally in your repository',
   size: ("One of: [\"" + (sizes$2.join('", "')) + "\"]"),
 };
 
@@ -1235,6 +1334,10 @@ var KEY_CODES = Object.freeze({
   LEFT: 37,
   RIGHT: 39,
 });
+
+var css$3 = "/* .....................................\n  Vimeo Colors\n..................................... */\n/* .....................................\n  Grayscale\n..................................... */\n/* .....................................\n  Blues\n..................................... */\n/* .....................................\n  Greens\n..................................... */\n/* .....................................\n  Reds\n..................................... */\n/* .....................................\n  Interaction Colors\n..................................... */\n/* .....................................\n  Vimeo Legacy Colors\n..................................... */\n/* .....................................\n  Default Text\n..................................... */\n/* .....................................\n  Default Sizing\n..................................... */\n/* .....................................\n  Vimeo Colors\n..................................... */\n/* .....................................\n  Grayscale\n..................................... */\n/* .....................................\n  Blues\n..................................... */\n/* .....................................\n  Greens\n..................................... */\n/* .....................................\n  Reds\n..................................... */\n/* .....................................\n  Interaction Colors\n..................................... */\n/* .....................................\n  Vimeo Legacy Colors\n..................................... */\n/* .....................................\n  Default Text\n..................................... */\n/* .....................................\n  Default Sizing\n..................................... */\n/*.....................................\n  VIMEO FONT MIXINS\n......................................*/\n/* .....................................\n  Vimeo Colors\n..................................... */\n/* .....................................\n  Grayscale\n..................................... */\n/* .....................................\n  Blues\n..................................... */\n/* .....................................\n  Greens\n..................................... */\n/* .....................................\n  Reds\n..................................... */\n/* .....................................\n  Interaction Colors\n..................................... */\n/* .....................................\n  Vimeo Legacy Colors\n..................................... */\n/* .....................................\n  Default Text\n..................................... */\n/* .....................................\n  Default Sizing\n..................................... */\n/* .....................................\n  Vimeo Colors\n..................................... */\n/* .....................................\n  Grayscale\n..................................... */\n/* .....................................\n  Blues\n..................................... */\n/* .....................................\n  Greens\n..................................... */\n/* .....................................\n  Reds\n..................................... */\n/* .....................................\n  Interaction Colors\n..................................... */\n/* .....................................\n  Vimeo Legacy Colors\n..................................... */\n/* .....................................\n  Default Text\n..................................... */\n/* .....................................\n  Default Sizing\n..................................... */\n/* .....................................\n  Vimeo Specific Colors\n..................................... */\n/* .....................................\n  Vimeo Specific Fonts\n..................................... */\n/* .....................................\n  Vimeo Specific Widths\n..................................... */\n/* .....................................\n  Vimeo Media Query Breakpoints\n..................................... */\n.Carousel_carousel__1StRs,\n.Carousel_carouselMobile__Zmt7V {\n  background-color: #000000;\n  color: #fff;\n  overflow: hidden;\n  position: relative; }\n\n.Carousel_carouselLayoutContainer__1SWNQ {\n  max-width: 1720px;\n  margin: auto;\n  position: relative; }\n\n.Carousel_carouselCoins__1ZFBn {\n  bottom: 0;\n  height: 40px;\n  line-height: 0;\n  opacity: 0;\n  position: absolute;\n  text-align: center;\n  transition: opacity .3s ease;\n  width: 100%;\n  z-index: 1; }\n  .Carousel_carouselCoins__1ZFBn:hover {\n    opacity: 1; }\n\n.Carousel_carouselCoin__1Q9kQ,\n.Carousel_carouselCoinActive__n_w0q {\n  margin-left: 4px;\n  margin-right: 4px;\n  border: 0;\n  border-radius: 4px;\n  box-shadow: 0 1px 5px #1a2e3b;\n  height: 8px;\n  outline: 0;\n  padding: 0;\n  transition: opacity .3s ease;\n  width: 8px; }\n\n.Carousel_carouselCoin__1Q9kQ {\n  background-color: rgba(255, 255, 255, 0.5); }\n\n.Carousel_carouselCoinActive__n_w0q {\n  background-color: #fff; }\n\n.Carousel_leftCarouselArrow__2EK2g,\n.Carousel_rightCarouselArrow__LOj3L {\n  background-color: transparent;\n  border: 0;\n  border-radius: 0;\n  height: 100%;\n  outline: 0;\n  padding: 24px;\n  position: absolute;\n  transition: opacity .3s ease;\n  z-index: 1;\n  opacity: 0; }\n  .Carousel_leftCarouselArrow__2EK2g:hover,\n  .Carousel_rightCarouselArrow__LOj3L:hover {\n    opacity: 1; }\n\n.Carousel_rightCarouselArrow__LOj3L {\n  padding-left: 0;\n  right: 0; }\n\n.Carousel_leftCarouselArrow__2EK2g {\n  padding-right: 0;\n  left: 0; }\n\n.Carousel_carouselLeftArrow__3B1Qm {\n  transform: rotate(180deg); }\n";
+var styles$3 = {"carousel":"Carousel_carousel__1StRs","carouselMobile":"Carousel_carouselMobile__Zmt7V","carouselLayoutContainer":"Carousel_carouselLayoutContainer__1SWNQ","carouselCoins":"Carousel_carouselCoins__1ZFBn","carouselCoin":"Carousel_carouselCoin__1Q9kQ","carouselCoinActive":"Carousel_carouselCoinActive__n_w0q","leftCarouselArrow":"Carousel_leftCarouselArrow__2EK2g","rightCarouselArrow":"Carousel_rightCarouselArrow__LOj3L","carouselLeftArrow":"Carousel_carouselLeftArrow__3B1Qm"};
+__$$styleInject(css$3);
 
 function calcNext(length, current) {
   return (current + 1) % length;
@@ -1258,6 +1361,16 @@ function getZIndex(topSlideIndex, bgSlideIndex, currentIndex) {
   if (currentIndex === bgSlideIndex) { return '0'; }
   return '-1';
 }
+
+var carouselContainer = function (isMobile) {
+  return index$1(( obj = {}, obj[styles$3.carousel] = isMobile === false, obj[styles$3.carouselMobile] = isMobile === true, obj ))
+  var obj;
+};
+
+var coinClasses = function (isCurrent) {
+  return index$1(( obj = {}, obj[styles$3.carouselCoin] = isCurrent === false, obj[styles$3.carouselCoinActive] = isCurrent === true, obj ))
+  var obj;
+};
 
 var Carousel$1 = (function (Component$$1) {
   function Carousel(props) {
@@ -1368,7 +1481,7 @@ var Carousel$1 = (function (Component$$1) {
     var isCurrent = isAnimating ? bgSlideIndex === i : topSlideIndex === i;
     return (
       React__default.createElement( 'button', {
-        key: i, className: isCurrent ? 'coin active' : 'coin', disabled: isCurrent || isAnimating, onClick: function () { return this$1.goToSlide(i, '', 'carousel_coin'); } })
+        key: i, className: coinClasses(isCurrent), disabled: isCurrent || isAnimating, onClick: function () { return this$1.goToSlide(i, '', 'carousel_coin'); } })
     );
   };
 
@@ -1389,7 +1502,7 @@ var Carousel$1 = (function (Component$$1) {
     var animationDuration = ref$1.animationDuration;
     var slides = ref$1.slides;
     return (
-      React__default.createElement( 'div', { className: ("carousel " + (isMobile ? 'carousel--mobile' : '')), ref: function (el) { this$1.el = el; } },
+      React__default.createElement( 'div', { className: carouselContainer(isMobile), ref: function (el) { this$1.el = el; } },
         React__default.createElement( 'div', { className: 'carousel-slides' },
           slides.map(function (ref, i) {
               var Slide = ref.Slide;
@@ -1402,10 +1515,16 @@ var Carousel$1 = (function (Component$$1) {
     })
         ),
         React__default.createElement( If$1, { condition: slides.length > 1 },
-          React__default.createElement( 'div', { className: 'carousel-layout-container', style: { height: (height + "px") } },
-            React__default.createElement( 'div', { className: 'coins' }, slides.map(this.generateCoin)),
-            React__default.createElement( 'button', { disabled: isAnimating, onClick: this.prev, className: 'carousel-arrow carousel-arrow--left' }, React__default.createElement( Icon$1, { name: 'angle-left', color: 'white', size: isMobile ? 'xsmall' : 'small' })),
-            React__default.createElement( 'button', { disabled: isAnimating, onClick: this.next, className: 'carousel-arrow carousel-arrow--right' }, React__default.createElement( Icon$1, { name: 'angle-right', color: 'white', size: isMobile ? 'xsmall' : 'small' }))
+          React__default.createElement( 'div', { className: styles$3.carouselLayoutContainer, style: { height: (height + "px") } },
+            React__default.createElement( 'div', { className: styles$3.carouselCoins }, slides.map(this.generateCoin)),
+            React__default.createElement( 'button', { disabled: isAnimating, onClick: this.prev, className: styles$3.leftCarouselArrow },
+              React__default.createElement( 'div', { className: styles$3.carouselLeftArrow },
+                React__default.createElement( Icon$1, { name: 'angle-left', src: 'data:image/svg+xml;base64,PHN2ZyBpZD0iTGF5ZXJfMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB2aWV3Qm94PSIwIDAgMjQgMjQiPjx0aXRsZT5JY29uLUNoZXZyb24tUmlnaHQ8L3RpdGxlPjxwYXRoIGQ9Ik05LjcxLDE3LjcxLDguMjksMTYuMjksMTIuNTksMTIsOC4yOSw3LjcxLDkuNzEsNi4yOWw1LDVhMSwxLDAsMCwxLDAsMS40MVoiIGZpbGw9IiNGRkZGRkYiLz48L3N2Zz4=', size: isMobile ? 'xsmall' : 'small' })
+              )
+            ),
+            React__default.createElement( 'button', { disabled: isAnimating, onClick: this.next, className: styles$3.rightCarouselArrow },
+              React__default.createElement( Icon$1, { name: 'angle-right', src: 'data:image/svg+xml;base64,PHN2ZyBpZD0iTGF5ZXJfMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB2aWV3Qm94PSIwIDAgMjQgMjQiPjx0aXRsZT5JY29uLUNoZXZyb24tUmlnaHQ8L3RpdGxlPjxwYXRoIGQ9Ik05LjcxLDE3LjcxLDguMjksMTYuMjksMTIuNTksMTIsOC4yOSw3LjcxLDkuNzEsNi4yOWw1LDVhMSwxLDAsMCwxLDAsMS40MVoiIGZpbGw9IiNGRkZGRkYiLz48L3N2Zz4=', size: isMobile ? 'xsmall' : 'small' })
+            )
           )
         )
       )
@@ -1455,62 +1574,34 @@ Carousel$1.propDescriptions = {
   slides: 'Array of objects: { Slide: Component, id: String }',
 };
 
+var css$4 = "/* .....................................\n  Vimeo Colors\n..................................... */\n/* .....................................\n  Grayscale\n..................................... */\n/* .....................................\n  Blues\n..................................... */\n/* .....................................\n  Greens\n..................................... */\n/* .....................................\n  Reds\n..................................... */\n/* .....................................\n  Interaction Colors\n..................................... */\n/* .....................................\n  Vimeo Legacy Colors\n..................................... */\n/* .....................................\n  Default Text\n..................................... */\n/* .....................................\n  Default Sizing\n..................................... */\n/* .....................................\n  Vimeo Colors\n..................................... */\n/* .....................................\n  Grayscale\n..................................... */\n/* .....................................\n  Blues\n..................................... */\n/* .....................................\n  Greens\n..................................... */\n/* .....................................\n  Reds\n..................................... */\n/* .....................................\n  Interaction Colors\n..................................... */\n/* .....................................\n  Vimeo Legacy Colors\n..................................... */\n/* .....................................\n  Default Text\n..................................... */\n/* .....................................\n  Default Sizing\n..................................... */\n/*.....................................\n  VIMEO FONT MIXINS\n......................................*/\n/* .....................................\n  Vimeo Colors\n..................................... */\n/* .....................................\n  Grayscale\n..................................... */\n/* .....................................\n  Blues\n..................................... */\n/* .....................................\n  Greens\n..................................... */\n/* .....................................\n  Reds\n..................................... */\n/* .....................................\n  Interaction Colors\n..................................... */\n/* .....................................\n  Vimeo Legacy Colors\n..................................... */\n/* .....................................\n  Default Text\n..................................... */\n/* .....................................\n  Default Sizing\n..................................... */\n/* .....................................\n  Vimeo Colors\n..................................... */\n/* .....................................\n  Grayscale\n..................................... */\n/* .....................................\n  Blues\n..................................... */\n/* .....................................\n  Greens\n..................................... */\n/* .....................................\n  Reds\n..................................... */\n/* .....................................\n  Interaction Colors\n..................................... */\n/* .....................................\n  Vimeo Legacy Colors\n..................................... */\n/* .....................................\n  Default Text\n..................................... */\n/* .....................................\n  Default Sizing\n..................................... */\n/* .....................................\n  Vimeo Specific Fonts\n..................................... */\n/* .....................................\n  Vimeo Specific Widths\n..................................... */\n/* .....................................\n  Vimeo Media Query Breakpoints\n..................................... */\n.Checkbox_standardCheckboxWrapper__yMkN5 {\n  padding-bottom: 15px;\n  height: 20px;\n  width: 20px; }\n\n.Checkbox_standardCheckbox__21cU1 {\n  width: 20px;\n  position: relative; }\n  .Checkbox_standardCheckbox__21cU1 input[type=checkbox] {\n    opacity: 0;\n    position: absolute; }\n    .Checkbox_standardCheckbox__21cU1 input[type=checkbox]:checked + label {\n      background-color: #00adef; }\n      .Checkbox_standardCheckbox__21cU1 input[type=checkbox]:checked + label :after {\n        opacity: 1; }\n\n.Checkbox_standardCheckboxLabel__WJleR {\n  cursor: pointer;\n  position: absolute;\n  width: 20px;\n  height: 20px;\n  background: #fff;\n  border: 1px solid #e3e8e9;\n  border-radius: 2px; }\n  .Checkbox_standardCheckboxLabel__WJleR:hover {\n    background-color: #00adef; }\n    .Checkbox_standardCheckboxLabel__WJleR:hover::after {\n      opacity: 1; }\n  .Checkbox_standardCheckboxLabel__WJleR:after {\n    opacity: 1;\n    content: '';\n    position: absolute;\n    width: 13px;\n    height: 8px;\n    background: transparent;\n    top: 3px;\n    left: 3px;\n    border: 3px solid #fff;\n    border-top: none;\n    border-right: none;\n    transform: rotate(-45deg); }\n\n.Checkbox_standardCheckedCheckboxLabel__3b2ga {\n  cursor: pointer;\n  position: absolute;\n  width: 20px;\n  height: 20px;\n  background: #00adef;\n  border: 1px solid #e3e8e9;\n  border-radius: 2px; }\n  .Checkbox_standardCheckedCheckboxLabel__3b2ga:hover {\n    background-color: #00adef; }\n    .Checkbox_standardCheckedCheckboxLabel__3b2ga:hover::after {\n      opacity: 1; }\n  .Checkbox_standardCheckedCheckboxLabel__3b2ga:after {\n    opacity: 1;\n    content: '';\n    position: absolute;\n    width: 13px;\n    height: 8px;\n    background: transparent;\n    top: 3px;\n    left: 3px;\n    border: 3px solid #fff;\n    border-top: none;\n    border-right: none;\n    transform: rotate(-45deg); }\n";
+var styles$4 = {"standardCheckboxWrapper":"Checkbox_standardCheckboxWrapper__yMkN5","standardCheckbox":"Checkbox_standardCheckbox__21cU1","standardCheckboxLabel":"Checkbox_standardCheckboxLabel__WJleR","standardCheckedCheckboxLabel":"Checkbox_standardCheckedCheckboxLabel__3b2ga"};
+__$$styleInject(css$4);
+
 /* eslint-disable react/no-unused-prop-types */
 
-var getClassName$2 = function (ref) {
-  var type = ref.type;
-  var size = ref.size;
-
-  return index$1('checkbox', size, { alt: type === 'toggle' });
+var checkboxClasses = function (props) {
+  return index$1(( obj = {}, obj[styles$4.standardCheckboxLabel] = props.checked === false, obj[styles$4.standardCheckedCheckboxLabel] = props.checked === true, obj ))
+  var obj;
 };
 
-
-var StandardCheckbox = function () { return (
-  React__default.createElement( 'span', { className: 'checkbox--icon' },
-    React__default.createElement( 'span', { className: 'checkbox--animate' })
-  )
-); };
-
-
-var ToggleCheckbox = function () { return (
-  React__default.createElement( 'span', null,
-    React__default.createElement( 'span', { className: 'checkbox--icon' }),
-    React__default.createElement( 'span', { className: 'checkbox--circle' },
-      React__default.createElement( 'i', { className: 'circle-top' }, React__default.createElement( 'span', null )),
-      React__default.createElement( 'i', { className: 'circle-bottom' }, React__default.createElement( 'span', null ))
-    )
-  )
-); };
-
-
-// NOTE: .form does not affect styles in any way, but is required for proper checkbox
-// styling since quartz/components.css nests .checkbox under .form. This limitation can
-// probably very easily be removed by changing https://github.com/vhx/quartz/blob/master/quartz-js/components/checkbox/styles/checkbox.scss
-// to have .checkbox not be required to be a descendent of .form
-var Checkbox$1 = function (props) { return (
-  React__default.createElement( 'div', { className: 'form' },
-    React__default.createElement( 'fieldset', { className: getClassName$2(props) },
-      React__default.createElement( 'input', Object.assign({}, excludeProps([ 'label', 'uniqueId', 'size', 'type' ], props), { type: 'checkbox', name: props.uniqueId, id: props.uniqueId })),
-      React__default.createElement( 'label', { htmlFor: props.uniqueId },
-        React__default.createElement( 'span', { className: 'checkbox--contain' },
-          props.type === 'toggle' ? React__default.createElement( ToggleCheckbox, null ) : React__default.createElement( StandardCheckbox, null ),
-          React__default.createElement( 'span', { className: 'checkbox--label' }, props.label)
-        )
+var Checkbox$1 = function (props) {
+  return (
+    React__default.createElement( 'div', { className: styles$4.standardCheckboxWrapper },
+      React__default.createElement( 'fieldset', null,
+        React__default.createElement( 'div', { className: styles$4.standardCheckbox },
+          React__default.createElement( 'input', Object.assign({}, excludeProps([ 'label', 'uniqueId', 'size', 'type' ], props), { type: 'checkbox', name: props.uniqueId, id: props.uniqueId }))
+        ),
+        React__default.createElement( 'label', { className: checkboxClasses(props), htmlFor: props.uniqueId })
       )
     )
-  )
-); };
-
-
-var sizes$3 = [ 'small', 'medium', 'large' ];
-var types = [ 'standard', 'toggle' ];
+  );
+};
 
 Checkbox$1.propTypes = {
   checked: index.bool,
   label: index.string,
   onChange: index.func,
-  size: index.oneOf(sizes$3),
-  type: index.oneOf(types),
   uniqueId: index.string.isRequired,
   value: index.string,
 };
@@ -1519,15 +1610,20 @@ Checkbox$1.defaultProps = {
   checked: false,
   label: '',
   onChange: null,
-  size: 'medium',
-  type: 'standard',
   value: '',
 };
 
 Checkbox$1.propDescriptions = {
-  size: ("One of: [\"" + (sizes$3.join('", "')) + "\"]"),
-  type: ("One of: [\"" + (types.join('", "')) + "\"]"),
   uniqueId: 'Must be globally unique—this sets the checkbox element\'s id attribute.',
+};
+
+var css$5 = "/* .....................................\n  Vimeo Colors\n..................................... */\n/* .....................................\n  Grayscale\n..................................... */\n/* .....................................\n  Blues\n..................................... */\n/* .....................................\n  Greens\n..................................... */\n/* .....................................\n  Reds\n..................................... */\n/* .....................................\n  Interaction Colors\n..................................... */\n/* .....................................\n  Vimeo Legacy Colors\n..................................... */\n/* .....................................\n  Default Text\n..................................... */\n/* .....................................\n  Default Sizing\n..................................... */\n/* .....................................\n  Vimeo Colors\n..................................... */\n/* .....................................\n  Grayscale\n..................................... */\n/* .....................................\n  Blues\n..................................... */\n/* .....................................\n  Greens\n..................................... */\n/* .....................................\n  Reds\n..................................... */\n/* .....................................\n  Interaction Colors\n..................................... */\n/* .....................................\n  Vimeo Legacy Colors\n..................................... */\n/* .....................................\n  Default Text\n..................................... */\n/* .....................................\n  Default Sizing\n..................................... */\n/*.....................................\n  VIMEO FONT MIXINS\n......................................*/\n/* .....................................\n  Vimeo Colors\n..................................... */\n/* .....................................\n  Grayscale\n..................................... */\n/* .....................................\n  Blues\n..................................... */\n/* .....................................\n  Greens\n..................................... */\n/* .....................................\n  Reds\n..................................... */\n/* .....................................\n  Interaction Colors\n..................................... */\n/* .....................................\n  Vimeo Legacy Colors\n..................................... */\n/* .....................................\n  Default Text\n..................................... */\n/* .....................................\n  Default Sizing\n..................................... */\n/* .....................................\n  Vimeo Colors\n..................................... */\n/* .....................................\n  Grayscale\n..................................... */\n/* .....................................\n  Blues\n..................................... */\n/* .....................................\n  Greens\n..................................... */\n/* .....................................\n  Reds\n..................................... */\n/* .....................................\n  Interaction Colors\n..................................... */\n/* .....................................\n  Vimeo Legacy Colors\n..................................... */\n/* .....................................\n  Default Text\n..................................... */\n/* .....................................\n  Default Sizing\n..................................... */\n/* .....................................\n  Vimeo Specific Fonts\n..................................... */\n/* .....................................\n  Vimeo Specific Widths\n..................................... */\n/* .....................................\n  Vimeo Media Query Breakpoints\n..................................... */\n/* .....................................\n  Vimeo Colors\n..................................... */\n/* .....................................\n  Grayscale\n..................................... */\n/* .....................................\n  Blues\n..................................... */\n/* .....................................\n  Greens\n..................................... */\n/* .....................................\n  Reds\n..................................... */\n/* .....................................\n  Interaction Colors\n..................................... */\n/* .....................................\n  Vimeo Legacy Colors\n..................................... */\n/* .....................................\n  Default Text\n..................................... */\n/* .....................................\n  Default Sizing\n..................................... */\n.Header_headerContainer__yilsM {\n  margin: 0 -0.46868rem 0 -0.46868rem;\n  padding-bottom: 20px;\n  width: auto;\n  max-width: none; }\n\n.Header_headerContainerBorder__2UAc2 {\n  margin: 0 -0.46868rem 0 -0.46868rem;\n  padding-bottom: 20px;\n  border-bottom: 1px solid #e3e8e9;\n  border-radius: 0;\n  width: auto;\n  max-width: none; }\n  .Header_headerContainerBorder__2UAc2:after {\n    content: \"\";\n    display: table;\n    clear: both; }\n\n.Header_mediaColumnWrapper__2Dbms,\n.Header_headerColumnOptionsWrapper__2ehws {\n  padding-left: 0.46875rem;\n  padding-right: 0.46875rem;\n  position: relative;\n  width: 62.5%;\n  float: left; }\n\n.Header_mediaColumnWrapper__2Dbms {\n  width: 62.5%; }\n\n.Header_headerColumnOptionsWrapper__2ehws {\n  width: 37.5%;\n  text-align: right; }\n\n.Header_media__2FMow {\n  display: flex;\n  width: 100%;\n  justify-content: flex-start; }\n\n.Header_mediaIconUnit__aH-82,\n.Header_mediaTextUnit__489Dn {\n  display: inline-block; }\n\n.Header_mediaTextUnit__489Dn {\n  padding-left: 20px; }\n\n.Header_headerTitle__1yjzS {\n  font-family: \"brandon-grotesque-n1\", \"brandon-grotesque\", \"BrandonMedium\", sans-serif;\n  color: #1a2e3b;\n  font-weight: 400;\n  font-size: 22px;\n  line-height: 1.2;\n  letter-spacing: 1px;\n  text-transform: uppercase; }\n\n.Header_headerDescription__2Gcvk {\n  font-family: Helvetica, Arial, sans-serif;\n  color: #8699a6;\n  font-weight: 400;\n  font-size: 14px;\n  line-height: 1.2; }\n\n@media screen and (min-device-width: 768px) and (max-width: 1024px) {\n  .Header_mediaColumnWrapper__2Dbms,\n  .Header_headerColumnOptionsWrapper__2ehws {\n    width: 50%; } }\n\n@media screen and (min-device-width: 320px) and (max-width: 667px) {\n  .Header_mediaColumnWrapper__2Dbms,\n  .Header_headerColumnOptionsWrapper__2ehws {\n    width: 100%; } }\n";
+var styles$5 = {"headerContainer":"Header_headerContainer__yilsM","headerContainerBorder":"Header_headerContainerBorder__2UAc2","mediaColumnWrapper":"Header_mediaColumnWrapper__2Dbms","headerColumnOptionsWrapper":"Header_headerColumnOptionsWrapper__2ehws","media":"Header_media__2FMow","mediaIconUnit":"Header_mediaIconUnit__aH-82","mediaTextUnit":"Header_mediaTextUnit__489Dn","headerTitle":"Header_headerTitle__1yjzS","headerDescription":"Header_headerDescription__2Gcvk"};
+__$$styleInject(css$5);
+
+var containerClasses = function (border) {
+  return index$1(( obj = {}, obj[styles$5.headerContainer] = border === false || border === undefined, obj[styles$5.headerContainerBorder] = border === true, obj ));
+  var obj;
 };
 
 var Header$1 = function (ref) {
@@ -1538,26 +1634,29 @@ var Header$1 = function (ref) {
   var title = ref.title;
 
   return (
-  React__default.createElement( 'div', { className: ("header row padding-bottom-medium " + (border ? 'border-bottom' : '')) },
-    React__default.createElement( 'div', { className: 'column small-16 medium-8 large-10' },
-      React__default.createElement( 'div', { className: 'media' },
-        React__default.createElement( 'div', { className: 'media-unit text-top' }, React__default.createElement( Icon$1, { name: icon, size: 'large' })),
-        React__default.createElement( 'div', { className: 'media-unit media-fill padding-left-medium' },
-          React__default.createElement( 'h2', { className: 'head-3' }, title),
-          React__default.createElement( 'div', { className: 'text text--gray' }, typeof Description === 'string' ? Description : React__default.createElement( Description, null ))
+    React__default.createElement( 'div', { className: containerClasses(border) },
+      React__default.createElement( 'div', { className: styles$5.mediaColumnWrapper },
+        React__default.createElement( 'div', { className: styles$5.media },
+          React__default.createElement( 'div', { className: styles$5.mediaIconUnit },
+            React__default.createElement( Icon$1, { src: 'data:image/svg+xml;base64,PHN2ZyBpZD0iTGF5ZXJfMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB2aWV3Qm94PSIwIDAgMjMgMjMiPjxzdHlsZT4uc3Qwe2ZpbGw6IzAwYWRlZn0uc3Qxe2ZpbGw6IzFhMmUzYn08L3N0eWxlPjx0aXRsZT5pY29ucy1zaW5nbGV0b25zPC90aXRsZT48cGF0aCBjbGFzcz0ic3QwIiBkPSJNNi40IDYuMmw1LjEtMi45IDUuMSAyLjktNS4xIDMuMXoiLz48cGF0aCBjbGFzcz0ic3QxIiBkPSJNMTEuNS4yTDEuOSA1Ljd2MTEuNmw5LjYgNS41IDkuNi01LjVWNS43TDExLjUuMnptNy41IDZsLTcuNSA0LjVMNCA2LjJsNy41LTQuM0wxOSA2LjJ6TTMuMyA3LjRsNy41IDQuNXY4LjhsLTcuNS00LjN2LTl6bTguOSAxMy4zdi04LjhsNy41LTQuNXY5LjFsLTcuNSA0LjJ6Ii8+PC9zdmc+', size: 'large' })
+          ),
+          React__default.createElement( 'div', { className: styles$5.mediaTextUnit },
+            React__default.createElement( 'h2', { className: styles$5.headerTitle }, title),
+            React__default.createElement( 'div', { className: styles$5.headerDescription }, typeof Description === 'string' ? Description : React__default.createElement( Description, null )
+            )
+          )
         )
-      )
-    ),
-    React__default.createElement( 'div', { className: 'column small-16 medium-8 large-6 text-right' }, children)
-  )
-);
+      ),
+      React__default.createElement( 'div', { className: styles$5.headerColumnOptionsWrapper }, children)
+    )
+  );
 };
 
 Header$1.propTypes = {
   border: index.bool,
   children: index.node,
   Description: index.oneOfType([ index.string, index.func ]), // can be a string or component
-  icon: index.oneOf(iconNames).isRequired,
+  icon: index.oneOf(iconList).isRequired,
   title: index.string.isRequired,
 };
 
@@ -1572,38 +1671,45 @@ Header$1.propDescriptions = {
   icon: 'String: One of any of the valid icon names',
 };
 
+var css$6 = "/* .....................................\n  Vimeo Colors\n..................................... */\n/* .....................................\n  Grayscale\n..................................... */\n/* .....................................\n  Blues\n..................................... */\n/* .....................................\n  Greens\n..................................... */\n/* .....................................\n  Reds\n..................................... */\n/* .....................................\n  Interaction Colors\n..................................... */\n/* .....................................\n  Vimeo Legacy Colors\n..................................... */\n/* .....................................\n  Default Text\n..................................... */\n/* .....................................\n  Default Sizing\n..................................... */\n/* .....................................\n  Vimeo Colors\n..................................... */\n/* .....................................\n  Grayscale\n..................................... */\n/* .....................................\n  Blues\n..................................... */\n/* .....................................\n  Greens\n..................................... */\n/* .....................................\n  Reds\n..................................... */\n/* .....................................\n  Interaction Colors\n..................................... */\n/* .....................................\n  Vimeo Legacy Colors\n..................................... */\n/* .....................................\n  Default Text\n..................................... */\n/* .....................................\n  Default Sizing\n..................................... */\n/*.....................................\n  VIMEO FONT MIXINS\n......................................*/\n/* .....................................\n  Vimeo Colors\n..................................... */\n/* .....................................\n  Grayscale\n..................................... */\n/* .....................................\n  Blues\n..................................... */\n/* .....................................\n  Greens\n..................................... */\n/* .....................................\n  Reds\n..................................... */\n/* .....................................\n  Interaction Colors\n..................................... */\n/* .....................................\n  Vimeo Legacy Colors\n..................................... */\n/* .....................................\n  Default Text\n..................................... */\n/* .....................................\n  Default Sizing\n..................................... */\n/* .....................................\n  Vimeo Colors\n..................................... */\n/* .....................................\n  Grayscale\n..................................... */\n/* .....................................\n  Blues\n..................................... */\n/* .....................................\n  Greens\n..................................... */\n/* .....................................\n  Reds\n..................................... */\n/* .....................................\n  Interaction Colors\n..................................... */\n/* .....................................\n  Vimeo Legacy Colors\n..................................... */\n/* .....................................\n  Default Text\n..................................... */\n/* .....................................\n  Default Sizing\n..................................... */\n/* .....................................\n  Vimeo Specific Fonts\n..................................... */\n/* .....................................\n  Vimeo Specific Widths\n..................................... */\n/* .....................................\n  Vimeo Media Query Breakpoints\n..................................... */\n.Input_form__1ia2S input[type=\"text\"],\n.Input_form__1ia2S input[type=\"password\"],\n.Input_form__1ia2S input[type=\"email\"],\n.Input_form__1ia2S input[type=\"date\"],\n.Input_form__1ia2S input[type=\"datetime\"],\n.Input_form__1ia2S input[type=\"month\"],\n.Input_form__1ia2S input[type=\"week\"],\n.Input_form__1ia2S input[type=\"number\"],\n.Input_form__1ia2S input[type=\"search\"],\n.Input_form__1ia2S input[type=\"tel\"],\n.Input_form__1ia2S input[type=\"time\"],\n.Input_form__1ia2S input[type=\"url\"],\n.Input_form__1ia2S input[type=\"color\"],\n.Input_form__1ia2S fieldset,\n.Input_form__1ia2S textarea {\n  padding: 6px 15px 6px 15px;\n  margin-bottom: 0;\n  height: 40px;\n  width: 100%;\n  color: #1a2e3b;\n  font-size: 14px;\n  background-color: #fff;\n  border: 1px solid #e3e8e9;\n  box-shadow: none;\n  box-sizing: border-box;\n  border-radius: 3px;\n  transition: border .2s ease; }\n\n.Input_form__1ia2S input[type=\"text\"]:disabled,\n.Input_form__1ia2S input[type=\"password\"]:disabled,\n.Input_form__1ia2S input[type=\"email\"]:disabled,\n.Input_form__1ia2S input[type=\"date\"]:disabled,\n.Input_form__1ia2S input[type=\"datetime\"]:disabled,\n.Input_form__1ia2S input[type=\"month\"]:disabled,\n.Input_form__1ia2S input[type=\"week\"]:disabled,\n.Input_form__1ia2S input[type=\"number\"]:disabled,\n.Input_form__1ia2S input[type=\"search\"]:disabled,\n.Input_form__1ia2S input[type=\"tel\"]:disabled,\n.Input_form__1ia2S input[type=\"time\"]:disabled,\n.Input_form__1ia2S input[type=\"url\"]:disabled,\n.Input_form__1ia2S input[type=\"color\"]:disabled,\n.Input_form__1ia2S fieldset:disabled,\n.Input_form__1ia2S textarea:disabled {\n  opacity: 0.4; }\n\n.Input_searchIcon__1yYMv {\n  background-image: url(\"data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2223%22%20height%3D%2223%22%20viewBox%3D%220%200%2023%2023%22%3E%3Ctitle%3Eicons-ui-set%20copy%3C%2Ftitle%3E%3Cpath%20d%3D%22M22.46%2C20l-4.74-4.73a15.24%2C15.24%2C0%2C0%2C1-2.5%2C2.5L20%2C22.47C21.53%2C24.1%2C24.08%2C21.6%2C22.46%2C20Z%22%20fill%3D%22%23000000%22%2F%3E%3Cpath%20d%3D%22M15.25%2C17.73A9.83%2C9.83%2C0%2C0%2C0%2C17.17%2C3.46%2C9.82%2C9.82%2C0%2C0%2C0%2C4.36%2C1.62%2C9.82%2C9.82%2C0%2C0%2C0%2C1.08%2C14.14%2C9.81%2C9.81%2C0%2C0%2C0%2C14%2C18.46a9.44%2C9.44%2C0%2C0%2C0%2C1.26-.74h0ZM9.73%2C15.9A6.25%2C6.25%2C0%2C0%2C1%2C3.55%2C9.72%2C6.25%2C6.25%2C0%2C0%2C1%2C9.73%2C3.53a6.25%2C6.25%2C0%2C0%2C1%2C6.19%2C6.18A6.25%2C6.25%2C0%2C0%2C1%2C9.73%2C15.9Z%22%20fill%3D%22%23000000%22%2F%3E%3Cpath%20d%3D%22M9.73%2C1.59a8.13%2C8.13%2C0%2C0%2C1%2C4.9%2C14.61l-0.3.21A8.12%2C8.12%2C0%2C1%2C1%2C9.73%2C1.59M9.73%2C0a9.72%2C9.72%2C0%2C1%2C0%2C5.51%2C17.73h0A9.72%2C9.72%2C0%2C0%2C0%2C9.73%2C0h0Z%22%20fill%3D%22%23000000%22%2F%3E%3C%2Fsvg%3E\");\n  background-position: right 5px center;\n  background-repeat: no-repeat;\n  background-size: 15px 15px; }\n";
+var styles$6 = {"form":"Input_form__1ia2S","searchIcon":"Input_searchIcon__1yYMv"};
+__$$styleInject(css$6);
+
 /* eslint-disable react/no-unused-prop-types */
 
-function getClass(ref) {
-  var className = ref.className;
-  var error = ref.error;
-  var search = ref.search;
-  var small = ref.small;
+var searchIcon = function (props) {
+  return index$1(( obj = {}, obj[styles$6.searchIcon] = props.search === true, obj ))
+  var obj;
+};
 
-  return index$1(className, {
-    small: small,
-    'is-error': error,
-    'c-select--search': search,
-    'padding-right-large': search,
-    'icon-search-black': search,
-    'icon--xsmall': search,
-  });
-}
+var errorColor = function (props) {
+  return (props.error === true) ? '#ff4d4d' : '#1a2e3b';
+};
+
+var errorBorder = function (props) {
+  return (props.error === true) ? '1px solid #ff4d4d' : '1px solid #1a2e3b';
+};
+
+var inputSize = function (props) {
+  return (props.small === true) ? '45px' : '100%';
+};
 
 // NOTE: like in the Checkbox component, the `form` class does not
 // do anything here except allow the css selector `.form input` to apply styles.
 // We should consider refactoring the css to remove this requirement.
-var Input$1 = function (props) { return (
-  React__default.createElement( 'div', { className: 'form' },
-    React__default.createElement( 'input', Object.assign({},
-      excludeProps([ 'className', 'error', 'search', 'small' ], props), { className: getClass({
-        className: props.className,
-        error: props.error,
-        search: props.search,
-        small: props.small,
-      }) }))
-  )
-); };
+var Input$1 = function (props) {
+  var inputStyles = {
+    color: errorColor(props),
+    border: errorBorder(props),
+    width: inputSize(props),
+  };
+  return (
+    React__default.createElement( 'div', { className: styles$6.form },
+      React__default.createElement( 'input', Object.assign({},
+        excludeProps([ 'className', 'error', 'search', 'small' ], props), { style: inputStyles, className: searchIcon(props) }))
+    )
+  );
+};
 
 Input$1.propTypes = {
   autoFocus: index.bool,
@@ -1685,8 +1791,22 @@ var modalModel = Model$$1({
   },
 });
 
+var css$7 = "/* .....................................\n  Vimeo Colors\n..................................... */\n/* .....................................\n  Grayscale\n..................................... */\n/* .....................................\n  Blues\n..................................... */\n/* .....................................\n  Greens\n..................................... */\n/* .....................................\n  Reds\n..................................... */\n/* .....................................\n  Interaction Colors\n..................................... */\n/* .....................................\n  Vimeo Legacy Colors\n..................................... */\n/* .....................................\n  Default Text\n..................................... */\n/* .....................................\n  Default Sizing\n..................................... */\n/* .....................................\n  Vimeo Colors\n..................................... */\n/* .....................................\n  Grayscale\n..................................... */\n/* .....................................\n  Blues\n..................................... */\n/* .....................................\n  Greens\n..................................... */\n/* .....................................\n  Reds\n..................................... */\n/* .....................................\n  Interaction Colors\n..................................... */\n/* .....................................\n  Vimeo Legacy Colors\n..................................... */\n/* .....................................\n  Default Text\n..................................... */\n/* .....................................\n  Default Sizing\n..................................... */\n/*.....................................\n  VIMEO FONT MIXINS\n......................................*/\n/* .....................................\n  Vimeo Colors\n..................................... */\n/* .....................................\n  Grayscale\n..................................... */\n/* .....................................\n  Blues\n..................................... */\n/* .....................................\n  Greens\n..................................... */\n/* .....................................\n  Reds\n..................................... */\n/* .....................................\n  Interaction Colors\n..................................... */\n/* .....................................\n  Vimeo Legacy Colors\n..................................... */\n/* .....................................\n  Default Text\n..................................... */\n/* .....................................\n  Default Sizing\n..................................... */\n/* .....................................\n  Vimeo Colors\n..................................... */\n/* .....................................\n  Grayscale\n..................................... */\n/* .....................................\n  Blues\n..................................... */\n/* .....................................\n  Greens\n..................................... */\n/* .....................................\n  Reds\n..................................... */\n/* .....................................\n  Interaction Colors\n..................................... */\n/* .....................................\n  Vimeo Legacy Colors\n..................................... */\n/* .....................................\n  Default Text\n..................................... */\n/* .....................................\n  Default Sizing\n..................................... */\n/* .....................................\n  Vimeo Specific Fonts\n..................................... */\n/* .....................................\n  Vimeo Specific Widths\n..................................... */\n/* .....................................\n  Vimeo Media Query Breakpoints\n..................................... */\n.Modal_openModal__1MBeH {\n  z-index: 2147483801;\n  position: relative;\n  left: 0; }\n\n.Modal_smallModal__14d6V {\n  width: 300px;\n  margin-left: -150px; }\n\n.Modal_smallActionModal__p7-Kb {\n  padding-bottom: 65px;\n  width: 300px;\n  margin-left: -150px; }\n\n.Modal_mediumModal__2jGTi {\n  width: 450px;\n  margin-left: -225px; }\n\n.Modal_mediumActionModal__1LzZA {\n  padding-bottom: 65px;\n  width: 450px;\n  margin-left: -225px; }\n\n.Modal_largeModal__3amrL {\n  width: 650px;\n  margin-left: -325px; }\n\n.Modal_largeActionModal__1li36 {\n  padding-bottom: 65px;\n  width: 650px;\n  margin-left: -325px; }\n\n.Modal_modalHeader__107Zi {\n  padding: 20px;\n  border-bottom: 1px solid rgba(26, 46, 59, 0.2); }\n\n.Modal_modalTitle__2dseT {\n  font-family: Helvetica, Arial, sans-serif;\n  color: #1a2e3b;\n  font-weight: 700;\n  font-size: 16px;\n  line-height: 1.2;\n  text-align: left;\n  text-transform: uppercase; }\n\n.Modal_modalBody__3wZ-u {\n  padding: 20px; }\n\n.Modal_modalActionContainer__1WZWH {\n  background: #fff;\n  border-top: 1px solid rgba(26, 46, 59, 0.2);\n  position: absolute;\n  bottom: 0;\n  left: 0;\n  width: 100%; }\n\n.Modal_modalActionPosition__1bwri {\n  padding: 10px;\n  text-align: center; }\n\n.Modal_modalCloseContainer__3MRAq {\n  display: block;\n  position: absolute;\n  top: -25px;\n  right: -25px;\n  cursor: pointer;\n  width: 16px; }\n\n.Modal_modalBackgroundOpen__2LKtP {\n  animation: Modal_modal-bg-open__2F80g 300ms ease forwards;\n  background-color: rgba(26, 46, 59, 0.55);\n  position: fixed;\n  left: 0;\n  top: 0;\n  width: 100%;\n  height: 100%; }\n\n.Modal_modalBackgroundClosed__2SlLZ {\n  animation: Modal_modal-bg-closed__11N4u 300ms ease forwards;\n  background-color: transparent;\n  position: fixed;\n  left: 0;\n  top: 0;\n  width: 100%;\n  height: 100%; }\n";
+var styles$7 = {"openModal":"Modal_openModal__1MBeH","smallModal":"Modal_smallModal__14d6V","smallActionModal":"Modal_smallActionModal__p7-Kb","mediumModal":"Modal_mediumModal__2jGTi","mediumActionModal":"Modal_mediumActionModal__1LzZA","largeModal":"Modal_largeModal__3amrL","largeActionModal":"Modal_largeActionModal__1li36","modalHeader":"Modal_modalHeader__107Zi","modalTitle":"Modal_modalTitle__2dseT","modalBody":"Modal_modalBody__3wZ-u","modalActionContainer":"Modal_modalActionContainer__1WZWH","modalActionPosition":"Modal_modalActionPosition__1bwri","modalCloseContainer":"Modal_modalCloseContainer__3MRAq","modalBackgroundOpen":"Modal_modalBackgroundOpen__2LKtP","modal-bg-open":"Modal_modal-bg-open__2F80g","modalBackgroundClosed":"Modal_modalBackgroundClosed__2SlLZ","modal-bg-closed":"Modal_modal-bg-closed__11N4u"};
+__$$styleInject(css$7);
+
 /* eslint-disable react/no-unused-prop-types */
 /* eslint-disable jsx-a11y/no-static-element-interactions */
+
+var modalActionContainerClasses = function (size) {
+  return index$1('c-modal-container', ( obj = {}, obj[styles$7.smallActionModal] = size === 'small', obj[styles$7.mediumActionModal] = size === 'medium', obj[styles$7.largeActionModal] = size === 'large', obj ))
+  var obj;
+};
+
+var modalContainerClasses = function (size) {
+  return index$1('c-modal-container', ( obj = {}, obj[styles$7.smallModal] = size === 'small', obj[styles$7.mediumModal] = size === 'medium', obj[styles$7.largeModal] = size === 'large', obj ))
+  var obj;
+};
 
 function getActionClass(ref) {
   var actions = ref.actions;
@@ -1696,7 +1816,7 @@ function getActionClass(ref) {
     btn: true,
     'btn--half': actions.length > 1,
     'btn--fill': actions.length <= 1,
-  }, ("btn-" + (actions[index$$1].color || 'gray')));
+  }, ("btn-" + (actions[index$$1].color || 'vimeo-secondary')));
 }
 
 function handleEscapeKey(event) {
@@ -1713,6 +1833,8 @@ var Modal$1 = (function (Component$$1) {
   function Modal() {
     Component$$1.call(this);
     this.el = null;
+
+    this.containerClasses = this.containerClasses.bind(this);
   }
 
   if ( Component$$1 ) Modal.__proto__ = Component$$1;
@@ -1737,6 +1859,11 @@ var Modal$1 = (function (Component$$1) {
     window.removeEventListener('keyup', handleEscapeKey);
   };
 
+  Modal.prototype.containerClasses = function containerClasses () {
+    return (this.actions === true) ? modalActionContainerClasses(this.size) : modalContainerClasses(this.size)
+  };
+
+  // v2 consider background.  For now, this works.
   Modal.prototype.render = function render () {
     var this$1 = this;
 
@@ -1746,18 +1873,21 @@ var Modal$1 = (function (Component$$1) {
     var isOpen = ref.isOpen;
     var size = ref.size;
     var title = ref.title;
+
+    console.log('actions', actions);
+
     return (
       React__default.createElement( 'div', { className: ("c-modal " + (isOpen ? 'is-open' : '')) },
-        React__default.createElement( 'div', { className: ("c-modal-container " + (actions.length !== 0 ? 'c-modal--has-actions' : '') + " c-modal--" + size), ref: function (el) { this$1.el = el; } },
-          React__default.createElement( 'div', { className: 'c-modal--header padding-medium' },
+        React__default.createElement( 'div', { className: this.containerClasses(), ref: function (el) { this$1.el = el; } },
+          React__default.createElement( 'div', { className: styles$7.modalHeader },
             React__default.createElement( 'span', null,
-              React__default.createElement( 'div', { className: 'h2 head-4 head secondary text-left' }, title)
+              React__default.createElement( 'div', { className: styles$7.modalTitle }, title)
             )
           ),
-          React__default.createElement( 'div', { className: 'c-modal--body padding-medium' }, body),
+          React__default.createElement( 'div', { className: styles$7.modalBody }, body),
           React__default.createElement( If$1, { condition: actions.length !== 0 },
-            React__default.createElement( 'div', { className: 'c-modal--actions' },
-              React__default.createElement( 'div', { className: 'padding-small text-center' },
+            React__default.createElement( 'div', { className: styles$7.modalActionContainer },
+              React__default.createElement( 'div', { className: styles$7.modalActionPosition },
                 actions.map(function (action, index$$1) { return (
                     React__default.createElement( 'div', {
                       onClick: actions[index$$1].callback, key: action.label, className: getActionClass({ actions: actions, index: index$$1 }) },
@@ -1767,8 +1897,8 @@ var Modal$1 = (function (Component$$1) {
               )
             )
           ),
-          React__default.createElement( 'div', { className: 'c-modal--close', onClick: modalModel.close },
-            React__default.createElement( Icon$1, { size: 'xsmall', color: 'white', name: 'x' })
+          React__default.createElement( 'div', { className: styles$7.modalCloseContainer, onClick: modalModel.close },
+            React__default.createElement( Icon$1, { size: 'xsmall', name: 'x', src: '../components/Modal/close-icon.svg' })
           )
         ),
         React__default.createElement( 'div', { className: 'c-modal-bg', onClick: modalModel.close })
@@ -1798,10 +1928,14 @@ Modal$1.defaultProps = {
 
 var Modal$2 = connect$$1(modalModel, Modal$1);
 
+var css$8 = "/* .....................................\n  Vimeo Colors\n..................................... */\n/* .....................................\n  Grayscale\n..................................... */\n/* .....................................\n  Blues\n..................................... */\n/* .....................................\n  Greens\n..................................... */\n/* .....................................\n  Reds\n..................................... */\n/* .....................................\n  Interaction Colors\n..................................... */\n/* .....................................\n  Vimeo Legacy Colors\n..................................... */\n/* .....................................\n  Default Text\n..................................... */\n/* .....................................\n  Default Sizing\n..................................... */\n/* .....................................\n  Vimeo Colors\n..................................... */\n/* .....................................\n  Grayscale\n..................................... */\n/* .....................................\n  Blues\n..................................... */\n/* .....................................\n  Greens\n..................................... */\n/* .....................................\n  Reds\n..................................... */\n/* .....................................\n  Interaction Colors\n..................................... */\n/* .....................................\n  Vimeo Legacy Colors\n..................................... */\n/* .....................................\n  Default Text\n..................................... */\n/* .....................................\n  Default Sizing\n..................................... */\n/*.....................................\n  VIMEO FONT MIXINS\n......................................*/\n/* .....................................\n  Vimeo Colors\n..................................... */\n/* .....................................\n  Grayscale\n..................................... */\n/* .....................................\n  Blues\n..................................... */\n/* .....................................\n  Greens\n..................................... */\n/* .....................................\n  Reds\n..................................... */\n/* .....................................\n  Interaction Colors\n..................................... */\n/* .....................................\n  Vimeo Legacy Colors\n..................................... */\n/* .....................................\n  Default Text\n..................................... */\n/* .....................................\n  Default Sizing\n..................................... */\n/* .....................................\n  Vimeo Colors\n..................................... */\n/* .....................................\n  Grayscale\n..................................... */\n/* .....................................\n  Blues\n..................................... */\n/* .....................................\n  Greens\n..................................... */\n/* .....................................\n  Reds\n..................................... */\n/* .....................................\n  Interaction Colors\n..................................... */\n/* .....................................\n  Vimeo Legacy Colors\n..................................... */\n/* .....................................\n  Default Text\n..................................... */\n/* .....................................\n  Default Sizing\n..................................... */\n/* .....................................\n  Vimeo Specific Fonts\n..................................... */\n/* .....................................\n  Vimeo Specific Widths\n..................................... */\n/* .....................................\n  Vimeo Media Query Breakpoints\n..................................... */\n.Pagination_paginationButtonActive__qlcYp {\n  font-family: Helvetica, Arial, sans-serif;\n  color: #fff;\n  font-weight: 700;\n  font-size: 16px;\n  line-height: 1.2;\n  padding: 5px 10px 5px 10px;\n  cursor: default;\n  pointer-events: none;\n  user-select: none;\n  border-radius: 3px;\n  background-color: #8699a6; }\n\n.Pagination_paginationButton__3CEXB {\n  font-family: Helvetica, Arial, sans-serif;\n  color: #8699a6;\n  font-weight: 700;\n  font-size: 16px;\n  line-height: 1.2;\n  padding: 5px 10px 5px 10px;\n  cursor: pointer;\n  pointer-events: none;\n  user-select: none;\n  border-radius: 3px;\n  background-color: #fff; }\n\n.Pagination_paginationLink__t-VVp {\n  font-family: Helvetica, Arial, sans-serif;\n  color: #00adef;\n  font-weight: 700;\n  font-size: 16px;\n  line-height: 1.2;\n  cursor: pointer;\n  user-select: none; }\n\n.Pagination_paginationLinkInvisible__MqwC1 {\n  visibility: hidden; }\n\n.Pagination_paginationSeparator__Aebkh {\n  font-family: Helvetica, Arial, sans-serif;\n  color: #8699a6;\n  font-weight: 700;\n  font-size: 16px;\n  line-height: 1.2; }\n";
+var styles$8 = {"paginationButtonActive":"Pagination_paginationButtonActive__qlcYp","paginationButton":"Pagination_paginationButton__3CEXB","paginationLink":"Pagination_paginationLink__t-VVp","paginationLinkInvisible":"Pagination_paginationLinkInvisible__MqwC1","paginationSeparator":"Pagination_paginationSeparator__Aebkh"};
+__$$styleInject(css$8);
+
 var MAX_VISIBLE_LINKS = 7;
 
 var Separator = function () { return (
-  React__default.createElement( 'span', { className: 'padding-small text--bold pagination-default' }, "...")
+  React__default.createElement( 'span', { className: styles$8.paginationSeparator }, "...")
 ); };
 
 
@@ -1820,8 +1954,13 @@ var Pagination$1 = (function (Component$$1) {
     var ref = this.props;
     var currentIndex = ref.currentIndex;
     var onPageChange = ref.onPageChange;
+
+    var activePaginationButton = function (currentIndex, i) {
+      return index$1(( obj = {}, obj[styles$8.paginationButtonActive] = currentIndex === i, obj[styles$8.paginationButton] = currentIndex !== i, obj ))
+      var obj;
+    };
     return (
-      React__default.createElement( 'span', { className: ("pagination-button text--bold padding-vert-xsmall padding-horz-small radius " + (currentIndex === i ? 'active bg-gray-5 text--white' : '')), onClick: function () { return onPageChange(i); }, key: ("link-" + i) },
+      React__default.createElement( 'span', { className: activePaginationButton(currentIndex, i), onClick: function () { return onPageChange(i); }, key: ("link-" + i) },
         i + 1
       )
     );
@@ -1871,13 +2010,26 @@ var Pagination$1 = (function (Component$$1) {
     if (length === 1) { return React__default.createElement( 'nav', { className: 'text-center' }, link(0)); }
 
     // NOTE: we toggle the visibility of the "Previous"/"Next" links rather than removing those links altogether so that the layout doesn't re-center when those links disappear
+
+    var paginationLinkClassesEnd = function (currentIndex, length) {
+      var isEnd = currentIndex === length - 1;
+      return index$1(( obj = {}, obj[styles$8.paginationLink] = isEnd === false, obj[styles$8.paginationLinkInvisible] = isEnd === true, obj ))
+      var obj;
+    };
+
+    var paginationLinkClassesStart = function (currentIndex, length) {
+      var afterStart = currentIndex !== 0;
+      return index$1(( obj = {}, obj[styles$8.paginationLink] = afterStart === true, obj[styles$8.paginationLinkInvisible] = afterStart === false, obj ))
+      var obj;
+    };
+
     return (
       React__default.createElement( 'nav', { className: 'text-center' },
-        React__default.createElement( 'span', { className: ("pagination-link text--bold padding-small text--teal " + (currentIndex === 0 ? 'invisible' : '')), onClick: function () { return onPageChange(currentIndex - 1); } }, "← Previous"),
+        React__default.createElement( 'span', { className: paginationLinkClassesStart(currentIndex, length), onClick: function () { return onPageChange(currentIndex - 1); } }, "← Previous"),
         link(0),
         links(),
         link(length - 1),
-        React__default.createElement( 'span', { className: ("pagination-link text--bold padding-small text--teal " + (currentIndex === length - 1 ? 'invisible' : '')), onClick: function () { return onPageChange(currentIndex + 1); } }, "Next →")
+        React__default.createElement( 'span', { className: paginationLinkClassesEnd(currentIndex, length), onClick: function () { return onPageChange(currentIndex + 1); } }, "Next →")
       )
     );
   };
@@ -1901,29 +2053,40 @@ Pagination$1.propDescriptions = {
   onPageChange: 'onPageChange(newIndex)',
 };
 
-var RadioIcon = function () { return (
-  React__default.createElement( 'span', { className: 'radio--icon' },
-    React__default.createElement( 'i', { className: 'circle-top' }, React__default.createElement( 'span', null )),
-    React__default.createElement( 'i', { className: 'circle-bottom' }, React__default.createElement( 'span', null ))
-  )
-); };
+var css$9 = "/* .....................................\n  Vimeo Colors\n..................................... */\n/* .....................................\n  Grayscale\n..................................... */\n/* .....................................\n  Blues\n..................................... */\n/* .....................................\n  Greens\n..................................... */\n/* .....................................\n  Reds\n..................................... */\n/* .....................................\n  Interaction Colors\n..................................... */\n/* .....................................\n  Vimeo Legacy Colors\n..................................... */\n/* .....................................\n  Default Text\n..................................... */\n/* .....................................\n  Default Sizing\n..................................... */\n/* .....................................\n  Vimeo Colors\n..................................... */\n/* .....................................\n  Grayscale\n..................................... */\n/* .....................................\n  Blues\n..................................... */\n/* .....................................\n  Greens\n..................................... */\n/* .....................................\n  Reds\n..................................... */\n/* .....................................\n  Interaction Colors\n..................................... */\n/* .....................................\n  Vimeo Legacy Colors\n..................................... */\n/* .....................................\n  Default Text\n..................................... */\n/* .....................................\n  Default Sizing\n..................................... */\n/*.....................................\n  VIMEO FONT MIXINS\n......................................*/\n/* .....................................\n  Vimeo Colors\n..................................... */\n/* .....................................\n  Grayscale\n..................................... */\n/* .....................................\n  Blues\n..................................... */\n/* .....................................\n  Greens\n..................................... */\n/* .....................................\n  Reds\n..................................... */\n/* .....................................\n  Interaction Colors\n..................................... */\n/* .....................................\n  Vimeo Legacy Colors\n..................................... */\n/* .....................................\n  Default Text\n..................................... */\n/* .....................................\n  Default Sizing\n..................................... */\n/* .....................................\n  Vimeo Colors\n..................................... */\n/* .....................................\n  Grayscale\n..................................... */\n/* .....................................\n  Blues\n..................................... */\n/* .....................................\n  Greens\n..................................... */\n/* .....................................\n  Reds\n..................................... */\n/* .....................................\n  Interaction Colors\n..................................... */\n/* .....................................\n  Vimeo Legacy Colors\n..................................... */\n/* .....................................\n  Default Text\n..................................... */\n/* .....................................\n  Default Sizing\n..................................... */\n/* .....................................\n  Vimeo Specific Fonts\n..................................... */\n/* .....................................\n  Vimeo Specific Widths\n..................................... */\n/* .....................................\n  Vimeo Media Query Breakpoints\n..................................... */\ninput[type=\"radio\"] {\n  display: none; }\n\n.RadioGroup_radioButtonWrapper__3Tyfi {\n  display: inline-flex;\n  justify-content: space-between; }\n\n.RadioGroup_radioButtonRadioWrapper__3eoEV {\n  margin-top: 5px;\n  display: inline-block; }\n\n.RadioGroup_radioButtonsTextWrapper__3P5xY {\n  padding-left: 10px;\n  display: inline-block; }\n\n.RadioGroup_radioButtonLabel__2ynDA,\n.RadioGroup_radioButtonLabelGray__3Jyvo {\n  margin-bottom: 5px;\n  padding: 5px 10px 5px 10px;\n  display: block;\n  color: #1a2e3b;\n  font-size: 14px;\n  height: auto;\n  width: 100%;\n  box-sizing: border-box;\n  border-radius: 3px; }\n\n.RadioGroup_radioButtonLabel__2ynDA {\n  background-color: #00adef; }\n\n.RadioGroup_radioButtonLabelGray__3Jyvo {\n  background-color: #e3e8e9; }\n\n.RadioGroup_stackedRadios__2Mgup,\n.RadioGroup_buttonRadios__2pQTT {\n  display: block;\n  height: auto; }\n\n.RadioGroup_blueRadio__1llaV,\n.RadioGroup_grayRadio__10SJQ {\n  position: relative;\n  width: 100%;\n  list-style: none;\n  margin-left: 0;\n  color: #1a2e3b;\n  font-size: 14px;\n  background: #fff;\n  user-select: none; }\n\n.RadioGroup_radioButton__1K54x {\n  margin-left: 5px;\n  margin-right: 5px;\n  position: relative;\n  display: inline-block;\n  width: 20px;\n  height: 20px;\n  float: left;\n  border: 1px solid #1a2e3b;\n  box-shadow: none;\n  box-sizing: border-box;\n  border-radius: 20px;\n  transition: box-shadow .2s ease, color .2s ease;\n  background-color: #fff; }\n\n.RadioGroup_radioChecked__3CZnz,\n.RadioGroup_radioUnchecked__1tLDF {\n  overflow: hidden;\n  position: absolute;\n  top: 4px;\n  left: 4px;\n  display: block;\n  width: 10px;\n  height: 10px;\n  border-radius: 10px; }\n\n.RadioGroup_radioChecked__3CZnz {\n  background: #00adef; }\n\n.RadioGroup_radioUnchecked__1tLDF {\n  background: transparent; }\n\n.RadioGroup_checkedButtonTitle__QhP1u {\n  font-family: Helvetica, Arial, sans-serif;\n  color: #fff;\n  font-weight: 700;\n  font-size: 16px;\n  line-height: 1.2; }\n\n.RadioGroup_checkedButtonText__dM0RQ {\n  font-family: Helvetica, Arial, sans-serif;\n  color: #fff;\n  font-weight: 400;\n  font-size: 16px;\n  line-height: 1.2; }\n\n.RadioGroup_uncheckedButtonTitle__1g2Vx {\n  font-family: Helvetica, Arial, sans-serif;\n  color: #1a2e3b;\n  font-weight: 700;\n  font-size: 16px;\n  line-height: 1.2; }\n\n.RadioGroup_strongText__2rzjb {\n  font-family: Helvetica, Arial, sans-serif;\n  color: #1a2e3b;\n  font-weight: 400;\n  font-size: 12px;\n  line-height: 1.2; }\n";
+var styles$9 = {"radioButtonWrapper":"RadioGroup_radioButtonWrapper__3Tyfi","radioButtonRadioWrapper":"RadioGroup_radioButtonRadioWrapper__3eoEV","radioButtonsTextWrapper":"RadioGroup_radioButtonsTextWrapper__3P5xY","radioButtonLabel":"RadioGroup_radioButtonLabel__2ynDA","radioButtonLabelGray":"RadioGroup_radioButtonLabelGray__3Jyvo","stackedRadios":"RadioGroup_stackedRadios__2Mgup","buttonRadios":"RadioGroup_buttonRadios__2pQTT","blueRadio":"RadioGroup_blueRadio__1llaV","grayRadio":"RadioGroup_grayRadio__10SJQ","radioButton":"RadioGroup_radioButton__1K54x","radioChecked":"RadioGroup_radioChecked__3CZnz","radioUnchecked":"RadioGroup_radioUnchecked__1tLDF","checkedButtonTitle":"RadioGroup_checkedButtonTitle__QhP1u","checkedButtonText":"RadioGroup_checkedButtonText__dM0RQ","uncheckedButtonTitle":"RadioGroup_uncheckedButtonTitle__1g2Vx","strongText":"RadioGroup_strongText__2rzjb"};
+__$$styleInject(css$9);
 
-var Radio = function (ref) {
-  var checked = ref.checked;
-  var index$$1 = ref.index;
-  var label = ref.label;
-  var onCheck = ref.onCheck;
+var internalButton = function (props) {
+  return index$1(( obj = {}, obj[styles$9.radioChecked] = props.checked === true, obj[styles$9.radioUnchecked] = props.checked === false, obj ))
+  var obj;
+};
 
+
+
+var RadioIcon = function (props) {
   return (
-  React__default.createElement( 'li', null,
-    React__default.createElement( 'input', {
-      type: 'radio', checked: checked, onChange: function (event) { return onCheck(event, index$$1); } }),
-    React__default.createElement( 'label', { onClick: function (event) { return onCheck(event, index$$1); } },
-      React__default.createElement( RadioIcon, null ),
-      React__default.createElement( 'span', { className: 'radio--label text-left' }, label)
+    React__default.createElement( 'span', { className: styles$9.radioButton },
+      React__default.createElement( 'i', { className: internalButton(props) })
     )
-  )
-);
+  );
+};
+
+var Radio = function (props) {
+  var checked = props.checked;
+  var index$$1 = props.index;
+  var label = props.label;
+  var onCheck = props.onCheck;
+  return (
+    React__default.createElement( 'li', null,
+      React__default.createElement( 'input', {
+        type: 'radio', checked: checked, onChange: function (event) { return onCheck(event, index$$1); } }),
+      React__default.createElement( 'label', { onClick: function (event) { return onCheck(event, index$$1); } },
+        React__default.createElement( RadioIcon, props),
+        React__default.createElement( 'span', { className: 'radio--label text-left' }, label)
+      )
+    )
+  );
 };
 
 Radio.propTypes = {
@@ -1934,28 +2097,20 @@ Radio.propTypes = {
 };
 
 function getDescriptionClassName(checked) {
-  return index$1({
-    'text--white': checked,
-    'text-4': true,
-  });
+  return index$1(( obj = {}, obj[styles$9.checkedButtonText] = checked, obj[styles$9.strongText] = true, obj ));
+  var obj;
 }
 
-function getClassName$4(checked) {
-  return index$1({
-    'btn-teal': checked,
-    'btn-gray': !checked,
-    'btn--fill': true,
-    'btn-radio': true,
-    'margin-bottom-medium': true,
-  });
+function getClassName$2(checked) {
+  return index$1(( obj = {}, obj[styles$9.radioButtonLabel] = checked, obj[styles$9.radioButtonLabelGray] = !checked, obj ));
+  var obj;
 }
 
 function getTitleClassName(checked) {
-  return index$1({
-    'text--white': checked,
-    'text--navy': !checked,
+  return index$1(( obj = {
     'text-2': true,
-  });
+  }, obj[styles$9.checkedButtonTitle] = checked, obj[styles$9.uncheckedButtonTitle] = !checked, obj ));
+  var obj;
 }
 
 function getStyle(description) {
@@ -1971,14 +2126,19 @@ var RadioButton = function (ref) {
 
   return (
   React__default.createElement( 'li', null,
-    React__default.createElement( 'input', {
-      type: 'radio', checked: checked, onChange: function (event) { return onCheck(event, index$$1); } }),
-    React__default.createElement( 'label', { className: getClassName$4(checked), onClick: function (event) { return onCheck(event, index$$1); } },
-      React__default.createElement( RadioIcon, null ),
-      React__default.createElement( 'span', { className: 'radio--label text-left padding-left-small', style: getStyle(description) },
-        React__default.createElement( 'strong', { className: getTitleClassName(checked) }, label),
-        React__default.createElement( If$1, { condition: Boolean(description) },
-          React__default.createElement( 'p', { className: getDescriptionClassName(checked) }, description)
+    React__default.createElement( 'div', { className: styles$9.radioButtonWrapper },
+      React__default.createElement( 'input', {
+        type: 'radio', checked: checked, onChange: function (event) { return onCheck(event, index$$1); } }),
+      React__default.createElement( 'label', {
+        className: getClassName$2(checked), onClick: function (event) { return onCheck(event, index$$1); } },
+        React__default.createElement( 'span', { className: styles$9.radioButtonRadioWrapper },
+          React__default.createElement( RadioIcon, null )
+        ),
+        React__default.createElement( 'span', { className: styles$9.radioButtonsTextWrapper, style: getStyle(description) },
+          React__default.createElement( 'strong', { className: getTitleClassName(checked) }, label),
+          React__default.createElement( If$1, { condition: Boolean(description) },
+            React__default.createElement( 'p', { className: getDescriptionClassName(checked) }, description)
+          )
         )
       )
     )
@@ -1998,17 +2158,13 @@ RadioButton.defaultProps = {
   description: '',
 };
 
-function getClassName$3(ref) {
+function getClassName$1(ref) {
   var buttons = ref.buttons;
   var color = ref.color;
   var stacked = ref.stacked;
 
-  return index$1({
-    'radio-teal': color === 'teal',
-    'radio-gray': color === 'gray',
-    'radio--buttons': buttons,
-    'radio--stacked': stacked,
-  });
+  return index$1(( obj = {}, obj[styles$9.blueRadio] = color === 'VimeoBlue', obj[styles$9.grayRadio] = color === 'SoutherlySky', obj[styles$9.buttonRadios] = buttons, obj[styles$9.stackedRadios] = stacked, obj ));
+  var obj;
 }
 
 function getRadioComponent(ref) {
@@ -2031,14 +2187,14 @@ var RadioGroup$1 = function (ref) {
 
   return (
   React__default.createElement( 'div', { className: 'form' },
-    React__default.createElement( 'ul', { className: getClassName$3({ buttons: buttons, color: color, stacked: stacked }) },
+    React__default.createElement( 'ul', { className: getClassName$1({ buttons: buttons, color: color, stacked: stacked }) },
       items.map(getRadioComponent({ buttons: buttons, onCheck: onCheck, selectedIndex: selectedIndex }))
     )
   )
 );
 };
 
-var colors$2 = [ 'teal', 'gray' ];
+var colors$2 = [ 'VimeoBlue', 'SoutherlySky' ];
 
 var radioItemPropType = index.shape({
   label: index.string.isRequired,
@@ -2056,7 +2212,7 @@ RadioGroup$1.propTypes = {
 
 RadioGroup$1.defaultProps = {
   buttons: false,
-  color: 'teal',
+  color: 'VimeoBlue',
   onCheck: noop,
   selectedIndex: -1,
   stacked: false,
@@ -2095,6 +2251,10 @@ var sidebarModel = Model$$1({
   },
 });
 
+var css$10 = "/* .....................................\n  Vimeo Colors\n..................................... */\n/* .....................................\n  Grayscale\n..................................... */\n/* .....................................\n  Blues\n..................................... */\n/* .....................................\n  Greens\n..................................... */\n/* .....................................\n  Reds\n..................................... */\n/* .....................................\n  Interaction Colors\n..................................... */\n/* .....................................\n  Vimeo Legacy Colors\n..................................... */\n/* .....................................\n  Default Text\n..................................... */\n/* .....................................\n  Default Sizing\n..................................... */\n/* .....................................\n  Vimeo Colors\n..................................... */\n/* .....................................\n  Grayscale\n..................................... */\n/* .....................................\n  Blues\n..................................... */\n/* .....................................\n  Greens\n..................................... */\n/* .....................................\n  Reds\n..................................... */\n/* .....................................\n  Interaction Colors\n..................................... */\n/* .....................................\n  Vimeo Legacy Colors\n..................................... */\n/* .....................................\n  Default Text\n..................................... */\n/* .....................................\n  Default Sizing\n..................................... */\n/*.....................................\n  VIMEO FONT MIXINS\n......................................*/\n/* .....................................\n  Vimeo Colors\n..................................... */\n/* .....................................\n  Grayscale\n..................................... */\n/* .....................................\n  Blues\n..................................... */\n/* .....................................\n  Greens\n..................................... */\n/* .....................................\n  Reds\n..................................... */\n/* .....................................\n  Interaction Colors\n..................................... */\n/* .....................................\n  Vimeo Legacy Colors\n..................................... */\n/* .....................................\n  Default Text\n..................................... */\n/* .....................................\n  Default Sizing\n..................................... */\n/* .....................................\n  Vimeo Colors\n..................................... */\n/* .....................................\n  Grayscale\n..................................... */\n/* .....................................\n  Blues\n..................................... */\n/* .....................................\n  Greens\n..................................... */\n/* .....................................\n  Reds\n..................................... */\n/* .....................................\n  Interaction Colors\n..................................... */\n/* .....................................\n  Vimeo Legacy Colors\n..................................... */\n/* .....................................\n  Default Text\n..................................... */\n/* .....................................\n  Default Sizing\n..................................... */\n/* .....................................\n  Vimeo Specific Fonts\n..................................... */\n/* .....................................\n  Vimeo Specific Widths\n..................................... */\n/* .....................................\n  Vimeo Media Query Breakpoints\n..................................... */\n.Sidebar_sidebar__3fA8_ {\n  max-width: 100%;\n  right: 0;\n  transition: transform 400ms ease;\n  width: 600px;\n  background-color: #fff;\n  overflow: auto;\n  position: fixed;\n  top: 0;\n  bottom: 0;\n  height: 100%; }\n\n.Sidebar_sidebar__3fA8_ {\n  transform: translate3d(0, 0, 0); }\n\n.Sidebar_sidebarOpen__119jm {\n  transform: translate3d(608px, 0, 0); }\n\n.Sidebar_closeIcon__1K8JP {\n  padding: 5px;\n  position: absolute;\n  top: 10px;\n  right: 15px;\n  z-index: 10;\n  background-color: #fff;\n  background-size: 10px;\n  width: 15px;\n  height: 15px;\n  background-image: url(\"data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2223%22%20height%3D%2223%22%20viewBox%3D%220%200%2023%2023%22%3E%3Ctitle%3Eicons-ui-set%20copy%3C%2Ftitle%3E%3Cpath%20d%3D%22M22.57%2C19.76L14.3%2C11.5l8.26-8.26a1.07%2C1.07%2C0%2C0%2C0%2C0-1.51l-1.3-1.3a1.07%2C1.07%2C0%2C0%2C0-1.5%2C0L11.5%2C8.7%2C3.24%2C0.43a1.07%2C1.07%2C0%2C0%2C0-1.5%2C0l-1.3%2C1.3a1.07%2C1.07%2C0%2C0%2C0%2C0%2C1.51L8.7%2C11.5%2C0.43%2C19.76a1.07%2C1.07%2C0%2C0%2C0%2C0%2C1.5l1.3%2C1.3a1.07%2C1.07%2C0%2C0%2C0%2C1.5%2C0L11.5%2C14.3l8.26%2C8.26a1.07%2C1.07%2C0%2C0%2C0%2C1.51%2C0l1.3-1.3A1.07%2C1.07%2C0%2C0%2C0%2C22.57%2C19.76Z%22%20fill%3D%22%23000000%22%2F%3E%3C%2Fsvg%3E\");\n  background-repeat: no-repeat;\n  border-radius: 50%;\n  border: 1px solid #e3e8e9;\n  box-sizing: content-box;\n  display: inline-block;\n  background-position: 50% 50%; }\n";
+var styles$10 = {"sidebar":"Sidebar_sidebar__3fA8_","sidebarOpen":"Sidebar_sidebarOpen__119jm","closeIcon":"Sidebar_closeIcon__1K8JP"};
+__$$styleInject(css$10);
+
 var sidebarsInitialized = 0;
 
 var Sidebar$1 = (function (Component$$1) {
@@ -2119,9 +2279,14 @@ var Sidebar$1 = (function (Component$$1) {
     var ref = this.props;
     var isOpen = ref.isOpen;
     var Contents = ref.Contents;
+
+    var sidebarClasses = function (isOpen) {
+      return index$1(( obj = {}, obj[styles$10.sidebarOpen] = !isOpen, obj[styles$10.sidebar] = isOpen, obj ));
+      var obj;
+    };
     return (
-      React__default.createElement( 'div', { className: ("sidebar c-sidebar bg-white shadow--gray " + (isOpen ? 'sidebar--open' : '')) },
-        React__default.createElement( 'span', { className: 'c-sidebar--close icon-circle icon-x-black icon--xsmall', style: { cursor: 'pointer' }, onClick: function () { return sidebarModel.close(); } }),
+      React__default.createElement( 'div', { style: { zIndex: 2147483800 }, className: sidebarClasses(isOpen) },
+        React__default.createElement( 'span', { className: styles$10.closeIcon, style: { cursor: 'pointer' }, onClick: function () { return sidebarModel.close(); } }),
         React__default.createElement( 'div', null, React__default.createElement( Contents, null ) )
       )
     );
@@ -2218,34 +2383,19 @@ Slide$1.defaultProps = {
   isWide: false,
 };
 
-function getClass$1(isHover) {
-  return index$1({
-    inline: true,
-    relative: true,
-    'c-tag': true,
-    'is-hover': isHover,
-  });
-}
+var css$11 = "/* .....................................\n  Vimeo Colors\n..................................... */\n/* .....................................\n  Grayscale\n..................................... */\n/* .....................................\n  Blues\n..................................... */\n/* .....................................\n  Greens\n..................................... */\n/* .....................................\n  Reds\n..................................... */\n/* .....................................\n  Interaction Colors\n..................................... */\n/* .....................................\n  Vimeo Legacy Colors\n..................................... */\n/* .....................................\n  Default Text\n..................................... */\n/* .....................................\n  Default Sizing\n..................................... */\n/* .....................................\n  Vimeo Colors\n..................................... */\n/* .....................................\n  Grayscale\n..................................... */\n/* .....................................\n  Blues\n..................................... */\n/* .....................................\n  Greens\n..................................... */\n/* .....................................\n  Reds\n..................................... */\n/* .....................................\n  Interaction Colors\n..................................... */\n/* .....................................\n  Vimeo Legacy Colors\n..................................... */\n/* .....................................\n  Default Text\n..................................... */\n/* .....................................\n  Default Sizing\n..................................... */\n/*.....................................\n  VIMEO FONT MIXINS\n......................................*/\n/* .....................................\n  Vimeo Colors\n..................................... */\n/* .....................................\n  Grayscale\n..................................... */\n/* .....................................\n  Blues\n..................................... */\n/* .....................................\n  Greens\n..................................... */\n/* .....................................\n  Reds\n..................................... */\n/* .....................................\n  Interaction Colors\n..................................... */\n/* .....................................\n  Vimeo Legacy Colors\n..................................... */\n/* .....................................\n  Default Text\n..................................... */\n/* .....................................\n  Default Sizing\n..................................... */\n/* .....................................\n  Vimeo Colors\n..................................... */\n/* .....................................\n  Grayscale\n..................................... */\n/* .....................................\n  Blues\n..................................... */\n/* .....................................\n  Greens\n..................................... */\n/* .....................................\n  Reds\n..................................... */\n/* .....................................\n  Interaction Colors\n..................................... */\n/* .....................................\n  Vimeo Legacy Colors\n..................................... */\n/* .....................................\n  Default Text\n..................................... */\n/* .....................................\n  Default Sizing\n..................................... */\n/* .....................................\n  Vimeo Specific Fonts\n..................................... */\n/* .....................................\n  Vimeo Specific Widths\n..................................... */\n/* .....................................\n  Vimeo Media Query Breakpoints\n..................................... */\n/* .....................................\n  Vimeo Colors\n..................................... */\n/* .....................................\n  Grayscale\n..................................... */\n/* .....................................\n  Blues\n..................................... */\n/* .....................................\n  Greens\n..................................... */\n/* .....................................\n  Reds\n..................................... */\n/* .....................................\n  Interaction Colors\n..................................... */\n/* .....................................\n  Vimeo Legacy Colors\n..................................... */\n/* .....................................\n  Default Text\n..................................... */\n/* .....................................\n  Default Sizing\n..................................... */\n.Tag_tag__1wLEj {\n  display: inline-block;\n  position: relative;\n  background-size: 15px 15px;\n  z-index: 1; }\n  .Tag_tag__1wLEj:hover {\n    z-index: 2; }\n\n.Tag_tagHoverButton__2cyv4 {\n  border-top-right-radius: 0px;\n  border-bottom-right-radius: 0px;\n  background-color: #e3e8e9;\n  border-color: #e3e8e9;\n  color: #1a2e3b;\n  height: 40px;\n  z-index: 2; }\n  .Tag_tagHoverButton__2cyv4:hover {\n    background-color: #00adef;\n    border-color: #0088cc;\n    color: #fff; }\n\n.Tag_tagHoverButtonBlue__3qmLT {\n  border-top-right-radius: 0px;\n  border-bottom-right-radius: 0px;\n  background-color: #00adef;\n  border-color: #0088cc;\n  color: #fff;\n  height: 40px;\n  z-index: 2; }\n  .Tag_tagHoverButtonBlue__3qmLT:hover {\n    background-color: #00adef;\n    border-color: #0088cc;\n    color: #fff; }\n\n.Tag_hoverCloseButton__tc5ox {\n  position: absolute;\n  top: 0;\n  z-index: 0;\n  border-top-right-radius: 3px;\n  border-bottom-right-radius: 3px;\n  transition: right 500ms cubic-bezier(0.19, 1, 0.22, 1), opacity 300ms ease;\n  opacity: 1;\n  right: -40px;\n  height: 40px;\n  width: 40px;\n  display: inline-block;\n  background-color: #00adef;\n  border-top: 1px solid #0088cc;\n  border-right: 1px solid #0088cc;\n  border-bottom: 1px solid #0088cc;\n  background-image: url(\"data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2223%22%20height%3D%2223%22%20viewBox%3D%220%200%2023%2023%22%3E%3Ctitle%3Eicons-ui-set%20copy%3C%2Ftitle%3E%3Cpath%20d%3D%22M22.57%2C19.76L14.3%2C11.5l8.26-8.26a1.07%2C1.07%2C0%2C0%2C0%2C0-1.51l-1.3-1.3a1.07%2C1.07%2C0%2C0%2C0-1.5%2C0L11.5%2C8.7%2C3.24%2C0.43a1.07%2C1.07%2C0%2C0%2C0-1.5%2C0l-1.3%2C1.3a1.07%2C1.07%2C0%2C0%2C0%2C0%2C1.51L8.7%2C11.5%2C0.43%2C19.76a1.07%2C1.07%2C0%2C0%2C0%2C0%2C1.5l1.3%2C1.3a1.07%2C1.07%2C0%2C0%2C0%2C1.5%2C0L11.5%2C14.3l8.26%2C8.26a1.07%2C1.07%2C0%2C0%2C0%2C1.51%2C0l1.3-1.3A1.07%2C1.07%2C0%2C0%2C0%2C22.57%2C19.76Z%22%20fill%3D%22%23ffffff%22%2F%3E%3C%2Fsvg%3E\");\n  background-repeat: no-repeat;\n  background-position: center center;\n  background-size: 35%; }\n\n.Tag_closeButton__14nw2 {\n  position: absolute;\n  top: 0;\n  z-index: 0;\n  opacity: 0;\n  border-top-left-radius: 0px;\n  border-bottom-left-radius: 0px;\n  transition: right 500ms cubic-bezier(0.19, 1, 0.22, 1), opacity 300ms ease;\n  right: -40px;\n  height: 40px;\n  width: 40px;\n  display: inline-block; }\n\n.Tag_tagProcessing__3e243 {\n  color: transparent;\n  background-image: url(\"data:image/svg+xml;charset=utf-8,%3Csvg%20version%3D%221.1%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20xmlns%3Axlink%3D%22http%3A%2F%2Fwww.w3.org%2F1999%2Fxlink%22%20x%3D%220px%22%20y%3D%220px%22%0D%0A%20%20viewBox%3D%220%200%2040%2040%22%20xml%3Aspace%3D%22preserve%22%3E%0D%0A%3Cpath%20opacity%3D%220.2%22%20fill%3D%22%23233741%22%20d%3D%22M20.201%2C5.169c-8.254%2C0-14.946%2C6.692-14.946%2C14.946c0%2C8.255%2C6.692%2C14.946%2C14.946%2C14.946%0D%0A%20%20s14.946-6.691%2C14.946-14.946C35.146%2C11.861%2C28.455%2C5.169%2C20.201%2C5.169z%20M20.201%2C31.749c-6.425%2C0-11.634-5.208-11.634-11.634%0D%0A%20%20c0-6.425%2C5.209-11.634%2C11.634-11.634c6.425%2C0%2C11.633%2C5.209%2C11.633%2C11.634C31.834%2C26.541%2C26.626%2C31.749%2C20.201%2C31.749z%22%2F%3E%0D%0A%3Cpath%20fill%3D%22%23233741%22%20d%3D%22M26.013%2C10.047l1.654-2.866c-2.198-1.272-4.743-2.012-7.466-2.012h0v3.312h0%0D%0A%20%20C22.32%2C8.481%2C24.301%2C9.057%2C26.013%2C10.047z%22%3E%0D%0A%20%20%3CanimateTransform%20attributeType%3D%22xml%22%0D%0A%20%20%20%20attributeName%3D%22transform%22%0D%0A%20%20%20%20type%3D%22rotate%22%0D%0A%20%20%20%20from%3D%220%2020%2020%22%0D%0A%20%20%20%20to%3D%22360%2020%2020%22%0D%0A%20%20%20%20dur%3D%220.5s%22%0D%0A%20%20%20%20repeatCount%3D%22indefinite%22%2F%3E%0D%0A%20%20%3C%2Fpath%3E%0D%0A%3C%2Fsvg%3E\");\n  background-position: center center;\n  background-repeat: no-repeat;\n  background-size: 23px 23px;\n  border-top-right-radius: 0px;\n  border-bottom-right-radius: 0px;\n  background-color: #e3e8e9;\n  border-color: #e3e8e9;\n  color: transparent;\n  height: 40px;\n  z-index: 2; }\n  .Tag_tagProcessing__3e243:hover {\n    color: transparent; }\n\n.Tag_tagProcessingBlue__1T2Xn {\n  color: transparent;\n  background-image: url(\"data:image/svg+xml;charset=utf-8,%3Csvg%20version%3D%221.1%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20xmlns%3Axlink%3D%22http%3A%2F%2Fwww.w3.org%2F1999%2Fxlink%22%20x%3D%220px%22%20y%3D%220px%22%0D%0A%20%20viewBox%3D%220%200%2040%2040%22%20xml%3Aspace%3D%22preserve%22%3E%0D%0A%3Cpath%20opacity%3D%220.2%22%20fill%3D%22%23233741%22%20d%3D%22M20.201%2C5.169c-8.254%2C0-14.946%2C6.692-14.946%2C14.946c0%2C8.255%2C6.692%2C14.946%2C14.946%2C14.946%0D%0A%20%20s14.946-6.691%2C14.946-14.946C35.146%2C11.861%2C28.455%2C5.169%2C20.201%2C5.169z%20M20.201%2C31.749c-6.425%2C0-11.634-5.208-11.634-11.634%0D%0A%20%20c0-6.425%2C5.209-11.634%2C11.634-11.634c6.425%2C0%2C11.633%2C5.209%2C11.633%2C11.634C31.834%2C26.541%2C26.626%2C31.749%2C20.201%2C31.749z%22%2F%3E%0D%0A%3Cpath%20fill%3D%22%23233741%22%20d%3D%22M26.013%2C10.047l1.654-2.866c-2.198-1.272-4.743-2.012-7.466-2.012h0v3.312h0%0D%0A%20%20C22.32%2C8.481%2C24.301%2C9.057%2C26.013%2C10.047z%22%3E%0D%0A%20%20%3CanimateTransform%20attributeType%3D%22xml%22%0D%0A%20%20%20%20attributeName%3D%22transform%22%0D%0A%20%20%20%20type%3D%22rotate%22%0D%0A%20%20%20%20from%3D%220%2020%2020%22%0D%0A%20%20%20%20to%3D%22360%2020%2020%22%0D%0A%20%20%20%20dur%3D%220.5s%22%0D%0A%20%20%20%20repeatCount%3D%22indefinite%22%2F%3E%0D%0A%20%20%3C%2Fpath%3E%0D%0A%3C%2Fsvg%3E\");\n  background-position: center center;\n  background-repeat: no-repeat;\n  background-size: 23px 23px;\n  border-top-right-radius: 0px;\n  border-bottom-right-radius: 0px;\n  background-color: #00adef;\n  border-color: #0088cc;\n  color: transparent;\n  height: 40px;\n  z-index: 2; }\n  .Tag_tagProcessingBlue__1T2Xn, .Tag_tagProcessingBlue__1T2Xn:hover {\n    color: transparent; }\n";
+var styles$11 = {"tag":"Tag_tag__1wLEj","tagHoverButton":"Tag_tagHoverButton__2cyv4","tagHoverButtonBlue":"Tag_tagHoverButtonBlue__3qmLT","hoverCloseButton":"Tag_hoverCloseButton__tc5ox","closeButton":"Tag_closeButton__14nw2","tagProcessing":"Tag_tagProcessing__3e243","tagProcessingBlue":"Tag_tagProcessingBlue__1T2Xn"};
+__$$styleInject(css$11);
 
 function getButtonClass(isHover, isProcessing) {
-  return index$1({
-    'c-tag--button': true,
-    'btn-teal': isHover,
-    'is-hover': isHover,
-    'btn-gray': !isHover,
-    'is-processing': isProcessing,
-  });
+  console.log('isHover and isProcessing', isHover && isProcessing);
+  return index$1(( obj = {}, obj[styles$11.tagHoverButton] = isHover === false, obj[styles$11.tagHoverButtonBlue] = isHover === true, obj[styles$11.tagProcessing] = isProcessing, obj[styles$11.tagProcessingBlue] = isProcessing === true && isHover === true, obj ));
+  var obj;
 }
 
-function getLinkClass(isRemoveHover) {
-  return index$1({
-    'c-tag--remove': true,
-    'icon--center': true,
-    'icon-x-white': true,
-    'icon--xxsmall': true,
-    'btn-red': isRemoveHover,
-    'btn-teal': !isRemoveHover,
-  });
+function getLinkClass(isHover) {
+  return index$1(( obj = {}, obj[styles$11.hoverCloseButton] = isHover, obj[styles$11.closeButton] = !isHover, obj ));
+  var obj;
 }
 
 
@@ -2290,12 +2440,12 @@ var Tag$1 = (function (Component$$1) {
     var setHover = ref$2.setHover;
     var setRemoveHover = ref$2.setRemoveHover;
     return (
-      React__default.createElement( 'span', { className: getClass$1(isHover), onMouseOver: setHover(true), onMouseOut: setHover(false) },
+      React__default.createElement( 'span', { className: styles$11.tag, onMouseOver: setHover(true), onMouseOut: setHover(false) },
         React__default.createElement( 'button', { className: getButtonClass(isHover, isProcessing), onClick: onClick },
           truncate(label, maxLength)
         ),
         React__default.createElement( 'a', {
-          className: getLinkClass(isRemoveHover), onClick: onRemove, onMouseOver: setRemoveHover(true), onMouseOut: setRemoveHover(false) })
+          className: getLinkClass(isHover), onClick: onRemove, onMouseOver: setRemoveHover(true), onMouseOut: setRemoveHover(false) })
       )
     );
   };
@@ -2319,32 +2469,28 @@ Tag$1.defaultProps = {
   onRemove: null,
 };
 
+var css$12 = "/* .....................................\n  Vimeo Colors\n..................................... */\n/* .....................................\n  Grayscale\n..................................... */\n/* .....................................\n  Blues\n..................................... */\n/* .....................................\n  Greens\n..................................... */\n/* .....................................\n  Reds\n..................................... */\n/* .....................................\n  Interaction Colors\n..................................... */\n/* .....................................\n  Vimeo Legacy Colors\n..................................... */\n/* .....................................\n  Default Text\n..................................... */\n/* .....................................\n  Default Sizing\n..................................... */\n/* .....................................\n  Vimeo Colors\n..................................... */\n/* .....................................\n  Grayscale\n..................................... */\n/* .....................................\n  Blues\n..................................... */\n/* .....................................\n  Greens\n..................................... */\n/* .....................................\n  Reds\n..................................... */\n/* .....................................\n  Interaction Colors\n..................................... */\n/* .....................................\n  Vimeo Legacy Colors\n..................................... */\n/* .....................................\n  Default Text\n..................................... */\n/* .....................................\n  Default Sizing\n..................................... */\n/*.....................................\n  VIMEO FONT MIXINS\n......................................*/\n/* .....................................\n  Vimeo Colors\n..................................... */\n/* .....................................\n  Grayscale\n..................................... */\n/* .....................................\n  Blues\n..................................... */\n/* .....................................\n  Greens\n..................................... */\n/* .....................................\n  Reds\n..................................... */\n/* .....................................\n  Interaction Colors\n..................................... */\n/* .....................................\n  Vimeo Legacy Colors\n..................................... */\n/* .....................................\n  Default Text\n..................................... */\n/* .....................................\n  Default Sizing\n..................................... */\n/* .....................................\n  Vimeo Colors\n..................................... */\n/* .....................................\n  Grayscale\n..................................... */\n/* .....................................\n  Blues\n..................................... */\n/* .....................................\n  Greens\n..................................... */\n/* .....................................\n  Reds\n..................................... */\n/* .....................................\n  Interaction Colors\n..................................... */\n/* .....................................\n  Vimeo Legacy Colors\n..................................... */\n/* .....................................\n  Default Text\n..................................... */\n/* .....................................\n  Default Sizing\n..................................... */\n/* .....................................\n  Vimeo Specific Fonts\n..................................... */\n/* .....................................\n  Vimeo Specific Widths\n..................................... */\n/* .....................................\n  Vimeo Media Query Breakpoints\n..................................... */\n.Text_headOne__3tT_Z {\n  font-family: Helvetica, Arial, sans-serif;\n  color: #1a2e3b;\n  font-weight: 400;\n  font-size: 40px;\n  line-height: 1.2;\n  text-transform: uppercase; }\n\n.Text_headTwo__Wj-0P {\n  font-family: Helvetica, Arial, sans-serif;\n  color: #1a2e3b;\n  font-weight: 400;\n  font-size: 30px;\n  line-height: 1.2;\n  text-transform: uppercase; }\n\n.Text_headThree__3C6Ub {\n  font-family: Helvetica, Arial, sans-serif;\n  color: #1a2e3b;\n  font-weight: 400;\n  font-size: 22px;\n  line-height: 1.2;\n  text-transform: uppercase; }\n\n.Text_headFour__3HfA3 {\n  font-family: Helvetica, Arial, sans-serif;\n  color: #1a2e3b;\n  font-weight: 400;\n  font-size: 16px;\n  line-height: 1.2;\n  text-transform: uppercase; }\n\n.Text_headFive__2HVnE {\n  font-family: Helvetica, Arial, sans-serif;\n  color: #1a2e3b;\n  font-weight: 400;\n  font-size: 14px;\n  line-height: 1.2;\n  text-transform: uppercase; }\n\n.Text_headSix__3E4bV {\n  font-family: Helvetica, Arial, sans-serif;\n  color: #1a2e3b;\n  font-weight: 400;\n  font-size: 12px;\n  line-height: 1.2;\n  text-transform: uppercase; }\n";
+var styles$12 = {"headOne":"Text_headOne__3tT_Z","headTwo":"Text_headTwo__Wj-0P","headThree":"Text_headThree__3C6Ub","headFour":"Text_headFour__3HfA3","headFive":"Text_headFive__2HVnE","headSix":"Text_headSix__3E4bV"};
+__$$styleInject(css$12);
+
 /* eslint-disable react/no-unused-prop-types */
 
-function getClassName$5(props) {
-  return index$1(props.className, {
-    block: Boolean(props.block),
-    'head-1': Boolean(props.h1),
-    'head-2': Boolean(props.h2),
-    'head-3': Boolean(props.h3),
-    'head-4': Boolean(props.h4),
-    'head-5': Boolean(props.h5),
-    'text--navy': props.color === 'navy',
-    'text--gray': props.color === 'gray',
-    'text--teal': props.color === 'teal',
-    'text--white': props.color === 'white',
-    'text--vimeo-blue': props.color === 'vimeo-blue',
-    'text--sunset-orange': props.color === 'sunset-orange',
-    'text--regent-gray': props.color === 'regent-gray',
-    'text--astro-granite': props.color === 'astro-granite',
-  });
+function getClassName$3(props) {
+  return index$1(( obj = {}, obj[styles$12.headOne] = props.h1 === true, obj[styles$12.headTwo] = props.h2 === true, obj[styles$12.headThree] = props.h3 === true, obj[styles$12.headFour] = props.h4 === true, obj[styles$12.headFive] = props.h5 === true, obj[styles$12.headSix] = props.h6 === true, obj ));
+  var obj;
 }
 
-var Text$1 = function (props) { return (
-  React__default.createElement( 'span', { className: getClassName$5(props) }, props.children)
-); };
 
-var colors$3 = [ 'navy', 'gray', 'teal', 'white', 'vimeo-blue', 'sunset-orange', 'regent-gray', 'astro-granite' ];
+var Text$1 = function (props) {
+  var textStyles = {
+    color: componentColor(props),
+  };
+  return(
+    React__default.createElement( 'span', { style: textStyles, className: getClassName$3(props) }, props.children)
+  );
+};
+
+var colors$3 = [ 'AstroGranite', 'RegentGray', 'SoutherlySky', 'Paste', 'Porcelain', 'Plaster', 'white', 'VimeoBlue', 'VimeoBlue-Darkened', 'SunsetOrange', 'SunsetOrange-Darkened', 'Pistachio', 'RumSwizzle', 'Pistachio-Darkened', 'VimeoBlue-Darkened', 'Foam', 'PalePink' ];
 
 Text$1.propTypes = {
   block: index.bool,
@@ -2354,6 +2500,7 @@ Text$1.propTypes = {
   h3: index.bool,
   h4: index.bool,
   h5: index.bool,
+  h6: index.bool,
   className: index.string,
   color: index.oneOf(colors$3),
 };
@@ -2365,6 +2512,7 @@ Text$1.defaultProps = {
   h3: false,
   h4: false,
   h5: false,
+  h6: false,
   className: '',
   color: 'navy',
 };
@@ -2567,7 +2715,7 @@ Trigger.propTypes = {
 
 /* eslint-disable react/no-unused-prop-types */
 
-function getClass$2(props, type) {
+function getClass$1(props, type) {
   var caretAlign = props.caretAlign;
   var dropdownPosition = props.dropdownPosition;
   var inline = props.inline;
@@ -2624,7 +2772,7 @@ function SelectHOC(ref) {
 
       var Trigger$$1 = this.props.Trigger || Trigger;
       return (
-        React__default.createElement( 'div', { className: getClass$2(this.props, type), ref: (function (el) { this$1.element = el; }) },
+        React__default.createElement( 'div', { className: getClass$1(this.props, type), ref: (function (el) { this$1.element = el; }) },
           React__default.createElement( Trigger$$1, this.props),
           React__default.createElement( If$1, { condition: this.props.isOpen },
             React__default.createElement( Dropdown, this.props)
@@ -3104,7 +3252,9 @@ var AvatarDemo = function () { return (
     React__default.createElement( Block, { inline: true }, React__default.createElement( Avatar$1, {
       image: 'https://secure.gravatar.com/avatar/460c13d4904dc7f889f00d2cd4c3e6e8.png', size: 'large' })),
     React__default.createElement( Block, { inline: true }, React__default.createElement( Avatar$1, {
-      image: 'https://vhx.imgix.net/assets/1f843fdc-34da-4302-bd4f-06e5bd7ef2c3/IMG_7891.GIF', size: 'xlarge' }))
+      image: 'https://vhx.imgix.net/assets/1f843fdc-34da-4302-bd4f-06e5bd7ef2c3/IMG_7891.GIF', size: 'xlarge' })),
+    React__default.createElement( Block, { inline: true }, React__default.createElement( Avatar$1, {
+      image: 'https://vhx.imgix.net/assets/1f843fdc-34da-4302-bd4f-06e5bd7ef2c3/IMG_7891.GIF', size: 'xxlarge' }))
   )
 ); };
 
@@ -3122,23 +3272,14 @@ var Avatars = function () { return (
   )
 ); };
 
-// Colors demo
-// -----------------------------------------
-
 var colors$4 = [
   'gray',
-  'teal',
   'vimeo-blue',
   'vimeo-secondary',
   'vimeo-secondary-outline',
   'vimeo-alt',
   'white',
   'red',
-  'purple',
-  'green',
-  'slate',
-  'black',
-  'yellow',
   'twitter',
   'facebook',
   'tumblr',
@@ -3168,10 +3309,18 @@ var buttonColorsCode = "\n<Button>Click me</Button>\n<Button color='teal'>Click 
 var ButtonProcessing = function () { return (
   React__default.createElement( 'div', null,
     React__default.createElement( Subtitle, null, "Processing State" ),
-    React__default.createElement( Block, { inline: true }, React__default.createElement( Button$1, { processing: true }, "processing")),
-    React__default.createElement( Block, { inline: true }, React__default.createElement( Button$1, { color: 'teal', processing: true }, "processing")),
-    React__default.createElement( Block, { inline: true }, React__default.createElement( Button$1, { color: 'white', processing: true }, "processing")),
-    React__default.createElement( Block, { inline: true }, React__default.createElement( Button$1, { color: 'red', processing: true }, "processing"))
+    React__default.createElement( Block, { inline: true },
+      React__default.createElement( Button$1, { processing: true })
+    ),
+    React__default.createElement( Block, { inline: true },
+      React__default.createElement( Button$1, { color: 'vimeo-blue', processing: true })
+    ),
+    React__default.createElement( Block, { inline: true },
+      React__default.createElement( Button$1, { color: 'white', processing: true })
+    ),
+    React__default.createElement( Block, { inline: true },
+      React__default.createElement( Button$1, { color: 'red', processing: true })
+    )
   )
 ); };
 
@@ -3193,20 +3342,6 @@ var ButtonSizes = function () { return (
 ); };
 
 var buttonSizesCode = "\n<Button size='small'>small</Button>\n<Button size='medium'>medium</Button>\n<Button size='large'>large</Button>\n<Button size='half'>half</Button>\n<Button size='fill'>fill</Button>\n";
-
-
-// Typefaces demo
-// -----------------------------------------
-
-var ButtonTypefaces = function () { return (
-  React__default.createElement( 'div', null,
-    React__default.createElement( Subtitle, null, "Typefaces" ),
-    React__default.createElement( Block, null, React__default.createElement( Button$1, null, "Default" ) ),
-    React__default.createElement( Block, null, React__default.createElement( Button$1, { typeface: 'brandon' }, "Brandon") )
-  )
-); };
-
-var buttonTypefacesCode = "\n<Button>Default</Button>\n<Button typeface='brandon'>Brandon</Button>\n";
 
 
 // Icons demo
@@ -3233,7 +3368,6 @@ var Buttons = function () { return (
     React__default.createElement( DemoRow, { code: buttonColorsCode }, React__default.createElement( ButtonColors, null )),
     React__default.createElement( DemoRow, { code: buttonProcessingCode }, React__default.createElement( ButtonProcessing, null )),
     React__default.createElement( DemoRow, { code: buttonSizesCode }, React__default.createElement( ButtonSizes, null )),
-    React__default.createElement( DemoRow, { code: buttonTypefacesCode }, React__default.createElement( ButtonTypefaces, null )),
     React__default.createElement( DemoRow, { code: buttonIconsCode }, React__default.createElement( ButtonIcons, null )),
     React__default.createElement( DemoRow, null, React__default.createElement( PropTypeTable, { component: Button$1 }) )
   )
@@ -3255,13 +3389,15 @@ var BrowsePageSlide = function (ref) {
     React__default.createElement( 'div', { className: 'slide-subtitle' }, subtitle),
     React__default.createElement( 'div', { className: 'slide-description' }, description),
     React__default.createElement( 'div', { className: 'slide-buttons' },
-      React__default.createElement( 'a', { className: ("btn btn-gray btn-site-primary slide-button " + buttonClass), href: links.item },
-        React__default.createElement( Icon$1, { name: 'play', color: 'white', size: 'xxsmall' }),
+      React__default.createElement( 'a', { className: ("btn btn-vimeo-secondary btn-site-primary slide-button " + buttonClass), href: links.item },
+        React__default.createElement( Icon$1, {
+          src: 'data:image/svg+xml;base64,PHN2ZyBpZD0iTGF5ZXJfMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB2aWV3Qm94PSIwIDAgMTQgMTYiPjx0aXRsZT5wbGF5czwvdGl0bGU+PHBhdGggZD0iTTYsMjBhMSwxLDAsMCwxLTEtMVY1YTEsMSwwLDAsMSwxLjUtLjg2bDEyLDdhMSwxLDAsMCwxLDAsMS43M2wtMTIsN0ExLDEsMCwwLDEsNiwyMFpNNyw2Ljc0VjE3LjI2TDE2LDEyWiIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoLTUgLTQpIiBmaWxsPSIjRkZGRkZGIi8+PC9zdmc+', size: 'xxsmall' }),
         React__default.createElement( 'span', { className: 'slide-button-text' }, "Watch now")
       ),
       React__default.createElement( util.If, { condition: Boolean(links.trailer), inline: true },
         React__default.createElement( 'a', { className: 'btn btn-transparent slide-button slide-button--alt', href: links.trailer },
-          React__default.createElement( Icon$1, { name: 'play', color: 'white', size: 'xxsmall' }),
+          React__default.createElement( Icon$1, {
+            src: 'data:image/svg+xml;base64,PHN2ZyBpZD0iTGF5ZXJfMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB2aWV3Qm94PSIwIDAgMTQgMTYiPjx0aXRsZT5wbGF5czwvdGl0bGU+PHBhdGggZD0iTTYsMjBhMSwxLDAsMCwxLTEtMVY1YTEsMSwwLDAsMSwxLjUtLjg2bDEyLDdhMSwxLDAsMCwxLDAsMS43M2wtMTIsN0ExLDEsMCwwLDEsNiwyMFpNNyw2Ljc0VjE3LjI2TDE2LDEyWiIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoLTUgLTQpIiBmaWxsPSIjRkZGRkZGIi8+PC9zdmc+', size: 'xxsmall' }),
           React__default.createElement( 'span', { className: 'slide-button-text' }, "Trailer")
         )
       )
@@ -3401,40 +3537,6 @@ var StatelessCheckboxes = function () { return (
 var statelessCheckboxCode = "\nconst handler = (event) => alert('Hi!');\n<Checkbox uniqueId='c1' label='Foo' onChange={handler} />\n<Checkbox uniqueId='c2' label='Bar' onChange={handler} checked />\n";
 
 
-// Sizes demo
-// -----------------------------------------
-
-var StatelessCheckboxSizes = function () { return (
-  React__default.createElement( 'div', null,
-    React__default.createElement( Subtitle, null, "Sizes" )
-    /* readOnly prop only added to stop react warnings from polluting the console */,
-    React__default.createElement( Block, null, React__default.createElement( Checkbox$1, { uniqueId: 'c3', label: 'Foo', size: 'small', readOnly: true }) ),
-    React__default.createElement( Block, null, React__default.createElement( Checkbox$1, { uniqueId: 'c4', label: 'Bar', size: 'medium', readOnly: true }) ),
-    React__default.createElement( Block, null, React__default.createElement( Checkbox$1, { uniqueId: 'c5', label: 'Baz', size: 'large', readOnly: true }) ),
-    React__default.createElement( Block, null, React__default.createElement( Checkbox$1, { uniqueId: 'c6', label: 'Foo', size: 'small', checked: true, readOnly: true }) ),
-    React__default.createElement( Block, null, React__default.createElement( Checkbox$1, { uniqueId: 'c7', label: 'Bar', size: 'medium', checked: true, readOnly: true }) ),
-    React__default.createElement( Block, null, React__default.createElement( Checkbox$1, { uniqueId: 'c8', label: 'Baz', size: 'large', checked: true, readOnly: true }) )
-  )
-); };
-
-var statelessCheckboxSizesCode = "\n<Checkbox uniqueId='c3' label='Foo' size='small' />\n<Checkbox uniqueId='c4' label='Bar' size='medium' />\n<Checkbox uniqueId='c5' label='Baz' size='large' />\n<Checkbox uniqueId='c6' label='Foo' size='small' checked />\n<Checkbox uniqueId='c7' label='Bar' size='medium' checked />\n<Checkbox uniqueId='c8' label='Baz' size='large' checked />\n";
-
-
-// Toggles demo
-// -----------------------------------------
-
-var StatelessCheckboxToggles = function () { return (
-  React__default.createElement( 'div', null,
-    React__default.createElement( Subtitle, null, "Toggles" )
-    /* readOnly prop only added to stop react warnings from polluting the console */,
-    React__default.createElement( Block, null, React__default.createElement( Checkbox$1, { uniqueId: 'c9', type: 'toggle', size: 'small', readOnly: true }) ),
-    React__default.createElement( Block, null, React__default.createElement( Checkbox$1, { uniqueId: 'c10', type: 'toggle', size: 'small', checked: true, readOnly: true }) )
-  )
-); };
-
-var statelessCheckboxTogglesCode = "\n// Can use all the same sizes\n// that default checkboxes accept\n<Checkbox uniqueId='c9' type='toggle' size='small' />\n<Checkbox uniqueId='c10' type='toggle' size='small' checked />\n";
-
-
 // Stateful demo
 // -----------------------------------------
 
@@ -3473,7 +3575,7 @@ var StatefulCheckboxDemo = function () { return (
   )
 ); };
 
-var statefulCheckboxCode = "\n// An example stateful checkbox implementation\nclass StatefulCheckbox extends Component {\n  constructor() {\n    super();\n    this.state = { checked: true };\n  }\n  render() {\n    const { props, state } = this;\n    const { checked } = state;\n    const toggle = () => this.setState({ checked: !checked });\n    return <Checkbox { ...props } checked={checked} onChange={toggle} />;\n  }\n}\n\n// Usage of the stateful component\n<StatefulCheckbox uniqueId='c11' size='large' />\n<StatefulCheckbox uniqueId='c12' type='toggle' size='large' />\n";
+var statefulCheckboxCode = "\n// An example stateful checkbox implementation\nclass StatefulCheckbox extends Component {\n  constructor() {\n    super();\n    this.state = { checked: true };\n  }\n  render() {\n    const { props, state } = this;\n    const { checked } = state;\n    const toggle = () => this.setState({ checked: !checked });\n    return <Checkbox { ...props } checked={checked} onChange={toggle} />;\n  }\n}\n\n// Usage of the stateful component\n<StatefulCheckbox uniqueId='c11' size='large' />\n";
 
 
 // Main exported demo
@@ -3487,8 +3589,6 @@ var Checkboxes = function () { return (
       React__default.createElement( Details, null, "The required ", React__default.createElement( 'code', null, "uniqueId" ), " prop will be used as the checkbox element’s ", React__default.createElement( 'code', null, "id" ), " and therefore must be globally unique. No other element on the page can have that ID!" )
     ),
     React__default.createElement( DemoRow, { code: statelessCheckboxCode }, React__default.createElement( StatelessCheckboxes, null )),
-    React__default.createElement( DemoRow, { code: statelessCheckboxSizesCode }, React__default.createElement( StatelessCheckboxSizes, null )),
-    React__default.createElement( DemoRow, { code: statelessCheckboxTogglesCode }, React__default.createElement( StatelessCheckboxToggles, null )),
     React__default.createElement( DemoRow, { code: statefulCheckboxCode }, React__default.createElement( StatefulCheckboxDemo, null )),
     React__default.createElement( DemoRow, null, React__default.createElement( PropTypeTable, { component: Checkbox$1 }) )
   )
@@ -3534,22 +3634,7 @@ var Headers = function () { return (
   )
 ); };
 
-var IconList = function () { return (
-  React__default.createElement( 'div', null,
-    React__default.createElement( Subtitle, null, "All Icons" ),
-    React__default.createElement( 'ul', { className: 'small-block-grid-6 text-center' },
-      iconNames.map(function (icon) { return (
-          React__default.createElement( 'li', { key: icon },
-            React__default.createElement( Block, null, React__default.createElement( Text$1, { color: 'gray', className: 'padding-bottom-small' }, icon) ),
-            React__default.createElement( Icon$1, { name: icon, size: 'small' })
-          )
-        ); })
-    )
-  )
-); };
-
-var iconListCode = "\n<Icon name='product' />\n\n// Optional hidden text can help when aligning\n// icons with text of a specific line-height\n<Icon name='product'>hidden text</Icon>\n";
-
+var testImage = '../demo/sections/upload.svg';
 
 // Icon sizes demo
 // -----------------------------------------
@@ -3557,34 +3642,34 @@ var iconListCode = "\n<Icon name='product' />\n\n// Optional hidden text can hel
 var IconSizes = function () { return (
   React__default.createElement( 'div', null,
     React__default.createElement( Subtitle, null, "Sizes" ),
-    React__default.createElement( Block, { inline: true }, React__default.createElement( Icon$1, { name: 'product', size: 'xsmall' })),
-    React__default.createElement( Block, { inline: true }, React__default.createElement( Icon$1, { name: 'product', size: 'small' })),
-    React__default.createElement( Block, { inline: true }, React__default.createElement( Icon$1, { name: 'product', size: 'medium' })),
-    React__default.createElement( Block, { inline: true }, React__default.createElement( Icon$1, { name: 'product', size: 'large' })),
-    React__default.createElement( Block, { inline: true }, React__default.createElement( Icon$1, { name: 'product', size: 'xlarge' })),
-    React__default.createElement( Block, { inline: true }, React__default.createElement( Icon$1, { name: 'product', size: 'xxlarge' }))
+    React__default.createElement( Block, { inline: true },
+      React__default.createElement( Icon$1, {
+        size: 'xsmall', src: testImage })
+    ),
+    React__default.createElement( Block, { inline: true },
+      React__default.createElement( Icon$1, {
+        size: 'small', src: testImage })
+    ),
+    React__default.createElement( Block, { inline: true },
+      React__default.createElement( Icon$1, {
+        size: 'medium', src: testImage })
+    ),
+    React__default.createElement( Block, { inline: true },
+      React__default.createElement( Icon$1, {
+        size: 'large', src: testImage })
+    ),
+    React__default.createElement( Block, { inline: true },
+      React__default.createElement( Icon$1, {
+        size: 'xlarge', src: testImage })
+    ),
+    React__default.createElement( Block, { inline: true },
+      React__default.createElement( Icon$1, {
+        size: 'xxlarge', src: testImage })
+    )
   )
 ); };
 
-var iconSizesCode = "\n<Icon name='product' size='xsmall' />\n<Icon name='product' size='small' />\n<Icon name='product' size='medium' />\n<Icon name='product' size='large' />\n<Icon name='product' size='xlarge' />\n<Icon name='product' size='xxlarge' />\n";
-
-
-// Icon circle demo
-// -----------------------------------------
-
-var IconCircles = function () { return (
-  React__default.createElement( 'div', null,
-    React__default.createElement( Subtitle, null, "Circles" ),
-    React__default.createElement( Block, { inline: true }, React__default.createElement( Icon$1, { circle: true, name: 'product', size: 'xsmall' })),
-    React__default.createElement( Block, { inline: true }, React__default.createElement( Icon$1, { circle: true, name: 'product', size: 'small' })),
-    React__default.createElement( Block, { inline: true }, React__default.createElement( Icon$1, { circle: true, name: 'product', size: 'medium' })),
-    React__default.createElement( Block, { inline: true }, React__default.createElement( Icon$1, { circle: true, name: 'product', size: 'large' })),
-    React__default.createElement( Block, { inline: true }, React__default.createElement( Icon$1, { circle: true, name: 'product', size: 'xlarge' })),
-    React__default.createElement( Block, { inline: true }, React__default.createElement( Icon$1, { circle: true, name: 'product', size: 'xxlarge' }))
-  )
-); };
-
-var iconCirclesCode = "\n<Icon circle name='product' size='xsmall' />\n<Icon circle name='product' size='small' />\n<Icon circle name='product' size='medium' />\n<Icon circle name='product' size='large' />\n<Icon circle name='product' size='xlarge' />\n<Icon circle name='product' size='xxlarge' />\n";
+var iconSizesCode = "\n  <Icon size='xxsmall' src={testImage} />\n  <Icon size='xsmall' src={testImage} />\n  <Icon size='small' src={testImage} />\n  <Icon size='medium' src={testImage} />\n  <Icon size='large' src={testImage} />\n  <Icon size='xlarge' src={testImage} />\n  <Icon size='xxlarge' src={testImage} />\n";
 
 
 // Icon colors demo
@@ -3593,15 +3678,30 @@ var iconCirclesCode = "\n<Icon circle name='product' size='xsmall' />\n<Icon cir
 var IconColors = function () { return (
   React__default.createElement( 'div', null,
     React__default.createElement( Subtitle, null, "Colors" ),
-    React__default.createElement( Block, { inline: true }, React__default.createElement( Icon$1, { name: 'product', size: 'medium' })),
-    React__default.createElement( Block, { inline: true }, React__default.createElement( Icon$1, { name: 'product', size: 'medium', color: 'navy' })),
-    React__default.createElement( Block, { inline: true }, React__default.createElement( Icon$1, { name: 'product', size: 'medium', color: 'teal' })),
-    React__default.createElement( Block, { inline: true }, React__default.createElement( Icon$1, { name: 'product', size: 'medium', color: 'gray' })),
-    React__default.createElement( Block, { inline: true, dark: true }, React__default.createElement( Icon$1, { name: 'product', size: 'medium', color: 'white' }))
+    React__default.createElement( Block, { inline: true },
+      React__default.createElement( Icon$1, {
+        size: 'medium', src: testImage, color: 'white' })
+    ),
+    React__default.createElement( Block, { inline: true },
+      React__default.createElement( Icon$1, {
+        size: 'medium', src: testImage, color: 'VimeoBlue' })
+    ),
+    React__default.createElement( Block, { inline: true },
+      React__default.createElement( Icon$1, {
+        size: 'medium', src: testImage, color: 'SunsetOrange' })
+    ),
+    React__default.createElement( Block, { inline: true },
+      React__default.createElement( Icon$1, {
+        size: 'medium', src: testImage, color: 'Porcelain' })
+    ),
+    React__default.createElement( Block, { inline: true },
+      React__default.createElement( Icon$1, {
+        size: 'medium', src: testImage, color: 'AstroGranite' })
+    )
   )
 ); };
 
-var iconColorsCode = "\n<Icon name='product' />\n<Icon name='product' color='navy' />\n<Icon name='product' color='teal' />\n<Icon name='product' color='gray' />\n<Icon name='product' color='white' />\n";
+var iconColorsCode = "\n  <Icon name='product' size='medium' src={testImage} color='AstroGranite' />\n";
 
 
 // Main exported demo
@@ -3611,9 +3711,7 @@ var Icons = function () { return (
   React__default.createElement( 'div', null,
     React__default.createElement( DemoRow, null, React__default.createElement( Title, null, "Icons" ) ),
     React__default.createElement( DemoRow, { code: iconSizesCode }, React__default.createElement( IconSizes, null )),
-    React__default.createElement( DemoRow, { code: iconCirclesCode }, React__default.createElement( IconCircles, null )),
     React__default.createElement( DemoRow, { code: iconColorsCode }, React__default.createElement( IconColors, null )),
-    React__default.createElement( DemoRow, { code: iconListCode }, React__default.createElement( IconList, null )),
     React__default.createElement( DemoRow, null, React__default.createElement( PropTypeTable, { component: Icon$1 }) )
   )
 ); };
@@ -3714,8 +3812,8 @@ var Inputs = function () { return (
 var MyModalContents = function () { return React__default.createElement( 'div', null, "Hello!" ); };
 
 var actions = [
-  { label: 'Cancel', callback: function () { return Modal$2.close(); }, color: 'gray' },
-  { label: 'Sign up', callback: function () { return alert('hi'); }, color: 'teal' } ];
+  { label: 'Cancel', callback: function () { return Modal$2.close(); }, color: 'vimeo-secondary' },
+  { label: 'Sign up', callback: function () { return alert('hi'); }, color: 'vimeo-blue' } ];
 
 
 // Modals
@@ -3728,7 +3826,7 @@ var Modals = function () { return (
   )
 ); };
 
-var modalDemoCode = "\nconst MyModalContents = () => <div>Hello!</div>;\n\nconst actions = [\n  { label: 'Cancel', callback: () => Modal.close(), color: 'gray' },\n  { label: 'Sign up', callback: () => alert('hi'), color: 'teal' },\n];\n\nconst modalContents = {\n  actions,\n  Children: MyModalContents,\n  title: 'Hello'\n};\n\n<Button onClick={() => Modal.open(modalContents)}>\n  Default Modal\n</Button>\n";
+var modalDemoCode = "\nconst MyModalContents = () => <div>Hello!</div>;\n\nconst actions = [\n  { label: 'Cancel', callback: () => Modal.close(), color: 'VimeoSecondary' },\n  { label: 'Sign up', callback: () => alert('hi'), color: 'VimeoBlue' },\n];\n\nconst modalContents = {\n  actions,\n  Children: MyModalContents,\n  title: 'Hello'\n};\n\n<Button onClick={() => Modal.open(modalContents)}>\n  Default Modal\n</Button>\n";
 
 
 // Modal sizes
@@ -3874,12 +3972,12 @@ var statelessRadioCode = "\n<RadioGroup\n  items={items}\n  selectedIndex={0}\n 
 var RadioColors = function () { return (
   React__default.createElement( 'div', null,
     React__default.createElement( Subtitle, null, "Color variants" ),
-    React__default.createElement( Block, null, React__default.createElement( RadioGroup$1, { items: items, selectedIndex: 0, color: 'gray' }) ),
-    React__default.createElement( Block, null, React__default.createElement( RadioGroup$1, { items: items, selectedIndex: 0, color: 'teal' }) )
+    React__default.createElement( Block, null, React__default.createElement( RadioGroup$1, { items: items, selectedIndex: 0, color: 'SoutherlySky' }) ),
+    React__default.createElement( Block, null, React__default.createElement( RadioGroup$1, { items: items, selectedIndex: 0, color: 'VimeoBlue' }) )
   )
 ); };
 
-var radioColorsCode = "\n<RadioGroup\n  items={items}\n  selectedIndex={0}\n  color='gray'\n/>\n\n<RadioGroup\n  items={items}\n  selectedIndex={0}\n  color='teal'\n/>\n";
+var radioColorsCode = "\n<RadioGroup\n  items={items}\n  selectedIndex={0}\n  color='SoutherlySky'\n/>\n\n<RadioGroup\n  items={items}\n  selectedIndex={0}\n  color='VimeoBlue'\n/>\n";
 
 
 // Stacked
@@ -4387,7 +4485,8 @@ var TextHeadings = function () { return (
     React__default.createElement( Block, null, React__default.createElement( Text$1, { h2: true }, "Heading 2") ),
     React__default.createElement( Block, null, React__default.createElement( Text$1, { h3: true }, "Heading 3") ),
     React__default.createElement( Block, null, React__default.createElement( Text$1, { h4: true }, "Heading 4") ),
-    React__default.createElement( Block, null, React__default.createElement( Text$1, { h5: true }, "Heading 5") )
+    React__default.createElement( Block, null, React__default.createElement( Text$1, { h5: true }, "Heading 5") ),
+    React__default.createElement( Block, null, React__default.createElement( Text$1, { h6: true }, "Heading 6") )
   )
 ); };
 
@@ -4401,18 +4500,25 @@ var TextColors = function () { return (
   React__default.createElement( 'div', null,
     React__default.createElement( Subtitle, null, "Colors" ),
     React__default.createElement( Block, null, React__default.createElement( Text$1, null, "Default" ) ),
-    React__default.createElement( Block, null, React__default.createElement( Text$1, { color: 'navy' }, "navy") ),
-    React__default.createElement( Block, null, React__default.createElement( Text$1, { color: 'teal' }, "teal") ),
-    React__default.createElement( Block, null, React__default.createElement( Text$1, { color: 'gray' }, "gray") ),
-    React__default.createElement( Block, null, React__default.createElement( Text$1, { color: 'vimeo-blue' }, "Vimeo blue") ),
-    React__default.createElement( Block, null, React__default.createElement( Text$1, { color: 'sunset-orange' }, "Sunset Orange") ),
-    React__default.createElement( Block, null, React__default.createElement( Text$1, { color: 'regent-gray' }, "Regent Gray") ),
-    React__default.createElement( Block, null, React__default.createElement( Text$1, { color: 'astro-granite' }, "Astrogranite") ),
-    React__default.createElement( Block, { dark: true, inline: true }, React__default.createElement( Text$1, { color: 'white' }, "white"))
+    React__default.createElement( Block, null, React__default.createElement( Text$1, { color: 'AstroGranite' }, "Astrogranite") ),
+    React__default.createElement( Block, null, React__default.createElement( Text$1, { color: 'RegentGray' }, "Regent Gray") ),
+    React__default.createElement( Block, null, React__default.createElement( Text$1, { color: 'SoutherlySky' }, "Southerly Sky") ),
+    React__default.createElement( Block, { dark: true }, React__default.createElement( Text$1, { color: 'Porcelain' }, "Porcelain")),
+    React__default.createElement( Block, { dark: true }, React__default.createElement( Text$1, { color: 'Paste' }, "Paste")),
+    React__default.createElement( Block, null, React__default.createElement( Text$1, { color: 'VimeoBlue' }, "Vimeo Blue") ),
+    React__default.createElement( Block, null, React__default.createElement( Text$1, { color: 'VimeoBlue-Darkened' }, "Vimeo Blue Darkened") ),
+    React__default.createElement( Block, { dark: true }, React__default.createElement( Text$1, { color: 'Foam' }, "Foam")),
+    React__default.createElement( Block, null, React__default.createElement( Text$1, { color: 'Pistachio' }, "Pistachio") ),
+    React__default.createElement( Block, null, React__default.createElement( Text$1, { color: 'Pistachio-Darkened' }, "Pistachio Darkened") ),
+    React__default.createElement( Block, { dark: true }, React__default.createElement( Text$1, { color: 'RumSwizzle' }, "Rum Swizzle")),
+    React__default.createElement( Block, null, React__default.createElement( Text$1, { color: 'SunsetOrange' }, "Sunset Orange") ),
+    React__default.createElement( Block, null, React__default.createElement( Text$1, { color: 'SunsetOrange-Darkened' }, "Sunset Orange Darkened") ),
+    React__default.createElement( Block, { dark: true }, React__default.createElement( Text$1, { color: 'PalePink' }, "Pale Pink")),
+    React__default.createElement( Block, { dark: true }, React__default.createElement( Text$1, { color: 'white' }, "white"))
   )
 ); };
 
-var textColorsCode = "\n<Text>Default</Text>\n<Text color='navy'>navy</Text>\n<Text color='teal'>teal</Text>\n<Text color='gray'>gray</Text>\n<Text color='white'>white</Text>\n";
+var textColorsCode = "\n<Text>Default</Text>\n<Text color='AstroGranite'>AstroGranite</Text>\n<Text color='VimeoBlue'>Vimeo Blue</Text>\n<Text color='SoutherlySky'>Southerly Sky</Text>\n<Text color='white'>white</Text>\n";
 
 
 // Main exported demo

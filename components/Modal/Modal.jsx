@@ -9,13 +9,31 @@ import { KEY_CODES } from '../util/constants';
 import { If, connect } from '../util';
 import modalModel from './modalModel.jsx';
 
+import styles from './Modal.scss';
+
+
+const modalActionContainerClasses = (size) => {
+  return classNames('c-modal-container', {
+    [styles.smallActionModal]: size === 'small',
+    [styles.mediumActionModal]: size === 'medium',
+    [styles.largeActionModal]: size === 'large',
+  })
+}
+
+const modalContainerClasses = (size) => {
+  return classNames('c-modal-container', {
+    [styles.smallModal]: size === 'small',
+    [styles.mediumModal]: size === 'medium',
+    [styles.largeModal]: size === 'large',
+  })
+}
 
 function getActionClass({ actions, index }) {
   return classNames({
     btn: true,
     'btn--half': actions.length > 1,
     'btn--fill': actions.length <= 1,
-  }, `btn-${actions[index].color || 'gray'}`);
+  }, `btn-${actions[index].color || 'vimeo-secondary'}`);
 }
 
 function handleEscapeKey(event) {
@@ -32,6 +50,8 @@ class Modal extends Component {
   constructor() {
     super();
     this.el = null;
+
+    this.containerClasses = this.containerClasses.bind(this);
   }
 
   componentWillMount() {
@@ -52,20 +72,28 @@ class Modal extends Component {
     window.removeEventListener('keyup', handleEscapeKey);
   }
 
+  containerClasses() {
+    return (this.actions === true) ? modalActionContainerClasses(this.size) : modalContainerClasses(this.size)
+  }
+
+  // v2 consider background.  For now, this works.
   render() {
     const { actions, body, isOpen, size, title } = this.props;
+
+    console.log('actions', actions);
+
     return (
       <div className={`c-modal ${isOpen ? 'is-open' : ''}`}>
-        <div className={`c-modal-container ${actions.length !== 0 ? 'c-modal--has-actions' : ''} c-modal--${size}`} ref={(el) => { this.el = el; }}>
-          <div className='c-modal--header padding-medium'>
+        <div className={this.containerClasses()} ref={(el) => { this.el = el; }}>
+          <div className={styles.modalHeader}>
             <span>
-              <div className='h2 head-4 head secondary text-left'>{title}</div>
+              <div className={styles.modalTitle}>{title}</div>
             </span>
           </div>
-          <div className='c-modal--body padding-medium'>{body}</div>
+          <div className={styles.modalBody}>{body}</div>
           <If condition={actions.length !== 0}>
-            <div className='c-modal--actions'>
-              <div className='padding-small text-center'>
+            <div className={styles.modalActionContainer}>
+              <div className={styles.modalActionPosition}>
                 {
                   actions.map((action, index) => (
                     <div
@@ -80,8 +108,8 @@ class Modal extends Component {
               </div>
             </div>
           </If>
-          <div className='c-modal--close' onClick={modalModel.close}>
-            <Icon size='xsmall' color='white' name='x' />
+          <div className={styles.modalCloseContainer} onClick={modalModel.close}>
+            <Icon size='xsmall' name='x' src={'../components/Modal/close-icon.svg'} />
           </div>
         </div>
         <div className='c-modal-bg' onClick={modalModel.close} />

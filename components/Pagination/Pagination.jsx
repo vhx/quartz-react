@@ -1,11 +1,14 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { noop } from '../util';
+import classNames from 'classnames';
+
+import styles from './Pagination.scss';
 
 const MAX_VISIBLE_LINKS = 7;
 
 const Separator = () => (
-  <span className='padding-small text--bold pagination-default'>...</span>
+  <span className={styles.paginationSeparator}>...</span>
 );
 
 
@@ -18,8 +21,15 @@ class Pagination extends Component {
 
   link(i) {
     const { currentIndex, onPageChange } = this.props;
+
+    const activePaginationButton = (currentIndex, i) => {
+      return classNames({
+        [styles.paginationButtonActive]: currentIndex === i,
+        [styles.paginationButton]: currentIndex !== i,
+      })
+    }
     return (
-      <span className={`pagination-button text--bold padding-vert-xsmall padding-horz-small radius ${currentIndex === i ? 'active bg-gray-5 text--white' : ''}`} onClick={() => onPageChange(i)} key={`link-${i}`}>
+      <span className={activePaginationButton(currentIndex, i)} onClick={() => onPageChange(i)} key={`link-${i}`}>
         {i + 1}
       </span>
     );
@@ -61,13 +71,30 @@ class Pagination extends Component {
     if (length === 1) return <nav className='text-center'>{link(0)}</nav>;
 
     // NOTE: we toggle the visibility of the "Previous"/"Next" links rather than removing those links altogether so that the layout doesn't re-center when those links disappear
+
+    const paginationLinkClassesEnd = (currentIndex, length) => {
+      const isEnd = currentIndex === length - 1;
+      return classNames({
+        [styles.paginationLink]: isEnd === false,
+        [styles.paginationLinkInvisible]: isEnd === true,
+      })
+    }
+
+    const paginationLinkClassesStart = (currentIndex, length) => {
+      const afterStart = currentIndex !== 0;
+      return classNames({
+        [styles.paginationLink]: afterStart === true,
+        [styles.paginationLinkInvisible]: afterStart === false,
+      })
+    }
+
     return (
       <nav className='text-center'>
-        <span className={`pagination-link text--bold padding-small text--teal ${currentIndex === 0 ? 'invisible' : ''}`} onClick={() => onPageChange(currentIndex - 1) }>← Previous</span>
+        <span className={paginationLinkClassesStart(currentIndex, length)} onClick={() => onPageChange(currentIndex - 1) }>← Previous</span>
         { link(0) /* hard-code first pagination link */ }
         { links() /* dynamically generate range between first and last link */ }
         { link(length - 1)/* hard-code last pagination link */ }
-        <span className={`pagination-link text--bold padding-small text--teal ${currentIndex === length - 1 ? 'invisible' : ''}`} onClick={() => onPageChange(currentIndex + 1)}>Next →</span>
+        <span className={paginationLinkClassesEnd(currentIndex, length)} onClick={() => onPageChange(currentIndex + 1)}>Next →</span>
       </nav>
     );
   }
