@@ -33,7 +33,7 @@ function getActionClass({ actions, index }) {
     btn: true,
     'btn--half': actions.length > 1,
     'btn--fill': actions.length <= 1,
-  }, `btn-${actions[index].color || 'gray'}`);
+  }, `btn-${actions[index].color || 'vimeo-secondary'}`);
 }
 
 function handleEscapeKey(event) {
@@ -79,6 +79,8 @@ class Modal extends Component {
   // v2 consider background.  For now, this works.
   render() {
     const { actions, body, isOpen, size, title } = this.props;
+
+    console.log('actions', actions);
 
     return (
       <div className={`c-modal ${isOpen ? 'is-open' : ''}`}>

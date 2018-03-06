@@ -1816,7 +1816,7 @@ function getActionClass(ref) {
     btn: true,
     'btn--half': actions.length > 1,
     'btn--fill': actions.length <= 1,
-  }, ("btn-" + (actions[index$$1].color || 'gray')));
+  }, ("btn-" + (actions[index$$1].color || 'vimeo-secondary')));
 }
 
 function handleEscapeKey(event) {
@@ -1873,6 +1873,8 @@ var Modal$1 = (function (Component$$1) {
     var isOpen = ref.isOpen;
     var size = ref.size;
     var title = ref.title;
+
+    console.log('actions', actions);
 
     return (
       React__default.createElement( 'div', { className: ("c-modal " + (isOpen ? 'is-open' : '')) },
@@ -3807,11 +3809,14 @@ var Inputs = function () { return (
   )
 ); };
 
+// Shared
+// -----------------------------------------
+
 var MyModalContents = function () { return React__default.createElement( 'div', null, "Hello!" ); };
 
 var actions = [
-  { label: 'Cancel', callback: function () { return Modal$2.close(); }, color: 'gray' },
-  { label: 'Sign up', callback: function () { return alert('hi'); }, color: 'teal' } ];
+  { label: 'Cancel', callback: function () { return Modal$2.close(); }, color: 'vimeo-secondary' },
+  { label: 'Sign up', callback: function () { return alert('hi'); }, color: 'vimeo-blue' } ];
 
 
 // Modals
@@ -3824,7 +3829,7 @@ var Modals = function () { return (
   )
 ); };
 
-var modalDemoCode = "\nconst MyModalContents = () => <div>Hello!</div>;\n\nconst actions = [\n  { label: 'Cancel', callback: () => Modal.close(), color: 'gray' },\n  { label: 'Sign up', callback: () => alert('hi'), color: 'teal' },\n];\n\nconst modalContents = {\n  actions,\n  Children: MyModalContents,\n  title: 'Hello'\n};\n\n<Button onClick={() => Modal.open(modalContents)}>\n  Default Modal\n</Button>\n";
+var modalDemoCode = "\nconst MyModalContents = () => <div>Hello!</div>;\n\nconst actions = [\n  { label: 'Cancel', callback: () => Modal.close(), color: 'VimeoSecondary' },\n  { label: 'Sign up', callback: () => alert('hi'), color: 'VimeoBlue' },\n];\n\nconst modalContents = {\n  actions,\n  Children: MyModalContents,\n  title: 'Hello'\n};\n\n<Button onClick={() => Modal.open(modalContents)}>\n  Default Modal\n</Button>\n";
 
 
 // Modal sizes

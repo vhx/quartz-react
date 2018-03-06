@@ -16,8 +16,8 @@ import {
 const MyModalContents = () => <div>Hello!</div>;
 
 const actions = [
-  { label: 'Cancel', callback: () => Modal.close(), color: 'gray' },
-  { label: 'Sign up', callback: () => alert('hi'), color: 'teal' },
+  { label: 'Cancel', callback: () => Modal.close(), color: 'vimeo-secondary' },
+  { label: 'Sign up', callback: () => alert('hi'), color: 'vimeo-blue' },
 ];
 
 
@@ -35,8 +35,8 @@ const modalDemoCode = `
 const MyModalContents = () => <div>Hello!</div>;
 
 const actions = [
-  { label: 'Cancel', callback: () => Modal.close(), color: 'gray' },
-  { label: 'Sign up', callback: () => alert('hi'), color: 'teal' },
+  { label: 'Cancel', callback: () => Modal.close(), color: 'VimeoSecondary' },
+  { label: 'Sign up', callback: () => alert('hi'), color: 'VimeoBlue' },
 ];
 
 const modalContents = {
