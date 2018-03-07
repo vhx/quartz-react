@@ -230,7 +230,7 @@ var utilities = Object.freeze({
 /* eslint-disable react/no-unused-prop-types */
 
 var Avatar$1 = function (props) { return (
-  React__default.createElement( 'span', { className: ("avatar color-teal avatar--" + (props.size)) },
+  React__default.createElement( 'span', { className: ("new-avatar color-teal avatar--" + (props.size)) },
     React__default.createElement( 'span', { className: 'default-avatar' }, props.initial),
     React__default.createElement( 'span', {
       className: 'avatar-user user-avatar', style: {

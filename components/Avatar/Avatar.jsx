@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 
 
 const Avatar = props => (
-  <span className={`avatar color-teal avatar--${props.size}`}>
+  <span className={`new-avatar color-teal avatar--${props.size}`}>
     <span className='default-avatar'>{props.initial}</span>
     <span
       className='avatar-user user-avatar'
