@@ -1476,7 +1476,7 @@ var Tag$1 = (function (Component$$1) {
           truncate(label, maxLength)
         ),
         React__default.createElement( 'a', {
-          className: getLinkClass(isRemoveHover), onClick: onRemove, onMouseOver: setRemoveHover(true), onMouseOut: setRemoveHover(false) })
+          className: getLinkClass(isRemoveHover), onClick: function () { return onRemove(label); }, onMouseOver: setRemoveHover(true), onMouseOut: setRemoveHover(false) })
       )
     );
   };
