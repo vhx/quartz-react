@@ -63,7 +63,7 @@ class Tag extends Component {
         <button className={getButtonClass(isHover, isProcessing)} onClick={onClick}>
           { truncate(label, maxLength) }
         </button>
-        <a
+        <span
           className={getLinkClass(isRemoveHover)}
           onClick={ () => onRemove(label) }
           onMouseOver={setRemoveHover(true)}

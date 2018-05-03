@@ -9,8 +9,8 @@ const Radio = ({ checked, index, label, onCheck }) => (
       checked={checked}
       onChange={event => onCheck(event, index)}
     />
-    <label onClick={event => onCheck(event, index)}>
-      <RadioIcon />
+    <label htmlFor={label} onClick={event => onCheck(event, index)}>
+      <RadioIcon id={label} />
       <span className='radio--label text-left'>{label}</span>
     </label>
   </li>
