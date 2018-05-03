@@ -28,7 +28,12 @@ class Slide extends Component {
       <div className={`slide ${exitDirection} ${enter ? `ENTER_${enterDirection}` : ''}`} style={{ animationDuration: `${animationDuration}ms`, display, zIndex }}>
         <div className={isMobile ? 'slide-bg slide-bg--mobile' : 'slide-bg' }>
           <div className={isWide ? 'slide-layout-wide' : 'slide-layout-container'}>
-            <img className='slide-bg-img' src={isMobile ? mobileImg : img} alt='Slide image' style={{ height: `${this.getImgHeight()}px` }} />
+            <img
+              className='slide-bg-img'
+              src={isMobile ? mobileImg : img}
+              alt='Slide'
+              style={{ height: `${this.getImgHeight()}px` }}
+             />
           </div>
         </div>
         <div className='slide-layout-container'>
