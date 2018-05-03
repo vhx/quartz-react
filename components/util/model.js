@@ -36,11 +36,11 @@ export function connect(model, Component) {
       componentWillMount() {
         model.subscribe(this.update);
       }
-      componentWillUnmount() {
-        model.unsubscribe(this.update);
-      }
       shouldComponentUpdate() {
         return false;
+      }
+      componentWillUnmount() {
+        model.unsubscribe(this.update);
       }
       update() {
         this.forceUpdate();
