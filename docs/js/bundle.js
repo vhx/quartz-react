@@ -1,21 +1,39 @@
 (function (React,ReactDOM) {
 'use strict';
 
+function __$$styleInject(css, ref) {
+  if ( ref === void 0 ) ref = {};
+  var insertAt = ref.insertAt;
+
+  if (!css || typeof document === 'undefined') { return; }
+
+  var head = document.head || document.getElementsByTagName('head')[0];
+  var style = document.createElement('style');
+  style.type = 'text/css';
+
+  if (insertAt === 'top') {
+    if (head.firstChild) {
+      head.insertBefore(style, head.firstChild);
+    } else {
+      head.appendChild(style);
+    }
+  } else {
+    head.appendChild(style);
+  }
+
+  if (style.styleSheet) {
+    style.styleSheet.cssText = css;
+  } else {
+    style.appendChild(document.createTextNode(css));
+  }
+}
+
 var React__default = 'default' in React ? React['default'] : React;
 ReactDOM = 'default' in ReactDOM ? ReactDOM['default'] : ReactDOM;
 
 function createCommonjsModule(fn, module) {
 	return module = { exports: {} }, fn(module, module.exports), module.exports;
 }
-
-/**
- * Copyright (c) 2013-present, Facebook, Inc.
- *
- * This source code is licensed under the MIT license found in the
- * LICENSE file in the root directory of this source tree.
- *
- * 
- */
 
 function makeEmptyFunction(arg) {
   return function () {
@@ -45,21 +63,12 @@ var emptyFunction_1 = emptyFunction;
 
 /**
  * Copyright (c) 2013-present, Facebook, Inc.
+ * All rights reserved.
  *
- * This source code is licensed under the MIT license found in the
- * LICENSE file in the root directory of this source tree.
+ * This source code is licensed under the BSD-style license found in the
+ * LICENSE file in the root directory of this source tree. An additional grant
+ * of patent rights can be found in the PATENTS file in the same directory.
  *
- */
-
-/**
- * Use invariant() to assert state which your program assumes to be true.
- *
- * Provide sprintf-style format (only %s is supported) and arguments
- * to provide information about what broke and what you were
- * expecting.
- *
- * The invariant message will be stripped in production, but the invariant
- * will remain to ensure logic does not differ in production.
  */
 
 var validateFormat = function validateFormat(format) {};
@@ -95,158 +104,63 @@ function invariant(condition, format, a, b, c, d, e, f) {
 
 var invariant_1 = invariant;
 
-/**
- * Similar to invariant but only logs a warning if the condition is not met.
- * This can be used to log issues in development environments in critical
- * paths. Removing the logging code for production environments will keep the
- * same logic and follow the same code paths.
- */
-
 var warning = emptyFunction_1;
 
 if (undefined !== 'production') {
-  var printWarning = function printWarning(format) {
-    var arguments$1 = arguments;
+  (function () {
+    var printWarning = function printWarning(format) {
+      var arguments$1 = arguments;
 
-    for (var _len = arguments.length, args = Array(_len > 1 ? _len - 1 : 0), _key = 1; _key < _len; _key++) {
-      args[_key - 1] = arguments$1[_key];
-    }
-
-    var argIndex = 0;
-    var message = 'Warning: ' + format.replace(/%s/g, function () {
-      return args[argIndex++];
-    });
-    if (typeof console !== 'undefined') {
-      console.error(message);
-    }
-    try {
-      // --- Welcome to debugging React ---
-      // This error was thrown as a convenience so that you can use this stack
-      // to find the callsite that caused this warning to fire.
-      throw new Error(message);
-    } catch (x) {}
-  };
-
-  warning = function warning(condition, format) {
-    var arguments$1 = arguments;
-
-    if (format === undefined) {
-      throw new Error('`warning(condition, format, ...args)` requires a warning ' + 'message argument');
-    }
-
-    if (format.indexOf('Failed Composite propType: ') === 0) {
-      return; // Ignore CompositeComponent proptype check.
-    }
-
-    if (!condition) {
-      for (var _len2 = arguments.length, args = Array(_len2 > 2 ? _len2 - 2 : 0), _key2 = 2; _key2 < _len2; _key2++) {
-        args[_key2 - 2] = arguments$1[_key2];
+      for (var _len = arguments.length, args = Array(_len > 1 ? _len - 1 : 0), _key = 1; _key < _len; _key++) {
+        args[_key - 1] = arguments$1[_key];
       }
 
-      printWarning.apply(undefined, [format].concat(args));
-    }
-  };
+      var argIndex = 0;
+      var message = 'Warning: ' + format.replace(/%s/g, function () {
+        return args[argIndex++];
+      });
+      if (typeof console !== 'undefined') {
+        console.error(message);
+      }
+      try {
+        // --- Welcome to debugging React ---
+        // This error was thrown as a convenience so that you can use this stack
+        // to find the callsite that caused this warning to fire.
+        throw new Error(message);
+      } catch (x) {}
+    };
+
+    warning = function warning(condition, format) {
+      var arguments$1 = arguments;
+
+      if (format === undefined) {
+        throw new Error('`warning(condition, format, ...args)` requires a warning ' + 'message argument');
+      }
+
+      if (format.indexOf('Failed Composite propType: ') === 0) {
+        return; // Ignore CompositeComponent proptype check.
+      }
+
+      if (!condition) {
+        for (var _len2 = arguments.length, args = Array(_len2 > 2 ? _len2 - 2 : 0), _key2 = 2; _key2 < _len2; _key2++) {
+          args[_key2 - 2] = arguments$1[_key2];
+        }
+
+        printWarning.apply(undefined, [format].concat(args));
+      }
+    };
+  })();
 }
 
 var warning_1 = warning;
 
-/*
-object-assign
-(c) Sindre Sorhus
-@license MIT
-*/
-
-/* eslint-disable no-unused-vars */
-var getOwnPropertySymbols = Object.getOwnPropertySymbols;
-var hasOwnProperty = Object.prototype.hasOwnProperty;
-var propIsEnumerable = Object.prototype.propertyIsEnumerable;
-
-function toObject(val) {
-	if (val === null || val === undefined) {
-		throw new TypeError('Object.assign cannot be called with null or undefined');
-	}
-
-	return Object(val);
-}
-
-function shouldUseNative() {
-	try {
-		if (!Object.assign) {
-			return false;
-		}
-
-		// Detect buggy property enumeration order in older V8 versions.
-
-		// https://bugs.chromium.org/p/v8/issues/detail?id=4118
-		var test1 = new String('abc');  // eslint-disable-line no-new-wrappers
-		test1[5] = 'de';
-		if (Object.getOwnPropertyNames(test1)[0] === '5') {
-			return false;
-		}
-
-		// https://bugs.chromium.org/p/v8/issues/detail?id=3056
-		var test2 = {};
-		for (var i = 0; i < 10; i++) {
-			test2['_' + String.fromCharCode(i)] = i;
-		}
-		var order2 = Object.getOwnPropertyNames(test2).map(function (n) {
-			return test2[n];
-		});
-		if (order2.join('') !== '0123456789') {
-			return false;
-		}
-
-		// https://bugs.chromium.org/p/v8/issues/detail?id=3056
-		var test3 = {};
-		'abcdefghijklmnopqrst'.split('').forEach(function (letter) {
-			test3[letter] = letter;
-		});
-		if (Object.keys(Object.assign({}, test3)).join('') !==
-				'abcdefghijklmnopqrst') {
-			return false;
-		}
-
-		return true;
-	} catch (err) {
-		// We don't expect any of the above to throw, but better to be safe.
-		return false;
-	}
-}
-
-var objectAssign = shouldUseNative() ? Object.assign : function (target, source) {
-	var arguments$1 = arguments;
-
-	var from;
-	var to = toObject(target);
-	var symbols;
-
-	for (var s = 1; s < arguments.length; s++) {
-		from = Object(arguments$1[s]);
-
-		for (var key in from) {
-			if (hasOwnProperty.call(from, key)) {
-				to[key] = from[key];
-			}
-		}
-
-		if (getOwnPropertySymbols) {
-			symbols = getOwnPropertySymbols(from);
-			for (var i = 0; i < symbols.length; i++) {
-				if (propIsEnumerable.call(from, symbols[i])) {
-					to[symbols[i]] = from[symbols[i]];
-				}
-			}
-		}
-	}
-
-	return to;
-};
-
 /**
- * Copyright (c) 2013-present, Facebook, Inc.
+ * Copyright 2013-present, Facebook, Inc.
+ * All rights reserved.
  *
- * This source code is licensed under the MIT license found in the
- * LICENSE file in the root directory of this source tree.
+ * This source code is licensed under the BSD-style license found in the
+ * LICENSE file in the root directory of this source tree. An additional grant
+ * of patent rights can be found in the PATENTS file in the same directory.
  */
 
 var ReactPropTypesSecret = 'SECRET_DO_NOT_PASS_THIS_OR_YOU_WILL_BE_FIRED';
@@ -282,7 +196,7 @@ function checkPropTypes(typeSpecs, values, location, componentName, getStack) {
         try {
           // This is intentionally an invariant that gets caught. It's the same
           // behavior as without this statement except with a better message.
-          invariant$1(typeof typeSpecs[typeSpecName] === 'function', '%s: %s type `%s` is invalid; it must be a function, usually from ' + 'the `prop-types` package, but received `%s`.', componentName || 'React class', location, typeSpecName, typeof typeSpecs[typeSpecName]);
+          invariant$1(typeof typeSpecs[typeSpecName] === 'function', '%s: %s type `%s` is invalid; it must be a function, usually from ' + 'React.PropTypes.', componentName || 'React class', location, typeSpecName);
           error = typeSpecs[typeSpecName](values, typeSpecName, componentName, location, null, ReactPropTypesSecret$1);
         } catch (ex) {
           error = ex;
@@ -398,8 +312,7 @@ var factoryWithTypeCheckers = function(isValidElement, throwOnDirectAccess) {
     objectOf: createObjectOfTypeChecker,
     oneOf: createEnumTypeChecker,
     oneOfType: createUnionTypeChecker,
-    shape: createShapeTypeChecker,
-    exact: createStrictShapeTypeChecker,
+    shape: createShapeTypeChecker
   };
 
   /**
@@ -614,7 +527,7 @@ var factoryWithTypeCheckers = function(isValidElement, throwOnDirectAccess) {
       if (typeof checker !== 'function') {
         warning_1(
           false,
-          'Invalid argument supplied to oneOfType. Expected an array of check functions, but ' +
+          'Invalid argument supplid to oneOfType. Expected an array of check functions, but ' +
           'received %s at index %s.',
           getPostfixForTypeWarning(checker),
           i
@@ -665,36 +578,6 @@ var factoryWithTypeCheckers = function(isValidElement, throwOnDirectAccess) {
       }
       return null;
     }
-    return createChainableTypeChecker(validate);
-  }
-
-  function createStrictShapeTypeChecker(shapeTypes) {
-    function validate(props, propName, componentName, location, propFullName) {
-      var propValue = props[propName];
-      var propType = getPropType(propValue);
-      if (propType !== 'object') {
-        return new PropTypeError('Invalid ' + location + ' `' + propFullName + '` of type `' + propType + '` ' + ('supplied to `' + componentName + '`, expected `object`.'));
-      }
-      // We need to check all keys in case some are required but missing from
-      // props.
-      var allKeys = objectAssign({}, props[propName], shapeTypes);
-      for (var key in allKeys) {
-        var checker = shapeTypes[key];
-        if (!checker) {
-          return new PropTypeError(
-            'Invalid ' + location + ' `' + propFullName + '` key `' + key + '` supplied to `' + componentName + '`.' +
-            '\nBad object: ' + JSON.stringify(props[propName], null, '  ') +
-            '\nValid keys: ' +  JSON.stringify(Object.keys(shapeTypes), null, '  ')
-          );
-        }
-        var error = checker(propValue, key, componentName, location, propFullName + '.' + key, ReactPropTypesSecret_1);
-        if (error) {
-          return error;
-        }
-      }
-      return null;
-    }
-
     return createChainableTypeChecker(validate);
   }
 
@@ -866,8 +749,7 @@ var factoryWithThrowingShims = function() {
     objectOf: getShim,
     oneOf: getShim,
     oneOfType: getShim,
-    shape: getShim,
-    exact: getShim
+    shape: getShim
   };
 
   ReactPropTypes.checkPropTypes = emptyFunction_1;
@@ -876,12 +758,14 @@ var factoryWithThrowingShims = function() {
   return ReactPropTypes;
 };
 
-var propTypes = createCommonjsModule(function (module) {
+var index = createCommonjsModule(function (module) {
 /**
- * Copyright (c) 2013-present, Facebook, Inc.
+ * Copyright 2013-present, Facebook, Inc.
+ * All rights reserved.
  *
- * This source code is licensed under the MIT license found in the
- * LICENSE file in the root directory of this source tree.
+ * This source code is licensed under the BSD-style license found in the
+ * LICENSE file in the root directory of this source tree. An additional grant
+ * of patent rights can be found in the PATENTS file in the same directory.
  */
 
 if (undefined !== 'production') {
@@ -922,9 +806,9 @@ var Block = function (ref) {
 };
 
 Block.propTypes = {
-  children: propTypes.node.isRequired,
-  dark: propTypes.bool,
-  inline: propTypes.bool,
+  children: index.node.isRequired,
+  dark: index.bool,
+  inline: index.bool,
 };
 
 Block.defaultProps = {
@@ -941,9 +825,9 @@ var If$1 = function (ref) {
 };
 
 If$1.propTypes = {
-  condition: propTypes.bool.isRequired,
-  children: propTypes.node.isRequired,
-  inline: propTypes.bool,
+  condition: index.bool.isRequired,
+  children: index.node.isRequired,
+  inline: index.bool,
 };
 
 If$1.defaultProps = {
@@ -1022,13 +906,6 @@ function connect$$1(model, Component$$1) {
 /*
 <If condition={false}><MyComponent /></If> // MyComponent will not render
 <If condition={true}><MyComponent /></If> // MyComponent will render
-*/
-/*
-truncate('foo-bar-baz', 4);
-=> 'foo-...'
-
-truncate('foo', 4);
-=> 'foo'
 */
 function truncate(str, maxLength) {
   return str.length > maxLength ? str.slice(0, maxLength).concat('...') : str;
@@ -1166,9 +1043,9 @@ var Avatar$1 = function (props) { return (
 var sizes = [ 'xsmall', 'small', 'medium', 'large', 'xlarge', 'xxlarge' ];
 
 Avatar$1.propTypes = {
-  size: propTypes.oneOf(sizes),
-  image: propTypes.string,
-  initial: propTypes.string,
+  size: index.oneOf(sizes),
+  image: index.string,
+  initial: index.string,
 };
 
 Avatar$1.defaultProps = {
@@ -1181,7 +1058,7 @@ Avatar$1.propDescriptions = {
   size: ("One of: [\"" + (sizes.join('", "')) + "\"]"),
 };
 
-var classnames = createCommonjsModule(function (module) {
+var index$1 = createCommonjsModule(function (module) {
 /*!
   Copyright (c) 2016 Jed Watson.
   Licensed under the MIT License (MIT), see
@@ -1243,7 +1120,7 @@ function getClassName(ref) {
   var typeface = ref.typeface;
   var processing = ref.processing;
 
-  return classnames('btn', className, {
+  return index$1('btn', className, {
     // core colors
     'btn-gray': color === 'gray',
     'btn-teal': color === 'teal',
@@ -1254,7 +1131,6 @@ function getClassName(ref) {
     'btn-vimeo-blue': color === 'vimeo-blue',
     'btn-vimeo-secondary': color === 'vimeo-secondary',
     'btn-vimeo-secondary-outline': color === 'vimeo-secondary-outline',
-    'btn-vimeo-alt': color === 'vimeo-alt',
     // alternate colors
     'btn-purple': color === 'purple',
     'btn-green': color === 'green',
@@ -1293,13 +1169,13 @@ var sizes$1 = [ 'small', 'medium', 'large', 'half', 'fill' ];
 var typefaces = [ 'brandon', '' ];
 
 Button$1.propTypes = {
-  children: propTypes.node.isRequired,
-  className: propTypes.string,
-  color: propTypes.oneOf(colors),
-  processing: propTypes.bool,
-  onClick: propTypes.func,
-  size: propTypes.oneOf(sizes$1),
-  typeface: propTypes.oneOf(typefaces),
+  children: index.node.isRequired,
+  className: index.string,
+  color: index.oneOf(colors),
+  processing: index.bool,
+  onClick: index.func,
+  size: index.oneOf(sizes$1),
+  typeface: index.oneOf(typefaces),
 };
 
 Button$1.defaultProps = {
@@ -1332,7 +1208,7 @@ function getClassName$1(ref) {
   var right = ref.right;
   var size = ref.size;
 
-  return classnames(className, ( obj = {
+  return index$1(className, ( obj = {
     icon: !button,
     'icon-circle': circle,
     'icon--left': left,
@@ -1356,14 +1232,14 @@ var colors$1 = [ '', 'navy', 'teal', 'white', 'gray' ];
 var sizes$2 = [ 'xxsmall', 'xsmall', 'small', 'medium', 'large', 'xlarge', 'xxlarge' ];
 
 Icon$1.propTypes = {
-  children: propTypes.node,
-  className: propTypes.string,
-  circle: propTypes.bool,
-  color: propTypes.oneOf(colors$1),
-  name: propTypes.oneOf(iconNames).isRequired,
-  left: propTypes.bool,
-  right: propTypes.bool,
-  size: propTypes.oneOf(sizes$2),
+  children: index.node,
+  className: index.string,
+  circle: index.bool,
+  color: index.oneOf(colors$1),
+  name: index.oneOf(iconNames).isRequired,
+  left: index.bool,
+  right: index.bool,
+  size: index.oneOf(sizes$2),
 };
 
 Icon$1.defaultProps = {
@@ -1390,9 +1266,6 @@ var KEY_CODES = Object.freeze({
   RIGHT: 39,
 });
 
-// calcNext(3, 0) => 1
-// calcNext(3, 1) => 2
-// calcNext(3, 2) => 0 // <- it wraps around to the first slide
 function calcNext(length, current) {
   return (current + 1) % length;
 }
@@ -1587,14 +1460,14 @@ function aspectRatioPropType(props) {
 aspectRatioPropType.isRequired = false;
 
 Carousel$1.propTypes = {
-  animationDuration: propTypes.number,
+  animationDuration: index.number,
   aspectRatio: aspectRatioPropType,
-  maxHeight: propTypes.number,
-  minHeight: propTypes.number,
-  onSlideChange: propTypes.func,
-  slides: propTypes.arrayOf(propTypes.shape({
-    Slide: propTypes.func.isRequired,
-    id: propTypes.string.isRequired,
+  maxHeight: index.number,
+  minHeight: index.number,
+  onSlideChange: index.func,
+  slides: index.arrayOf(index.shape({
+    Slide: index.func.isRequired,
+    id: index.string.isRequired,
   }).isRequired).isRequired,
 };
 
@@ -1618,7 +1491,7 @@ var getClassName$2 = function (ref) {
   var type = ref.type;
   var size = ref.size;
 
-  return classnames('checkbox', size, { alt: type === 'toggle' });
+  return index$1('checkbox', size, { alt: type === 'toggle' });
 };
 
 
@@ -1663,13 +1536,13 @@ var sizes$3 = [ 'small', 'medium', 'large' ];
 var types = [ 'standard', 'toggle' ];
 
 Checkbox$1.propTypes = {
-  checked: propTypes.bool,
-  label: propTypes.node,
-  onChange: propTypes.func,
-  size: propTypes.oneOf(sizes$3),
-  type: propTypes.oneOf(types),
-  uniqueId: propTypes.string.isRequired,
-  value: propTypes.string,
+  checked: index.bool,
+  label: index.node,
+  onChange: index.func,
+  size: index.oneOf(sizes$3),
+  type: index.oneOf(types),
+  uniqueId: index.string.isRequired,
+  value: index.string,
 };
 
 Checkbox$1.defaultProps = {
@@ -1711,11 +1584,11 @@ var Header$1 = function (ref) {
 };
 
 Header$1.propTypes = {
-  border: propTypes.bool,
-  children: propTypes.node,
-  Description: propTypes.oneOfType([ propTypes.string, propTypes.func ]), // can be a string or component
-  icon: propTypes.oneOf(iconNames).isRequired,
-  title: propTypes.string.isRequired,
+  border: index.bool,
+  children: index.node,
+  Description: index.oneOfType([ index.string, index.func ]), // can be a string or component
+  icon: index.oneOf(iconNames).isRequired,
+  title: index.string.isRequired,
 };
 
 Header$1.defaultProps = {
@@ -1737,7 +1610,7 @@ function getClass(ref) {
   var search = ref.search;
   var small = ref.small;
 
-  return classnames(className, {
+  return index$1(className, {
     small: small,
     'is-error': error,
     'c-select--search': search,
@@ -1763,25 +1636,25 @@ var Input$1 = function (props) { return (
 ); };
 
 Input$1.propTypes = {
-  autoFocus: propTypes.bool,
-  className: propTypes.string,
-  disabled: propTypes.bool,
-  error: propTypes.bool,
-  id: propTypes.string,
-  name: propTypes.string,
-  onBlur: propTypes.func,
-  onChange: propTypes.func,
-  onFocus: propTypes.func,
-  onKeyDown: propTypes.func,
-  onKeyUp: propTypes.func,
-  onKeyPress: propTypes.func,
-  onInput: propTypes.func,
-  placeholder: propTypes.string,
-  search: propTypes.bool,
-  small: propTypes.bool,
-  style: propTypes.object, // eslint-disable-line react/forbid-prop-types
-  type: propTypes.string,
-  value: propTypes.string,
+  autoFocus: index.bool,
+  className: index.string,
+  disabled: index.bool,
+  error: index.bool,
+  id: index.string,
+  name: index.string,
+  onBlur: index.func,
+  onChange: index.func,
+  onFocus: index.func,
+  onKeyDown: index.func,
+  onKeyUp: index.func,
+  onKeyPress: index.func,
+  onInput: index.func,
+  placeholder: index.string,
+  search: index.bool,
+  small: index.bool,
+  style: index.object, // eslint-disable-line react/forbid-prop-types
+  type: index.string,
+  value: index.string,
 };
 
 Input$1.defaultProps = {
@@ -1848,13 +1721,13 @@ var modalModel = Model$$1({
 
 function getActionClass(ref) {
   var actions = ref.actions;
-  var index = ref.index;
+  var index$$1 = ref.index;
 
-  return classnames({
+  return index$1({
     btn: true,
     'btn--half': actions.length > 1,
     'btn--fill': actions.length <= 1,
-  }, ("btn-" + (actions[index].color || 'gray')));
+  }, ("btn-" + (actions[index$$1].color || 'gray')));
 }
 
 function handleEscapeKey(event) {
@@ -1916,10 +1789,10 @@ var Modal$1 = (function (Component$$1) {
           React__default.createElement( If$1, { condition: actions.length !== 0 },
             React__default.createElement( 'div', { className: 'c-modal--actions' },
               React__default.createElement( 'div', { className: 'padding-small text-center' },
-                actions.map(function (action, index) { return (
+                actions.map(function (action, index$$1) { return (
                     React__default.createElement( 'div', {
-                      onClick: actions[index].callback, key: action.label, className: getActionClass({ actions: actions, index: index }) },
-                      actions[index].label
+                      onClick: actions[index$$1].callback, key: action.label, className: getActionClass({ actions: actions, index: index$$1 }) },
+                      actions[index$$1].label
                     )
                   ); })
               )
@@ -1938,15 +1811,15 @@ var Modal$1 = (function (Component$$1) {
 }(React.Component));
 
 Modal$1.propTypes = {
-  actions: propTypes.arrayOf(propTypes.shape({
-    color: propTypes.string,
-    label: propTypes.string.isRequired,
-    callback: propTypes.func.isRequired,
+  actions: index.arrayOf(index.shape({
+    color: index.string,
+    label: index.string.isRequired,
+    callback: index.func.isRequired,
   })).isRequired,
-  body: propTypes.node.isRequired,
-  isOpen: propTypes.bool.isRequired,
-  size: propTypes.string,
-  title: propTypes.string,
+  body: index.node.isRequired,
+  isOpen: index.bool.isRequired,
+  size: index.string,
+  title: index.string,
 };
 
 Modal$1.defaultProps = {
@@ -2045,9 +1918,9 @@ var Pagination$1 = (function (Component$$1) {
 
 
 Pagination$1.propTypes = {
-  currentIndex: propTypes.number,
-  length: propTypes.number.isRequired,
-  onPageChange: propTypes.func,
+  currentIndex: index.number,
+  length: index.number.isRequired,
+  onPageChange: index.func,
 };
 
 Pagination$1.defaultProps = {
@@ -2068,15 +1941,15 @@ var RadioIcon = function () { return (
 
 var Radio = function (ref) {
   var checked = ref.checked;
-  var index = ref.index;
+  var index$$1 = ref.index;
   var label = ref.label;
   var onCheck = ref.onCheck;
 
   return (
   React__default.createElement( 'li', null,
     React__default.createElement( 'input', {
-      type: 'radio', checked: checked, onChange: function (event) { return onCheck(event, index); } }),
-    React__default.createElement( 'label', { onClick: function (event) { return onCheck(event, index); } },
+      type: 'radio', checked: checked, onChange: function (event) { return onCheck(event, index$$1); } }),
+    React__default.createElement( 'label', { onClick: function (event) { return onCheck(event, index$$1); } },
       React__default.createElement( RadioIcon, null ),
       React__default.createElement( 'span', { className: 'radio--label text-left' }, label)
     )
@@ -2085,21 +1958,21 @@ var Radio = function (ref) {
 };
 
 Radio.propTypes = {
-  checked: propTypes.bool.isRequired,
-  index: propTypes.number.isRequired,
-  label: propTypes.string.isRequired,
-  onCheck: propTypes.func.isRequired,
+  checked: index.bool.isRequired,
+  index: index.number.isRequired,
+  label: index.string.isRequired,
+  onCheck: index.func.isRequired,
 };
 
 function getDescriptionClassName(checked) {
-  return classnames({
+  return index$1({
     'text--white': checked,
     'text-4': true,
   });
 }
 
 function getClassName$4(checked) {
-  return classnames({
+  return index$1({
     'btn-teal': checked,
     'btn-gray': !checked,
     'btn--fill': true,
@@ -2109,7 +1982,7 @@ function getClassName$4(checked) {
 }
 
 function getTitleClassName(checked) {
-  return classnames({
+  return index$1({
     'text--white': checked,
     'text--navy': !checked,
     'text-2': true,
@@ -2123,15 +1996,15 @@ function getStyle(description) {
 var RadioButton = function (ref) {
   var checked = ref.checked;
   var description = ref.description;
-  var index = ref.index;
+  var index$$1 = ref.index;
   var label = ref.label;
   var onCheck = ref.onCheck;
 
   return (
   React__default.createElement( 'li', null,
     React__default.createElement( 'input', {
-      type: 'radio', checked: checked, onChange: function (event) { return onCheck(event, index); } }),
-    React__default.createElement( 'label', { className: getClassName$4(checked), onClick: function (event) { return onCheck(event, index); } },
+      type: 'radio', checked: checked, onChange: function (event) { return onCheck(event, index$$1); } }),
+    React__default.createElement( 'label', { className: getClassName$4(checked), onClick: function (event) { return onCheck(event, index$$1); } },
       React__default.createElement( RadioIcon, null ),
       React__default.createElement( 'span', { className: 'radio--label text-left padding-left-small', style: getStyle(description) },
         React__default.createElement( 'strong', { className: getTitleClassName(checked) }, label),
@@ -2145,11 +2018,11 @@ var RadioButton = function (ref) {
 };
 
 RadioButton.propTypes = {
-  checked: propTypes.bool.isRequired,
-  description: propTypes.string,
-  index: propTypes.number.isRequired,
-  label: propTypes.string.isRequired,
-  onCheck: propTypes.func.isRequired,
+  checked: index.bool.isRequired,
+  description: index.string,
+  index: index.number.isRequired,
+  label: index.string.isRequired,
+  onCheck: index.func.isRequired,
 };
 
 RadioButton.defaultProps = {
@@ -2161,7 +2034,7 @@ function getClassName$3(ref) {
   var color = ref.color;
   var stacked = ref.stacked;
 
-  return classnames({
+  return index$1({
     'radio-teal': color === 'teal',
     'radio-gray': color === 'gray',
     'radio--buttons': buttons,
@@ -2198,18 +2071,18 @@ var RadioGroup$1 = function (ref) {
 
 var colors$2 = [ 'teal', 'gray' ];
 
-var radioItemPropType = propTypes.shape({
-  label: propTypes.string.isRequired,
-  uniqueId: propTypes.string.isRequired,
+var radioItemPropType = index.shape({
+  label: index.string.isRequired,
+  uniqueId: index.string.isRequired,
 });
 
 RadioGroup$1.propTypes = {
-  buttons: propTypes.bool,
-  color: propTypes.oneOf(colors$2),
-  items: propTypes.arrayOf(radioItemPropType).isRequired,
-  onCheck: propTypes.func,
-  selectedIndex: propTypes.number,
-  stacked: propTypes.bool,
+  buttons: index.bool,
+  color: index.oneOf(colors$2),
+  items: index.arrayOf(radioItemPropType).isRequired,
+  onCheck: index.func,
+  selectedIndex: index.number,
+  stacked: index.bool,
 };
 
 RadioGroup$1.defaultProps = {
@@ -2290,8 +2163,8 @@ var Sidebar$1 = (function (Component$$1) {
 
 
 Sidebar$1.propTypes = {
-  isOpen: propTypes.bool.isRequired,
-  Contents: propTypes.func.isRequired,
+  isOpen: index.bool.isRequired,
+  Contents: index.func.isRequired,
 };
 
 var Sidebar$2 = connect$$1(sidebarModel, Sidebar$1);
@@ -2356,20 +2229,20 @@ var Slide$1 = (function (Component$$1) {
 }(React.Component));
 
 Slide$1.propTypes = {
-  dynamicProps: propTypes.shape({
-    animationDuration: propTypes.number.isRequired,
-    enter: propTypes.bool.isRequired,
-    enterDirection: propTypes.oneOf([ 'TO_LEFT', 'TO_RIGHT' ]).isRequired,
-    exitDirection: propTypes.oneOf([ '', 'TO_LEFT', 'TO_RIGHT' ]).isRequired,
-    isMobile: propTypes.bool.isRequired,
-    height: propTypes.number.isRequired,
-    width: propTypes.number.isRequired,
-    zIndex: propTypes.string.isRequired,
+  dynamicProps: index.shape({
+    animationDuration: index.number.isRequired,
+    enter: index.bool.isRequired,
+    enterDirection: index.oneOf([ 'TO_LEFT', 'TO_RIGHT' ]).isRequired,
+    exitDirection: index.oneOf([ '', 'TO_LEFT', 'TO_RIGHT' ]).isRequired,
+    isMobile: index.bool.isRequired,
+    height: index.number.isRequired,
+    width: index.number.isRequired,
+    zIndex: index.string.isRequired,
   }).isRequired,
-  children: propTypes.node.isRequired,
-  img: propTypes.string.isRequired,
-  mobileImg: propTypes.string.isRequired,
-  isWide: propTypes.bool,
+  children: index.node.isRequired,
+  img: index.string.isRequired,
+  mobileImg: index.string.isRequired,
+  isWide: index.bool,
 };
 
 Slide$1.defaultProps = {
@@ -2377,7 +2250,7 @@ Slide$1.defaultProps = {
 };
 
 function getClass$1(isHover) {
-  return classnames({
+  return index$1({
     inline: true,
     relative: true,
     'c-tag': true,
@@ -2386,7 +2259,7 @@ function getClass$1(isHover) {
 }
 
 function getButtonClass(isHover, isProcessing) {
-  return classnames({
+  return index$1({
     'c-tag--button': true,
     'btn-teal': isHover,
     'is-hover': isHover,
@@ -2396,7 +2269,7 @@ function getButtonClass(isHover, isProcessing) {
 }
 
 function getLinkClass(isRemoveHover) {
-  return classnames({
+  return index$1({
     'c-tag--remove': true,
     'icon--center': true,
     'icon-x-white': true,
@@ -2463,11 +2336,11 @@ var Tag$1 = (function (Component$$1) {
 
 
 Tag$1.propTypes = {
-  label: propTypes.string.isRequired,
-  maxLength: propTypes.number,
-  isProcessing: propTypes.bool,
-  onClick: propTypes.func,
-  onRemove: propTypes.func,
+  label: index.string.isRequired,
+  maxLength: index.number,
+  isProcessing: index.bool,
+  onClick: index.func,
+  onRemove: index.func,
 };
 
 Tag$1.defaultProps = {
@@ -2480,7 +2353,7 @@ Tag$1.defaultProps = {
 /* eslint-disable react/no-unused-prop-types */
 
 function getClassName$5(props) {
-  return classnames(props.className, {
+  return index$1(props.className, {
     block: Boolean(props.block),
     'head-1': Boolean(props.h1),
     'head-2': Boolean(props.h2),
@@ -2505,15 +2378,15 @@ var Text$1 = function (props) { return (
 var colors$3 = [ 'navy', 'gray', 'teal', 'white', 'vimeo-blue', 'sunset-orange', 'regent-gray', 'astro-granite' ];
 
 Text$1.propTypes = {
-  block: propTypes.bool,
-  children: propTypes.node.isRequired,
-  h1: propTypes.bool,
-  h2: propTypes.bool,
-  h3: propTypes.bool,
-  h4: propTypes.bool,
-  h5: propTypes.bool,
-  className: propTypes.string,
-  color: propTypes.oneOf(colors$3),
+  block: index.bool,
+  children: index.node.isRequired,
+  h1: index.bool,
+  h2: index.bool,
+  h3: index.bool,
+  h4: index.bool,
+  h5: index.bool,
+  className: index.string,
+  color: index.oneOf(colors$3),
 };
 
 Text$1.defaultProps = {
@@ -2621,22 +2494,22 @@ function SelectDropdownHOC(ref) {
   };
 
   SelectDropdown.propTypes = {
-    dropdownPosition: propTypes.oneOf([ 'above', 'below' ]).isRequired,
-    isLoading: propTypes.bool,
-    maxLabelLength: propTypes.number.isRequired, // only currently used in MediaSelect, but there's no reason not to allow it in standard Select as well
-    multiSelect: propTypes.bool.isRequired,
+    dropdownPosition: index.oneOf([ 'above', 'below' ]).isRequired,
+    isLoading: index.bool,
+    maxLabelLength: index.number.isRequired, // only currently used in MediaSelect, but there's no reason not to allow it in standard Select as well
+    multiSelect: index.bool.isRequired,
     multiselect: typoPropType({ correct: 'multiSelect' }), // eslint-disable-line react/require-default-props, react/no-unused-prop-types
-    onOpenToggle: propTypes.func.isRequired,
-    onSelectionToggle: propTypes.func.isRequired,
-    options: propTypes.arrayOf(propTypes.shape({
-      description: propTypes.string,
-      label: propTypes.string.isRequired,
-      uniqueId: propTypes.string.isRequired,
+    onOpenToggle: index.func.isRequired,
+    onSelectionToggle: index.func.isRequired,
+    options: index.arrayOf(index.shape({
+      description: index.string,
+      label: index.string.isRequired,
+      uniqueId: index.string.isRequired,
     })).isRequired,
-    processingOptions: propTypes.arrayOf(propTypes.string).isRequired,
-    selectedOptions: propTypes.objectOf(propTypes.bool).isRequired,
-    search: propTypes.func,
-    searchValue: propTypes.string,
+    processingOptions: index.arrayOf(index.string).isRequired,
+    selectedOptions: index.objectOf(index.bool).isRequired,
+    search: index.func,
+    searchValue: index.string,
   };
 
   SelectDropdown.defaultProps = {
@@ -2648,8 +2521,6 @@ function SelectDropdownHOC(ref) {
   return SelectDropdown;
 }
 
-// TODO: this is a hack, we should have this in css if possible to make a PR to Quartz css
-// (This fixes wrapping issues in `inline` select dropdowns)
 var listStyle = { whiteSpace: 'nowrap' };
 
 var SelectDropdownOption = function (ref) {
@@ -2672,12 +2543,12 @@ var SelectDropdownOption = function (ref) {
 };
 
 SelectDropdownOption.propTypes = {
-  description: propTypes.string,
-  isLoading: propTypes.bool.isRequired,
-  isSelected: propTypes.bool.isRequired,
-  label: propTypes.string.isRequired,
-  onOptionToggle: propTypes.func.isRequired,
-  uniqueId: propTypes.string.isRequired,
+  description: index.string,
+  isLoading: index.bool.isRequired,
+  isSelected: index.bool.isRequired,
+  label: index.string.isRequired,
+  onOptionToggle: index.func.isRequired,
+  uniqueId: index.string.isRequired,
 };
 
 SelectDropdownOption.defaultProps = {
@@ -2689,7 +2560,7 @@ var SelectDropdown = SelectDropdownHOC({ Option: SelectDropdownOption });
 function getTriggerClass(ref) {
   var color = ref.color;
 
-  return classnames({
+  return index$1({
     truncate: true,
     'btn--fill': true,
     'btn-dropdown-gray':  color === 'gray',
@@ -2718,11 +2589,11 @@ var Trigger = function (ref) {
 };
 
 Trigger.propTypes = {
-  color: propTypes.oneOf([ 'gray', 'white', 'teal' ]).isRequired,
-  isOpen: propTypes.bool.isRequired,
-  onOpenToggle: propTypes.func.isRequired,
-  triggerLabel: propTypes.string.isRequired,
-  triggerPlaceholder: propTypes.string.isRequired,
+  color: index.oneOf([ 'gray', 'white', 'teal' ]).isRequired,
+  isOpen: index.bool.isRequired,
+  onOpenToggle: index.func.isRequired,
+  triggerLabel: index.string.isRequired,
+  triggerPlaceholder: index.string.isRequired,
 };
 
 /* eslint-disable react/no-unused-prop-types */
@@ -2732,7 +2603,7 @@ function getClass$2(props, type) {
   var dropdownPosition = props.dropdownPosition;
   var inline = props.inline;
   var search = props.search;
-  return classnames({
+  return index$1({
     inline: inline,
     form: true,
     relative: true,
@@ -2801,27 +2672,27 @@ function SelectHOC(ref) {
   var dropdownPositions = [ 'above', 'below' ];
 
   Select.propTypes = {
-    caretAlign: propTypes.oneOf(caretAligns),
-    color: propTypes.oneOf(colors),
-    dropdownPosition: propTypes.oneOf(dropdownPositions),
-    inline: propTypes.bool,
-    isOpen: propTypes.bool,
-    maxLabelLength: propTypes.number,
-    multiSelect: propTypes.bool,
-    onOpenToggle: propTypes.func.isRequired,
-    onSelectionToggle: propTypes.func.isRequired,
-    options: propTypes.arrayOf(propTypes.shape({
+    caretAlign: index.oneOf(caretAligns),
+    color: index.oneOf(colors),
+    dropdownPosition: index.oneOf(dropdownPositions),
+    inline: index.bool,
+    isOpen: index.bool,
+    maxLabelLength: index.number,
+    multiSelect: index.bool,
+    onOpenToggle: index.func.isRequired,
+    onSelectionToggle: index.func.isRequired,
+    options: index.arrayOf(index.shape({
       // NOTE: any additional keys are also allowed, so you can store as much data in the `option` as you would like
-      label: propTypes.string.isRequired,
-      uniqueId: propTypes.string.isRequired,
-      description: propTypes.string,
+      label: index.string.isRequired,
+      uniqueId: index.string.isRequired,
+      description: index.string,
     })).isRequired,
-    processingOptions: propTypes.arrayOf(propTypes.string),
-    selectedOptions: propTypes.objectOf(propTypes.bool).isRequired,
-    search: propTypes.func,
-    Trigger: propTypes.func, // this allows passing in a custom Trigger as prop, so it's not necessary to import the HOC
-    triggerLabel: propTypes.string,
-    triggerPlaceholder: propTypes.string,
+    processingOptions: index.arrayOf(index.string),
+    selectedOptions: index.objectOf(index.bool).isRequired,
+    search: index.func,
+    Trigger: index.func, // this allows passing in a custom Trigger as prop, so it's not necessary to import the HOC
+    triggerLabel: index.string,
+    triggerPlaceholder: index.string,
   };
 
   Select.defaultProps = {
@@ -2902,16 +2773,16 @@ var MediaSelectDropdownOption = function (ref) {
 };
 
 MediaSelectDropdownOption.propTypes = {
-  description: propTypes.string,
-  imageUrl: propTypes.string.isRequired,
-  isLoading: propTypes.bool.isRequired,
-  isProcessingItem: propTypes.bool,
-  isSelected: propTypes.bool.isRequired,
-  label: propTypes.string.isRequired,
-  maxLabelLength: propTypes.number.isRequired,
-  multiSelect: propTypes.bool.isRequired,
-  onOptionToggle: propTypes.func.isRequired,
-  uniqueId: propTypes.string.isRequired,
+  description: index.string,
+  imageUrl: index.string.isRequired,
+  isLoading: index.bool.isRequired,
+  isProcessingItem: index.bool,
+  isSelected: index.bool.isRequired,
+  label: index.string.isRequired,
+  maxLabelLength: index.number.isRequired,
+  multiSelect: index.bool.isRequired,
+  onOptionToggle: index.func.isRequired,
+  uniqueId: index.string.isRequired,
 };
 
 MediaSelectDropdownOption.defaultProps = {
@@ -2963,9 +2834,9 @@ var StatefulSelect = (function (Component$$1) {
 }(React.Component));
 
 StatefulSelect.propTypes = {
-  isOpen: propTypes.bool,
-  onOpenToggle: propTypes.func,
-  onSelectionToggle: propTypes.func,
+  isOpen: index.bool,
+  onOpenToggle: index.func,
+  onSelectionToggle: index.func,
 };
 
 StatefulSelect.defaultProps = {
@@ -3011,9 +2882,9 @@ var StatefulMediaSelect = (function (Component$$1) {
 }(React.Component));
 
 StatefulMediaSelect.propTypes = {
-  isOpen: propTypes.bool,
-  onOpenToggle: propTypes.func,
-  onSelectionToggle: propTypes.func,
+  isOpen: index.bool,
+  onOpenToggle: index.func,
+  onSelectionToggle: index.func,
 };
 
 StatefulMediaSelect.defaultProps = {
@@ -3070,8 +2941,8 @@ var DemoRow = (function (Component$$1) {
   return DemoRow;
 }(React.Component));
 DemoRow.propTypes = {
-  children: propTypes.node.isRequired,
-  code: propTypes.string,
+  children: index.node.isRequired,
+  code: index.string,
 };
 
 DemoRow.defaultProps = {
@@ -3088,8 +2959,8 @@ var Details = function (ref) {
 };
 
 Details.propTypes = {
-  children: propTypes.node.isRequired,
-  withDemo: propTypes.bool,
+  children: index.node.isRequired,
+  withDemo: index.bool,
 };
 
 Details.defaultProps = {
@@ -3112,8 +2983,8 @@ var NavLink = function (ref) {
 };
 
 NavLink.propTypes = {
-  slug: propTypes.string.isRequired,
-  title: propTypes.string.isRequired,
+  slug: index.string.isRequired,
+  title: index.string.isRequired,
 };
 
 
@@ -3140,10 +3011,10 @@ var Nav = function (ref) {
 };
 
 Nav.propTypes = {
-  sections: propTypes.arrayOf(propTypes.shape({
-    Section: propTypes.func.isRequired,
-    slug: propTypes.string.isRequired,
-    title: propTypes.string.isRequired,
+  sections: index.arrayOf(index.shape({
+    Section: index.func.isRequired,
+    slug: index.string.isRequired,
+    title: index.string.isRequired,
   }).isRequired).isRequired,
 };
 
@@ -3156,14 +3027,14 @@ var Subtitle = function (ref) {
 };
 
 Subtitle.propTypes = {
-  children: propTypes.node.isRequired,
+  children: index.node.isRequired,
 };
 
-var propTypeList = Object.keys(propTypes);
+var propTypeList = Object.keys(index);
 
 function lookupType(propType) {
   return propTypeList.reduce(function (current, next) {
-    return (propType === propTypes[next] || propType === propTypes[next].isRequired) ? next : current;
+    return (propType === index[next] || propType === index[next].isRequired) ? next : current;
   }, 'other');
 }
 
@@ -3234,7 +3105,7 @@ var PropTypeTable = (function (PureComponent$$1) {
 }(React.PureComponent));
 
 PropTypeTable.propTypes = {
-  component: propTypes.func.isRequired,
+  component: index.func.isRequired,
 };
 
 var Title = function (ref) {
@@ -3248,11 +3119,8 @@ var Title = function (ref) {
 };
 
 Title.propTypes = {
-  children: propTypes.string.isRequired,
+  children: index.string.isRequired,
 };
-
-// Avatars headings
-// -----------------------------------------
 
 var AvatarDemo = function () { return (
   React__default.createElement( 'div', null,
@@ -3285,9 +3153,6 @@ var Avatars = function () { return (
     React__default.createElement( DemoRow, null, React__default.createElement( PropTypeTable, { component: Avatar$1 }) )
   )
 ); };
-
-// Colors demo
-// -----------------------------------------
 
 var colors$4 = [
   'gray',
@@ -3402,9 +3267,6 @@ var Buttons = function () { return (
     React__default.createElement( DemoRow, null, React__default.createElement( PropTypeTable, { component: Button$1 }) )
   )
 ); };
-
-// Carousel demo
-// -----------------------------------------
 
 var MAX_TITLE_LENGTH = 50; // characters
 var lorem = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua';
@@ -3556,9 +3418,6 @@ var Carousels = function () { return (
   )
 ); };
 
-// Checked / unchecked demo
-// -----------------------------------------
-
 var handler = function () { return alert('Hi!'); };
 var StatelessCheckboxes = function () { return (
   React__default.createElement( 'div', null,
@@ -3664,9 +3523,6 @@ var Checkboxes = function () { return (
   )
 ); };
 
-// Standard header
-// -----------------------------------------
-
 var DefaultDemo = function () { return (
   React__default.createElement( 'div', null,
     React__default.createElement( Subtitle, null, "Default" ),
@@ -3706,9 +3562,6 @@ var Headers = function () { return (
     React__default.createElement( DemoRow, null, React__default.createElement( PropTypeTable, { component: Header$1 }) )
   )
 ); };
-
-// All icons demo
-// -----------------------------------------
 
 var IconList = function () { return (
   React__default.createElement( 'div', null,
@@ -3793,9 +3646,6 @@ var Icons = function () { return (
     React__default.createElement( DemoRow, null, React__default.createElement( PropTypeTable, { component: Icon$1 }) )
   )
 ); };
-
-// Input demo
-// -----------------------------------------
 
 var InputDemo = function () { return (
   React__default.createElement( 'div', null,
@@ -3889,9 +3739,6 @@ var Inputs = function () { return (
     React__default.createElement( DemoRow, null, React__default.createElement( PropTypeTable, { component: Input$1 }) )
   )
 ); };
-
-// Shared
-// -----------------------------------------
 
 var MyModalContents = function () { return React__default.createElement( 'div', null, "Hello!" ); };
 
@@ -3998,7 +3845,7 @@ var StatefulPagination = (function (Component$$1) {
 }(React.Component));
 
 StatefulPagination.propTypes = {
-  length: propTypes.number.isRequired,
+  length: index.number.isRequired,
 };
 
 var PaginatorDemo = function () { return (
@@ -4034,7 +3881,7 @@ var items = [
   { label: '#2', uniqueId: 'opt-2', description: 'Bar' },
   { label: '#3', uniqueId: 'opt-3', description: 'Baz' } ];
 
-var handler$1 = function (event, index) { return alert(index); };
+var handler$1 = function (event, index$$1) { return alert(index$$1); };
 
 var introCode = "\n\n\n\nconst items = [\n  { label: '#1', uniqueId: 'opt-1', description: 'Foo' },\n  { label: '#2', uniqueId: 'opt-2', description: 'Bar' },\n  { label: '#3', uniqueId: 'opt-3', description: 'Baz' },\n];\n\nconst handler = (event, index) => alert(index);\n";
 
@@ -4150,9 +3997,6 @@ var Radios = function () { return (
     React__default.createElement( DemoRow, null, React__default.createElement( PropTypeTable, { component: RadioGroup$1 }) )
   )
 ); };
-
-// Intro
-// -----------------------------------------
 
 var options = [
   {
@@ -4411,8 +4255,8 @@ var MyTrigger = function (ref) {
 };
 
 MyTrigger.propTypes = {
-  isOpen: propTypes.bool.isRequired,
-  onOpenToggle: propTypes.func.isRequired,
+  isOpen: index.bool.isRequired,
+  onOpenToggle: index.func.isRequired,
 };
 
 var CustomTriggerDemo = function () { return (
@@ -4518,9 +4362,6 @@ var Sidebars = function () { return (
   )
 ); };
 
-// Tags default demo
-// -----------------------------------------
-
 var TagsDemo = function () { return (
   React__default.createElement( 'div', null,
     React__default.createElement( Subtitle, null, "Tags with Two Callbacks" ),
@@ -4567,9 +4408,6 @@ var Tags = function () { return (
     React__default.createElement( DemoRow, null, React__default.createElement( PropTypeTable, { component: Tag$1 }) )
   )
 ); };
-
-// Text headings
-// -----------------------------------------
 
 var TextHeadings = function () { return (
   React__default.createElement( 'div', null,
@@ -4618,10 +4456,6 @@ var TextDemo = function () { return (
   )
 ); };
 
-/* eslint-disable no-multi-spaces */
-// `Section` is a component that renders a demo section
-// `slug` is used in the url hash and section ids
-// `title` is used as the text in the nav sidebar
 var sections = [
   { Section: Avatars,     slug: 'avatars',      title: 'Avatars' },
   { Section: Buttons,     slug: 'buttons',      title: 'Buttons' },
