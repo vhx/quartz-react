@@ -71,7 +71,7 @@ class Carousel extends Component {
     if (this.el) {
       const MOBILE_PADDING_BOTTOM = 0;
       const { aspectRatio, maxHeight, minHeight } = this.props;
-      const width = this.el.clientWidth;
+      const width = this.el.clientWidth !== 0 ? this.el.clientWidth : document.body.clientWidth;
       const aspectHeight = getAspectRatioHeight(aspectRatio, width);
       const height = containValue(maxHeight, minHeight, aspectHeight);
       const isMobile = height > getAspectRatioHeight('16:9', width);

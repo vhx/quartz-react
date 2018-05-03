@@ -487,7 +487,7 @@ var Carousel$1 = (function (Component$$1) {
       var aspectRatio = ref.aspectRatio;
       var maxHeight = ref.maxHeight;
       var minHeight = ref.minHeight;
-      var width = this.el.clientWidth;
+      var width = this.el.clientWidth !== 0 ? this.el.clientWidth : document.body.clientWidth;
       var aspectHeight = getAspectRatioHeight(aspectRatio, width);
       var height = containValue(maxHeight, minHeight, aspectHeight);
       var isMobile = height > getAspectRatioHeight('16:9', width);
