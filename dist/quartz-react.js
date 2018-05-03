@@ -72,11 +72,11 @@ function connect$$1(model, Component$$1) {
       ConnectedComponent.prototype.componentWillMount = function componentWillMount () {
         model.subscribe(this.update);
       };
-      ConnectedComponent.prototype.componentWillUnmount = function componentWillUnmount () {
-        model.unsubscribe(this.update);
-      };
       ConnectedComponent.prototype.shouldComponentUpdate = function shouldComponentUpdate () {
         return false;
+      };
+      ConnectedComponent.prototype.componentWillUnmount = function componentWillUnmount () {
+        model.unsubscribe(this.update);
       };
       ConnectedComponent.prototype.update = function update () {
         this.forceUpdate();
@@ -1099,9 +1099,10 @@ var Radio = function (ref) {
   React__default.createElement( 'li', null,
     React__default.createElement( 'input', {
       type: 'radio', checked: checked, onChange: function (event) { return onCheck(event, index); } }),
-    React__default.createElement( 'label', { onClick: function (event) { return onCheck(event, index); } },
-      React__default.createElement( RadioIcon, null ),
-      React__default.createElement( 'span', { className: 'radio--label text-left' }, label)
+    React__default.createElement( 'label', {
+      htmlFor: label, onClick: function (event) { return onCheck(event, index); } },
+        React__default.createElement( RadioIcon, { id: label }),
+        React__default.createElement( 'span', { className: 'radio--label text-left' }, label)
     )
   )
 );
@@ -1154,14 +1155,15 @@ var RadioButton = function (ref) {
   React__default.createElement( 'li', null,
     React__default.createElement( 'input', {
       type: 'radio', checked: checked, onChange: function (event) { return onCheck(event, index); } }),
-    React__default.createElement( 'label', { className: getClassName$4(checked), onClick: function (event) { return onCheck(event, index); } },
-      React__default.createElement( RadioIcon, null ),
-      React__default.createElement( 'span', { className: 'radio--label text-left padding-left-small', style: getStyle(description) },
-        React__default.createElement( 'strong', { className: getTitleClassName(checked) }, label),
-        React__default.createElement( If, { condition: Boolean(description) },
-          React__default.createElement( 'p', { className: getDescriptionClassName(checked) }, description)
+    React__default.createElement( 'label', {
+      className: getClassName$4(checked), htmlFor: label, onClick: function (event) { return onCheck(event, index); } },
+        React__default.createElement( RadioIcon, { id: label }),
+        React__default.createElement( 'span', { className: 'radio--label text-left padding-left-small', style: getStyle(description) },
+          React__default.createElement( 'strong', { className: getTitleClassName(checked) }, label),
+          React__default.createElement( If, { condition: Boolean(description) },
+            React__default.createElement( 'p', { className: getDescriptionClassName(checked) }, description)
+          )
         )
-      )
     )
   )
 );
@@ -1363,7 +1365,8 @@ var Slide$1 = (function (Component$$1) {
       React__default.createElement( 'div', { className: ("slide " + exitDirection + " " + (enter ? ("ENTER_" + enterDirection) : '')), style: { animationDuration: (animationDuration + "ms"), display: display, zIndex: zIndex } },
         React__default.createElement( 'div', { className: isMobile ? 'slide-bg slide-bg--mobile' : 'slide-bg' },
           React__default.createElement( 'div', { className: isWide ? 'slide-layout-wide' : 'slide-layout-container' },
-            React__default.createElement( 'img', { className: 'slide-bg-img', src: isMobile ? mobileImg : img, alt: 'Slide image', style: { height: ((this.getImgHeight()) + "px") } })
+            React__default.createElement( 'img', {
+              className: 'slide-bg-img', src: isMobile ? mobileImg : img, alt: 'Slide', style: { height: ((this.getImgHeight()) + "px") } })
           )
         ),
         React__default.createElement( 'div', { className: 'slide-layout-container' },
@@ -1475,7 +1478,7 @@ var Tag$1 = (function (Component$$1) {
         React__default.createElement( 'button', { className: getButtonClass(isHover, isProcessing), onClick: onClick },
           truncate(label, maxLength)
         ),
-        React__default.createElement( 'a', {
+        React__default.createElement( 'span', {
           className: getLinkClass(isRemoveHover), onClick: function () { return onRemove(label); }, onMouseOver: setRemoveHover(true), onMouseOut: setRemoveHover(false) })
       )
     );
