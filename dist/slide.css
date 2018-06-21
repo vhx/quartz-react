@@ -1,6 +1,6 @@
 /*
   Quartz-react version: 0.1.22
-  Current file hash: 23e145e1c6d946775b1f196d0c6ba97e
+  Current file hash: 3082178b1455bfe686fd2f4b38c9d02d
 */
 
 /* NOTE: translate3d currently has better rendering performance than translateX */
@@ -54,7 +54,7 @@
 
 
 .slide-bg {
-  background: #000;
+  background-color: #000;
   position: absolute;
   height: 100%;
   /* right: 0; */
@@ -198,12 +198,12 @@
 }
 
 .slide-button--alt {
-  background: rgba(255, 255, 255, 0.2);
+  background-color: rgba(255, 255, 255, 0.2);
   opacity: 0;
 }
 
 .slide-button--alt:hover {
-  background: rgba(255, 255, 255, 0.25);
+  background-color: rgba(255, 255, 255, 0.25);
 }
 
 .slide-button-text {
