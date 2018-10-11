@@ -144,7 +144,6 @@ class Carousel extends Component {
   render() {
     const { topSlideIndex, bgSlideIndex, enterDirection, exitDirection, isAnimating, isFresh, isMobile, height, width, autoPlay } = this.state;
     const { animationDuration, slides } = this.props;
-    console.log('current state autoplay', this.state.autoPlay)
     return (
       <div
         className={`carousel ${isMobile ? 'carousel--mobile' : ''}`}
