@@ -44,10 +44,9 @@ class Carousel extends Component {
       isMobile: false, // passed down to <Slide>
       height: 0, // passed down to <Slide> so it can reuse the h/w calculations
       width: 0, // passed down to <Slide> so it can reuse the h/w calculations
-      autoPlay: false,
     };
     this.el = null;
-    this.timeout = null;
+    this.autoplayInterval = null;
     this.setProportionalHeight = this.setProportionalHeight.bind(this);
     this.keyboardNavigate = this.keyboardNavigate.bind(this);
     this.generateCoin = this.generateCoin.bind(this);
@@ -62,10 +61,7 @@ class Carousel extends Component {
     // NOTE: if keyboard navigation ends up being an issue because of <input> elements on the page,
     // maybe bind the event to `this.el` instead of `window`.
     window.addEventListener('keyup', this.keyboardNavigate);
-
-    if (this.props.autoplay) {
-      window.setInterval(() => { this.next() }, 600)
-    }
+    this.startAutoplay();
   }
 
   componentWillUnmount() {
@@ -83,6 +79,18 @@ class Carousel extends Component {
       const isMobile = height > getAspectRatioHeight('16:9', width);
       this.setState({ height, isMobile, width });
       this.el.style.height = `${height + (isMobile ? MOBILE_PADDING_BOTTOM : 0)}px`;
+    }
+  }
+
+  startAutoplay() {
+    if (this.props.auto) {
+      this.autoplayInterval = window.setInterval(() => { this.next(); }, 6000);
+    }
+  }
+
+  clearAutoplay() {
+    if (this.props.auto) {
+      window.clearInterval(this.autoplayInterval);
     }
   }
 
@@ -117,8 +125,10 @@ class Carousel extends Component {
   }
 
   next() {
+    this.clearAutoplay();
     const nextSlide = calcNext(this.props.slides.length, this.state.topSlideIndex);
     this.goToSlide(nextSlide, 'TO_LEFT', 'carousel_next');
+    this.startAutoplay();
   }
 
   prev() {
@@ -140,9 +150,8 @@ class Carousel extends Component {
   }
 
   render() {
-    const { topSlideIndex, bgSlideIndex, enterDirection, exitDirection, isAnimating, isFresh, isMobile, height, width, autoPlay } = this.state;
-    const { animationDuration, slides, auto } = this.props;
-    console.log('props', this.props);
+    const { topSlideIndex, bgSlideIndex, enterDirection, exitDirection, isAnimating, isFresh, isMobile, height, width } = this.state;
+    const { animationDuration, slides } = this.props;
     return (
       <div
         className={`carousel ${isMobile ? 'carousel--mobile' : ''}`}
@@ -169,7 +178,7 @@ class Carousel extends Component {
           <div className='carousel-layout-container' style={{ height: `${height}px` }}>
             <div className='coins'>{ slides.map(this.generateCoin) }</div>
             <button disabled={isAnimating} onClick={this.prev} className='carousel-arrow carousel-arrow--left'><Icon name='angle-left' color='white' size={isMobile ? 'xsmall' : 'small' } /></button>
-            <button disabled={isAnimating} onClick={this.timeout = window.setInterval(() => { this.next()}, 6000)} className='carousel-arrow carousel-arrow--right'><Icon name='angle-right' color='white' size={isMobile ? 'xsmall' : 'small' } /></button>
+            <button disabled={isAnimating} onClick={this.next} className='carousel-arrow carousel-arrow--right'><Icon name='angle-right' color='white' size={isMobile ? 'xsmall' : 'small' } /></button>
           </div>
         </If>
       </div>
