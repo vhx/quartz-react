@@ -1,33 +1,6 @@
 (function (React,ReactDOM) {
 'use strict';
 
-function __$$styleInject(css, ref) {
-  if ( ref === void 0 ) ref = {};
-  var insertAt = ref.insertAt;
-
-  if (!css || typeof document === 'undefined') { return; }
-
-  var head = document.head || document.getElementsByTagName('head')[0];
-  var style = document.createElement('style');
-  style.type = 'text/css';
-
-  if (insertAt === 'top') {
-    if (head.firstChild) {
-      head.insertBefore(style, head.firstChild);
-    } else {
-      head.appendChild(style);
-    }
-  } else {
-    head.appendChild(style);
-  }
-
-  if (style.styleSheet) {
-    style.styleSheet.cssText = css;
-  } else {
-    style.appendChild(document.createTextNode(css));
-  }
-}
-
 var React__default = 'default' in React ? React['default'] : React;
 ReactDOM = 'default' in ReactDOM ? ReactDOM['default'] : ReactDOM;
 
@@ -879,11 +852,11 @@ function connect$$1(model, Component$$1) {
       ConnectedComponent.prototype.componentWillMount = function componentWillMount () {
         model.subscribe(this.update);
       };
-      ConnectedComponent.prototype.componentWillUnmount = function componentWillUnmount () {
-        model.unsubscribe(this.update);
-      };
       ConnectedComponent.prototype.shouldComponentUpdate = function shouldComponentUpdate () {
         return false;
+      };
+      ConnectedComponent.prototype.componentWillUnmount = function componentWillUnmount () {
+        model.unsubscribe(this.update);
       };
       ConnectedComponent.prototype.update = function update () {
         this.forceUpdate();
@@ -1266,6 +1239,9 @@ var KEY_CODES = Object.freeze({
   RIGHT: 39,
 });
 
+// calcNext(3, 0) => 1
+// calcNext(3, 1) => 2
+// calcNext(3, 2) => 0 // <- it wraps around to the first slide
 function calcNext(length, current) {
   return (current + 1) % length;
 }
@@ -1302,6 +1278,7 @@ var Carousel$1 = (function (Component$$1) {
       isMobile: false, // passed down to <Slide>
       height: 0, // passed down to <Slide> so it can reuse the h/w calculations
       width: 0, // passed down to <Slide> so it can reuse the h/w calculations
+      autoPlay: false,
     };
     this.el = null;
     this.setProportionalHeight = this.setProportionalHeight.bind(this);
@@ -1310,6 +1287,7 @@ var Carousel$1 = (function (Component$$1) {
     this.goToSlide = this.goToSlide.bind(this);
     this.next = this.next.bind(this);
     this.prev = this.prev.bind(this);
+    this.isAuto = this.isAuto.bind(this);
   }
 
   if ( Component$$1 ) Carousel.__proto__ = Component$$1;
@@ -1336,7 +1314,7 @@ var Carousel$1 = (function (Component$$1) {
       var aspectRatio = ref.aspectRatio;
       var maxHeight = ref.maxHeight;
       var minHeight = ref.minHeight;
-      var width = this.el.clientWidth;
+      var width = this.el.clientWidth !== 0 ? this.el.clientWidth : document.body.clientWidth;
       var aspectHeight = getAspectRatioHeight(aspectRatio, width);
       var height = containValue(maxHeight, minHeight, aspectHeight);
       var isMobile = height > getAspectRatioHeight('16:9', width);
@@ -1402,6 +1380,10 @@ var Carousel$1 = (function (Component$$1) {
     );
   };
 
+  Carousel.prototype.isAuto = function isAuto () {
+
+  };
+
   Carousel.prototype.render = function render () {
     var this$1 = this;
 
@@ -1415,6 +1397,7 @@ var Carousel$1 = (function (Component$$1) {
     var isMobile = ref.isMobile;
     var height = ref.height;
     var width = ref.width;
+    var autoPlay = ref.autoPlay;
     var ref$1 = this.props;
     var animationDuration = ref$1.animationDuration;
     var slides = ref$1.slides;
@@ -1949,9 +1932,10 @@ var Radio = function (ref) {
   React__default.createElement( 'li', null,
     React__default.createElement( 'input', {
       type: 'radio', checked: checked, onChange: function (event) { return onCheck(event, index$$1); } }),
-    React__default.createElement( 'label', { onClick: function (event) { return onCheck(event, index$$1); } },
-      React__default.createElement( RadioIcon, null ),
-      React__default.createElement( 'span', { className: 'radio--label text-left' }, label)
+    React__default.createElement( 'label', {
+      htmlFor: label, onClick: function (event) { return onCheck(event, index$$1); } },
+        React__default.createElement( RadioIcon, { id: label }),
+        React__default.createElement( 'span', { className: 'radio--label text-left' }, label)
     )
   )
 );
@@ -2004,14 +1988,15 @@ var RadioButton = function (ref) {
   React__default.createElement( 'li', null,
     React__default.createElement( 'input', {
       type: 'radio', checked: checked, onChange: function (event) { return onCheck(event, index$$1); } }),
-    React__default.createElement( 'label', { className: getClassName$4(checked), onClick: function (event) { return onCheck(event, index$$1); } },
-      React__default.createElement( RadioIcon, null ),
-      React__default.createElement( 'span', { className: 'radio--label text-left padding-left-small', style: getStyle(description) },
-        React__default.createElement( 'strong', { className: getTitleClassName(checked) }, label),
-        React__default.createElement( If$1, { condition: Boolean(description) },
-          React__default.createElement( 'p', { className: getDescriptionClassName(checked) }, description)
+    React__default.createElement( 'label', {
+      className: getClassName$4(checked), htmlFor: label, onClick: function (event) { return onCheck(event, index$$1); } },
+        React__default.createElement( RadioIcon, { id: label }),
+        React__default.createElement( 'span', { className: 'radio--label text-left padding-left-small', style: getStyle(description) },
+          React__default.createElement( 'strong', { className: getTitleClassName(checked) }, label),
+          React__default.createElement( If$1, { condition: Boolean(description) },
+            React__default.createElement( 'p', { className: getDescriptionClassName(checked) }, description)
+          )
         )
-      )
     )
   )
 );
@@ -2213,7 +2198,8 @@ var Slide$1 = (function (Component$$1) {
       React__default.createElement( 'div', { className: ("slide " + exitDirection + " " + (enter ? ("ENTER_" + enterDirection) : '')), style: { animationDuration: (animationDuration + "ms"), display: display, zIndex: zIndex } },
         React__default.createElement( 'div', { className: isMobile ? 'slide-bg slide-bg--mobile' : 'slide-bg' },
           React__default.createElement( 'div', { className: isWide ? 'slide-layout-wide' : 'slide-layout-container' },
-            React__default.createElement( 'img', { className: 'slide-bg-img', src: isMobile ? mobileImg : img, alt: 'Slide image', style: { height: ((this.getImgHeight()) + "px") } })
+            React__default.createElement( 'img', {
+              className: 'slide-bg-img', src: isMobile ? mobileImg : img, alt: 'Slide', style: { height: ((this.getImgHeight()) + "px") } })
           )
         ),
         React__default.createElement( 'div', { className: 'slide-layout-container' },
@@ -2325,8 +2311,8 @@ var Tag$1 = (function (Component$$1) {
         React__default.createElement( 'button', { className: getButtonClass(isHover, isProcessing), onClick: onClick },
           truncate(label, maxLength)
         ),
-        React__default.createElement( 'a', {
-          className: getLinkClass(isRemoveHover), onClick: onRemove, onMouseOver: setRemoveHover(true), onMouseOut: setRemoveHover(false) })
+        React__default.createElement( 'span', {
+          className: getLinkClass(isRemoveHover), onClick: function () { return onRemove(label); }, onMouseOver: setRemoveHover(true), onMouseOut: setRemoveHover(false) })
       )
     );
   };

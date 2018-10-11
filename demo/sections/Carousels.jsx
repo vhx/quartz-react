@@ -175,7 +175,10 @@ const CarouselDemo = () => (
     <Carousel slides={[ Slide1 ]} />
     <br />
     <Subtitle>Multi-Slide Carousel</Subtitle>
-    <Carousel slides={[ Slide1, Slide2, Slide3, Slide4, Slide5 ]} />
+    <Carousel
+      slides={[ Slide1, Slide2, Slide3, Slide4, Slide5 ]}
+      autoPlay={true}
+    />
     <br />
     <Subtitle>Carousel Performance Load Test (50 Slides)</Subtitle>
     <Carousel slides={loadTestSlides} />

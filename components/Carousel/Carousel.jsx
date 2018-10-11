@@ -44,6 +44,7 @@ class Carousel extends Component {
       isMobile: false, // passed down to <Slide>
       height: 0, // passed down to <Slide> so it can reuse the h/w calculations
       width: 0, // passed down to <Slide> so it can reuse the h/w calculations
+      autoPlay: false,
     };
     this.el = null;
     this.setProportionalHeight = this.setProportionalHeight.bind(this);
@@ -52,6 +53,7 @@ class Carousel extends Component {
     this.goToSlide = this.goToSlide.bind(this);
     this.next = this.next.bind(this);
     this.prev = this.prev.bind(this);
+    this.isAuto = this.isAuto.bind(this);
   }
 
   componentDidMount() {
@@ -133,11 +135,22 @@ class Carousel extends Component {
     );
   }
 
+  isAuto() {
+    setTimeout(() => {
+      this.next();
+    }, 350ms);
+  }
+
   render() {
-    const { topSlideIndex, bgSlideIndex, enterDirection, exitDirection, isAnimating, isFresh, isMobile, height, width } = this.state;
+    const { topSlideIndex, bgSlideIndex, enterDirection, exitDirection, isAnimating, isFresh, isMobile, height, width, autoPlay } = this.state;
     const { animationDuration, slides } = this.props;
+    console.log('current state autoplay', this.state.autoPlay)
     return (
-      <div className={`carousel ${isMobile ? 'carousel--mobile' : ''}`} ref={(el) => { this.el = el; }}>
+      <div
+        className={`carousel ${isMobile ? 'carousel--mobile' : ''}`}
+        ref={(el) => { this.el = el; }}
+        onLoad={ autoPlay ? this.next() : null}
+      >
         <div className='carousel-slides'>
           {
             slides.map(({ Slide, id }, i) => (
