@@ -454,6 +454,7 @@ var Carousel$1 = (function (Component$$1) {
       width: 0, // passed down to <Slide> so it can reuse the h/w calculations
     };
     this.el = null;
+    this.autoplayInterval = null;
     this.setProportionalHeight = this.setProportionalHeight.bind(this);
     this.keyboardNavigate = this.keyboardNavigate.bind(this);
     this.generateCoin = this.generateCoin.bind(this);
@@ -472,6 +473,7 @@ var Carousel$1 = (function (Component$$1) {
     // NOTE: if keyboard navigation ends up being an issue because of <input> elements on the page,
     // maybe bind the event to `this.el` instead of `window`.
     window.addEventListener('keyup', this.keyboardNavigate);
+    this.startAutoplay();
   };
 
   Carousel.prototype.componentWillUnmount = function componentWillUnmount () {
@@ -492,6 +494,20 @@ var Carousel$1 = (function (Component$$1) {
       var isMobile = height > getAspectRatioHeight('16:9', width);
       this.setState({ height: height, isMobile: isMobile, width: width });
       this.el.style.height = (height + (isMobile ? MOBILE_PADDING_BOTTOM : 0)) + "px";
+    }
+  };
+
+  Carousel.prototype.startAutoplay = function startAutoplay () {
+    var this$1 = this;
+
+    if (this.props.auto && this.props.slides.length > 1) {
+      this.autoplayInterval = window.setInterval(function () { this$1.next(); }, 6000);
+    }
+  };
+
+  Carousel.prototype.clearAutoplay = function clearAutoplay () {
+    if (this.props.auto && this.props.slides.length > 1) {
+      window.clearInterval(this.autoplayInterval);
     }
   };
 
@@ -529,8 +545,10 @@ var Carousel$1 = (function (Component$$1) {
   };
 
   Carousel.prototype.next = function next () {
+    this.clearAutoplay();
     var nextSlide = calcNext(this.props.slides.length, this.state.topSlideIndex);
     this.goToSlide(nextSlide, 'TO_LEFT', 'carousel_next');
+    this.startAutoplay();
   };
 
   Carousel.prototype.prev = function prev () {
@@ -569,7 +587,8 @@ var Carousel$1 = (function (Component$$1) {
     var animationDuration = ref$1.animationDuration;
     var slides = ref$1.slides;
     return (
-      React__default.createElement( 'div', { className: ("carousel " + (isMobile ? 'carousel--mobile' : '')), ref: function (el) { this$1.el = el; } },
+      React__default.createElement( 'div', {
+        className: ("carousel " + (isMobile ? 'carousel--mobile' : '')), ref: function (el) { this$1.el = el; } },
         React__default.createElement( 'div', { className: 'carousel-slides' },
           slides.map(function (ref, i) {
               var Slide = ref.Slide;
@@ -619,6 +638,7 @@ Carousel$1.propTypes = {
     Slide: PropTypes.func.isRequired,
     id: PropTypes.string.isRequired,
   }).isRequired).isRequired,
+  auto: PropTypes.bool,
 };
 
 Carousel$1.defaultProps = {
@@ -627,6 +647,7 @@ Carousel$1.defaultProps = {
   maxHeight: 640, // px
   minHeight: 368, // px
   onSlideChange: noop,
+  auto: false,
 };
 
 Carousel$1.propDescriptions = {
