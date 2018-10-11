@@ -47,13 +47,13 @@ class Carousel extends Component {
       autoPlay: false,
     };
     this.el = null;
+    this.timeout = null;
     this.setProportionalHeight = this.setProportionalHeight.bind(this);
     this.keyboardNavigate = this.keyboardNavigate.bind(this);
     this.generateCoin = this.generateCoin.bind(this);
     this.goToSlide = this.goToSlide.bind(this);
     this.next = this.next.bind(this);
     this.prev = this.prev.bind(this);
-    this.isAuto = this.isAuto.bind(this);
   }
 
   componentDidMount() {
@@ -62,6 +62,10 @@ class Carousel extends Component {
     // NOTE: if keyboard navigation ends up being an issue because of <input> elements on the page,
     // maybe bind the event to `this.el` instead of `window`.
     window.addEventListener('keyup', this.keyboardNavigate);
+
+    if (this.props.autoplay) {
+      window.setInterval(() => { this.next() }, 600)
+    }
   }
 
   componentWillUnmount() {
@@ -135,20 +139,14 @@ class Carousel extends Component {
     );
   }
 
-  isAuto() {
-    setTimeout(() => {
-      this.next();
-    }, 350ms);
-  }
-
   render() {
     const { topSlideIndex, bgSlideIndex, enterDirection, exitDirection, isAnimating, isFresh, isMobile, height, width, autoPlay } = this.state;
-    const { animationDuration, slides } = this.props;
+    const { animationDuration, slides, auto } = this.props;
+    console.log('props', this.props);
     return (
       <div
         className={`carousel ${isMobile ? 'carousel--mobile' : ''}`}
         ref={(el) => { this.el = el; }}
-        onLoad={ autoPlay ? this.next() : null}
       >
         <div className='carousel-slides'>
           {
@@ -171,7 +169,7 @@ class Carousel extends Component {
           <div className='carousel-layout-container' style={{ height: `${height}px` }}>
             <div className='coins'>{ slides.map(this.generateCoin) }</div>
             <button disabled={isAnimating} onClick={this.prev} className='carousel-arrow carousel-arrow--left'><Icon name='angle-left' color='white' size={isMobile ? 'xsmall' : 'small' } /></button>
-            <button disabled={isAnimating} onClick={this.next} className='carousel-arrow carousel-arrow--right'><Icon name='angle-right' color='white' size={isMobile ? 'xsmall' : 'small' } /></button>
+            <button disabled={isAnimating} onClick={this.timeout = window.setInterval(() => { this.next()}, 6000)} className='carousel-arrow carousel-arrow--right'><Icon name='angle-right' color='white' size={isMobile ? 'xsmall' : 'small' } /></button>
           </div>
         </If>
       </div>
@@ -201,6 +199,7 @@ Carousel.propTypes = {
     Slide: PropTypes.func.isRequired,
     id: PropTypes.string.isRequired,
   }).isRequired).isRequired,
+  auto: PropTypes.bool,
 };
 
 Carousel.defaultProps = {
@@ -209,6 +208,7 @@ Carousel.defaultProps = {
   maxHeight: 640, // px
   minHeight: 368, // px
   onSlideChange: noop,
+  auto: false,
 };
 
 Carousel.propDescriptions = {
