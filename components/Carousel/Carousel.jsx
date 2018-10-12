@@ -46,6 +46,7 @@ class Carousel extends Component {
       width: 0, // passed down to <Slide> so it can reuse the h/w calculations
     };
     this.el = null;
+    this.autoplayInterval = null;
     this.setProportionalHeight = this.setProportionalHeight.bind(this);
     this.keyboardNavigate = this.keyboardNavigate.bind(this);
     this.generateCoin = this.generateCoin.bind(this);
@@ -60,6 +61,7 @@ class Carousel extends Component {
     // NOTE: if keyboard navigation ends up being an issue because of <input> elements on the page,
     // maybe bind the event to `this.el` instead of `window`.
     window.addEventListener('keyup', this.keyboardNavigate);
+    this.startAutoplay();
   }
 
   componentWillUnmount() {
@@ -77,6 +79,18 @@ class Carousel extends Component {
       const isMobile = height > getAspectRatioHeight('16:9', width);
       this.setState({ height, isMobile, width });
       this.el.style.height = `${height + (isMobile ? MOBILE_PADDING_BOTTOM : 0)}px`;
+    }
+  }
+
+  startAutoplay() {
+    if (this.props.auto && this.props.slides.length > 1) {
+      this.autoplayInterval = window.setInterval(() => { this.next(); }, 6000);
+    }
+  }
+
+  clearAutoplay() {
+    if (this.props.auto && this.props.slides.length > 1) {
+      window.clearInterval(this.autoplayInterval);
     }
   }
 
@@ -111,13 +125,17 @@ class Carousel extends Component {
   }
 
   next() {
+    this.clearAutoplay();
     const nextSlide = calcNext(this.props.slides.length, this.state.topSlideIndex);
     this.goToSlide(nextSlide, 'TO_LEFT', 'carousel_next');
+    this.startAutoplay();
   }
 
   prev() {
+    this.clearAutoplay();
     const prevSlide = calcPrev(this.props.slides.length, this.state.topSlideIndex);
     this.goToSlide(prevSlide, 'TO_RIGHT', 'carousel_prev');
+    this.startAutoplay();
   }
 
   generateCoin(Slide, i) {
@@ -137,7 +155,10 @@ class Carousel extends Component {
     const { topSlideIndex, bgSlideIndex, enterDirection, exitDirection, isAnimating, isFresh, isMobile, height, width } = this.state;
     const { animationDuration, slides } = this.props;
     return (
-      <div className={`carousel ${isMobile ? 'carousel--mobile' : ''}`} ref={(el) => { this.el = el; }}>
+      <div
+        className={`carousel ${isMobile ? 'carousel--mobile' : ''}`}
+        ref={(el) => { this.el = el; }}
+      >
         <div className='carousel-slides'>
           {
             slides.map(({ Slide, id }, i) => (
@@ -189,6 +210,7 @@ Carousel.propTypes = {
     Slide: PropTypes.func.isRequired,
     id: PropTypes.string.isRequired,
   }).isRequired).isRequired,
+  auto: PropTypes.bool,
 };
 
 Carousel.defaultProps = {
@@ -197,6 +219,7 @@ Carousel.defaultProps = {
   maxHeight: 640, // px
   minHeight: 368, // px
   onSlideChange: noop,
+  auto: false,
 };
 
 Carousel.propDescriptions = {
