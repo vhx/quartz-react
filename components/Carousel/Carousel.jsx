@@ -132,8 +132,10 @@ class Carousel extends Component {
   }
 
   prev() {
+    this.clearAutoplay();
     const prevSlide = calcPrev(this.props.slides.length, this.state.topSlideIndex);
     this.goToSlide(prevSlide, 'TO_RIGHT', 'carousel_prev');
+    this.startAutoplay();
   }
 
   generateCoin(Slide, i) {
