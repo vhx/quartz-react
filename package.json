@@ -45,7 +45,7 @@
     "eslint-plugin-jsx-a11y": "^6.0.2",
     "eslint-plugin-react": "^7.1.0",
     "firebase-tools": "^3.9.2",
-    "jsdom": "7.0.2",
+    "jsdom": "^11.3.0",
     "mocha": "^3.4.2",
     "mocha-jsdom": "^1.1.0",
     "npm-run-all": "^4.0.2",
