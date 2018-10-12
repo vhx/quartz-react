@@ -50,11 +50,11 @@ describe('RadioGroup', () => {
 
   it('Defaults to all unchecked', () => {
     const wrapper = mount(<RadioGroup items={radioItems} />);
+    const inputs = wrapper.find('input');
     expect(wrapper.find('input').length).to.equal(3);
-    wrapper.find('input').forEach((input) => {
-      expect(input.html()).to.equal('<input type="radio">');
-      expect(input.node.checked).to.equal(false);
-    });
+    expect(inputs.get(0).checked).to.equal(false);
+    expect(inputs.get(1).checked).to.equal(false);
+    expect(inputs.get(2).checked).to.equal(false);
   });
 
   it('Can have a default checked', () => {
