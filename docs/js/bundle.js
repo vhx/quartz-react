@@ -1441,13 +1441,13 @@ var Carousel$1 = (function (Component$$1) {
   Carousel.prototype.startAutoplay = function startAutoplay () {
     var this$1 = this;
 
-    if (this.props.auto && this.props.slides.length > 1) {
+    if (this.props.auto) {
       this.autoplayInterval = window.setInterval(function () { this$1.next(); }, 6000);
     }
   };
 
   Carousel.prototype.clearAutoplay = function clearAutoplay () {
-    if (this.props.auto && this.props.slides.length > 1) {
+    if (this.props.auto) {
       window.clearInterval(this.autoplayInterval);
     }
   };
@@ -1493,8 +1493,10 @@ var Carousel$1 = (function (Component$$1) {
   };
 
   Carousel.prototype.prev = function prev () {
+    this.clearAutoplay();
     var prevSlide = calcPrev(this.props.slides.length, this.state.topSlideIndex);
     this.goToSlide(prevSlide, 'TO_RIGHT', 'carousel_prev');
+    this.startAutoplay();
   };
 
   Carousel.prototype.generateCoin = function generateCoin (Slide, i) {
