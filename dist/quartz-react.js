@@ -476,6 +476,12 @@ var Carousel$1 = (function (Component$$1) {
     this.startAutoplay();
   };
 
+  Carousel.prototype.componentDidUpdate = function componentDidUpdate (previousProps) {
+    if (this.props.slides.length !== previousProps.slides.length && this.props.slides.length > 1) {
+      this.startAutoplay();
+    }
+  };
+
   Carousel.prototype.componentWillUnmount = function componentWillUnmount () {
     window.removeEventListener('resize', this.setProportionalHeight);
     window.removeEventListener('keyup', this.keyboardNavigate);
