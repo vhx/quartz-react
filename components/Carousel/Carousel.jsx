@@ -83,13 +83,13 @@ class Carousel extends Component {
   }
 
   startAutoplay() {
-    if (this.props.auto && this.props.slides.length > 1) {
+    if (this.props.auto) {
       this.autoplayInterval = window.setInterval(() => { this.next(); }, 6000);
     }
   }
 
   clearAutoplay() {
-    if (this.props.auto && this.props.slides.length > 1) {
+    if (this.props.auto) {
       window.clearInterval(this.autoplayInterval);
     }
   }
