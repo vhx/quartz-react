@@ -65,7 +65,7 @@ class Carousel extends Component {
   }
 
   componentDidUpdate(previousProps) {
-    if (this.props.slides.length !== previousProps.slides.length && this.props.slides.length >1 {
+    if (this.props.slides.length !== previousProps.slides.length && this.props.slides.length > 1) {
       this.startAutoplay();
     }
   }
