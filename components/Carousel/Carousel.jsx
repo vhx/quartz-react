@@ -46,7 +46,7 @@ class Carousel extends Component {
       width: 0, // passed down to <Slide> so it can reuse the h/w calculations
     };
     this.el = null;
-    this.autoplayInterval = null;
+    this.timerID = null;
     this.setProportionalHeight = this.setProportionalHeight.bind(this);
     this.keyboardNavigate = this.keyboardNavigate.bind(this);
     this.generateCoin = this.generateCoin.bind(this);
@@ -64,9 +64,16 @@ class Carousel extends Component {
     this.startAutoplay();
   }
 
+  componentDidUpdate(previousProps) {
+    if (this.props.slides.length !== previousProps.slides.length && this.props.slides.length > 1) {
+      this.startAutoplay();
+    }
+  }
+
   componentWillUnmount() {
     window.removeEventListener('resize', this.setProportionalHeight);
     window.removeEventListener('keyup', this.keyboardNavigate);
+    this.clearAutoplay();
   }
 
   setProportionalHeight() {
@@ -84,13 +91,14 @@ class Carousel extends Component {
 
   startAutoplay() {
     if (this.props.auto) {
-      this.autoplayInterval = window.setInterval(() => { this.next(); }, 6000);
+      this.timerID = setInterval(
+        () => this.next(), 6000);
     }
   }
 
   clearAutoplay() {
     if (this.props.auto) {
-      window.clearInterval(this.autoplayInterval);
+      clearInterval(this.timerID);
     }
   }
 
