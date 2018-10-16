@@ -454,7 +454,7 @@ var Carousel$1 = (function (Component$$1) {
       width: 0, // passed down to <Slide> so it can reuse the h/w calculations
     };
     this.el = null;
-    this.autoplayInterval = null;
+    // this.autoplayInterval = null;
     this.setProportionalHeight = this.setProportionalHeight.bind(this);
     this.keyboardNavigate = this.keyboardNavigate.bind(this);
     this.generateCoin = this.generateCoin.bind(this);
@@ -476,9 +476,16 @@ var Carousel$1 = (function (Component$$1) {
     this.startAutoplay();
   };
 
+  Carousel.prototype.componentDidUpdate = function componentDidUpdate (previousProps) {
+    if (this.props.slides.length !== previousProps.slides.length && this.props.slides.length > 1) {
+      this.startAutoplay();
+    }
+  };
+
   Carousel.prototype.componentWillUnmount = function componentWillUnmount () {
     window.removeEventListener('resize', this.setProportionalHeight);
     window.removeEventListener('keyup', this.keyboardNavigate);
+    this.clearAutoplay();
   };
 
   Carousel.prototype.setProportionalHeight = function setProportionalHeight () {
@@ -500,14 +507,15 @@ var Carousel$1 = (function (Component$$1) {
   Carousel.prototype.startAutoplay = function startAutoplay () {
     var this$1 = this;
 
-    if (this.props.auto && this.props.slides.length > 1) {
-      this.autoplayInterval = window.setInterval(function () { this$1.next(); }, 6000);
+    if (this.props.auto) {
+      this.timerID = setInterval(
+        function () { return this$1.next(); }, 6000);
     }
   };
 
   Carousel.prototype.clearAutoplay = function clearAutoplay () {
-    if (this.props.auto && this.props.slides.length > 1) {
-      window.clearInterval(this.autoplayInterval);
+    if (this.props.auto) {
+      clearInterval(this.timerID);
     }
   };
 
@@ -552,8 +560,10 @@ var Carousel$1 = (function (Component$$1) {
   };
 
   Carousel.prototype.prev = function prev () {
+    this.clearAutoplay();
     var prevSlide = calcPrev(this.props.slides.length, this.state.topSlideIndex);
     this.goToSlide(prevSlide, 'TO_RIGHT', 'carousel_prev');
+    this.startAutoplay();
   };
 
   Carousel.prototype.generateCoin = function generateCoin (Slide, i) {
