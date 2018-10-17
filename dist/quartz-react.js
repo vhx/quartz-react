@@ -454,7 +454,7 @@ var Carousel$1 = (function (Component$$1) {
       width: 0, // passed down to <Slide> so it can reuse the h/w calculations
     };
     this.el = null;
-    // this.autoplayInterval = null;
+    this.timerID = null;
     this.setProportionalHeight = this.setProportionalHeight.bind(this);
     this.keyboardNavigate = this.keyboardNavigate.bind(this);
     this.generateCoin = this.generateCoin.bind(this);

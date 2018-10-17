@@ -1395,7 +1395,7 @@ var Carousel$1 = (function (Component$$1) {
       width: 0, // passed down to <Slide> so it can reuse the h/w calculations
     };
     this.el = null;
-    // this.autoplayInterval = null;
+    this.timerID = null;
     this.setProportionalHeight = this.setProportionalHeight.bind(this);
     this.keyboardNavigate = this.keyboardNavigate.bind(this);
     this.generateCoin = this.generateCoin.bind(this);
@@ -1415,6 +1415,12 @@ var Carousel$1 = (function (Component$$1) {
     // maybe bind the event to `this.el` instead of `window`.
     window.addEventListener('keyup', this.keyboardNavigate);
     this.startAutoplay();
+  };
+
+  Carousel.prototype.componentDidUpdate = function componentDidUpdate (previousProps) {
+    if (this.props.slides.length !== previousProps.slides.length && this.props.slides.length > 1) {
+      this.startAutoplay();
+    }
   };
 
   Carousel.prototype.componentWillUnmount = function componentWillUnmount () {
@@ -1444,7 +1450,7 @@ var Carousel$1 = (function (Component$$1) {
 
     if (this.props.auto) {
       this.timerID = setInterval(
-        function () { return this$1.next(); }, 6000);
+        function () { return this$1.next(); }, 8000);
     }
   };
 
@@ -1501,6 +1507,18 @@ var Carousel$1 = (function (Component$$1) {
     this.startAutoplay();
   };
 
+  Carousel.prototype.nextClick = function nextClick () {
+    this.clearAutoplay();
+    var nextSlide = calcNext(this.props.slides.length, this.state.topSlideIndex);
+    this.goToSlide(nextSlide, 'TO_LEFT', 'carousel_next');
+  };
+
+  Carousel.prototype.prevClick = function prevClick () {
+    this.clearAutoplay();
+    var prevSlide = calcPrev(this.props.slides.length, this.state.topSlideIndex);
+    this.goToSlide(prevSlide, 'TO_RIGHT', 'carousel_prev');
+  };
+
   Carousel.prototype.generateCoin = function generateCoin (Slide, i) {
     var this$1 = this;
 
@@ -1533,7 +1551,7 @@ var Carousel$1 = (function (Component$$1) {
     var slides = ref$1.slides;
     return (
       React__default.createElement( 'div', {
-        className: ("carousel " + (isMobile ? 'carousel--mobile' : '')), ref: function (el) { this$1.el = el; } },
+        className: ("carousel " + (isMobile ? 'carousel--mobile' : '')), ref: function (el) { this$1.el = el; }, onMouseEnter: this.clearAutoplay(), onMouseLeave: this.startAutoplay() },
         React__default.createElement( 'div', { className: 'carousel-slides' },
           slides.map(function (ref, i) {
               var Slide = ref.Slide;
@@ -1548,8 +1566,8 @@ var Carousel$1 = (function (Component$$1) {
         React__default.createElement( If$1, { condition: slides.length > 1 },
           React__default.createElement( 'div', { className: 'carousel-layout-container', style: { height: (height + "px") } },
             React__default.createElement( 'div', { className: 'coins' }, slides.map(this.generateCoin)),
-            React__default.createElement( 'button', { disabled: isAnimating, onClick: this.prev, className: 'carousel-arrow carousel-arrow--left' }, React__default.createElement( Icon$1, { name: 'angle-left', color: 'white', size: isMobile ? 'xsmall' : 'small' })),
-            React__default.createElement( 'button', { disabled: isAnimating, onClick: this.next, className: 'carousel-arrow carousel-arrow--right' }, React__default.createElement( Icon$1, { name: 'angle-right', color: 'white', size: isMobile ? 'xsmall' : 'small' }))
+            React__default.createElement( 'button', { disabled: isAnimating, onClick: this.prevClick, className: 'carousel-arrow carousel-arrow--left' }, React__default.createElement( Icon$1, { name: 'angle-left', color: 'white', size: isMobile ? 'xsmall' : 'small' })),
+            React__default.createElement( 'button', { disabled: isAnimating, onClick: this.nextClick, className: 'carousel-arrow carousel-arrow--right' }, React__default.createElement( Icon$1, { name: 'angle-right', color: 'white', size: isMobile ? 'xsmall' : 'small' }))
           )
         )
       )

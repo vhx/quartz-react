@@ -92,7 +92,7 @@ class Carousel extends Component {
   startAutoplay() {
     if (this.props.auto) {
       this.timerID = setInterval(
-        () => this.next(), 6000);
+        () => this.next(), 8000);
     }
   }
 
@@ -146,6 +146,18 @@ class Carousel extends Component {
     this.startAutoplay();
   }
 
+  nextClick() {
+    this.clearAutoplay();
+    const nextSlide = calcNext(this.props.slides.length, this.state.topSlideIndex);
+    this.goToSlide(nextSlide, 'TO_LEFT', 'carousel_next');
+  }
+
+  prevClick() {
+    this.clearAutoplay();
+    const prevSlide = calcPrev(this.props.slides.length, this.state.topSlideIndex);
+    this.goToSlide(prevSlide, 'TO_RIGHT', 'carousel_prev');
+  }
+
   generateCoin(Slide, i) {
     const { isAnimating, bgSlideIndex, topSlideIndex } = this.state;
     const isCurrent = isAnimating ? bgSlideIndex === i : topSlideIndex === i;
@@ -166,6 +178,8 @@ class Carousel extends Component {
       <div
         className={`carousel ${isMobile ? 'carousel--mobile' : ''}`}
         ref={(el) => { this.el = el; }}
+        onMouseEnter={this.clearAutoplay()}
+        onMouseLeave={this.startAutoplay()}
       >
         <div className='carousel-slides'>
           {
@@ -187,8 +201,8 @@ class Carousel extends Component {
         <If condition={slides.length > 1}>
           <div className='carousel-layout-container' style={{ height: `${height}px` }}>
             <div className='coins'>{ slides.map(this.generateCoin) }</div>
-            <button disabled={isAnimating} onClick={this.prev} className='carousel-arrow carousel-arrow--left'><Icon name='angle-left' color='white' size={isMobile ? 'xsmall' : 'small' } /></button>
-            <button disabled={isAnimating} onClick={this.next} className='carousel-arrow carousel-arrow--right'><Icon name='angle-right' color='white' size={isMobile ? 'xsmall' : 'small' } /></button>
+            <button disabled={isAnimating} onClick={this.prevClick} className='carousel-arrow carousel-arrow--left'><Icon name='angle-left' color='white' size={isMobile ? 'xsmall' : 'small' } /></button>
+            <button disabled={isAnimating} onClick={this.nextClick} className='carousel-arrow carousel-arrow--right'><Icon name='angle-right' color='white' size={isMobile ? 'xsmall' : 'small' } /></button>
           </div>
         </If>
       </div>
