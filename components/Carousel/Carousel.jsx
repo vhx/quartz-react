@@ -178,8 +178,8 @@ class Carousel extends Component {
       <div
         className={`carousel ${isMobile ? 'carousel--mobile' : ''}`}
         ref={(el) => { this.el = el; }}
-        onMouseEnter={this.clearAutoplay()}
-        onMouseLeave={this.startAutoplay()}
+        onMouseEnter={this.clearAutoplay}
+        onMouseLeave={this.startAutoplay}
       >
         <div className='carousel-slides'>
           {

@@ -1551,7 +1551,7 @@ var Carousel$1 = (function (Component$$1) {
     var slides = ref$1.slides;
     return (
       React__default.createElement( 'div', {
-        className: ("carousel " + (isMobile ? 'carousel--mobile' : '')), ref: function (el) { this$1.el = el; }, onMouseEnter: this.clearAutoplay(), onMouseLeave: this.startAutoplay() },
+        className: ("carousel " + (isMobile ? 'carousel--mobile' : '')), ref: function (el) { this$1.el = el; }, onMouseEnter: this.clearAutoplay, onMouseLeave: this.startAutoplay },
         React__default.createElement( 'div', { className: 'carousel-slides' },
           slides.map(function (ref, i) {
               var Slide = ref.Slide;
