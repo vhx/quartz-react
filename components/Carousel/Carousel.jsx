@@ -178,8 +178,8 @@ class Carousel extends Component {
       <div
         className={`carousel ${isMobile ? 'carousel--mobile' : ''}`}
         ref={(el) => { this.el = el; }}
-        onMouseEnter={this.clearAutoplay}
-        onMouseLeave={this.startAutoplay}
+        onMouseEnter={this.clearAutoplay()}
+        onMouseLeave={this.startAutoplay()}
       >
         <div className='carousel-slides'>
           {
@@ -201,8 +201,8 @@ class Carousel extends Component {
         <If condition={slides.length > 1}>
           <div className='carousel-layout-container' style={{ height: `${height}px` }}>
             <div className='coins'>{ slides.map(this.generateCoin) }</div>
-            <button disabled={isAnimating} onClick={this.prevClick} className='carousel-arrow carousel-arrow--left'><Icon name='angle-left' color='white' size={isMobile ? 'xsmall' : 'small' } /></button>
-            <button disabled={isAnimating} onClick={this.nextClick} className='carousel-arrow carousel-arrow--right'><Icon name='angle-right' color='white' size={isMobile ? 'xsmall' : 'small' } /></button>
+            <button disabled={isAnimating} onClick={this.prevClick()} className='carousel-arrow carousel-arrow--left'><Icon name='angle-left' color='white' size={isMobile ? 'xsmall' : 'small' } /></button>
+            <button disabled={isAnimating} onClick={this.nextClick()} className='carousel-arrow carousel-arrow--right'><Icon name='angle-right' color='white' size={isMobile ? 'xsmall' : 'small' } /></button>
           </div>
         </If>
       </div>
