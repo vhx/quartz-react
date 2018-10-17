@@ -625,8 +625,8 @@ var Carousel$1 = (function (Component$$1) {
         React__default.createElement( If, { condition: slides.length > 1 },
           React__default.createElement( 'div', { className: 'carousel-layout-container', style: { height: (height + "px") } },
             React__default.createElement( 'div', { className: 'coins' }, slides.map(this.generateCoin)),
-            React__default.createElement( 'button', { disabled: isAnimating, onClick: this.prevClick(), className: 'carousel-arrow carousel-arrow--left' }, React__default.createElement( Icon$1, { name: 'angle-left', color: 'white', size: isMobile ? 'xsmall' : 'small' })),
-            React__default.createElement( 'button', { disabled: isAnimating, onClick: this.nextClick(), className: 'carousel-arrow carousel-arrow--right' }, React__default.createElement( Icon$1, { name: 'angle-right', color: 'white', size: isMobile ? 'xsmall' : 'small' }))
+            React__default.createElement( 'button', { disabled: isAnimating, onClick: this.prevClick, className: 'carousel-arrow carousel-arrow--left' }, React__default.createElement( Icon$1, { name: 'angle-left', color: 'white', size: isMobile ? 'xsmall' : 'small' })),
+            React__default.createElement( 'button', { disabled: isAnimating, onClick: this.nextClick, className: 'carousel-arrow carousel-arrow--right' }, React__default.createElement( Icon$1, { name: 'angle-right', color: 'white', size: isMobile ? 'xsmall' : 'small' }))
           )
         )
       )
