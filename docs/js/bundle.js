@@ -1498,13 +1498,17 @@ var Carousel$1 = (function (Component$$1) {
   };
 
   Carousel.prototype.next = function next () {
+    this.clearAutoplay();
     var nextSlide = calcNext(this.props.slides.length, this.state.topSlideIndex);
     this.goToSlide(nextSlide, 'TO_LEFT', 'carousel_next');
+    this.startAutoplay();
   };
 
   Carousel.prototype.prev = function prev () {
+    this.clearAutoplay();
     var prevSlide = calcPrev(this.props.slides.length, this.state.topSlideIndex);
     this.goToSlide(prevSlide, 'TO_RIGHT', 'carousel_prev');
+    this.startAutoplay();
   };
 
   Carousel.prototype.nextClick = function nextClick () {
@@ -1551,7 +1555,7 @@ var Carousel$1 = (function (Component$$1) {
     var slides = ref$1.slides;
     return (
       React__default.createElement( 'div', {
-        className: ("carousel " + (isMobile ? 'carousel--mobile' : '')), ref: function (el) { this$1.el = el; }, onMouseEnter: this.clearAutoplay, onMouseLeave: this.startAutoplay },
+        className: ("carousel " + (isMobile ? 'carousel--mobile' : '')), ref: function (el) { this$1.el = el; }, onMouseEnter: function () { return this$1.clearAutoplay(); }, onMouseLeave: function () { return this$1.startAutoplay(); } },
         React__default.createElement( 'div', { className: 'carousel-slides' },
           slides.map(function (ref, i) {
               var Slide = ref.Slide;

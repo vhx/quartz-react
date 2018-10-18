@@ -137,13 +137,17 @@ class Carousel extends Component {
   }
 
   next() {
+    this.clearAutoplay();
     const nextSlide = calcNext(this.props.slides.length, this.state.topSlideIndex);
     this.goToSlide(nextSlide, 'TO_LEFT', 'carousel_next');
+    this.startAutoplay();
   }
 
   prev() {
+    this.clearAutoplay();
     const prevSlide = calcPrev(this.props.slides.length, this.state.topSlideIndex);
     this.goToSlide(prevSlide, 'TO_RIGHT', 'carousel_prev');
+    this.startAutoplay();
   }
 
   nextClick() {
@@ -178,8 +182,8 @@ class Carousel extends Component {
       <div
         className={`carousel ${isMobile ? 'carousel--mobile' : ''}`}
         ref={(el) => { this.el = el; }}
-        onMouseEnter={this.clearAutoplay}
-        onMouseLeave={this.startAutoplay}
+        onMouseEnter={() => this.clearAutoplay()}
+        onMouseLeave={() => this.startAutoplay()}
       >
         <div className='carousel-slides'>
           {
