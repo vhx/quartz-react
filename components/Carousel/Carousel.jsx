@@ -90,6 +90,7 @@ class Carousel extends Component {
   }
 
   startAutoplay() {
+    debugger;
     if (this.props.auto) {
       this.timerID = setInterval(
         () => this.next(), 8000);

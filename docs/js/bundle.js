@@ -1448,6 +1448,7 @@ var Carousel$1 = (function (Component$$1) {
   Carousel.prototype.startAutoplay = function startAutoplay () {
     var this$1 = this;
 
+    debugger;
     if (this.props.auto) {
       this.timerID = setInterval(
         function () { return this$1.next(); }, 8000);
