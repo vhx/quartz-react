@@ -53,6 +53,10 @@ class Carousel extends Component {
     this.goToSlide = this.goToSlide.bind(this);
     this.next = this.next.bind(this);
     this.prev = this.prev.bind(this);
+    this.clearAutoplay = this.clearAutoplay.bind(this);
+    this.startAutoplay = this.startAutoplay.bind(this);
+    this.nextClick = this.nextClick.bind(this);
+    this.prevClick = this.prevClick.bind(this);
   }
 
   componentDidMount() {
@@ -90,7 +94,6 @@ class Carousel extends Component {
   }
 
   startAutoplay() {
-    debugger;
     if (this.props.auto) {
       this.timerID = setInterval(
         () => this.next(), 8000);
@@ -106,8 +109,8 @@ class Carousel extends Component {
   keyboardNavigate(event) {
     if (this.state.isAnimating || this.props.slides.length <= 1) { return; }
     const key = event.keyCode || event.which;
-    if (key === KEY_CODES.LEFT) { this.prev(); }
-    if (key === KEY_CODES.RIGHT) { this.next(); }
+    if (key === KEY_CODES.LEFT) { this.prevClick(); }
+    if (key === KEY_CODES.RIGHT) { this.nextClick(); }
   }
 
   goToSlide(i, overrideDirection = '', eventType) {
@@ -134,17 +137,13 @@ class Carousel extends Component {
   }
 
   next() {
-    this.clearAutoplay();
     const nextSlide = calcNext(this.props.slides.length, this.state.topSlideIndex);
     this.goToSlide(nextSlide, 'TO_LEFT', 'carousel_next');
-    this.startAutoplay();
   }
 
   prev() {
-    this.clearAutoplay();
     const prevSlide = calcPrev(this.props.slides.length, this.state.topSlideIndex);
     this.goToSlide(prevSlide, 'TO_RIGHT', 'carousel_prev');
-    this.startAutoplay();
   }
 
   nextClick() {

@@ -461,6 +461,10 @@ var Carousel$1 = (function (Component$$1) {
     this.goToSlide = this.goToSlide.bind(this);
     this.next = this.next.bind(this);
     this.prev = this.prev.bind(this);
+    this.clearAutoplay = this.clearAutoplay.bind(this);
+    this.startAutoplay = this.startAutoplay.bind(this);
+    this.nextClick = this.nextClick.bind(this);
+    this.prevClick = this.prevClick.bind(this);
   }
 
   if ( Component$$1 ) Carousel.__proto__ = Component$$1;
@@ -507,7 +511,6 @@ var Carousel$1 = (function (Component$$1) {
   Carousel.prototype.startAutoplay = function startAutoplay () {
     var this$1 = this;
 
-    debugger;
     if (this.props.auto) {
       this.timerID = setInterval(
         function () { return this$1.next(); }, 8000);
@@ -523,8 +526,8 @@ var Carousel$1 = (function (Component$$1) {
   Carousel.prototype.keyboardNavigate = function keyboardNavigate (event) {
     if (this.state.isAnimating || this.props.slides.length <= 1) { return; }
     var key = event.keyCode || event.which;
-    if (key === KEY_CODES.LEFT) { this.prev(); }
-    if (key === KEY_CODES.RIGHT) { this.next(); }
+    if (key === KEY_CODES.LEFT) { this.prevClick(); }
+    if (key === KEY_CODES.RIGHT) { this.nextClick(); }
   };
 
   Carousel.prototype.goToSlide = function goToSlide (i, overrideDirection, eventType) {
@@ -554,17 +557,13 @@ var Carousel$1 = (function (Component$$1) {
   };
 
   Carousel.prototype.next = function next () {
-    this.clearAutoplay();
     var nextSlide = calcNext(this.props.slides.length, this.state.topSlideIndex);
     this.goToSlide(nextSlide, 'TO_LEFT', 'carousel_next');
-    this.startAutoplay();
   };
 
   Carousel.prototype.prev = function prev () {
-    this.clearAutoplay();
     var prevSlide = calcPrev(this.props.slides.length, this.state.topSlideIndex);
     this.goToSlide(prevSlide, 'TO_RIGHT', 'carousel_prev');
-    this.startAutoplay();
   };
 
   Carousel.prototype.nextClick = function nextClick () {
