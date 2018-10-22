@@ -53,10 +53,8 @@ class Carousel extends Component {
     this.goToSlide = this.goToSlide.bind(this);
     this.next = this.next.bind(this);
     this.prev = this.prev.bind(this);
-    this.clearAutoplay = this.clearAutoplay.bind(this);
-    this.startAutoplay = this.startAutoplay.bind(this);
-    this.nextClick = this.nextClick.bind(this);
-    this.prevClick = this.prevClick.bind(this);
+    this.handleMouseOut = this.handleMouseOut.bind(this);
+    this.handleMouseEnter = this.handleMouseEnter.bind(this);
   }
 
   componentDidMount() {
@@ -65,7 +63,6 @@ class Carousel extends Component {
     // NOTE: if keyboard navigation ends up being an issue because of <input> elements on the page,
     // maybe bind the event to `this.el` instead of `window`.
     window.addEventListener('keyup', this.keyboardNavigate);
-    this.startAutoplay();
   }
 
   componentDidUpdate(previousProps) {
@@ -109,8 +106,8 @@ class Carousel extends Component {
   keyboardNavigate(event) {
     if (this.state.isAnimating || this.props.slides.length <= 1) { return; }
     const key = event.keyCode || event.which;
-    if (key === KEY_CODES.LEFT) { this.prevClick(); }
-    if (key === KEY_CODES.RIGHT) { this.nextClick(); }
+    if (key === KEY_CODES.LEFT) { this.prev(); }
+    if (key === KEY_CODES.RIGHT) { this.next(); }
   }
 
   goToSlide(i, overrideDirection = '', eventType) {
@@ -136,6 +133,14 @@ class Carousel extends Component {
     this.props.onSlideChange({ slideIndex: i, eventType });
   }
 
+  handleMouseEnter() {
+    this.clearAutoplay();
+  }
+
+  handleMouseOut() {
+    this.startAutoplay();
+  }
+
   next() {
     this.clearAutoplay();
     const nextSlide = calcNext(this.props.slides.length, this.state.topSlideIndex);
@@ -148,18 +153,6 @@ class Carousel extends Component {
     const prevSlide = calcPrev(this.props.slides.length, this.state.topSlideIndex);
     this.goToSlide(prevSlide, 'TO_RIGHT', 'carousel_prev');
     this.startAutoplay();
-  }
-
-  nextClick() {
-    this.clearAutoplay();
-    const nextSlide = calcNext(this.props.slides.length, this.state.topSlideIndex);
-    this.goToSlide(nextSlide, 'TO_LEFT', 'carousel_next');
-  }
-
-  prevClick() {
-    this.clearAutoplay();
-    const prevSlide = calcPrev(this.props.slides.length, this.state.topSlideIndex);
-    this.goToSlide(prevSlide, 'TO_RIGHT', 'carousel_prev');
   }
 
   generateCoin(Slide, i) {
@@ -182,8 +175,8 @@ class Carousel extends Component {
       <div
         className={`carousel ${isMobile ? 'carousel--mobile' : ''}`}
         ref={(el) => { this.el = el; }}
-        onMouseEnter={() => this.clearAutoplay()}
-        onMouseLeave={() => this.startAutoplay()}
+        onMouseLeave={this.onMouseOut}
+        onMouseEnter={this.onMouseEnter}
       >
         <div className='carousel-slides'>
           {
@@ -205,8 +198,8 @@ class Carousel extends Component {
         <If condition={slides.length > 1}>
           <div className='carousel-layout-container' style={{ height: `${height}px` }}>
             <div className='coins'>{ slides.map(this.generateCoin) }</div>
-            <button disabled={isAnimating} onClick={this.prevClick} className='carousel-arrow carousel-arrow--left'><Icon name='angle-left' color='white' size={isMobile ? 'xsmall' : 'small' } /></button>
-            <button disabled={isAnimating} onClick={this.nextClick} className='carousel-arrow carousel-arrow--right'><Icon name='angle-right' color='white' size={isMobile ? 'xsmall' : 'small' } /></button>
+            <button disabled={isAnimating} onClick={this.prev} className='carousel-arrow carousel-arrow--left'><Icon name='angle-left' color='white' size={isMobile ? 'xsmall' : 'small' } /></button>
+            <button disabled={isAnimating} onClick={this.next} className='carousel-arrow carousel-arrow--right'><Icon name='angle-right' color='white' size={isMobile ? 'xsmall' : 'small' } /></button>
           </div>
         </If>
       </div>

@@ -8,6 +8,15 @@ function createCommonjsModule(fn, module) {
 	return module = { exports: {} }, fn(module, module.exports), module.exports;
 }
 
+/**
+ * Copyright (c) 2013-present, Facebook, Inc.
+ *
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
+ *
+ * 
+ */
+
 function makeEmptyFunction(arg) {
   return function () {
     return arg;
@@ -42,6 +51,17 @@ var emptyFunction_1 = emptyFunction;
  *
  */
 
+/**
+ * Use invariant() to assert state which your program assumes to be true.
+ *
+ * Provide sprintf-style format (only %s is supported) and arguments
+ * to provide information about what broke and what you were
+ * expecting.
+ *
+ * The invariant message will be stripped in production, but the invariant
+ * will remain to ensure logic does not differ in production.
+ */
+
 var validateFormat = function validateFormat(format) {};
 
 if (undefined !== 'production') {
@@ -74,6 +94,13 @@ function invariant(condition, format, a, b, c, d, e, f) {
 }
 
 var invariant_1 = invariant;
+
+/**
+ * Similar to invariant but only logs a warning if the condition is not met.
+ * This can be used to log issues in development environments in critical
+ * paths. Removing the logging code for production environments will keep the
+ * same logic and follow the same code paths.
+ */
 
 var warning = emptyFunction_1;
 
@@ -129,6 +156,7 @@ object-assign
 @license MIT
 */
 
+/* eslint-disable no-unused-vars */
 var getOwnPropertySymbols = Object.getOwnPropertySymbols;
 var hasOwnProperty = Object.prototype.hasOwnProperty;
 var propIsEnumerable = Object.prototype.propertyIsEnumerable;
@@ -995,6 +1023,13 @@ function connect$$1(model, Component$$1) {
 <If condition={false}><MyComponent /></If> // MyComponent will not render
 <If condition={true}><MyComponent /></If> // MyComponent will render
 */
+/*
+truncate('foo-bar-baz', 4);
+=> 'foo-...'
+
+truncate('foo', 4);
+=> 'foo'
+*/
 function truncate(str, maxLength) {
   return str.length > maxLength ? str.slice(0, maxLength).concat('...') : str;
 }
@@ -1148,7 +1183,7 @@ Avatar$1.propDescriptions = {
 
 var classnames = createCommonjsModule(function (module) {
 /*!
-  Copyright (c) 2016 Jed Watson.
+  Copyright (c) 2017 Jed Watson.
   Licensed under the MIT License (MIT), see
   http://jedwatson.github.io/classnames
 */
@@ -1172,8 +1207,11 @@ var classnames = createCommonjsModule(function (module) {
 
 			if (argType === 'string' || argType === 'number') {
 				classes.push(arg);
-			} else if (Array.isArray(arg)) {
-				classes.push(classNames.apply(null, arg));
+			} else if (Array.isArray(arg) && arg.length) {
+				var inner = classNames.apply(null, arg);
+				if (inner) {
+					classes.push(inner);
+				}
 			} else if (argType === 'object') {
 				for (var key in arg) {
 					if (hasOwn.call(arg, key) && arg[key]) {
@@ -1187,6 +1225,7 @@ var classnames = createCommonjsModule(function (module) {
 	}
 
 	if ('object' !== 'undefined' && module.exports) {
+		classNames.default = classNames;
 		module.exports = classNames;
 	} else if (typeof undefined === 'function' && typeof undefined.amd === 'object' && undefined.amd) {
 		// register as 'classnames', consistent with npm package name
@@ -1402,10 +1441,8 @@ var Carousel$1 = (function (Component$$1) {
     this.goToSlide = this.goToSlide.bind(this);
     this.next = this.next.bind(this);
     this.prev = this.prev.bind(this);
-    this.clearAutoplay = this.clearAutoplay.bind(this);
-    this.startAutoplay = this.startAutoplay.bind(this);
-    this.nextClick = this.nextClick.bind(this);
-    this.prevClick = this.prevClick.bind(this);
+    this.handleMouseOut = this.handleMouseOut.bind(this);
+    this.handleMouseEnter = this.handleMouseEnter.bind(this);
   }
 
   if ( Component$$1 ) Carousel.__proto__ = Component$$1;
@@ -1418,7 +1455,6 @@ var Carousel$1 = (function (Component$$1) {
     // NOTE: if keyboard navigation ends up being an issue because of <input> elements on the page,
     // maybe bind the event to `this.el` instead of `window`.
     window.addEventListener('keyup', this.keyboardNavigate);
-    this.startAutoplay();
   };
 
   Carousel.prototype.componentDidUpdate = function componentDidUpdate (previousProps) {
@@ -1467,8 +1503,8 @@ var Carousel$1 = (function (Component$$1) {
   Carousel.prototype.keyboardNavigate = function keyboardNavigate (event) {
     if (this.state.isAnimating || this.props.slides.length <= 1) { return; }
     var key = event.keyCode || event.which;
-    if (key === KEY_CODES.LEFT) { this.prevClick(); }
-    if (key === KEY_CODES.RIGHT) { this.nextClick(); }
+    if (key === KEY_CODES.LEFT) { this.prev(); }
+    if (key === KEY_CODES.RIGHT) { this.next(); }
   };
 
   Carousel.prototype.goToSlide = function goToSlide (i, overrideDirection, eventType) {
@@ -1497,6 +1533,14 @@ var Carousel$1 = (function (Component$$1) {
     this.props.onSlideChange({ slideIndex: i, eventType: eventType });
   };
 
+  Carousel.prototype.handleMouseEnter = function handleMouseEnter () {
+    this.clearAutoplay();
+  };
+
+  Carousel.prototype.handleMouseOut = function handleMouseOut () {
+    this.startAutoplay();
+  };
+
   Carousel.prototype.next = function next () {
     this.clearAutoplay();
     var nextSlide = calcNext(this.props.slides.length, this.state.topSlideIndex);
@@ -1509,18 +1553,6 @@ var Carousel$1 = (function (Component$$1) {
     var prevSlide = calcPrev(this.props.slides.length, this.state.topSlideIndex);
     this.goToSlide(prevSlide, 'TO_RIGHT', 'carousel_prev');
     this.startAutoplay();
-  };
-
-  Carousel.prototype.nextClick = function nextClick () {
-    this.clearAutoplay();
-    var nextSlide = calcNext(this.props.slides.length, this.state.topSlideIndex);
-    this.goToSlide(nextSlide, 'TO_LEFT', 'carousel_next');
-  };
-
-  Carousel.prototype.prevClick = function prevClick () {
-    this.clearAutoplay();
-    var prevSlide = calcPrev(this.props.slides.length, this.state.topSlideIndex);
-    this.goToSlide(prevSlide, 'TO_RIGHT', 'carousel_prev');
   };
 
   Carousel.prototype.generateCoin = function generateCoin (Slide, i) {
@@ -1555,7 +1587,7 @@ var Carousel$1 = (function (Component$$1) {
     var slides = ref$1.slides;
     return (
       React__default.createElement( 'div', {
-        className: ("carousel " + (isMobile ? 'carousel--mobile' : '')), ref: function (el) { this$1.el = el; }, onMouseEnter: function () { return this$1.clearAutoplay(); }, onMouseLeave: function () { return this$1.startAutoplay(); } },
+        className: ("carousel " + (isMobile ? 'carousel--mobile' : '')), ref: function (el) { this$1.el = el; }, onMouseLeave: this.onMouseOut, onMouseEnter: this.onMouseEnter },
         React__default.createElement( 'div', { className: 'carousel-slides' },
           slides.map(function (ref, i) {
               var Slide = ref.Slide;
@@ -1570,8 +1602,8 @@ var Carousel$1 = (function (Component$$1) {
         React__default.createElement( If$1, { condition: slides.length > 1 },
           React__default.createElement( 'div', { className: 'carousel-layout-container', style: { height: (height + "px") } },
             React__default.createElement( 'div', { className: 'coins' }, slides.map(this.generateCoin)),
-            React__default.createElement( 'button', { disabled: isAnimating, onClick: this.prevClick, className: 'carousel-arrow carousel-arrow--left' }, React__default.createElement( Icon$1, { name: 'angle-left', color: 'white', size: isMobile ? 'xsmall' : 'small' })),
-            React__default.createElement( 'button', { disabled: isAnimating, onClick: this.nextClick, className: 'carousel-arrow carousel-arrow--right' }, React__default.createElement( Icon$1, { name: 'angle-right', color: 'white', size: isMobile ? 'xsmall' : 'small' }))
+            React__default.createElement( 'button', { disabled: isAnimating, onClick: this.prev, className: 'carousel-arrow carousel-arrow--left' }, React__default.createElement( Icon$1, { name: 'angle-left', color: 'white', size: isMobile ? 'xsmall' : 'small' })),
+            React__default.createElement( 'button', { disabled: isAnimating, onClick: this.next, className: 'carousel-arrow carousel-arrow--right' }, React__default.createElement( Icon$1, { name: 'angle-right', color: 'white', size: isMobile ? 'xsmall' : 'small' }))
           )
         )
       )
@@ -2662,6 +2694,8 @@ function SelectDropdownHOC(ref) {
   return SelectDropdown;
 }
 
+// TODO: this is a hack, we should have this in css if possible to make a PR to Quartz css
+// (This fixes wrapping issues in `inline` select dropdowns)
 var listStyle = { whiteSpace: 'nowrap' };
 
 var SelectDropdownOption = function (ref) {
@@ -3263,6 +3297,9 @@ Title.propTypes = {
   children: propTypes.string.isRequired,
 };
 
+// Avatars headings
+// -----------------------------------------
+
 var AvatarDemo = function () { return (
   React__default.createElement( 'div', null,
     React__default.createElement( Subtitle, null, "Headings" ),
@@ -3294,6 +3331,9 @@ var Avatars = function () { return (
     React__default.createElement( DemoRow, null, React__default.createElement( PropTypeTable, { component: Avatar$1 }) )
   )
 ); };
+
+// Colors demo
+// -----------------------------------------
 
 var colors$4 = [
   'gray',
@@ -3408,6 +3448,9 @@ var Buttons = function () { return (
     React__default.createElement( DemoRow, null, React__default.createElement( PropTypeTable, { component: Button$1 }) )
   )
 ); };
+
+// Carousel demo
+// -----------------------------------------
 
 var MAX_TITLE_LENGTH = 50; // characters
 var lorem = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua';
@@ -3560,6 +3603,9 @@ var Carousels = function () { return (
   )
 ); };
 
+// Checked / unchecked demo
+// -----------------------------------------
+
 var handler = function () { return alert('Hi!'); };
 var StatelessCheckboxes = function () { return (
   React__default.createElement( 'div', null,
@@ -3665,6 +3711,9 @@ var Checkboxes = function () { return (
   )
 ); };
 
+// Standard header
+// -----------------------------------------
+
 var DefaultDemo = function () { return (
   React__default.createElement( 'div', null,
     React__default.createElement( Subtitle, null, "Default" ),
@@ -3704,6 +3753,9 @@ var Headers = function () { return (
     React__default.createElement( DemoRow, null, React__default.createElement( PropTypeTable, { component: Header$1 }) )
   )
 ); };
+
+// All icons demo
+// -----------------------------------------
 
 var IconList = function () { return (
   React__default.createElement( 'div', null,
@@ -3788,6 +3840,9 @@ var Icons = function () { return (
     React__default.createElement( DemoRow, null, React__default.createElement( PropTypeTable, { component: Icon$1 }) )
   )
 ); };
+
+// Input demo
+// -----------------------------------------
 
 var InputDemo = function () { return (
   React__default.createElement( 'div', null,
@@ -3881,6 +3936,9 @@ var Inputs = function () { return (
     React__default.createElement( DemoRow, null, React__default.createElement( PropTypeTable, { component: Input$1 }) )
   )
 ); };
+
+// Shared
+// -----------------------------------------
 
 var MyModalContents = function () { return React__default.createElement( 'div', null, "Hello!" ); };
 
@@ -4139,6 +4197,9 @@ var Radios = function () { return (
     React__default.createElement( DemoRow, null, React__default.createElement( PropTypeTable, { component: RadioGroup$1 }) )
   )
 ); };
+
+// Intro
+// -----------------------------------------
 
 var options = [
   {
@@ -4504,6 +4565,9 @@ var Sidebars = function () { return (
   )
 ); };
 
+// Tags default demo
+// -----------------------------------------
+
 var TagsDemo = function () { return (
   React__default.createElement( 'div', null,
     React__default.createElement( Subtitle, null, "Tags with Two Callbacks" ),
@@ -4550,6 +4614,9 @@ var Tags = function () { return (
     React__default.createElement( DemoRow, null, React__default.createElement( PropTypeTable, { component: Tag$1 }) )
   )
 ); };
+
+// Text headings
+// -----------------------------------------
 
 var TextHeadings = function () { return (
   React__default.createElement( 'div', null,
@@ -4598,6 +4665,10 @@ var TextDemo = function () { return (
   )
 ); };
 
+/* eslint-disable no-multi-spaces */
+// `Section` is a component that renders a demo section
+// `slug` is used in the url hash and section ids
+// `title` is used as the text in the nav sidebar
 var sections = [
   { Section: Avatars,     slug: 'avatars',      title: 'Avatars' },
   { Section: Buttons,     slug: 'buttons',      title: 'Buttons' },

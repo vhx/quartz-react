@@ -4,7 +4,7 @@
   "description": "React Components for VHX Quartz",
   "main": "dist/quartz-react.js",
   "scripts": {
-    "build": "node build/build-css.js && rollup -c build/rollup.config.js",
+    "build": "node build/build-css.js && rollup -c build/rollup.demo-config.js --watch",
     "deploy": "firebase deploy",
     "dev": "rollup -c build/rollup.demo-config.js --watch",
     "lint": "eslint components/**/** demo/** build/** index.js",

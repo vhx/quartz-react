@@ -100,13 +100,6 @@ function connect$$1(model, Component$$1) {
 <If condition={false}><MyComponent /></If> // MyComponent will not render
 <If condition={true}><MyComponent /></If> // MyComponent will render
 */
-/*
-truncate('foo-bar-baz', 4);
-=> 'foo-...'
-
-truncate('foo', 4);
-=> 'foo'
-*/
 function truncate(str, maxLength) {
   return str.length > maxLength ? str.slice(0, maxLength).concat('...') : str;
 }
@@ -461,10 +454,15 @@ var Carousel$1 = (function (Component$$1) {
     this.goToSlide = this.goToSlide.bind(this);
     this.next = this.next.bind(this);
     this.prev = this.prev.bind(this);
+<<<<<<< Updated upstream
     this.clearAutoplay = this.clearAutoplay.bind(this);
     this.startAutoplay = this.startAutoplay.bind(this);
     this.nextClick = this.nextClick.bind(this);
     this.prevClick = this.prevClick.bind(this);
+=======
+    this.handleMouseOut = this.handleMouseOut.bind(this);
+    this.handleMouseEnter = this.handleMouseEnter.bind(this);
+>>>>>>> Stashed changes
   }
 
   if ( Component$$1 ) Carousel.__proto__ = Component$$1;
@@ -477,7 +475,6 @@ var Carousel$1 = (function (Component$$1) {
     // NOTE: if keyboard navigation ends up being an issue because of <input> elements on the page,
     // maybe bind the event to `this.el` instead of `window`.
     window.addEventListener('keyup', this.keyboardNavigate);
-    this.startAutoplay();
   };
 
   Carousel.prototype.componentDidUpdate = function componentDidUpdate (previousProps) {
@@ -556,6 +553,14 @@ var Carousel$1 = (function (Component$$1) {
     this.props.onSlideChange({ slideIndex: i, eventType: eventType });
   };
 
+  Carousel.prototype.handleMouseEnter = function handleMouseEnter () {
+    this.clearAutoplay();
+  };
+
+  Carousel.prototype.handleMouseOut = function handleMouseOut () {
+    this.startAutoplay();
+  };
+
   Carousel.prototype.next = function next () {
     this.clearAutoplay();
     var nextSlide = calcNext(this.props.slides.length, this.state.topSlideIndex);
@@ -614,7 +619,11 @@ var Carousel$1 = (function (Component$$1) {
     var slides = ref$1.slides;
     return (
       React__default.createElement( 'div', {
+<<<<<<< Updated upstream
         className: ("carousel " + (isMobile ? 'carousel--mobile' : '')), ref: function (el) { this$1.el = el; }, onMouseEnter: function () { return this$1.clearAutoplay(); }, onMouseLeave: function () { return this$1.startAutoplay(); } },
+=======
+        className: ("carousel " + (isMobile ? 'carousel--mobile' : '')), ref: function (el) { this$1.el = el; }, onMouseEnter: this.handleMouseEnter, onMouseLeave: this.handleMouseOut },
+>>>>>>> Stashed changes
         React__default.createElement( 'div', { className: 'carousel-slides' },
           slides.map(function (ref, i) {
               var Slide = ref.Slide;
@@ -1721,8 +1730,6 @@ function SelectDropdownHOC(ref) {
   return SelectDropdown;
 }
 
-// TODO: this is a hack, we should have this in css if possible to make a PR to Quartz css
-// (This fixes wrapping issues in `inline` select dropdowns)
 var listStyle = { whiteSpace: 'nowrap' };
 
 var SelectDropdownOption = function (ref) {
